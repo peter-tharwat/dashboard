@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Helvet';
+    src: url('../fonts/HelveticaNeueLTArabic-Roman.eot');
+    src: url('../fonts/HelveticaNeueLTArabic-Roman.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.woff2') format('woff2'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.woff') format('woff'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.ttf') format('truetype'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.svg#HelveticaNeueLTArabic-Roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

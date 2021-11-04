@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Helvet';
+    src: url('../fonts/HelveticaNeueLTArabic-Roman.eot');
+    src: url('../fonts/HelveticaNeueLTArabic-Roman.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.woff2') format('woff2'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.woff') format('woff'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.ttf') format('truetype'),
+        url('../fonts/HelveticaNeueLTArabic-Roman.svg#HelveticaNeueLTArabic-Roman') format('svg');
+ /*   font-weight: normal;
+    font-style: normal;
+    font-display: swap;*/
+}
+
+*:not(.fileuploader):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]){
+	font-family: 'Helvet',arial!important; 
+    direction: rtl; 
+
+}
+.row{
+    margin: 0px!important;
+}
+.form-control:focus{
+box-shadow: unset!important;
+border:1px solid #ff9800!important;
+background: #fff5d8!important;
+
+}
+.form-control{border-radius: 0px!important;}
+div{
+    font-size: 14px;
+}
