@@ -84,12 +84,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <script type="text/javascript">
-        Fancybox.bind("[data-fancybox]", {});
-        Fancybox.bind(".data-fancybox img", {
-          
-        });
-        </script>
+        
         @yield('scripts')
     </div>
 </body>

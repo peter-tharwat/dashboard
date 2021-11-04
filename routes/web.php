@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\HelperController;
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +18,7 @@ use App\Http\Controllers\AdminController;
 */
 Auth::routes();
 Route::get('/', function () {return view('front.index');});
+Route::get('/test',[TestController::class,'index']);
 
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::get('/',[AdminController::class,'index'])->name('index');
@@ -21,8 +26,11 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
 
 
-    Route::post('/upload-image',[AdminController::class,'upload-image'])->name('upload-image');
-    Route::post('/notifications-seen',[AdminController::class,'notifications_seen'])->name('notifications.seen');
+    Route::post('/upload-image',[AdminController::class,'upload_image'])->name('upload-image');
+
+    
+    Route::get('/notifications-ajax',[NotificationsController::class,'notifications_ajax'])->name('notifications.ajax');
+    Route::post('/notifications-see',[NotificationsController::class,'notifications_see'])->name('notifications.see');
 });
 
 

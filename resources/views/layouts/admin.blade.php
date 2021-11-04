@@ -9,12 +9,26 @@
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     @notifyCss
+
+    @php
+    if(session('seen_notifications')==null)
+        session(['seen_notifications'=>0]);
+
+    $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
+    $unreadNotifications=auth()->user()->unreadNotifications()->count();
+    /*dd($notifications[0]->data['level']);*/
+    @endphp
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="title" content="{{ config('app.name', 'Laravel') }}">
+    <link rel="icon" type="image/png" href="{{env('DEFAULT_IMAGE_LOGO')}}" />
 </head>
 
 <body style="background: #f7f7f7">
+
+
     <x:notify-messages />
     <style>
     td,
@@ -265,62 +279,51 @@
             <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 60px;box-shadow: 0px 0px 12px #f1f1f1;background: #fff;position: fixed;width: 100%;width: calc(100% - 280px)">
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light asideToggle" style="width: 60px;height: 60px;">
                     <span class="fal fa-bars font-4"></span>
-                </div>
-                {{-- <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light" style="width: 60px;height: 60px;">
-                </div>
-                --}}
+                </div> 
                 <div class="col-12 px-0 d-flex justify-content-end  " style="height: 60px;">
                     <div class="btn-group" id="notificationDropdown">
-                        @php
-                        $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
-                        $unreadNotifications=auth()->user()->unreadNotifications()->count();
-                        /*dd($notifications[0]->data['level']);*/
-                        @endphp
+
                         <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light " style="width: 60px;height: 60px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
                             <span class="fas fa-bell font-4 d-inline-block" style="color: #ff9800;transform: rotate(15deg)"></span>
+                            <span style="position: absolute;min-width: 25px;min-height: 25px;
                             @if($unreadNotifications!=0)
-                            <span style="position: absolute;min-width: 25px;min-height: 25px;display: inline-block;right: 0px;top: 0px;border-radius: 20px;background: #c00;color:#fff;font-size: 14px" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
+                            display: inline-block;
+                            @else
+                            display: none;
                             @endif
+                            right: 0px;top: 0px;border-radius: 20px;background: #c00;color:#fff;font-size: 14px;" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
+
                         </div>
-                        <!-- Example single danger button -->
-                        <ul class="dropdown-menu rounded-0 border-0 shadow pb-3" style="cursor: auto!important;z-index: 9999999999999999;">
-                            <div class="col-12 pb-3" style="overflow: auto;width: 350px;height: 390px;">
-                                @foreach($notifications as $notification)
-                                <div class="col-12 px-3 text-right" style="background: {{$notification->read_at==null?'#f7f7f7':''}}">
-                                    {!!$notification->data['message']!!}
-                                    <div class="col-12 border-bottom pb-3">
-                                        <span class="font-1">
-                                            <span class="fas fa-clock"></span> {{\Carbon::parse($notification->created_at)->diffForHumans()}}
-                                        </span>
-                                    </div>
-                                </div>
-                                @endforeach
+                        <div class="dropdown-menu py-0 rounded-0 border-0 shadow " style="cursor: auto!important;z-index: 20000;width: 350px;height: 450px;">
+                            <div class="col-12 notifications-container" style="height:406px;overflow: auto;">
+                                <x-notifications :notifications="$notifications" />
                             </div>
-                        </ul>
+                            <div class="col-12 d-flex border-top"> 
+                                <a href="#" class="d-block py-2 px-3 ">
+                                    <div class="col-12 align-items-center">
+                                      <span class="fal fa-bells"></span>  عرض كل الإشعارات
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 60px;height: 60px;background: #2381c6" >
+                    <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 60px;height: 60px;" >
                         <div style="width: 60px;height: 60px;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
-                             <span class="fal fa-user font-4 "  style="color: #fff"></span>
-
-                            
-
+                             <span class="fad fa-user font-4 "  style="color:#ff9800"></span>
                         </div>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                              </ul>
-                        {{-- onclick="document.getElementById('logout-form').submit();" --}}
-                       
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
+                                <li><a class="dropdown-item font-1" href="#"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+                                <li><a class="dropdown-item font-1" href="#"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
+                                <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
+                                <li><a class="dropdown-item font-1" href="#" onclick="document.getElementById('logout-form').submit();"><span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
+                        </ul>
 
                     </div>
 
                     <div class="dropdown" style="width: 60px;height: 60px;background: #2381c6">
                         <span class="d-inline-block fal fa-user"></span>
-                  {{--     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                      </button> --}}
                       
                     </div>
 
@@ -332,6 +335,12 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script type="text/javascript">
+    Fancybox.bind("[data-fancybox]", {});
+    Fancybox.bind(".data-fancybox img", {});
+    </script>
+    <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     <script>
@@ -383,6 +392,17 @@
     }
     </script>
     <script>
+    var favicon = new Favico({
+        bgColor: '#dc0000',
+        textColor: '#fff',
+        animation: 'slide',
+        fontStyle: 'bold',
+        fontFamily: 'sans',
+        type: 'circle'
+    });
+    function get_website_title(){
+        return $('meta[name="title"]').attr('content');
+    }
     $('.asideToggle').on('click', function() {
         $('.aside').toggleClass('active');
         $('.aside').toggleClass('in-active');
@@ -397,15 +417,78 @@
     notificationDropdown.addEventListener('show.bs.dropdown', function() {
         $.ajax({
             method: "POST",
-            url: "{{route('admin.notifications.seen')}}",
+            url: "{{route('admin.notifications.see')}}",
             data: { _token: "{{csrf_token()}}" }
         }).done(function(res) {
-            $('.dropdown-notifications-icon').addClass('d-none');
+            $('#dropdown-notifications-icon').fadeOut();
+            favicon.badge(0);
         });
     });
+    function append_notification_notifications(msg) {
+        if (msg.count_unseen_notifications > 0) {
+            $('#dropdown-notifications-icon').fadeIn(0);
+            $('#dropdown-notifications-icon').text(msg.count_unseen_notifications);
+        } else {
+            $('#dropdown-notifications-icon').fadeOut(0);
+            favicon.badge(0);
+        }
+        $('.notifications-container').empty();
+        $('.notifications-container').append(msg.response);
+        $('.notifications-container a').on('click', function() { window.location.href = $(this).attr('href'); });
+    } 
+
+    
+    function get_notifications() {
+        $.ajax({
+            method: "GET",
+            url: "{{route('admin.notifications.ajax')}}", 
+            success: function(data, textStatus, xhr) {
+
+                favicon.badge(data.notifications.response.count_unseen_notifications);
+
+                if (data.alert) {
+                    var audio = new Audio('{{asset("/sounds/notification.wav")}}');
+                    audio.play();
+                }  
+                append_notification_notifications(data.notifications.response); 
+                if (data.notifications.response.count_unseen_notifications > 0) {
+                    $('title').text('(' + parseInt(data.notifications.response.count_unseen_notifications) + ')' + " " +  
+                    get_website_title());
+
+                } else {
+                    $('title').text(get_website_title());
+                }
+            }
+        });
+    } 
+    window.focused = 25000;
+    window.onfocus = function() {
+        get_notifications(); 
+        window.focused = 25000;
+    };
+    window.onblur = function() {
+        window.focused = 250000;
+    }; 
+    function get_nots() {
+        setTimeout(function() { 
+            get_notifications();
+            get_nots();
+        }, window.focused);
+    }
+    get_nots();
     </script>
+
+
+    @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
+    @php
+    session(['seen_notifications'=>$unreadNotifications]);
+    @endphp
+    <script type="text/javascript">
+        var audio = new Audio('{{asset("/sounds/notification.wav")}}');
+        audio.play();
+    </script>
+    @endif
     @yield('scripts')
 </body>
 @notifyJs
-
 </html>

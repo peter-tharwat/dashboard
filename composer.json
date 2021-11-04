@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.7",
-        "mckenziearts/laravel-notify": "^2.2"
+        "mckenziearts/laravel-notify": "^2.2",
+        "nesbot/carbon": "^2.54"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
