@@ -230,6 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'MainHelper'=> \App\Helpers\MainHelper::class,
         'Carbon'=>  Carbon\Carbon::class,
+        'ImageResizer'=>TarunMangukiya\ImageResizer\Facades\ImageResizer::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

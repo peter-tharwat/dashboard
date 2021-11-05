@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\View\Components\Notifications as NotificationComponent;
 class NotificationsController extends Controller
 {
+    public function index(Request $request){
+        auth()->user()->unreadNotifications->markAsRead();
+        $notifications = \Auth::user()->notifications()->simplePaginate(); 
+        return view('admin.notifications.index',compact('notifications'));
+    }
     public function notifications_see(Request $request){
         session(['seen_notifications'=>0]);
         auth()->user()->unreadNotifications->markAsRead();

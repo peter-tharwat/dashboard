@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,16 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
     Route::post('/upload-image',[AdminController::class,'upload_image'])->name('upload-image');
 
-    
-    Route::get('/notifications-ajax',[NotificationsController::class,'notifications_ajax'])->name('notifications.ajax');
-    Route::post('/notifications-see',[NotificationsController::class,'notifications_see'])->name('notifications.see');
+
+
+
+    Route::get('/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::put('/profile/update',[ProfileController::class,'update'])->name('profile.update');
+    Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+
+    Route::get('/notifications',[NotificationsController::class,'index'])->name('notifications.index');
+    Route::get('/notifications/ajax',[NotificationsController::class,'notifications_ajax'])->name('notifications.ajax');
+    Route::post('/notifications/see',[NotificationsController::class,'notifications_see'])->name('notifications.see');
 });
 
 

@@ -18,6 +18,7 @@ use Intervention\Image\ImageManager;
 use Imagick;
 
 
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -30,6 +31,23 @@ class Controller extends BaseController
         else if($type=="image")
             return "jpeg,bmp,png,gif";
     }
+
+
+    /*$this->store_file([
+        'source'=>$request->image,
+        'validation'=>"image",
+        'path_to_save'=>'/uploads/clients/',
+        'type'=>'CLIENT', 
+        'user_id'=>\Auth::user()->id,
+        'resize'=>[500,3000],
+        'small_path'=>'small/',
+        'visibility'=>'PUBLIC',
+        'file_system_type'=>env('FILESYSTEM_DRIVER'),
+        'watermark'=>true,
+        'compress'=>'auto'
+    ])['filename']; 
+    $this->use_hub_file($file, $client->id, auth()->user()->id);
+    */
 
     public function store_file($options)
     {   
@@ -116,16 +134,16 @@ class Controller extends BaseController
                 $img = $imagick->getImageBlob();
             }
             try{
-                \Storage::disk($options["file_system_type"])->put($path_small . $filename, $sm_img, $filename);
+                \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path .$path_small . $filename, $sm_img, $filename);
             }catch(\Exception $e){}
             try{
-                \Storage::disk($options["file_system_type"])->put($path . $filename, $img, $filename);
+                \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path . $filename, $img, $filename);
             }catch(\Exception $e){}
 
         } else {
             $filename = $user_id . '_' . uniqid() . '_' . time() . '.' . $file->getClientOriginalExtension();
             try{ 
-                \Storage::disk($options["file_system_type"])->put($path . $filename, \File::get($file), $filename);
+                \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path . $filename, \File::get($file), $filename);
             }catch(\Exception $e){}
         }
         $s = \App\Models\HubFile::create(

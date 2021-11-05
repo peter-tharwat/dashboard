@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,11 +7,11 @@
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     @notifyCss
-
+    @yield('styles')
     @php
     if(session('seen_notifications')==null)
         session(['seen_notifications'=>0]);
@@ -27,9 +26,9 @@
 </head>
 
 <body style="background: #f7f7f7">
+    @yield('after-body')
 
-
-    <x:notify-messages />
+<x:notify-messages />
     <style>
     td,
     th {
@@ -118,6 +117,34 @@
     .ck * {
         text-align: right;
     }
+    .main-box{
+        background: #fff;
+        border-radius: 5px;
+    }
+    .row{
+        margin: 0px;
+    }
+    tr{
+        height: 60px;
+        align-items: center;
+    }
+
+    .divider {
+        background-image: linear-gradient(90deg ,transparent,#666);
+        right: auto;
+        left: 10px;
+        opacity: .1;
+        margin: 0px 0px ;
+        min-height: 2px;
+    }
+    .divider-right {
+        background-image: linear-gradient(270deg ,transparent,#666);
+        right: auto;
+        left: 10px;
+        opacity: .1;
+        margin: 0px 0px ;
+        min-height: 2px;
+    }
     </style>
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
@@ -132,7 +159,7 @@
     <div class="col-12 d-flex">
         
 
-        <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 1" class="aside active">
+        <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 2" class="aside active">
             <div class="col-12 px-0 d-flex" style="height: 60px;background: #1a2d4d">
                 <div class="col-12 px-2 font-3  d-flex  justify-content-center pt-md-1" style="color: #fff">
                     <span class="fal fa-chart-pie font-4 pt-3 d-inline-block "></span>
@@ -275,8 +302,8 @@
             </div>
            
         </div>
-                <div class="main-content in-active" style="overflow: hidden;">
-            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 60px;box-shadow: 0px 0px 12px #f1f1f1;background: #fff;position: fixed;width: 100%;width: calc(100% - 280px)">
+        <div class="main-content in-active" style="overflow: hidden;">
+            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 60px;box-shadow: 0px 0px 12px #f1f1f1;background: #fff;position: fixed;width: 100%;width: calc(100% - 280px);z-index: 1;">
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light asideToggle" style="width: 60px;height: 60px;">
                     <span class="fal fa-bars font-4"></span>
                 </div> 
@@ -299,7 +326,7 @@
                                 <x-notifications :notifications="$notifications" />
                             </div>
                             <div class="col-12 d-flex border-top"> 
-                                <a href="#" class="d-block py-2 px-3 ">
+                                <a href="{{route('admin.notifications.index')}}" class="d-block py-2 px-3 ">
                                     <div class="col-12 align-items-center">
                                       <span class="fal fa-bells"></span>  عرض كل الإشعارات
                                     </div>
@@ -309,13 +336,12 @@
                     </div>
                     <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 60px;height: 60px;" >
                         <div style="width: 60px;height: 60px;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
-                             <span class="fad fa-user font-4 "  style="color:#ff9800"></span>
+                            <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 60px;height: 60px;">
                         </div>
-
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
-                                <li><a class="dropdown-item font-1" href="#"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
-                                <li><a class="dropdown-item font-1" href="#"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
+                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
                                 <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
                                 <li><a class="dropdown-item font-1" href="#" onclick="document.getElementById('logout-form').submit();"><span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
                         </ul>
@@ -323,8 +349,7 @@
                     </div>
 
                     <div class="dropdown" style="width: 60px;height: 60px;background: #2381c6">
-                        <span class="d-inline-block fal fa-user"></span>
-                      
+                        <span class="d-inline-block fal fa-user"></span> 
                     </div>
 
                 </div>
@@ -477,8 +502,6 @@
     }
     get_nots();
     </script>
-
-
     @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
     @php
     session(['seen_notifications'=>$unreadNotifications]);

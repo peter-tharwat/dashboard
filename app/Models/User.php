@@ -45,18 +45,18 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = [
+    /*protected $appends = [
         'profile_photo_url',
-    ];
- 
-    public function employee_tasks()
-    {
-        return $this->hasMany('\App\Models\Task','employee_id');
+    ];*/
+
+
+    public function getUserAvatar(){
+        if($this->avatar==null)
+            return env('DEFAULT_IMAGE_AVATAR');
+        else
+            return env('STORAGE_URL').'/uploads/users/'.$this->avatar;
     }
-    public function payouts()
-    {
-        return $this->hasMany('\App\Models\Payout');
-    }
+    
 
 
 }
