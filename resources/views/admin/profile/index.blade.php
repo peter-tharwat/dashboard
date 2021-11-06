@@ -47,7 +47,7 @@
 						
 						<tr>
 							<td>تحكم</td>
-							<td><a href="#" class="btn btn-light btn-sm border"><span class="fal fa-wrench"></span> تعديل</a></td>
+							<td><a href="{{route('admin.profile.edit')}}" class="btn btn-light btn-sm border"><span class="fal fa-wrench"></span> تعديل</a></td>
 						</tr>
 
 						

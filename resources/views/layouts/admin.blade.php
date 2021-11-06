@@ -7,10 +7,11 @@
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     @notifyCss
+    @livewireStyles
     @yield('styles')
     @php
     if(session('seen_notifications')==null)
@@ -145,6 +146,23 @@
         margin: 0px 0px ;
         min-height: 2px;
     }
+    .form-control.error{
+        border: 1px solid #ff2121!important;
+    }
+    label.error{
+        font-size: 13px;
+        color: #ff2121;
+    }
+    .fa, .fas {
+        font-family: "Font Awesome 5 Pro"!important;
+        font-weight: 900;
+    }
+    .ck-editor{
+        z-index: 0;
+    }
+    .image-file.active{
+        border: 3px solid #2381c6;
+    }
     </style>
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
@@ -153,9 +171,35 @@
         </div>
         @endif
     </div>
-    <form method="POST" action="{{route('logout')}}" id="logout-form">@csrf</form>
-    
 
+    <div class="modal fade" data-bs-backdrop="static" id="open-image-selector-modal" data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
+      <div class="modal-dialog modal-xl  modal-fullscreen-sm-down ">
+        <div class="modal-content overflow-hidden">
+        <div class="col-12 px-0 d-flex row">
+
+            <div class="col-10 px-3 py-3">
+                <span class="fal fa-info-circle"></span>    إختر من الملفات
+            </div>
+            <div class="col-2 px-3 align-items-center d-flex justify-content-end">
+                <span class="far fa-times font-2 cursor-pointer mx-2" data-bs-dismiss="modal"></span>
+            </div>
+
+            <div class="col-12 divider" style="min-height: 2px;"></div>
+
+        </div>
+          <div class="modal-body p-0">
+            <div class="col-12">
+                <livewire:files-viewer />
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+
+
+    <form method="POST" action="{{route('logout')}}" id="logout-form">@csrf</form>
     <div class="col-12 d-flex">
         
 
@@ -361,18 +405,19 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-    <script type="text/javascript">
-    Fancybox.bind("[data-fancybox]", {});
-    Fancybox.bind(".data-fancybox img", {});
-    </script>
+    <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="{{asset('/js/main.js')}}"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     <script>
     var allEditors = document.querySelectorAll('.editor');
-    for (var i = 0; i < allEditors.length; ++i) {
-        ClassicEditor
-            .create(allEditors[i], {
+    var allEditorsAfterRender=[];
+    let i;
+    for ( i = 0; i < allEditors.length; i++) {
+        $(allEditors[i]).attr('data-id',i);
+        ClassicEditor.create(allEditors[i], {
                 toolbar: {
                     items: [
                         'heading', '|',
@@ -386,7 +431,7 @@
                         'code', 'codeBlock', '|',
                         'insertTable', '|',
                         'uploadImage', 'blockQuote', '|',
-                        'undo', 'redo'
+                        'undo', 'redo',
                     ],
                     shouldNotGroupWhenFull: true
                 },
@@ -400,12 +445,15 @@
                         { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
                         { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
                     ]
-                },
+                }, 
                 alignment: {
                     options: ['left', 'right', 'center']
                 },
                 ckfinder: {
-                    uploadUrl: '{{route('admin.upload-image')}}'
+                    uploadUrl: '{{route('admin.upload-image',['_token' => csrf_token() ])}}',
+                    options: {
+                        resourceType: 'Images'
+                    }, 
                 },
                 image: {
                     toolbar: ['toggleImageCaption', 'imageTextAlternative']
@@ -413,31 +461,29 @@
             })
             .catch(error => {
                 console.error(error);
-            });
+            }).then( (editor)=> {  
+                console.log(allEditorsAfterRender.length - 1);
+                allEditorsAfterRender.push(editor);
+                var current_id = allEditorsAfterRender.length-1;
+                $(editor.ui.view.toolbar.element).find('.ck-toolbar__items').append('<span><button class="ck ck-button ck-off" data-exe="open-image-selector-opener" type="button" tabindex="-1" data-bs-toggle="modal" data-bs-target="#open-image-selector-modal"  data-editor-id="'+current_id+'" onClick="set_latest_clicked_ckeditor('+current_id+');"><span class="fas fa-images "  ></span></button></span>');
+            }); 
     }
+    function set_latest_clicked_ckeditor(id){
+        allEditorsAfterRender[id].execute( 'insertImage', {
+            source:  [
+                { src: 'https://static.remove.bg/remove-bg-web/f50bd6ad4990ff621deccea155ab762c39d8c77a/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png', alt: 'First alt text',customAttribute:'' },
+            ]
+        });
+    }
+    $(document).on('click','.open-image-selector-opener',function(){
+        alert($(this).data('editor-id'));
+        
+    });
     </script>
     <script>
-    var favicon = new Favico({
-        bgColor: '#dc0000',
-        textColor: '#fff',
-        animation: 'slide',
-        fontStyle: 'bold',
-        fontFamily: 'sans',
-        type: 'circle'
-    });
     function get_website_title(){
         return $('meta[name="title"]').attr('content');
     }
-    $('.asideToggle').on('click', function() {
-        $('.aside').toggleClass('active');
-        $('.aside').toggleClass('in-active');
-        $('.main-content').toggleClass('active');
-        $('.main-content').toggleClass('in-active');
-    });
-    $("a[href='" + window.location.href + "'] >div").addClass('active');
-    $('.alert-click-hide').on('click', function() {
-        $(this).fadeOut();
-    });
     var notificationDropdown = document.getElementById('notificationDropdown')
     notificationDropdown.addEventListener('show.bs.dropdown', function() {
         $.ajax({
@@ -461,8 +507,6 @@
         $('.notifications-container').append(msg.response);
         $('.notifications-container a').on('click', function() { window.location.href = $(this).attr('href'); });
     } 
-
-    
     function get_notifications() {
         $.ajax({
             method: "GET",
@@ -511,7 +555,19 @@
         audio.play();
     </script>
     @endif
-    @yield('scripts')
+    @yield('scripts') 
+    @livewireScripts
+    <script type="text/javascript">
+        var open_files_viewer = document.getElementById('open-image-selector-modal')
+        open_files_viewer.addEventListener('show.bs.modal', function (event) {
+            Livewire.emit('load_files');
+        }); 
+        $(document).on('click','.image-file',function(){
+            $(this).toggleClass('active');
+            $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return !attr});
+        }); 
+    </script>
 </body>
 @notifyJs
+
 </html>
