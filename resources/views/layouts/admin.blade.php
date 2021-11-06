@@ -411,6 +411,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <input type="hidden" id="current_selected_editor">
     <script>
     var allEditors = document.querySelectorAll('.editor');
     var allEditorsAfterRender=[];
@@ -469,11 +470,7 @@
             }); 
     }
     function set_latest_clicked_ckeditor(id){
-        allEditorsAfterRender[id].execute( 'insertImage', {
-            source:  [
-                { src: 'https://static.remove.bg/remove-bg-web/f50bd6ad4990ff621deccea155ab762c39d8c77a/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png', alt: 'First alt text',customAttribute:'' },
-            ]
-        });
+        $('#current_selected_editor').val(id);
     }
     $(document).on('click','.open-image-selector-opener',function(){
         alert($(this).data('editor-id'));
@@ -558,14 +555,32 @@
     @yield('scripts') 
     @livewireScripts
     <script type="text/javascript">
-        var open_files_viewer = document.getElementById('open-image-selector-modal')
+        var open_files_viewer = document.getElementById('open-image-selector-modal');
         open_files_viewer.addEventListener('show.bs.modal', function (event) {
-            Livewire.emit('load_files');
+           /* Livewire.emit('toggleOpen');*/
         }); 
         $(document).on('click','.image-file',function(){
             $(this).toggleClass('active');
             $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return !attr});
         }); 
+        $('#selected-files-insert-btn').on('click',function(){
+            
+            var ek = $('.selected-files:checked').map((_,el) => el.value).get()
+            
+            var values=[];
+            $.each(ek,function(key,value){
+                values.push({
+                    src:value,
+                    class:'data-fancybox'
+                }) 
+            }); 
+            console.log(values);
+            allEditorsAfterRender[$('#current_selected_editor').val()].execute( 'insertImage', {
+                source:  values
+            });
+            $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return false});
+            $('.image-file').removeClass('active');
+        });
     </script>
 </body>
 @notifyJs

@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 });
 Fancybox.bind("[data-fancybox]", {});
+Fancybox.bind("img.data-fancybox", {});
 Fancybox.bind(".data-fancybox img", {});
 $('.asideToggle').on('click', function() {
     $('.aside').toggleClass('active');
