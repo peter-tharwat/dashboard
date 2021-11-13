@@ -6,7 +6,7 @@ var favicon = new Favico({
     fontFamily: 'sans',
     type: 'circle'
 });
-$("#validate-form").validate({});
+$("#validate-form").validate({ignore: [],});
 document.addEventListener("DOMContentLoaded", function(event) {
    $.extend( $.validator.messages, {
         required: "برجاء ملئ هذا الحقل",
@@ -41,3 +41,5 @@ $("a[href='" + window.location.href + "'] >div").addClass('active');
 $('.alert-click-hide').on('click', function() {
     $(this).fadeOut();
 });
+toastr.options = {progressBar:true,preventDuplicates:true,newestOnTop:true,positionClass:'toast-top-left',timeOut:10000}
+let smart_alert = toastr;

@@ -1,0 +1,137 @@
+/**
+ * fileuploader
+ * Copyright (c) 2020 Innostudio.de
+ * Website: https://innostudio.de/fileuploader/
+ * Version: 2.2 (12-Mar-2020)
+ * License: https://innostudio.de/fileuploader/documentation/#license
+ */
+@font-face {
+	font-family: 'font-fileuploader';
+	src: url('font-fileuploader.ttf?yhe2ig') format('truetype'),
+		 url('font-fileuploader.woff?yhe2ig') format('woff'),
+		 url('font-fileuploader.svg?yhe2ig#font-fileuploader') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="fileuploader-icon-"], [class*=" fileuploader-icon-"] {
+	display: inline-block;
+	font-family: 'font-fileuploader' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.fileuploader-icon-main:before {
+	content: "\e900";
+}
+.fileuploader-icon-alert:before {
+	content: "\e901";
+}
+.fileuploader-icon-calendar:before {
+	content: "\e902";
+}
+.fileuploader-icon-camera:before {
+	content: "\e903";
+}
+.fileuploader-icon-success:before {
+	content: "\e904";
+}
+.fileuploader-icon-arrow-left:before {
+	content: "\e905";
+}
+.fileuploader-icon-arrow-right:before {
+	content: "\e906";
+}
+.fileuploader-icon-crop:before {
+	content: "\e908";
+}
+.fileuploader-icon-download:before {
+	content: "\e909";
+}
+.fileuploader-icon-edit:before {
+	content: "\e90a";
+}
+.fileuploader-icon-external:before {
+	content: "\e90b";
+}
+.fileuploader-icon-eye:before {
+	content: "\e90c";
+}
+.fileuploader-icon-file:before {
+	content: "\e90d";
+}
+.fileuploader-icon-video:before {
+	content: "\e90f";
+}
+.fileuploader-icon-folder:before {
+	content: "\e910";
+}
+.fileuploader-icon-help:before {
+	content: "\e911";
+}
+.fileuploader-icon-image:before {
+	content: "\e912";
+}
+.fileuploader-icon-link:before {
+	content: "\e913";
+}
+.fileuploader-icon-message:before {
+	content: "\e914";
+}
+.fileuploader-icon-menu:before {
+	content: "\e915";
+}
+.fileuploader-icon-sort:before {
+	content: "\e916";
+}
+.fileuploader-icon-audio:before {
+	content: "\e917";
+}
+.fileuploader-icon-plus:before {
+	content: "\e918";
+}
+.fileuploader-icon-retry:before {
+	content: "\e919";
+}
+.fileuploader-icon-rotate:before {
+	content: "\e91a";
+}
+.fileuploader-icon-save:before {
+	content: "\e91b";
+}
+.fileuploader-icon-search:before {
+	content: "\e91c";
+}
+.fileuploader-icon-settings:before {
+	content: "\e91d";
+}
+.fileuploader-icon-share:before {
+	content: "\e91e";
+}
+.fileuploader-icon-deny:before {
+	content: "\e91f";
+}
+.fileuploader-icon-trash:before {
+	content: "\e920";
+}
+.fileuploader-icon-upload:before {
+	content: "\e921";
+}
+.fileuploader-icon-user:before {
+	content: "\e922";
+}
+.fileuploader-icon-remove:before {
+	content: "\e923";
+}
+.fileuploader-icon-zoom-in:before {
+	content: "\e924";
+}
+.fileuploader-icon-zoom-out:before {
+	content: "\e925";
+}

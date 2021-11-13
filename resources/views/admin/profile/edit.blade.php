@@ -16,7 +16,7 @@
 @section('after-body')
 <button data-bs-toggle="modal" data-bs-target="#changeAvatar" id="changeAvatarBtn" class="d-none"></button>
 <div class="modal fade" id="changeAvatar" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
-  <div class="modal-dialog" style="width:355px;max-width: 100%">
+  <div class="modal-dialog" style="width:394px;max-width: 100%">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="changeAvatarLabel">تغيير الصورة الشخصية</h5>
@@ -45,11 +45,11 @@
 <div class="col-12 py-3">
 	<div class="container">
 		<div class=" d-flex row m-0">
-			<div class="col-12 col-lg-6 ">
+			<div class="col-12 col-lg-6 my-2">
 				<form method="POST" action="{{route('admin.profile.update')}}" enctype="multipart/form-data">
 					@csrf
 					@method("PUT")
-					<div class="col-12 p-0 main-box">
+					<div class="col-12 p-0 main-box shadow">
 						<div class="col-12 px-0">
 							<div class="col-12 px-3 py-3">
 							 	<span class="fal fa-info-circle"></span>	البيانات الأساسية
@@ -91,6 +91,116 @@
 					</div>
 				</form>
 			</div>
+
+            <div class="col-12 col-lg-6 my-2">
+                <form method="POST" action="{{route('admin.profile.update-email')}}" >
+                    @csrf
+                    @method("PUT")
+                    <div class="col-12 p-0 main-box shadow">
+                        <div class="col-12 px-0">
+                            <div class="col-12 px-3 py-3">
+                                <span class="fal fa-envelope"></span> تغيير البيرد الاكتروني
+                            </div>
+                            <div class="col-12 divider" style="min-height: 2px;"></div>
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    البريد الالكتروني الحالي
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="email" name="old_email" class="form-control" required value="{{auth()->user()->email}}">
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    البريد الالكتروني الجديد
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    تأكيد البريد الالكتروني الجديد
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="email" name="email_confirmation" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-2">
+                                <div class="col-12 pt-3">
+                                    <button class="btn btn-primary">تغيير البريد الالكتروني</button>
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-12 col-lg-6 my-2">
+                <form method="POST" action="{{route('admin.profile.update-password')}}" >
+                    @csrf
+                    @method("PUT")
+                    <div class="col-12 p-0 main-box shadow">
+                        <div class="col-12 px-0">
+                            <div class="col-12 px-3 py-3">
+                                <span class="fal fa-key"></span>  كلمة المرور
+                            </div>
+                            <div class="col-12 divider" style="min-height: 2px;"></div>
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="col-12 p-2">
+                                <div class="col-12 pt-3">
+                                    <div class="alert alert-warning">
+                                        يفضل إستخدام كلمة مرور مكونة من أحرف وأرقام وعلامات خاصة مثل ( % $ # @ )
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    كلمة المرور الحالية
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="password" name="old_password" class="form-control" required minlength="8" maxlength="190" >
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    كلمة المرور الجديدة
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="password" name="password" class="form-control" required minlength="8" maxlength="190" >
+                                </div>
+                            </div>
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    تأكيد المرور الجديدة
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="password" name="password_confirmation" class="form-control" required minlength="8" maxlength="190" >
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-2">
+                                <div class="col-12 pt-3">
+                                    <button class="btn btn-primary">تغيير كلمة المرور</button>
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
 		</div>
 	</div>
 </div>

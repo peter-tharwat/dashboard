@@ -8,8 +8,14 @@
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
     @notifyCss
     @livewireStyles
     @yield('styles')
@@ -28,141 +34,9 @@
 
 <body style="background: #f7f7f7">
     @yield('after-body')
-
-<x:notify-messages />
+    <x:notify-messages />
     <style>
-    td,
-    th {
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
-        border-bottom: 1px solid #f3f3f3;
-        font-size: 14px;
-    }
-    .fixed {
-        z-index: 11;
-    }
-    .ml-4.flex-1 {
-        margin-left: 0px;
-        margin-right: 30px !important;
-    }
-    thead th {
-        border-bottom: 1px solid #ddd !important;
-    }
-    .aside,
-    .main-content,
-    .top-nav {
-        transition: .2s ease-in-out;
-    }
-    .aside .item.active {
-        background: #101d30;
-    }
-    .aside .item.active * {
-        color: #38b59c;
-    }
-    * {
-        text-decoration: unset !important;
-    }
-    .main-content {
-        width: calc(100% - 280px);
-        margin-right: 280px;
-    }
-    .top-nav {
-        width: calc(100% - 280px);
-    }
-    .aside * {
-        color: #fff;
-    }
-    .aside .item div {
-        font-size: 16px;
-    }
-    .aside.active {
-        right: 0px;
-    }
-    .aside.in-active {
-        right: -280px;
-    }
-    .item {
-        padding: 12px 0px 15px 0px;
-        margin: 2px 0px;
-    }
-    .main-content.active .top-nav {
-        width: 100% !important;
-    }
-    @media (max-width: 700px) {
-        .main-content {
-            width: 100% !important;
-            margin-right: 0px !important;
-        }
-        .top-nav {
-            width: 100% !important;
-        }
-        .aside {
-            right: -280px;
-        }
-        .aside.active {
-            right: -280px;
-        }
-        .aside.in-active {
-            right: 0px;
-        }
-    }
-    @media (min-width: 700px) {
-        .main-content.active {
-            width: 100% !important;
-            margin-right: 0px !important
-        }
-    }
-    .ck[dir=rtl],
-    .ck[dir=rtl],
-    .ck,
-    .ck * {
-        text-align: right;
-    }
-    .main-box{
-        background: #fff;
-        border-radius: 5px;
-    }
-    .row{
-        margin: 0px;
-    }
-    tr{
-        height: 60px;
-        align-items: center;
-    }
-
-    .divider {
-        background-image: linear-gradient(90deg ,transparent,#666);
-        right: auto;
-        left: 10px;
-        opacity: .1;
-        margin: 0px 0px ;
-        min-height: 2px;
-    }
-    .divider-right {
-        background-image: linear-gradient(270deg ,transparent,#666);
-        right: auto;
-        left: 10px;
-        opacity: .1;
-        margin: 0px 0px ;
-        min-height: 2px;
-    }
-    .form-control.error{
-        border: 1px solid #ff2121!important;
-    }
-    label.error{
-        font-size: 13px;
-        color: #ff2121;
-    }
-    .fa, .fas {
-        font-family: "Font Awesome 5 Pro"!important;
-        font-weight: 900;
-    }
-    .ck-editor{
-        z-index: 0;
-    }
-    .image-file.active{
-        border: 3px solid #2381c6;
-    }
+    
     </style>
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
@@ -405,12 +279,16 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+
+    <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
+
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
     <input type="hidden" id="current_selected_editor">
     <script>
     var allEditors = document.querySelectorAll('.editor');
@@ -420,7 +298,7 @@
         $(allEditors[i]).attr('data-id',i);
         ClassicEditor.create(allEditors[i], {
                 toolbar: {
-                    items: [
+                   /* items: [
                         'heading', '|',
                         'fontfamily', 'fontsize', '|',
                         'alignment', '|',
@@ -433,7 +311,7 @@
                         'insertTable', '|',
                         'uploadImage', 'blockQuote', '|',
                         'undo', 'redo',
-                    ],
+                    ],*/
                     shouldNotGroupWhenFull: true
                 },
                 heading: {
@@ -451,7 +329,7 @@
                     options: ['left', 'right', 'center']
                 },
                 ckfinder: {
-                    uploadUrl: '{{route('admin.upload-image',['_token' => csrf_token() ])}}',
+                    uploadUrl: '{{route('admin.upload.image',['_token' => csrf_token() ])}}',
                     options: {
                         resourceType: 'Images'
                     }, 
@@ -463,10 +341,11 @@
             .catch(error => {
                 console.error(error);
             }).then( (editor)=> {  
-                console.log(allEditorsAfterRender.length - 1);
-                allEditorsAfterRender.push(editor);
-                var current_id = allEditorsAfterRender.length-1;
-                $(editor.ui.view.toolbar.element).find('.ck-toolbar__items').append('<span><button class="ck ck-button ck-off" data-exe="open-image-selector-opener" type="button" tabindex="-1" data-bs-toggle="modal" data-bs-target="#open-image-selector-modal"  data-editor-id="'+current_id+'" onClick="set_latest_clicked_ckeditor('+current_id+');"><span class="fas fa-images "  ></span></button></span>');
+                 if(editor.sourceElement.classList.contains('with-file-explorer')){
+                    allEditorsAfterRender.push(editor);
+                    var current_id = allEditorsAfterRender.length-1;
+                    $(editor.ui.view.toolbar.element).find('.ck-toolbar__items').append('<span><button class="ck ck-button ck-off" data-exe="open-image-selector-opener" type="button" tabindex="-1" data-bs-toggle="modal" data-bs-target="#open-image-selector-modal"  data-editor-id="'+current_id+'" onClick="set_latest_clicked_ckeditor('+current_id+');"><span class="fas fa-images "  ></span></button></span>');
+                }
             }); 
     }
     function set_latest_clicked_ckeditor(id){
@@ -533,7 +412,7 @@
         window.focused = 25000;
     };
     window.onblur = function() {
-        window.focused = 250000;
+        window.focused = 60000;
     }; 
     function get_nots() {
         setTimeout(function() { 
@@ -573,12 +452,11 @@
                     src:value,
                     class:'data-fancybox'
                 }) 
-            }); 
-            console.log(values);
+            });  
             allEditorsAfterRender[$('#current_selected_editor').val()].execute( 'insertImage', {
                 source:  values
             });
-            $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return false});
+            $('.selected-files').removeAttr('checked');
             $('.image-file').removeClass('active');
         });
     </script>

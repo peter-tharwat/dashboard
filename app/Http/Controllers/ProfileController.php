@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\File;
+use Hash;
 class ProfileController extends Controller
 {
     public function index(Request $request)
@@ -75,6 +76,37 @@ class ProfileController extends Controller
 
         return $file;
     }
+
+
+    public function update_password(Request $request){
+        $request->validate([
+            'old_password'=>"required|string|min:8|max:190",
+            'password'=>"required|string|confirmed|min:8|max:190"
+        ]);
+        if(Hash::check($request->old_password, auth()->user()->password)){
+            auth()->user()->update([
+                'password'=>Hash::make($request->password)
+            ]);
+            notify()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
+            return redirect()->back();
+        }else{
+            notify()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
+            return redirect()->back();
+        }  
+    }
+    public function update_email(Request $request){
+       $request->validate([
+            'old_email'=>"required|email",
+            'email'=>"required|email|confirmed|unique:users,email,".auth()->user()->id
+        ]);
+        auth()->user()->update([
+            'email'=>$request->email
+        ]);
+        notify()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
+        return redirect()->back();
+    }
+    
+
 
 
 
