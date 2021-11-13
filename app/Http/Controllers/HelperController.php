@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class HelperController extends Controller
 {
     public function upload_image(Request $request){
-   
         $file = $this->store_file([
             'source'=>$request->upload,
             'validation'=>"image",
@@ -26,6 +25,8 @@ class HelperController extends Controller
             'uploaded'=>1,
             'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'] ];
     }
+
+
     public function use_file(Request $request)
     {
         return $this->use_file($request->name);
@@ -50,4 +51,6 @@ class HelperController extends Controller
             'compress'=>'auto'
         ]);  
     }
+
+    
 }

@@ -11,10 +11,9 @@
     font-display: swap;*/
 }
 
-*:not(.fileuploader):not([class^="fileuploader-icon-"]):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]){
+.dash *:not(.fileuploader):not([class^="fileuploader-icon-"]):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]){
 	font-family: 'Helvet',arial!important; 
     direction: rtl; 
-
 }
 .row{
     margin: 0px!important;
@@ -360,4 +359,7 @@ label.error{
     content: "\e923";
     position: relative;
     top: -5px;
+}
+.fileuploader-item {
+    z-index: 0;
 }
