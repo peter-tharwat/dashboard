@@ -16,9 +16,10 @@ class ActiveAccount
      */
     public function handle(Request $request, Closure $next)
     {
-        if (\Auth::check() && \Auth::user()->blocked==0) {
+        if (\Auth::check() && \Auth::user()->blocked == 0 ) {
             return $next($request);
         }
+        
         return redirect('/blocked');
     }
 }

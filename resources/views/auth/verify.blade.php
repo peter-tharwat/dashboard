@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="col-12 col-md-6 p-0 d-none d-md-block" >
-            <div style="height: 100vh;background-image: url('https://unsplash.com/photos/WuHHiFKk5Yw/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjM2ODMzODk1&force=true&w=1920');object-fit: cover;    vertical-align: middle;background-size: cover;background-repeat: no-repeat;"></div>
+            <div style="height: 100vh;background-image: url('{{asset('/images/auth-backgroud.jpg')}}');object-fit: cover;    vertical-align: middle;background-size: cover;background-repeat: no-repeat;"></div>
     </div>
 </div>
 @endsection
