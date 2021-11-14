@@ -1,62 +1,203 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+### Main Yield Sections
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+```jsx
+@yield('styles')
+@yield('content')
+@yield('after-body')
+@yield('scripts')
+```
 
-## About Laravel
+### Notifications On Response
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```jsx
+// docs : https://github.com/mckenziearts/laravel-notify
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+notify()->info('content','title');
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+notify()->success('content','title');
 
-## Learning Laravel
+notify()->error('content','title');
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Notifications On Frontend
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```jsx
+// docs : https://github.com/CodeSeven/toastr
+*****
+You have To put alert in scripts section
+// @yield('scripts')
+*****
+// Display a warning toast, with no title
+toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
 
-## Laravel Sponsors
+// Display a success toast, with a title
+toastr.success('Have fun storming the castle!', 'Miracle Max Says')
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+// Display an error toast, with a title
+toastr.error('I do not think that word means what you think it means.', 'Inconceivable!')
 
-### Premium Partners
+// Immediately remove current toasts without using animation
+toastr.remove()
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+// Remove current toasts using animation
+toastr.clear()
 
-## Contributing
+// Override global options
+toastr.success('We do have the Kapua suite available.', 'Turtle Bay Resort', {timeOut: 5000})
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Notification to [ 'dashboard' , 'email' ]
 
-## Code of Conduct
+```jsx
+(new \MainHelper)->notify_user([
+      'user_id'=>2,
+      'message'=>"محتوى الإشعار" ,
+      'url'=>"http://example.com",
+			'methods'=>['database','mail']
+]);
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Editor with and without file-explorer
 
-## Security Vulnerabilities
+```jsx
+<textarea type="text" name="description" required minlength="3" maxlength="10000" class="form-control editor with-file-explorer" ></textarea>
+<textarea type="text" name="description" required minlength="3" maxlength="10000" class="form-control editor"  ></textarea>
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Upload Files
 
-## License
+```php
+#Upload File
+$this->store_file([
+    'source'=>$request->file,
+    'validation'=>"image",
+    'path_to_save'=>'/uploads/users/',
+    'type'=>'AVATAR', 
+    'user_id'=>\Auth::user()->id,
+    'resize'=>[500,3000],
+    'small_path'=>'small/',
+    'visibility'=>'PUBLIC',
+    'file_system_type'=>env('FILESYSTEM_DRIVER'),
+    'watermark'=>true,
+    'compress'=>'auto',
+])['filename'];
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#Use File
+$this->use_hub_file('file_name','type_id','user_id');
+
+#Remove File
+$this->remove_hub_file('file_name');
+```
+
+### Drag And Drop Feature
+
+```php
+# You have to use this code inside @section('scripts')
+
+#for single upload
+@include('admin.templates.dropzone',[
+		'selector'=>'#file-uploader-nafezly-main',
+		'url'=> route('admin.upload.file'),
+		'method'=>'POST',
+		'remove_url'=>route('admin.upload.remove-file'),
+		'remove_method'=>'POST',
+		'enable_selector_after_upload'=>'#submitEvaluation',
+		'max_files'=>1,
+		'max_file_size'=>'50',
+		'accepted_files'=>"['image/*']"
+])
+
+#for multiplue uploads
+@include('admin.templates.dropzone',[
+		'selector'=>'#file-uploader-nafezly-second',
+		'url'=> route('admin.upload.file'),
+		'method'=>'POST',
+		'remove_url'=>route('admin.upload.remove-file'),
+		'remove_method'=>'POST',
+		'enable_selector_after_upload'=>'#submitEvaluation',
+		'max_files'=>100,
+		'max_file_size'=>'50',
+		'accepted_files'=>"['image/*']"
+])
+```
+
+```jsx
+/* You have To import this code inside */
+
+/*for single upload*/
+<div class="col-12  px-0 mt-2 px-0">
+    <div class="col-12 mt-2" style="overflow: hidden">
+        <div class="col-12 px-0" id="file-uploader-nafezly-main">
+            <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" data-fileuploader-listInput="fileuploader-list-file-main" />
+        </div> 
+    </div>
+ </div>
+
+/*for multiple uploads*/
+<div class="col-12  px-0 mt-2 px-0">
+    <div class="col-12 mt-2" style="overflow: hidden">
+        <div class="col-12 px-0" id="file-uploader-nafezly-second">
+            <input type="hidden" name="uploaded_files" value="" class="file-uploader-uploaded-files">
+            <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" />
+        </div>
+    </div>
+ </div>
+```
+
+### Fancybox
+
+```jsx
+/* Just Add this Tag To image */
+<img src="" data-fancybox />
+
+/* Every image inside this class "data-fancybox" will be converted to fancy */
+<div class="fancybox">
+		<img src="" />
+</div>
+```
+
+### Configrations .env
+
+```jsx
+FILESYSTEM_DRIVER=local
+STORAGE_BASE=/storage
+STORAGE_URL="${STORAGE_BASE}"
+
+DEFAULT_IMAGE="${APP_URL}/images/default/image.jpg"
+DEFAULT_IMAGE_FAVICON="${APP_URL}/images/default/favicon.png"
+DEFAULT_IMAGE_AVATAR="${APP_URL}/images/default/avatar.png"
+DEFAULT_IMAGE_LOGO="${APP_URL}/images/default/logo.png"
+DEFAULT_IMAGE_WIDELOGO="${APP_URL}/images/default/wide-logo.png"
+DEFAULT_IMAGE_COVER="${APP_URL}/images/default/cover.png"
+DEFAULT_IMAGE_NOTIFICATION="${APP_URL}/images/default/notification.png"
+
+DEFAULT_EMAIL=admin@admin.com
+DEFAULT_PASSWORD=password
+```
+
+### Validate Form
+
+```jsx
+/* just add this id  to form like this */
+<form id="validate-form"></form>
+
+/*or add this code to the end of the page */
+
+<form id="custom-validation"></form>
+@section('content')
+<script type="text/javascript">
+	$("#custom-validation").validate();
+</script>
+@endsection
+```
+
+### Controlling Accessibility To files Viewer
+
+```php
+# controlling Accessibility To files Viewer
+
+$files = \App\Models\HubFile::where(function($q){
+		//conditions here
+})->orderBy('id','DESC')->simplePaginate(24); 
+return view('livewire.files-viewer',compact('files'));
+```
