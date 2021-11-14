@@ -1,3 +1,23 @@
+# Simple Arabic Laravel Dashboard
+
+- ✅  Auto Seo
+- ✅  Optimized Notifications With Images
+- ✅  Smart Alerts
+- ✅  Auto Js Validations
+- ✅  Front End Alert
+- ✅  Nice Image Viewing FancyBox
+- ✅  Drag And drop Feature
+- ✅  Fully Arabic 😀
+- ✅  Smart Editor With Upload Images
+- ✅  Select from Already uploaded Files
+- ✅  Fully Profile System With Avatars ( Can Resize Avatar )
+- ✅  Fully Responsive
+- ✅  Intervally Getting Notifcations Out Of The Box
+- ✅  FontAwesome PRO 💥 + ResponsiveFonts + Noto Sans Arabic fonts Included
+- ✅  Robots.txt and SiteMapGenerator
+
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg)
+
 ### Main Yield Sections
 
 ```jsx
