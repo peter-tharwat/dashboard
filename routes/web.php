@@ -7,31 +7,18 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SiteMapController;
 
 
 Auth::routes();
-
-
-
-
 Route::get('/', function () {return view('front.index');});
-Route::get('/test',[TestController::class,'index']);
-
-
-
+//Route::get('/test',[TestController::class,'index']);
 
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::get('/',[AdminController::class,'index'])->name('index');
 
-
-
     //Route::get('/profile',[AdminController::class,'upload_image']);
     
-
-
-
-
-
     Route::resource('articles',ArticleController::class);
     Route::prefix('upload')->name('upload.')->group(function(){
         Route::post('/image',[HelperController::class,'upload_image'])->name('image');
@@ -52,3 +39,10 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     });
     
 });
+
+
+
+Route::get('robots.txt',[HelperController::class,'robots']);
+Route::get('manifest.json',[HelperController::class,'manifest']);
+Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
+Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);

@@ -51,6 +51,76 @@ class HelperController extends Controller
             'compress'=>'auto'
         ]);  
     }
-
-    
+    public function robots(){
+        return "Sitemap: ".env('APP_URL')."/sitemap.xml\nUser-agent: *";
+    }
+    public function manifest(){ 
+        $manifest = [
+            "name"             => env('APP_NAME'),
+            "short_name"       => env('APP_NAME'),
+            "start_url"        => env('APP_URL'),
+            "display"          => "standalone",
+            "theme_color"      => "#243c6d",
+            "background_color" => "#1565c0",
+            "orientation"      => "portrait",
+            "icons"            => [
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "36x36",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "48x48",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "60x60",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "72x72",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "76x76",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "96x96",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "120x120",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "152x152",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "180x180",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "192x192",
+                    "type"  => "image/png",
+                ],
+                [
+                    "src"   => asset('/images/default/logo.png'),
+                    "sizes" => "512x512",
+                    "type"  => "image/png",
+                ],
+            ],
+        ];
+        return $manifest;
+    }  
 }

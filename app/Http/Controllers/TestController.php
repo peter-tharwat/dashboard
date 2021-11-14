@@ -14,4 +14,7 @@ class TestController extends Controller
             'url'=>env("APP_URL"),
         ]);
     }
+    public function user(Request $request , \App\Models\User $user){
+        dd($user);
+    }
 }
