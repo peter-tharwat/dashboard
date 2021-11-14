@@ -14,7 +14,7 @@ Auth::routes();
 Route::get('/', function () {return view('front.index');});
 //Route::get('/test',[TestController::class,'index']);
 
-Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth','IsAdmin','ActiveAccount'])->name('admin.')->group(function () {
     Route::get('/',[AdminController::class,'index'])->name('index');
 
     //Route::get('/profile',[AdminController::class,'upload_image']);
@@ -41,7 +41,7 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 });
 
 
-
+Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
 Route::get('manifest.json',[HelperController::class,'manifest']);
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);

@@ -122,5 +122,8 @@ class HelperController extends Controller
             ],
         ];
         return $manifest;
+    }
+    public function blocked_user(){
+        return "عفواً الحساب الخاص بك غير فعال - Sorry , Your Account Is Not Active";
     }  
 }
