@@ -17,6 +17,7 @@ Route::get('/', function () {return view('front.index');});
 Route::prefix('admin')->middleware(['auth','IsAdmin','ActiveAccount'])->name('admin.')->group(function () {
     Route::get('/',[AdminController::class,'index'])->name('index');
 
+
     //Route::get('/profile',[AdminController::class,'upload_image']);
     
     Route::resource('articles',ArticleController::class);
