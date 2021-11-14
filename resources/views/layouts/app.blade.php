@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    @notifyCss
+  
     @include('seo.index')
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
@@ -21,19 +21,24 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
-
-
-    @yield('styles')
-    <!-- Styles -->
+    @notifyCss
+    @livewireStyles
+    @if(auth()->check())
+        @php
+        if(session('seen_notifications')==null)
+            session(['seen_notifications'=>0]);
+        $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
+        $unreadNotifications=auth()->user()->unreadNotifications()->count();
+        @endphp
+    @endif
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <style type="text/css">
         body,*{
             direction: rtl;
             text-align: start;
         }
     </style>
-
+    @yield('styles')
 </head>
 <body>
     @yield('after-body')
@@ -94,7 +99,23 @@
         <main class="p-0">
             @yield('content')
         </main>
-        @yield('scripts')
     </div>
+
+    <input type="hidden" id="current_selected_editor">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
+    <script src="{{asset('/js/validatorjs.min.js')}}"></script>
+    <script src="{{asset('/js/favicon_notification.js')}}"></script>
+    <script src="{{asset('/js/main.js')}}"></script>
+    @livewireScripts
+    @notifyJs
+    @include('layouts.scripts')
+    @yield('scripts')
+
 </body>
 </html>

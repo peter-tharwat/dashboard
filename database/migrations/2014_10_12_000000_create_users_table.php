@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
             $table->string('power')->default('USER');
+            $table->longText('bio')->nullable();
             $table->integer('blocked')->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

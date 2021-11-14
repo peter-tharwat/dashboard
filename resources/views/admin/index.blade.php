@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+
+
 <div class="col-12 py-2 px-3 row">
 	<div class="col-6 col-sm-4 col-lg-3 col-xl-2 px-2 mb-3">
 		<div class="col-12 px-0 py-2 d-flex " style="background: #fff;">
@@ -142,7 +144,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-12 px-0 row d-flex">
+	{{-- <div class="col-12 px-0 row d-flex">
 		<div class="col-12 col-lg-5 d-flex row" style="background: #fff">
 			<div class="col-4 py-4 text-center">
 				<span class="fab fa-youtube font-10" style="color: #f44336;height: 65px"></span>
@@ -213,7 +215,8 @@
 			</div>
 
 		</div>
-	</div>
+	</div> --}}
+	@include('admin.dashboard.index')
 	 
 
 </div>

@@ -13,13 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     { 
-    	\App\Models\User::create([
-    		'name'=>"ADMIN",
-    		'power'=>"ADMIN",
-    		'email'=>env('DEFAULT_EMAIL'),
-    		'email_verified_at'=>date("Y-m-d h:i:s"), 
-    		'password'=>bcrypt(env('DEFAULT_PASSWORD'))
-    	]);
+        $this->call([
+            UsersSeeder::class,
+            SettingsSeeder::class
+        ]);
     }
 }
 

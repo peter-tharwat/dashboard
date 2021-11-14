@@ -59,7 +59,16 @@
 						<div class="col-12 p-3">
 							<div class="col-12 py-2 px-0 d-flex justify-content-center">
 									<img src="{{auth()->user()->getUserAvatar()}}" style="width:150px;max-width: 100%;border-radius: 50%;" id="getUserAvatar">
-								</div>
+							</div>
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    الصورة الشخصية
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <input type="file" name=""  class="form-control" value="{{auth()->user()->name}}" id="avatar-image">
+                                    <input type="hidden" name="avatar" id="encoded_image">
+                            </div>
+                            </div>
 							<div class="col-12 p-2">
 								<div class="col-12">
 									اسم المستخدم
@@ -68,16 +77,15 @@
 									<input type="text" name="name" required min="3" max="190" class="form-control" value="{{auth()->user()->name}}" accept="image/*">
 								</div>
 							</div>
-
-							<div class="col-12 p-2">
-								<div class="col-12">
-									الصورة الشخصية
-								</div>
-								<div class="col-12 pt-3">
-									<input type="file" name=""  class="form-control" value="{{auth()->user()->name}}" id="avatar-image">
-									<input type="hidden" name="avatar" id="encoded_image">
-								</div>
-							</div>
+                            <div class="col-12 p-2">
+                                <div class="col-12">
+                                    النبذة
+                                </div>
+                                <div class="col-12 pt-3">
+                                    <textarea class="form-control" name="bio" style="min-height:150px">{{auth()->user()->bio}}</textarea>
+                                </div>
+                            </div>
+							
 
 							<div class="col-12 p-2">
 								<div class="col-12 pt-3">

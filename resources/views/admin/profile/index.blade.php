@@ -43,6 +43,11 @@
 								@endif
 
 						</td>
+						<tr>
+							<td>نبذة</td>
+							<td>
+								{{auth()->user()->bio}}
+							</td>
 						</tr>
 						
 						<tr>

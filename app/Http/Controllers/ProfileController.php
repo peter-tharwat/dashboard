@@ -46,9 +46,11 @@ class ProfileController extends Controller
         }
         $request->validate([
             'name'=>"required|min:3|max:190",
+            'bio'=>"nullable|max:10000"
         ]);
         $user->update([
-            'name'=>$request->name
+            'name'=>$request->name,
+            'bio'=>$request->bio
         ]);
         notify()->info('عملية ناجحة','تمت العملية بنجاح');
         //emotify('info','تمت العملية بنجاح');

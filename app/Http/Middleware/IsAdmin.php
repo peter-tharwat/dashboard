@@ -19,7 +19,6 @@ class IsAdmin
         if (\Auth::check() && \Auth::user()->power=="ADMIN") {
             return $next($request);
         }
-        //return redirect('/login');
         abort(404);
 
         

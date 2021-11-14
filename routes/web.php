@@ -8,6 +8,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\SettingController;
+
 
 
 Auth::routes();
@@ -38,7 +40,10 @@ Route::prefix('admin')->middleware(['auth','IsAdmin','ActiveAccount'])->name('ad
         Route::get('/ajax',[NotificationsController::class,'notifications_ajax'])->name('ajax');
         Route::post('/see',[NotificationsController::class,'notifications_see'])->name('see');
     });
-    
+    Route::prefix('settings')->name('settings.')->group(function () {
+        Route::get('/',[SettingController::class,'index'])->name('index');
+        Route::put('/update',[SettingController::class,'update'])->name('update');
+    });
 });
 
 

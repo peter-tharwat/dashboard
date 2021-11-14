@@ -19,14 +19,14 @@
     @notifyCss
     @livewireStyles
     @yield('styles')
-    @php
-    if(session('seen_notifications')==null)
-        session(['seen_notifications'=>0]);
-
-    $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
-    $unreadNotifications=auth()->user()->unreadNotifications()->count();
-    /*dd($notifications[0]->data['level']);*/
-    @endphp
+    @if(auth()->check())
+        @php
+        if(session('seen_notifications')==null)
+            session(['seen_notifications'=>0]);
+        $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
+        $unreadNotifications=auth()->user()->unreadNotifications()->count();
+        @endphp
+    @endif
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="title" content="{{ config('app.name', 'Laravel') }}">
     <link rel="icon" type="image/png" href="{{env('DEFAULT_IMAGE_LOGO')}}" />
@@ -35,9 +35,6 @@
 <body style="background: #f7f7f7" class="dash">
     @yield('after-body')
     <x:notify-messages />
-    <style>
-    
-    </style>
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
         <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
@@ -87,10 +84,12 @@
                     </div>
                 </div>
             </div>
-        <div class="col-12 px-0 py-5 text-center ">
-                <span class="fal fa-user font-5 pt-2" style="border: 2px solid #fff;width: 55px;height: 55px;color: #fff;border-radius: 50%"> </span>
+        <div class="col-12 px-0 py-5 text-center justify-content-center align-items-center ">
+            <a href="{{route('admin.profile.edit')}}">
+            <img src="{{auth()->user()->getUserAvatar()}}" style="width: 55px;height: 55px;color: #fff;border-radius: 50%" class="d-inline-block">
+                </a>
                 <div class="col-12 px-0 mt-2" style="color: #fff">
-                    مرحباً مدير
+                    مرحباً {{auth()->user()->name}}
                 </div> 
             </div>
             <div class="col-12 px-0">
@@ -106,7 +105,7 @@
                             </div> 
                         </div>
                     </a>
-                    <a href="#" class="col-12 px-0">
+                    {{-- <a href="#" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-users font-3"> </span> 
@@ -195,8 +194,8 @@
                                 مقالات - أخبار
                             </div> 
                         </div>
-                    </a>
-                    <a href="#" class="col-12 px-0">
+                    </a> --}}
+                    <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-wrench font-3"> </span> 
@@ -277,190 +276,20 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="current_selected_editor">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-
     <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
-
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
-    <input type="hidden" id="current_selected_editor">
-    <script>
-    var allEditors = document.querySelectorAll('.editor');
-    var allEditorsAfterRender=[];
-    let i;
-    for ( i = 0; i < allEditors.length; i++) {
-        $(allEditors[i]).attr('data-id',i);
-        ClassicEditor.create(allEditors[i], {
-                toolbar: {
-                   /* items: [
-                        'heading', '|',
-                        'fontfamily', 'fontsize', '|',
-                        'alignment', '|',
-                        'fontColor', 'fontBackgroundColor', '|',
-                        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                        'link', '|',
-                        'outdent', 'indent', '|',
-                        'bulletedList', 'numberedList', 'todoList', '|',
-                        'code', 'codeBlock', '|',
-                        'insertTable', '|',
-                        'uploadImage', 'blockQuote', '|',
-                        'undo', 'redo',
-                    ],*/
-                    shouldNotGroupWhenFull: true
-                },
-                heading: {
-                    options: [
-                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-                        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-                        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
-                    ]
-                }, 
-                alignment: {
-                    options: ['left', 'right', 'center']
-                },
-                ckfinder: {
-                    uploadUrl: '{{route('admin.upload.image',['_token' => csrf_token() ])}}',
-                    options: {
-                        resourceType: 'Images'
-                    }, 
-                },
-                image: {
-                    toolbar: ['toggleImageCaption', 'imageTextAlternative']
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            }).then( (editor)=> {  
-                 if(editor.sourceElement.classList.contains('with-file-explorer')){
-                    allEditorsAfterRender.push(editor);
-                    var current_id = allEditorsAfterRender.length-1;
-                    $(editor.ui.view.toolbar.element).find('.ck-toolbar__items').append('<span><button class="ck ck-button ck-off" data-exe="open-image-selector-opener" type="button" tabindex="-1" data-bs-toggle="modal" data-bs-target="#open-image-selector-modal"  data-editor-id="'+current_id+'" onClick="set_latest_clicked_ckeditor('+current_id+');"><span class="fas fa-images "  ></span></button></span>');
-                }
-            }); 
-    }
-    function set_latest_clicked_ckeditor(id){
-        $('#current_selected_editor').val(id);
-    }
-    $(document).on('click','.open-image-selector-opener',function(){
-        alert($(this).data('editor-id'));
-        
-    });
-    </script>
-    <script>
-    function get_website_title(){
-        return $('meta[name="title"]').attr('content');
-    }
-    var notificationDropdown = document.getElementById('notificationDropdown')
-    notificationDropdown.addEventListener('show.bs.dropdown', function() {
-        $.ajax({
-            method: "POST",
-            url: "{{route('admin.notifications.see')}}",
-            data: { _token: "{{csrf_token()}}" }
-        }).done(function(res) {
-            $('#dropdown-notifications-icon').fadeOut();
-            favicon.badge(0);
-        });
-    });
-    function append_notification_notifications(msg) {
-        if (msg.count_unseen_notifications > 0) {
-            $('#dropdown-notifications-icon').fadeIn(0);
-            $('#dropdown-notifications-icon').text(msg.count_unseen_notifications);
-        } else {
-            $('#dropdown-notifications-icon').fadeOut(0);
-            favicon.badge(0);
-        }
-        $('.notifications-container').empty();
-        $('.notifications-container').append(msg.response);
-        $('.notifications-container a').on('click', function() { window.location.href = $(this).attr('href'); });
-    } 
-    function get_notifications() {
-        $.ajax({
-            method: "GET",
-            url: "{{route('admin.notifications.ajax')}}", 
-            success: function(data, textStatus, xhr) {
-
-                favicon.badge(data.notifications.response.count_unseen_notifications);
-
-                if (data.alert) {
-                    var audio = new Audio('{{asset("/sounds/notification.wav")}}');
-                    audio.play();
-                }  
-                append_notification_notifications(data.notifications.response); 
-                if (data.notifications.response.count_unseen_notifications > 0) {
-                    $('title').text('(' + parseInt(data.notifications.response.count_unseen_notifications) + ')' + " " +  
-                    get_website_title());
-
-                } else {
-                    $('title').text(get_website_title());
-                }
-            }
-        });
-    } 
-    window.focused = 25000;
-    window.onfocus = function() {
-        get_notifications(); 
-        window.focused = 25000;
-    };
-    window.onblur = function() {
-        window.focused = 60000;
-    }; 
-    function get_nots() {
-        setTimeout(function() { 
-            get_notifications();
-            get_nots();
-        }, window.focused);
-    }
-    get_nots();
-    </script>
-    @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
-    @php
-    session(['seen_notifications'=>$unreadNotifications]);
-    @endphp
-    <script type="text/javascript">
-        var audio = new Audio('{{asset("/sounds/notification.wav")}}');
-        audio.play();
-    </script>
-    @endif
-    @yield('scripts') 
     @livewireScripts
-    <script type="text/javascript">
-        var open_files_viewer = document.getElementById('open-image-selector-modal');
-        open_files_viewer.addEventListener('show.bs.modal', function (event) {
-           /* Livewire.emit('toggleOpen');*/
-        }); 
-        $(document).on('click','.image-file',function(){
-            $(this).toggleClass('active');
-            $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return !attr});
-        }); 
-        $('#selected-files-insert-btn').on('click',function(){
-            
-            var ek = $('.selected-files:checked').map((_,el) => el.value).get()
-            
-            var values=[];
-            $.each(ek,function(key,value){
-                values.push({
-                    src:value,
-                    class:'data-fancybox'
-                }) 
-            });  
-            allEditorsAfterRender[$('#current_selected_editor').val()].execute( 'insertImage', {
-                source:  values
-            });
-            $('.selected-files').removeAttr('checked');
-            $('.image-file').removeClass('active');
-        });
-    </script>
+    @notifyJs
+    @include('layouts.scripts')
+    @yield('scripts')
 </body>
-@notifyJs
-
 </html>
