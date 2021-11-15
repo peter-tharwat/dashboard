@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Rinvex\Statistics\Http\Middleware\TrackStatistics::class
+            \App\Http\Middleware\RateLimit::class,
         ],
 
         'api' => [
@@ -65,6 +65,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'IsAdmin' => \App\Http\Middleware\IsAdmin::class,
         'ActiveAccount' => \App\Http\Middleware\ActiveAccount::class,
+        'RateLimit'=> \App\Http\Middleware\RateLimit::class,
+        'CheckRole' => \App\Http\Middleware\CheckRole::class,
         
     ];
 }

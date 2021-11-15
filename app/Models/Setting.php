@@ -22,6 +22,21 @@ class Setting extends Model
         else
             return env('STORAGE_URL').'/uploads/website/'.$this->website_cover;
     }
+    public function website_wide_logo(){
+        if($this->website_wide_logo==null)
+            return env('DEFAULT_IMAGE_COVER');
+        else
+            return env('STORAGE_URL').'/uploads/website/'.$this->website_wide_logo;
+    }
+    public function website_icon(){
+        if($this->website_icon==null)
+            return env('DEFAULT_IMAGE_COVER');
+        else
+            return env('STORAGE_URL').'/uploads/website/'.$this->website_icon;
+    }
+
+    
+
     
 
 }

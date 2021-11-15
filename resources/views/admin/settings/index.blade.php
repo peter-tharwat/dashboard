@@ -15,6 +15,7 @@
 	.taber:not(.active){
 		display: none;
 	}
+	
 </style>
 <div class="col-12 py-0 px-3 row">
 	
@@ -70,7 +71,7 @@
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-		 				نص الفوتر
+		 				عن الموقع
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<textarea name="website_bio" class="form-control">{{$settings->website_bio}}</textarea>
@@ -95,6 +96,28 @@
 		 				<input type="file" name="website_logo" class="form-control" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings->website_logo()}}" style="width:100px;max-height: 100px;">
+		 				</div>
+		 			</div> 
+		 		</div>
+		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
+		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
+		 				اللوجو عريض
+		 			</div>
+		 			<div class="col-12 col-lg-9 px-2">
+		 				<input type="file" name="website_wide_logo" class="form-control" >
+		 				<div class="col-12 p-2">
+		 					<img src="{{$settings->website_wide_logo()}}" style="width:100px;max-height: 100px;">
+		 				</div>
+		 			</div> 
+		 		</div>
+		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
+		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
+		 				الصورة المصغرة
+		 			</div>
+		 			<div class="col-12 col-lg-9 px-2">
+		 				<input type="file" name="website_icon" class="form-control" >
+		 				<div class="col-12 p-2">
+		 					<img src="{{$settings->website_icon()}}" style="width:100px;max-height: 100px;">
 		 				</div>
 		 			</div> 
 		 		</div>
@@ -313,7 +336,7 @@
 	 				كود الهيدر
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea name="header_text" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->header_text}}</textarea>
+	 				<textarea name="header_code" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->header_code}}</textarea>
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -321,7 +344,7 @@
 	 				كود الفوتر
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea name="footer_text" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->footer_text}}</textarea>
+	 				<textarea name="footer_code" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->footer_code}}</textarea>
 	 			</div> 
 	 		</div> 
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">

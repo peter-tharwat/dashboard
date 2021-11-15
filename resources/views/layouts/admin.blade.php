@@ -27,7 +27,7 @@
         $unreadNotifications=auth()->user()->unreadNotifications()->count();
         @endphp
     @endif
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>لوحة تحكم | {{$settings->website_name}}</title>
     <meta name="title" content="{{ config('app.name', 'Laravel') }}">
     <link rel="icon" type="image/png" href="{{env('DEFAULT_IMAGE_LOGO')}}" />
 </head>
@@ -74,7 +74,7 @@
     <div class="col-12 d-flex">
         
 
-        <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 2" class="aside active">
+        <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 100" class="aside active">
             <div class="col-12 px-0 d-flex" style="height: 60px;background: #1a2d4d">
                 <div class="col-12 px-2 font-3  d-flex  justify-content-center pt-md-1" style="color: #fff">
                     <span class="fal fa-chart-pie font-4 pt-3 d-inline-block "></span>

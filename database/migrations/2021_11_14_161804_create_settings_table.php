@@ -17,6 +17,8 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->string('website_name')->nullable();
             $table->string('website_logo')->nullable();
+            $table->string('website_wide_logo')->nullable();
+            $table->string('website_icon')->nullable();
             $table->string('website_cover')->nullable();
             $table->text('address')->nullable();
             $table->text('website_bio')->nullable();
@@ -58,8 +60,9 @@ class CreateSettingsTable extends Migration
             $table->text('hover_color')->nullable();
 
             //code
-            $table->longText('header_text')->nullable();
-            $table->longText('footer_text')->nullable();
+            $table->longText('header_code')->nullable();
+            $table->longText('footer_code')->nullable();
+            $table->longText('robots_txt')->nullable();
 
 
             $table->timestamps();

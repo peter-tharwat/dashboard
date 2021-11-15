@@ -11,7 +11,8 @@ $website_settings=[
     'telegram_link'=>$settings->telegram_link,
     'linkedin_link'=>$settings->linkedin_link,
     'whatsapp_link'=>"",
-    'tiktok_link'=>$settings['tiktok_link'],
+    'tiktok_link'=>$settings->tiktok_link,
+    'website_icon'=>$settings->website_icon(),
     'website_logo'=>$settings->website_logo(),
     'website_cover'=>$settings->website_cover(),
     'phone'=>$settings->phone
@@ -68,9 +69,7 @@ $page_keywords= isset($page_keywords)&&$page_keywords !=null? $page_keywords:$we
 <meta name="theme-color" content="#314459">
 <meta name="mobile-web-app-capable" content="no">
 <meta name="application-name" content="{{$website_settings['website_name']}}">
-<link rel="icon" sizes="512x512" href="{{$website_settings['website_logo']}}">
-
-<meta name="facebook-domain-verification" content="vymdke86bl9vdcyleijy0r173c6k7c" />
+<link rel="icon" sizes="512x512" href="{{$website_settings['website_icon']}}">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="no">

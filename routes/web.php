@@ -13,10 +13,11 @@ use App\Http\Controllers\SettingController;
 
 
 Auth::routes();
-Route::get('/', function () {return view('front.index');});
+Route::get('/', function () {return view('front.index');})->name('home');
 //Route::get('/test',[TestController::class,'index']);
 
-Route::prefix('admin')->middleware(['auth','IsAdmin','ActiveAccount'])->name('admin.')->group(function () {
+
+Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->name('admin.')->group(function () {
     Route::get('/',[AdminController::class,'index'])->name('index');
 
 

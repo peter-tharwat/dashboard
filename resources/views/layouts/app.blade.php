@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    {!!$settings->header_code!!}
     @notifyCss
     @livewireStyles
     @if(auth()->check())
@@ -54,12 +55,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -80,9 +81,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                        لوحة التحكم
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         تسجيل خروج
                                     </a>
 
@@ -108,6 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    
     <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
@@ -116,6 +121,6 @@
     @notifyJs
     @include('layouts.scripts')
     @yield('scripts')
-
+    {!!$settings->footer_code!!}
 </body>
 </html>
