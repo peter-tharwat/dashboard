@@ -22,10 +22,14 @@
 ### How to setup
 
 ```php
+# copy .env.example to .env
+cp .env.example .env
+# generate security key , link storage file
+php artisan key:generate
+php artisan storage:link
 # after connect your database via .env file 
 php artisan migrate:fresh
 php artisan db:seed
-php artisan storage:link
 ```
 
 ### Credentials
