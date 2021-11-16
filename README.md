@@ -15,8 +15,13 @@
 - ✅  Intervally Getting Notifcations Out Of The Box
 - ✅  FontAwesome PRO 💥 + ResponsiveFonts + Noto Sans Arabic fonts Included
 - ✅  Robots.txt and SiteMapGenerator
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
+- ✅  General Statistics On Home Page ( New Users , Top Pages , Top Browsers , Top Devices , Top OSs , Top Ips , Top Users , and so on ...  )
+- ✅  Custom 404 Page
+- ✅  Nice Login , Register and Confirm Email Pages
+- ✅  Most Common Settings
+- ✅  Ready to integrate CloudFlare Firewall
+- ✅ Smart Logging System
+- ✅ ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
 
 
 ### How to setup
