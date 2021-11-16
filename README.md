@@ -20,8 +20,8 @@
 - ✅  Nice Login , Register and Confirm Email Pages
 - ✅  Most Common Settings
 - ✅  Ready to integrate CloudFlare Firewall
-- ✅ Smart Logging System
-- ✅ ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
+- ✅  Smart Logging System
+- ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
 
 
 ### How to setup
@@ -205,7 +205,7 @@ $this->remove_hub_file('file_name');
 
 ### Configrations .env
 
-```jsx
+```php
 FILESYSTEM_DRIVER=local
 STORAGE_BASE=/storage
 STORAGE_URL="${STORAGE_BASE}"
@@ -224,7 +224,7 @@ DEFAULT_PASSWORD=password
 
 ### Validate Form
 
-```jsx
+```html
 /* just add this id  to form like this */
 <form id="validate-form"></form>
 
