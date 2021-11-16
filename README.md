@@ -18,6 +18,23 @@
 
 ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg)
 
+
+### How to setup
+
+```php
+# after connect your database via .env file 
+php artisan migrate:fresh
+php artisan db:seed
+```
+
+### Credentials
+
+```php
+login page : http://127.0.0.1:8000/login
+email : admin@admin.com
+password : password
+```
+
 ### Main Yield Sections
 
 ```jsx
