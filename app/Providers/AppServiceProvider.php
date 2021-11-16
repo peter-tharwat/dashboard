@@ -26,10 +26,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        $settings = \App\Models\Setting::count();
-        if($settings==0)
-            \App\Models\Setting::create([]);
-        $settings = \App\Models\Setting::first();
-        View::share('settings', $settings);
+        if(Schema::hasTable('settings')){
+            $settings = \App\Models\Setting::count();
+            if($settings==0)
+                \App\Models\Setting::create([]);
+            $settings = \App\Models\Setting::first();
+            View::share('settings', $settings);
+        }
     }
 }

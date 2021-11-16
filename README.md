@@ -16,7 +16,7 @@
 - ✅  FontAwesome PRO 💥 + ResponsiveFonts + Noto Sans Arabic fonts Included
 - ✅  Robots.txt and SiteMapGenerator
 
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/screenshot.jpg)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
 
 
 ### How to setup
