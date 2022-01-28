@@ -1,14 +1,19 @@
 @php
 $flat_colors = collect([
-    '#2196f3cc',
-    '#ffc107cc',
-    '#009688cc',
-    '#ff9800cc',
-    '#00bcd4cc',
-    '#795548cc',
-    '#673ab7cc',
-    '#ff5722'
+    '#2196f3',
+    '#2196f3dd',
+    '#7cc5ffaa',
+    '#9ed2fb88',
+    '#0fb8ff66',
+    '#5aceff44',
+    '#8eddff22',
+    '#c5edff00',
+    '#c5edff00',
+    '#c5edff00',
+    '#c5edff00',
 ]);
+
+
 @endphp
 
 <div class="col-12 p-0">
@@ -112,7 +117,21 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-
+        <div class="col-12 col-lg-4 p-2">
+            <div class="col-12 p-0 main-box">
+                <div class="col-12 px-0">
+                    <div class="col-12 px-3 py-3">
+                        معدل الزوار
+                    </div>
+                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                </div>
+                <div class="col-12 p-3">
+                    <div id="traffics-chart">
+                        
+                    </div> 
+                </div>
+            </div>
+        </div>
         <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
@@ -128,6 +147,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
@@ -182,11 +202,43 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-    </div> 
+    </div>  
     @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script type="text/javascript"> 
+
+
+    var chart = new ApexCharts(document.querySelector("#traffics-chart"), {
+      chart: {
+        height: 280,
+        type: "area",
+
+      },
+      dataLabels: {
+        enabled: false
+      },
+      series: [
+        {
+          name: "معدل الزوار",
+          data: [
+            @foreach(array_reverse($data['traffics']) as $key => $value )
+          "{{$value}}",
+          @endforeach
+          ]
+          
+        }
+      ],
+      xaxis: {
+        categories: [
+          
+          @foreach(array_reverse($data['traffics']) as $key => $value )
+          "{{$key}}",
+          @endforeach
+        ]
+      }
+    }).render();
+
 
     var chart = new ApexCharts(document.querySelector("#main-chart"), {
       chart: {

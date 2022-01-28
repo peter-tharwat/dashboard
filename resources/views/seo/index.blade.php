@@ -1,54 +1,151 @@
 @php 
 $website_settings=[
     'website_url'=>env('APP_URL'),
-    'website_name'=>$settings->website_name,
-    'main_color'=>$settings->main_color,
-    'hover_color'=>$settings->hover_color,
-    'facebook_link'=>$settings->facebook_link,
-    'twitter_link'=>$settings->twitter_link,
-    'instagram_link'=>$settings->instagram_link,
-    'youtube_link'=>$settings->youtube_link,
-    'telegram_link'=>$settings->telegram_link,
-    'linkedin_link'=>$settings->linkedin_link,
-    'whatsapp_link'=>"",
-    'tiktok_link'=>$settings->tiktok_link,
-    'website_icon'=>$settings->website_icon(),
-    'website_logo'=>$settings->website_logo(),
-    'website_cover'=>$settings->website_cover(),
-    'phone'=>$settings->phone
+    'website_name'=>"نفذلي",
+    'main_color'=>"#0172b8",
+    'second_color'=>"#d6e0ea",
+    'social_links'=>[
+        'facebook_link'=>"",
+        'twitter_link'=>"",
+        'instagram_link'=>"",
+        'youtube_link'=>"",
+        'telegram_link'=>"",
+        'linkedin_link'=>"",
+        'whatsapp_link'=>"",
+        'tiktok_link'=>"",
+    ],
+    'website_icon'=>$settings->website_icon()/*"data:image/png;base64,". base64_encode(file_get_contents($settings->website_icon()))*/, //lite
+    'website_icon_url'=>$settings->website_icon(), //lite
+    'website_logo'=>$settings->website_logo(), //lite
+    'website_cover'=>$settings->website_cover(),  //lite
+    'phone'=>$settings->phone(),
+    'search_url'=>env('APP_URL')."/q",
+    'faq_url'=>env('APP_URL')."/faq",
+    'feed_url'=>env('APP_URL')."/feed",
+    'feed_title'=>"آخر الأخبار",
+    'cache_pages'=>1,
+    'canonical'=>str_replace('/index.php', '', request()->url()),
+    'twitter_author'=>"Nafezly"
 ]; 
 $website_settings=collect($website_settings);  
-$page_title= isset($page_title)&&$page_title !=null?$website_settings['website_name'].' | '.$page_title:$website_settings['website_name'];
-$page_description=isset($page_description)&&$page_description !=null?$page_description:$website_settings['website_name'];
+if(request()->url()==env("APP_URL"))
+$page_title=  isset($page_title)&&$page_title !=null?$website_settings['website_name'] .' | '. $page_title :$website_settings['website_name'];
+else
+$page_title=  isset($page_title)&&$page_title !=null?$page_title.' | '.$website_settings['website_name']:$website_settings['website_name'];
+$page_description=isset($seo_meta_description)&&$seo_meta_description !=null?$seo_meta_description:$website_settings['website_name'];
 $page_image= isset($page_image)&&$page_image !=null?$page_image:$website_settings['website_cover'];
-$page_keywords= isset($page_keywords)&&$page_keywords !=null? $page_keywords:$website_settings['website_name'];
+$page_keywords= isset($seo_key_words)&&$seo_key_words !=null? $seo_key_words:"";
+$website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonical:$website_settings['canonical'];
 @endphp
-<title> {{$page_title}} </title>
+<title>{{$page_title}}</title>
+<!---
+وَما نَيلُ المَطالِبِ بِالتَمَنّي وَلَكِن تُؤخَذُ الدُنيا غِلاباوَ
+ما اِستَعصى عَلى قَومٍ مَن الٌإِذا الإِقدامُ كانَ لَهُم رِكابا
+أحمد شوقي
+--->
+<link rel="icon" type="image/png" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" /> 
+<link rel="icon" type="image/png" sizes="512x512" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" />
+<link rel="manifest" href="{{$website_settings['website_url']}}/manifest.json">
+<meta name="theme-color" content="{{$website_settings['main_color']}}">
+<meta name="mobile-web-app-capable" content="no">
+<meta name="application-name" content="{{$website_settings['website_name']}}">
+
+
+<meta name="facebook-domain-verification" content="vymdke86bl9vdcyleijy0r173c6k7c" />
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="{{$website_settings['website_name']}}">
+<link rel="apple-touch-icon" href="{{$website_settings['website_icon_url']}}?v=2">
+
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+<link href="{{$website_settings['website_icon_url']}}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" /> 
+
+<link rel='alternate' href="{{request()->url()}}" hreflang='x-default' />
+
+<meta name="author" content="{{$website_settings['website_name']}}" />
+<meta name="description" content="{{$page_description}}">
+<link rel="canonical" href="{{$website_settings['canonical']}}">
+
+@if($page_keywords)
+<meta name="keywords" content="{{$page_keywords}}">
+@endif
+
+<meta name="msapplication-TileColor" content="{{$website_settings['main_color']}}">
+<meta name="msapplication-TileImage" content="{{$website_settings['website_icon_url']}}">
+<meta name="msapplication-square70x70logo" content="{{$website_settings['website_cover']}}" />
+<meta name="msapplication-square150x150logo" content="{{$website_settings['website_cover']}}" />
+<meta name="msapplication-wide310x150logo" content="{{$website_settings['website_cover']}}" />
+<meta name="msapplication-square310x310logo" content="{{$website_settings['website_cover']}}" />
+<link rel="apple-touch-icon-precomposed" href="{{$website_settings['website_cover']}}" />
+
+<meta property="og:type"               content="website" />
+<meta property="og:site_name"          content="{{$website_settings['website_name']}}" />
+<meta property="og:locale" content="ar_AR"/>
+<meta property="og:locale:alternate" content="ar_AR"/>
+<meta property="og:url"                content="{{request()->url()}}" />
+<meta property="og:title"              content="{{$page_title}}" />
+<meta property="og:description"        content="{{$page_description}}" />
+<meta property="og:image" content="{{$page_image}}" />
+
+<meta itemprop="name" content="{{$page_title}}" />
+<meta itemprop="url" content="{{$website_settings['website_url']}}" />
+<meta itemprop="author" content="{{$website_settings['website_name']}}" />
+<meta itemprop="image" content="{{$page_image}}" />
+<meta itemprop="description" content="{{$page_description}}" />
+
+<meta name="twitter:image" content="{{$page_image}}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="{{'@'.$website_settings['twitter_author']}}" />
+<meta name="twitter:creator" content="{{'@'.$website_settings['twitter_author']}}" />
+<meta name="twitter:title" content="{{$page_title}}" />
+<meta name="twitter:image:src" content="{{$page_image}}" />
+<meta name="twitter:description" content="{{$page_description}}" />
+
+
+@if($website_settings['faq_url']!=null)
+<link rel='help' title='FAQ' href='{{$website_settings['faq_url']}}'/>
+@endif
+@if($website_settings['feed_title']!=null && $website_settings['feed_url'] !=null)
+<link rel="alternate" type="application/rss+xml" title="{{$website_settings['feed_title']}}" href="{{$website_settings['feed_url']}}">
+@endif
+@if($website_settings['cache_pages']==0)
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, no-transform">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+@endif
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Organization",
     "name": "{{$website_settings['website_name']}}",
     "url": "{{$website_settings['website_url']}}",
-    "logo": "{{$website_settings['website_logo']}}",
+    "logo": "{{$website_settings['website_icon_url']}}",
+    @php
+    $social_links=[];
+    foreach($website_settings['social_links'] as $key => $link){
+        if($link!=null)array_push($social_links, $link);
+    }
+    @endphp
+    @if(count($social_links))
     "sameAs": [
-        @if($website_settings['twitter_link']!=null)
-        {{$website_settings['twitter_link']}},
-        @endif
-        @if($website_settings['facebook_link']!=null)
-        {{$website_settings['facebook_link']}},
-        @endif
-        @if($website_settings['youtube_link']!=null)
-        {{$website_settings['youtube_link']}},
-        @endif
-        @if($website_settings['instagram_link']!=null)
-        {{$website_settings['instagram_link']}},
-        @endif
-        @if($website_settings['linkedin_link']!=null)
-        {{$website_settings['linkedin_link']}},
-        @endif
+       
+        @foreach($social_links as $link)
+            "{{$link}}" 
+            @if(!$loop->last),@endif
+        @endforeach
     ],
-    "contactPoint": [{
+    @endif
+    "contactPoint": [
+        @if($website_settings['phone']!=null)
+        {
             "@type": "ContactPoint",
             "telephone": "{{$website_settings['phone']}}",
             "contactType": "customer support"
@@ -62,36 +159,31 @@ $page_keywords= isset($page_keywords)&&$page_keywords !=null? $page_keywords:$we
             "telephone": "{{$website_settings['phone']}}",
             "contactType": "billing support"
         }
+        @endif
     ]
 }
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{{$website_settings['website_url']}}",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{$website_settings['search_url']}}?key={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "{{$page_title}}",
+    "description": "{{$page_description}}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{$website_settings['website_name']}}"
+    }
+}
 </script>
-<link rel="manifest" href="{{env('APP_URL')}}/manifest.json">
-<meta name="theme-color" content="#314459">
-<meta name="mobile-web-app-capable" content="no">
-<meta name="application-name" content="{{$website_settings['website_name']}}">
-<link rel="icon" sizes="512x512" href="{{$website_settings['website_icon']}}">
-
-<!-- Add to homescreen for Safari on iOS -->
-<meta name="apple-mobile-web-app-capable" content="no">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="{{$website_settings['website_name']}}">
-<link rel="apple-touch-icon" href="{{$website_settings['website_logo']}}">
-
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{$website_settings['website_logo']}}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" /> 
-<!-- Tile for Win8 -->
-<meta name="msapplication-TileColor" content="#1565c0">
-<meta name="msapplication-TileImage" content="{{$website_settings['website_logo']}}">
 <script type="text/javascript">
-    // Initialize the service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js', {
             scope: '.'
@@ -102,59 +194,3 @@ $page_keywords= isset($page_keywords)&&$page_keywords !=null? $page_keywords:$we
         });
     }
 </script>
-
-<link rel="icon" type="image/png" href="" /> 
-<link rel='alternate' href="{{env('APP_URL')}}{{ urldecode(str_replace('/index.php', '', \Request::getRequestUri()))   }}" hreflang='x-default' />
-<link rel="canonical" href="{{env('APP_URL')}}{{ urldecode(str_replace('/index.php', '', \Request::getRequestUri()))  }}">
-<!-- SEO Meta -->
-<meta name="author" content="{{$website_settings['website_name']}}" />
-<!-- end SEO Meta -->
-
-<!-- favicon, cards, tiles, icons -->
-<meta name="description" content="{{$page_description}}">
-<meta name="keywords" content="{{$page_keywords}}">
-
-<meta name="msapplication-square70x70logo" content="{{$website_settings['website_logo']}}" />
-<meta name="msapplication-square150x150logo" content="{{$website_settings['website_logo']}}" />
-<meta name="msapplication-wide310x150logo" content="{{$website_settings['website_logo']}}" />
-<meta name="msapplication-square310x310logo" content="{{$website_settings['website_logo']}}" />
-<link rel="apple-touch-icon-precomposed" href="{{$website_settings['website_logo']}}" />
-<!-- end favicon -->
-<!-- facebook open graph -->
-
-
-
-<meta property="og:type"               content="website" />
-<meta property="og:site_name"          content="{{$website_settings['website_name']}}" />
-<meta property="og:locale" content="ar_AR"/>
-<meta property="og:locale:alternate" content="ar_AR"/>
-<meta property="og:url"                content="{{$website_settings['website_url']}}/{{ (\Request::path()=="/")?"": \Request::path() }}" />
-<meta property="og:title"              content="{{$page_title}}" />
-<meta property="og:description"        content="{{$page_description}}" />
-<meta property="og:image" content="{{$page_image}}" />
-{{-- <meta property="og:image:width" content="256"/>
-<meta property="og:image:height" content="256"/> --}}
-
- 
-<!-- Schema MicroData (Google+,Google, Yahoo, Bing,) -->
-<meta itemprop="name" content="{{$page_title}}" />
-<meta itemprop="url" content="{{$website_settings['website_url']}}" />
-<meta itemprop="author" content="{{$website_settings['website_name']}}" />
-<meta itemprop="image" content="{{$page_image}}" />
-<meta itemprop="description" content="{{$page_description}}" />
-<!-- End Schema MicroData -->
-<!-- twitter cards -->
-<meta name="twitter:image" content="{{$page_image}}" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@Author" />
-<meta name="twitter:creator" content="@Author" />
-<meta name="twitter:title" content="{{$page_title}}" />
-<meta name="twitter:image:src" {{$page_image}}/>
-<meta name="twitter:description" content="{{$page_description}}" />
-<!-- end twitter cards -->
-
-
-<link rel='help' title='FAQ' href='{{$website_settings['website_url']}}'/>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, no-transform">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="-1">

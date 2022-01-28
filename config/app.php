@@ -229,10 +229,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'MainHelper'=> \App\Helpers\MainHelper::class,
+        'UserSystemInfoHelper'=> \App\Helpers\UserSystemInfoHelper::class,
         'Carbon'=>  Carbon\Carbon::class,
         'ImageResizer'=>TarunMangukiya\ImageResizer\Facades\ImageResizer::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        //'Location'=> Stevebauman\Location\Facades\Location::class,
     ],
-
 ];

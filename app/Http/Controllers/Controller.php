@@ -89,7 +89,7 @@ class Controller extends BaseController
         $path       = $options["path_to_save"]; // '/uploads/portfolios/';
         $path_small = $options["path_to_save"] . $options["small_path"];
         if (null != $options["resize"]) {
-            $filename = $user_id . '_' . uniqid() . '_' . time() . '.jpg';
+            $filename = pathinfo(str_replace(' ','-',$file->getClientOriginalName()),PATHINFO_FILENAME) . '-' . substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 6) . '.jpg';
             
             $manager = new ImageManager(['driver' => 'gd']);
             $image = $manager->make($file);
@@ -143,7 +143,7 @@ class Controller extends BaseController
             }catch(\Exception $e){}
 
         } else {
-            $filename = $user_id . '_' . uniqid() . '_' . time() . '.' . $file->getClientOriginalExtension();
+            $filename = pathinfo(str_replace(' ','-',$file->getClientOriginalName()),PATHINFO_FILENAME) . '-' . substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 6) . '.' . $file->getClientOriginalExtension();
             try{ 
                 \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path . $filename, \File::get($file), $filename);
             }catch(\Exception $e){}

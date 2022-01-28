@@ -17,6 +17,12 @@ class RateLimit
     public function handle(Request $request, Closure $next)
     {
 
+
+        if(auth()->check())
+            \App\Models\User::where('id',auth()->user()->id)->withoutTimestamps()->update(['last_activity'=>now()]);
+      
+
+
         $ipAddress = 'NA';
         if(isset($_SERVER["HTTP_CF_CONNECTING_IP"])){ 
             $ipAddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
@@ -29,6 +35,9 @@ class RateLimit
         }
 
 
+        $max_per_minute = \App\Models\RateLimit::where('ip',$ip)->where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
+        if($max_per_minute>=150)
+        abort(403);
 
         $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addHours(6))->first();
         if($last_insert==null){

@@ -24,9 +24,9 @@ class DashboardStatistics extends Component
             'top_operating_systems'=>$this->top_operating_systems(),
             'top_users'=>$this->top_users(),
             'top_devices'=>$this->top_devices(),
-            'top_users'=>$this->top_users(),
             'top_ips'=>$this->top_ips(),
             'new_users'=>$this->new_users(),
+            'traffics'=>$this->traffics()
         ];
         return view('livewire.dashboard-statistics',compact('data'));
     }  
@@ -47,6 +47,34 @@ class DashboardStatistics extends Component
     }
     public function top_ips(){
         return \App\Models\RateLimit::whereDate('created_at','>=',$this->from)->whereDate('created_at','<=',$this->to)->groupBy('ip')->orderBy(\DB::raw("count('ip')"),'DESC')->select()->addSelect(\DB::raw("count('ip') as count"))->limit(10)->get();
+    }
+    public function traffics(){
+        $traffics=[];
+        $week_traffics_queries=[];
+        $date = new \DateTime(date("Y-m-d"));
+        $date->modify('+7 day');
+        $days=[
+            \Carbon::parse(date('d.m.Y',strtotime("-7 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-6 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-5 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-4 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-3 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-2 days")))->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y',strtotime("-1 days")) )->format('Y-m-d'),
+            \Carbon::parse(date('d.m.Y'))->format('Y-m-d')
+        ];
+        for($i=0;$i<count($days);$i++){
+            array_push($week_traffics_queries, 
+                \DB::raw('(SELECT count(id) FROM rate_limits WHERE DATE(created_at) = "'.$days[$i].'") as total_traffics_'.str_replace('-', '_', $days[$i]))
+
+             );
+        }
+
+        $total = collect(\DB::table('rate_limits')->where('id',1)->select($week_traffics_queries)->first());
+        for($i=0;$i<count($days);$i++){
+            $traffics[\Carbon::parse($days[$i])->format('m-d')]=$total['total_traffics_'.str_replace('-', '_', $days[$i]) ] ;
+        }
+        return array_reverse($traffics);
     }
     public function new_users(){
         $new_users_count= [];

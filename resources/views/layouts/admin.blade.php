@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-
     <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    @php
+    $page_title="لوحة التحكم";
+    @endphp
+    @include('seo.index')
     @notifyCss
     @livewireStyles
     @yield('styles')
@@ -27,9 +30,35 @@
         $unreadNotifications=auth()->user()->unreadNotifications()->count();
         @endphp
     @endif
-    <title>لوحة تحكم | {{$settings->website_name}}</title>
-    <meta name="title" content="{{ config('app.name', 'Laravel') }}">
-    <link rel="icon" type="image/png" href="{{env('DEFAULT_IMAGE_LOGO')}}" />
+    <style type="text/css">
+        *:not([class^="fa"]){
+            font-family: 'Noto Kufi Arabic', sans-serif;
+        }
+        .fa, .fas {
+            font-family: "Font Awesome 5 Pro"!important; 
+            font-weight: 900;
+        }
+        ol,ul{
+            padding: 5px 20px;
+        }
+        ol{
+            list-style: auto;
+        }
+        ul{
+            list-style: disc;
+        }
+        .select2-selection__arrow{
+            margin-top: 2px;
+        }
+        .select2-selection{
+            width: 100%!important;
+            height: 38px!important;
+            border-radius: 0px!important;
+        }
+        .select2{
+            width: 100%!important;
+        }
+    </style>
 </head>
 
 <body style="background: #f7f7f7" class="dash">
@@ -70,7 +99,7 @@
 
 
 
-    <form method="POST" action="{{route('logout')}}" id="logout-form">@csrf</form>
+    <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
         
 
@@ -195,6 +224,57 @@
                             </div> 
                         </div>
                     </a> --}}
+                    <a href="{{route('admin.users.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fas fa-users font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                المستخدمين
+                            </div> 
+                        </div>
+                    </a>
+                    <a href="{{route('admin.categories.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fas fa-tag font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                الأقسام
+                            </div> 
+                        </div>
+                    </a>
+                    <a href="{{route('admin.articles.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fas fa-newspaper font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                المقالات
+                            </div> 
+                        </div>
+                    </a>
+                    <a href="{{route('admin.redirections.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fas fa-directions font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                التحويلات
+                            </div> 
+                        </div>
+                    </a>
+                    <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fas fa-phone font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                طلب التواصل
+                            </div> 
+                        </div>
+                    </a>
+
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -205,6 +285,27 @@
                             </div> 
                         </div>
                     </a>
+                    <a href="{{route('admin.traffics.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-traffic-light font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                               الترافيك
+                            </div> 
+                        </div>
+                    </a>
+                    <a href="{{route('admin.traffics.error-reports')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-bug font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                               تقارير الأخطاء
+                            </div> 
+                        </div>
+                    </a>
+                    
                     <a href="#" class="col-12 px-0" onclick="document.getElementById('logout-form').submit();">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -287,6 +388,21 @@
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
+    <script type="text/javascript">
+        $('input[required],select[required],textarea[required]').parent().parent().find('>div:nth-of-type(1)').append('<span style="color:red;font-size:16px">*</span>');
+        $("[name='title'],[name='slug'],[name='meta_description']").on('keypress',function(){
+            $(this).parent().find('.last_appended_counter').remove();
+            $(this).parent().append('<div class="col-12 p-2 last_appended_counter"><span class="d-inline-block" style="font-size:13px">عدد الحروف <span style="font-weight:bolder;color:#007469;font-size:15px">'+$(this).val().length+'</span> حرفاً</span></div>');
+        });
+
+        $("[name='title'],[name='slug'],[name='description_ar'],[name='description_en'],[name='meta_description']").append(function(){
+            $(this).parent().find('.last_appended_counter').remove();
+            $(this).parent().append('<div class="col-12 p-2 last_appended_counter"><span class="d-inline-block" style="font-size:13px">عدد الحروف <span style="font-weight:bolder;color:#007469;font-size:15px">'+$(this).val().length+'</span> حرفاً</span></div>');
+        }); 
+        $(document).ready(function() {
+              $('.select2-select').select2();
+          });
+    </script>
     @livewireScripts
     @notifyJs
     @include('layouts.scripts')

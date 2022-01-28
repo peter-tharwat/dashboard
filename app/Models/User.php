@@ -57,6 +57,43 @@ class User extends Authenticatable
             return env('STORAGE_URL').'/uploads/users/'.$this->avatar;
     }
     
+    public function scopeWithoutTimestamps()
+    {
+        $this->timestamps = false;
+        return $this;
+    }
 
+    public function has_access_to($action , $item){
+        /*
+        create
+        read
+        update
+        delete
+        */
+
+        if(!($item   instanceof \Illuminate\Database\Eloquent\Model )) return 0;
+
+        if(auth()->user()->power == "ADMIN"){
+            return 1 ;
+        }elseif(auth()->user()->power == "EDITOR"){
+
+            if($item->getTable()=="users") 
+                return 0;
+            if($item->getTable()=="contacts") 
+                return 0;
+            return 1;
+
+        }elseif(auth()->user()->power == "CONTRIBUTOR"){
+           
+           if($item->getTable()=="users") 
+                return 0;
+           if($item->user_id == auth()->user()->id)
+                return 1;
+           else
+                return 0;
+        }
+
+    }
+    
 
 }

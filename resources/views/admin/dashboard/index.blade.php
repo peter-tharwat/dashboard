@@ -7,7 +7,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<h6 class="font-1">المستخدمين</h6>
-			<h6 class="font-3">0</h6>
+			<h6 class="font-3">{{\App\Models\User::count()}}</h6>
 		</div>
 	</div>
 </div>
@@ -20,7 +20,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<h6 class="font-1">الإشعارات</h6>
-			<h6 class="font-3">0</h6>
+			<h6 class="font-3">{{auth()->user()->unreadNotifications->count()}}</h6>
 		</div>
 	</div>
 </div>

@@ -1,106 +1,91 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
-	<div class="col-12 col-lg-12 p-0 main-box">
-	 
-		<div class="col-12 px-0">
-			<div class="col-12 px-3 py-3">
-			 	<span class="fal fa-info-circle"></span>	إضافة جديد
-			</div>
-			<div class="col-12 divider" style="min-height: 2px;"></div>
-		</div>
-		<form id="validate-form" class="row" enctype="multipart/form-data">
-		<div class="col-12 col-lg-8 p-3">
-			<div class="col-12 p-2">
-				<div class="col-12">
-					عنوان المقال
-				</div>
-				<div class="col-12 pt-3">
-					<input type="text" name="name" required minlength="3" maxlength="190" class="form-control"  >
-				</div>
-			</div>
-			<div class="col-12 p-2">
-				<div class="col-12">
-					عنوان المقال
-				</div>
-				<div class="col-12 pt-3">
-					<textarea type="text" name="description" required minlength="3" maxlength="10000" class="form-control editor with-file-explorer"  ></textarea>
-				</div>
-			</div>
-			<div class="col-12 p-2">
-				<div class="col-12">
-					عنوان المقال
-				</div>
-				<div class="col-12 pt-3">
-					<textarea type="text" name="description" required minlength="3" maxlength="10000" class="form-control editor"  ></textarea>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-lg-4 p-3">
-			<div class="col-12 p-2">
-				<div class="col-12">
-					عنوان المقال
-				</div>
-				<div class="col-12 pt-3">
-					<input type="text" name="name" required minlength="3" maxlength="190" class="form-control"  >
-				</div>
-			</div>
-
-			 <div class="col-12  px-0 mt-2 px-0">
-                <div class="col-12  mt-3 font-1 ">
-                    الصورة الرئيسية 
+    <div class="col-12 col-lg-12 p-0 ">
+        <form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.articles.store')}}">
+            @csrf
+            <div class="col-12 col-lg-8 p-0 main-box">
+                <div class="col-12 px-0">
+                    <div class="col-12 px-3 py-3">
+                        <span class="fas fa-info-circle"></span> إضافة جديد
+                    </div>
+                    <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>
-                <div class="col-12 mt-2" style="overflow: hidden">
-                    <div class="col-12 px-0" id="file-uploader-nafezly-main">
-                        <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" data-fileuploader-listInput="fileuploader-list-file-main" />
-                    </div> 
-                </div>
-            </div>
-
-            <div class="col-12  px-0 mt-2 px-0">
-                <div class="col-12  mt-3 font-1 ">
-                    صور العمل
-                </div>
-                <div class="col-12 mt-2" style="overflow: hidden">
-                    <div class="col-12 px-0" id="file-uploader-nafezly-second">
-                        <input type="hidden" name="uploaded_files" value="" class="file-uploader-uploaded-files">
-                        <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" />
+                <div class="col-12 p-3 row">
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            القسم
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control" name="category_id" required>
+                                <option value selected disabled hidden>إختر قسم المقال</option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}" @if(old('category_id')==$category->id) selected @endif>{{$category->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            الرابط عربي
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug')}}">
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            العنوان عربي
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="title" required maxlength="190" class="form-control" value="{{old('title')}}">
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="col-12">
+                            الصورة الرئيسية
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="file" name="main_image" class="form-control" accept="image/*">
+                        </div>
+                        <div class="col-12 pt-3">
+                        </div>
+                    </div>
+                    <div class="col-12  p-2">
+                        <div class="col-12">
+                            الوصف عربي
+                        </div>
+                        <div class="col-12 pt-3">
+                            <textarea name="description" class="editor with-file-explorer">{{old('description')}}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            ميتا الوصف عربي
+                        </div>
+                        <div class="col-12 pt-3">
+                            <textarea name="meta_description" class="form-control" style="min-height:150px">{{old('meta_description')}}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="col-12">
+                            مميز
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control" name="is_featured">
+                                <option @if(old('is_featured')=="0" ) selected @endif value="0">لا</option>
+                                <option @if(old('is_featured')=="1" ) selected @endif value="1">نعم</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
-
-			
-		</div>
-	 
-		<div class="col-12 p-3">
-			<button class="btn btn-success" id="submitEvaluation">حفظ</button>
-		</div> 
-		</form>
-	</div>
+            <div class="col-12 p-3">
+                <button class="btn btn-success" id="submitEvaluation">حفظ</button>
+            </div>
+        </form>
+    </div>
 </div>
-@endsection
-@section('scripts')
-@include('admin.templates.dropzone',[
-'selector'=>'#file-uploader-nafezly-main',
-'url'=> route('admin.upload.file'),
-'method'=>'POST',
-'remove_url'=>route('admin.upload.remove-file'),
-'remove_method'=>'POST',
-'enable_selector_after_upload'=>'#submitEvaluation',
-'max_files'=>1,
-'max_file_size'=>'50',
-'accepted_files'=>"['image/*']"
-])
-<!--images-->
-@include('admin.templates.dropzone',[
-'selector'=>'#file-uploader-nafezly-second',
-'url'=> route('admin.upload.file'),
-'method'=>'POST',
-'remove_url'=>route('admin.upload.remove-file'),
-'remove_method'=>'POST',
-'enable_selector_after_upload'=>'#submitEvaluation',
-'max_files'=>100,
-'max_file_size'=>'50',
-'accepted_files'=>"['image/*']"
-])
 @endsection

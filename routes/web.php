@@ -9,6 +9,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RedirectionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\TrafficsController;
+
+
+
 
 
 
@@ -23,7 +32,17 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
 
     //Route::get('/profile',[AdminController::class,'upload_image']);
     
+    Route::resource('contacts',ContactController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
+    Route::resource('users',UserController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('articles',ArticleController::class);
+    Route::resource('categories',CategoryController::class);
+    Route::resource('redirections',RedirectionController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
+
+    Route::get('traffics',[TrafficsController::class,'index'])->name('traffics.index');
+    Route::get('traffics/{traffic}/logs',[TrafficsController::class,'logs'])->name('traffics.logs');
+    Route::get('error-reports',[TrafficsController::class,'error_reports'])->name('traffics.error-reports');
+    Route::get('error-reports/{report}',[TrafficsController::class,'error_report'])->name('traffics.error-report');
+
     Route::prefix('upload')->name('upload.')->group(function(){
         Route::post('/image',[HelperController::class,'upload_image'])->name('image');
         Route::post('/file',[HelperController::class,'upload_file'])->name('file');
@@ -52,4 +71,15 @@ Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
 Route::get('manifest.json',[HelperController::class,'manifest']);
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
+Route::get('sitemaps/links','SiteMapController@custom_links');
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);
+
+
+//pages
+Route::view('about','front.pages.about');
+Route::view('privacy','front.pages.privacy');
+Route::view('terms','front.pages.terms');
+Route::view('contact','front.pages.contact');
+Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
+Route::get('blog',[FrontController::class,'blog'])->name('blog');
+Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');

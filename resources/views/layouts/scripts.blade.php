@@ -9,6 +9,9 @@
                 toolbar: {   
                     shouldNotGroupWhenFull: true
                 },
+                mediaEmbed: {
+                    previewsInData: true
+                },
                 heading: {
                     options: [
                         { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },

@@ -37,6 +37,25 @@
         body,*{
             direction: rtl;
             text-align: start;
+            
+        }
+        html{
+            font-size: 16px;
+        }
+        /**:not(.fileuploader):not([class^=fa]):not([class^=vj]):not([class^=tie-]) {
+            font-family: dubai, sans-serif;
+        }*/
+        .start-head {
+            height: 20px;
+            width: 12px;
+            display: inline-block;
+            background: #0194fe;
+            position: relative;
+            top: 5px;
+            margin-left: 5px;
+        }
+        .main-box-stylex{
+            box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
         }
     </style>
     @yield('styles')
