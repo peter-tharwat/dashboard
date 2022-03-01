@@ -88,7 +88,7 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
-        notify()->success('تم حذف طلب التواصل بنجاح','عملية ناجحة');
+        flash()->success('تم حذف طلب التواصل بنجاح','عملية ناجحة');
         return redirect()->route('admin.contacts.index');
     }
 }

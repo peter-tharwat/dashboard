@@ -19,7 +19,6 @@
     $page_title="لوحة التحكم";
     @endphp
     @include('seo.index')
-    @notifyCss
     @livewireStyles
     @yield('styles')
     @if(auth()->check())
@@ -63,7 +62,11 @@
 
 <body style="background: #f7f7f7" class="dash">
     @yield('after-body')
-    <x:notify-messages />
+    @if(flash()->message)
+        <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
+            <span class="fas fa-info-circle"></span> {{ flash()->message }} 
+        </div>
+    @endif 
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
         <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
@@ -404,7 +407,6 @@
           });
     </script>
     @livewireScripts
-    @notifyJs
     @include('layouts.scripts')
     @yield('scripts')
 </body>

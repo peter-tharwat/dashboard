@@ -78,7 +78,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        notify()->success('تم إضافة المقال بنجاح','عملية ناجحة');
+        flash()->success('تم إضافة المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 
@@ -153,7 +153,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        notify()->success('تم تحديث المقال بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 
@@ -167,7 +167,7 @@ class ArticleController extends Controller
     {
         if(!auth()->user()->has_access_to('delete',$article))abort(403);
         $article->delete();
-        notify()->success('تم حذف المقال بنجاح','عملية ناجحة');
+        flash()->success('تم حذف المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 }

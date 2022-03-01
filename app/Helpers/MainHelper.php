@@ -9,7 +9,7 @@ class MainHelper {
     protected static $colorGap = 20;
     protected static $generated = array();
     
-    public function notify_user(
+    public static function notify_user(
         $options=[]
     ){
         $options = array_merge([
@@ -34,7 +34,7 @@ class MainHelper {
         }
     }
     
-    public function make_error_report(
+    public static function make_error_report(
         $options=[]
     ){
         $options = array_merge([

@@ -52,7 +52,7 @@ class RedirectionController extends Controller
             'new_url'=>$request->new_url,
             'code'=>$request->code,
         ]);
-        notify()->success('تم إضافة التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم إضافة التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 
@@ -99,7 +99,7 @@ class RedirectionController extends Controller
             'new_url'=>$request->new_url,
             'code'=>$request->code,
         ]);
-        notify()->success('تم تحديث التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 
@@ -113,7 +113,7 @@ class RedirectionController extends Controller
     {
         if(!auth()->user()->has_access_to('delete',$redirection))abort(403);
         $redirection->delete();
-        notify()->success('تم حذف التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم حذف التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 }

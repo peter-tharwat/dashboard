@@ -1,6 +1,6 @@
 <?php
 namespace App\Helpers;
-
+use Stevebauman\Location\Facades\Location;
 
 class UserSystemInfoHelper
 {
@@ -16,7 +16,7 @@ class UserSystemInfoHelper
     public function get_country_from_ip($ip)
     { 
         try{ 
-            $location = \Location::get($ip);
+            $location = Location::get($ip);
             $country=$this->countries[$location->countryCode]; 
             return [
                 'country'=>$country,
@@ -31,31 +31,34 @@ class UserSystemInfoHelper
     }
 
 
-    private static function get_user_agent(){
-  		return $_SERVER['HTTP_USER_AGENT'];
+    public static function get_user_agent(){
+        
+  		return request()->header('User-Agent');
   	}
 
   	public static function get_ip(){
-
-      $ipaddress = '';
-         if (isset($_SERVER['HTTP_CLIENT_IP']))
-             $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-         else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-             $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-         else if(isset($_SERVER['HTTP_X_FORWARDED']))
-             $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-         else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-             $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-         else if(isset($_SERVER['HTTP_FORWARDED']))
-             $ipaddress = $_SERVER['HTTP_FORWARDED'];
-         else if(isset($_SERVER['REMOTE_ADDR']))
-             $ipaddress = $_SERVER['REMOTE_ADDR'];
-         else if(request()->ip()!=null)
-             $ipaddress = request()->ip();
-         else
-             $ipaddress = 'UNKNOWN';
-         return $ipaddress;
-
+        $ipaddress = '';
+        if(isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+            $ipaddress=$_SERVER["HTTP_CF_CONNECTING_IP"];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress=$_SERVER['REMOTE_ADDR'];
+        else if(isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else if(request()->ip()!=null)
+            $ipaddress = request()->ip();
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
   	}
     
 
@@ -131,15 +134,15 @@ class UserSystemInfoHelper
   		$tablet_browser = 0;
   		$mobile_browser = 0;
 
-  		if(preg_match('/(tablet|ipad|playbook)|(android(?!.*(mobi|opera mini)))/i', strtolower($_SERVER['HTTP_USER_AGENT']))){
+  		if(preg_match('/(tablet|ipad|playbook)|(android(?!.*(mobi|opera mini)))/i', strtolower(request()->header('User-Agent')))){
   			$tablet_browser++;
   		}
 
-  		if(preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android|iemobile)/i', strtolower($_SERVER['HTTP_USER_AGENT']))){
+  		if(preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android|iemobile)/i', strtolower(request()->header('User-Agent')))){
   			$mobile_browser++;
   		}
 
-  		if((strpos(strtolower($_SERVER['HTTP_ACCEPT']),
+  		if((isset($_SERVER['HTTP_ACCEPT'])&&strpos(strtolower($_SERVER['HTTP_ACCEPT']),
   		'application/vnd.wap.xhtml+xml')> 0) or
   			((isset($_SERVER['HTTP_X_WAP_PROFILE']) or
   				isset($_SERVER['HTTP_PROFILE'])))){

@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
     {!!$settings->header_code!!}
-    @notifyCss
     @livewireStyles
     @if(auth()->check())
         @php
@@ -119,6 +118,20 @@
                 </div>
             </div>
         </nav>
+        @if(flash()->message)
+            <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
+                <span class="fas fa-info-circle"></span> {{ flash()->message }} 
+            </div>
+        @endif 
+        <div class="col-12 justify-content-end d-flex">
+            @if($errors->any())
+            <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
+                {!! implode('', $errors->all('<div class="alert-click-hide alert alert-danger alert alert-danger col-9 col-xl-3 rounded-0 mb-1" style="position: fixed!important;z-index: 11;opacity:.9;left:25px;cursor:pointer;" onclick="$(this).fadeOut();">:message</div>')) !!}
+            </div>
+            @endif
+        </div>
+        
+
         <main class="p-0">
             @yield('content')
         </main>
@@ -137,7 +150,6 @@
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
     @livewireScripts
-    @notifyJs
     @include('layouts.scripts')
     @yield('scripts')
     {!!$settings->footer_code!!}

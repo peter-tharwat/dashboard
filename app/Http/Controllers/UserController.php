@@ -86,7 +86,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        notify()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
+        flash()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
             
         
@@ -165,7 +165,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        notify()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 
@@ -179,7 +179,7 @@ class UserController extends Controller
     {
         if(!auth()->user()->has_access_to('delete',$user))abort(403);
         $user->delete();
-        notify()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
+        flash()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 }

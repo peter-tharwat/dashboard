@@ -77,7 +77,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        notify()->success('تم إضافة القسم بنجاح','عملية ناجحة');
+        flash()->success('تم إضافة القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 
@@ -146,7 +146,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        notify()->success('تم تحديث القسم بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 
@@ -160,7 +160,7 @@ class CategoryController extends Controller
     {
         if(!auth()->user()->has_access_to('delete',$category))abort(403);
         $category->delete();
-        notify()->success('تم حذف القسم بنجاح','عملية ناجحة');
+        flash()->success('تم حذف القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 }
