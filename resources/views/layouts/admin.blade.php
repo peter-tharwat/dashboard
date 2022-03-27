@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
@@ -230,7 +230,7 @@
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fas fa-users font-3"> </span> 
+                                <span class="fal fa-users font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 المستخدمين
@@ -240,7 +240,7 @@
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fas fa-tag font-3"> </span> 
+                                <span class="fal fa-tag font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الأقسام
@@ -250,7 +250,7 @@
                     <a href="{{route('admin.articles.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fas fa-newspaper font-3"> </span> 
+                                <span class="fal fa-newspaper font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 المقالات
@@ -260,7 +260,7 @@
                     <a href="{{route('admin.redirections.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fas fa-directions font-3"> </span> 
+                                <span class="fal fa-directions font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 التحويلات
@@ -270,7 +270,7 @@
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fas fa-phone font-3"> </span> 
+                                <span class="fal fa-phone font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 طلب التواصل

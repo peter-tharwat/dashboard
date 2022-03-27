@@ -10,7 +10,7 @@
   
     @include('seo.index')
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
