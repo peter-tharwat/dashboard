@@ -18,6 +18,9 @@ use Image;
 
 class UploadFilesHelper
 {
+    public static function __callStatic($name,$args){
+
+    }
 
     public static function url_to_uploaded_file($file,$filename=null){
         $fileData = $file;
@@ -83,15 +86,15 @@ class UploadFilesHelper
 
         return $bytes;
     } 
-    public function get_validations($type="file"){
+    public static function get_validations($type="file"){
         if($type=="file") 
-            return "3gp,7z,7zip,ai,apk,avi,bin,bmp,bz2,css,csv,doc,docx,egg,flv,gif,gz,h264,htm,html,ia,icns,ico,jpeg,jpg,m4v,markdown,md,mdb,mkv,mov,mp3,mp4,mpa,mpeg,mpg,mpga,octet-stream,odp,ods,odt,ogg,otf,pak,pdf,pea,png,pps,ppt,pptx,psd,rar,rm,rss,rtf,s7z,sql,svg,tar,targz,tbz2,tex,tgz,tif,tiff,tlz,ttf,vob,wav,webm,wma,wmv,xhtml,xlr,xls,xlsx,xml,z,zip,zipx,gif,png,jpeg,qt";
+            return "3gp,7z,7zip,ai,apk,avi,bin,bmp,bz2,css,csv,doc,docx,egg,flv,gif,gz,h264,htm,html,ia,icns,ico,jpeg,jpg,m4v,markdown,md,mdb,mkv,mov,mp3,mp4,mpa,mpeg,mpg,mpga,octet-stream,odp,ods,odt,ogg,otf,pak,pdf,pea,png,pps,ppt,pptx,psd,rar,rm,rss,rtf,s7z,sql,svg,tar,targz,tbz2,tex,tgz,tif,tiff,tlz,ttf,vob,wav,webm,wma,wmv,xhtml,xlr,xls,xlsx,xml,z,zip,zipx,gif,png,jpeg,qt,m4a";
         else if($type=="image")
             return "jpeg,bmp,png,gif,ico";
         else
             return $type;
     }
-    public function store_file_has_errors($file){
+    public static function store_file_has_errors($file){
         $filename='';
         return [
             'success' => false, 
@@ -119,7 +122,7 @@ class UploadFilesHelper
 
         ];
     }
-    public function generate_unique_filename($file,$options){
+    public static function generate_unique_filename($file,$options){
         $t =pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME); 
         $specChars = array(
             ' ' => '-',    '!' => '',    '"' => '',
@@ -145,7 +148,7 @@ class UploadFilesHelper
         $filename = pathinfo($original_file_name,PATHINFO_FILENAME) . '-' . substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 6) .'.'. $extension ;
         return $filename;
     }
-    public function store_file($options){   
+    public static function store_file($options){   
         $options = array_merge([
             //'source'=>"",
             'validation'=>"file",
@@ -295,7 +298,7 @@ class UploadFilesHelper
             ]
         ];
     }
-    public function remove_hub_file($name){
+    public static function remove_hub_file($name){
         $get_file = \App\Models\HubFile::where('name', $name)->first();
         if (null != $get_file && ( ($get_file['user_id'] == \Auth::user()->id ) ) ) {
             $get_file->delete(); 
@@ -303,7 +306,7 @@ class UploadFilesHelper
         }
         return ['success' => false, 'filename' => $name];
     }
-    public function use_hub_file($name, $type_id, $user_id = null, $is_main = 0){
+    public static function use_hub_file($name, $type_id, $user_id = null, $is_main = 0){
         $get_file = \App\Models\HubFile::where('name', $name)->first();
         if (null != $get_file && $get_file['user_id'] == $user_id && null == $get_file['used_at']) {
             $get_file->update(['type_id' => $type_id, 'used_at' => now(), 'is_main' => $is_main]);
