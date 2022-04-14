@@ -2,6 +2,7 @@
 $website_settings=[
     'website_url'=>env('APP_URL'),
     'website_name'=>$settings->website_name,
+    
     'main_color'=>"#0172b8",
     'second_color'=>"#d6e0ea",
     'social_links'=>[
