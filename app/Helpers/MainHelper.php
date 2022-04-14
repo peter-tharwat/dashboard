@@ -1,6 +1,6 @@
 <?php
-// This class file to define all general functions
 namespace App\Helpers;
+use App\Models\MenuLink;
 
 class MainHelper {
 
@@ -94,6 +94,21 @@ class MainHelper {
         }
  
         return substr($t,0,230);
+    }
+    public static function menuLinkGenerator(MenuLink $link){
+        if($link->type=="CUSTOM_LINK"){
+            return $link->url;
+        }elseif($link->type=="PAGE"){
+            $page = \App\Models\Page::where('id',$link->type_id)->first();
+            if($page == null)
+                return env("APP_URL");
+            return route('page.show',$page);
+        }elseif($link->type=="CATEGORY"){
+            $category = \App\Models\Category::where('id',$link->type_id)->first();
+            if($category == null)
+                return env("APP_URL");
+            return route('category.show',$category);
+        }
     }
     
 

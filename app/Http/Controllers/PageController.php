@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
-use App\Models\Category;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class PageController extends Controller
 {
-    
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
-        $articles =  Article::where(function($q)use($request){
+        
+        $pages =  Page::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('title','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
         })->orderBy('id','DESC')->paginate();
-
-        return view('admin.articles.index',compact('articles'));
+        return view('admin.pages.index',compact('pages'));
     }
 
     /**
@@ -29,8 +31,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.create',compact('categories'));
+        return view('admin.pages.create');
     }
 
     /**
@@ -44,33 +45,30 @@ class ArticleController extends Controller
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
-
         $request->validate([
-            'slug'=>"required|max:190|unique:articles,slug",
-            'category_id'=>"required|array",
-            'category_id.*'=>"required|exists:categories,id",
-            'is_featured'=>"required|in:0,1",
+            'slug'=>"required|max:190|unique:pages,slug",
             'title'=>"required|max:190",
+            'title_en'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
+            "removable"=>"required|in:0,1"
         ]);
-        $article = Article::create([
+        $page = Page::create([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
-            "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
+            "title_en"=>$request->title_en,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
+            "removable"=>$request->removable,
         ]);
-        $article->categories()->sync($request->category_id);
-
-        if($request->hasFile('main_image')){
+        if($request->hasFile('image')){
             $file = $this->store_file([
-                'source'=>$request->main_image,
+                'source'=>$request->image,
                 'validation'=>"image",
-                'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
-                'user_id'=>\Auth::user()->id,
+                'path_to_save'=>'/uploads/pages/',
+                'type'=>'PAGE', 
+                'user_id'=>auth()->user()->id,
                 'resize'=>[500,1000],
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
@@ -78,19 +76,19 @@ class ArticleController extends Controller
                 /*'watermark'=>true,*/
                 'compress'=>'auto'
             ]); 
-            $article->update(['main_image'=>$file['filename']]);
+            $page->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم إضافة المقال بنجاح','عملية ناجحة');
-        return redirect()->route('admin.articles.index');
+        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        return redirect()->route('admin.pages.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Page $page)
     {
         //
     }
@@ -98,55 +96,49 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit(Page $page)
     {
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
-        $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.edit',compact('article','categories'));
+        return view('admin.pages.edit',compact('page'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Page $page)
     {
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
-
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
         $request->validate([
-            'slug'=>"required|max:190|unique:articles,slug,".$article->id,
-            'category_id'=>"required|array",
-            'category_id.*'=>"required|exists:categories,id",
-            'is_featured'=>"required|in:0,1",
+            'slug'=>"required|max:190|unique:pages,slug",
             'title'=>"required|max:190",
+            'title_en'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
+            "removable"=>"required|in:0,1"
         ]);
-        $article->update([
-            'user_id'=>auth()->user()->id,
+        $page->update([
             "slug"=>$request->slug,
-            "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
+            "title_en"=>$request->title_en,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
+            "removable"=>$request->removable,
         ]);
-        $article->categories()->sync($request->category_id);
-        if($request->hasFile('main_image')){
+        if($request->hasFile('image')){
             $file = $this->store_file([
-                'source'=>$request->main_image,
+                'source'=>$request->image,
                 'validation'=>"image",
-                'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
-                'user_id'=>\Auth::user()->id,
+                'path_to_save'=>'/uploads/pages/',
+                'type'=>'PAGE', 
+                'user_id'=>auth()->user()->id,
                 'resize'=>[500,1000],
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
@@ -154,23 +146,26 @@ class ArticleController extends Controller
                 /*'watermark'=>true,*/
                 'compress'=>'auto'
             ]); 
-            $article->update(['main_image'=>$file['filename']]);
+            $page->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم تحديث المقال بنجاح','عملية ناجحة');
-        return redirect()->route('admin.articles.index');
+        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        return redirect()->route('admin.pages.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(Page $page)
     {
-        if(!auth()->user()->has_access_to('delete',$article))abort(403);
-        $article->delete();
-        flash()->success('تم حذف المقال بنجاح','عملية ناجحة');
-        return redirect()->route('admin.articles.index');
+        if($page->removable==1){
+            $page->delete();
+            flash()->success('تم العملية بنجاح','عملية ناجحة');
+        }else{
+            flash()->info('عفواً الصفحة غير قابلة للحذف','عملية ناجحة');
+        }
+        return redirect()->route('admin.pages.index');
     }
 }

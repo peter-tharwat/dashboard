@@ -45,9 +45,6 @@ class CreateSettingsTable extends Migration
 
 
             //pages 
-            $table->longText('privacy_page')->nullable();
-            $table->longText('terms_page')->nullable();
-            $table->longText('about_page')->nullable();
             $table->longText('contact_page')->nullable();
 
             //other links
@@ -56,8 +53,8 @@ class CreateSettingsTable extends Migration
             $table->text('another_link3')->nullable();
 
             //colors
-            $table->text('main_color')->nullable();
-            $table->text('hover_color')->nullable();
+            $table->string('main_color')->default('#0194fe');
+            $table->string('hover_color')->default('#0194fe');
 
             //code
             $table->longText('header_code')->nullable();

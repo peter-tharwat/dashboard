@@ -17,8 +17,7 @@
                             القسم
                         </div>
                         <div class="col-12 pt-3">
-                            <select class="form-control" name="category_id" required>
-                                <option value selected disabled hidden>إختر قسم المقال</option>
+                            <select class="form-control select2-select" name="category_id[]" required multiple size="1" style="height:30px;opacity: 0;">
                                 @foreach($categories as $category)
                                 <option value="{{$category->id}}" @if(old('category_id')==$category->id) selected @endif>{{$category->title}}</option>
                                 @endforeach
@@ -61,7 +60,15 @@
                             <textarea name="description" class="editor with-file-explorer">{{old('description')}}</textarea>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 p-2">
+                    <div class="col-12  p-2">
+                        <div class="col-12">
+                            الوصف عربي
+                        </div>
+                        <div class="col-12 pt-3">
+                            <textarea name="description2" class="editor">{{old('description')}}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
                         <div class="col-12">
                             ميتا الوصف عربي
                         </div>

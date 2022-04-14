@@ -12,7 +12,7 @@
 }
 
 .dash *:not(.fileuploader):not([class^="fileuploader-icon-"]):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]){
-	font-family: 'Helvet',arial!important; 
+    font-family: 'Helvet',arial!important; 
     direction: rtl; 
 }
 .row{
@@ -79,8 +79,11 @@ thead th {
     right: -280px;
 }
 .item {
-    padding: 12px 0px 15px 0px;
+    padding: 5px 0px 10px 0px;
     margin: 2px 0px;
+}
+.main-box-wedit{
+    box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
 }
 .main-content.active .top-nav {
     width: 100% !important;
@@ -362,4 +365,31 @@ label.error{
 }
 .fileuploader-item {
     z-index: 0;
+}
+
+/* width */
+.aside-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.aside-menu::-webkit-scrollbar-track {
+  background: #2d496f;
+}
+
+/* Handle */
+.aside-menu::-webkit-scrollbar-thumb {
+  background: #254d83;
+}
+
+/* Handle on hover */
+.aside-menu::-webkit-scrollbar-thumb:hover {
+  background: #2d6fc9;
+}
+
+.front-content *{
+    max-width: 100%!important;
+}
+.front-content iframe{
+    width: 100%!important;
 }

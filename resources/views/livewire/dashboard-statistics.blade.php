@@ -21,7 +21,7 @@ $flat_colors = collect([
 <div class="">
 {{-- {{dd($data)}} --}}
 </div>
-    <div class="col-12 my-2 px-2 ">
+{{--     <div class="col-12 my-2 px-2 ">
         <div class="col-12  main-box row">
             <div class="col-12  px-3 py-3 ">
                 @php
@@ -31,7 +31,7 @@ $flat_colors = collect([
                 إحصائيات  {{$from->diffInDays($to)}} أيام
             </div>
         </div>
-     </div>
+     </div> --}}
 
     <div class="col-12 row p-0">
 
@@ -46,7 +46,7 @@ $flat_colors = collect([
                 <div class="col-12 p-3 row d-flex">
                     
                     <div class="col-4  d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="{{route('home')}}" target="_blank">
+                        <a href="{{route('home')}}" target="_blank" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-home font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -59,7 +59,7 @@ $flat_colors = collect([
                     
                     
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="{{route('admin.settings.index')}}">
+                        <a href="{{route('admin.settings.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-wrench font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -69,7 +69,7 @@ $flat_colors = collect([
                         </a>
                      </div>
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="{{route('admin.profile.index')}}">
+                        <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-user font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -79,7 +79,7 @@ $flat_colors = collect([
                         </a>
                      </div>
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="{{route('admin.profile.index')}}">
+                        <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-user-edit font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -92,7 +92,7 @@ $flat_colors = collect([
                      
                      
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="{{route('admin.notifications.index')}}">
+                        <a href="{{route('admin.notifications.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-bells font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -103,7 +103,7 @@ $flat_colors = collect([
                      </div> 
                     
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
-                        <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"  style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 <span class="fal fa-sign-out-alt font-5"></span> 
                                 <div class="col-12 p-0 text-center">
@@ -161,7 +161,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-2 p-2">
+        <div class="col-12 col-lg-auto p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -174,7 +174,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-2 p-2">
+        <div class="col-12 col-lg-auto p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -189,7 +189,7 @@ $flat_colors = collect([
         </div>
         
         
-        <div class="col-12 col-lg-2 p-2">
+        <div class="col-12 col-lg-auto p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -336,7 +336,7 @@ $flat_colors = collect([
     });
 
     const ChartTopPages = new Chart(document.getElementById('ChartTopPages'), {
-        type: 'doughnut',
+        type: 'bar',
         data: {
             labels: [
             @foreach($data['top_pages'] as $page )

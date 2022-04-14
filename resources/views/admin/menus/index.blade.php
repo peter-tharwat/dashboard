@@ -6,12 +6,12 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-articles"></span> المقالات
+					<span class="fas fa-menus"></span> القوائم
 				</div>
 				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					<a href="{{route('admin.articles.create')}}">
+					<a href="{{route('admin.menus.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
 				</div>
@@ -34,50 +34,36 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>المستخدم</th>
-						{{-- <th>القسم</th> --}}
 						<th>الرابط</th>
-						<th>الشعار</th>
 						<th>العنوان</th>
-						<th>مميز</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($articles as $article)
+					@foreach($menus as $menu)
 					<tr>
-						<td>{{$article->id}}</td>
-						<td>{{$article->user->name}}</td>
-						{{-- <td>
-							<a href="{{route('admin.categories.index',['id'=>$article->category_id])}}" style="color:#2381c6">{{$article->category->title_ar}}</a>
-						</td> --}}
-						<td>{{$article->slug}}</td>
-						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
-						<td>{{$article->title}}</td>
-						<td>
-							@if($article->is_featured==1)
-							<span class="fas fa-check-circle text-success" ></span>
-							@endif
-						</td>
+						<td>{{$menu->id}}</td>
+						<td>{{$menu->location}}</td>
+						<td>{{$menu->title}}</td>
+					 
 						<td style="width: 270px;">
 
-							@if(auth()->user()->has_access_to('read',$article))
-							<a href="{{route('article.show',['article'=>$article])}}">
-								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
-									<span class="fas fa-search "></span> عرض
+					 
+							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
+								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
+									<span class="fas fa-link "></span> الروابط
 								</span>
 							</a>
-							@endif
-
-							@if(auth()->user()->has_access_to('update',$article))
-							<a href="{{route('admin.articles.edit',$article)}}">
+						 
+							@if(auth()->user()->has_access_to('update',$menu))
+							<a href="{{route('admin.menus.edit',$menu)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
 							@endif
-							@if(auth()->user()->has_access_to('delete',$article))
-							<form method="POST" action="{{route('admin.articles.destroy',$article)}}" class="d-inline-block">@csrf @method("DELETE")
+							@if(auth()->user()->has_access_to('delete',$menu))
+							<form method="POST" action="{{route('admin.menus.destroy',$menu)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
@@ -91,7 +77,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3">
-			{{$articles->appends(request()->query())->render()}}
+			{{$menus->appends(request()->query())->render()}}
 		</div>
 	</div>
 </div>

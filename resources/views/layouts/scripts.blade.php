@@ -1,57 +1,49 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/upload/trumbowyg.upload.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/langs/ar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script>
 <script>
 @if(auth()->check())
-    var allEditors = document.querySelectorAll('.editor');
-    var allEditorsAfterRender=[];
-    let i;
-    for ( i = 0; i < allEditors.length; i++) {
-        $(allEditors[i]).attr('data-id',i);
-        ClassicEditor.create(allEditors[i], {
-                toolbar: {   
-                    shouldNotGroupWhenFull: true
-                },
-                mediaEmbed: {
-                    previewsInData: true
-                },
-                heading: {
-                    options: [
-                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-                        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-                        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
-                    ]
-                }, 
-                alignment: {
-                    options: ['left', 'right', 'center']
-                },
-                ckfinder: {
-                    uploadUrl: '{{route('admin.upload.image',['_token' => csrf_token() ])}}',
-                    options: {
-                        resourceType: 'Images'
-                    }, 
-                },
-                image: {
-                    toolbar: ['toggleImageCaption', 'imageTextAlternative']
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            }).then( (editor)=> {  
-                 if(editor.sourceElement.classList.contains('with-file-explorer')){
-                    allEditorsAfterRender.push(editor);
-                    var current_id = allEditorsAfterRender.length-1;
-                    $(editor.ui.view.toolbar.element).find('.ck-toolbar__items').append('<span><button class="ck ck-button ck-off" data-exe="open-image-selector-opener" type="button" tabindex="-1" data-bs-toggle="modal" data-bs-target="#open-image-selector-modal"  data-editor-id="'+current_id+'" onClick="set_latest_clicked_ckeditor('+current_id+');"><span class="fas fa-images "  ></span></button></span>');
-                }
-            }); 
+    $('.editor').trumbowyg({
+    lang: 'ar',
+    btnsDef: {
+        image: {
+            dropdown: ['insertImage', 'upload'],
+            ico: 'insertImage'
+        },
+        align: {
+            dropdown: ['justifyLeft', 'justifyCenter','justifyRight','justifyFull'],
+            ico: 'justifyFull'
+        },
+        list: {
+            dropdown: ['unorderedList', 'orderedList'],
+            ico: 'unorderedList'
+        }
+
+    },
+    btns: [
+        ['viewHTML'],
+        ['formatting'],
+        ['strong', 'em'],
+        ['link'],
+        ['image'],
+        ['align'],
+        ['list'],
+        ['horizontalRule'],
+        ['removeformat'],
+        ['fullscreen'],
+    ],
+    plugins: {
+        upload: {
+            serverPath: '{{route('admin.upload.image',['_token' => csrf_token() ])}}',
+            fileFieldName: 'upload',
+            urlPropertyName: 'url'
+        }
+    },
+    tagClasses: {
+        blockquote: 'pre-code',
+        iframe:'w-100'
     }
-    function set_latest_clicked_ckeditor(id){
-        $('#current_selected_editor').val(id);
-    }
-    $(document).on('click','.open-image-selector-opener',function(){
-        alert($(this).data('editor-id'));
-        
     });
     function get_website_title(){
         return $('meta[name="title"]').attr('content');
@@ -117,31 +109,6 @@
         }, window.focused);
     }
     get_nots();
-
-    var open_files_viewer = document.getElementById('open-image-selector-modal');
-    open_files_viewer.addEventListener('show.bs.modal', function (event) {
-       /* Livewire.emit('toggleOpen');*/
-    }); 
-    $(document).on('click','.image-file',function(){
-        $(this).toggleClass('active');
-        $('#checkbox_file_'+$(this).attr('data-id')).attr('checked', function(_, attr){ return !attr});
-    }); 
-    $('#selected-files-insert-btn').on('click',function(){
-        var ek = $('.selected-files:checked').map((_,el) => el.value).get()
-        
-        var values=[];
-        $.each(ek,function(key,value){
-            values.push({
-                src:value,
-                class:'data-fancybox'
-            }) 
-        });  
-        allEditorsAfterRender[$('#current_selected_editor').val()].execute( 'insertImage', {
-            source:  values
-        });
-        $('.selected-files').removeAttr('checked');
-        $('.image-file').removeClass('active');
-    });
     @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
         @php
         session(['seen_notifications'=>$unreadNotifications]);
@@ -149,9 +116,6 @@
         var audio = new Audio('{{asset("/sounds/notification.wav")}}');
         audio.play();
     @endif
-
-
-    
 @else 
 /* Guest Js */
 

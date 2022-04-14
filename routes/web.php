@@ -15,7 +15,11 @@ use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TrafficsController;
-
+use App\Http\Controllers\FooterLinkController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuLinkController;
+use App\Http\Controllers\FileController;
 
 
 
@@ -31,10 +35,15 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
 
 
     //Route::get('/profile',[AdminController::class,'upload_image']);
-    
+    Route::resource('files',FileController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('contacts',ContactController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('users',UserController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('articles',ArticleController::class);
+    Route::resource('pages',PageController::class);
+    Route::resource('menus',MenuController::class);
+    Route::post('menu-links/get-type',[MenuLinkController::class,'getType'])->name('menu-links.get-type');
+    Route::post('menu-links/order',[MenuLinkController::class,'order'])->name('menu-links.order');
+    Route::resource('menu-links',MenuLinkController::class);
     Route::resource('categories',CategoryController::class);
     Route::resource('redirections',RedirectionController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
 
@@ -42,6 +51,10 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
     Route::get('traffics/{traffic}/logs',[TrafficsController::class,'logs'])->name('traffics.logs');
     Route::get('error-reports',[TrafficsController::class,'error_reports'])->name('traffics.error-reports');
     Route::get('error-reports/{report}',[TrafficsController::class,'error_report'])->name('traffics.error-report');
+    
+    Route::post('footer-links/order',[FooterLinkController::class,'order'])->name('footer-links.order');
+    Route::resource('footer-links',FooterLinkController::class);
+
 
     Route::prefix('upload')->name('upload.')->group(function(){
         Route::post('/image',[HelperController::class,'upload_image'])->name('image');
@@ -69,17 +82,19 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
 
 Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
-Route::get('manifest.json',[HelperController::class,'manifest']);
+Route::get('manifest.json',[HelperController::class,'manifest'])->name('manifest');
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
 Route::get('sitemaps/links','SiteMapController@custom_links');
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);
 
 
 //pages
-Route::view('about','front.pages.about');
+/*Route::view('about','front.pages.about');
 Route::view('privacy','front.pages.privacy');
-Route::view('terms','front.pages.terms');
-Route::view('contact','front.pages.contact');
+Route::view('terms','front.pages.terms');*/
+Route::view('contact','front.pages.contact')->name('contact');
+Route::get('page/{page}',[FrontController::class,'page'])->name('page.show');
+Route::get('category/{category}',[FrontController::class,'category'])->name('category.show');
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
