@@ -1,3 +1,5 @@
+# New Dashboard Docs
+
 # Simple Arabic Laravel Dashboard
 
 - ✅ Auto & Smart Seo
@@ -17,6 +19,8 @@
 - ✅ Robots.txt , SiteMapGenerator , manifest.json
 - ✅ General Statistics On Home Page ( Traffic , New Users , Top Pages , Top Browsers , Top Devices , Top OSs , Top Ips , Top Users , and so on ... )
 - ✅ basic pages ( contact , articles , privacy , terms , about , categories , redirections )
+- ✅ You can Create Menus With Links ( can change order by Drag And drop )
+- ✅ Ability to Create custom pages
 - ✅ Smart Error Listeners
 - ✅ Smart Traffic tracker
 - ✅ RateLimit Plugin
@@ -24,30 +28,38 @@
 - ✅ Nice Login , Register and Confirm Email Pages
 - ✅ Most Common Settings
 - ✅ Ready to integrate CloudFlare Firewall
-- ✅ Smart Logging System  
+- ✅ Smart Logging System
+    
+    ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
+    
 - ✅ and More
-- ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
-
 
 ### How to setup
 
-```php
+```bash
+#dont forget to install 
+sudo apt-get install php-imagick
+composer install
 # copy .env.example to .env
 cp .env.example .env
 # generate security key , link storage file
 php artisan key:generate
 php artisan storage:link
-# after connect your database via .env file 
+# after connect your database via .env file
 php artisan migrate:fresh
 php artisan db:seed
+
+# dont forget to start queuing and run schedule on the background 
+php artisan queue:work && php artisan schedule:run 
 ```
 
 ### Credentials
 
-```php
-login page : http://127.0.0.1:8000/login
+```
+login page : <http://127.0.0.1:8000/login>
 email : admin@admin.com
 password : password
+
 ```
 
 ### Main Yield Sections
@@ -136,6 +148,11 @@ $this->store_file([
 
 #Use File
 $this->use_hub_file('file_name','type_id','user_id');
+#use multiple files
+$uploaded_files=json_decode($request["fileuploader-list-attachment"]);
+$attachments=[];foreach($uploaded_files as $uploaded_file)array_push($attachments, $uploaded_file->file);
+foreach($attachments as $attachment)
+     $this->use_hub_file($attachment, $item->id, auth()->user()->id);
 
 #Remove File
 $this->remove_hub_file('file_name');
@@ -171,6 +188,7 @@ $this->remove_hub_file('file_name');
 		'max_file_size'=>'50',
 		'accepted_files'=>"['image/*']"
 ])
+
 ```
 
 ```jsx
@@ -180,7 +198,13 @@ $this->remove_hub_file('file_name');
 <div class="col-12  px-0 mt-2 px-0">
     <div class="col-12 mt-2" style="overflow: hidden">
         <div class="col-12 px-0" id="file-uploader-nafezly-main">
-            <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" data-fileuploader-listInput="fileuploader-list-file-main" />
+            <input type="hidden" disabled class="file-uploader-uploaded-files">
+				    <input name="attachment" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" />
+							<!--
+							# for rendering old uploaded files 
+							<input name="attachment" type="file" multiple class="file-uploader-files" data-fileuploader-files='@include('site-templates.uploaded-files-array',['files'=>$item->uploaded_files()])' style="opacity: 0" />
+							# uploaded_files => is a laravel collection 
+							-->
         </div> 
     </div>
  </div>
@@ -189,8 +213,13 @@ $this->remove_hub_file('file_name');
 <div class="col-12  px-0 mt-2 px-0">
     <div class="col-12 mt-2" style="overflow: hidden">
         <div class="col-12 px-0" id="file-uploader-nafezly-second">
-            <input type="hidden" name="uploaded_files" value="" class="file-uploader-uploaded-files">
-            <input name="file" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" />
+           <input type="hidden" disabled class="file-uploader-uploaded-files">
+				   <input name="attachment" type="file" multiple class="file-uploader-files" data-fileuploader-files="" style="opacity: 0" />
+						<!--
+							# for rendering old uploaded files 
+							<input name="attachment" type="file" multiple class="file-uploader-files" data-fileuploader-files='@include('site-templates.uploaded-files-array',['files'=>$item->uploaded_files()])' style="opacity: 0" />
+							# uploaded_files => is a laravel collection 
+							-->
         </div>
     </div>
  </div>
@@ -210,7 +239,7 @@ $this->remove_hub_file('file_name');
 
 ### Configrations .env
 
-```php
+```jsx
 FILESYSTEM_DRIVER=local
 STORAGE_BASE=/storage
 STORAGE_URL="${STORAGE_BASE}"
@@ -229,7 +258,7 @@ DEFAULT_PASSWORD=password
 
 ### Validate Form
 
-```html
+```jsx
 /* just add this id  to form like this */
 <form id="validate-form"></form>
 
@@ -244,12 +273,3 @@ DEFAULT_PASSWORD=password
 ```
 
 ### Controlling Accessibility To files Viewer
-
-```php
-# controlling Accessibility To files Viewer
-
-$files = \App\Models\HubFile::where(function($q){
-		//conditions here
-})->orderBy('id','DESC')->simplePaginate(24); 
-return view('livewire.files-viewer',compact('files'));
-```
