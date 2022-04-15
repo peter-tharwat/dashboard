@@ -81,11 +81,11 @@ class SettingController extends Controller
                 'path_to_save'=>'/uploads/website/',
                 'type'=>'IMAGE', 
                 'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
+                //'resize'=>[500,1000],
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'compress'=>'auto'
+                //'compress'=>'auto'
             ])['filename'];
             \App\Models\Setting::query()->update(['website_icon'=>$file]);
         }

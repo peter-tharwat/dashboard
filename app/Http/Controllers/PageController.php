@@ -117,7 +117,7 @@ class PageController extends Controller
             'slug'=>\MainHelper::slug($request->slug)
         ]);
         $request->validate([
-            'slug'=>"required|max:190|unique:pages,slug",
+            'slug'=>"required|max:190|unique:pages,slug,".$page->id,
             'title'=>"required|max:190",
             'title_en'=>"required|max:190",
             'description'=>"nullable|max:100000",
