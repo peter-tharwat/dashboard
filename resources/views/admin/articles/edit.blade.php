@@ -18,10 +18,9 @@
                             القسم
                         </div>
                         <div class="col-12 pt-3">
-                            <select class="form-control" name="category_id" required>
-                                <option value selected disabled hidden>إختر قسم المقال</option>
+                            <select class="form-control select2-select" name="category_id[]" required multiple size="1" style="height:30px;opacity: 0;">
                                 @foreach($categories as $category)
-                                <option value="{{$category->id}}" @if($article->category_id==$category->id) selected @endif>{{$category->title}}</option>
+                                <option value="{{$category->id}}" @if(in_array($category->id,$article->categories->pluck('id')->toArray())) selected @endif>{{$category->title}}</option>
                                 @endforeach
                             </select>
                         </div>

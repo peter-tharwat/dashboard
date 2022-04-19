@@ -61,7 +61,7 @@ class Controller extends BaseController
                 'filename' => $options['source'],
 
                 // for new extension
-                "hasWarnings"=>yes,
+                "hasWarnings"=>true,
                 "isSuccess"=>false,
                 "warnings"=>['لم نتمكن من رفع هذا الملف'],
                 "files"=>[

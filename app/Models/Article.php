@@ -15,8 +15,8 @@ class Article extends Model
     public function user(){
         return $this->belongsTo(\App\Models\User::class);
     }
-    public function category(){
-        return $this->belongsTo(\App\Models\Category::class);
+    public function categories(){
+        return $this->belongsToMany(\App\Models\Category::class,'article_categories');
     }
     public function main_image(){
         if($this->main_image==null)

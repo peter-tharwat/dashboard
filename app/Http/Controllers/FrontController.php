@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Contact;
+use App\Models\Page;
 
 
 class FrontController extends Controller
@@ -31,10 +32,21 @@ class FrontController extends Controller
         //\Session::flash('message', __("Your Message Has Been Send Successfully And We Will Contact You Soon !"));
         return redirect()->back();
     }
-    
+    public function category(Request $request,Category $category){
+        $articles = Article::where(function($q)use($request,$category){
+            $q->whereHas('categories',function($q)use($request,$category){
+                $q->where('id',$category->id);
+            });
+        })->orderBy('id','DESC')->paginate();
+        return view('front.pages.blog',compact('articles','category'));
+    }
     public function article(Request $request,Article $article)
     {
         return view('front.pages.article',compact('article'));
+    }
+    public function page(Request $request,Page $page)
+    {
+        return view('front.pages.page',compact('page'));
     }
     public function blog(Request $request)
     {

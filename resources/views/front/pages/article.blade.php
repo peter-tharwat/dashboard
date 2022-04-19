@@ -1,4 +1,4 @@
-@extends('layouts.app',['page_title'=>$article->title,'page_description'=>$article->meta_description])
+@extends('layouts.app',['page_title'=>$article->title,'page_description'=>$article->meta_description,'page_image'=>$article->main_image()])
 @section('content')
 <div class="col-12 p-0">
 	<div class=" p-0 container">

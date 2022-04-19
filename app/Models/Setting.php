@@ -30,7 +30,7 @@ class Setting extends Model
     }
     public function website_icon(){
         if($this->website_icon==null)
-            return env('DEFAULT_IMAGE_COVER');
+            return env('DEFAULT_IMAGE_FAVICON');
         else
             return env('STORAGE_URL').'/uploads/website/'.$this->website_icon;
     }

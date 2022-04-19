@@ -31,7 +31,7 @@ class DashboardStatistics extends Component
         return view('livewire.dashboard-statistics',compact('data'));
     }  
     public function top_pages(){
-        return  \App\Models\RateLimitDetail::whereDate('created_at','>=',$this->from)->whereDate('created_at','<=',$this->to)->groupBy('url')->orderBy(\DB::raw("count('url')"),'DESC')->select()->addSelect(\DB::raw("count('url') as count"))->limit(10)->get();
+        return \App\Models\RateLimitDetail::whereDate('created_at','>=',$this->from)->whereDate('created_at','<=',$this->to)->whereNotIn('url',[route('admin.notifications.ajax'),route('manifest')])->groupBy('url')->orderBy(\DB::raw("count('url')"),'DESC')->select()->addSelect(\DB::raw("count('url') as count"))->limit(10)->get();
     }
     public function top_browsers(){
         return \App\Models\RateLimit::whereDate('created_at','>=',$this->from)->whereDate('created_at','<=',$this->to)->groupBy('browser')->orderBy(\DB::raw("count('browser')"),'DESC')->select()->addSelect(\DB::raw("count('browser') as count"))->limit(10)->get();

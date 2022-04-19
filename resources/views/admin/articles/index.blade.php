@@ -35,7 +35,7 @@
 					<tr>
 						<th>#</th>
 						<th>المستخدم</th>
-						<th>القسم</th>
+						{{-- <th>القسم</th> --}}
 						<th>الرابط</th>
 						<th>الشعار</th>
 						<th>العنوان</th>
@@ -48,9 +48,9 @@
 					<tr>
 						<td>{{$article->id}}</td>
 						<td>{{$article->user->name}}</td>
-						<td>
+						{{-- <td>
 							<a href="{{route('admin.categories.index',['id'=>$article->category_id])}}" style="color:#2381c6">{{$article->category->title_ar}}</a>
-						</td>
+						</td> --}}
 						<td>{{$article->slug}}</td>
 						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 						<td>{{$article->title}}</td>

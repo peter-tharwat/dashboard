@@ -47,7 +47,8 @@ class ArticleController extends Controller
 
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug",
-            'category_id'=>"required|exists:categories,id",
+            'category_id'=>"required|array",
+            'category_id.*'=>"required|exists:categories,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
@@ -56,12 +57,13 @@ class ArticleController extends Controller
         $article = Article::create([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
-            "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
+        $article->categories()->sync($request->category_id);
+
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,
@@ -122,7 +124,8 @@ class ArticleController extends Controller
         if(!auth()->user()->has_access_to('update',$article))abort(403);
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug,".$article->id,
-            'category_id'=>"required|exists:categories,id",
+            'category_id'=>"required|array",
+            'category_id.*'=>"required|exists:categories,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
@@ -131,12 +134,12 @@ class ArticleController extends Controller
         $article->update([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
-            "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
+        $article->categories()->sync($request->category_id);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,
