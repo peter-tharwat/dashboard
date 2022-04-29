@@ -1,49 +1,20 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/upload/trumbowyg.upload.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/langs/ar.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script>
+<script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="/js/tinymce/ar.js"></script>
 <script>
 @if(auth()->check())
-    $('.editor').trumbowyg({
-    lang: 'ar',
-    btnsDef: {
-        image: {
-            dropdown: ['insertImage', 'upload'],
-            ico: 'insertImage'
-        },
-        align: {
-            dropdown: ['justifyLeft', 'justifyCenter','justifyRight','justifyFull'],
-            ico: 'justifyFull'
-        },
-        list: {
-            dropdown: ['unorderedList', 'orderedList'],
-            ico: 'unorderedList'
-        }
-
-    },
-    btns: [
-        ['viewHTML'],
-        ['formatting'],
-        ['strong', 'em'],
-        ['link'],
-        ['image'],
-        ['align'],
-        ['list'],
-        ['horizontalRule'],
-        ['removeformat'],
-        ['fullscreen'],
-    ],
-    plugins: {
-        upload: {
-            serverPath: '{{route('admin.upload.image',['_token' => csrf_token() ])}}',
-            fileFieldName: 'upload',
-            urlPropertyName: 'url'
-        }
-    },
-    tagClasses: {
-        blockquote: 'pre-code',
-        iframe:'w-100'
-    }
+    tinymce.init({
+        selector: '.editor,#editor',
+        plugins: ' advlist image media autolink code codesample directionality table wordcount quickbars',
+        images_upload_url:"{{route('admin.upload.image',['_token' => csrf_token() ])}}",
+        file_picker_types: 'file image media',
+        image_caption: true,
+        image_dimensions:true,
+        directionality : 'rtl',
+        language:'ar',
+        quickbars_selection_toolbar: 'bold italic |h1 h2 h3 h4| formatselect | quicklink blockquote',
+        entity_encoding : "raw",
+        verify_html : false ,
+        object_resizing : 'img'
     });
     function get_website_title(){
         return $('meta[name="title"]').attr('content');

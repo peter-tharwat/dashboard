@@ -136,7 +136,7 @@ class Controller extends BaseController
                 $img = $imagick->getImageBlob();
             }
             try{
-                \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path .$path_small . $filename, $sm_img, $filename);
+                \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) .$path_small . $filename, $sm_img, $filename);
             }catch(\Exception $e){}
             try{
                 \Storage::disk($options["file_system_type"])->put('/'.strtolower($options['visibility']) . $path . $filename, $img, $filename);

@@ -9,7 +9,7 @@
         @if((isset($accepted_files)&&!is_null($accepted_files)))
         {!!$accepted_files!!}
         @else 
-        @include('layouts.configs')
+        @include('admin.templates.allowed-files')
         @endif ,
         changeInput: '<div class="fileuploader-input mb-2">' +
                           '<div class="fileuploader-input-inner">' +
