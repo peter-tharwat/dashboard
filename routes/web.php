@@ -20,7 +20,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\FileController;
-
+use App\Http\Controllers\FaqController;
 
 
 
@@ -41,6 +41,9 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
     Route::resource('articles',ArticleController::class);
     Route::resource('pages',PageController::class);
     Route::resource('menus',MenuController::class);
+
+    Route::post('faqs/order',[FaqController::class,'order'])->name('faqs.order');
+    Route::resource('faqs',FaqController::class);
     Route::post('menu-links/get-type',[MenuLinkController::class,'getType'])->name('menu-links.get-type');
     Route::post('menu-links/order',[MenuLinkController::class,'order'])->name('menu-links.order');
     Route::resource('menu-links',MenuLinkController::class);

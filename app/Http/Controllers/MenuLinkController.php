@@ -19,7 +19,7 @@ class MenuLinkController extends Controller
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('type','LIKE','%'.$request->q.'%')->orWhere('url','icon','%'.$request->q.'%');
-        })->orderBy('order','ASC')->orderBy('id','DESC')->paginate();
+        })->orderBy('order','ASC')->orderBy('id','DESC')->paginate(100);
         return view('admin.menu-links.index',compact('menuLinks'));
     }
     /**

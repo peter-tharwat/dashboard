@@ -218,6 +218,16 @@
                             </div> 
                         </div>
                     </a>
+                    <a href="{{route('admin.faqs.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-question font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                الأسئلة الشائعة
+                            </div> 
+                        </div>
+                    </a>
 
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >

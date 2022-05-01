@@ -14,7 +14,7 @@
         quickbars_selection_toolbar: 'bold italic |h1 h2 h3 h4| formatselect | quicklink blockquote',
         entity_encoding : "raw",
         verify_html : false ,
-        object_resizing : 'img'
+        object_resizing : 'img',
     });
     function get_website_title(){
         return $('meta[name="title"]').attr('content');
