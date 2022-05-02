@@ -23,6 +23,7 @@ class FrontController extends Controller
             "message"=>"required|min:3|max:10000",
         ]);
         Contact::create([
+            'user_id'=>auth()->check()?auth()->id():NULL,
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,

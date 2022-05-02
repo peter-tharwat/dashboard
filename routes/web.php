@@ -21,7 +21,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FaqController;
-
+use App\Http\Controllers\ContactReplyController;
 
 
 
@@ -37,10 +37,11 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
     //Route::get('/profile',[AdminController::class,'upload_image']);
     Route::resource('files',FileController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('contacts',ContactController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
+    Route::resource('menus',MenuController::class);
     Route::resource('users',UserController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
     Route::resource('articles',ArticleController::class);
     Route::resource('pages',PageController::class);
-    Route::resource('menus',MenuController::class);
+    Route::resource('contact-replies',ContactReplyController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
 
     Route::post('faqs/order',[FaqController::class,'order'])->name('faqs.order');
     Route::resource('faqs',FaqController::class);

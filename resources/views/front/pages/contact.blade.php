@@ -1,5 +1,28 @@
 @extends('layouts.app',['page_title'=>"تواصل معنا"])
+@section('styles')
+<script type="text/javascript">
+        function callbackThen(response){
+            // read HTTP status
+            console.log(response.status);
+            
+            // read Promise object
+            response.json().then(function(data){
+                console.log(data);
+            });
+        }
+        function callbackCatch(error){
+            console.error('Error:', error)
+        }   
+    </script>   
+{!! htmlScriptTagJsApi([
+        'action' => 'homepage',
+        'callback_then' => 'callbackThen',
+        'callback_catch' => 'callbackCatch'
+    ]) !!} 
+@endsection
 @section('content')
+
+ 
 <div class="col-12 p-0">
     <div class=" p-0 container">
         <div class="col-12 p-2 p-lg-3 row">

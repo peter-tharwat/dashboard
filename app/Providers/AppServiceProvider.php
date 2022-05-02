@@ -26,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        \App\Models\ContactReply::observe(\App\Observers\ContactReplyObserver::class);
+        \App\Models\Contact::observe(\App\Observers\ContactObserver::class);
+
         Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
         if(Schema::hasTable('settings')){

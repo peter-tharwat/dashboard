@@ -42,7 +42,7 @@ $website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonic
 وَما نَيلُ المَطالِبِ بِالتَمَنّي وَلَكِن تُؤخَذُ الدُنيا غِلاباوَ
 ما اِستَعصى عَلى قَومٍ مَن الٌإِذا الإِقدامُ كانَ لَهُم رِكابا
 أحمد شوقي
---->
+---> 
 <link rel="icon" type="image/png" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" /> 
 <link rel="icon" type="image/png" sizes="512x512" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" />
 <link rel="manifest" href="{{$website_settings['website_url']}}/manifest.json">

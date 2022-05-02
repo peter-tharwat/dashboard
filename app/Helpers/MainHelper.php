@@ -1,7 +1,7 @@
 <?php
 namespace App\Helpers;
 use App\Models\MenuLink;
-
+use Illuminate\Support\Facades\Notification;
 class MainHelper {
 
     protected static $lowerLimit = 70;
@@ -14,8 +14,8 @@ class MainHelper {
     ){
         $options = array_merge([
             'user_id'=>1,
-            'message'=>"",
-            'url'=>"",
+            'content'=>[],
+            'action_url'=>"",
             'methods'=>['database'],
             'image'=>"",
             'btn_text'=>"عرض الإشعار"
@@ -24,14 +24,37 @@ class MainHelper {
         if($user!=null){
             \App\Models\User::where('email', $user->email )->first()->notify(
                 new \App\Notifications\GeneralNotification([
-                    'content'=>[$options['message']],
-                    'url'=>$options['url'],
+                    'content'=>$options['content'],
+                    'action_url'=>$options['action_url'],
                     'btn_text'=>$options['btn_text'],
                     'methods'=>$options['methods'],
                     'image'=>$options['image']
                 ])
             );
         }
+    }
+    public static function notify_visitors(
+        $options=[]
+    ){
+
+        $options = array_merge([
+            'emails'=>["admin@admin.com"],
+            'content'=>[],
+            'action_url'=>"",
+            'methods'=>['mail'],
+            'image'=>"",
+            'btn_text'=>"عرض الإشعار"
+        ],$options);
+
+        dd($options['emails']);
+         Notification::route('mail', $options['emails'])
+                ->notify(new \App\Notifications\GeneralNotification([
+                    'content'=>$options['content'],
+                    'action_url'=>$options['action_url'],
+                    'btn_text'=>$options['btn_text'],
+                    'methods'=>$options['methods'],
+                    'image'=>$options['image']
+                ]));
     }
     
     public static function make_error_report(
