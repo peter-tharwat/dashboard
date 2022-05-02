@@ -38,7 +38,12 @@ class TrafficsController extends Controller
         return view('admin.traffics.logs',compact('logs'));
     }
     public function error_reports(Request $request){
-        $reports= ReportError::orderBy('id','DESC')->paginate();
+        $reports= ReportError::where(function($q)use($request){
+          if($request->id!=null)
+            $q->where('id',$request->id);
+          if($request->user_id!=null)
+            $q->where('user_id',$request->user_id);
+        })->orderBy('id','DESC')->paginate();
         return view('admin.traffics.error-reports',compact('reports'));
     }
     public function error_report(Request $request,ReportError $report)
