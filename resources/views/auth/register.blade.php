@@ -15,7 +15,7 @@
             <div class="col-12 p-0">
                     <form method="POST" action="{{ route('register') }}" id="register-form">
                         @csrf
-
+                        <input type="hidden" name="recaptcha" id="recaptcha">
                         <div class="col-12 p-0 mb-5" style="width: 550px;max-width: 100%;margin: 0px auto;">
                             <h3 class="mb-4">{{ __('lang.register') }}</h3>
                              <div class="divider"></div>
@@ -94,8 +94,7 @@ grecaptcha.ready(function() {
   document.getElementById('register-form').addEventListener("submit", function(event) {
     event.preventDefault();
     grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'register'}).then(function(token) {
-        console.log(token);
-       document.getElementById("recaptcha").value= token; 
+       document.getElementById("recaptcha").value = token; 
        document.getElementById('register-form').submit();
     });
   }, false);

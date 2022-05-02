@@ -182,18 +182,7 @@
                         </div>
                     </a>
                     @endcan
-                    @can('viewAny',\App\Models\Redirection::class)
-                    <a href="{{route('admin.redirections.index')}}" class="col-12 px-0">
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-directions font-3"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                التحويلات
-                            </div> 
-                        </div>
-                    </a>
-                    @endcan
+                    
                     @can('viewAny',\App\Models\Contact::class)
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
@@ -201,7 +190,14 @@
                                 <span class="fal fa-phone font-3"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
-                                طلب التواصل
+                                طلب التواصل 
+                            @php
+                            $contacts_count = \App\Models\Contact::where('status','PENDING')->count();
+                            @endphp
+                            @if($contacts_count)
+                            <span style="background: #d34339;border-radius: 2px;color:#fff;display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;">{{$contacts_count}}</span>
+                            
+                            @endif
                             </div> 
                         </div>
                     </a>
@@ -254,55 +250,9 @@
                         </div>
                     </a> 
                     @endcan
-                    @can('viewAny',\App\Models\HubFile::class)
-                    <a href="{{route('admin.files.index')}}" class="col-12 px-0">
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-file font-3"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                               الملفات
-                            </div> 
-                        </div>
-                    </a>
-                    @endcan
-                    @can('viewAny',\App\Models\RateLimit::class)
-                    <a href="{{route('admin.traffics.index')}}" class="col-12 px-0">
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-traffic-light font-3"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                               الترافيك
-                            </div> 
-                        </div>
-                    </a>
-                    @endcan
-                    @can('viewAny',\App\Models\ReportError::class)
-                    <a href="{{route('admin.traffics.error-reports')}}" class="col-12 px-0">
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-bug font-3"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                               تقارير الأخطاء
-                            </div> 
-                        </div>
-                    </a>
-                    @endcan
+                    
 
-                    @can('view',auth()->user())
-                    <a href="{{route('admin.users.index')}}" class="col-12 px-0">
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-user font-3"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                ملفي الشخصي
-                            </div> 
-                        </div>
-                    </a>
-                    @endcan
+                    
 
                     <a href="#" class="col-12 px-0" onclick="document.getElementById('logout-form').submit();">
                         <div class="col-12 item px-0 d-flex " >
@@ -351,13 +301,36 @@
                         </div>
                     </div>
                     <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 60px;height: 60px;" >
-                        <div style="width: 60px;height: 60px;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
+                        <div style="width: 60px;height: 60px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
                             <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 60px;height: 60px;">
                         </div>
-                        <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" >
                                 <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
                                 <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+
                                 <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
+
+                                @can('viewAny',\App\Models\Redirection::class)
+                                <li><a class="dropdown-item font-1" href="{{route('admin.redirections.index')}}"><span class="fal fa-directions font-1"></span> التحويلات</a></li> 
+                                @endcan
+
+
+                                @can('viewAny',\App\Models\HubFile::class)
+                                <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> الملفات</a></li> 
+                                @endcan
+
+
+                                @can('viewAny',\App\Models\RateLimit::class)
+                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
+                                @endcan
+
+                                @can('viewAny',\App\Models\ReportError::class)
+                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
+                                @endcan
+ 
+ 
+
+
                                 <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
                                 <li><a class="dropdown-item font-1" href="#" onclick="document.getElementById('logout-form').submit();"><span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
                         </ul>

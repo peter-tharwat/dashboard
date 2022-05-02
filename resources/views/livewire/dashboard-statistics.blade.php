@@ -57,7 +57,7 @@ $flat_colors = collect([
                      </div>
  
                     
-                    
+                    @can('viewAny',\App\Models\Setting::class)
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.settings.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -68,6 +68,7 @@ $flat_colors = collect([
                             </div>
                         </a>
                      </div>
+                    @endcan
                      <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -117,6 +118,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
+        @can('show-statistics')
         <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
@@ -187,8 +189,6 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        
-        
         <div class="col-12 col-lg-auto p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
@@ -202,8 +202,11 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
+        @endcan
     </div>  
+
     @section('scripts')
+    @can('show-statistics')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script type="text/javascript"> 
@@ -399,5 +402,6 @@ $flat_colors = collect([
     });
 
     </script> 
+    @endcan
     @endsection
 </div>

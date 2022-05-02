@@ -36,6 +36,8 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
     Route::middleware(['CheckRole:ADMIN'])->group(function () {
 
         Route::resource('files',FileController::class);
+        Route::post('contacts/resolve',[ContactController::class,'resolve'])
+                ->can('resolve',\App\Models\Contact::class)->name('contacts.resolve');
         Route::resource('contacts',ContactController::class);
         Route::resource('menus',MenuController::class);
         Route::resource('users',UserController::class);

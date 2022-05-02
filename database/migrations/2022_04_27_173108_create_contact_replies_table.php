@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on("users")->onDelete('cascade'); 
             $table->unsignedBigInteger('contact_id')->nullable();
             $table->foreign('contact_id')->references('id')->on("contacts")->onDelete('cascade'); 
+            $table->tinyInteger('is_support_reply')->default(0);
             $table->text('content')->nullable();
             $table->timestamps();
         });

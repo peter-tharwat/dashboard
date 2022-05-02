@@ -1,3 +1,4 @@
+@can('viewAny',\App\Models\User::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #fffced;">
 		<div style="width: 80px;" class="p-2">
@@ -12,6 +13,7 @@
 		</div>
 	</div>
 </div>
+@endcan
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #f3ffed;">
 		<div style="width: 80px;" class="p-2">
@@ -25,6 +27,7 @@
 		</div>
 	</div>
 </div>
+@can('viewAny',\App\Models\Article::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #edffff;">
 		<div style="width: 80px;" class="p-2">
@@ -38,6 +41,8 @@
 		</div>
 	</div>
 </div>
+@endcan
+@can('viewAny',\App\Models\Category::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #d2ecff;">
 		<div style="width: 80px;" class="p-2">
@@ -51,6 +56,8 @@
 		</div>
 	</div>
 </div>
+@endcan
+@can('viewAny',\App\Models\HubFile::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #fffced;">
 		<div style="width: 80px;" class="p-2">
@@ -64,6 +71,8 @@
 		</div>
 	</div>
 </div>
+@endcan
+@can('viewAny',\App\Models\Menu::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #f3ffed;">
 		<div style="width: 80px;" class="p-2">
@@ -77,6 +86,8 @@
 		</div>
 	</div>
 </div>
+@endcan
+@can('viewAny',\App\Models\Page::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #edffff;">
 		<div style="width: 80px;" class="p-2">
@@ -90,6 +101,8 @@
 		</div>
 	</div>
 </div>
+@endcan
+@can('viewAny',\App\Models\Contact::class)
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 mb-3">
 	<div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #edffff;">
 		<div style="width: 80px;" class="p-2">
@@ -103,5 +116,5 @@
 		</div>
 	</div>
 </div>
-
+@endcan
 <livewire:dashboard-statistics />

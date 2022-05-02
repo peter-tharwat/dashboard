@@ -28,7 +28,7 @@ class FrontController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            'message'=>"قادم من : ".urldecode(url()->previous())."\n\nالرسالة : ".$request->message
+            'message'=>/*"قادم من : ".urldecode(url()->previous())."\n\nالرسالة : ".*/$request->message
         ]);
 
         flash()->success('تم استلام رسالتك بنجاح وسنتواصل معك في أقرب وقت');

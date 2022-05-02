@@ -98,4 +98,10 @@ class ContactPolicy
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
     }
+
+    public function resolve(User $user)
+    {
+        if(in_array($user->power,["ADMIN","EDITOR"]))
+            return 1;
+    }
 }

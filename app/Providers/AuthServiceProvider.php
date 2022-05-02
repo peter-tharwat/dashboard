@@ -36,10 +36,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Gate::define('create-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
-        Gate::define('read-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
-        Gate::define('update-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
-        Gate::define('delete-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
+        Gate::define('show-statistics',[\App\Policies\StatisticPolicy::class,'viewAny']);
 
     }
 }

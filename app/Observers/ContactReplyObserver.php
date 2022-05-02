@@ -43,12 +43,12 @@ class ContactReplyObserver
                     'image'=>$options['image']
                 ]));
         }else{ 
-            if(env("MAIL_USERNAME")!=null)
+            
             \MainHelper::notify_user([
                 'user_id'=>$contactReply->contact->user_id,
                 'content'=>[$contactReply->content],
                 'action_url'=>route('admin.contacts.show',$contactReply->contact),
-                'methods'=>['database','mail'],
+                'methods'=>env("MAIL_USERNAME")!=null?['database','mail']:['database'],
                 'btn_text'=>"عرض التذكرة"
             ]);
         }

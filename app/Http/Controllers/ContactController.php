@@ -100,4 +100,10 @@ class ContactController extends Controller
         flash()->success('تم حذف طلب التواصل بنجاح','عملية ناجحة');
         return redirect()->route('admin.contacts.index');
     }
+
+    public function resolve(Request $request){
+        $contact = \App\Models\Contact::where('id',$request->id)->firstOrFail();
+        $contact->update(['status'=>$contact->status=="PENDING"?"DONE":"PENDING"]);
+        return ['status'=>$contact->status=="DONE"?"DONE":"PENDING" ];
+    }
 }

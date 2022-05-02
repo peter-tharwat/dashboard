@@ -8,6 +8,27 @@ use Illuminate\Http\Request;
 class ContactReplyController extends Controller
 {
 
+
+    protected function resourceAbilityMap()
+    {
+        return [
+            'index'=>'viewAny',
+            'create'=>'store',
+            'store'=>'store',
+            'show' => 'view',
+            'create' => 'create',
+            'store' => 'create',
+            'edit' => 'update',
+            'update' => 'update',
+            'destroy' => 'delete',
+            'resolve'=>'resolve',
+        ];
+    }
+    protected function resourceMethodsWithoutModels()
+    {
+        return ['index', 'create', 'store' , 'resolve'];
+    }
+
     public function __construct()
     {
         $this->authorizeResource(ContactReply::class, 'contact-reply'); 
@@ -46,7 +67,10 @@ class ContactReplyController extends Controller
      */
     public function store(Request $request)
     {
-        ContactReply::create(['user_id'=>auth()->user()->id,'contact_id'=>$request->contact_id,'content'=>$request->content]);
+        $contact= \App\Models\Contact::where('id',$request->contact_id)->firstOrFail();
+        $contact->update(['has_support_reply'=>1]);
+
+        ContactReply::create(['user_id'=>auth()->user()->id,'contact_id'=>$request->contact_id,'content'=>$request->content,'is_support_reply'=>1]);
         flash()->success('تمت العملية بنجاح');
         return redirect()->back();
     }
@@ -94,5 +118,11 @@ class ContactReplyController extends Controller
     public function destroy(ContactReply $contactReply)
     {
         //
+    }
+
+    public function resolve(Request $request){
+        $contact = \App\Models\Contact::where('contact_id',$request->contact_id)->firstOrFail();
+        $contact->update(['status'=>$contact->status=="PENDING"?"DONE":"PENDING"]);
+        return 1;
     }
 }
