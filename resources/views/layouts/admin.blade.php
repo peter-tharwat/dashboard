@@ -146,7 +146,7 @@
                             </div> 
                         </div>
                     </a>
- 
+                    @can('viewAny',\App\Models\User::class)
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -157,7 +157,8 @@
                             </div> 
                         </div>
                     </a>
-                    
+                    @endcan
+                    @can('viewAny',\App\Models\Category::class)
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -168,6 +169,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Article::class)
                     <a href="{{route('admin.articles.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -178,6 +181,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Redirection::class)
                     <a href="{{route('admin.redirections.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -188,6 +193,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Contact::class)
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -198,6 +205,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Page::class)
                     <a href="{{route('admin.pages.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -208,6 +217,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Menu::class)
                     <a href="{{route('admin.menus.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -218,6 +229,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\Faq::class)
                     <a href="{{route('admin.faqs.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -228,7 +241,8 @@
                             </div> 
                         </div>
                     </a>
-
+                    @endcan
+                    @can('viewAny',\App\Models\Setting::class)
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -239,6 +253,8 @@
                             </div> 
                         </div>
                     </a> 
+                    @endcan
+                    @can('viewAny',\App\Models\HubFile::class)
                     <a href="{{route('admin.files.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -249,6 +265,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\RateLimit::class)
                     <a href="{{route('admin.traffics.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -259,6 +277,8 @@
                             </div> 
                         </div>
                     </a>
+                    @endcan
+                    @can('viewAny',\App\Models\ReportError::class)
                     <a href="{{route('admin.traffics.error-reports')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -269,7 +289,21 @@
                             </div> 
                         </div>
                     </a>
-                    
+                    @endcan
+
+                    @can('view',auth()->user())
+                    <a href="{{route('admin.users.index')}}" class="col-12 px-0">
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-user font-3"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                ملفي الشخصي
+                            </div> 
+                        </div>
+                    </a>
+                    @endcan
+
                     <a href="#" class="col-12 px-0" onclick="document.getElementById('logout-form').submit();">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">

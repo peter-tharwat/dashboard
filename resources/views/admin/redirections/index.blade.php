@@ -11,9 +11,11 @@
 				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
+					@can('create',\App\Models\Redirection::class)
 					<a href="{{route('admin.redirections.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
+					@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -55,14 +57,14 @@
 							@endif
 						</td>
 						<td style="width: 180px;">
-							@if(auth()->user()->has_access_to('update',$redirection))
+							@can('update',$redirection)
 							<a href="{{route('admin.redirections.edit',$redirection)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 								<span class="fas fa-wrench "></span> تحكم
 							</span>
 							</a>
 							@endif
-							@if(auth()->user()->has_access_to('delete',$redirection))
+							@can('delete',$redirection)
 							<form method="POST" action="{{route('admin.redirections.destroy',$redirection)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف

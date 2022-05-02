@@ -52,7 +52,7 @@ class ProfileController extends Controller
             'name'=>$request->name,
             'bio'=>$request->bio
         ]);
-        notify()->info('عملية ناجحة','تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         //emotify('info','تمت العملية بنجاح');
         return redirect()->back();
     }
@@ -92,7 +92,7 @@ class ProfileController extends Controller
             flash()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
             return redirect()->back();
         }else{
-            notify()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
+            flash()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
             return redirect()->back();
         }  
     }

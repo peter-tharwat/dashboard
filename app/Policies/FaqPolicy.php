@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\FaqReply;
+use App\Models\Faq;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -26,10 +26,10 @@ class FaqPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FaqReply  $faqReply
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, FaqReply $faqReply)
+    public function view(User $user, Faq $faq)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -51,10 +51,10 @@ class FaqPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FaqReply  $faqReply
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, FaqReply $faqReply)
+    public function update(User $user, Faq $faq)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -64,10 +64,10 @@ class FaqPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FaqReply  $faqReply
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, FaqReply $faqReply)
+    public function delete(User $user, Faq $faq)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -77,10 +77,10 @@ class FaqPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FaqReply  $faqReply
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, FaqReply $faqReply)
+    public function restore(User $user, Faq $faq)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -90,10 +90,10 @@ class FaqPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FaqReply  $faqReply
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, FaqReply $faqReply)
+    public function forceDelete(User $user, Faq $faq)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;

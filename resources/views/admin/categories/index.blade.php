@@ -11,9 +11,11 @@
 				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
+					@can('create',\App\Models\Category::class)
 					<a href="{{route('admin.categories.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
+					@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -50,20 +52,20 @@
 						<td>{{$category->title}}</td>
 					 
 						<td style="width: 180px;">
-							@if(auth()->user()->has_access_to('update',$category))
+							@can('update',$category)
 							<a href="{{route('admin.categories.edit',$category)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 								<span class="fas fa-wrench "></span> تحكم
 							</span>
 							</a>
-							@endif
-							@if(auth()->user()->has_access_to('delete',$category))
+							@endcan
+							@can('delete',$category)
 							<form method="POST" action="{{route('admin.categories.destroy',$category)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endif
+							@endcan
 						</td>
 					</tr>
 					@endforeach

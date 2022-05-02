@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\SettingReply;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -18,7 +18,7 @@ class SettingPolicy
      */
     public function viewAny(User $user)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -26,12 +26,12 @@ class SettingPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SettingReply  $settingReply
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, SettingReply $settingReply)
+    public function view(User $user, Setting $setting)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -43,7 +43,7 @@ class SettingPolicy
      */
     public function create(User $user)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -51,12 +51,12 @@ class SettingPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SettingReply  $settingReply
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, SettingReply $settingReply)
+    public function update(User $user, Setting $setting)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -64,12 +64,12 @@ class SettingPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SettingReply  $settingReply
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, SettingReply $settingReply)
+    public function delete(User $user, Setting $setting)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -77,12 +77,12 @@ class SettingPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SettingReply  $settingReply
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, SettingReply $settingReply)
+    public function restore(User $user, Setting $setting)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 
@@ -90,12 +90,12 @@ class SettingPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\SettingReply  $settingReply
+     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, SettingReply $settingReply)
+    public function forceDelete(User $user, Setting $setting)
     {
-        if(in_array($user->power,["ADMIN","EDITOR"]))
+        if(in_array($user->power,["ADMIN"]))
             return 1;
     }
 }

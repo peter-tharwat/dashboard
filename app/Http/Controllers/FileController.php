@@ -18,7 +18,14 @@ class FileController extends Controller
      */
     public function index(Request $request)
     {
-        $files = HubFile::orderBy('id','DESC')->paginate();
+        $files = HubFile::where(function($q)use($request){
+
+            if($request->id!=null)
+                $q->where('id',$request->id);
+            if($request->user_id!=null)
+                $q->where('user_id',$request->user_id);
+            
+        })->orderBy('id','DESC')->paginate();
         return view('admin.files.index',compact('files'));
     }
 

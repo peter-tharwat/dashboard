@@ -4,11 +4,14 @@
 	<div class="container">
 		<div class="p-3 main-box mx-auto" style="width:600px;max-width: 100%;">
 			<div class="d-flex align-items-center justify-content-center py-4">
-			 	<div class="col-12 d-inline-block mx-auto" style="width:120px">
-			 		<img src="{{auth()->user()->getUserAvatar()}}" style="width:120px;max-width: 100%;border-radius: 50%;">
-			 		<div class="col-12 font-3 text-center py-2">
-			 			{{auth()->user()->name}}
+			 	<div class="col-12 d-flex justify-content-center align-items-center mx-auto " style="width:100%">
+			 		<div class="col-12 p-0 text-center">
+				 		<img src="{{auth()->user()->getUserAvatar()}}" style="width:120px;max-width: 100%;border-radius: 50%;" class="d-inline-block">
+				 		<div class="col-12 font-3 text-center py-2">
+				 			{{auth()->user()->name}}
+				 		</div>
 			 		</div>
+			 		
 			 	</div>
 			 	
 			</div>

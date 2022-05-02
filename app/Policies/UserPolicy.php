@@ -102,4 +102,8 @@ class UserPolicy
         if(in_array($user->power,["ADMIN"]))
             return 1;
     }
+
+    public function control(User $user){
+        return 1;
+    }
 }

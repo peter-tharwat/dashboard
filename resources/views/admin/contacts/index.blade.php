@@ -43,13 +43,14 @@
 						<td>{{$contact->email}}</td>
 						<td>{{$contact->phone}}</td> 
 						<td style="width: 180px;">
-
+							@can('view',$contact)
 							<a href="{{route('admin.contacts.show',$contact)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 								<span class="fas fa-eye "></span> عرض
 							</span>
 							</a>
-							@if(auth()->user()->has_access_to('delete',$contact))
+							@endcan
+							@can('delete',$contact)
 							<form method="POST" action="{{route('admin.contacts.destroy',$contact)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف

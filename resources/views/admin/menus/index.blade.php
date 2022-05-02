@@ -11,9 +11,11 @@
 				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
+					@can('create',\App\Models\Menu::class)
 					<a href="{{route('admin.menus.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
+					@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -48,27 +50,30 @@
 					 
 						<td style="width: 270px;">
 
-					 
+					 		@can('show',$menu)
 							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-link "></span> الروابط
 								</span>
 							</a>
-						 
-							@if(auth()->user()->has_access_to('update',$menu))
+							@endcan
+							
+							@can('update',$menu)
 							<a href="{{route('admin.menus.edit',$menu)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
+									<span class="fas fa-wrench"></span> تحكم
 								</span>
 							</a>
-							@endif
-							@if(auth()->user()->has_access_to('delete',$menu))
+							@endcan
+
+							@can('delete',$menu)
 							<form method="POST" action="{{route('admin.menus.destroy',$menu)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endif
+							@endcan
+
 						</td>
 					</tr>
 					@endforeach

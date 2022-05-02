@@ -75,12 +75,14 @@
 					    <td>{{$file->created_at}}</td>
 						<td style="width: 180px;">
 
+							@can('show',\App\Models\HubFile::class)
 							<a href="{{$file->get_real_url()}}" target="_blank">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1 py-1 px-2">
 								<span class="fas fa-eye "></span> عرض
 							</span>
 							</a>
-							@if(auth()->user()->has_access_to('delete',$file))
+							@endcan
+							@can('delete',$file)
 							<form method="POST" action="{{route('admin.files.destroy',$file)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1 py-1 px-2" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف

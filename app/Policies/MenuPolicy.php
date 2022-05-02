@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\MenuReply;
+use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -26,10 +26,10 @@ class MenuPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuReply  $menuReply
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, MenuReply $menuReply)
+    public function view(User $user, Menu $menu)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -51,10 +51,10 @@ class MenuPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuReply  $menuReply
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, MenuReply $menuReply)
+    public function update(User $user, Menu $menu)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -64,10 +64,10 @@ class MenuPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuReply  $menuReply
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, MenuReply $menuReply)
+    public function delete(User $user, Menu $menu)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -77,10 +77,10 @@ class MenuPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuReply  $menuReply
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, MenuReply $menuReply)
+    public function restore(User $user, Menu $menu)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -90,10 +90,10 @@ class MenuPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuReply  $menuReply
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, MenuReply $menuReply)
+    public function forceDelete(User $user, Menu $menu)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;

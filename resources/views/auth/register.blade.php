@@ -13,7 +13,7 @@
     <div class="col-12 col-md-6 text-center p-0" style="">
         <div class="col-12 p-4 align-items-center justify-content-center d-flex row" style="height:100vh">
             <div class="col-12 p-0">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="register-form">
                         @csrf
 
                         <div class="col-12 p-0 mb-5" style="width: 550px;max-width: 100%;margin: 0px auto;">
@@ -86,4 +86,19 @@
             <div style="height: 100vh;background-image: url('{{asset('/images/auth-backgroud.jpg')}}');object-fit: cover;    vertical-align: middle;background-size: cover;background-repeat: no-repeat;"></div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script src="https://www.google.com/recaptcha/api.js?render={{ env("RECAPTCHA_SITE_KEY") }}"></script>
+<script>
+grecaptcha.ready(function() {
+  document.getElementById('register-form').addEventListener("submit", function(event) {
+    event.preventDefault();
+    grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'register'}).then(function(token) {
+        console.log(token);
+       document.getElementById("recaptcha").value= token; 
+       document.getElementById('register-form').submit();
+    });
+  }, false);
+});
+</script>
 @endsection

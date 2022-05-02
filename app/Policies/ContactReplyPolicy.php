@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\ContactReply;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ContactReplyPolicy
+class ContactPolicy
 {
     use HandlesAuthorization;
 
@@ -26,10 +26,10 @@ class ContactReplyPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactReply  $contactReply
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, ContactReply $contactReply)
+    public function view(User $user, Contact $contact)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -51,10 +51,10 @@ class ContactReplyPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactReply  $contactReply
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, ContactReply $contactReply)
+    public function update(User $user, Contact $contact)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -64,10 +64,10 @@ class ContactReplyPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactReply  $contactReply
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, ContactReply $contactReply)
+    public function delete(User $user, Contact $contact)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -77,10 +77,10 @@ class ContactReplyPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactReply  $contactReply
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, ContactReply $contactReply)
+    public function restore(User $user, Contact $contact)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -90,10 +90,10 @@ class ContactReplyPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactReply  $contactReply
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, ContactReply $contactReply)
+    public function forceDelete(User $user, Contact $contact)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;

@@ -24,6 +24,8 @@ class ContactController extends Controller
         $contacts =  Contact::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
+            if($request->user_id!=null)
+                $q->where('user_id',$request->user_id);
             if($request->q!=null)
                 $q->where('name','LIKE','%'.$request->q.'%')->orWhere('phone','LIKE','%'.$request->q.'%')->orWhere('email','LIKE','%'.$request->q.'%')->orWhere('message','LIKE','%'.$request->q.'%');
         })->orderBy('id','DESC')->paginate();
