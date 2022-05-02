@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class MenuLinkController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(MenuLink::class, 'menu-link'); 
+    }
     /**
      * Display a listing of the resource.
      *

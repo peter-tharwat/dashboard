@@ -33,6 +33,42 @@ class MainHelper {
             );
         }
     }
+
+    public static function recaptcha($cap){
+        
+         $ipAddress = 'NA';
+        if(isset($_SERVER["HTTP_CF_CONNECTING_IP"])){ 
+            $ipAddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        } else{ 
+            $ipAddress = $_SERVER['REMOTE_ADDR'];
+        } 
+
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        //$remoteip = $_SERVER['REMOTE_ADDR'];
+        $data = [
+                'secret' => env("RECAPTCHA_SECRET_KEY"),
+                'response' => $cap,
+                'remoteip' => $ipAddress
+              ];
+        $options = [
+                'http' => [
+                  'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                  'method' => 'POST',
+                  'content' => http_build_query($data)
+                ]
+            ];
+        $context = stream_context_create($options);
+                $result = file_get_contents($url, false, $context);
+                $resultJson = json_decode($result);
+
+        if ($resultJson->success != true) {
+            return 0; 
+        }else{
+         return json_decode(json_encode($resultJson),true)['score']; 
+        } 
+
+    }
+
     public static function notify_visitors(
         $options=[]
     ){

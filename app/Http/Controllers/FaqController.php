@@ -6,6 +6,13 @@ use App\Models\Faq;
 use Illuminate\Http\Request;
 class FaqController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Faq::class, 'faq'); 
+    }
+
     /**
      * Display a listing of the resource.
      *

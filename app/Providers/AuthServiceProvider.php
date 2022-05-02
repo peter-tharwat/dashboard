@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-
+use App\Models\User;
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -13,8 +13,20 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        \App\Models\User::class => \App\Policies\UserPolicy::class,
+        \App\Models\Category::class => \App\Policies\CategoryPolicy::class,
+        \App\Models\Article::class => \App\Policies\ArticlePolicy::class,
+        \App\Models\Redirection::class => \App\Policies\RedirectionPolicy::class,
+        \App\Models\Contact::class => \App\Policies\ContactPolicy::class,
+        \App\Models\Page::class => \App\Policies\PagePolicy::class,
+        \App\Models\Menu::class => \App\Policies\MenuPolicy::class,
+        \App\Models\Faq::class => \App\Policies\FaqPolicy::class,
+        \App\Models\Setting::class => \App\Policies\SettingPolicy::class,
+        \App\Models\HubFile::class => \App\Policies\HubFilePolicy::class,
+        \App\Models\RateLimit::class => \App\Policies\RateLimitPolicy::class,
+        \App\Models\ErrorReport::class => \App\Policies\ErrorReportPolicy::class
     ];
+
 
     /**
      * Register any authentication / authorization services.
@@ -24,7 +36,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        Gate::define('create-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
+        Gate::define('read-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
+        Gate::define('update-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
+        Gate::define('delete-user',function(User $user){if($user->power=="SUPER_ADMIN")return 1;return 0;});
 
-        //
     }
 }

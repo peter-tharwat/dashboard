@@ -10,6 +10,11 @@ class ArticleController extends Controller
 {
     
 
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article'); 
+    }
+
     public function index(Request $request)
     {
         $articles =  Article::where(function($q)use($request){

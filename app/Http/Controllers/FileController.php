@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(HubFile::class, 'hub-file'); 
+    }
     /**
      * Display a listing of the resource.
      *

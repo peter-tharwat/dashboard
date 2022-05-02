@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ContactReplyController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(ContactReply::class, 'contact-reply'); 
+    }
+
     /**
      * Display a listing of the resource.
      *

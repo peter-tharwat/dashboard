@@ -22,6 +22,7 @@ class FrontController extends Controller
             "phone"=>"required|numeric",
             "message"=>"required|min:3|max:10000",
         ]);
+        if(\MainHelper::recaptcha($request->recaptcha)<0.8)abort(401);
         Contact::create([
             'user_id'=>auth()->check()?auth()->id():NULL,
             'name'=>$request->name,
@@ -29,6 +30,7 @@ class FrontController extends Controller
             'phone'=>$request->phone,
             'message'=>"قادم من : ".urldecode(url()->previous())."\n\nالرسالة : ".$request->message
         ]);
+
         flash()->success('تم استلام رسالتك بنجاح وسنتواصل معك في أقرب وقت');
         //\Session::flash('message', __("Your Message Has Been Send Successfully And We Will Contact You Soon !"));
         return redirect()->back();

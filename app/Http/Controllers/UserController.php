@@ -7,9 +7,33 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+
+    protected function resourceAbilityMap()
+    {
+        return [
+            'index'=>'viewAny',
+            'create'=>'store',
+            'store'=>'store',
+            'show' => 'view',
+            'create' => 'create',
+            'store' => 'create',
+            'edit' => 'update',
+            'update' => 'update',
+            'destroy' => 'delete',
+            /*'customMethod'=>'customMethod',*/
+        ];
+    }
+    protected function resourceMethodsWithoutModels()
+    {
+        return ['index', 'create', 'store' /*, 'customMethod'*/];
+    }
+
+
     public function __construct()
     {
-        $this->middleware(['CheckRole:ADMIN'])->only(['create']);
+        $this->middleware(['CheckRole:ADMIN']);
+        $this->authorizeResource(User::class, 'user'); 
     }
     /**
      * Display a listing of the resource.

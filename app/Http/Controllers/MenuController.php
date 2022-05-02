@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Menu::class, 'menu'); 
+    }
     /**
      * Display a listing of the resource.
      *

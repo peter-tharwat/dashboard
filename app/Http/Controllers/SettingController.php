@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->authorizeResource(Setting::class, 'setting'); 
+    }
+
     public function index()
     {
         $settings = Setting::firstOrCreate();

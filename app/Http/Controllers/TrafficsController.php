@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\RateLimit;
 use App\Models\ReportError;
 use App\Models\RateLimitDetail;
+
 class TrafficsController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(RateLimit::class, 'rate-limit'); 
+    }
     public function index(Request $request){
         $traffics=RateLimit::where(function($q)use($request){
           if($request->id!=null)

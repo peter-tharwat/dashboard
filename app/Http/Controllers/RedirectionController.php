@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RedirectionController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Redirection::class, 'redirection'); 
+    }
+
     /**
      * Display a listing of the resource.
      *

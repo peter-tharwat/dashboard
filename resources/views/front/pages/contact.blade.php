@@ -1,28 +1,5 @@
 @extends('layouts.app',['page_title'=>"تواصل معنا"])
-@section('styles')
-<script type="text/javascript">
-        function callbackThen(response){
-            // read HTTP status
-            console.log(response.status);
-            
-            // read Promise object
-            response.json().then(function(data){
-                console.log(data);
-            });
-        }
-        function callbackCatch(error){
-            console.error('Error:', error)
-        }   
-    </script>   
-{!! htmlScriptTagJsApi([
-        'action' => 'homepage',
-        'callback_then' => 'callbackThen',
-        'callback_catch' => 'callbackCatch'
-    ]) !!} 
-@endsection
 @section('content')
-
- 
 <div class="col-12 p-0">
     <div class=" p-0 container">
         <div class="col-12 p-2 p-lg-3 row">
@@ -39,7 +16,8 @@
             </div>
             <div class="col-12 col-lg-8 p-0 ">
                 <div style="max-width: 100%;text-align: justify;" class="mx-auto p-0 font-2 naskh">
-                    <form class="" method="POST" action="{{route('contact-post')}}">
+                    <form class="" method="POST" action="{{route('contact-post')}}" id="contact-form">
+                        <input type="hidden" name="recaptcha" id="recaptcha"> 
                         @csrf
                         <div class="col-12 px-0 py-3">
                             <div class="col-12">
@@ -63,7 +41,7 @@
                         </div>
                         <div class="col-12 px-0 py-3">
                             <div class="col-12">
-                                <button class="btn btn-success rounded-0" type="submit">إرسال الرسالة</button>
+                                <button class="btn btn-success rounded-0" type="submit" >إرسال الرسالة</button>
                             </div>
                         </div>
                     </form>
@@ -72,4 +50,19 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script src="https://www.google.com/recaptcha/api.js?render={{ env("RECAPTCHA_SITE_KEY") }}"></script>
+<script>
+grecaptcha.ready(function() {
+  document.getElementById('contact-form').addEventListener("submit", function(event) {
+    event.preventDefault();
+    grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'contact'}).then(function(token) {
+        console.log(token);
+       document.getElementById("recaptcha").value= token; 
+       document.getElementById('contact-form').submit();
+    });
+  }, false);
+});
+</script>
 @endsection
