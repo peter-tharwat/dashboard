@@ -9,7 +9,7 @@
         "biscolab/laravel-recaptcha": "^5.3",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
-        "laravel/framework": "^9.8",
+        "laravel/framework": "^9.10",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
