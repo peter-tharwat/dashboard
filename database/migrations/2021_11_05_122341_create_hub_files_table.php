@@ -18,6 +18,7 @@ class CreateHubFilesTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on("users")->onDelete('cascade'); 
             $table->string('path')->nullable();
+            $table->string('original_name')->nullable();
             $table->string('name')->index();
             $table->string('extension')->nullable();
             $table->integer('size')->nullable();
@@ -28,6 +29,7 @@ class CreateHubFilesTable extends Migration
             $table->string('is_main')->nullable();
             $table->string('visibility')->nullable();
             $table->string('bucket_name')->nullable();
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }

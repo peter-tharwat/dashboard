@@ -24,9 +24,15 @@ class HelperController extends Controller
             'fileName'=>$file['filename'],
             'uploaded'=>1,
             'success'=>true,
+            "hasWarnings"=>false,
+            "isSuccess"=>true,
+            "warnings"=>[],
             'location'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
             'file'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
-            'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'] 
+            'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
+            'files'=>[
+                $file['files'] 
+            ]
         ];
     }
 
