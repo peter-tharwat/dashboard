@@ -30,9 +30,8 @@ class HelperController extends Controller
             'location'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
             'file'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
             'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
-            'files'=>[
-                $file['files'] 
-            ]
+            'files'=>$file['files'] 
+            
         ];
     }
 

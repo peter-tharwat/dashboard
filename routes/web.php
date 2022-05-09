@@ -23,7 +23,7 @@ use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactReplyController;
-
+use App\Http\Controllers\AnnouncementController;
 
 
 Auth::routes();
@@ -36,7 +36,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
     Route::middleware(['CheckRole:ADMIN'])->group(function () {
 
         
-
+        Route::resource('announcements',AnnouncementController::class);
         Route::resource('files',FileController::class);
         Route::post('contacts/resolve',[ContactController::class,'resolve'])
                 ->can('resolve',\App\Models\Contact::class)->name('contacts.resolve');

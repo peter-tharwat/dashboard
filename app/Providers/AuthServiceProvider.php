@@ -24,7 +24,8 @@ class AuthServiceProvider extends ServiceProvider
         \App\Models\Setting::class => \App\Policies\SettingPolicy::class,
         \App\Models\HubFile::class => \App\Policies\HubFilePolicy::class,
         \App\Models\RateLimit::class => \App\Policies\RateLimitPolicy::class,
-        \App\Models\ErrorReport::class => \App\Policies\ErrorReportPolicy::class
+        \App\Models\ErrorReport::class => \App\Policies\ErrorReportPolicy::class,
+        \App\Models\Announcement::class => \App\Policies\AnnouncementPolicy::class
     ];
 
 
