@@ -135,7 +135,6 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if(!auth()->user()->has_access_to('update',$user))abort(403);
         return view('admin.users.edit',compact('user'));
     }
 
@@ -148,7 +147,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if(!auth()->user()->has_access_to('update',$user))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
@@ -201,7 +199,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(!auth()->user()->has_access_to('delete',$user))abort(403);
         $user->delete();
         flash()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');

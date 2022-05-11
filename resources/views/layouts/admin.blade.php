@@ -106,12 +106,8 @@
       </div>
     </div>
  --}}
-
-
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
-        
-
         <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 100" class="aside active">
             <div class="col-12 px-0 d-flex" style="height: 60px;background: #1a2d4d">
                 <div class="col-12 px-2 font-3  d-flex  justify-content-center pt-md-1" style="color: #fff">
