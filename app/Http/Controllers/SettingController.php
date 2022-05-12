@@ -9,7 +9,7 @@ class SettingController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Setting::class, 'setting'); 
+        $this->authorizeResource(Setting::class, 'settings'); 
     }
 
     public function index()
@@ -18,7 +18,7 @@ class SettingController extends Controller
         return view('admin.settings.index',compact('settings'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Setting $settings)
     {
         \App\Models\Setting::query()->update([
             'website_name'=>$request->website_name,

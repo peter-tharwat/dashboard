@@ -61,7 +61,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('footer-links',FooterLinkController::class);
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/',[SettingController::class,'index'])->name('index');
-            Route::put('/update',[SettingController::class,'update'])->name('update');
+            Route::put('/{settings}/update',[SettingController::class,'update'])->name('update');
         });
     });
 
