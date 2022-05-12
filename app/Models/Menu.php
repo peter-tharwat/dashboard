@@ -12,4 +12,7 @@ class Menu extends Model
     public function getRouteKeyName(){
         return 'location';
     }
+    public function links(){
+        return $this->hasMany(\App\Models\MenuLink::class,'menu_id');
+    }
 }

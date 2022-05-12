@@ -20,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
         \App\Models\Contact::class => \App\Policies\ContactPolicy::class,
         \App\Models\Page::class => \App\Policies\PagePolicy::class,
         \App\Models\Menu::class => \App\Policies\MenuPolicy::class,
+        \App\Models\MenuLink::class => \App\Policies\MenuLinkPolicy::class,
         \App\Models\Faq::class => \App\Policies\FaqPolicy::class,
         \App\Models\Setting::class => \App\Policies\SettingPolicy::class,
         \App\Models\HubFile::class => \App\Policies\HubFilePolicy::class,

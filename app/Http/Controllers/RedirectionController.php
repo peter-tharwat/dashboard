@@ -80,7 +80,6 @@ class RedirectionController extends Controller
      */
     public function edit(Redirection $redirection)
     {
-        if(!auth()->user()->has_access_to('update',$redirection))abort(403);
         return view('admin.redirections.edit',compact('redirection'));
     }
 
@@ -93,7 +92,6 @@ class RedirectionController extends Controller
      */
     public function update(Request $request, Redirection $redirection)
     {
-        if(!auth()->user()->has_access_to('update',$redirection))abort(403);
         $request->validate([
             'url'=>"required|url",
             'new_url'=>"required|url",
@@ -116,7 +114,6 @@ class RedirectionController extends Controller
      */
     public function destroy(Redirection $redirection)
     {
-        if(!auth()->user()->has_access_to('delete',$redirection))abort(403);
         $redirection->delete();
         flash()->success('تم حذف التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');

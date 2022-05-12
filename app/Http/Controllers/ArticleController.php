@@ -108,7 +108,6 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
         $categories= Category::orderBy('id','DESC')->get();
         return view('admin.articles.edit',compact('article','categories'));
     }
@@ -126,7 +125,6 @@ class ArticleController extends Controller
             'slug'=>\MainHelper::slug($request->slug)
         ]);
 
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug,".$article->id,
             'category_id'=>"required|array",
@@ -173,7 +171,6 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if(!auth()->user()->has_access_to('delete',$article))abort(403);
         $article->delete();
         flash()->success('تم حذف المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');

@@ -10,7 +10,7 @@ class MenuLinkController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(MenuLink::class, 'menu-link'); 
+        $this->authorizeResource(MenuLink::class); 
     }
     /**
      * Display a listing of the resource.
@@ -135,7 +135,7 @@ class MenuLinkController extends Controller
      * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuLink $menuLink)
+    public function destroy(Request $request , MenuLink $menuLink)
     {
         $menuLink->delete();
         flash()->success('تمت العملية بنجاح');

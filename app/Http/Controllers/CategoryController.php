@@ -105,7 +105,6 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {   
-        if(!auth()->user()->has_access_to('update',$category))abort(403);
         return view('admin.categories.edit',compact('category'));
     }
 
@@ -122,7 +121,6 @@ class CategoryController extends Controller
             'slug'=>\MainHelper::slug($request->slug)
         ]);
 
-        if(!auth()->user()->has_access_to('update',$category))abort(403);
         $request->validate([
             'slug'=>"required|max:190|unique:categories,slug,".$category->id,
             'title'=>"required|max:190",
@@ -163,7 +161,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(!auth()->user()->has_access_to('delete',$category))abort(403);
         $category->delete();
         flash()->success('تم حذف القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');

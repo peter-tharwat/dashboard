@@ -50,7 +50,7 @@
 					 
 						<td style="width: 270px;">
 
-					 		@can('show',$menu)
+					 		@can('viewAny',\App\Models\MenuLink::class)
 							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-link "></span> الروابط

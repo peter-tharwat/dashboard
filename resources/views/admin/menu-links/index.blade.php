@@ -54,6 +54,7 @@
 						<td style="width: 270px;">
 
 						 
+							
 
 							@can('update',$link)
 							<a href="{{route('admin.menu-links.edit',$link)}}">
@@ -62,6 +63,7 @@
 								</span>
 							</a>
 							@endcan
+
 							@can('delete',$link)
 							<form method="POST" action="{{route('admin.menu-links.destroy',$link)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">

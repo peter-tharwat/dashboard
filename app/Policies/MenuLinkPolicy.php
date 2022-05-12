@@ -26,10 +26,10 @@ class MenuLinkPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuLink  $munuLink
+     * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, MenuLink $munuLink)
+    public function view(User $user, MenuLink $menuLink)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -51,10 +51,10 @@ class MenuLinkPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuLink  $munuLink
+     * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, MenuLink $munuLink)
+    public function update(User $user, MenuLink $menuLink)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -64,10 +64,10 @@ class MenuLinkPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuLink  $munuLink
+     * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, MenuLink $munuLink)
+    public function delete(User $user, MenuLink $menuLink)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -77,10 +77,10 @@ class MenuLinkPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuLink  $munuLink
+     * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, MenuLink $munuLink)
+    public function restore(User $user, MenuLink $menuLink)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
@@ -90,10 +90,10 @@ class MenuLinkPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MenuLink  $munuLink
+     * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, MenuLink $munuLink)
+    public function forceDelete(User $user, MenuLink $menuLink)
     {
         if(in_array($user->power,["ADMIN","EDITOR"]))
             return 1;
