@@ -20,6 +20,8 @@ class MenuLinkController extends Controller
     public function index(Request $request)
     {
         $menuLinks =  MenuLink::where(function($q)use($request){
+            if($request->menu_id!=null)
+                $q->where('menu_id',$request->menu_id);
             if($request->id!=null)
                 $q->where('id',$request->id);
             if($request->q!=null)

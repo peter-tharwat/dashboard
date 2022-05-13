@@ -1,23 +1,39 @@
 @extends('layouts.admin')
 @section('content')
-<div class="col-12 py-2 px-3 row">
-	 <div class="col-12 px-2 pt-4 " style="background: #fff;min-height: 80vh">
-	 	<div class="col-12 py-4 justify-content-between row d-flex">
-	 		<div class="col-12 col-lg-4 px-2 mb-2">
-	 			<form method="get" action="{{route('admin.announcements.index')}}">
-	 				<input type="" name="key" class="form-control" style="border-radius: 0px;border:1px solid #ddd" placeholder="بحث .. " autofocus="" value="{{request()->get('key')}}">
-	 			</form> 
-	 		</div>
-	 		<div class="col-12 col-lg-4 px-2 justify-content-end d-flex mb-2">
+
+<div class="col-12 p-3">
+	<div class="col-12 col-lg-12 p-0 main-box">
+	 
+		<div class="col-12 px-0">
+			<div class="col-12 p-0 row">
+				<div class="col-12 col-lg-4 py-3 px-3">
+					<span class="fas fa-contacts"></span> الاعلانات
+				</div>
+				<div class="col-12 col-lg-4 p-2">
+				</div>
+			</div>
+			<div class="col-12 divider" style="min-height: 2px;"></div>
+		</div>
+
+		<div class="col-12 py-2 px-2 row">
+			<div class="col-12 col-lg-4 p-2">
+				<form method="GET">
+					<input type="text" name="q" class="form-control" placeholder="بحث ... ">
+				</form>
+			</div>
+			<div class="col-12 col-lg-4 px-2 justify-content-end d-flex mb-2">
 	 			@can('create',\App\Models\Announcement::class)
 	 			<a href="{{route('admin.announcements.create')}}">
 	 				<button class="btn btn-primary pb-2 rounded-0"><span class="fas fa-plus"></span> إضافة إعلان</button>
 	 			</a>
 	 			@endcan
 	 		</div>
-
-	 	</div> 
-	 	<table class="table">
+		</div>
+		<div class="col-12 p-3" style="overflow:auto">
+			<div class="col-12 p-0" style="min-width:1100px;">
+				
+			
+			<table class="table table-bordered  table-hover">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
