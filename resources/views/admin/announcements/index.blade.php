@@ -15,7 +15,7 @@
 			<div class="col-12 divider" style="min-height: 2px;"></div>
 		</div>
 
-		<div class="col-12 py-2 px-2 row">
+		<div class="col-12 py-2 px-2 row justify-content-between">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
 					<input type="text" name="q" class="form-control" placeholder="بحث ... ">

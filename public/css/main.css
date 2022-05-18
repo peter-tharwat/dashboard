@@ -334,7 +334,7 @@ label.error{
 }
 
 .fileuploader-items .fileuploader-item{
-    border-color: var(--bg-second-bg)!important;
+    border-color: none!important;
 }
 .fileuploader-items .fileuploader-item .fileuploader-action+.fileuploader-action{
     margin-left: 0px!important;
