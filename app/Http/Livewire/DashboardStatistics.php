@@ -139,7 +139,7 @@ class DashboardStatistics extends Component
         $date = new \DateTime($this->date_to);
         $date->modify("+$this->days_between day");
         $days=[];
-        for($i=0;$i<$this->days_between;$i++){
+        for($i=1;$i<=$this->days_between;$i++){
             $sub= $this->days_between-$i;
             array_push($days,\Carbon::parse(date('d.m.Y',strtotime("-$sub  days")))->format('Y-m-d'));
         }
