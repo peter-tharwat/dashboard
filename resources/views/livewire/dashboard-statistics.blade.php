@@ -33,7 +33,7 @@ $flat_colors = collect([
         </div>
      </div> --}}
 
-    <div class="col-12 row p-0">
+    <div class="col-12 row p-0 d-flex">
 
         <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
@@ -149,9 +149,8 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="col-12 p-0 main-box" >
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         أعلى الصفحات زيارة
@@ -163,20 +162,48 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-auto p-2">
-            <div class="col-12 p-0 main-box">
+        <div class="col-12 col-lg-4 p-2">
+            <div class="col-12 p-0 main-box" style="min-height:100%">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        انظمة التشغيل
+                        أعلى مصادر الزيارات
                     </div>
                     <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>
                 <div class="col-12 p-3">
-                    <canvas id="ChartOperatingSystems" style="width:100%;max-height:250px"></canvas>
+                    <div id="ChartTopDomains">
+                        
+                    </div> 
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-auto p-2">
+        <div class="col-12 col-lg-4 p-2">
+            <div class="col-12 p-0 main-box" style="min-height:100%">
+                <div class="col-12 px-0">
+                    <div class="col-12 px-3 py-3">
+                        أعلى الدول وصولاً
+                    </div>
+                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                </div>
+                <div class="col-12 p-3">
+                    @php
+                    $top_countries_count = $data['top_countries']->sum('count')+0.01;
+                    @endphp
+                    @foreach($data['top_countries'] as $country)
+                        <div class="col-12 col-lg-12 p-2 font-1 mb-3">
+                            <div class="col-12 p-0 mb-2" style="font-size:12px">
+                               {{$country->country_name}} 
+                            </div>
+                            <div class="progress" style="height:7px;border-radius:50px">
+                                <div class="progress-bar " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{($country->count/($top_countries_count+0.01))*100}}%;background:#2196f3"></div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -189,7 +216,21 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-auto p-2">
+        <div class="col-12 col-lg-4 p-2">
+            <div class="col-12 p-0 main-box">
+                <div class="col-12 px-0">
+                    <div class="col-12 px-3 py-3">
+                        انظمة التشغيل
+                    </div>
+                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                </div>
+                <div class="col-12 p-3">
+                    <canvas id="ChartOperatingSystems" style="width:100%;max-height:250px"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -202,6 +243,12 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
+        
+
+
+
+
+        
         @endcan
     </div>  
 
@@ -369,6 +416,76 @@ $flat_colors = collect([
             }
         }
     });
+
+
+
+    var chart = new ApexCharts(document.querySelector("#ChartTopDomains"), {
+      chart: {
+        height: 280,
+        type: "area",
+
+      },
+      dataLabels: {
+        enabled: false
+      },
+      series: [
+        {
+          name: "أعلى مصادر الزيارات",
+          data: [
+            @foreach($data['top_domains'] as $domain )
+                "{{$domain->domain_count}}",
+                @endforeach
+          ]
+          
+        }
+      ],
+      xaxis: {
+        categories: [
+          
+          @foreach($data['top_domains'] as $domain )
+            "{{$domain->main_domain}}",
+            @endforeach
+        ]
+      }
+    }).render();
+
+
+   /* const ChartTopDomains = new Chart(document.getElementById('ChartTopDomains'), {
+        type: 'bar',
+        data: {
+            labels: [
+            @foreach($data['top_domains'] as $domain )
+            "{{$domain->main_domain}}",
+            @endforeach
+            ],
+            datasets: [{
+                label: 'المواقع',
+                data: [
+                @foreach($data['top_domains'] as $domain )
+                "{{$domain->domain_count}}",
+                @endforeach
+                ],
+                
+                backgroundColor:{!!json_encode($flat_colors)!!},
+                borderColor: [
+                    'transparent',
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+*/
+
+ 
+
+
     const ChartDevices = new Chart(document.getElementById('ChartDevices'), {
         type: 'pie',
         data: {

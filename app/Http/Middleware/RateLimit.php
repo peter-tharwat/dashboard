@@ -34,7 +34,6 @@ class RateLimit
             $ip=$ipAddress;
         }
 
-
         $max_per_minute = \App\Models\RateLimit::where('ip',$ip)->where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
         if($max_per_minute>=150)
         abort(403);
@@ -55,11 +54,14 @@ class RateLimit
 
                 }   
             }  
+            $country=(new UserSystemInfoHelper)->get_country_from_ip($ip);
             $traffic= \App\Models\RateLimit::create([
                 'traffic_landing'=>\Request::fullUrl(),
                 'domain'=>$prev_domain,
                 'prev_link'=>$prev_url,
                 'ip'=>$ip,
+                'country_code'=>$country['country_code'],
+                'country_name'=>$country['country'],
                 'agent_name'=>$request->header('User-Agent'),
                 'user_id'=>auth()->check() ? auth()->user()->id : null ,
                 'browser'=>UserSystemInfoHelper::get_browsers(),
