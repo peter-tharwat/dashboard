@@ -195,7 +195,7 @@ class DashboardStatistics extends Component
             if($this->user_id!=null)
                 $q->where('user_id',$this->user_id);
             $q->whereDate('created_at','>=',$this->date_from)->whereDate('created_at','<=',$this->date_to);
-        })->whereNotNull('prev_link')->select(['rate_limits.*',\DB::raw("COUNT(*) AS domain_count,SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(prev_link,'http://',''),'https://',''),'www.',''),'/',1) AS main_domain")])->orderBy('domain_count','DESC')->limit(10)->get();
+        })->whereNotNull('prev_link')->select(['rate_limits.*',\DB::raw("COUNT(*) AS domain_count,SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(prev_link,'http://',''),'https://',''),'www.',''),'/',1) AS main_domain")])->orderBy('domain_count','DESC')->groupBy('main_domain')->orderBy('domain_count','DESC')->limit(10)->get();
 
     }
     public function top_countries(){
