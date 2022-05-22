@@ -393,3 +393,21 @@ label.error{
 .front-content iframe{
     width: 100%!important;
 }
+.circle-chart {
+    position: absolute!important;
+}
+.circle-chart__circle {
+    animation: circle-chart-fill 1s reverse;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+@keyframes circle-chart-fill {
+  to { stroke-dasharray: 0 100; }
+}
+
+@keyframes circle-chart-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

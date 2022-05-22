@@ -47,7 +47,8 @@ class DashboardStatistics extends Component
             'new_users'=>$this->new_users(),
             'traffics'=>$this->traffics(),
             'top_domains'=>$this->top_domains(),
-            'top_countries'=>$this->top_countries()
+            'top_countries'=>$this->top_countries(),
+            'current_visitors'=>$this->current_visitors(),
         ];
         return view('livewire.dashboard-statistics',compact('data'));
     }  
@@ -109,14 +110,8 @@ class DashboardStatistics extends Component
     }
     public function top_users(){
         return \App\Models\RateLimitDetail::where(function($q){
-            if($this->url!=null)
-                $q->where('traffic_landing',$this->url);
-            if($this->prev_url!=null)
-                $q->where('prev_url',$this->prev_url);
-            if($this->country_code!=null)
-                $q->where('country_code',$this->country_code);
             if($this->user_id!=null)
-                $q->where('user_id',$this->user_id);
+                $q->where('id',$this->user_id);
             $q->whereDate('created_at','>=',$this->date_from)->whereDate('created_at','<=',$this->date_to);
         })->groupBy('user_id')->orderBy(\DB::raw("count('user_id')"),'DESC')->select()->addSelect(\DB::raw("count('user_id') as count"))->with(['user'])->limit(10)->get();
     }
@@ -131,7 +126,7 @@ class DashboardStatistics extends Component
             if($this->user_id!=null)
                 $q->where('user_id',$this->user_id);
             $q->whereDate('created_at','>=',$this->date_from)->whereDate('created_at','<=',$this->date_to);
-        })->groupBy('ip')->orderBy(\DB::raw("count('ip')"),'DESC')->select()->addSelect(\DB::raw("count('ip') as count"))->limit(10)->get();
+        })->groupBy('ip')->orderBy(\DB::raw("count('ip')"),'DESC')->select()->addSelect(\DB::raw("count('ip') as count"))->limit(7)->get();
     }
     public function traffics(){
         $traffics=[];
@@ -195,7 +190,7 @@ class DashboardStatistics extends Component
             if($this->user_id!=null)
                 $q->where('user_id',$this->user_id);
             $q->whereDate('created_at','>=',$this->date_from)->whereDate('created_at','<=',$this->date_to);
-        })->whereNotNull('prev_link')->select(['rate_limits.*',\DB::raw("COUNT(*) AS domain_count,SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(prev_link,'http://',''),'https://',''),'www.',''),'/',1) AS main_domain")])->orderBy('domain_count','DESC')->groupBy('main_domain')->orderBy('domain_count','DESC')->limit(10)->get();
+        })->whereNotNull('prev_link')->select(['rate_limits.*',\DB::raw("COUNT(*) AS domain_count,SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(prev_link,'http://',''),'https://',''),'www.',''),'/',1) AS main_domain")])->orderBy('domain_count','DESC')->groupBy('main_domain')->orderBy('domain_count','DESC')->limit(7)->get();
 
     }
     public function top_countries(){
@@ -213,6 +208,20 @@ class DashboardStatistics extends Component
             $q->whereDate('created_at','>=',$this->date_from)->whereDate('created_at','<=',$this->date_to);
         })->groupBy('country_code')->orderBy(\DB::raw("count('country_code')"),'DESC')->select()->addSelect(\DB::raw("count('country_code') as count"))->limit(10)->get();
 
+    }
+    public function current_visitors(){
+        return \App\Models\RateLimitDetail::whereHas('rate_limit',function($q){
+
+            if($this->url!=null)
+                $q->where('traffic_landing',$this->url);
+            if($this->prev_url!=null)
+                $q->where('prev_url',$this->prev_url);
+            if($this->country_code!=null)
+                $q->where('country_code',$this->country_code);
+            if($this->user_id!=null)
+                $q->where('user_id',$this->user_id);
+            
+        })->where('created_at','>',\Carbon::parse(now())->subMinutes(3)->format('Y-m-d H:i:s'))->groupBy('rate_limit_id')->get()->count();
     }
 
 }
