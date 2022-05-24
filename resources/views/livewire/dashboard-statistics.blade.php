@@ -30,26 +30,7 @@ $flat_colors = collect([
     </div> --}}
     <div class="col-12 row p-0 d-flex">
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 col-lg-4 p-2">
-                <div class="col-12 p-0 main-box d-flex align-items-center" style="min-height:100%">
-                    <div class="col-12 p-0 " style="height:100%">
-                        <div class="col-12 p-0 d-flex justify-content-center align-items-center my-auto">
-                            <div style="width: 120px;display: flex;border-radius: 50%!important;max-width: 100%;position: relative;height: 120px;position: relative;color: #1dcbba;font-weight: bold;" class="d-flex justify-content-center align-items-center font-6 my-2">
-                                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
-                                    <circle class="circle-chart__background" stroke="#f1f1f1" stroke-width="1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                                    <circle class="circle-chart__circle" stroke="#1dcbba" stroke-width="1.5" stroke-dasharray="{{($data['current_visitors']/($data['current_visitors']+2))*100}},100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                                </svg>
-                                <div style="font-size:30px;font-weight:bold">
-                                    {{$data['current_visitors']}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 px-3 py-3 font-4 text-center" style="color:#1dcbba;font-weight:bold;">
-                            النشطين الآن
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
@@ -110,6 +91,18 @@ $flat_colors = collect([
                             </div>
                         </a>
                     </div>
+                    @can('viewAny',\App\Models\Announcement::class)
+                    <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
+                        <a href="{{route('admin.announcements.index')}}" style="color:inherit;">
+                            <div class="col-12 p-0 text-center">
+                                <span class="fal fa-bullhorn font-5"></span>
+                                <div class="col-12 p-0 text-center">
+                                    الإعلانات
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endcan
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -124,6 +117,8 @@ $flat_colors = collect([
             </div>
         </div>
         @can('show-statistics')
+
+
         <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
@@ -150,6 +145,53 @@ $flat_colors = collect([
                     <div id="main-chart">
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 p-2" >
+            <div class="col-12 p-0 main-box d-flex align-items-center" style="min-height:100%">
+                <div class="col-12 py-3 px-0 " style="height:100%">
+                    <div class="col-12 p-0 d-flex justify-content-center align-items-center my-auto">
+                        <div style="width: 80px;display: flex;border-radius: 50%!important;max-width: 100%;position: relative;height: 80px;position: relative;color: #1dcbba;font-weight: bold;" class="d-flex justify-content-center align-items-center font-6 my-2">
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+                        <circle class="circle-chart__background" stroke="#f1f1f1" stroke-width="1.5" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        <circle class="circle-chart__circle" stroke="#1dcbba" stroke-width="2" stroke-dasharray="{{count($data['current_visitors'])/(count($data['current_visitors'])+2 )*100}},100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                         </svg>
+                        <div style="font-size:25px;font-weight:bold" >
+                            {{count($data['current_visitors'])}}
+                        </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-12 px-3 py-3 font-3 text-center" style="color:#1dcbba;font-weight:bold;">
+                        النشطين الآن
+                    </div>
+                    <div class="col-12 p-3" style="overflow: auto;">
+                            <table class="table   table-hover" style="min-width:350px;max-height:150px">
+                                <thead>
+                                    <tr style="height: 10px">
+                                        <th style="font-size:12px">#</th>
+                                        <th style="font-size:12px">الرابط</th>
+                                        <th style="font-size:12px">الدولة</th>
+                                        <th style="font-size:12px">قادم من</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($data['current_visitors'] as $page)
+                                    <tr style="height: 10px">
+                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->id}}</td>
+                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->traffic_landing}}</td>
+                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->country_name}}</td>
+                                        <td style="font-size:12px" class="text-truncate">{{
+
+                                            $page->rate_limit->prev_link}}</td>
+                                    </tr>
+                                    @endforeach
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                </div>    
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
@@ -325,7 +367,7 @@ $flat_colors = collect([
                     @endforeach
                 ],
 
-                backgroundColor: {!!json_encode($flat_colors) !! },
+                backgroundColor: {!!json_encode($flat_colors) !!},
                 borderColor: [
                     'transparent',
                 ],
@@ -356,7 +398,7 @@ $flat_colors = collect([
                     @endforeach
                 ],
 
-                backgroundColor: {!!json_encode($flat_colors) !! },
+                backgroundColor: {!!json_encode($flat_colors) !!},
                 borderColor: [
                     'transparent',
                 ],
@@ -388,7 +430,7 @@ $flat_colors = collect([
                     @endforeach
                 ],
 
-                backgroundColor: {!!json_encode($flat_colors) !! },
+                backgroundColor: {!!json_encode($flat_colors) !!},
                 borderColor: [
                     'transparent',
                 ],
@@ -487,7 +529,7 @@ $flat_colors = collect([
                     @endforeach
                 ],
 
-                backgroundColor: {!!json_encode($flat_colors) !! },
+                backgroundColor: {!!json_encode($flat_colors) !!},
                 borderColor: [
                     'transparent',
                 ],

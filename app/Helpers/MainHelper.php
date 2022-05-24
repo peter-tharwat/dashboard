@@ -129,7 +129,6 @@ class MainHelper {
          $url_regex = '~(http|ftp)s?://[a-z0-9.-]+\.[a-z]{2,7}(/\S*)?~i';
          return preg_replace($url_regex, " <a href='$0' target='_blank' rel='nofollow' style='font-family: inherit;'>$0</a> ",urldecode(htmlspecialchars($string)));
     }
-    
     public static function slug($string){
         $t = $string; 
         $specChars = array(

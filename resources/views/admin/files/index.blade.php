@@ -49,11 +49,11 @@
 						<td class="text-truncate d-flex">
 							@if( in_array($file->extension, ['jpg','jpeg','gif','png','webp']))
 							<div class="col-auto p-1">
-							<img src="{{$file->get_real_url()}}" style="width:60px;display: inline-block;" class="mx-2">
+							<img src="{{$file->get_url()}}" style="width:60px;display: inline-block;" class="mx-2">
 							</div>
 							@endif
 							<div class="col-auto p-1">
-							<a href="{{$file->get_real_url()}}" style="display: inline-block;" target="_blank">
+							<a href="{{$file->get_url()}}" style="display: inline-block;" target="_blank">
 							 <span class="fas fa-link mx-1"></span>	الرابط
 							</a>
 							<br>

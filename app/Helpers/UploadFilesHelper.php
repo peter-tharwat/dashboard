@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Http\Request;
+use App\Models\HubFile;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use ImageOptimizer;
@@ -160,7 +162,7 @@ class UploadFilesHelper
             'small_path'=>'small/',
             'visibility'=>'PUBLIC',
             'file_system_type'=>env('FILESYSTEM_DRIVER','s3'),
-            'optimize'=>false,
+            'optimize'=>true,
             'new_extension'=>"",
             'used_at'=>NULL,
         ],$options);
@@ -182,7 +184,7 @@ class UploadFilesHelper
 
 
         //dd('/'.strtolower($options['visibility']) . $path . $filename, $file);
-        if(null != $options["resize"] && $options['validation']=="image" ){
+        if(null != $options["resize"] && $options['validation']=="image" && $options['optimize']==true ){
 
             $manager_sm  = new ImageManager(['driver' => 'imagick']);
             $image_sm    = $manager_sm->make($file);
@@ -220,14 +222,7 @@ class UploadFilesHelper
                 $imagick->setImageCompressionQuality($quality);
                 $image_lg = $imagick->getImageBlob();
             }
-
-
-
-
  
-          /*  $optimizerChain = OptimizerChainFactory::create();
-            $test= $optimizerChain->optimize($file);
-            dd($test);*/
 
          
 
@@ -247,21 +242,12 @@ class UploadFilesHelper
                 'getMimeType'   => $file->getMimeType(),
                 'type'          => $options["type"],
                 'name'          => $filename,
-                'ip'            => \UserSystemInfoHelper::get_ip(),
-                'user_agent'    => \UserSystemInfoHelper::get_user_agent(),
                 'original_name' => $file->getClientOriginalName(),
                 'visibility'    => $options["visibility"],
                 'bucket_name'   => $options["file_system_type"],
                 'used_at'       => $options['used_at'],
-                'unique_name'   => substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5)
             ]
-        ); 
-        if(isset($options['optimize']) && $options['optimize']==true){
-            $optimizerChain = OptimizerChainFactory::create();
-            //$test = $optimizerChain->optimize($stored_data->get_real_url());
-            //dd($test);
-            #ImageOptimizer::optimize($stored_data->get_path()); 
-        }
+        );  
 
 
         return [
@@ -270,10 +256,7 @@ class UploadFilesHelper
             'link'     => $stored_data->get_url(),
             'old_size' =>self::formatSizeUnits($old_size),
             'new_size' =>self::formatSizeUnits(
-
-                //\File::size( strtolower($options['visibility']).$path . $filename )
-
-                \Storage::disk($options["file_system_type"])->size(strtolower($options['visibility']).$path . $filename  )
+                $file->getSize()
             ),
             'saved'    =>"",
             "hasWarnings"=>false,
@@ -314,5 +297,47 @@ class UploadFilesHelper
         }
         return ['success' => false, 'filename' => $name];
     }
-    
+
+
+    public static function get_private_file(Request $request,HubFile $file){
+        if(!self::has_access_to_get_private_file($file))abort(403);
+        return redirect($file->get_temp_url());
+
+        dd($file);
+
+        $video=\App\Models\Video::where('url',$request->path)->firstOrFail();
+        if($video->cost_type=="FREE"){
+            
+        }
+        if($file->visibility=="PRIVATE") {
+            if(\Auth::check() && (\Auth::user()->hasRole("ADMIN") || $file->user_id == \Auth::user()->id ) )
+            {  
+                return redirect(Storage::disk($file->bucket_name)->temporaryUrl(
+                    substr($file->path, 1) .$file->name ,
+                    now()->addHour()
+                ));  
+            }
+            else if($file->type=="ticket_message"){
+                  if(\Auth::check()){
+                        $tm = \App\TicketMessage::where('id',$file->type_id)->firstOrFail(); 
+                        if(\Auth::user()->hasRole("ADMIN") || $tm->ticket->user_id==\Auth::id()){
+                              return redirect(Storage::disk($file->bucket_name)->temporaryUrl(
+                                substr($file->path, 1) .$file->name ,
+                                now()->addHour()
+                            )); 
+                        }
+                  }
+            }
+            abort(403);
+           
+        }else if($file->visibility=="PUBLIC"){
+            
+        }else{
+            abort(403);
+        }
+
+    } 
+    public static function has_access_to_get_private_file(HubFile $file){
+        return 1;
+    }
 }
