@@ -60,11 +60,11 @@ thead th {
     text-decoration: unset !important;
 }
 .main-content {
-    width: calc(100% - 280px);
-    margin-right: 280px;
+    width: calc(100% - 260px);
+    margin-right: 260px;
 }
 .top-nav {
-    width: calc(100% - 280px);
+    width: calc(100% - 260px);
 }
 .aside * {
     color: #fff;
@@ -76,7 +76,7 @@ thead th {
     right: 0px;
 }
 .aside.in-active {
-    right: -280px;
+    right: -260px;
 }
 .item {
     padding: 5px 0px 10px 0px;
@@ -84,6 +84,8 @@ thead th {
 }
 .main-box-wedit{
     box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
+    border-radius: 10px 25px 10px 25px;
+    background: #fff;
 }
 .main-content.active .top-nav {
     width: 100% !important;
@@ -97,10 +99,10 @@ thead th {
         width: 100% !important;
     }
     .aside {
-        right: -280px;
+        right: -260px;
     }
     .aside.active {
-        right: -280px;
+        right: -260px;
     }
     .aside.in-active {
         right: 0px;

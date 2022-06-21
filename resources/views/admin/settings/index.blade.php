@@ -18,13 +18,10 @@
 	
 </style>
 <div class="col-12 py-0 px-3 row">
-	
 	 <div class="col-12  p-0" style="background: #fff;min-height: 80vh">
-
 	 	<div class="col-12 px-3 py-4">
 	 		<h4 class="font-4">إعدادات الموقع</h4>
 	 	</div>
-
 	 	<div class="col-12 row" >
 			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener active" data-opentab="general-tab">
 				<span  class="fal fa-wrench me-2"></span>	عام
@@ -45,11 +42,9 @@
 				<span  class="fal fa-cogs me-2"></span>	اخرى
 			</div>
 		</div>
-
 	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update',$settings)}}" enctype="multipart/form-data" >
 	 	@csrf
 	 	@method("PUT")
-	 	
 	 	<div class="col-12 col-lg-8 px-3 py-5">
 	 		 
 	 		<div class="col-12 row p-0 taber active" id="general-tab">
@@ -77,7 +72,6 @@
 		 				<textarea name="website_bio" class="form-control">{{$settings->website_bio}}</textarea>
 		 			</div> 
 		 		</div>
-
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 		 				بريد التواصل
@@ -86,8 +80,6 @@
 		 				<input type="email" name="contact_email" class="form-control" value="{{$settings->contact_email}}" >
 		 			</div> 
 		 		</div>
-		 		 
-
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 		 				لوجو الموقع (200*200)
@@ -134,8 +126,6 @@
 		 				</div>
 		 			</div> 
 		 		</div>
-
-		 		
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 		 				اللون الرئيسي
@@ -152,7 +142,6 @@
 		 				<input type="color" name="hover_color"  value="{{$settings->hover_color}}" maxlength="190">
 		 			</div> 
 		 		</div>
-		 		
 		 	</div>
 		 	<div class="col-12 row p-0 taber" id="links-tab">
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -259,13 +248,10 @@
 	 				<input type="url" name="github_link" class="form-control" value="{{$settings->github_link}}" >
 	 			</div> 
 	 		</div>
-	 		
-
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 	 			<br>
 	 			<hr>
 	 		</div>
-
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 	 				رابط مخصص 1
@@ -290,7 +276,6 @@
 	 				<input type="url" name="another_link3" class="form-control" value="{{$settings->another_link3}}" >
 	 			</div> 
 	 		</div>
-
 	 	</div>
 	 	<div class="col-12 row p-0 taber" id="pages-tab">
 

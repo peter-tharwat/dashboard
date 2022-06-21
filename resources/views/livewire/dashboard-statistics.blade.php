@@ -36,14 +36,15 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         إجرائات سريعة
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3 row d-flex">
                     <div class="col-4  d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('home')}}" target="_blank" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-home font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                <img src="/images/icons/house.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-home font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     الموقع
                                 </div>
                             </div>
@@ -53,8 +54,9 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.settings.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-wrench font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                <img src="/images/icons/settings.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-wrench font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     الإعدادات
                                 </div>
                             </div>
@@ -64,8 +66,9 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-user font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                <img src="/images/icons/man.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-user font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     ملفي
                                 </div>
                             </div>
@@ -74,8 +77,9 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-user-edit font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                <img src="/images/icons/edit.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-user-edit font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     تعديل ملفي
                                 </div>
                             </div>
@@ -84,8 +88,10 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.notifications.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-bells font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                
+                                <img src="/images/icons/notification.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-bells font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     الإشعارات
                                 </div>
                             </div>
@@ -95,8 +101,10 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.announcements.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-bullhorn font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                
+                                <img src="/images/icons/annonce.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-bullhorn font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     الإعلانات
                                 </div>
                             </div>
@@ -106,13 +114,17 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <span class="fal fa-sign-out-alt font-5"></span>
-                                <div class="col-12 p-0 text-center">
+                                
+                                <img src="/images/icons/logout.png" style="width:40px;height: 40px">
+                                {{-- <span class="fal fa-sign-out-alt font-5" ></span> --}}
+                                <div class="col-12 p-0 text-center" >
                                     خروج
                                 </div>
                             </div>
                         </a>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -123,13 +135,31 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        معدل الزوار
+                        <div class="col-12 p-0">
+                            <div class="col-12 p-0 row">
+                                <div class="col-4">
+                                    معدل الزوار
+
+                                    
+                                </div>
+                                <div class="col-8 d-flex justify-content-end align-items-center">
+                                    
+
+                                    <div class="spinner-grow text-info mx-2" role="status" style="width:15px;height: 15px">
+                                      <span class="visually-hidden"></span>
+                                    </div>
+
+                                    <span style="font-weight: bold;">{{count($data['current_visitors'])}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
-                    <div id="traffics-chart">
-                    </div>
+                    <canvas id="traffics-chart">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -139,71 +169,37 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         المستخدمين الجدد
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
-                    <div id="main-chart">
-                    </div>
+                    <canvas id="new-users">
+                    </canvas>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-lg-4 p-2" >
-            <div class="col-12 p-0 main-box d-flex align-items-center" style="min-height:100%">
-                <div class="col-12 py-3 px-0 " style="height:100%">
-                    <div class="col-12 p-0 d-flex justify-content-center align-items-center my-auto">
-                        <div style="width: 80px;display: flex;border-radius: 50%!important;max-width: 100%;position: relative;height: 80px;position: relative;color: #1dcbba;font-weight: bold;" class="d-flex justify-content-center align-items-center font-6 my-2">
-                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
-                        <circle class="circle-chart__background" stroke="#f1f1f1" stroke-width="1.5" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                        <circle class="circle-chart__circle" stroke="#1dcbba" stroke-width="2" stroke-dasharray="{{count($data['current_visitors'])/(count($data['current_visitors'])+2 )*100}},100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                         </svg>
-                        <div style="font-size:25px;font-weight:bold" >
-                            {{count($data['current_visitors'])}}
-                        </div>
-                        </div>
-
-
-                    </div>
-                    <div class="col-12 px-3 py-3 font-3 text-center" style="color:#1dcbba;font-weight:bold;">
-                        النشطين الآن
-                    </div>
-                    <div class="col-12 p-3" style="overflow: auto;">
-                            <table class="table   table-hover" style="min-width:350px;max-height:150px">
-                                <thead>
-                                    <tr style="height: 10px">
-                                        <th style="font-size:12px">#</th>
-                                        <th style="font-size:12px">الرابط</th>
-                                        <th style="font-size:12px">الدولة</th>
-                                        <th style="font-size:12px">قادم من</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($data['current_visitors'] as $page)
-                                    <tr style="height: 10px">
-                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->id}}</td>
-                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->traffic_landing}}</td>
-                                        <td style="font-size:12px" class="text-truncate">{{$page->rate_limit->country_name}}</td>
-                                        <td style="font-size:12px" class="text-truncate">{{
-
-                                            $page->rate_limit->prev_link}}</td>
-                                    </tr>
-                                    @endforeach
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                </div>    
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 p-2">
+        </div>        <div class="col-12 col-lg-4 p-2">
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         أعلى الصفحات زيارة
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
-                    <canvas id="ChartTopPages" style="width:100%;max-height:250px"></canvas>
+                    @foreach($data['top_pages'] as $page)
+             
+                    <div class="col-12 px-2 py-1 row">
+                        <div class="col-4 p-0">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                                {{$page->count}}
+                            </span>
+                            
+                        </div>
+                        <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
+                            <a href="{{$page->url}}" target="_blank" style="color:inherit">{{str_replace(env('APP_URL'),'',$page->url) }}</a>
+                        </div>
+                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
@@ -213,11 +209,34 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى مصادر الزيارات
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
-                    <div id="ChartTopDomains">
+
+                    @foreach($data['top_domains'] as $main_domain)
+             
+                    <div class="col-12 px-2 py-1 row">
+                        <div class="col-4 p-0">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                                {{$main_domain->domain_count}}
+                            </span>
+                            
+                        </div>
+                        <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
+                            <a href="{{$main_domain->url}}" target="_blank" style="color:inherit">
+                                @php
+                                $main_domain_icon="";
+                                try{
+                                   $main_domain_icon=parse_url($main_domain->main_domain, PHP_URL_HOST);
+                                }catch(\Exception $e){}
+                                @endphp
+                                <img src="https://icons.duckduckgo.com/ip3/{{$main_domain_icon}}.ico" style="width:10px;height: 10px;">
+                                {{$main_domain->main_domain}}
+                            </a>
+                        </div>
                     </div>
+                    @endforeach
+ 
                 </div>
             </div>
         </div>
@@ -227,22 +246,34 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى الدول وصولاً
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3 row">
+
                     @php
                     $top_countries_count = $data['top_countries']->sum('count')+0.01;
                     @endphp
+
+
                     @foreach($data['top_countries'] as $country)
-                    <div class="col-12 col-lg-6 p-2 font-1 mb-3">
-                        <div class="col-12 p-0 mb-2" style="font-size:12px">
-                            {{$country->country_name}}
+             
+                    <div class="col-12 px-2 py-1 row">
+                        <div class="col-4 p-0">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                                {{$country->count}}
+                            </span>
+                            
                         </div>
-                        <div class="progress" style="height:7px;border-radius:50px">
-                            <div class="progress-bar " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{($country->count/($top_countries_count+0.01))*100}}%;background:#2196f3"></div>
+                        <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
+                            
+                                <span class="fi fi-{{$country->country_code}} mx-1" style="font-size:10px"></span>
+                                {{$country->country_name}}
                         </div>
                     </div>
                     @endforeach
+
+
+                   
                 </div>
             </div>
         </div>
@@ -252,7 +283,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         المتصفحات
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartBrowsers" style="width:100%;max-height:250px"></canvas>
@@ -265,7 +296,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         انظمة التشغيل
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartOperatingSystems" style="width:100%;max-height:250px"></canvas>
@@ -278,7 +309,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى الأجهزة
                     </div>
-                    <div class="col-12 divider" style="min-height: 2px;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartDevices" style="width:100%;max-height:250px"></canvas>
@@ -292,65 +323,160 @@ $flat_colors = collect([
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script type="text/javascript">
-    var chart = new ApexCharts(document.querySelector("#traffics-chart"), {
-        chart: {
-            height: 280,
-            type: "area",
 
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [{
-            name: "معدل الزوار",
-            data: [
-                @foreach(array_reverse($data['traffics']) as $key => $value)
-                "{{$value}}",
-                @endforeach
-            ]
+        new Chart(document.getElementById('traffics-chart').getContext('2d'), {
+            type: 'line',
+            data: {     
+            labels: [
+            @foreach(array_reverse($data['traffics']) as $key => $value)
+            "{{$key}}",
+            @endforeach
+            ],
+            datasets: [{
+                label: '# معدل الشراء',
+                    data: [
+                    @foreach(array_reverse($data['traffics']) as $key => $value)
+                    "{{$value}}",
+                    @endforeach
+                    ],
+                        backgroundColor: "#2196f3cc",
+                        borderColor: '#2196f3',
+                        pointStyle: 'rect',
+                        lineTension: '.15',
+                        tension: 0.1,
+                        fill: true,
+                        pointStyle:"circle",
+                        pointBorderColor:"#2196f3",
+                        pointBackgroundColor:"#fff",
+                        pointRadius:4,
+                        borderWidth: 3.5,
+                }]
+            },
+            options: {
+                responsive:true,
+                plugins: {
+                    legend: {
+                        display:false,
+                        labels: {
+                            font: {
+                                size: 14,
+                                family:"kufi-arabic"
+                            }
+                        }
+                    }
+                },
+                scales: {
 
-        }],
-        xaxis: {
-            categories: [
+                    x: {
+                    beginAtZero:false,
+                    grid: {
+                      display: false
+                    }
+                  },
+                  y: { 
+                    grid: {
+                      display: true,
+                      color:"rgb(3,169,244,0.05)"
+                    }
+                  },
 
-                @foreach(array_reverse($data['traffics']) as $key => $value)
-                "{{$key}}",
-                @endforeach
-            ]
-        }
-    }).render();
+                },
+                hover: {
+                    mode: 'index'
+                },
+                legend: {
+                    labels: {
+
+                        fontFamily: 'kufi-arabic',
+                        defaultFontFamily: 'kufi-arabic',
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 1
+                    }
+                }
+            }
+        });
 
 
-    var chart = new ApexCharts(document.querySelector("#main-chart"), {
-        chart: {
-            height: 280,
-            type: "area",
 
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [{
-            name: "المستخدمين الجدد",
-            data: [
-                @foreach(array_reverse($data['new_users']['counts_list']) as $count)
-                "{{$count}}",
-                @endforeach
-            ]
 
-        }],
-        xaxis: {
-            categories: [
 
-                @foreach(array_reverse($data['new_users']['days_list']) as $day)
-                "{{$day}}",
-                @endforeach
-            ]
-        }
-    }).render();
+        new Chart(document.getElementById('new-users').getContext('2d'), {
+            type: 'line',
+            data: {     
+            labels: [
+            @foreach(array_reverse($data['new_users']['days_list']) as $day)
+            "{{$day}}",
+            @endforeach
+            ],
+            datasets: [{
+                label: '# معدل الشراء',
+                    data: [
+                    @foreach(array_reverse($data['new_users']['counts_list']) as $count)
+                    "{{$count}}",
+                    @endforeach
+                    ],
+                        backgroundColor: "#2196f3cc",
+                        borderColor: '#2196f3',
+                        pointStyle: 'rect',
+                        lineTension: '.15',
+                        tension: 0.1,
+                        fill: true,
+                        pointStyle:"circle",
+                        pointBorderColor:"#2196f3",
+                        pointBackgroundColor:"#fff",
+                        pointRadius:4,
+                        borderWidth: 3.5,
+                }]
+            },
+            options: {
+                responsive:true,
+                plugins: {
+                    legend: {
+                        display:false,
+                        labels: {
+                            font: {
+                                size: 14,
+                                family:"kufi-arabic"
+                            }
+                        }
+                    }
+                },
+                scales: {
 
-    //chart.render();
+                    x: {
+                    beginAtZero:false,
+                    grid: {
+                      display: false
+                    }
+                  },
+                  y: { 
+                    grid: {
+                      display: true,
+                      color:"rgb(3,169,244,0.05)"
+                    }
+                  },
 
+                },
+                hover: {
+                    mode: 'index'
+                },
+                legend: {
+                    labels: {
+
+                        fontFamily: 'kufi-arabic',
+                        defaultFontFamily: 'kufi-arabic',
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 1
+                    }
+                }
+            }
+        });
     const ChartBrowsers = new Chart(document.getElementById('ChartBrowsers'), {
         type: 'doughnut',
         data: {
@@ -413,106 +539,6 @@ $flat_colors = collect([
             }
         }
     });
-
-    const ChartTopPages = new Chart(document.getElementById('ChartTopPages'), {
-        type: 'doughnut',
-        data: {
-            labels: [
-                @foreach($data['top_pages'] as $page)
-                "{{str_replace(env('APP_URL'),'',$page->url) }}",
-                @endforeach
-            ],
-            datasets: [{
-                label: 'الصفحات',
-                data: [
-                    @foreach($data['top_pages'] as $page)
-                    "{{$page->count}}",
-                    @endforeach
-                ],
-
-                backgroundColor: {!!json_encode($flat_colors) !!},
-                borderColor: [
-                    'transparent',
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-
-
-    var chart = new ApexCharts(document.querySelector("#ChartTopDomains"), {
-        chart: {
-            height: 280,
-            type: "area",
-
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [{
-            name: "أعلى مصادر الزيارات",
-            data: [
-                @foreach($data['top_domains'] as $domain)
-                "{{$domain->domain_count}}",
-                @endforeach
-            ]
-
-        }],
-        xaxis: {
-            categories: [
-
-                @foreach($data['top_domains'] as $domain)
-                "{{$domain->main_domain}}",
-                @endforeach
-            ]
-        }
-    }).render();
-
-
-    /* const ChartTopDomains = new Chart(document.getElementById('ChartTopDomains'), {
-        type: 'bar',
-        data: {
-            labels: [
-            @foreach($data['top_domains'] as $domain )
-            "{{$domain->main_domain}}",
-            @endforeach
-            ],
-            datasets: [{
-                label: 'المواقع',
-                data: [
-                @foreach($data['top_domains'] as $domain )
-                "{{$domain->domain_count}}",
-                @endforeach
-                ],
-                
-                backgroundColor:{!!json_encode($flat_colors)!!},
-                borderColor: [
-                    'transparent',
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-*/
-
-
-
-
     const ChartDevices = new Chart(document.getElementById('ChartDevices'), {
         type: 'pie',
         data: {

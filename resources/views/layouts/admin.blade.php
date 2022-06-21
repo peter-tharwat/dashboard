@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
@@ -63,6 +64,15 @@
         pre{
             direction: ltr;
         }
+        .pace-activity{
+            width: 54px!important;
+            height: 54px!important;
+            border-radius: 50%!important;
+            top: 1px!important;
+            right: 1px!important;
+            border-width: 5px!important;
+
+        }
     </style>
 </head>
 
@@ -108,13 +118,19 @@
  --}}
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
-        <div style="width: 280px;background: #11233b;min-height: 100vh;position: fixed;z-index: 100" class="aside active">
-            <div class="col-12 px-0 d-flex" style="height: 60px;background: #1a2d4d">
-                <div class="col-12 px-2 font-3  d-flex  justify-content-center pt-md-1" style="color: #fff">
-                    <span class="fal fa-chart-pie font-4 pt-3 d-inline-block "></span>
-                    <span class="d-inline-block px-2 pt-2">لوحة التحكم</span> 
-                    <div class="d-flex d-md-none justify-content-center align-items-center px-0   asideToggle" style="width: 40px;height: 40px;">
-                        <span class="fal fa-bars font-4 cursor-pointer"></span>
+        <div style="width: 260px;background: #11233b;min-height: 100vh;position: fixed;z-index: 100" class="aside active">
+            <div class="col-12 px-0 d-flex" style="height: 55px;background: #1a2d4d">
+                <div class="col-12 p-1" style="color: #fff">
+                    <div class="col-12 p-0 row">
+                        <div class="col-3 py-1 px-1">
+                             <span class="fas fa-chart-bar font-4 d-flex justify-content-center align-items-center" style="background: #0194fe;height: 40px;width: 40px;border-radius: 50%;"></span>
+                        </div>
+                        <div class="col-9 ">
+                            <span class="d-inline-block px-2 font-3 pt-1">لوحة التحكم</span> 
+                        </div>
+                    </div>
+                    <div class="d-none d-md-none justify-content-center align-items-center px-0   asideToggle" style="width: 40px;height: 40px;">
+                        <span class="fas fa-bars font-4 cursor-pointer"></span>
                     </div>
                 </div>
             </div>
@@ -130,12 +146,12 @@
 
 
 
-                <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 250px);overflow: auto;">
+                <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
 
                     <a href="{{route('admin.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex" >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-home font-3"> </span> 
+                                <span class="fal fa-home font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الرئيسية
@@ -146,7 +162,7 @@
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-users font-3"> </span> 
+                                <span class="fal fa-users font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 المستخدمين
@@ -158,7 +174,7 @@
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-tag font-3"> </span> 
+                                <span class="fal fa-tag font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الأقسام
@@ -170,7 +186,7 @@
                     <a href="{{route('admin.articles.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-newspaper font-3"> </span> 
+                                <span class="fal fa-newspaper font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 المقالات
@@ -183,7 +199,7 @@
                     <a href="{{route('admin.announcements.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-bullhorn font-3"> </span> 
+                                <span class="fal fa-bullhorn font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الإعلانات
@@ -195,7 +211,7 @@
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-phone font-3"> </span> 
+                                <span class="fal fa-phone font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 طلب التواصل 
@@ -214,7 +230,7 @@
                     <a href="{{route('admin.pages.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-file-invoice font-3"> </span> 
+                                <span class="fal fa-file-invoice font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الصفحات
@@ -226,7 +242,7 @@
                     <a href="{{route('admin.menus.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-list font-3"> </span> 
+                                <span class="fal fa-list font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 القوائم
@@ -238,7 +254,7 @@
                     <a href="{{route('admin.faqs.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-question font-3"> </span> 
+                                <span class="fal fa-question font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                 الأسئلة الشائعة
@@ -250,7 +266,7 @@
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-wrench font-3"> </span> 
+                                <span class="fal fa-wrench font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                الإعدادات
@@ -265,7 +281,7 @@
                     <a href="#" class="col-12 px-0" onclick="document.getElementById('logout-form').submit();">
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-sign-out-alt font-3"> </span> 
+                                <span class="fal fa-sign-out-alt font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2">
                                تسجيل خروج
@@ -277,15 +293,15 @@
            
         </div>
         <div class="main-content in-active" style="overflow: hidden;">
-            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 60px;box-shadow: 0px 0px 12px #f1f1f1;background: #fff;position: fixed;width: 100%;width: calc(100% - 280px);z-index: 1000;">
-                <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light asideToggle" style="width: 60px;height: 60px;">
-                    <span class="fal fa-bars font-4"></span>
+            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: #fff;position: fixed;width: 100%;width: calc(100% - 260px);z-index: 1000;">
+                <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  asideToggle" style="width: 55px;height: 55px;">
+                    <span class="far fa-bars font-4"></span>
                 </div> 
                 <div class="col-12 px-0 d-flex justify-content-end  " style="height: 60px;">
                     <div class="btn-group" id="notificationDropdown">
 
-                        <div class="col-12 px-0 d-flex justify-content-center align-items-center btn btn-light " style="width: 60px;height: 60px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
-                            <span class="fas fa-bell font-4 d-inline-block" style="color: #ff9800;transform: rotate(15deg)"></span>
+                        <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  " style="width: 55px;height: 55px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
+                            <span class="fal fa-bell font-3 d-inline-block" style="color: #333;transform: rotate(15deg)"></span>
                             <span style="position: absolute;min-width: 25px;min-height: 25px;
                             @if($unreadNotifications!=0)
                             display: inline-block;
@@ -308,9 +324,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 60px;height: 60px;" >
-                        <div style="width: 60px;height: 60px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
-                            <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 60px;height: 60px;">
+                    <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 55px;height: 55px;" >
+                        <div style="width: 55px;height: 55px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
+                            <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;">
                         </div>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" >
                                 <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
@@ -345,7 +361,7 @@
 
                     </div>
 
-                    <div class="dropdown" style="width: 60px;height: 60px;background: #2381c6">
+                    <div class="dropdown" style="width: 55px;height: 55px;background: #2381c6">
                         <span class="d-inline-block fal fa-user"></span> 
                     </div>
 
@@ -385,5 +401,6 @@
     @livewireScripts
     @include('layouts.scripts')
     @yield('scripts')
+    @stack('scripts')
 </body>
 </html>
