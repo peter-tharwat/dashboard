@@ -224,13 +224,7 @@ $flat_colors = collect([
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
                             <a href="{{$main_domain->url}}" target="_blank" style="color:inherit">
-                                @php
-                                $main_domain_icon="";
-                                try{
-                                   $main_domain_icon=parse_url($main_domain->main_domain, PHP_URL_HOST);
-                                }catch(\Exception $e){}
-                                @endphp
-                                <img src="https://icons.duckduckgo.com/ip3/{{$main_domain_icon}}.ico" style="width:10px;height: 10px;">
+                                <img src="https://icons.duckduckgo.com/ip3/{{$main_domain->main_domain}}.ico" style="width:10px;height: 10px;" class="d-inline-block">
                                 {{$main_domain->main_domain}}
                             </a>
                         </div>
