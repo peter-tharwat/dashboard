@@ -42,7 +42,7 @@ $flat_colors = collect([
                     <div class="col-4  d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('home')}}" target="_blank" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <img src="/images/icons/house.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/house.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-home font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     الموقع
@@ -54,7 +54,7 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.settings.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <img src="/images/icons/settings.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/settings.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-wrench font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     الإعدادات
@@ -66,7 +66,7 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <img src="/images/icons/man.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/man.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-user font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     ملفي
@@ -77,7 +77,7 @@ $flat_colors = collect([
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
-                                <img src="/images/icons/edit.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/edit.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-user-edit font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     تعديل ملفي
@@ -89,7 +89,7 @@ $flat_colors = collect([
                         <a href="{{route('admin.notifications.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 
-                                <img src="/images/icons/notification.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/notification.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-bells font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     الإشعارات
@@ -102,7 +102,7 @@ $flat_colors = collect([
                         <a href="{{route('admin.announcements.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 
-                                <img src="/images/icons/annonce.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/annonce.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-bullhorn font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     الإعلانات
@@ -115,7 +115,7 @@ $flat_colors = collect([
                         <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
                                 
-                                <img src="/images/icons/logout.png" style="width:40px;height: 40px">
+                                <img src="/images/icons/logout.png" style="width:35px;height: 35px">
                                 {{-- <span class="fal fa-sign-out-alt font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
                                     خروج
@@ -186,21 +186,18 @@ $flat_colors = collect([
                 </div>
                 <div class="col-12 p-3">
                     @foreach($data['top_pages'] as $page)
-             
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
                             <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$page->count}}
                             </span>
-                            
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
                             <a href="{{$page->url}}" target="_blank" style="color:inherit">{{
-                                urlencode(str_replace(env('APP_URL'),'',$page->url)) }}</a>
+                                urldecode(str_replace(env('APP_URL'),'',$page->url)) }}</a>
                         </div>
                     </div>
                     @endforeach
-                    
                 </div>
             </div>
         </div>
@@ -224,7 +221,7 @@ $flat_colors = collect([
                             
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
-                            <a href="{{$main_domain->main_domain}}" target="_blank" style="color:inherit">
+                            <a href="//{{$main_domain->main_domain}}" target="_blank" style="color:inherit">
                                 <img src="https://icons.duckduckgo.com/ip3/{{$main_domain->main_domain}}.ico" style="width:10px;height: 10px;" class="d-inline-block">
                                 {{$main_domain->main_domain}}
                             </a>
