@@ -325,7 +325,7 @@ $flat_colors = collect([
             @endforeach
             ],
             datasets: [{
-                label: '# معدل الشراء',
+                label: '# معدل الزوار',
                     data: [
                     @foreach(array_reverse($data['traffics']) as $key => $value)
                     "{{$value}}",
@@ -404,7 +404,7 @@ $flat_colors = collect([
             @endforeach
             ],
             datasets: [{
-                label: '# معدل الشراء',
+                label: '# معدل المستخدمين الجدد',
                     data: [
                     @foreach(array_reverse($data['new_users']['counts_list']) as $count)
                     "{{$count}}",
