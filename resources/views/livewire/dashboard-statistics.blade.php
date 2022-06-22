@@ -195,7 +195,8 @@ $flat_colors = collect([
                             
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
-                            <a href="{{$page->url}}" target="_blank" style="color:inherit">{{str_replace(env('APP_URL'),'',$page->url) }}</a>
+                            <a href="{{$page->url}}" target="_blank" style="color:inherit">{{
+                                urlencode(str_replace(env('APP_URL'),'',$page->url)) }}</a>
                         </div>
                     </div>
                     @endforeach
@@ -223,7 +224,7 @@ $flat_colors = collect([
                             
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
-                            <a href="{{$main_domain->url}}" target="_blank" style="color:inherit">
+                            <a href="{{$main_domain->main_domain}}" target="_blank" style="color:inherit">
                                 <img src="https://icons.duckduckgo.com/ip3/{{$main_domain->main_domain}}.ico" style="width:10px;height: 10px;" class="d-inline-block">
                                 {{$main_domain->main_domain}}
                             </a>
