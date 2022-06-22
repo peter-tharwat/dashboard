@@ -501,7 +501,7 @@ $flat_colors = collect([
         }
     });
     const ChartOperatingSystems = new Chart(document.getElementById('ChartOperatingSystems'), {
-        type: 'polarArea',
+        type: 'doughnut',
         data: {
             labels: [
                 @foreach($data['top_operating_systems'] as $os)
@@ -532,7 +532,7 @@ $flat_colors = collect([
         }
     });
     const ChartDevices = new Chart(document.getElementById('ChartDevices'), {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: [
                 @foreach($data['top_devices'] as $device)
