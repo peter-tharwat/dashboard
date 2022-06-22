@@ -260,7 +260,7 @@ $flat_colors = collect([
                         </div>
                         <div class="col-8 text-truncate p-0" style="direction:ltr;font-size: 12px;">
                             
-                                <span class="fi fi-{{$country->country_code}} mx-1" style="font-size:10px"></span>
+                                <span class="fi fi-{{strtolower($country->country_code)}} mx-1" style="font-size:10px"></span>
                                 {{$country->country_name}}
                         </div>
                     </div>
