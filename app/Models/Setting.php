@@ -24,7 +24,7 @@ class Setting extends Model
     }
     public function website_wide_logo(){
         if($this->website_wide_logo==null)
-            return env('DEFAULT_IMAGE_COVER');
+            return env('DEFAULT_IMAGE_WIDELOGO');
         else
             return env('STORAGE_URL').'/uploads/website/'.$this->website_wide_logo;
     }
