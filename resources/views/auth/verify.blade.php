@@ -11,7 +11,7 @@
 <div class="col-12 p-0 row">
     <div class="col-12 col-md-6 text-center p-0" style="">
         <div class="col-12 p-4 align-items-center justify-content-center d-flex row" style="height:100vh">
-            <div class="col-12 p-0">
+            <div class="col-12 p-0" style="width: 550px;max-width: 100%;margin: 0px auto;">
                         <div class="col-12 p-0 mb-5" style="width: 550px;max-width: 100%;margin: 0px auto;">
                             <h3 class="mb-4">{{ __('lang.Verify Your Email Address') }}</h3>
                              <div class="divider"></div>

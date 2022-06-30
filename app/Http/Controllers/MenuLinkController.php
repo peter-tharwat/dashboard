@@ -137,11 +137,12 @@ class MenuLinkController extends Controller
      * @param  \App\Models\MenuLink  $menuLink
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request , MenuLink $menuLink)
-    {
+    public function destroy(MenuLink $menuLink)
+    {  
+        $menu_id=$menuLink->menu_id;
         $menuLink->delete();
         flash()->success('تمت العملية بنجاح');
-        return redirect()->route('admin.menu-links.index',['menu_id'=>$request->menu_id]);
+        return redirect()->route('admin.menu-links.index',['menu_id'=>$menu_id]);
     }
 
 
