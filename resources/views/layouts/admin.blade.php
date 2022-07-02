@@ -127,6 +127,9 @@
                         </div>
                         <div class="col-9 ">
                             <span class="d-inline-block px-2 font-3 pt-1">لوحة التحكم</span> 
+                            <span style="width: 55px;height: 55px;position: absolute;left: 0px;top: 0px;align-items: center;justify-content: center;cursor: pointer;background: rgb(17 35 59 / 39%);" class="asideToggle d-flex d-md-none rounded-0" >
+                                <span class="fal fa-bars font-4 "></span>
+                            </span>
                         </div>
                     </div>
                     <div class="d-none d-md-none justify-content-center align-items-center px-0   asideToggle" style="width: 40px;height: 40px;">

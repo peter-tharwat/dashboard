@@ -66,7 +66,7 @@
                 </td>
                 <td style="font-size: 12px">
                     <a href="{{$traffic->prev_link}}">
-                        {{$traffic->domain}}
+                        {{$traffic->prev_link}}
                     </a>
                 </td>
                 <td style="font-size: 12px">{{$traffic->ip}}</td>

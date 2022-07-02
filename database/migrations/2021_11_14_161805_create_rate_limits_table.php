@@ -17,9 +17,9 @@ class CreateRateLimitsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on("users")->onDelete('cascade');
-            $table->string('traffic_landing')->nullable();  
-            $table->string('domain')->nullable();
-            $table->string('prev_link')->nullable();
+            $table->string('traffic_landing')->nullable()->index();  
+            $table->string('domain')->nullable()->index();
+            $table->string('prev_link')->nullable()->index();
 
             $table->string('ip')->index();
 
@@ -28,9 +28,9 @@ class CreateRateLimitsTable extends Migration
             $table->string('device')->nullable()->index();
             $table->string('operating_system')->nullable()->index();
  
-            $table->string('code')->nullable(); 
-            $table->string('country_code')->nullable();
-            $table->string('country_name')->nullable();  
+            $table->string('code')->nullable()->index(); 
+            $table->string('country_code')->nullable()->index();
+            $table->string('country_name')->nullable()->index();  
             $table->string('note')->nullable();
             $table->timestamps();
         });
