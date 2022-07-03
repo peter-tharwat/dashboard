@@ -53,7 +53,7 @@ class FaqController extends Controller
            'answer'=>$request->answer,
            'is_featured'=>$request->is_featured, 
         ]);
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.faqs.index');
     }
 
@@ -93,7 +93,7 @@ class FaqController extends Controller
            'answer'=>$request->answer,
            'is_featured'=>$request->is_featured, 
         ]);
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.faqs.index');
     }
 
@@ -106,7 +106,7 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         $faq->delete();
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.faqs.index');
     }
 

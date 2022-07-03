@@ -52,7 +52,7 @@ class ProfileController extends Controller
             'name'=>$request->name,
             'bio'=>$request->bio
         ]);
-        flash()->success('تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         //emotify('info','تمت العملية بنجاح');
         return redirect()->back();
     }
@@ -89,7 +89,7 @@ class ProfileController extends Controller
             auth()->user()->update([
                 'password'=>Hash::make($request->password)
             ]);
-            flash()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
+            toastr()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
             return redirect()->back();
         }else{
             flash()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
@@ -104,7 +104,7 @@ class ProfileController extends Controller
         auth()->user()->update([
             'email'=>$request->email
         ]);
-        flash()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
+        toastr()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
         return redirect()->back();
     }
     

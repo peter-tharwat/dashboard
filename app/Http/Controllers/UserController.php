@@ -110,7 +110,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        flash()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
             
         
@@ -187,7 +187,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        flash()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 
@@ -200,7 +200,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        flash()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 }

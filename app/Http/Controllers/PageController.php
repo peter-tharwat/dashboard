@@ -83,7 +83,7 @@ class PageController extends Controller
             ]); 
             $page->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
 
@@ -153,7 +153,7 @@ class PageController extends Controller
             ]); 
             $page->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
 
@@ -167,7 +167,7 @@ class PageController extends Controller
     {
         if($page->removable==1){
             $page->delete();
-            flash()->success('تم العملية بنجاح','عملية ناجحة');
+            toastr()->success('تم العملية بنجاح','عملية ناجحة');
         }else{
             flash()->info('عفواً الصفحة غير قابلة للحذف','عملية ناجحة');
         }

@@ -71,7 +71,7 @@ class ContactReplyController extends Controller
         $contact->update(['has_support_reply'=>1]);
 
         ContactReply::create(['user_id'=>auth()->user()->id,'contact_id'=>$request->contact_id,'content'=>$request->content,'is_support_reply'=>1]);
-        flash()->success('تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         return redirect()->back();
     }
 

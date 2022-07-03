@@ -94,7 +94,7 @@ class FileController extends Controller
     {
         $file->forceDelete();
         //you have to remove it if you want
-        flash()->success("تمت العملية بنجاح");
+        toastr()->success("تمت العملية بنجاح");
         return redirect()->back();
     }
 }

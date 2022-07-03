@@ -17,8 +17,8 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^2.7",
         "nesbot/carbon": "^2.54",
-        "spatie/laravel-flash": "^1.9",
-        "stevebauman/location": "^6.2"
+        "stevebauman/location": "^6.2",
+        "yoeunes/toastr": "^2.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

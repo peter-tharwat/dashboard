@@ -44,10 +44,5 @@ class AppServiceProvider extends ServiceProvider
             $settings = \App\Models\Setting::first();
             View::share('settings', $settings);
         }
-        \Spatie\Flash\Flash::levels([
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'error' => 'alert-error',
-        ]);
     }
 }

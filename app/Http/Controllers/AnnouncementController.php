@@ -74,7 +74,7 @@ class AnnouncementController extends Controller
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }
-        flash()->success('تمت الاضافة بنجاح');
+        toastr()->success('تمت الاضافة بنجاح');
         return redirect()->route('admin.announcements.index');
     }
 
@@ -133,7 +133,7 @@ class AnnouncementController extends Controller
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم التعديل بنجاح');
+        toastr()->success('تم التعديل بنجاح');
         return redirect()->route('admin.announcements.index');
     }
 
@@ -146,7 +146,7 @@ class AnnouncementController extends Controller
     public function destroy(Announcement $announcement)
     {
         $announcement->delete();
-        flash()->success('تم الحذف بنجاح');
+        toastr()->success('تم الحذف بنجاح');
         return redirect()->route('admin.announcements.index');
     }
 }

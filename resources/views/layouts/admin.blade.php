@@ -17,8 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-
     @php
     $page_title="لوحة التحكم";
     @endphp
@@ -73,16 +71,27 @@
             border-width: 5px!important;
 
         }
+        #toast-container>div {
+            padding: 18px 8px 20px 50px;
+            width: 18em;
+            box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)!important;
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body style="background: #f7f7f7" class="dash">
+    <style type="text/css">
+        #toast-container>div {
+            opacity: 1;
+        }
+    </style>
     @yield('after-body')
-    @if(flash()->message)
+  {{--   @if(flash()->message)
         <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
             <span class="fas fa-info-circle"></span> {{ flash()->message }} 
         </div>
-    @endif 
+    @endif  --}}
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
         <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
@@ -133,7 +142,7 @@
                         </div>
                     </div>
                     <div class="d-none d-md-none justify-content-center align-items-center px-0   asideToggle" style="width: 40px;height: 40px;">
-                        <span class="fas fa-bars font-4 cursor-pointer"></span>
+                        <span class="fal fa-bars font-4 cursor-pointer"></span>
                     </div>
                 </div>
             </div>
@@ -298,7 +307,7 @@
         <div class="main-content in-active" style="overflow: hidden;">
             <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: #fff;position: fixed;width: 100%;width: calc(100% - 260px);z-index: 1000;">
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  asideToggle" style="width: 55px;height: 55px;">
-                    <span class="far fa-bars font-4"></span>
+                    <span class="fal fa-bars font-4"></span>
                 </div> 
                 <div class="col-12 px-0 d-flex justify-content-end  " style="height: 60px;">
                     <div class="btn-group" id="notificationDropdown">

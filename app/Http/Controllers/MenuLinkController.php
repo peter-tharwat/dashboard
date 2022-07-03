@@ -71,7 +71,7 @@ class MenuLinkController extends Controller
             'url'=>\MainHelper::menuLinkGenerator($link)
         ]);
 
-        flash()->success('تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$request->menu_id]);
     }
 
@@ -127,7 +127,7 @@ class MenuLinkController extends Controller
         $menuLink->update([
             'url'=>\MainHelper::menuLinkGenerator($menuLink)
         ]);
-        flash()->success('تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$request->menu_id]);
     }
 
@@ -141,7 +141,7 @@ class MenuLinkController extends Controller
     {  
         $menu_id=$menuLink->menu_id;
         $menuLink->delete();
-        flash()->success('تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$menu_id]);
     }
 

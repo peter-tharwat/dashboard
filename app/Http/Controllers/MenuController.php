@@ -54,7 +54,7 @@ class MenuController extends Controller
             'title'=>$request->title,
             'location'=>$request->location,
         ]);
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 
@@ -97,7 +97,7 @@ class MenuController extends Controller
             'title'=>$request->title,
             'location'=>$request->location,
         ]);
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 
@@ -110,7 +110,7 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         $menu->delete();
-        flash()->success('تمت العملية بنجاح','عملية ناجحة');
+        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 }
