@@ -32,17 +32,11 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
+
         if(Schema::hasTable('settings')){
-            $settings = \App\Models\Setting::count();
-            if($settings==0)
-                \App\Models\Setting::create([
-                    'website_name'=>"اسم الموقع هنا",
-                    'website_bio'=>"نبذة عن الموقع",
-                    'main_color'=>"#0194fe",
-                    'hover_color'=>"#0194fe",
-                ]);
             $settings = \App\Models\Setting::first();
             View::share('settings', $settings);
         }
+        
     }
 }

@@ -2,6 +2,8 @@
 namespace App\Helpers;
 use App\Models\MenuLink;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Schema;
+
 class MainHelper {
 
     protected static $lowerLimit = 70;
@@ -101,16 +103,18 @@ class MainHelper {
             'error_code'=>"",
             'details'=>json_encode(request()->instance())
         ],$options);
-        \App\Models\ReportError::create([
-            'user_id'=>(auth()->check()?auth()->user()->id:null),
-            'title'=>$options['error'],
-            'code'=>$options['error_code'],
-            'url'=>url()->previous(),
-            'ip'=>\UserSystemInfoHelper::get_ip(),
-            'user_agent'=>request()->header('User-Agent'),
-            'request'=>json_encode(request()->all()),
-            'description'=>$options['details']
-        ]);
+        
+        if(Schema::hasTable('report_errors'))
+            \App\Models\ReportError::create([
+                'user_id'=>(auth()->check()?auth()->user()->id:null),
+                'title'=>$options['error'],
+                'code'=>$options['error_code'],
+                'url'=>url()->previous(),
+                'ip'=>\UserSystemInfoHelper::get_ip(),
+                'user_agent'=>request()->header('User-Agent'),
+                'request'=>json_encode(request()->all()),
+                'description'=>$options['details']
+            ]);
     }
     public static function binaryToString($binary)
     {
