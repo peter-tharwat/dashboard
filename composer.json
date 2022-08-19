@@ -7,10 +7,11 @@
     "require": {
         "php": "^8.0.2",
         "biscolab/laravel-recaptcha": "^5.3",
+        "doctrine/dbal": "^3.4",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
-        "laravel/framework": "^9.10",
+        "laravel/framework": "^9.24",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
