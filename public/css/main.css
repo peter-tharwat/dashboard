@@ -90,6 +90,9 @@ thead th {
 .main-content.active .top-nav {
     width: 100% !important;
 }
+#loading-image-container{
+    width: calc(100% - 260px);
+}
 @media (max-width: 700px) {
     .main-content {
         width: 100% !important;
@@ -106,6 +109,9 @@ thead th {
     }
     .aside.in-active {
         right: 0px;
+    }
+    #loading-image-container{
+        width: 100%;
     }
 }
 @media (min-width: 700px) {

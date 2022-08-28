@@ -127,7 +127,7 @@
  --}}
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
-        <div style="width: 260px;background: #11233b;min-height: 100vh;position: fixed;z-index: 100" class="aside active">
+        <div style="width: 260px;background: #11233b;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
             <div class="col-12 px-0 d-flex" style="height: 55px;background: #1a2d4d">
                 <div class="col-12 p-1" style="color: #fff">
                     <div class="col-12 p-0 row">
@@ -305,7 +305,7 @@
            
         </div>
         <div class="main-content in-active" style="overflow: hidden;">
-            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: #fff;position: fixed;width: 100%;width: calc(100% - 260px);z-index: 1000;">
+            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: #fff;position: fixed;width: 100%;width: calc(100% - 260px);z-index: 99;border-bottom: 1px solid #f4f4f4;">
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  asideToggle" style="width: 55px;height: 55px;">
                     <span class="fal fa-bars font-4"></span>
                 </div> 
@@ -379,7 +379,11 @@
 
                 </div>
             </div>
-            <div class="col-12 px-0 py-2" style="margin-top: 60px;">
+            <div class="col-12 px-0 py-2 " style="margin-top: 60px;position: relative;">
+                <div style="position:fixed;display: flex;align-items: center;justify-content: center;height: 100vh;background: #fff;z-index: 10;margin-top: -15px;" id="loading-image-container">
+                    <img src="https://thumbs.gfycat.com/AchingSpeedyArmyworm-size_restricted.gif" style="position:fixed;width: 400px;max-width: 80%;margin-top: -60px;" id="loading-image">
+                </div>
+                
                 @yield('content')
             </div>
         </div>
@@ -407,8 +411,11 @@
             $(this).parent().append('<div class="col-12 p-2 last_appended_counter"><span class="d-inline-block" style="font-size:13px">عدد الحروف <span style="font-weight:bolder;color:#007469;font-size:15px">'+$(this).val().length+'</span> حرفاً</span></div>');
         }); 
         $(document).ready(function() {
-              $('.select2-select').select2();
-          });
+            $('.select2-select').select2();
+        });
+        setTimeout(function(){
+            $('#loading-image-container').fadeOut();
+        },500);
     </script>
     @livewireScripts
     @include('layouts.scripts')
