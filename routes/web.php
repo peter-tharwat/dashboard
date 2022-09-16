@@ -78,8 +78,10 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::prefix('notifications')->name('notifications.')->group(function () {
         Route::get('/',[NotificationsController::class,'index'])->name('index');
-        Route::get('/ajax',[NotificationsController::class,'notifications_ajax'])->name('ajax');
-        Route::post('/see',[NotificationsController::class,'notifications_see'])->name('see');
+        Route::get('/ajax',[NotificationsController::class,'ajax'])->name('ajax');
+        Route::post('/see',[NotificationsController::class,'see'])->name('see');
+        Route::get('/create',[NotificationsController::class,'create'])->name('create');
+        Route::post('/create',[NotificationsController::class,'store'])->name('store');
     });
     
 });

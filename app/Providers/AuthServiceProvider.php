@@ -39,6 +39,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Gate::define('show-statistics',[\App\Policies\StatisticPolicy::class,'viewAny']);
+        Gate::define('create-notifications',[\App\Policies\AdditionalPermissionPolicy::class,'create_notifications']);
 
     }
 }

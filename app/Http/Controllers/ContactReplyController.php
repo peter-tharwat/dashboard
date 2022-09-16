@@ -54,7 +54,7 @@ class ContactReplyController extends Controller
     public function create(Request $request)
     {
         $request->validate(['contact_id'=>"required|exists:contacts,id"]);
-        $contact= \App\Models\Contact::where('id',$request->id)->with(['replies'])->firstOrFail();
+        $contact = \App\Models\Contact::where('id',$request->id)->with(['replies'])->firstOrFail();
         return view('admin.contacts.replies.create',compact('contact'));
 
     }
@@ -70,7 +70,26 @@ class ContactReplyController extends Controller
         $contact= \App\Models\Contact::where('id',$request->contact_id)->firstOrFail();
         $contact->update(['has_support_reply'=>1]);
 
-        ContactReply::create(['user_id'=>auth()->user()->id,'contact_id'=>$request->contact_id,'content'=>$request->content,'is_support_reply'=>1]);
+        $contact_reply = ContactReply::create(['user_id'=>auth()->user()->id,'contact_id'=>$request->contact_id,'content'=>$request->content,'is_support_reply'=>1]);
+
+        if($request->hasFile('files'))
+        foreach($request['files'] as $file){
+            $uploaded_file = $this->store_file([
+                'source'=>$file,
+                'validation'=>"file",
+                'path_to_save'=>'/uploads/contact-replies/',
+                'type'=>'CONTACT_REPLY', 
+                'user_id'=>auth()->user()->id,
+                'resize'=>[500,1000],
+                'small_path'=>'small/',
+                'visibility'=>'PUBLIC',
+                'file_system_type'=>env('FILESYSTEM_DRIVER'),
+                /*'watermark'=>true,*/
+                'compress'=>'auto'
+            ]);
+            $this->use_hub_file($uploaded_file['filename'],$contact_reply->id,auth()->user()->id);
+        } 
+
         toastr()->success('تمت العملية بنجاح');
         return redirect()->back();
     }

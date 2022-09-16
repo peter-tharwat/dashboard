@@ -17,4 +17,7 @@ class ContactReply extends Model
     {
         return $this->belongsTo('\App\Models\Contact','contact_id');
     }
+    public function files(){
+        return $this->hasMany(\App\Models\HubFile::class,'type_id')->where('type','CONTACT_REPLY');
+    }
 }

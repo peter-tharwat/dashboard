@@ -56,6 +56,21 @@
 							</a>
 							@endif
 
+							
+
+							@can('create-notifications')
+							<a href="{{route('admin.notifications.index',['user_id'=>$user->id])}}">
+							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+								<span class="far fa-bells"></span> الاشعارات
+							</span>
+							</a>
+							<a href="{{route('admin.notifications.create',['user_id'=>$user->id])}}">
+							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+								<span class="far fa-bell"></span>
+							</span>
+							</a> 
+							@endcan
+
 							@can('update',$user)
 							<a href="{{route('admin.users.edit',$user)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">

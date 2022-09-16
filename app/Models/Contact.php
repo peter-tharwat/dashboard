@@ -16,5 +16,7 @@ class Contact extends Model
     {
         return $this->hasMany(\App\Models\ContactReply::class)/*->orderBy('id','DESC')*/;
     }
-    
+    public function files(){
+        return $this->hasMany(\App\Models\HubFile::class,'type_id')->where('type','CONTACT');
+    }
 }

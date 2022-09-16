@@ -37,6 +37,6 @@ class Controller extends BaseController
     }
     public function use_hub_file($name, $type_id, $user_id = null, $is_main = 0)
     {
-        return \App\Helpers\UploadFilesHelper::use_hub_file($name, $type_id, $user_id = null, $is_main = 0);
+        return \App\Helpers\UploadFilesHelper::use_hub_file($name, $type_id, $user_id , $is_main);
     }
 }
