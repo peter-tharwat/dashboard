@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
     {!!$settings->header_code!!}
     @livewireStyles
     @if(auth()->check())

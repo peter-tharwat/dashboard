@@ -171,15 +171,6 @@ label.error{
 .image-file.active{
     border: 3px solid #2381c6;
 }
-#toast-container>div {
-    padding: 18px 8px 20px 50px;
-    width: 25em!important;
-    border-radius: 15px!important;
-    box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)!important;
-}
-#toast-container{
-    max-width: calc(100% - 70px);
-}
 
 .pace {
     -webkit-pointer-events: none;
@@ -420,13 +411,6 @@ label.error{
     opacity: 1;
     transform: translateY(0);
   }
-}
-.toast-info{
-    background-color: #0194fe!important;
-}
-.toast-top-left{
-    left: 35px!important;
-    top: 35px!important;
 }
 .form-switch .form-check-input{
     width: 40px;height: 18px;cursor: pointer;

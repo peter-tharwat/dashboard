@@ -28,6 +28,12 @@ use App\Http\Controllers\AnnouncementController;
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
 
+
+
+
+
+
+
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
     Route::get('/',[AdminController::class,'index'])->name('index');
