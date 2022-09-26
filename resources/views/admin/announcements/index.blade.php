@@ -5,11 +5,18 @@
 	<div class="col-12 col-lg-12 p-0 main-box">
 	 
 		<div class="col-12 px-0">
-			<div class="col-12 p-0 row">
+			<div class="col-12 p-0 row ">
 				<div class="col-12 col-lg-4 py-3 px-3">
 					<span class="fas fa-contacts"></span> الاعلانات
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 py-0">
+				</div>
+				<div class="col-12 col-lg-4 p-2 text-lg-end">
+					@can('create',\App\Models\Announcement::class)
+		 			<a href="{{route('admin.announcements.create')}}">
+		 				<button class="btn btn-primary pb-2"><span class="fas fa-plus"></span> إضافة إعلان</button>
+		 			</a>
+		 			@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -22,11 +29,7 @@
 				</form>
 			</div>
 			<div class="col-12 col-lg-4 px-2 justify-content-end d-flex mb-2">
-	 			@can('create',\App\Models\Announcement::class)
-	 			<a href="{{route('admin.announcements.create')}}">
-	 				<button class="btn btn-primary pb-2 rounded-0"><span class="fas fa-plus"></span> إضافة إعلان</button>
-	 			</a>
-	 			@endcan
+	 			
 	 		</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">

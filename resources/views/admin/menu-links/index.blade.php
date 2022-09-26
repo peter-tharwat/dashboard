@@ -8,7 +8,7 @@
 				<div class="col-12 col-lg-4 py-3 px-3">
 					<span class="fas fa-links"></span> الصفحات
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('create',\App\Models\MenuLink::class)

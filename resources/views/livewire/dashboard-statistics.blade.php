@@ -36,7 +36,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         إجرائات سريعة
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3 row d-flex">
                     <div class="col-4  d-flex justify-content-center align-items-center mb-3 py-2">
@@ -155,7 +155,7 @@ $flat_colors = collect([
                         </div>
                         
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="traffics-chart">
@@ -169,7 +169,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         المستخدمين الجدد
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="new-users">
@@ -182,7 +182,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى الصفحات زيارة
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     @foreach($data['top_pages'] as $page)
@@ -207,7 +207,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى مصادر الزيارات
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
 
@@ -238,7 +238,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى الدول وصولاً
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3 row">
 
@@ -275,7 +275,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         المتصفحات
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartBrowsers" style="width:100%;max-height:250px"></canvas>
@@ -288,7 +288,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         انظمة التشغيل
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartOperatingSystems" style="width:100%;max-height:250px"></canvas>
@@ -301,7 +301,7 @@ $flat_colors = collect([
                     <div class="col-12 px-3 py-3">
                         أعلى الأجهزة
                     </div>
-                    <div class="col-12 " style="min-height: 1px;background: #f1f1f1;"></div>
+                    <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
                 <div class="col-12 p-3">
                     <canvas id="ChartDevices" style="width:100%;max-height:250px"></canvas>

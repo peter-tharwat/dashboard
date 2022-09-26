@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="col-12 py-5 rounded-2" style="text-align: center;background: #fff;margin-top: -5px;">
+<div class="col-12 py-5 rounded-2" style="text-align: center;background: var(--background-1);margin-top: -5px;">
     <div class="col-12" style="display:flex;justify-content: center;">
         <img src="{{$user->getUserAvatar()}}" style="width:130px;height: 130px;border-radius: 50%;">
     </div>

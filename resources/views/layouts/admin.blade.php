@@ -14,9 +14,23 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-dashboard.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style type="text/css">
+        html{
+            --background-0: #eef4f5;
+            --background-1: #fff;
+            --background-aside: #11233b;
+            --background-active-link: #141e2e;
+            --background-form-control-focus: #161d26;
+            --color-1: #fff;
+            --color-2: #575f66;
+            --border-color: #f1f1f1;
+            --bs-table-hover-color: #f7f7f7!important; 
+        } 
+    </style>
     @php
     $page_title="لوحة التحكم";
     @endphp
@@ -31,56 +45,104 @@
         $unreadNotifications=auth()->user()->unreadNotifications()->count();
         @endphp
     @endif
+    
+    @if($settings->dashboard_dark_mode)
     <style type="text/css">
-        *:not([class^="fa"]){
-            font-family: 'Noto Kufi Arabic', sans-serif;
+
+        html{
+
+            --background-0: #131923;
+            --background-1: #1c222b;
+            --background-aside: #11233b;
+            --background-active-link: #141e2e;
+            --background-form-control-focus: #161d26;
+
+            --color-1: #fff;
+            --color-2: #f1f1f1;
+            --border-color: #282b2f;
+
+            --bs-table-hover-color: #f7f7f7!important; 
         }
-        .fa, .fas {
-            font-family: "Font Awesome 5 Pro"!important; 
-            font-weight: 900;
+
+        .aside{
+            background: #11233b!important;
         }
-        ol,ul{
-            padding: 5px 20px;
+        .aside *{
+            color: var(--color-1)!important;
         }
-        ol{
-            list-style: auto;
+        .aside .item.active{
+            background: #101d30!important;
+            box-shadow: 0px 12px 17px #101d30!important;
+            border-bottom: unset!important;
         }
-        ul{
-            list-style: disc;
+        .aside .item.active *{
+            color: #38b59c!important;
         }
-        .select2-selection__arrow{
-            margin-top: 2px;
+        #home-dashboard-divider{
+            background: #0194fe!important;
         }
-        .select2-selection{
-            width: 100%!important;
-            height: 38px!important;
-            border-radius: 0px!important;
+        body{
+            color: var(--color-1)!important;
+            background: #131923!important;
         }
-        .select2{
-            width: 100%!important;
+        .main-box-wedit {
+            box-shadow: unset;
+            border-radius: 10px 25px 10px 25px;
+            background: #1c222b!important;
         }
-        pre{
-            direction: ltr;
+        .main-box{
+            background: #1c222b!important;
+            box-shadow: unset!important;
         }
-        .pace-activity{
-            width: 54px!important;
-            height: 54px!important;
-            border-radius: 50%!important;
-            top: 1px!important;
-            right: 1px!important;
-            border-width: 5px!important;
+        .btn{
+            color: var(--color-2)!important;
+        }
+        table{
+            color: var(--color-2)!important;
+            border-color: var(--border-color)!important;
+        }
+        thead th{
+            border-color: var(--border-color)!important;
+        }
+        .table-hover>tbody>tr:hover{
 
         }
-        #toast-container>div {
-            padding: 18px 8px 20px 50px;
-            width: 18em;
-            box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%)!important;
-            opacity: 1;
+        *,.dropdown-item{
+            color: var(--color-1);
+        }
+        .dropdown-menu{
+            background-color: var(--background-1)!important;
+        }
+        .dropdown-item:focus, .dropdown-item:hover {
+            color: var(--color-1);
+            background-color: var(--background-2)!important;
+        }
+        *[class*='border-']{
+            border-color: var(--border-color)!important;
+        }
+        hr{
+            background: var(--border-color);
+        }
+        .form-control{
+            background: var(--background-1);
+            border-color: var(--border-color);
+        }
+        .form-control:focus {
+            box-shadow: unset!important;
+            border: 1px solid var(--border-color)!important;
+            background: var(--background-form-control-focus)!important;
+        }
+        .form-control ,.form-control:focus{
+            color: var(--color-1);
+        }
+        .settings-tab-opener.active,.settings-tab-opener{
+            box-shadow: unset!important;
         }
     </style>
+    @endif
 </head>
 
-<body style="background: #f7f7f7" class="dash">
+<body style="background: #eef4f5" class="dash">
     <style type="text/css">
         #toast-container>div {
             opacity: 1;
@@ -88,7 +150,7 @@
     </style>
     @yield('after-body')
   {{--   @if(flash()->message)
-        <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
+        <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: var(--background-1);cursor: pointer;"  onclick="$(this).slideUp();">
             <span class="fas fa-info-circle"></span> {{ flash()->message }} 
         </div>
     @endif  --}}
@@ -127,16 +189,16 @@
  --}}
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
-        <div style="width: 260px;background: #11233b;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
-            <div class="col-12 px-0 d-flex" style="height: 55px;background: #1a2d4d">
-                <div class="col-12 p-1" style="color: #fff">
+        <div style="width: 260px;background: #ddeaea;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
+            <div class="col-12 px-0 d-flex" style="height: 55px">
+                <div class="col-12 p-1" style="color: var(--background-1)">
                     <div class="col-12 p-0 row">
                         <div class="col-3 py-1 px-1">
-                             <span class="fas fa-chart-bar font-4 d-flex justify-content-center align-items-center" style="background: #0194fe;height: 40px;width: 40px;border-radius: 50%;"></span>
+                             {{-- <span class="fas fa-chart-bar font-4 d-flex justify-content-center align-items-center" style="background: #38b59c;height: 40px;width: 40px;border-radius: 50%;color: var(--background-1);"></span> --}}
                         </div>
                         <div class="col-9 ">
-                            <span class="d-inline-block px-2 font-3 pt-1">لوحة التحكم</span> 
-                            <span style="width: 55px;height: 55px;position: absolute;left: 0px;top: 0px;align-items: center;justify-content: center;cursor: pointer;background: rgb(17 35 59 / 39%);" class="asideToggle d-flex d-md-none rounded-0" >
+                            {{-- <span class="d-inline-block px-2 font-3 pt-1">لوحة التحكم</span>  --}}
+                            <span style="width: 55px;height: 55px;position: absolute;left: 0px;top: 0px;align-items: center;justify-content: center;cursor: pointer;" class="asideToggle d-flex d-md-none rounded-0" >
                                 <span class="fal fa-bars font-4 "></span>
                             </span>
                         </div>
@@ -146,11 +208,11 @@
                     </div>
                 </div>
             </div>
-        <div class="col-12 px-0 py-5 text-center justify-content-center align-items-center ">
+        <div class="col-12 px-0 pb-4 text-center justify-content-center align-items-center ">
             <a href="{{route('admin.profile.edit')}}">
-            <img src="{{auth()->user()->getUserAvatar()}}" style="width: 40px;height: 40px;color: #fff;border-radius: 50%" class="d-inline-block">
+            <img src="{{auth()->user()->getUserAvatar()}}" style="width: 80px;height: 80px;color: var(--background-1);border-radius: 50%" class="d-inline-block">
                 </a>
-                <div class="col-12 px-0 mt-2" style="color: #fff">
+                <div class="col-12 px-0 mt-2" style="color: #232323;">
                     مرحباً {{auth()->user()->name}}
                 </div> 
             </div>
@@ -158,9 +220,9 @@
 
 
 
-                <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
+                <div class="col-12 px-3 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
 
-                    <a href="{{route('admin.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex" >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-home font-2"> </span> 
@@ -171,7 +233,7 @@
                         </div>
                     </a>
                     @can('viewAny',\App\Models\User::class)
-                    <a href="{{route('admin.users.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-users font-2"> </span> 
@@ -183,7 +245,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Category::class)
-                    <a href="{{route('admin.categories.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.categories.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-tag font-2"> </span> 
@@ -195,7 +257,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Article::class)
-                    <a href="{{route('admin.articles.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.articles.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-newspaper font-2"> </span> 
@@ -208,7 +270,7 @@
                     @endcan
                     
                     @can('viewAny',\App\Models\Announcement::class)
-                    <a href="{{route('admin.announcements.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.announcements.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-bullhorn font-2"> </span> 
@@ -220,7 +282,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Contact::class)
-                    <a href="{{route('admin.contacts.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.contacts.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-phone font-2"> </span> 
@@ -231,7 +293,7 @@
                             $contacts_count = \App\Models\Contact::where('status','PENDING')->count();
                             @endphp
                             @if($contacts_count)
-                            <span style="background: #d34339;border-radius: 2px;color:#fff;display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;">{{$contacts_count}}</span>
+                            <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{$contacts_count}}</span>
                             
                             @endif
                             </div> 
@@ -239,7 +301,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Page::class)
-                    <a href="{{route('admin.pages.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.pages.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-file-invoice font-2"> </span> 
@@ -251,7 +313,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Menu::class)
-                    <a href="{{route('admin.menus.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.menus.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-list font-2"> </span> 
@@ -263,7 +325,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Faq::class)
-                    <a href="{{route('admin.faqs.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.faqs.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-question font-2"> </span> 
@@ -275,7 +337,7 @@
                     </a>
                     @endcan
                     @can('viewAny',\App\Models\Setting::class)
-                    <a href="{{route('admin.settings.index')}}" class="col-12 px-0">
+                    <a href="{{route('admin.settings.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-wrench font-2"> </span> 
@@ -305,7 +367,7 @@
            
         </div>
         <div class="main-content in-active" style="overflow: hidden;">
-            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: #fff;position: fixed;width: 100%;width: calc(100% - 260px);z-index: 99;border-bottom: 1px solid #f4f4f4;">
+            <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: var(--background-1);position: fixed;width: 100%;width: calc(100% - 260px);z-index: 99;border-bottom: 1px solid var(--border-color);">
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  asideToggle" style="width: 55px;height: 55px;">
                     <span class="fal fa-bars font-4"></span>
                 </div> 
@@ -313,17 +375,17 @@
                     <div class="btn-group" id="notificationDropdown">
 
                         <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  " style="width: 55px;height: 55px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
-                            <span class="fal fa-bell font-3 d-inline-block" style="color: #333;transform: rotate(15deg)"></span>
+                            <span class="fal fa-bell font-3 d-inline-block" style="color: var(--color-2);transform: rotate(15deg)"></span>
                             <span style="position: absolute;min-width: 25px;min-height: 25px;
                             @if($unreadNotifications!=0)
                             display: inline-block;
                             @else
                             display: none;
                             @endif
-                            right: 0px;top: 0px;border-radius: 20px;background: #c00;color:#fff;font-size: 14px;" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
+                            right: 0px;top: 0px;border-radius: 20px;background: #c00;color:var(--background-1);font-size: 14px;" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
 
                         </div>
-                        <div class="dropdown-menu py-0 rounded-0 border-0 shadow " style="cursor: auto!important;z-index: 20000;width: 350px;height: 450px;">
+                        <div class="dropdown-menu py-0 rounded-0 border-0 shadow " style="cursor: auto!important;z-index: 20000;width: 350px;height: 450px;top: -3px!important;">
                             <div class="col-12 notifications-container" style="height:406px;overflow: auto;">
                                 <x-notifications :notifications="$notifications" />
                             </div>
@@ -340,7 +402,7 @@
                         <div style="width: 55px;height: 55px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
                             <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;">
                         </div>
-                        <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" >
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" style="top: -3px;">
                                 <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
                                 <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
 
@@ -379,9 +441,9 @@
 
                 </div>
             </div>
-            <div class="col-12 px-0 py-2 " style="margin-top: 60px;position: relative;">
-                <div style="position:fixed;display: flex;align-items: center;justify-content: center;height: 100vh;background: #fff;z-index: 10;margin-top: -15px;" id="loading-image-container">
-                    <img src="https://thumbs.gfycat.com/AchingSpeedyArmyworm-size_restricted.gif" style="position:fixed;width: 400px;max-width: 80%;margin-top: -60px;" id="loading-image">
+            <div class="col-12 px-0  " style="margin-top: 55px;position: relative;">
+                <div style="position:fixed;display: flex;align-items: center;justify-content: center;height: 100vh;background: var(--background-1);z-index: 10;margin-top: -15px;" id="loading-image-container">
+                    <img src="/images/loading.gif" style="position:fixed;width: 120px;max-width: 80%;margin-top: -60px;" id="loading-image">
                 </div>
                 
                 @yield('content')
@@ -393,7 +455,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" ></script>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
@@ -424,7 +489,7 @@
                 $(this).attr('rand_key',rand_key);
                 $('<div class="col-12 py-2 px-0" id="upload_'+rand_key+'"></div>').insertAfter(this);
                 $.each(e.target.files,(key,value)=>{
-                    $('#upload_'+rand_key).append('<div class="row d-flex m-0  mb-2 btn" style="border:1px solid rgb(136 136 136 / 17%);max-width: 100%;padding: 5px;width: 220px;background: rgb(142 142 142 / 6%);"><div style="max-height: 35px;overflow: hidden;display:flex;flex-flow: nowrap;" class="p-0 align-items-center">\
+                    $('#upload_'+rand_key).append('<div class="row d-flex m-0   btn" style="border:1px solid rgb(136 136 136 / 17%);max-width: 100%;padding: 5px;width: 220px;background: rgb(142 142 142 / 6%);margin-bottom:10px!important"><div style="max-height: 35px;overflow: hidden;display:flex;flex-flow: nowrap;" class="p-0 align-items-center">\
                         <span class="d-inline-block font-small " style="line-height: 1.2;opacity: 0.7;border-radius: 12px;overflow:hidden;width:71px">\
                             <span class="fal fa-cloud-download p-2 font-2 me-2" style="background:rgb(129 129 129 / 24%);border-radius: 12px;"></span>\
                         </span>\

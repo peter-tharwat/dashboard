@@ -14,7 +14,7 @@
         <div class="col-12  px-3 py-1 mt-4">
 
         	<div class="col-12  " style="direction: rtl" id="{{$contact->id}}">
-	                <div class="col-12 col-md-10 col-lg-9 col-xl-6 p-2 row rounded-2" style="direction: rtl;background: #f1f1f1;">
+	                <div class="col-12 col-md-10 col-lg-9 col-xl-6 p-2 row rounded-2" style="direction: rtl;background: var(--border-color);">
 	                    <div style="width:70px;" class="text-center d-none d-md-flex align-items-start">
 	                        <div class="d-inline-block">
 

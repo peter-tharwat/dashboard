@@ -8,7 +8,7 @@
     	width:80px;height: 45px;
 	}
 	.settings-tab-opener.active{
-		box-shadow: 0px 6px 12px #c8e0ff!important;
+		box-shadow: 0px 6px 12px #c8e0ff;
 		color: #fff;
 		background: #2196f3;
 	}
@@ -17,9 +17,9 @@
 	}
 	
 </style>
-<div class="col-12 py-0 px-3 row">
-	 <div class="col-12  p-0" style="background: #fff;min-height: 80vh">
-	 	<div class="col-12 px-3 py-4">
+<div class="col-12 p-3 row">
+	 <div class="col-12 p-2 p-lg-4 main-box" style="min-height: 80vh;border-radius:10px">
+	 	<div class="col-12 px-3 pb-3 pt-2">
 	 		<h4 class="font-4">إعدادات الموقع</h4>
 	 	</div>
 	 	<div class="col-12 row" >
@@ -140,6 +140,16 @@
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<input type="color" name="hover_color"  value="{{$settings->hover_color}}" maxlength="190">
+		 			</div> 
+		 		</div>
+		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
+		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
+		 				الوضع الليلي في لوحة التحكم
+		 			</div>
+		 			<div class="col-12 col-lg-9 px-2">
+		 				<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="DarkModeInput" name="dashboard_dark_mode" {{$settings->dashboard_dark_mode==1?"checked":""}} value="1">
+						</div>
 		 			</div> 
 		 		</div>
 		 	</div>
