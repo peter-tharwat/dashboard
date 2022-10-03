@@ -141,14 +141,7 @@
                 <span class="fas fa-info-circle"></span> {{ flash()->message }} 
             </div>
         @endif  --}}
-        <div class="col-12 justify-content-end d-flex">
-            @if($errors->any())
-            <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
-                {!! implode('', $errors->all('<div class="alert-click-hide alert alert-danger alert alert-danger col-9 col-xl-3 rounded-0 mb-1" style="position: fixed!important;z-index: 11;opacity:.9;left:25px;cursor:pointer;" onclick="$(this).fadeOut();">:message</div>')) !!}
-            </div>
-            @endif
-        </div>
-        
+      
 
         <main class="p-0">
             @yield('content')

@@ -123,7 +123,7 @@
 </div>
 @endsection
 @section('scripts')
-@can('resolve',\App\Models\Contact::class))
+@can('resolve',\App\Models\Contact::class)
 <script type="text/javascript">
 	$('.toggle-contact-resolving').on('change',function(){
 		var id =$(this).attr('data-id');
