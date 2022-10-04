@@ -38,7 +38,7 @@ class FrontController extends Controller
     public function category(Request $request,Category $category){
         $articles = Article::where(function($q)use($request,$category){
             $q->whereHas('categories',function($q)use($request,$category){
-                $q->where('id',$category->id);
+                $q->where('category_id',$category->id);
             });
         })->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles','category'));
