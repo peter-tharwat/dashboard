@@ -5,7 +5,7 @@
 		<form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.users.permissions.update',$user)}}">
 		@csrf
 		@method("PUT")
-		<div class="col-12 col-lg-6 p-0 main-box">
+		<div class="col-12 col-lg-12 p-0 main-box">
 
 			<div class="col-12 px-0">
 				<div class="col-12 px-3 py-3">
@@ -14,51 +14,92 @@
 				<div class="col-12 divider" style="min-height: 2px;"></div>
 			</div>
 			<div class="col-12 p-3 row">
-				{{-- <table class="table">
+				{{-- {{dd($permissions)}} --}}
+				<table class="table table-hover" style="width:400px">
+					<thead style="">
+						<tr style="">
+							<th>الجدول</th>
+							<th style="width: 56px;">اضافة</th>
+							<th style="width: 56px;">عرض</th>
+							<th style="width: 56px;">تعديل</th>
+							<th style="width: 56px;">حذف</th>
+						</tr>
+					</thead>
 					<tbody>
 						@foreach($permissions as $permission)
+						@php
+						$sub_permissions = \App\Models\Permission::where('table',$permission->table)->get();
+						@endphp
 						<tr>
-							<td>{{$permission->name}}</td>
-							<td>
-								{{$permission->name}}
+							
+						 
+
+							<td>{{$permission->table}}</td>
+
+							@if($sub_permissions->where('name',$permission->table.'-create')->first())
+							<td style="width: 56px;">
+								 
+								<div class="form-check form-switch">
+								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-create'}}" value="{{$permission->table.'-create'}}" @if(auth()->user()->hasPermission($permission->table.'-create')) checked @endif name="permissions[]">
+								</div>
+							</td>
+							@else
+							<td style="width: 56px;">
+							</td>
+							@endif
+							@if($sub_permissions->where('name',$permission->table.'-read')->first())
+							<td style="width: 56px;">
+								 
+								<div class="form-check form-switch">
+								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-read'}}" value="{{$permission->table.'-read'}}" @if(auth()->user()->hasPermission($permission->table.'-read')) checked @endif name="permissions[]">
+								</div>
+							</td>
+							@else
+							<td style="width: 56px;">
+							</td>
+							@endif
+							@if($sub_permissions->where('name',$permission->table.'-update')->first())
+							<td style="width: 56px;">
+								 
+								<div class="form-check form-switch">
+								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-update'}}" value="{{$permission->table.'-update'}}" @if(auth()->user()->hasPermission($permission->table.'-update')) checked @endif name="permissions[]">
+								</div>
+							</td>
+							@else
+							<td style="width: 56px;">
+							</td>
+							@endif
+							@if($sub_permissions->where('name',$permission->table.'-delete')->first())
+							<td style="width: 56px;">
+								 
+								<div class="form-check form-switch">
+								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-delete'}}" value="{{$permission->table.'-delete'}}" @if(auth()->user()->hasPermission($permission->table.'-delete')) checked @endif name="permissions[]">
+								</div>
+							</td>
+							@else
+							<td style="width: 56px;">
+							</td>
+							@endif
+
+							{{-- <td>
 								<div class="form-check form-switch">
 								  <input class="form-check-input" type="checkbox" id="{{$permission->name}}" value="{{$permission->name}}" @if(auth()->user()->hasPermission($permission->name)) checked @endif name="permissions[]">
 								</div>
 							</td>
 							<td>
-								{{$permission->name}}
 								<div class="form-check form-switch">
 								  <input class="form-check-input" type="checkbox" id="{{$permission->name}}" value="{{$permission->name}}" @if(auth()->user()->hasPermission($permission->name)) checked @endif name="permissions[]">
 								</div>
 							</td>
 							<td>
-								{{$permission->name}}
 								<div class="form-check form-switch">
 								  <input class="form-check-input" type="checkbox" id="{{$permission->name}}" value="{{$permission->name}}" @if(auth()->user()->hasPermission($permission->name)) checked @endif name="permissions[]">
 								</div>
-							</td>
-							<td>
-								{{$permission->name}}
-								<div class="form-check form-switch">
-								  <input class="form-check-input" type="checkbox" id="{{$permission->name}}" value="{{$permission->name}}" @if(auth()->user()->hasPermission($permission->name)) checked @endif name="permissions[]">
-								</div>
-							</td>
+							</td> --}}
 						</tr>
 						@endforeach
 					</tbody>
-				</table> --}}
-			@foreach($permissions as $permission)
-			<div class="col-12 col-lg-6 p-2 row d-flex align-items-center">
-				<div class="col-9">
-					<label class="form-check-label d-flex justify-content-end" for="{{$permission->name}}">{{$permission->name}}</label>
-				</div>
-				<div class="col-3 pt-3">
-					<div class="form-check form-switch">
-					  <input class="form-check-input" type="checkbox" id="{{$permission->name}}" value="{{$permission->name}}" @if(auth()->user()->hasPermission($permission->name)) checked @endif name="permissions[]">
-					</div>
-				</div>
-			</div>
-			@endforeach
+				</table>
 			 
 			</div>
  

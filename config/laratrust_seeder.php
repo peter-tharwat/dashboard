@@ -17,7 +17,7 @@ return [
             'announcements' => 'c,r,u,d',
             'user-permissions' => 'c,r,u,d',
             'notifications' => 'c,r,u,d',
-            'report-errors'=>"c,r,u,d",
+            'error-reports'=>"c,r,u,d",
             'articles' => 'c,r,u,d',
             'categories' => 'c,r,u,d',
             'contacts' => 'c,r,u,d',
