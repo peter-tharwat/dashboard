@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
-    /*public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(Page::class, 'page'); 
-    }*/
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        $this->middleware('permission:pages-create', ['only' => ['create','store']]);
+        $this->middleware('permission:pages-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:pages-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:pages-delete',   ['only' => ['delete']]);
+    }
+
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('pages-read'))abort(403);

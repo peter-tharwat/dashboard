@@ -9,7 +9,7 @@ class SettingController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Setting::class, 'settings'); 
+        $this->middleware('permission:settings-update',   ['only' => ['index','update']]);
     }
 
     public function index()

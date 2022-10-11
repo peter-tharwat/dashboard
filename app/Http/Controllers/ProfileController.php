@@ -13,6 +13,14 @@ use Symfony\Component\HttpFoundation\File\File;
 use Hash;
 class ProfileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:profile-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:profile-update',   ['only' => ['edit','update','update_password','update_email']]);
+    }
+
+
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('profile-read'))abort(403);

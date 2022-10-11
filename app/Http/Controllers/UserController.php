@@ -9,42 +9,17 @@ class UserController extends Controller
 {
 
 
-/*    protected function resourceAbilityMap()
+    public function __construct()
     {
-        return [
-            'index'=>'viewAny',
-            'create'=>'store',
-            'store'=>'store',
-            'show' => 'view',
-            'create' => 'create',
-            'store' => 'create',
-            'edit' => 'update',
-            'update' => 'update',
-            'destroy' => 'delete', 
-        ];
+        $this->middleware('permission:users-create', ['only' => ['create','store']]);
+        $this->middleware('permission:users-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:users-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:users-delete',   ['only' => ['delete']]);
     }
-    protected function resourceMethodsWithoutModels()
-    {
-        return ['index', 'create', 'store' ];
-    }*/
 
-
-/*    public function __construct()
-    {
-        $this->middleware(['CheckRole:ADMIN']);
-        $this->authorizeResource(User::class, 'user'); 
-    }*/
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         
-        if(!auth()->user()->isAbleTo('users-read'))abort(403);
         $users =  User::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -63,8 +38,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('users-create'))abort(403);
-        return view('admin.users.create');
+        $roles = \App\Models\Role::get();
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
@@ -75,11 +50,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('users-create'))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'power'=>"required|in:ADMIN,EDITOR,CONTRIBUTOR",
+            'roles'=>"required|array",
+            'roles.*'=>"required|exists:roles,name",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email",
@@ -88,12 +63,12 @@ class UserController extends Controller
         $user = User::create([
             "name"=>$request->name,
             "phone"=>$request->phone,
-            "power"=>$request->power,
             "bio"=>$request->bio,
             "blocked"=>$request->blocked,
             "email"=>$request->email,
             "password"=>\Hash::make($request->password),
         ]);
+        $user->syncRoles($request->roles);
 
         if($request->hasFile('avatar')){
             $file = $this->store_file([
@@ -126,7 +101,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if(!auth()->user()->isAbleTo('users-read'))abort(403);
         return view('admin.users.show',compact('user'));
     }
 
@@ -138,8 +112,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if(!auth()->user()->isAbleTo('users-update'))abort(403);
-        return view('admin.users.edit',compact('user'));
+        $roles = \App\Models\Role::get();
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -151,11 +125,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if(!auth()->user()->isAbleTo('users-update'))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'power'=>"required|in:ADMIN,EDITOR,CONTRIBUTOR",
+            'roles'=>"required|array",
+            'roles.*'=>"required|exists:roles,name",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email,".$user->id,
@@ -164,12 +138,13 @@ class UserController extends Controller
         $user->update([
             "name"=>$request->name,
             "phone"=>$request->phone,
-            "power"=>$request->power,
             "bio"=>$request->bio,
             "blocked"=>$request->blocked,
             "email"=>$request->email,
             
         ]);
+        $user->syncRoles($request->roles);
+
         if($request->password!=null){
             $user->update([
                 "password"=>\Hash::make($request->password)

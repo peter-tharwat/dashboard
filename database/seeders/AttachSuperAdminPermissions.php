@@ -27,5 +27,6 @@ class AttachSuperAdminPermissions extends Seeder
             }
             
         }
+        $user->attachRole("superadmin");
     }
 }

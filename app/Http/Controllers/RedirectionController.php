@@ -7,16 +7,14 @@ use Illuminate\Http\Request;
 
 class RedirectionController extends Controller
 {
-    /*public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(Redirection::class, 'redirection'); 
-    }*/
+        $this->middleware('permission:redirections-create', ['only' => ['create','store']]);
+        $this->middleware('permission:redirections-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:redirections-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:redirections-delete',   ['only' => ['delete']]);
+    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('redirections-read'))abort(403);

@@ -34,8 +34,6 @@ class HelperController extends Controller
             
         ];
     }
-
-
     public function use_file(Request $request)
     {
         return $this->use_file($request->name);

@@ -8,16 +8,14 @@ class FaqController extends Controller
 {
 
 
-/*    public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(Faq::class, 'faq'); 
-    }*/
+        $this->middleware('permission:faqs-create', ['only' => ['create','store']]);
+        $this->middleware('permission:faqs-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:faqs-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:faqs-delete',   ['only' => ['delete']]);
+    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('faqs-read'))abort(403);

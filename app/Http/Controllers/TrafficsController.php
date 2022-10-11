@@ -9,10 +9,13 @@ use App\Models\RateLimitDetail;
 
 class TrafficsController extends Controller
 {
+
+
     public function __construct()
     {
-        $this->authorizeResource(RateLimit::class, 'rate-limit'); 
+        $this->middleware('permission:traffics-read',   ['only' => ['logs', 'index','error_reports']]);
     }
+
     public function index(Request $request){
       if(!auth()->user()->isAbleTo('traffics-read'))abort(403);
         $traffics=RateLimit::where(function($q)use($request){

@@ -2,9 +2,7 @@
 @section('content')
 <div class="col-12 p-3">
 	<div class="col-12 col-lg-12 p-0 ">
-		<form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.users.permissions.update',$user)}}">
-		@csrf
-		@method("PUT")
+		 
 		<div class="col-12 col-lg-12 p-0 main-box">
 
 			<div class="col-12 px-0">
@@ -38,10 +36,12 @@
 
 							@if($sub_permissions->where('name',$permission->table.'-create')->first())
 							<td style="width: 56px;">
-								 
-								<div class="form-check form-switch">
-								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-create'}}" value="{{$permission->table.'-create'}}" @if($user->hasPermission($permission->table.'-create')) checked @endif name="permissions[]">
-								</div>
+
+								@if($role->hasPermission($permission->table.'-create')) 
+									<span class="fas fa-check font-2" style="color:green;"></span>
+								@endif
+
+
 							</td>
 							@else
 							<td style="width: 56px;">
@@ -49,10 +49,9 @@
 							@endif
 							@if($sub_permissions->where('name',$permission->table.'-read')->first())
 							<td style="width: 56px;">
-								 
-								<div class="form-check form-switch">
-								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-read'}}" value="{{$permission->table.'-read'}}" @if($user->hasPermission($permission->table.'-read')) checked @endif name="permissions[]">
-								</div>
+								@if($role->hasPermission($permission->table.'-read')) 
+									<span class="fas fa-check font-2" style="color:green;"></span>
+								@endif
 							</td>
 							@else
 							<td style="width: 56px;">
@@ -61,9 +60,9 @@
 							@if($sub_permissions->where('name',$permission->table.'-update')->first())
 							<td style="width: 56px;">
 								 
-								<div class="form-check form-switch">
-								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-update'}}" value="{{$permission->table.'-update'}}" @if($user->hasPermission($permission->table.'-update')) checked @endif name="permissions[]">
-								</div>
+								@if($role->hasPermission($permission->table.'-update')) 
+									<span class="fas fa-check font-2" style="color:green;"></span>
+								@endif
 							</td>
 							@else
 							<td style="width: 56px;">
@@ -72,9 +71,9 @@
 							@if($sub_permissions->where('name',$permission->table.'-delete')->first())
 							<td style="width: 56px;">
 								 
-								<div class="form-check form-switch">
-								  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-delete'}}" value="{{$permission->table.'-delete'}}" @if($user->hasPermission($permission->table.'-delete')) checked @endif name="permissions[]">
-								</div>
+								@if($role->hasPermission($permission->table.'-delete')) 
+									<span class="fas fa-check font-2" style="color:green;"></span>
+								@endif
 							</td>
 							@else
 							<td style="width: 56px;">
@@ -88,11 +87,6 @@
 			</div>
  
 		</div>
-		 
-		<div class="col-12 p-3">
-			<button class="btn btn-success" id="submitEvaluation">حفظ</button>
-		</div> 
-		</form>
 	</div>
 </div>
 @endsection

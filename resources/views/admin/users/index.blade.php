@@ -72,13 +72,14 @@
 							</a> 
 							@endpermission
 
-							@permission('user-permissions-update')
+							{{-- @permission('user-permissions-update')
 							<a href="{{route('admin.users.permissions.index',$user)}}">
 							<span class="btn btn-outline-primary btn-sm font-1 mx-1">
 								<span class="fal fa-key "></span> الصلاحيات
 							</span>
 							</a>
-							@endpermission
+							@endpermission --}}
+							
 							@permission('users-update')
 							<a href="{{route('admin.users.edit',$user)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">

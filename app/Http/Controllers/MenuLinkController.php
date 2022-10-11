@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 class MenuLinkController extends Controller
 {
 
-    /*public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(MenuLink::class); 
-    }*/
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        $this->middleware('permission:menu-links-create', ['only' => ['create','store']]);
+        $this->middleware('permission:menu-links-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:menu-links-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:menu-links-delete',   ['only' => ['delete']]);
+    }
+
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('menu-links-read'))abort(403);

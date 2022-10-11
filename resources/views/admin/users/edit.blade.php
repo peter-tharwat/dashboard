@@ -14,10 +14,10 @@
 				</div>
 				<div class="col-12 divider" style="min-height: 2px;"></div>
 			</div>
-			<div class="col-12 p-3">
+			<div class="col-12 p-3 row">
 				
 			
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الاسم
 				</div>
@@ -25,7 +25,7 @@
 					<input type="text" name="name" required minlength="3"  maxlength="190" class="form-control" value="{{$user->name}}" >
 				</div>
 			</div>
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					البريد
 				</div>
@@ -33,7 +33,7 @@
 					<input type="email" name="email"  class="form-control"  value="{{$user->email}}" >
 				</div>
 			</div>
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					كلمة المرور
 				</div>
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الصورة الشخصية
 				</div>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الهاتف
 				</div>
@@ -62,20 +62,19 @@
 					<input type="text" name="phone"   maxlength="190" class="form-control"  value="{{$user->phone}}" >
 				</div>
 			</div>
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الصلاحية
 				</div>
 				<div class="col-12 pt-3">
-					<select class="form-control" name="power">
-						<option selected hidden disabled >إختر الصلاحية</option>
-						<option @if($user->power=="ADMIN") selected @endif value="ADMIN">مسؤول</option>
-						<option @if($user->power=="EDITOR") selected @endif value="EDITOR">محرر</option>
-						<option @if($user->power=="CONTRIBUTOR") selected @endif value="CONTRIBUTOR">مساهم</option>
+					<select class="form-control select2-select" name="roles[]" multiple >
+						@foreach($roles as $role)
+							<option value="{{$role->name}}" @if($user->hasRole($role->name)) selected @endif>{{$role->display_name}}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					نبذة
 				</div>
@@ -83,7 +82,7 @@
 					<textarea  name="bio" maxlength="5000" class="form-control" style="min-height:150px">{{$user->bio}}</textarea>
 				</div>
 			</div>
-			<div class="col-12 p-2">
+			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					محظور
 				</div>

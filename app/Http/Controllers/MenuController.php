@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
 
-    /*public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(Menu::class, 'menu'); 
-    }*/
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        $this->middleware('permission:menus-create', ['only' => ['create','store']]);
+        $this->middleware('permission:menus-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:menus-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:menus-delete',   ['only' => ['delete']]);
+    }
+
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('menus-read'))abort(403);

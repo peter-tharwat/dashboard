@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 use App\View\Components\Notifications as NotificationComponent;
 class NotificationsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:notifications-create', ['only' => ['create','store']]);
+        $this->middleware('permission:notifications-read',   ['only' => ['see', 'index','ajax']]);
+    }
+
+
     public function index(Request $request){
         if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
 

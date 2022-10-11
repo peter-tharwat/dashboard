@@ -9,17 +9,23 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     
+    public function __construct()
+    {
+        $this->middleware('permission:articles-create', ['only' => ['create','store']]);
+        $this->middleware('permission:articles-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:articles-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:articles-delete',   ['only' => ['delete']]);
+    }
+
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('articles-read'))abort(403);
         $articles =  Article::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('title','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
         })->orderBy('id','DESC')->paginate();
-
         return view('admin.articles.index',compact('articles'));
     }
 
@@ -30,7 +36,6 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('articles-create'))abort(403);
         $categories= Category::orderBy('id','DESC')->get();
         return view('admin.articles.create',compact('categories'));
     }
@@ -43,7 +48,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('articles-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -95,7 +99,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        if(!auth()->user()->isAbleTo('articles-read'))abort(403);
+
     }
 
     /**
@@ -106,7 +110,6 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        if(!auth()->user()->isAbleTo('articles-update'))abort(403);
         $categories= Category::orderBy('id','DESC')->get();
         return view('admin.articles.edit',compact('article','categories'));
     }
@@ -120,7 +123,6 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        if(!auth()->user()->isAbleTo('articles-update'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -171,7 +173,6 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if(!auth()->user()->isAbleTo('articles-delete'))abort(403);
         $article->delete();
         toastr()->success('تم حذف المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');

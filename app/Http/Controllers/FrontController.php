@@ -10,6 +10,7 @@ use App\Models\Page;
 
 class FrontController extends Controller
 {
+    
     public function index(Request $request)
     {
         return view('front.index');

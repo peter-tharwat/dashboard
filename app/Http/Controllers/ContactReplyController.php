@@ -9,36 +9,14 @@ class ContactReplyController extends Controller
 {
 
 
-/*    protected function resourceAbilityMap()
-    {
-        return [
-            'index'=>'viewAny',
-            'create'=>'store',
-            'store'=>'store',
-            'show' => 'view',
-            'create' => 'create',
-            'store' => 'create',
-            'edit' => 'update',
-            'update' => 'update',
-            'destroy' => 'delete',
-            'resolve'=>'resolve',
-        ];
-    }
-    protected function resourceMethodsWithoutModels()
-    {
-        return ['index', 'create', 'store' , 'resolve'];
-    }
-
     public function __construct()
     {
-        $this->authorizeResource(ContactReply::class, 'contact-reply'); 
-    }*/
+        $this->middleware('permission:contacts-create', ['only' => ['create','store']]);
+        $this->middleware('permission:contacts-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:contacts-update',   ['only' => ['edit','update','resolve']]);
+        $this->middleware('permission:contacts-delete',   ['only' => ['delete']]);
+    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('contacts-read'))abort(403);

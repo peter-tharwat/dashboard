@@ -25,6 +25,8 @@ use App\Http\Controllers\ContactReplyController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserPermissionController;
+use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\RoleController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
@@ -39,7 +41,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::get('/',[AdminController::class,'index'])->name('index');
 
-    Route::middleware(['CheckRole:ADMIN'])->group(function () {
+    Route::middleware('auth')->group(function () {
 
         
         Route::resource('announcements',AnnouncementController::class);
@@ -49,8 +51,11 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('contacts',ContactController::class);
         Route::resource('menus',MenuController::class);
         Route::resource('users',UserController::class);
-        Route::get('user-permissions/{user}',[UserPermissionController::class,'index'])->name('users.permissions.index');
-        Route::put('user-permissions/{user}',[UserPermissionController::class,'update'])->name('users.permissions.update');
+        Route::resource('roles',RoleController::class);
+        #Route::get('user-permissions/{user}',[UserPermissionController::class,'index'])->name('users.permissions.index');
+        #Route::put('user-permissions/{user}',[UserPermissionController::class,'update'])->name('users.permissions.update');
+        Route::get('user-roles/{user}',[UserRoleController::class,'index'])->name('users.roles.index');
+        Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
         Route::resource('articles',ArticleController::class);
         Route::resource('pages',PageController::class);
         Route::resource('contact-replies',ContactReplyController::class);

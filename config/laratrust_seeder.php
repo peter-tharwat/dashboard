@@ -8,14 +8,14 @@ return [
     /**
      * Control if all the laratrust tables should be truncated before running the seeder.
      */
-    'truncate_tables' => true,
+    'truncate_tables' => false,
 
     'roles_structure' => [
         'superadmin' => [
             'users' => 'c,r,u,d',
             'admin-analytics' => 'r',
             'announcements' => 'c,r,u,d',
-            'user-permissions' => 'c,r,u,d',
+            'roles' => 'c,r,u,d',
             'notifications' => 'c,r,u,d',
             'error-reports'=>"c,r,u,d",
             'articles' => 'c,r,u,d',

@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:announcements-create', ['only' => ['create','store']]);
+        $this->middleware('permission:announcements-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:announcements-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:announcements-delete',   ['only' => ['delete']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

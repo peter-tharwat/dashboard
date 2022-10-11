@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Permission;
-class PermissionController extends Controller
+use App\Models\Role;
+
+class RoleController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('permission:permissions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:permissions-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:permissions-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:permissions-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:roles-create', ['only' => ['create','store']]);
+        $this->middleware('permission:roles-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:roles-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:roles-delete',   ['only' => ['delete']]);
     }
 
     /**
@@ -22,14 +23,13 @@ class PermissionController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('permissions-read'))abort(403);
-        $permissions =  Page::where(function($q)use($request){
+        $roles =  Role::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('name','LIKE','%'.$request->q.'%')->orWhere('display_name','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
         })->orderBy('id','DESC')->paginate();
-        return view('admin.permissions.index',compact('permissions'));
+        return view('admin.roles.index',compact('roles'));
     }
 
     /**
@@ -39,8 +39,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('permissions-create'))abort(403);
-        return view('admin.permissions.create');
+        return view('admin.roles.create');
     }
 
     /**
@@ -51,15 +50,18 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('permissions-create'))abort(403);
-        Permission::create([
+        $request->validate([
+            'name'=>"required|unique:roles,name",
+            'display_name'=>"required|min:3",
+        ]);
+        $role = Role::create([
             'name'=>$request->name,
             'display_name'=>$request->display_name,
             'description'=>$request->description,
-            'table'=>$request->table,
         ]);
+        $role->syncPermissions($request->permissions);
         toastr()->success("تمت العملية بنجاح");
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.roles.index');
     }
 
     /**
@@ -68,9 +70,11 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Permission $permission)
+    public function show(Request $request,Role $role)
     {
-        if(!auth()->user()->isAbleTo('permissions-read'))abort(403);
+        $permissions = $role->permissions()->groupBy('table')->get();
+        //dd($permissions);
+        return view('admin.roles.show',compact('role','permissions'));
     }
 
     /**
@@ -79,10 +83,9 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,Permission $permission)
+    public function edit(Request $request,Role $role)
     {
-        if(!auth()->user()->isAbleTo('permissions-update'))abort(403);
-        return view('admin.permissions.edit',compact('permission'));
+        return view('admin.roles.edit',compact('role'));
     }
 
     /**
@@ -92,17 +95,20 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Permission $permission)
+    public function update(Request $request,Role $role)
     {
-        if(!auth()->user()->isAbleTo('permissions-update'))abort(403);
-        $permission->update([
+        $request->validate([
+            'name'=>"required|unique:roles,name,".$role->id,
+            'display_name'=>"required|min:3",
+        ]);
+        $role->update([
             'name'=>$request->name,
             'display_name'=>$request->display_name,
             'description'=>$request->description,
-            'table'=>$request->table,
         ]);
+        $role->syncPermissions($request->permissions);
         toastr()->success("تمت العملية بنجاح");
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.roles.index');
     }
 
     /**
@@ -111,10 +117,10 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        if(!auth()->user()->isAbleTo('permissions-delete'))abort(403);
+        $role->delete();
         toastr()->success("تمت العملية بنجاح");
-        return redirect()->back();
+        return redirect()->route('admin.roles.index');
     }
 }

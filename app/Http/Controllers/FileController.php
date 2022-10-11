@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
-    /*public function __construct()
+    public function __construct()
     {
-        $this->authorizeResource(HubFile::class, 'hub-file'); 
-    }*/
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        $this->middleware('permission:hub-files-create', ['only' => ['create','store']]);
+        $this->middleware('permission:hub-files-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:hub-files-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:hub-files-delete',   ['only' => ['delete']]);
+    }
+
+
     public function index(Request $request)
     {
         if(!auth()->user()->isAbleTo('hub-files-read'))abort(403);
