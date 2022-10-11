@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('create',\App\Models\Faq::class)
+					@permission('faqs-create')
 					<a href="{{route('admin.faqs.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endcan
+					@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -55,20 +55,20 @@
 
 					 
 
-							@can('update',$faq)
+							@permission('faqs-update')
 							<a href="{{route('admin.faqs.edit',$faq)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endcan
-							@can('delete',$faq)
+							@endpermission
+							@permission('faqs-delete')
 							<form method="POST" action="{{route('admin.faqs.destroy',$faq)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endcan
+							@endpermission
 						</td>
 					</tr>
 					@endforeach
@@ -89,7 +89,7 @@
 new Sortable(document.getElementById('sortable-table'), {
     multiDrag: true, // Enable multi-drag
 	selectedClass: 'selected', // The class applied to the selected items
-	fallbackTolerance: 3, // So that we can select items on mobile
+	fallbackTolerance: 3, // So that we permission select items on mobile
 	animation: 150,
 	onEnd: function(/**Event*/evt) {
 		

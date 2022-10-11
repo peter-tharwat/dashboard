@@ -12,11 +12,11 @@
 				<div class="col-12 col-lg-4 py-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('create',\App\Models\Announcement::class)
+					@permission('announcements-create')
 		 			<a href="{{route('admin.announcements.create')}}">
 		 				<button class="btn btn-primary pb-2"><span class="fas fa-plus"></span> إضافة إعلان</button>
 		 			</a>
-		 			@endcan
+		 			@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -56,17 +56,17 @@
 		      <td class=" row d-flex">
 		      	<form method="POST" action="{{route('admin.announcements.destroy',$announcement)}}" id="announcement_delete_{{$announcement->id}}">@csrf @method('DELETE')</form>
 
-		      	@can('update',$announcement)
+		      	@permission('announcements-update')
 		      	<a href="{{route('admin.announcements.edit',$announcement)}}" style="width: 30px;height: 30px;color: #fff;background: #2381c6;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1">
 		      		<span class="fal fa-edit"></span>
 		      	</a> 
-		      	@endcan
+		      	@endpermission
 		      	
-		      	@can('delete',$announcement)
+		      	@permission('announcements-delete')
 		      	<a href="#" style="width: 30px;height: 30px;color: #fff;background: #c00;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1" onclick='var result = confirm("هل أنت متأكد من عملية الحذف");if (result) {$("#announcement_delete_{{$announcement->id}}").submit();}'>
 		      		<span class="fal fa-trash"></span>
 		      	</a>
-		      	@endcan
+		      	@endpermission
 
 
 		      </td>

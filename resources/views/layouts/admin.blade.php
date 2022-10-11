@@ -65,13 +65,13 @@
         }
 
         .aside{
-            background: #11233b!important;
+            background: #171f2a!important;
         }
         .aside *{
             color: var(--color-1)!important;
         }
         .aside .item.active{
-            background: #101d30!important;
+            background: #192230!important;
             box-shadow: 0px 12px 17px #101d30!important;
             border-bottom: unset!important;
         }
@@ -232,7 +232,7 @@
                             </div> 
                         </div>
                     </a>
-                    @can('viewAny',\App\Models\User::class)
+                    @permission('users-read')
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -243,8 +243,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Category::class)
+                    @endpermission
+                    @permission('categories-read')
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -255,8 +255,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Article::class)
+                    @endpermission
+                    @permission('articles-read')
                     <a href="{{route('admin.articles.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -267,9 +267,9 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
+                    @endpermission
                     
-                    @can('viewAny',\App\Models\Announcement::class)
+                    @permission('announcements-read')
                     <a href="{{route('admin.announcements.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -280,8 +280,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Contact::class)
+                    @endpermission
+                    @permission('contacts-read')
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -299,8 +299,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Page::class)
+                    @endpermission
+                    @permission('pages-read')
                     <a href="{{route('admin.pages.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -311,8 +311,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Menu::class)
+                    @endpermission
+                    @permission('menus-read')
                     <a href="{{route('admin.menus.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -323,8 +323,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Faq::class)
+                    @endpermission
+                    @permission('faqs-read')
                     <a href="{{route('admin.faqs.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -335,8 +335,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endcan
-                    @can('viewAny',\App\Models\Setting::class)
+                    @endpermission
+                    @permission('settings-update')
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -347,7 +347,7 @@
                             </div> 
                         </div>
                     </a> 
-                    @endcan
+                    @endpermission
                     
 
                     
@@ -408,23 +408,23 @@
 
                                 <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
 
-                                @can('viewAny',\App\Models\Redirection::class)
+                                @permission('redirections-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.redirections.index')}}"><span class="fal fa-directions font-1"></span> التحويلات</a></li> 
-                                @endcan
+                                @endpermission
 
 
-                                @can('viewAny',\App\Models\HubFile::class)
+                                @permission('hub-files-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> الملفات</a></li> 
-                                @endcan
+                                @endpermission
 
 
-                                @can('viewAny',\App\Models\RateLimit::class)
+                                @permission('traffics-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
-                                @endcan
+                                @endpermission
 
-                                @can('viewAny',\App\Models\ReportError::class)
+                                @permission('report-errors-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
-                                @endcan
+                                @endpermission
  
  
 

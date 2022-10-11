@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(Page::class, 'page'); 
-    }
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,7 @@ class PageController extends Controller
      */
     public function index(Request $request)
     {
-        
+        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
         $pages =  Page::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -36,6 +36,7 @@ class PageController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('pages-create'))abort(403);
         return view('admin.pages.create');
     }
 
@@ -47,6 +48,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
+        if(!auth()->user()->isAbleTo('pages-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -95,7 +97,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
     }
 
     /**
@@ -106,6 +108,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
+        if(!auth()->user()->isAbleTo('pages-update'))abort(403);
         return view('admin.pages.edit',compact('page'));
     }
 
@@ -118,6 +121,7 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
+        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);

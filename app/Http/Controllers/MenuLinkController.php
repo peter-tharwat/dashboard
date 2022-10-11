@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class MenuLinkController extends Controller
 {
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(MenuLink::class); 
-    }
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +19,7 @@ class MenuLinkController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menu-links-read'))abort(403);
         $menuLinks =  MenuLink::where(function($q)use($request){
             if($request->menu_id!=null)
                 $q->where('menu_id',$request->menu_id);
@@ -36,6 +37,7 @@ class MenuLinkController extends Controller
      */
     public function create(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menu-links-create'))abort(403);
         $request->validate(['menu_id'=>"required|exists:menus,id"]);
         return view('admin.menu-links.create');
     }
@@ -48,7 +50,7 @@ class MenuLinkController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if(!auth()->user()->isAbleTo('menu-links-create'))abort(403);
         $request->validate([
             'menu_id'=>"required|exists:menus,id",
             'title'=>"required",
@@ -83,7 +85,7 @@ class MenuLinkController extends Controller
      */
     public function show(MenuLink $menuLink)
     {
-        //
+        if(!auth()->user()->isAbleTo('menu-links-read'))abort(403);
     }
 
     /**
@@ -94,6 +96,7 @@ class MenuLinkController extends Controller
      */
     public function edit(MenuLink $menuLink)
     {
+        if(!auth()->user()->isAbleTo('menu-links-update'))abort(403);
         return view('admin.menu-links.edit',compact('menuLink'));
     }
 
@@ -106,6 +109,7 @@ class MenuLinkController extends Controller
      */
     public function update(Request $request, MenuLink $menuLink)
     {
+        if(!auth()->user()->isAbleTo('menu-links-update'))abort(403);
         $request->validate([
             'menu_id'=>"required|exists:menus,id",
             'title'=>"required",
@@ -139,6 +143,7 @@ class MenuLinkController extends Controller
      */
     public function destroy(MenuLink $menuLink)
     {  
+        if(!auth()->user()->isAbleTo('menu-links-delete'))abort(403);
         $menu_id=$menuLink->menu_id;
         $menuLink->delete();
         toastr()->success('تمت العملية بنجاح');
@@ -148,6 +153,7 @@ class MenuLinkController extends Controller
 
     public function order(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menu-links-update'))abort(403);
         //return dd($request->order);
         foreach($request->order as $key => $value){
             MenuLink::where('id',$value)->update(['order'=>$key]);
@@ -155,6 +161,7 @@ class MenuLinkController extends Controller
     }
     public function getType(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menu-links-read'))abort(403);
         //dd($request->all());
         if($request->type=="PAGE")
             return \App\Models\Page::where(function($q)use($request){

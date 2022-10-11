@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('create',\App\Models\User::class)
+					@permission('users-create')
 					<a href="{{route('admin.users.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endcan
+					@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -48,17 +48,18 @@
 						<td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
 						<td>
-							@can('view',$user)
+							@permission('users-read')
 							<a href="{{route('admin.users.show',$user)}}">
 							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 								<span class="fas fa-search "></span> عرض
 							</span>
 							</a>
-							@endif
+							@endpermission
 
 							
+							
 
-							@can('create-notifications')
+							@permission('notifications-create')
 							<a href="{{route('admin.notifications.index',['user_id'=>$user->id])}}">
 							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 								<span class="far fa-bells"></span> الاشعارات
@@ -69,22 +70,29 @@
 								<span class="far fa-bell"></span>
 							</span>
 							</a> 
-							@endcan
+							@endpermission
 
-							@can('update',$user)
+							@permission('user-permissions-update')
+							<a href="{{route('admin.users.permissions.index',$user)}}">
+							<span class="btn btn-outline-primary btn-sm font-1 mx-1">
+								<span class="fal fa-key "></span> الصلاحيات
+							</span>
+							</a>
+							@endpermission
+							@permission('users-update')
 							<a href="{{route('admin.users.edit',$user)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 								<span class="fas fa-wrench "></span> تحكم
 							</span>
 							</a>
-							@endif
-							@can('delete',$user)
+							@endpermission
+							@permission('users-delete')
 							<form method="POST" action="{{route('admin.users.destroy',$user)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endif
+							@endpermission
 						</td>
 					</tr>
 					@endforeach

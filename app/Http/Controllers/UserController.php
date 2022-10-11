@@ -9,7 +9,7 @@ class UserController extends Controller
 {
 
 
-    protected function resourceAbilityMap()
+/*    protected function resourceAbilityMap()
     {
         return [
             'index'=>'viewAny',
@@ -20,21 +20,22 @@ class UserController extends Controller
             'store' => 'create',
             'edit' => 'update',
             'update' => 'update',
-            'destroy' => 'delete',
-            /*'customMethod'=>'customMethod',*/
+            'destroy' => 'delete', 
         ];
     }
     protected function resourceMethodsWithoutModels()
     {
-        return ['index', 'create', 'store' /*, 'customMethod'*/];
-    }
+        return ['index', 'create', 'store' ];
+    }*/
 
 
-    public function __construct()
+/*    public function __construct()
     {
         $this->middleware(['CheckRole:ADMIN']);
         $this->authorizeResource(User::class, 'user'); 
-    }
+    }*/
+
+
     /**
      * Display a listing of the resource.
      *
@@ -43,6 +44,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         
+        if(!auth()->user()->isAbleTo('users-read'))abort(403);
         $users =  User::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -61,6 +63,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('users-create'))abort(403);
         return view('admin.users.create');
     }
 
@@ -72,8 +75,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-
+        if(!auth()->user()->isAbleTo('users-create'))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
@@ -124,6 +126,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        if(!auth()->user()->isAbleTo('users-read'))abort(403);
         return view('admin.users.show',compact('user'));
     }
 
@@ -135,6 +138,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if(!auth()->user()->isAbleTo('users-update'))abort(403);
         return view('admin.users.edit',compact('user'));
     }
 
@@ -147,6 +151,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        if(!auth()->user()->isAbleTo('users-update'))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
@@ -199,6 +204,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if(!auth()->user()->isAbleTo('users-delete'))abort(403);
         $user->delete();
         toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');

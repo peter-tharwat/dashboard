@@ -7,13 +7,6 @@ use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
 {
-
-
-    public function __construct()
-    {
-        $this->authorizeResource(Announcement::class, 'announcement'); 
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +14,8 @@ class AnnouncementController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('announcements-read'))abort(403);
+
         $announcements=Announcement::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -38,6 +33,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('announcements-create'))abort(403);
         return view('admin.announcements.create');
     }
 
@@ -49,7 +45,7 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
- 
+        if(!auth()->user()->isAbleTo('announcements-create'))abort(403);
         $announcement= Announcement::create([
             'title'=>$request->title,
             'description'=>$request->description,
@@ -86,7 +82,7 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        //
+        if(!auth()->user()->isAbleTo('announcements-read'))abort(403);
     }
 
     /**
@@ -97,6 +93,7 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        if(!auth()->user()->isAbleTo('announcements-update'))abort(403);
         return view('admin.announcements.edit',compact('announcement'));
     }
 
@@ -109,6 +106,7 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, Announcement $announcement)
     {
+        if(!auth()->user()->isAbleTo('announcements-update'))abort(403);
         $announcement->update([
             'title'=>$request->title,
             'description'=>$request->description,
@@ -145,6 +143,7 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
+        if(!auth()->user()->isAbleTo('announcements-delete'))abort(403);
         $announcement->delete();
         toastr()->success('تم الحذف بنجاح');
         return redirect()->route('admin.announcements.index');

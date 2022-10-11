@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class ReportErrorController extends Controller
 {
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(ReportError::class, 'report-error'); 
-    }
+    }*/
 
     /**
      * Display a listing of the resource.

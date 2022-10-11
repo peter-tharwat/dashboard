@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class RedirectionController extends Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(Redirection::class, 'redirection'); 
-    }
+    }*/
 
     /**
      * Display a listing of the resource.
@@ -19,6 +19,7 @@ class RedirectionController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('redirections-read'))abort(403);
         $redirections =  Redirection::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -35,6 +36,7 @@ class RedirectionController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('redirections-create'))abort(403);
         return view('admin.redirections.create');
     }
 
@@ -46,6 +48,7 @@ class RedirectionController extends Controller
      */
     public function store(Request $request)
     {
+        if(!auth()->user()->isAbleTo('redirections-create'))abort(403);
         $request->validate([
             'url'=>"required|url",
             'new_url'=>"required|url",
@@ -69,7 +72,7 @@ class RedirectionController extends Controller
      */
     public function show(Redirection $redirection)
     {
-        //
+        if(!auth()->user()->isAbleTo('redirections-read'))abort(403);
     }
 
     /**
@@ -80,6 +83,7 @@ class RedirectionController extends Controller
      */
     public function edit(Redirection $redirection)
     {
+        if(!auth()->user()->isAbleTo('redirections-update'))abort(403);
         return view('admin.redirections.edit',compact('redirection'));
     }
 
@@ -92,6 +96,7 @@ class RedirectionController extends Controller
      */
     public function update(Request $request, Redirection $redirection)
     {
+        if(!auth()->user()->isAbleTo('redirections-update'))abort(403);
         $request->validate([
             'url'=>"required|url",
             'new_url'=>"required|url",
@@ -114,6 +119,7 @@ class RedirectionController extends Controller
      */
     public function destroy(Redirection $redirection)
     {
+        if(!auth()->user()->isAbleTo('redirections-delete'))abort(403);
         $redirection->delete();
         toastr()->success('تم حذف التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');

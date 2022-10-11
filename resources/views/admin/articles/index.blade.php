@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('create',\App\Models\Article::class)
+					@permission('articles-create')
 					<a href="{{route('admin.articles.create')}}">
 						<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endcan
+					@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -63,28 +63,28 @@
 						</td>
 						<td style="width: 270px;">
 
-							@can('view',$article)
+							@permission('articles-read',$article)
 							<a href="{{route('article.show',['article'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
 							</a>
-							@endcan
+							@endpermission
 
-							@can('update',$article)
+							@permission('articles-update',$article)
 							<a href="{{route('admin.articles.edit',$article)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endcan
-							@can('delete',$article)
+							@endpermission
+							@permission('articles-delete',$article)
 							<form method="POST" action="{{route('admin.articles.destroy',$article)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endcan
+							@endpermission
 						</td>
 					</tr>
 					@endforeach

@@ -23,7 +23,8 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactReplyController;
 use App\Http\Controllers\AnnouncementController;
-
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserPermissionController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
@@ -48,6 +49,8 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('contacts',ContactController::class);
         Route::resource('menus',MenuController::class);
         Route::resource('users',UserController::class);
+        Route::get('user-permissions/{user}',[UserPermissionController::class,'index'])->name('users.permissions.index');
+        Route::put('user-permissions/{user}',[UserPermissionController::class,'update'])->name('users.permissions.update');
         Route::resource('articles',ArticleController::class);
         Route::resource('pages',PageController::class);
         Route::resource('contact-replies',ContactReplyController::class);

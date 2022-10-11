@@ -18,6 +18,7 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^2.7",
         "nesbot/carbon": "^2.54",
+        "santigarcor/laratrust": "^7.1",
         "stevebauman/location": "^6.2",
         "yoeunes/toastr": "^2.0"
     },

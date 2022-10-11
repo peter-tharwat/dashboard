@@ -7,6 +7,8 @@ use App\View\Components\Notifications as NotificationComponent;
 class NotificationsController extends Controller
 {
     public function index(Request $request){
+        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
+
         $user=auth()->user();
         if($request->user_id!=null)
             $user=\App\Models\User::where('id',$request->user_id)->firstOrFail();
@@ -16,12 +18,13 @@ class NotificationsController extends Controller
         return view('admin.notifications.index',compact('notifications'));
     }
     public function see(Request $request){
+        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
         session(['seen_notifications'=>0]);
         auth()->user()->unreadNotifications->markAsRead();
     }
 
     public function ajax(Request $request){
-
+        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
         $notifications = \Auth::user()->notifications()->limit(15)->get(); 
         $not_response  = array(
             'response'                   => (new NotificationComponent($notifications))->render(1),
@@ -43,11 +46,12 @@ class NotificationsController extends Controller
     }
 
     public function create(Request $request){
+        if(!auth()->user()->isAbleTo('notifications-create'))abort(403);
         $request->validate(['user_id'=>"required|exists:users,id"]);
         return view('admin.notifications.create');
     }
     public function store(Request $request){
-
+        if(!auth()->user()->isAbleTo('notifications-create'))abort(403);
         $contact = \App\Models\Contact::create([
             'user_id'=>$request->user_id,
             'message'=>$request->content,

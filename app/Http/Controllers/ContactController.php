@@ -8,12 +8,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
 
-
-    public function __construct()
-    {
-        $this->authorizeResource(Contact::class, 'contact'); 
-    }
-
+ 
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +16,7 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
         $contacts =  Contact::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -40,7 +36,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
     }
 
     /**
@@ -51,7 +47,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
     }
 
     /**
@@ -62,6 +58,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
         return view('admin.contacts.show',compact('contact'));
     }
 
@@ -73,7 +70,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
     }
 
     /**
@@ -85,7 +82,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
     }
 
     /**
@@ -96,12 +93,14 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
+        if(!auth()->user()->isAbleTo('contacts-delete'))abort(403);
         $contact->delete();
         toastr()->success('تم حذف طلب التواصل بنجاح','عملية ناجحة');
         return redirect()->route('admin.contacts.index');
     }
 
     public function resolve(Request $request){
+        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
         $contact = \App\Models\Contact::where('id',$request->id)->firstOrFail();
         $contact->update(['status'=>$contact->status=="PENDING"?"DONE":"PENDING"]);
         return ['status'=>$contact->status=="DONE"?"DONE":"PENDING" ];

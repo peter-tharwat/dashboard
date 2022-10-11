@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(Menu::class, 'menu'); 
-    }
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +19,7 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menus-read'))abort(403);
         $menus =  Menu::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -35,6 +36,7 @@ class MenuController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('menus-create'))abort(403);
         return view('admin.menus.create');
     }
 
@@ -46,6 +48,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        if(!auth()->user()->isAbleTo('menus-create'))abort(403);
         $request->validate([
             'title'=>"required|max:190",
             'location'=>"required|unique:menus,location"
@@ -66,7 +69,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        if(!auth()->user()->isAbleTo('menus-read'))abort(403);
     }
 
     /**
@@ -77,6 +80,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
+        if(!auth()->user()->isAbleTo('menus-update'))abort(403);
         return view('admin.menus.edit',compact('menu'));
     }
 
@@ -89,6 +93,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
+        if(!auth()->user()->isAbleTo('menus-update'))abort(403);
         $request->validate([
             'title'=>"required|max:190",
             'location'=>"required|unique:menus,location,".$menu->id,
@@ -109,6 +114,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
+        if(!auth()->user()->isAbleTo('menus-delete'))abort(403);
         $menu->delete();
         toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');

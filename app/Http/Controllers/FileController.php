@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         $this->authorizeResource(HubFile::class, 'hub-file'); 
-    }
+    }*/
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +18,7 @@ class FileController extends Controller
      */
     public function index(Request $request)
     {
+        if(!auth()->user()->isAbleTo('hub-files-read'))abort(403);
         $files = HubFile::where(function($q)use($request){
 
             if($request->id!=null)
@@ -36,7 +37,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        if(!auth()->user()->isAbleTo('hub-files-create'))abort(403);
     }
 
     /**
@@ -47,7 +48,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth()->user()->isAbleTo('hub-files-create'))abort(403);
     }
 
     /**
@@ -58,7 +59,7 @@ class FileController extends Controller
      */
     public function show(HubFile $hubFile)
     {
-        //
+        if(!auth()->user()->isAbleTo('hub-files-read'))abort(403);
     }
 
     /**
@@ -69,7 +70,7 @@ class FileController extends Controller
      */
     public function edit(HubFile $hubFile)
     {
-        //
+        if(!auth()->user()->isAbleTo('hub-files-update'))abort(403);
     }
 
     /**
@@ -81,7 +82,7 @@ class FileController extends Controller
      */
     public function update(Request $request, HubFile $hubFile)
     {
-        //
+        if(!auth()->user()->isAbleTo('hub-files-update'))abort(403);
     }
 
     /**
@@ -92,6 +93,7 @@ class FileController extends Controller
      */
     public function destroy(HubFile $file)
     {
+        if(!auth()->user()->isAbleTo('hub-files-delete'))abort(403);
         $file->forceDelete();
         //you have to remove it if you want
         toastr()->success("تمت العملية بنجاح");

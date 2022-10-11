@@ -14,12 +14,14 @@ class SettingController extends Controller
 
     public function index()
     {
+        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
         $settings = Setting::firstOrCreate();
         return view('admin.settings.index',compact('settings'));
     }
 
     public function update(Request $request, Setting $settings)
     {
+        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
         \App\Models\Setting::query()->update([
             'website_name'=>$request->website_name,
             'address'=>$request->address,

@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('create',\App\Models\Menu::class)
+					@permission('create',\App\Models\Menu::class)
 					<a href="{{route('admin.menus.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endcan
+					@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -50,29 +50,29 @@
 					 
 						<td style="width: 270px;">
 
-					 		@can('viewAny',\App\Models\MenuLink::class)
+					 		@permission('menu-links-read')
 							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-link "></span> الروابط
 								</span>
 							</a>
-							@endcan
+							@endpermission
 							
-							@can('update',$menu)
+							@permission('menu-links-update')
 							<a href="{{route('admin.menus.edit',$menu)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench"></span> تحكم
 								</span>
 							</a>
-							@endcan
+							@endpermission
 
-							@can('delete',$menu)
+							@permission('menu-links-delete')
 							<form method="POST" action="{{route('admin.menus.destroy',$menu)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endcan
+							@endpermission
 
 						</td>
 					</tr>
