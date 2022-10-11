@@ -16,7 +16,7 @@ class LaratrustSeeder extends Seeder
      */
     public function run()
     {
-        $this->truncateLaratrustTables();
+        //$this->truncateLaratrustTables();
 
         $config = Config::get('laratrust_seeder.roles_structure');
 
