@@ -62,6 +62,9 @@
             --border-color: #282b2f;
             --bs-table-hover-color: #f7f7f7!important; 
         }
+        .select2-dropdown,.select2-container--default .select2-selection--multiple,.select2-container--default .select2-selection--multiple .select2-selection__choice{
+            background-color: var(--background-0)!important;
+        }
         td, th{
             border-color: var(--border-color)!important;
         }
@@ -448,7 +451,9 @@
                                 @permission('error-reports-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
                                 @endpermission
- 
+                                @permission('tags-read')
+                                <li><a class="dropdown-item font-1" href="{{route('admin.tags.index')}}"><span class="fal fa-tags font-1"></span> الوسوم</a></li> 
+                                @endpermission
  
 
 

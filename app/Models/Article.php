@@ -25,4 +25,8 @@ class Article extends Model
             return env("STORAGE_URL")."/uploads/articles/".$this->main_image;
     }
 
+    public function tags(){
+        return $this->belongsToMany(\App\Models\Tag::class,'item_tags','type_id','id')->where('item_tags.type',"ARTICLE");
+
+    }
 }

@@ -60,14 +60,6 @@
                             <textarea name="description" class="editor with-file-explorer">{{old('description')}}</textarea>
                         </div>
                     </div>
-                    <div class="col-12  p-2">
-                        <div class="col-12">
-                            الوصف عربي
-                        </div>
-                        <div class="col-12 pt-3">
-                            <textarea name="description2" class="editor">{{old('description')}}</textarea>
-                        </div>
-                    </div>
                     <div class="col-12 p-2">
                         <div class="col-12">
                             ميتا الوصف عربي

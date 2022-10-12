@@ -23,18 +23,15 @@ class ProfileController extends Controller
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('profile-read'))abort(403);
         return view('admin.profile.index'); 
     }
     public function edit(Request $request)
     {
-        if(!auth()->user()->isAbleTo('profile-update'))abort(403);
         return view('admin.profile.edit'); 
     }
     
     public function update(Request $request)
     {
-        if(!auth()->user()->isAbleTo('profile-update'))abort(403);
         $user= User::where('id',auth()->id())->firstOrFail();
         if($request->avatar!=null){
             $file = $this->store_file([
@@ -92,7 +89,6 @@ class ProfileController extends Controller
 
 
     public function update_password(Request $request){
-        if(!auth()->user()->isAbleTo('profile-update'))abort(403);
         $request->validate([
             'old_password'=>"required|string|min:8|max:190",
             'password'=>"required|string|confirmed|min:8|max:190"
@@ -109,8 +105,7 @@ class ProfileController extends Controller
         }  
     }
     public function update_email(Request $request){
-        if(!auth()->user()->isAbleTo('profile-update'))abort(403);
-       $request->validate([
+        $request->validate([
             'old_email'=>"required|email",
             'email'=>"required|email|confirmed|unique:users,email,".auth()->user()->id
         ]);

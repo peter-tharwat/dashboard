@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -36,8 +37,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $tags = Tag::get();
         $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.create',compact('categories'));
+        return view('admin.articles.create',compact('categories','tags'));
     }
 
     /**
@@ -51,7 +53,6 @@ class ArticleController extends Controller
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
-
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug",
             'category_id'=>"required|array",
@@ -70,7 +71,7 @@ class ArticleController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         $article->categories()->sync($request->category_id);
-
+        $article->tags()->sync($request->tag_id);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,
@@ -110,8 +111,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $tags = Tag::get();
         $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.edit',compact('article','categories'));
+        return view('admin.articles.edit',compact('article','categories','tags'));
     }
 
     /**
@@ -145,6 +147,7 @@ class ArticleController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         $article->categories()->sync($request->category_id);
+        $article->tags()->syncWithPivotValues($request->tag_id,['type'=>"ARTICLE"]);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,

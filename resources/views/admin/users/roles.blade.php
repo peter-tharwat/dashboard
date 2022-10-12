@@ -20,7 +20,7 @@
 						الصلاحية
 					</div>
 					<div class="col-12 pt-3">
-						<select class="form-control select2-select" name="roles[]" multiple>
+						<select class="form-control select2-select" name="roles[]" multiple >
 							@foreach($roles as $role)
 								<option value="{{$role->name}}" @if($user->hasRole($role->name)) selected @endif>{{$role->name}}</option>
 							@endforeach

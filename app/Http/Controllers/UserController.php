@@ -53,8 +53,6 @@ class UserController extends Controller
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'roles'=>"required|array",
-            'roles.*'=>"required|exists:roles,name",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email",
@@ -68,7 +66,14 @@ class UserController extends Controller
             "email"=>$request->email,
             "password"=>\Hash::make($request->password),
         ]);
-        $user->syncRoles($request->roles);
+        if(auth()->user()->isAbleTo('user-roles-update')){
+            $request->validate([
+                'roles'=>"required|array",
+                'roles.*'=>"required|exists:roles,name",
+            ]);
+            $user->permissions()->delete();
+            $user->syncRoles($request->roles);
+        }
 
         if($request->hasFile('avatar')){
             $file = $this->store_file([
@@ -128,8 +133,6 @@ class UserController extends Controller
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'roles'=>"required|array",
-            'roles.*'=>"required|exists:roles,name",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email,".$user->id,
@@ -143,7 +146,14 @@ class UserController extends Controller
             "email"=>$request->email,
             
         ]);
-        $user->syncRoles($request->roles);
+        if(auth()->user()->isAbleTo('user-roles-update')){
+            $request->validate([
+                'roles'=>"required|array",
+                'roles.*'=>"required|exists:roles,name",
+            ]);
+            $user->permissions()->delete();
+            $user->syncRoles($request->roles);
+        }
 
         if($request->password!=null){
             $user->update([

@@ -6,13 +6,13 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-menus"></span> القوائم
+					<span class="fas fa-tags"></span> عرض الكل
 				</div>
-				<div class="col-12 col-lg-4 p-0">
+				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@permission('menus-create')
-					<a href="{{route('admin.menus.create')}}">
+					@permission('tags-create')
+					<a href="{{route('admin.tags.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
 					@endpermission
@@ -36,44 +36,33 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>الرابط</th>
-						<th>العنوان</th>
+						<th>الاسم</th>
+						<th>الرمز</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
-				<tbody>
-					@foreach($menus as $menu)
-					<tr>
-						<td>{{$menu->id}}</td>
-						<td>{{$menu->location}}</td>
-						<td>{{$menu->title}}</td>
+				<tbody id="sortable-table">
+					@foreach($tags as $tag)
+					<tr >
+						<td>{{$tag->id}}</td>
+						<td>{{$tag->tag_name}}</td>
+						<td>{{$tag->slug}}</td>
 					 
 						<td style="width: 270px;">
-
-					 		@permission('menu-links-read')
-							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
+							@permission('tags-update')
+							<a href="{{route('admin.tags.edit',$tag)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-link "></span> الروابط
+									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
 							@endpermission
-							
-							@permission('menu-links-update')
-							<a href="{{route('admin.menus.edit',$menu)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench"></span> تحكم
-								</span>
-							</a>
-							@endpermission
-
-							@permission('menu-links-delete')
-							<form method="POST" action="{{route('admin.menus.destroy',$menu)}}" class="d-inline-block">@csrf @method("DELETE")
+							@permission('tags-delete')
+							<form method="POST" action="{{route('admin.tags.destroy',$tag)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
 							@endpermission
-
 						</td>
 					</tr>
 					@endforeach
@@ -82,7 +71,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3">
-			{{$menus->appends(request()->query())->render()}}
+			{{$tags->appends(request()->query())->render()}}
 		</div>
 	</div>
 </div>

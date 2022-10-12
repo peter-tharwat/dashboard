@@ -63,6 +63,7 @@
 					<input type="text" name="phone"   maxlength="190" class="form-control"  value="{{old('phone')}}" >
 				</div>
 			</div>
+			@if(auth()->user()->isAbleTo('user-roles-update'))
 			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الصلاحية
@@ -75,6 +76,7 @@
 					</select>
 				</div>
 			</div>
+			@endif
 			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					نبذة

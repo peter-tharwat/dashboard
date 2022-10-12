@@ -25,6 +25,18 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            الوسوم
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control select2-select" name="tag_id[]" required multiple size="1" style="height:30px;opacity: 0;">
+                                @foreach($tags as $tag)
+                                <option value="{{$tag->id}}" @if(in_array($tag->id,$article->tags->pluck('id')->toArray())) selected @endif>{{$tag->tag_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-12"></div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">

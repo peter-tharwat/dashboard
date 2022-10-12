@@ -27,6 +27,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserPermissionController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TagController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
@@ -43,11 +44,10 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::middleware('auth')->group(function () {
 
-        
+        //Route::get('countries',function(){return dd(config()->get('countries'));});
         Route::resource('announcements',AnnouncementController::class);
         Route::resource('files',FileController::class);
-        Route::post('contacts/resolve',[ContactController::class,'resolve'])
-                ->can('resolve',\App\Models\Contact::class)->name('contacts.resolve');
+        Route::post('contacts/resolve',[ContactController::class,'resolve']);
         Route::resource('contacts',ContactController::class);
         Route::resource('menus',MenuController::class);
         Route::resource('users',UserController::class);
@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
         Route::resource('articles',ArticleController::class);
         Route::resource('pages',PageController::class);
+        Route::resource('tags',TagController::class);
         Route::resource('contact-replies',ContactReplyController::class);
         Route::post('faqs/order',[FaqController::class,'order'])->name('faqs.order');
         Route::resource('faqs',FaqController::class);
@@ -83,11 +84,11 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
     });
 
     Route::prefix('profile')->name('profile.')->group(function () {
-        Route::get('/',[ProfileController::class,'index'])->name('index')->can('control', User::class);
-        Route::get('/edit',[ProfileController::class,'edit'])->name('edit')->can('control', User::class);
-        Route::put('/update',[ProfileController::class,'update'])->name('update')->can('control', User::class);
-        Route::put('/update-password',[ProfileController::class,'update_password'])->name('update-password')->can('control', User::class);
-        Route::put('/update-email',[ProfileController::class,'update_email'])->name('update-email')->can('control', User::class);
+        Route::get('/',[ProfileController::class,'index'])->name('index');
+        Route::get('/edit',[ProfileController::class,'edit'])->name('edit');
+        Route::put('/update',[ProfileController::class,'update'])->name('update');
+        Route::put('/update-password',[ProfileController::class,'update_password'])->name('update-password');
+        Route::put('/update-email',[ProfileController::class,'update_email'])->name('update-email');
     });
 
     Route::prefix('notifications')->name('notifications.')->group(function () {
