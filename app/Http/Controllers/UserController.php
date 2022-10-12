@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -69,10 +71,9 @@ class UserController extends Controller
         if(auth()->user()->isAbleTo('user-roles-update')){
             $request->validate([
                 'roles'=>"required|array",
-                'roles.*'=>"required|exists:roles,name",
+                'roles.*'=>"required|exists:roles,id",
             ]);
-            $user->permissions()->delete();
-            $user->syncRoles($request->roles);
+            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 
         if($request->hasFile('avatar')){
@@ -149,10 +150,9 @@ class UserController extends Controller
         if(auth()->user()->isAbleTo('user-roles-update')){
             $request->validate([
                 'roles'=>"required|array",
-                'roles.*'=>"required|exists:roles,name",
+                'roles.*'=>"required|exists:roles,id",
             ]);
-            $user->permissions()->delete();
-            $user->syncRoles($request->roles);
+            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 
         if($request->password!=null){

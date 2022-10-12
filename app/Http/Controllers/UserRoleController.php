@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 class UserRoleController extends Controller
 {
     public function __construct()
@@ -21,7 +23,7 @@ class UserRoleController extends Controller
     }
     public function update(Request $request,User $user){
         $user->permissions()->delete();
-        $user->syncRoles($request->roles);
+        $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         toastr()->success("تمت العملية بنجاح");
         return redirect()->route('admin.users.index');
     }

@@ -71,7 +71,7 @@
 				<div class="col-12 pt-3">
 					<select class="form-control select2-select" name="roles[]" multiple>
 						@foreach($roles as $role)
-							<option value="{{$role->name}}">{{$role->display_name}}</option>
+							<option value="{{$role->id}}">{{$role->display_name}}</option>
 						@endforeach
 					</select>
 				</div>
