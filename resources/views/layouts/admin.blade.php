@@ -60,10 +60,11 @@
             --color-1: #fff;
             --color-2: #f1f1f1;
             --border-color: #282b2f;
-
             --bs-table-hover-color: #f7f7f7!important; 
         }
-
+        td, th{
+            border-color: var(--border-color)!important;
+        }
         .aside{
             background: #171f2a!important;
         }
@@ -123,15 +124,24 @@
         hr{
             background: var(--border-color);
         }
+        .form-control {
+            background: rgb(39 38 37 / 20%);
+            border-color: #8c6934;
+        }
         .form-control{
             background: var(--background-1);
             border-color: var(--border-color);
         }
         .form-control:focus {
             box-shadow: unset!important;
+            border: 1px solid #ff9800!important;
+            background: #0e0d0c!important;
+        }
+        /*.form-control:focus {
+            box-shadow: unset!important;
             border: 1px solid var(--border-color)!important;
             background: var(--background-form-control-focus)!important;
-        }
+        }*/
         .form-control ,.form-control:focus{
             color: var(--color-1);
         }
@@ -232,18 +242,6 @@
                             </div> 
                         </div>
                     </a>
-                    @permission('users-read')
-                    <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-users font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                المستخدمين
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
                     @permission('roles-read')
                     <a href="{{route('admin.roles.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
@@ -256,6 +254,19 @@
                         </div>
                     </a>
                     @endpermission
+                    @permission('users-read')
+                    <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
+                        <div class="col-12 item px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-users font-2"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2">
+                                المستخدمين
+                            </div> 
+                        </div>
+                    </a>
+                    @endpermission
+                    
                     @permission('categories-read')
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0" >
                         <div class="col-12 item px-0 d-flex " >
@@ -434,7 +445,7 @@
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
                                 @endpermission
 
-                                @permission('report-errors-read')
+                                @permission('error-reports-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
                                 @endpermission
  

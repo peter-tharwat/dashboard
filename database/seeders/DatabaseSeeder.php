@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     { 
         $this->call([
-            //UsersSeeder::class,
-            //SettingsSeeder::class,
-            //PagesSeeder::class,
-            //MenusSeeder::class,
+            UsersSeeder::class,
+            SettingsSeeder::class,
+            PagesSeeder::class,
+            MenusSeeder::class,
             LaratrustSeeder::class,
-            //AttachSuperAdminPermissions::class
+            AttachSuperAdminPermissions::class
 
         ]);
     }

@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        \App\Models\User::class => \App\Policies\UserPolicy::class,
+        /*\App\Models\User::class => \App\Policies\UserPolicy::class,
         \App\Models\Category::class => \App\Policies\CategoryPolicy::class,
         \App\Models\Article::class => \App\Policies\ArticlePolicy::class,
         \App\Models\Redirection::class => \App\Policies\RedirectionPolicy::class,
@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
         \App\Models\HubFile::class => \App\Policies\HubFilePolicy::class,
         \App\Models\RateLimit::class => \App\Policies\RateLimitPolicy::class,
         \App\Models\ErrorReport::class => \App\Policies\ErrorReportPolicy::class,
-        \App\Models\Announcement::class => \App\Policies\AnnouncementPolicy::class
+        \App\Models\Announcement::class => \App\Policies\AnnouncementPolicy::class*/
     ];
 
 
@@ -37,9 +37,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-        Gate::define('show-statistics',[\App\Policies\StatisticPolicy::class,'viewAny']);
-        Gate::define('create-notifications',[\App\Policies\AdditionalPermissionPolicy::class,'create_notifications']);
+        //$this->registerPolicies();
+        //Gate::define('show-statistics',[\App\Policies\StatisticPolicy::class,'viewAny']);
+        //Gate::define('create-notifications',[\App\Policies\AdditionalPermissionPolicy::class,'create_notifications']);
 
     }
 }

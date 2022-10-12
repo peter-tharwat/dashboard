@@ -10,10 +10,10 @@ class ContactController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:contact-create', ['only' => ['create','store']]);
-        $this->middleware('permission:contact-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:contact-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:contact-delete',   ['only' => ['delete']]);
+        $this->middleware('permission:contacts-create', ['only' => ['create','store']]);
+        $this->middleware('permission:contacts-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:contacts-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:contacts-delete',   ['only' => ['delete']]);
     }
     /**
      * Display a listing of the resource.
