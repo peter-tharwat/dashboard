@@ -14,15 +14,18 @@
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/plugins.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}">
+    
     {!!$settings->header_code!!}
     @livewireStyles
     @if(auth()->check())
@@ -35,6 +38,19 @@
     @endif
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <style type="text/css">
+        *:not(.fileuploader):not([class^="fileuploader-icon-"]):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]) {
+            font-family: 'DinNext',sans-serif!important;
+            /*direction: rtl;*/
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: rgba(0,0,0,1);
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,1);
+        }
+        .fancybox__track{
+            direction: ltr;
+        }
         body,*{
             direction: rtl;
             text-align: start;
@@ -61,6 +77,45 @@
         .row{
             margin: 0px;
         }
+        /*.offcanvas.show:not(.hiding), */.offcanvas.showing{
+            transform: translateX(100%);
+        }
+        .offcanvas.offcanvas-start{
+            transform: translateX(100%);
+        }
+        .offcanvas-backdrop{
+            right: 0px;
+        }
+        @media (max-width: 991.98px){
+            .navbar-expand-lg .navbar-collapse .dropdown-toggle:after {
+                position: absolute;
+                right: 11.75rem;
+                top: 0.35rem;
+                font-size: .9rem;
+            }
+        }
+        .btn-close:before{
+            all: unset;
+        }
+        .dropdown-toggle:after {
+            font-size: 0.85rem;
+            margin-right: 0.1rem!important;
+        }
+        .dropdown-toggle:after{
+            margin-right: 0rem!important;
+        }
+        .navbar-nav .dropdown-menu{
+            position: absolute;
+        }
+        .dropdown-toggle:after {
+            margin-right: -0.4rem!important;
+        }
+        .dropdown-menu[data-bs-popper]{
+            top: 120%;
+        }
+        .nav-link{
+            font-weight: normal;
+        }
     </style>
     @yield('styles')
 </head>
@@ -73,94 +128,26 @@
     @yield('after-body')
     <div id="app">
 
-
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">{{$settings->website_name}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
-        </li>
-      
-      </ul>
-      <div class="d-flex">
-          <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">دخول</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">تسجيل</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <button class="btn nav-link dropdown-toggle" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                              </button>
-
-                              {{--   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    
-                                </a> --}}
-
-                                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.index') }}">
-                                        لوحة التحكم
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        تسجيل خروج
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-      </div>
-     
-    </div>
-  </div>
-</nav>
-
-  {{--       @if(flash()->message)
-            <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
-                <span class="fas fa-info-circle"></span> {{ flash()->message }} 
-            </div>
-        @endif  --}}
-      
+        <x-navbar />
 
         <main class="p-0">
             @yield('content')
         </main>
     </div>
 
-    <input type="hidden" id="current_selected_editor">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-    
-    <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script> 
+ 
+    {{-- <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script> --}}
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
+    <script src="{{asset('/assets/js/plugins.js')}}"></script>
+    <script src="{{asset('/assets/js/theme.js')}}"></script>
+    
+
     @livewireScripts
     @include('layouts.scripts')
     @yield('scripts')

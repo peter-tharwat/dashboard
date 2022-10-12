@@ -1,0 +1,298 @@
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-BoldItalic.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-BoldItalic.woff) format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-SemiBoldItalic.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-SemiBoldItalic.woff) format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-Medium.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-Medium.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-MediumItalic.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-MediumItalic.woff) format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-SemiBold.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-SemiBold.woff) format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-Italic.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-Italic.woff) format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-Regular.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-Regular.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-LightItalic.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-LightItalic.woff) format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-Light.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-Light.woff) format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(../../fonts/urbanist/Urbanist-Bold.woff2) format('woff2'), url(../../fonts/urbanist/Urbanist-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block
+}
+* {
+  word-spacing: normal !important
+}
+body {
+  font-family: Urbanist, sans-serif;
+  font-size: .85rem
+}
+.accordion-wrapper .card-header button,
+.badge,
+.btn,
+.btn.btn-circle .number,
+.collapse-link,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6,
+.dropdown-item,
+.filter:not(.basic-filter),
+.filter:not(.basic-filter) ul li a,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.meta,
+.more,
+.nav-link,
+.post-category,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600
+}
+.avatar,
+.btn,
+.dropdown-item,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.more,
+.nav-link,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: normal
+}
+.btn,
+.lg-sub-html p,
+.nav-link,
+.navbar .btn-sm {
+  font-size: .85rem
+}
+.dropdown-menu {
+  font-size: .8rem
+}
+.btn-group-sm>.btn,
+.btn-sm,
+.post-meta,
+.share-dropdown .dropdown-menu .dropdown-item {
+  font-size: .75rem
+}
+.filter,
+.filter ul li a,
+.meta,
+.post-category {
+  font-size: .7rem
+}
+.post-header .post-meta {
+  font-size: .85rem
+}
+.accordion-wrapper .card-header button,
+.collapse-link,
+.nav-tabs .nav-link {
+  font-size: .9rem
+}
+blockquote {
+  font-size: .9rem
+}
+.blockquote-footer {
+  font-size: .65rem
+}
+.blockquote-details p {
+  font-size: .85rem
+}
+.counter-wrapper p {
+  font-size: .85rem
+}
+.counter-wrapper .counter {
+  font-size: calc(1.33rem + .96vw)
+}
+@media (min-width:1200px) {
+  .counter-wrapper .counter {
+    font-size: 2.05rem
+  }
+}
+.counter-wrapper .counter.counter-lg {
+  font-size: calc(1.35rem + 1.2vw)
+}
+@media (min-width:1200px) {
+  .counter-wrapper .counter.counter-lg {
+    font-size: 2.25rem
+  }
+}
+.icon-list.bullet-bg i {
+  top: .25rem
+}
+.accordion-wrapper .card-header button:before {
+  margin-top: -.2rem
+}
+.form-floating>label {
+  padding-top: .65rem
+}
+.h1,
+h1 {
+  font-size: calc(1.275rem + .3vw)
+}
+@media (min-width:1200px) {
+  .h1,
+  h1 {
+    font-size: 1.5rem
+  }
+}
+.h2,
+h2 {
+  font-size: calc(1.26rem + .12vw)
+}
+@media (min-width:1200px) {
+  .h2,
+  h2 {
+    font-size: 1.35rem
+  }
+}
+.h3,
+h3 {
+  font-size: 1.15rem
+}
+.h4,
+h4 {
+  font-size: 1rem
+}
+.h5,
+h5 {
+  font-size: .95rem
+}
+.h6,
+h6 {
+  font-size: .9rem
+}
+.fs-sm {
+  font-size: .75rem !important
+}
+.fs-lg {
+  font-size: 1.05rem !important
+}
+.lead {
+  font-size: .95rem;
+  line-height: 1.6
+}
+.lead.fs-lg {
+  font-size: 1.1rem !important;
+  line-height: 1.55
+}
+.display-1 {
+  font-size: calc(1.375rem + 1.5vw);
+  line-height: 1.15
+}
+@media (min-width:1200px) {
+  .display-1 {
+    font-size: 2.5rem
+  }
+}
+.display-2 {
+  font-size: calc(1.355rem + 1.26vw);
+  line-height: 1.2
+}
+@media (min-width:1200px) {
+  .display-2 {
+    font-size: 2.3rem
+  }
+}
+.display-3 {
+  font-size: calc(1.335rem + 1.02vw);
+  line-height: 1.2
+}
+@media (min-width:1200px) {
+  .display-3 {
+    font-size: 2.1rem
+  }
+}
+.display-4 {
+  font-size: calc(1.315rem + .78vw);
+  line-height: 1.25
+}
+@media (min-width:1200px) {
+  .display-4 {
+    font-size: 1.9rem
+  }
+}
+.display-5 {
+  font-size: calc(1.295rem + .54vw);
+  line-height: 1.25
+}
+@media (min-width:1200px) {
+  .display-5 {
+    font-size: 1.7rem
+  }
+}
+.display-6 {
+  font-size: calc(1.275rem + .3vw);
+  line-height: 1.3
+}
+@media (min-width:1200px) {
+  .display-6 {
+    font-size: 1.5rem
+  }
+}

@@ -30,7 +30,7 @@
                     
                         <div class="col-12 p-0 mb-5 mt-3" style="width: 550px;max-width: 100%;margin: 0px auto;">
                             <h3 class="mb-4 text-center font-4">{{ __('lang.Verify Your Email Address') }}</h3>
-                             <div class="divider"></div>
+                             
                         </div>
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
