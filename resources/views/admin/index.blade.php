@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3 row">
-	@can('viewAny',\App\Models\User::class)
+@permission('users-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 </div>
-@endcan
+@endpermission
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -29,7 +29,7 @@
 		</div>
 	</div>
 </div>
-@can('viewAny',\App\Models\Article::class)
+@permission('articles-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -43,8 +43,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\Category::class)
+@endpermission
+@permission('categories-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -58,8 +58,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\HubFile::class)
+@endpermission
+@permission('hub-files-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -73,8 +73,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\Menu::class)
+@endpermission
+@permission('menus-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -88,8 +88,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\Page::class)
+@endpermission
+@permission('pages-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -103,8 +103,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\Contact::class)
+@endpermission
+@permission('contacts-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -118,8 +118,8 @@
 		</div>
 	</div>
 </div>
-@endcan
-@can('viewAny',\App\Models\Announcement::class)
+@endpermission
+@permission('announcements-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -133,7 +133,7 @@
 		</div>
 	</div>
 </div>
-@endcan
+@endpermission
 
 <div class="col-12 px-2 py-2">
 	<div style="height: 4px ;background: rgb(118 169 169);border-radius: 7px;transition: width .5s ease-in-out;width: 0%;" id="home-dashboard-divider"></div>
