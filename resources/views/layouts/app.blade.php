@@ -127,12 +127,11 @@
     </style>
     @yield('after-body')
     <div id="app">
-
         <x-navbar />
-
         <main class="p-0">
             @yield('content')
         </main>
+        <x-footer />
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
