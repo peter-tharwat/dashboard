@@ -1,6 +1,6 @@
 @extends('layouts.app',['page_title'=>"المدونة"])
 @section('content')
-<div class="col-12 p-0">
+<div class="col-12 p-0  bg-light pt-6">
 
 	<section class="section-frame overflow-hidden">
 	      <div class="wrapper bg-soft-primary">
@@ -20,7 +20,7 @@
 	    </section>
 
 
-	<div class=" p-0 container mb-15 py-10">
+	<div class=" p-0 container mb-15 py-10 " style="min-height:70vh">
 		<div class="col-12 p-2 p-lg-3 row">
 
 			<div class="col-12 p-2">

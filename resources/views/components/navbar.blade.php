@@ -8,7 +8,7 @@
         <img src="{{$settings->website_wide_logo()}}" style="width: 140px;" srcset="./assets/img/logo@2x.png 2x" alt="" />
       </a>
     </div>
-    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-end">
+    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-end navbar-light">
       <div class="offcanvas-header d-lg-none">
         <a href="/"><img src="{{$settings->website_wide_logo()}}"  style="width: 140px;" srcset="./assets/img/logo-light@2x.png 2x" alt="" /></a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -21,7 +21,7 @@
 
           @if($menu !=null)
             @foreach($menu->links as $link)
-            <li class="nav-item"><a class="nav-link" href="{{$link->url}}">{{$link->title}}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{$link->url}}"><span class="{{$link->icon}} font-1" style="color: #0194fe;width: 15px"></span> {{$link->title}}</a></li>
             @endforeach
           @endif
       

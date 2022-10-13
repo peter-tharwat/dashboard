@@ -30,12 +30,12 @@ class MenusSeeder extends Seeder
             'type_id'=>null,
             'title'=>"الرئيسية",
             'url'=>env("APP_URL"),
-            'icon'=>"fal fa-home",
+            'icon'=>"fas fa-home",
             'order'=>0,
         ]);
 
         //about link
-        MenuLink::create([
+        /*MenuLink::create([
             'menu_id'=>$menu->id,
             'type'=>"PAGE",
             'type_id'=>\App\Models\Page::where('slug','about')->first()->id,
@@ -43,7 +43,7 @@ class MenusSeeder extends Seeder
             'url'=>route('page.show',\App\Models\Page::where('slug','about')->first()),
             'icon'=>"fal fa-info",
             'order'=>1,
-        ]);
+        ]);*/
 
         //terms link
         MenuLink::create([
@@ -52,13 +52,13 @@ class MenusSeeder extends Seeder
             'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
             'title'=>"شروط الاستخدام",
             'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-            'icon'=>"fal fa-info",
+            'icon'=>"fas fa-lock",
             'order'=>2,
         ]);
 
 
         //privacy link
-        MenuLink::create([
+        /*MenuLink::create([
             'menu_id'=>$menu->id,
             'type'=>"PAGE",
             'type_id'=>\App\Models\Page::where('slug','privacy')->first()->id,
@@ -66,17 +66,28 @@ class MenusSeeder extends Seeder
             'url'=>route('page.show',\App\Models\Page::where('slug','privacy')->first()),
             'icon'=>"fal fa-info",
             'order'=>3,
+        ]);*/
+
+
+        MenuLink::create([
+            'menu_id'=>$menu->id,
+            'type'=>"CUSTOM_LINK",
+            'type_id'=>null,
+            'title'=>"المدونة",
+            'url'=>route('blog'),
+            'icon'=>"fas fa-pen-alt",
+            'order'=>4,
         ]);
 
 
-        //privacy link
+        //contact link
         MenuLink::create([
             'menu_id'=>$menu->id,
             'type'=>"CUSTOM_LINK",
             'type_id'=>null,
             'title'=>"تواصل معنا",
             'url'=>route('contact'),
-            'icon'=>"fal fa-phone",
+            'icon'=>"fas fa-phone",
             'order'=>4,
         ]);
 

@@ -1,5 +1,8 @@
 @extends('layouts.app',['page_title'=>$page->title,'page_description'=>$page->meta_description])
 @section('content')
+<div class="col-12 bg-light pt-6 px-0">
+	
+
     <section class="section-frame overflow-hidden">
       <div class="wrapper bg-soft-primary">
         <div class="container py-12 py-md-10 text-center">
@@ -24,5 +27,6 @@
 				{!!$page->description!!} 
 		</div>
 	</div>
+</div>
 </div>
 @endsection

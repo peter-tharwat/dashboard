@@ -1,6 +1,6 @@
 @extends('layouts.app',['page_title'=>"تواصل معنا"])
 @section('content')
-<div class="col-12 p-0">
+<div class="col-12 p-0 pt-6 bg-light">
 
 
 

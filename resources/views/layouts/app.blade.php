@@ -120,7 +120,16 @@
             .navbar-expand-lg .navbar-brand {
                 padding: 0px;
             }
+        
         }
+        .offcanvas{
+            background-color: #ffffff!important;
+        }
+        .navbar-expand-lg .navbar-collapse .nav-link, .navbar-expand-lg .navbar-collapse .nav-link.active, .navbar-expand-lg .navbar-collapse .nav-link:focus, .navbar-expand-lg .navbar-collapse .nav-link:hover, .navbar-expand-lg .navbar-collapse .show>.nav-link{
+            color: #232323!important;
+        }
+        .offcanvas.offcanvas-end{
+            right: -1px!important;
         }
     </style>
     @yield('styles')
