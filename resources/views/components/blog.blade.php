@@ -18,7 +18,7 @@
       <div class="col-12 row p-0">
         
       
-      <div class="col-3 mb-4">
+      <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -43,7 +43,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -68,7 +68,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -93,7 +93,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -118,7 +118,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -143,7 +143,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
@@ -168,7 +168,7 @@
               </div>
             </article>
           </div>
-          <div class="col-3 mb-4">
+          <div class="col-12 col-lg-4 mb-4">
             <article>
               <div class="card shadow-lg">
                 <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
