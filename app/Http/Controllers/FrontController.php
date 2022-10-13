@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Models\Contact;
+use App\Models\ArticleComment;
 use App\Models\Page;
 use App\Models\Category;
 
@@ -17,6 +18,35 @@ class FrontController extends Controller
     {
         return view('front.index');
     }
+    
+    public function comment_post(Request $request)
+    {
+        if(auth()->check()){
+            $request->validate([
+                "content"=>"required|min:3|max:10000",
+            ]);
+            ArticleComment::create([
+                'user_id'=>auth()->user()->id,
+                'article_id'=>$request->article_id,
+                'content'=>$request->content,
+            ]);
+        }else{
+            $request->validate([
+                'adder_name'=>"nullable|min:3|max:190",
+                'adder_email'=>"nullable|email",
+                "content"=>"required|min:3|max:10000",
+            ]);
+            ArticleComment::create([
+                'article_id'=>$request->article_id,
+                'adder_name'=>$request->adder_name,
+                'adder_email'=>$request->adder_email,
+                'content'=>$request->content,
+            ]);
+        }
+        toastr()->success("تم اضافة تعليقك بنجاح وسيظهر للعامة بعد المراجعة");
+        return redirect()->back();
+    }
+
     public function contact_post(Request $request)
     {
         $request->validate([
@@ -40,25 +70,31 @@ class FrontController extends Controller
     }
     public function category(Request $request,Category $category){
         $articles = Article::where(function($q)use($request,$category){
+            if($request->user_id!=null)
+                $q->where('user_id',$request->user_id);
+            
             $q->whereHas('categories',function($q)use($request,$category){
                 $q->where('category_id',$category->id);
             });
-        })->orderBy('id','DESC')->paginate();
+        })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles','category'));
     }
     public function tag(Request $request,Tag $tag){
 
         $articles = Article::where(function($q)use($request,$tag){
+            if($request->user_id!=null)
+                $q->where('user_id',$request->user_id);
+
             $q->whereHas('tags',function($q)use($request,$tag){
                 $q->where('tag_id',$tag->id);
             });
-        })->orderBy('id','DESC')->paginate();
+        })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
 
         return view('front.pages.blog',compact('articles','tag'));
     }
     public function article(Request $request,Article $article)
     {
-        $article->load('categories');
+        $article->load(['categories','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
         return view('front.pages.article',compact('article'));
     }
     public function page(Request $request,Page $page)
@@ -70,7 +106,9 @@ class FrontController extends Controller
         $articles = Article::where(function($q)use($request){
             if($request->category_id!=null)
                 $q->where('category_id',$request->category_id);
-        })->with(['categories','tags'])->orderBy('id','DESC')->paginate();
+            if($request->user_id!=null)
+                $q->where('user_id',$request->user_id);
+        })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles'));
     }
 }

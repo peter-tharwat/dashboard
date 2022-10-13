@@ -8,6 +8,7 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleCommentController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ContactController;
@@ -57,6 +58,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('user-roles/{user}',[UserRoleController::class,'index'])->name('users.roles.index');
         Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
         Route::resource('articles',ArticleController::class);
+        Route::resource('article-comments',ArticleCommentController::class);
         Route::resource('pages',PageController::class);
         Route::resource('tags',TagController::class);
         Route::resource('contact-replies',ContactReplyController::class);
@@ -117,3 +119,4 @@ Route::get('category/{category}',[FrontController::class,'category'])->name('cat
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
+Route::post('comment',[FrontController::class,'comment_post'])->name('comment-post');

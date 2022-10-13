@@ -21,10 +21,12 @@
               <!-- /.post-category -->
               <h1 class="display-1 mb-4">{{$article->title}}</h1>
               <ul class="post-meta mb-5">
-                <li class="post-date"><i class="fal fa-calendar-alt"></i><span> {{\Carbon::parse($article->created_at)->diffForHumans()}}</span></li>
-                <li class="post-author"><a href="#"><i class="fal fa-user"></i><span> {{$article->user->name}}</span></a></li>
-                {{-- <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3<span> Comments</span></a></li>
-                <li class="post-likes"><a href="#"><i class="uil uil-heart-alt"></i>3<span> Likes</span></a></li> --}}
+                <li class="post-date font-1"><i class="fal fa-calendar-alt"></i><span> {{\Carbon::parse($article->created_at)->diffForHumans()}}</span></li>
+                <li class="post-author font-1"><a href="{{route('blog',['user_id'=>$article->user->id])}}" class="font-1"><i class="fal fa-user"></i><span> {{$article->user->name}}</span></a></li>
+                @if($article->comments_count!=0)
+                <li class="post-comments"><a href="#comments"><i class="fal fa-comment"></i> {{$article->comments_count}}<span> تعليقات</span></a></li>
+                @endif
+                {{-- <li class="post-likes"><a href="#"><i class="uil uil-heart-alt"></i>3<span> Likes</span></a></li> --}}
               </ul>
 
               <div class="post-category text-line">
@@ -47,7 +49,7 @@
     </section>
     <!-- /section -->
     <section class="wrapper bg-light article">
-      <div class="container pb-14 pb-md-16">
+      <div class="container pb-14 pb-md-16 px-0">
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <div class="blog single mt-n17">
@@ -68,12 +70,12 @@
                   <div class="author-info d-md-flex align-items-center mb-3 text-center col-12">
                     <div class="d-flex align-items-center row mx-auto">
                     	<div class="col-12 text-center d-flex align-items-center justify-content-center ">
-                    		<figure class="user-avatar m-0"><img class="rounded-circle m-0" alt="" src="{{$article->user->getUserAvatar()}}" /></figure>
+                    		<figure class="user-avatar m-0"><a href="{{route('blog',['user_id'=>$article->user->id])}}" class="link-dark font-1"><img class="rounded-circle m-0" alt="" src="{{$article->user->getUserAvatar()}}" /></a></figure>
                     	</div>
                       	<div class="col-12 text-center d-flex align-items-center justify-content-center">
                      
                     
-                        <h6><a href="#" class="link-dark">{{$article->user->name}}</a></h6>
+                        <h6><a href="{{route('blog',['user_id'=>$article->user->id])}}" class="link-dark font-1">{{$article->user->name}}</a></h6>
                       
                   </div>
                     </div>
@@ -82,47 +84,58 @@
                   <!-- /.author-info -->
                   <p>{{$article->user->bio}}.</p>
 
-                  {{-- <hr />
+                  @if($article->comments_count)
+                  <hr />
                   <div id="comments">
-                    <h3 class="mb-6">5 التعليقات</h3>
+                    <h3 class="mb-6">{{$article->comments_count}} التعليقات</h3>
                     <ol id="singlecomments" class="commentlist">
+                    	@foreach($article->comments as $comment)
                       <li class="comment">
                         <div class="comment-header d-md-flex align-items-center">
                           <div class="d-flex align-items-center">
-                            <figure class="user-avatar"><img class="rounded-circle" alt="" src="/assets/img/avatars/u1.jpg" /></figure>
+
+                            <figure class="user-avatar ms-2 me-0"><img class="rounded-circle" alt="" src="{{$comment->user==null?env('DEFAULT_IMAGE_AVATAR'):$comment->user->getUserAvatar()}}" style="width:40px;height:40px" /></figure>
+
                             <div>
-                              <h6 class="comment-author"><a href="#" class="link-dark">بيتر ثروت</a></h6>
+                              <h6 class="comment-author"><a href="#" class="link-dark font-1">{{$comment->user==null?$comment->adder_name:$comment->user->name}}</a></h6>
                               <ul class="post-meta">
-                                <li><i class="fal fa-calendar-alt"></i> 14 Jan 2022</li>
+                                <li><i class="fal fa-calendar-alt"></i> {{\Carbon::parse($comment->created_at)->diffForHumans()}}</li>
                               </ul>
                             </div>
                           </div>
-                          <div class="mt-3 mt-md-0 ms-auto">
+                          {{-- <div class="mt-3 mt-md-0 ms-auto">
                             <a href="#" class="btn btn-soft-ash btn-sm rounded-pill btn-icon btn-icon-start mb-0"> رد</a>
-                          </div>
+                          </div> --}}
                         </div>
-                        <p>نص عشوائي يمكن أن يستبدل في نفس المساحة.</p>
+                        <p>{{$comment->content}}</p>
                       </li>
+                      @endforeach
                     </ol>
                   </div>
                   <hr />
+                  @endif
+                
                   <h3 class="mb-3">شاركنا رأيك</h3>
                   <p class="mb-7">بريدك الالكتروني لن يتم نشره.</p>
-                  <form class="comment-form">
+                  <form class="comment-form" method="POST" action="{{route('comment-post')}}">
+                  	@csrf
+                  	<input type="hidden" name="article_id" value="{{$article->id}}">
+                  	@guest
                     <div class="form-floating mb-4">
-                      <input type="text" class="form-control" placeholder="الاسم*" id="c-name">
+                      <input type="text" class="form-control" placeholder="الاسم*" id="c-name" name="adder_name">
                       <label for="c-name">الاسم *</label>
                     </div>
                     <div class="form-floating mb-4">
-                      <input type="email" class="form-control" placeholder="البريد الإلكتروني*" id="c-email">
+                      <input type="email" class="form-control" placeholder="البريد الإلكتروني*" id="c-email" name="adder_email">
                       <label for="c-email">البريد الإلكتروني*</label>
                     </div>
+                    @endguest
                     <div class="form-floating mb-4">
-                      <textarea name="textarea" class="form-control" placeholder="تعليقك" style="height: 150px"></textarea>
+                      <textarea name="content" class="form-control" placeholder="تعليقك" style="height: 150px"></textarea>
                       <label>تعليقك *</label>
                     </div>
                     <button type="submit" class="btn btn-primary rounded-pill mb-0">اضافة تعليق</button>
-                  </form> --}}
+                  </form>
                 </div>
               </div>
             </div>
@@ -133,7 +146,7 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-	Fancybox.bind('.article img', {
+	Fancybox.bind('.post img', {
 	  caption: function (fancybox, carousel, slide) {
 	    return (
 	      `${slide.index + 1} / ${carousel.slides.length} <br />` + slide.caption

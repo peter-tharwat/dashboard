@@ -18,7 +18,6 @@ class FaqController extends Controller
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('faqs-read'))abort(403);
         $faqs = Faq::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -35,7 +34,6 @@ class FaqController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('faqs-create'))abort(403);
         return view('admin.faqs.create');
     }
 
@@ -47,7 +45,6 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('faqs-create'))abort(403);
         Faq::create([
            'user_id'=>auth()->user()->id,
            'question'=>$request->question,
@@ -66,7 +63,7 @@ class FaqController extends Controller
      */
     public function show(Faq $faq)
     {
-        if(!auth()->user()->isAbleTo('faqs-read'))abort(403);
+        
     }
 
     /**
@@ -77,7 +74,6 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
-        if(!auth()->user()->isAbleTo('faqs-update'))abort(403);
         return view('admin.faqs.edit',compact('faq'));
     }
 
@@ -90,7 +86,6 @@ class FaqController extends Controller
      */
     public function update(Request $request, Faq $faq)
     {
-        if(!auth()->user()->isAbleTo('faqs-update'))abort(403);
         $faq->update([
            'question'=>$request->question,
            'answer'=>$request->answer,
@@ -117,7 +112,6 @@ class FaqController extends Controller
 
     public function order(Request $request)
     {
-        if(!auth()->user()->isAbleTo('faqs-update'))abort(403);
         foreach($request->order as $key => $value){
             Faq::where('id',$value)->update(['order'=>$key]);
         }

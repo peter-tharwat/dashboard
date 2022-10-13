@@ -61,24 +61,35 @@
 							<span class="fas fa-check-circle text-success" ></span>
 							@endif
 						</td>
-						<td style="width: 270px;">
+						<td style="width: 360px;">
 
-							@permission('articles-read',$article)
+
+							
+
+							@permission('articles-read')
 							<a href="{{route('article.show',['article'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
 							</a>
 							@endpermission
+							
+							@permission('comments-read')
+							<a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
+								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+									<span class="fas fa-comments "></span> التعليقات
+								</span>
+							</a>
+							@endpermission
 
-							@permission('articles-update',$article)
+							@permission('articles-update')
 							<a href="{{route('admin.articles.edit',$article)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
 							@endpermission
-							@permission('articles-delete',$article)
+							@permission('articles-delete')
 							<form method="POST" action="{{route('admin.articles.destroy',$article)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف

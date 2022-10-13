@@ -18,6 +18,9 @@ class Article extends Model
     public function categories(){
         return $this->belongsToMany(\App\Models\Category::class,'article_categories');
     }
+    public function comments(){
+        return $this->hasMany(\App\Models\ArticleComment::class,'article_id');
+    }
     public function main_image(){
         if($this->main_image==null)
             return env('DEFAULT_IMAGE');
