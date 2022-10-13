@@ -1,4 +1,9 @@
 <section class="wrapper bg-light">
+  <style type="text/css">
+    .swiper-navigation{
+      transform: rotate(180deg)!important;
+    }
+  </style>
   <div class="container py-14 py-md-16">
     <div class="row">
       <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto">
@@ -19,7 +24,7 @@
               <div class="item-inner">
                 <article>
                   <div class="card">
-                    <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img src="/assets/img/photos/b4.jpg" alt="" /></a>
+                    <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img src="/assets/img/photos/7.jpg" alt="" /></a>
                       <figcaption>
                         <h5 class="from-top mb-0 text-center">عرض المزيد</h5>
                       </figcaption>

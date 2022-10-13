@@ -15,7 +15,7 @@
         <div class="col-md-6 col-xl-3">
           <div class="card shadow-lg">
             <div class="card-body text-center">
-              <img src="./assets/img/icons/lineal/search-2.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+              <img src="./assets/img/photos/1.jpg"  class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
               <h4 class="text-center">تنظيم الفعاليات</h4>
               <p class="mb-2">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل.</p>
             </div>
@@ -27,7 +27,7 @@
         <div class="col-md-6 col-xl-3">
           <div class="card shadow-lg">
             <div class="card-body text-center">
-              <img src="./assets/img/icons/lineal/browser.svg" class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
+              <img src="./assets/img/photos/1.jpg" class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
               <h4 class="text-center">تنظيم الفعاليات</h4>
               <p class="mb-2">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل.</p>
             </div>
@@ -39,7 +39,7 @@
         <div class="col-md-6 col-xl-3">
           <div class="card shadow-lg">
             <div class="card-body text-center">
-              <img src="./assets/img/icons/lineal/chat-2.svg" class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+              <img src="./assets/img/photos/1.jpg" class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
               <h4 class="text-center">تنظيم الفعاليات</h4>
               <p class="mb-2">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل.</p>
             </div>
@@ -51,7 +51,7 @@
         <div class="col-md-6 col-xl-3">
           <div class="card shadow-lg">
             <div class="card-body text-center">
-              <img src="./assets/img/icons/lineal/megaphone.svg" class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
+              <img src="./assets/img/photos/1.jpg" class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
               <h4 class="text-center">تنظيم الفعاليات</h4>
               <p class="mb-2">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل.</p>
             </div>

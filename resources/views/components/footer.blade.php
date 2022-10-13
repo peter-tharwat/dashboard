@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-11 col-xxl-10 mx-auto">
-        <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5" data-image-src="/assets/img/photos/bg3.jpg">
+        <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5" data-image-src="/assets/img/photos/4.png">
           <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
             <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">كن ايجابيا وساعد في تطوير اللوحة أكثر في كل مرة تستخدمها في مشروع جديد.</h3>
             <a href="https://www.paypal.me/nafezlycom" class="btn btn-white rounded-pill mb-0 text-nowrap">قدم مساعدة</a>

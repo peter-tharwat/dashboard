@@ -3,6 +3,7 @@
     .swiper-navigation{
       direction: ltr;
     }
+    
   </style>
   <div class="overflow-hidden">
     <div class="container py-14 py-md-16">
@@ -25,7 +26,7 @@
             <div class="swiper-slide">
               <article>
                 <div class="card shadow-lg">
-                  <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/b12.jpg" alt="" /></a>
+                  <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="/assets/img/photos/7.jpg" alt="" /></a>
                     <figcaption>
                       <h5 class="from-top mb-0 text-center">عرض المزيد</h5>
                     </figcaption>

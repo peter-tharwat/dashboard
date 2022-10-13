@@ -5,17 +5,20 @@
         <div class="shape bg-dot primary rellax w-16 h-20" data-rellax-speed="1" style="top: 3rem; left: 5.5rem"></div>
         <div class="overlap-grid overlap-grid-2">
           <div class="item">
-            <figure class="rounded shadow"><img src="./assets/img/photos/about2.jpg" srcset="./assets/img/photos/about2@2x.jpg 2x" alt=""></figure>
+            <figure class="rounded shadow"><img src="/assets/img/photos/7.jpg" srcset="./assets/img/photos/about2@2x.jpg 2x" alt=""></figure>
           </div>
           <div class="item">
-            <figure class="rounded shadow"><img src="./assets/img/photos/about3.jpg" srcset="./assets/img/photos/about3@2x.jpg 2x" alt=""></figure>
+            <figure class="rounded shadow"><img src="/assets/img/photos/9.jpg" srcset="./assets/img/photos/about3@2x.jpg 2x" alt=""></figure>
           </div>
         </div>
       </div>
       <!--/column -->
       <div class="col-lg-6">
         
-        <h2 class="display-4 mb-3"><img src="./assets/img/icons/lineal/megaphone.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="" /> من نحن؟</h2>
+        <h2 class="display-4 mb-3">
+          {{-- <img src="/assets/img/avatars/team1.jpg" style="width: 80px;height: 80px;border-radius: 50%;" class="svg-inject icon-svg icon-svg-md mb-4" alt="" /> --}}
+          <span class="far fa-info-circle" style="color:#0194fe"></span>
+           من نحن؟</h2>
         <p class="lead fs-lg">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي</p>
         <p class="mb-6">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة.</p>
         <div class="row gy-3 gx-xl-8">
