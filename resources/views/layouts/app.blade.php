@@ -127,6 +127,7 @@
     </style>
     @yield('after-body')
     <div id="app">
+        {{-- <div class="page-loader"></div> --}}
         <x-navbar />
         <main class="p-0">
             @yield('content')

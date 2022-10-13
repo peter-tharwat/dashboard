@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-12 col-lg-12 p-2">
                         <div class="col-12">
-                            ميتا الوصف عربي
+                            الجواب
                         </div>
                         <div class="col-12 pt-3">
                             <textarea name="answer" class="form-control" style="min-height:150px">{{old('answer',$level??"")}}</textarea>

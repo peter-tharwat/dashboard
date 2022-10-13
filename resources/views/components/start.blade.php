@@ -1,4 +1,4 @@
-<section class="wrapper bg-light">
+<section class="wrapper bg-light" >
   <style type="text/css">
     .features-list i{
       width: 50px;
@@ -20,10 +20,22 @@
       <!--/column -->
       <div class="col-lg-7">
         
+
         <h2 class="display-4 mb-3"><img src="./assets/img/icons/lineal/megaphone.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="" /> لماذا تستخدمني ؟</h2>
-        <p class="lead fs-lg">أبسط وأسهل لوحة تحكم عربية بكامل المزايا التي تحتاجها</p>
-        <p class="mb-6">تم تطوير لوحة التحكم لمساعدتك على زيادة انتاجيتك وتسهيل الأمور المعقدة التي غالباً تتكرر أمامك كثيراً.</p>
+        <p class="lead fs-lg"  data-delay="1000">أبسط وأسهل لوحة تحكم عربية بكامل المزايا التي تحتاجها</p>
+        <span class="typer text-primary" 
+          data-delay="80" 
+          data-words="تم تطوير لوحة التحكم لمساعدتك على زيادة انتاجيتك وتسهيل الأمور المعقدة التي غالباً تتكرر أمامك كثيراً">
+        </span>
+
+
+
+
         <div class="row gy-3 gx-xl-8">
+
+          
+ 
+
           <div class="col-xl-6 px-0">
           	<ul style="list-style:none" class="p-0 features-list">
           		<li>
@@ -113,7 +125,7 @@
           	<ul style="list-style:none" class="p-0 features-list">
           		<li>
           			<i class="fal fa-language me-2 ms-0 font-4 p-2" style="color:#7cb798"></i>
-          			<span>عربية بالكامل !</span>
+          			<span><span class="underline-3 style-1 green">عربية بالكامل !</span> </span>
                 </li>
                 <li>
           			<i class="fal fa-pen-alt me-2 ms-0 font-4 p-2" style="color:#7cb798"></i>
