@@ -73,6 +73,7 @@ class UserController extends Controller
                 'roles'=>"required|array",
                 'roles.*'=>"required|exists:roles,id",
             ]);
+            $user->syncRoles($request->roles);
             $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 
@@ -152,6 +153,7 @@ class UserController extends Controller
                 'roles'=>"required|array",
                 'roles.*'=>"required|exists:roles,id",
             ]);
+            $user->syncRoles($request->roles);
             $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 

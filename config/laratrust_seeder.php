@@ -59,7 +59,7 @@ return [
             'faqs'=>"r",
             'announcements'=>"r",
             'notifications'=>"r",
-            'contacts'=>"c"
+            'contacts'=>"c",
             'contacts' => 'c,r,u,d',
         ],
         'editor' => [

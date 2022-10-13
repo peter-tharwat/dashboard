@@ -22,6 +22,7 @@ class UserRoleController extends Controller
         return view('admin.users.roles',compact('roles','user'));
     }
     public function update(Request $request,User $user){
+        $user->syncRoles($request->roles);
         $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         toastr()->success("تمت العملية بنجاح");
         return redirect()->route('admin.users.index');
