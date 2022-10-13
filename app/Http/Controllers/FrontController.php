@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Tag;
 use App\Models\Contact;
 use App\Models\Page;
+use App\Models\Category;
 
 
 class FrontController extends Controller
@@ -44,8 +46,19 @@ class FrontController extends Controller
         })->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles','category'));
     }
+    public function tag(Request $request,Tag $tag){
+
+        $articles = Article::where(function($q)use($request,$tag){
+            $q->whereHas('tags',function($q)use($request,$tag){
+                $q->where('tag_id',$tag->id);
+            });
+        })->orderBy('id','DESC')->paginate();
+
+        return view('front.pages.blog',compact('articles','tag'));
+    }
     public function article(Request $request,Article $article)
     {
+        $article->load('categories');
         return view('front.pages.article',compact('article'));
     }
     public function page(Request $request,Page $page)
@@ -57,7 +70,7 @@ class FrontController extends Controller
         $articles = Article::where(function($q)use($request){
             if($request->category_id!=null)
                 $q->where('category_id',$request->category_id);
-        })->orderBy('id','DESC')->paginate();
+        })->with(['categories','tags'])->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles'));
     }
 }

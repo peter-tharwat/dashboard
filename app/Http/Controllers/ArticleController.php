@@ -147,7 +147,7 @@ class ArticleController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         $article->categories()->sync($request->category_id);
-        $article->tags()->syncWithPivotValues($request->tag_id,['type'=>"ARTICLE"]);
+        $article->tags()->sync($request->tag_id);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,

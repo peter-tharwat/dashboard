@@ -26,7 +26,7 @@ class Article extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany(\App\Models\Tag::class,'item_tags','type_id','id')->where('item_tags.type',"ARTICLE");
+        return $this->belongsToMany(\App\Models\Tag::class,'article_tags');
 
     }
 }

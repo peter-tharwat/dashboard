@@ -11,7 +11,12 @@
           <div class="col-md-10 col-xl-8 mx-auto">
             <div class="post-header">
               <div class="post-category text-line">
-                <a href="#" class="hover" rel="category">{{implode(', ',$article->categories()->get()->pluck('title')->toArray() )}}</a>
+
+              	@foreach($article->categories as $article_category)
+                	@if($loop->index<5)
+                		<a href="{{route('category.show',$article_category)}}" class="hover" rel="category">{{$article_category->title}}</a>
+                	@endif
+            	@endforeach
               </div>
               <!-- /.post-category -->
               <h1 class="display-1 mb-4">{{$article->title}}</h1>
@@ -21,6 +26,15 @@
                 {{-- <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3<span> Comments</span></a></li>
                 <li class="post-likes"><a href="#"><i class="uil uil-heart-alt"></i>3<span> Likes</span></a></li> --}}
               </ul>
+
+              <div class="post-category text-line">
+              	@foreach($article->tags as $article_tag)
+                	@if($loop->index<5)
+                		<a href="{{route('tag.show',$article_tag)}}" class="hover pe-2" rel="tag">#{{$article_tag->tag_name}}</a>
+                	@endif
+            	@endforeach
+              </div>
+
               <!-- /.post-meta -->
             </div>
             <!-- /.post-header -->

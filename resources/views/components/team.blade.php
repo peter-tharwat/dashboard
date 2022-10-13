@@ -13,9 +13,9 @@
         <div class="position-relative">
           <div class="shape rounded bg-soft-blue rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
           <div class="card">
-            <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t1.jpg" srcset="./assets/img/avatars/t1@2x.jpg 2x" alt="" /></figure>
+            <figure class="card-img-top"><img class="img-fluid" src="/assets/img/avatars/team1.jpg" srcset="./assets/img/avatars/t1@2x.jpg 2x" alt="" /></figure>
             <div class="card-body px-6 py-5">
-              <h4 class="mb-1">أحمد السبيعي</h4>
+              <h4 class="mb-1">بيتر ثروت</h4>
               <p class="mb-0">رئيس مجلس الإدارة</p>
             </div>
             <!--/.card-body -->
@@ -29,9 +29,9 @@
         <div class="position-relative">
           <div class="shape rounded bg-soft-red rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
           <div class="card">
-            <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t2.jpg" srcset="./assets/img/avatars/t2@2x.jpg 2x" alt="" /></figure>
+            <figure class="card-img-top"><img class="img-fluid" src="/assets/img/avatars/team2.jpg" srcset="./assets/img/avatars/t2@2x.jpg 2x" alt="" /></figure>
             <div class="card-body px-6 py-5">
-              <h4 class="mb-1">شيماء الحاج</h4>
+              <h4 class="mb-1">عمر ايهاب</h4>
               <p class="mb-0">نائب الرئيس</p>
             </div>
             <!--/.card-body -->
@@ -45,9 +45,9 @@
         <div class="position-relative">
           <div class="shape rounded bg-soft-green rellax d-md-block" data-rellax-speed="0" style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
           <div class="card">
-            <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t3.jpg" srcset="./assets/img/avatars/t3@2x.jpg 2x" alt="" /></figure>
+            <figure class="card-img-top"><img class="img-fluid" src="/assets/img/avatars/team3.jpg" srcset="./assets/img/avatars/t3@2x.jpg 2x" alt="" /></figure>
             <div class="card-body px-6 py-5">
-              <h4 class="mb-1">فيصل عثمان</h4>
+              <h4 class="mb-1">يوسف أحمد</h4>
               <p class="mb-0">المدير المالي</p>
             </div>
             <!--/.card-body -->

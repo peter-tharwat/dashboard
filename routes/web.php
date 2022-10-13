@@ -112,6 +112,7 @@ Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewe
 
 Route::view('contact','front.pages.contact')->name('contact');
 Route::get('page/{page}',[FrontController::class,'page'])->name('page.show');
+Route::get('tag/{tag}',[FrontController::class,'tag'])->name('tag.show');
 Route::get('category/{category}',[FrontController::class,'category'])->name('category.show');
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');

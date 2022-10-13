@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('item_tags', function (Blueprint $table) {
+        Schema::create('article_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type')->index()->nullable();//ARTICLE
-            $table->unsignedBigInteger('type_id')->nullable(); 
+            $table->unsignedBigInteger('article_id')->nullable();
+            $table->foreign('article_id')->references('id')->on("articles")->onDelete('cascade'); 
             $table->unsignedBigInteger('tag_id')->nullable();
             $table->foreign('tag_id')->references('id')->on("tags")->onDelete('cascade'); 
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_tags');
+        Schema::dropIfExists('article_tags');
     }
 };

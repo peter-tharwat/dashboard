@@ -19,7 +19,7 @@ class MenusSeeder extends Seeder
 
         $menu = Menu::create([
             'title'=>"روابط",
-            'location'=>"FOOTER_MENU"
+            'location'=>"NAVBAR"
         ]);
 
 

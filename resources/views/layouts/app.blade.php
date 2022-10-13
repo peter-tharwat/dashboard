@@ -116,6 +116,12 @@
         .nav-link{
             font-weight: normal;
         }
+        @media (max-width: 991.98px){
+            .navbar-expand-lg .navbar-brand {
+                padding: 0px;
+            }
+        }
+        }
     </style>
     @yield('styles')
 </head>
