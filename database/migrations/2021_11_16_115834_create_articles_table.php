@@ -23,6 +23,7 @@ class CreateArticlesTable extends Migration
             $table->text('title')->nullable();
             $table->longText('description')->nullable();
             $table->text('meta_description')->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }

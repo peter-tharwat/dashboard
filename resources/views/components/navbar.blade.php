@@ -16,7 +16,7 @@
       <div class="offcanvas-body  d-flex flex-column h-100">
         <ul class="navbar-nav">
           @php
-          $menu = \App\Models\Menu::where('location',"NAVBAR")->with(['links'])->first();
+          $menu = \App\Models\Menu::where('location',"NAVBAR")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
           @endphp
 
           @if($menu !=null)

@@ -194,5 +194,16 @@ class UserSystemInfoHelper
   				}
 
   	}
-    
+    public static function prev_url(){
+        $prev_url="";
+        if(filter_var(url()->previous(), FILTER_VALIDATE_URL)) // is a valid url 
+        { 
+            $parsex= parse_url(url()->previous());
+            $prev_domain=$parsex['host'];  
+            try{
+                $prev_url= url()->previous();
+            }catch(\Exception $e){}   
+        }
+        return $prev_url;
+    }
 }

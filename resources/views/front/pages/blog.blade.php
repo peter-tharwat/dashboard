@@ -23,7 +23,7 @@
 	<div class=" p-0 container mb-15 py-10 " style="min-height:70vh">
 		<div class="col-12 p-2 p-lg-3 row">
 
-			<div class="col-12 p-2">
+			<div class="col-12 p-2 row">
 				@foreach($articles as $article)
 
 

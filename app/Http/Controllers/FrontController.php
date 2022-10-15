@@ -95,6 +95,7 @@ class FrontController extends Controller
     public function article(Request $request,Article $article)
     {
         $article->load(['categories','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
+        $this->views_increase_article($article);
         return view('front.pages.article',compact('article'));
     }
     public function page(Request $request,Page $page)
@@ -110,6 +111,23 @@ class FrontController extends Controller
                 $q->where('user_id',$request->user_id);
         })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
         return view('front.pages.blog',compact('articles'));
+    }
+    public function views_increase_article(Article $article)
+    {
+        $counter = $article->item_seens()->where('type',"ARTICLE")->where('ip',\UserSystemInfoHelper::get_ip())->whereDate('created_at', \Carbon::today())->count();
+        if (!$counter) {
+            \App\Models\ItemSeen::create([
+                'type_id'=>$article->id,
+                'type'=>"ARTICLE",
+                'ip'=>\UserSystemInfoHelper::get_ip(),
+                'prev_link'=>\UserSystemInfoHelper::prev_url(),
+                'agent_name'=>request()->header('User-Agent'),
+                'browser'=>\UserSystemInfoHelper::get_browsers(),
+                'device'=>\UserSystemInfoHelper::get_device(),
+                'operating_system'=>\UserSystemInfoHelper::get_os()
+            ]);
+            $article->update(['views' => $article->views + 1]);
+        }
     }
 }
 

@@ -4,6 +4,29 @@
 	.article img,iframe{
 		max-width: 100%;
 	}
+  pre[class*=language-]{
+    background: #24292e!important;
+    border-radius: 10px!important;
+  }
+  code[class*=language-],code *{
+    font-family: monospace!important;
+  }
+  code[class*=language-], pre[class*=language-]{
+    white-space: pre!important;
+  }
+  .token.class-name, .token.constant, .token.property, .token.symbol {
+      color: #79b8f2!important;
+  }
+  .token.entity, .token.operator, .token.url{
+    color: #F97583!important;
+  }
+  .token.attr-value, .token.char, .token.regex, .token.string, .token.variable{
+    color: #9ECBFF!important;
+  }
+  .token.boolean, .token.function, .token.number{
+    color: #B392F0!important;
+  }
+
 </style>
 <section class="wrapper bg-soft-primary">
       <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
@@ -14,7 +37,7 @@
 
               	@foreach($article->categories as $article_category)
                 	@if($loop->index<5)
-                		<a href="{{route('category.show',$article_category)}}" class="hover" rel="category">{{$article_category->title}}</a>
+                		<a href="{{route('category.show',$article_category)}}" class="hover pe-2" rel="category">{{$article_category->title}}</a>
                 	@endif
             	@endforeach
               </div>
@@ -25,6 +48,9 @@
                 <li class="post-author font-1"><a href="{{route('blog',['user_id'=>$article->user->id])}}" class="font-1"><i class="fal fa-user"></i><span> {{$article->user->name}}</span></a></li>
                 @if($article->comments_count!=0)
                 <li class="post-comments"><a href="#comments"><i class="fal fa-comment"></i> {{$article->comments_count}}<span> تعليقات</span></a></li>
+                @endif
+                @if($article->views!=0)
+                <li class="post-comments"><a href="#comments"><i class="fas fa-fa-thin fa-eyes"></i> {{$article->views}}<span> مشاهدة</span></a></li>
                 @endif
                 {{-- <li class="post-likes"><a href="#"><i class="uil uil-heart-alt"></i>3<span> Likes</span></a></li> --}}
               </ul>
@@ -82,7 +108,7 @@
                   </div>
                   </div>
                   <!-- /.author-info -->
-                  <p>{{$article->user->bio}}.</p>
+                  <p class="text-center">{{$article->user->bio}}.</p>
 
                   @if($article->comments_count)
                   <hr />

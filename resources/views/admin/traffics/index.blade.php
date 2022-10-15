@@ -22,8 +22,8 @@
         </div>
     </form>
 </div>
-<div class="col-12   row p-4" style="padding: 30px 0px;position: relative;background: #fff">
-    <table id="myTable" class="table table-striped table-bordered col-12 " style="padding: 0px;">
+<div class="col-12   row p-4" style="padding: 30px 0px;position: relative;background: #fff;overflow-x: auto;">
+    <table id="myTable" class="table table-striped table-bordered col-12 " style="padding: 0px;min-width: 1200px;">
         <thead>
             <tr>
                 <th style="font-size: 12px">id</th>
