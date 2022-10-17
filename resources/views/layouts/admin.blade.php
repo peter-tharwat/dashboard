@@ -160,6 +160,11 @@
         #toast-container>div {
             opacity: 1;
         }
+        .item {
+            padding: 3px 0px 7px 0px;
+            margin: 2px 0px;
+            border-radius: 8px;
+        }
     </style>
     @yield('after-body')
   {{--   @if(flash()->message)

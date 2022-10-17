@@ -222,10 +222,6 @@ class UploadFilesHelper
                 $imagick->setImageCompressionQuality($quality);
                 $image_lg = $imagick->getImageBlob();
             }
- 
-
-         
-             dd("TEST");
             try{ \Storage::disk($options["file_system_type"])->put(strtolower($options['visibility']) .$path_small .$filename, $image_sm , $filename);}catch(\Exception $e){}
             try{\Storage::disk($options["file_system_type"])->put(strtolower($options['visibility']) . $path .$filename, $image_lg); }catch(\Exception $e){}
 
