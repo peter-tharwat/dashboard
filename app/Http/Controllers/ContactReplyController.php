@@ -66,7 +66,7 @@ class ContactReplyController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]);
             $this->use_hub_file($uploaded_file['filename'],$contact_reply->id,auth()->user()->id);
         } 

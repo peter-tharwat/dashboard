@@ -89,7 +89,7 @@ class UserController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $user->update(['avatar'=>$file['filename']]);
         }
@@ -174,7 +174,7 @@ class UserController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $user->update(['avatar'=>$file['filename']]);
         }

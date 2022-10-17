@@ -25,11 +25,13 @@ class Article extends Model
     public function comments(){
         return $this->hasMany(\App\Models\ArticleComment::class,'article_id');
     }
-    public function main_image(){
+    public function main_image($type==null){
         if($this->main_image==null)
             return env('DEFAULT_IMAGE');
-        else
+        else if($type=="small")
             return env("STORAGE_URL")."/uploads/articles/".$this->main_image;
+        else
+            return env("STORAGE_URL")."/uploads/articles/small/".$this->main_image;
     }
     public function tags(){
         return $this->belongsToMany(\App\Models\Tag::class,'article_tags');

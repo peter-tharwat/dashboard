@@ -75,7 +75,7 @@ class AnnouncementController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }
@@ -136,7 +136,7 @@ class AnnouncementController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }

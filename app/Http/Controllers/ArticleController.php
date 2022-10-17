@@ -84,7 +84,7 @@ class ArticleController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
@@ -160,7 +160,7 @@ class ArticleController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }

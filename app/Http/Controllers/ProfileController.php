@@ -45,7 +45,7 @@ class ProfileController extends Controller
                     'visibility'=>'PUBLIC',
                     'file_system_type'=>env('FILESYSTEM_DRIVER'),
                     'watermark'=>true,
-                    'compress'=>'auto',
+                    'optimize'=>true,
                 ])['filename'];
             $this->use_hub_file($file, $user->id, auth()->user()->id);
             $user->update([

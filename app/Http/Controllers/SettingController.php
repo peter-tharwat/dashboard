@@ -63,7 +63,7 @@ class SettingController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'compress'=>'auto'
+                'optimize'=>true
             ])['filename'];
             \App\Models\Setting::query()->update(['website_logo'=>$file]);
         }
@@ -78,7 +78,7 @@ class SettingController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'compress'=>'auto'
+                'optimize'=>true
             ])['filename'];
             \App\Models\Setting::query()->update(['website_wide_logo'=>$file]);
         }
@@ -93,7 +93,7 @@ class SettingController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                //'compress'=>'auto'
+                //'optimize'=>true
             ])['filename'];
             \App\Models\Setting::query()->update(['website_icon'=>$file]);
         }
@@ -108,7 +108,7 @@ class SettingController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'compress'=>'auto'
+                'optimize'=>true
             ])['filename'];
             \App\Models\Setting::query()->update(['website_cover'=>$file]);
         }

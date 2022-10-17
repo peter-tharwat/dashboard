@@ -18,7 +18,7 @@ class HelperController extends Controller
             'visibility'=>'PUBLIC',
             'file_system_type'=>env('FILESYSTEM_DRIVER'),
             /*'watermark'=>true,*/
-            'compress'=>'auto'
+            'optimize'=>true
         ]); 
         return [
             'fileName'=>$file['filename'],
@@ -55,7 +55,7 @@ class HelperController extends Controller
             'visibility'=>'PUBLIC',
             'file_system_type'=>'production',
             'watermark'=>true,
-            'compress'=>'auto'
+            'optimize'=>true
         ]);  
     }
     public function robots(){

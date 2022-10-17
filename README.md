@@ -143,7 +143,7 @@ $this->store_file([
     'visibility'=>'PUBLIC',
     'file_system_type'=>env('FILESYSTEM_DRIVER'),
     'watermark'=>true,
-    'compress'=>'auto',
+    'optimize'=>true,
 ])['filename'];
 
 #Use File

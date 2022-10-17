@@ -82,7 +82,7 @@ class CategoryController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
@@ -151,7 +151,7 @@ class CategoryController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $category->update(['image'=>$file['filename']]);
         }

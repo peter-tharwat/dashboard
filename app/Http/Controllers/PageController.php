@@ -80,7 +80,7 @@ class PageController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $page->update(['image'=>$file['filename']]);
         }
@@ -152,7 +152,7 @@ class PageController extends Controller
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
-                'compress'=>'auto'
+                'optimize'=>true
             ]); 
             $page->update(['image'=>$file['filename']]);
         }
