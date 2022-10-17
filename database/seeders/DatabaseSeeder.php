@@ -14,8 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     { 
         $this->call([
+            TagSeeder::class,
             UsersSeeder::class,
-            //SettingsSeeder::class
+            SettingsSeeder::class,
+            PagesSeeder::class,
+            MenusSeeder::class,
+            LaratrustSeeder::class,
+            AttachSuperAdminPermissions::class
         ]);
     }
 }

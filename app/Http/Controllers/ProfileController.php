@@ -13,6 +13,14 @@ use Symfony\Component\HttpFoundation\File\File;
 use Hash;
 class ProfileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:profile-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:profile-update',   ['only' => ['edit','update','update_password','update_email']]);
+    }
+
+
     public function index(Request $request)
     {
         return view('admin.profile.index'); 
@@ -52,7 +60,7 @@ class ProfileController extends Controller
             'name'=>$request->name,
             'bio'=>$request->bio
         ]);
-        notify()->info('عملية ناجحة','تمت العملية بنجاح');
+        toastr()->success('تمت العملية بنجاح');
         //emotify('info','تمت العملية بنجاح');
         return redirect()->back();
     }
@@ -89,22 +97,22 @@ class ProfileController extends Controller
             auth()->user()->update([
                 'password'=>Hash::make($request->password)
             ]);
-            flash()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
+            toastr()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
             return redirect()->back();
         }else{
-            notify()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
+            flash()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
             return redirect()->back();
         }  
     }
     public function update_email(Request $request){
-       $request->validate([
+        $request->validate([
             'old_email'=>"required|email",
             'email'=>"required|email|confirmed|unique:users,email,".auth()->user()->id
         ]);
         auth()->user()->update([
             'email'=>$request->email
         ]);
-        flash()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
+        toastr()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
         return redirect()->back();
     }
     

@@ -1,7 +1,7 @@
 @php 
 $website_settings=[
     'website_url'=>env('APP_URL'),
-    'website_name'=>"نفذلي",
+    'website_name'=>$settings->website_name,
     'main_color'=>"#0172b8",
     'second_color'=>"#d6e0ea",
     'social_links'=>[
@@ -38,11 +38,12 @@ $page_keywords= isset($seo_key_words)&&$seo_key_words !=null? $seo_key_words:"";
 $website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonical:$website_settings['canonical'];
 @endphp
 <title>{{$page_title}}</title>
+<meta name="title" content="{{$page_title}}">
 <!---
 وَما نَيلُ المَطالِبِ بِالتَمَنّي وَلَكِن تُؤخَذُ الدُنيا غِلاباوَ
 ما اِستَعصى عَلى قَومٍ مَن الٌإِذا الإِقدامُ كانَ لَهُم رِكابا
 أحمد شوقي
---->
+---> 
 <link rel="icon" type="image/png" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" /> 
 <link rel="icon" type="image/png" sizes="512x512" href="{{$website_settings['website_icon']!=null?$website_settings['website_icon']:$website_settings['website_icon_url']}}" />
 <link rel="manifest" href="{{$website_settings['website_url']}}/manifest.json">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NotificationsController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleCommentController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ContactController;
@@ -15,39 +17,74 @@ use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TrafficsController;
-
-
-
-
-
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuLinkController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactReplyController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserPermissionController;
+use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TagController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
-//Route::get('/test',[TestController::class,'index']);
 
 
-Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->name('admin.')->group(function () {
+
+
+
+
+
+Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
+
     Route::get('/',[AdminController::class,'index'])->name('index');
 
+    Route::middleware('auth')->group(function () {
 
-    //Route::get('/profile',[AdminController::class,'upload_image']);
-    
-    Route::resource('contacts',ContactController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
-    Route::resource('users',UserController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
-    Route::resource('articles',ArticleController::class);
-    Route::resource('categories',CategoryController::class);
-    Route::resource('redirections',RedirectionController::class)->middleware(['CheckRole:ADMIN|EDITOR']);
-
-    Route::get('traffics',[TrafficsController::class,'index'])->name('traffics.index');
-    Route::get('traffics/{traffic}/logs',[TrafficsController::class,'logs'])->name('traffics.logs');
-    Route::get('error-reports',[TrafficsController::class,'error_reports'])->name('traffics.error-reports');
-    Route::get('error-reports/{report}',[TrafficsController::class,'error_report'])->name('traffics.error-report');
+        //Route::get('countries',function(){return dd(config()->get('countries'));});
+        Route::resource('announcements',AnnouncementController::class);
+        Route::resource('files',FileController::class);
+        Route::post('contacts/resolve',[ContactController::class,'resolve']);
+        Route::resource('contacts',ContactController::class);
+        Route::resource('menus',MenuController::class);
+        Route::resource('users',UserController::class);
+        Route::resource('roles',RoleController::class);
+        #Route::get('user-permissions/{user}',[UserPermissionController::class,'index'])->name('users.permissions.index');
+        #Route::put('user-permissions/{user}',[UserPermissionController::class,'update'])->name('users.permissions.update');
+        Route::get('user-roles/{user}',[UserRoleController::class,'index'])->name('users.roles.index');
+        Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
+        Route::resource('articles',ArticleController::class);
+        Route::resource('article-comments',ArticleCommentController::class);
+        Route::resource('pages',PageController::class);
+        Route::resource('tags',TagController::class);
+        Route::resource('contact-replies',ContactReplyController::class);
+        Route::post('faqs/order',[FaqController::class,'order'])->name('faqs.order');
+        Route::resource('faqs',FaqController::class);
+        Route::post('menu-links/get-type',[MenuLinkController::class,'getType'])->name('menu-links.get-type');
+        Route::post('menu-links/order',[MenuLinkController::class,'order'])->name('menu-links.order');
+        Route::resource('menu-links',MenuLinkController::class);
+        Route::resource('categories',CategoryController::class);
+        Route::resource('redirections',RedirectionController::class);
+        Route::get('traffics',[TrafficsController::class,'index'])->name('traffics.index');
+        Route::get('traffics/{traffic}/logs',[TrafficsController::class,'logs'])->name('traffics.logs');
+        Route::get('error-reports',[TrafficsController::class,'error_reports'])->name('traffics.error-reports');
+        Route::get('error-reports/{report}',[TrafficsController::class,'error_report'])->name('traffics.error-report');
+        Route::prefix('settings')->name('settings.')->group(function () {
+            Route::get('/',[SettingController::class,'index'])->name('index');
+            Route::put('/{settings}/update',[SettingController::class,'update'])->name('update');
+        });
+    });
 
     Route::prefix('upload')->name('upload.')->group(function(){
         Route::post('/image',[HelperController::class,'upload_image'])->name('image');
         Route::post('/file',[HelperController::class,'upload_file'])->name('file');
         Route::post('/remove-file',[HelperController::class,'remove_files'])->name('remove-file');
     });
+
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/',[ProfileController::class,'index'])->name('index');
         Route::get('/edit',[ProfileController::class,'edit'])->name('edit');
@@ -55,31 +92,31 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
         Route::put('/update-password',[ProfileController::class,'update_password'])->name('update-password');
         Route::put('/update-email',[ProfileController::class,'update_email'])->name('update-email');
     });
+
     Route::prefix('notifications')->name('notifications.')->group(function () {
         Route::get('/',[NotificationsController::class,'index'])->name('index');
-        Route::get('/ajax',[NotificationsController::class,'notifications_ajax'])->name('ajax');
-        Route::post('/see',[NotificationsController::class,'notifications_see'])->name('see');
+        Route::get('/ajax',[NotificationsController::class,'ajax'])->name('ajax');
+        Route::post('/see',[NotificationsController::class,'see'])->name('see');
+        Route::get('/create',[NotificationsController::class,'create'])->name('create');
+        Route::post('/create',[NotificationsController::class,'store'])->name('store');
     });
-    Route::prefix('settings')->name('settings.')->group(function () {
-        Route::get('/',[SettingController::class,'index'])->name('index');
-        Route::put('/update',[SettingController::class,'update'])->name('update');
-    });
+    
 });
 
 
 Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
-Route::get('manifest.json',[HelperController::class,'manifest']);
+Route::get('manifest.json',[HelperController::class,'manifest'])->name('manifest');
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
 Route::get('sitemaps/links','SiteMapController@custom_links');
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);
 
 
-//pages
-Route::view('about','front.pages.about');
-Route::view('privacy','front.pages.privacy');
-Route::view('terms','front.pages.terms');
-Route::view('contact','front.pages.contact');
+Route::view('contact','front.pages.contact')->name('contact');
+Route::get('page/{page}',[FrontController::class,'page'])->name('page.show');
+Route::get('tag/{tag}',[FrontController::class,'tag'])->name('tag.show');
+Route::get('category/{category}',[FrontController::class,'category'])->name('category.show');
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
+Route::post('comment',[FrontController::class,'comment_post'])->name('comment-post');

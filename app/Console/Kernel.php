@@ -24,6 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->call('\App\Http\Controllers\ScheduleController@clean_items_seens')->daily();
+        $schedule->call('\App\Http\Controllers\ScheduleController@clean_dashboard_logs')->daily();
+        
         // $schedule->command('inspire')->hourly();
     }
 

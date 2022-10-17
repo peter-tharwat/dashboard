@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use View;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,18 +26,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        \App\Models\ContactReply::observe(\App\Observers\ContactReplyObserver::class);
+        \App\Models\Contact::observe(\App\Observers\ContactObserver::class);
+
+        Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
+
         if(Schema::hasTable('settings')){
-            $settings = \App\Models\Setting::count();
-            if($settings==0)
-                \App\Models\Setting::create([]);
             $settings = \App\Models\Setting::first();
             View::share('settings', $settings);
         }
-        \Spatie\Flash\Flash::levels([
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'error' => 'alert-error',
-        ]);
+        
     }
 }

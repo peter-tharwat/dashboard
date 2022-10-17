@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:categories-create', ['only' => ['create','store']]);
+        $this->middleware('permission:categories-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:categories-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:categories-delete',   ['only' => ['delete']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        
+        if(!auth()->user()->isAbleTo('categories-read'))abort(403);
         $categories =  Category::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -32,6 +40,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->isAbleTo('categories-create'))abort(403);
         return view('admin.categories.create');
     }
 
@@ -43,7 +52,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if(!auth()->user()->isAbleTo('categories-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -77,7 +86,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم إضافة القسم بنجاح','عملية ناجحة');
+        toastr()->success('تم إضافة القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 
@@ -89,7 +98,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        if(!auth()->user()->isAbleTo('categories-read'))abort(403);
     }
 
     /**
@@ -100,7 +109,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {   
-        if(!auth()->user()->has_access_to('update',$category))abort(403);
+        if(!auth()->user()->isAbleTo('categories-update'))abort(403);
         return view('admin.categories.edit',compact('category'));
     }
 
@@ -113,11 +122,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        if(!auth()->user()->isAbleTo('categories-update'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
 
-        if(!auth()->user()->has_access_to('update',$category))abort(403);
         $request->validate([
             'slug'=>"required|max:190|unique:categories,slug,".$category->id,
             'title'=>"required|max:190",
@@ -146,7 +155,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        flash()->success('تم تحديث القسم بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 
@@ -158,9 +167,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(!auth()->user()->has_access_to('delete',$category))abort(403);
+        if(!auth()->user()->isAbleTo('categories-delete'))abort(403);
         $category->delete();
-        flash()->success('تم حذف القسم بنجاح','عملية ناجحة');
+        toastr()->success('تم حذف القسم بنجاح','عملية ناجحة');
         return redirect()->route('admin.categories.index');
     }
 }

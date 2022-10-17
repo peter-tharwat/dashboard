@@ -8,7 +8,7 @@ class HelperController extends Controller
 {
     public function upload_image(Request $request){
         $file = $this->store_file([
-            'source'=>$request->upload,
+            'source'=>$request->upload!=null?$request->upload:$request->file,
             'validation'=>"image",
             'path_to_save'=>'/uploads/images/',
             'type'=>'IMAGE', 
@@ -23,10 +23,17 @@ class HelperController extends Controller
         return [
             'fileName'=>$file['filename'],
             'uploaded'=>1,
-            'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'] ];
+            'success'=>true,
+            "hasWarnings"=>false,
+            "isSuccess"=>true,
+            "warnings"=>[],
+            'location'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
+            'file'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
+            'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
+            'files'=>$file['files'] 
+            
+        ];
     }
-
-
     public function use_file(Request $request)
     {
         return $this->use_file($request->name);

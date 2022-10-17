@@ -9,8 +9,12 @@
         @if((isset($accepted_files)&&!is_null($accepted_files)))
         {!!$accepted_files!!}
         @else 
-        @include('layouts.configs')
-        @endif ,
+        @php
+        $accepted_files=explode(',', str_replace('.', '', view('admin.templates.allowed-files')) );
+        @endphp
+        {!!json_encode($accepted_files)!!}
+        @endif
+         ,
         changeInput: '<div class="fileuploader-input mb-2">' +
                           '<div class="fileuploader-input-inner">' +
                               '<div class="fileuploader-icon-main"></div>' +

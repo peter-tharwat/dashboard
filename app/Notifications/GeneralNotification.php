@@ -15,47 +15,42 @@ class GeneralNotification extends Notification implements ShouldQueue
     use Queueable;
     public $tries = 2;
     public $timeout = 10;
- 
-    public $inline_content;
-    public $action_url;
-    public $btn_text;
-    public $methods;
-    public $image;
-
-
-
-
+    public $options;
+    
     public function __construct($options=[]){
-
-        $this->inline_content= implode("\n",$options['content']);
-        $this->action_url=$options['url'];
-        $this->btn_text=$options['btn_text'];
-        $this->methods=$options['methods'];
-        $this->image=$options['image'];
+        array_merge([
+            'content'=>"",
+            'action_url'=>env("APP_URL"),
+            'btn_text'=>env("APP_NAME"),
+            'methods'=>['database'],
+            'image'=>env("DEFAULT_IMAGE_AVATAR"),
+            'inline_content'=>""
+        ],$options);
+        $this->options=$options;
+        $this->options['inline_content']=implode("\n",$options['content']);
     }
- 
-    public function via($notifiable){
 
-        return $this->methods;
+ 
+    public function via($notifiable){ 
+        return $this->options['methods'];
 
     }
 
     public function toMail($notifiable){
 
-        return (new MailMessage)
-                 //->level($this->level)
+        return (new MailMessage) 
                 ->subject("لديك إشعار جديد")
                 ->greeting("مرحباً") 
-                ->line($this->inline_content) 
-                ->action($this->btn_text, $this->action_url);
+                ->line($this->options['inline_content']) 
+                ->action($this->options['btn_text'], $this->options['action_url']);
                     
     } 
     public function toDatabase($notifiable){
 
-        $content=$this->inline_content;
+        $content=$this->options['inline_content'];
         return [
-            'message'=>'<a href="'.$this->action_url.'">'.$content.'</a>',
-            'image'=>$this->image, 
+            'message'=>'<a href="'.$this->options['action_url'].'">'.$content.'</a>',
+            'image'=>$this->options['image'], 
         ];
     } 
 }

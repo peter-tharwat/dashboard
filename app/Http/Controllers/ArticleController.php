@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    
+
+    public function __construct()
+    {
+        $this->middleware('permission:articles-create', ['only' => ['create','store']]);
+        $this->middleware('permission:articles-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:articles-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:articles-delete',   ['only' => ['delete']]);
+    }
+
 
     public function index(Request $request)
     {
@@ -18,7 +27,6 @@ class ArticleController extends Controller
             if($request->q!=null)
                 $q->where('title','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
         })->orderBy('id','DESC')->paginate();
-
         return view('admin.articles.index',compact('articles'));
     }
 
@@ -29,8 +37,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $tags = Tag::get();
         $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.create',compact('categories'));
+        return view('admin.articles.create',compact('categories','tags'));
     }
 
     /**
@@ -44,30 +53,33 @@ class ArticleController extends Controller
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
-
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug",
-            'category_id'=>"required|exists:categories,id",
+            'category_id'=>"required|array",
+            'category_id.*'=>"required|exists:categories,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
+            'status'=>"in:draft,published",
         ]);
         $article = Article::create([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
-            "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
+            "status"=>$request->status,
         ]);
+        $article->categories()->sync($request->category_id);
+        $article->tags()->sync($request->tag_id);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,
                 'validation'=>"image",
                 'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
+                'type'=>'ARTICLE',
                 'user_id'=>\Auth::user()->id,
                 'resize'=>[500,1000],
                 'small_path'=>'small/',
@@ -75,10 +87,10 @@ class ArticleController extends Controller
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
                 'compress'=>'auto'
-            ]); 
+            ]);
             $article->update(['main_image'=>$file['filename']]);
         }
-        flash()->success('تم إضافة المقال بنجاح','عملية ناجحة');
+        toastr()->success('تم إضافة المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 
@@ -90,7 +102,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+
     }
 
     /**
@@ -101,9 +113,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
+        $tags = Tag::get();
         $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.edit',compact('article','categories'));
+        return view('admin.articles.edit',compact('article','categories','tags'));
     }
 
     /**
@@ -119,30 +131,33 @@ class ArticleController extends Controller
             'slug'=>\MainHelper::slug($request->slug)
         ]);
 
-        if(!auth()->user()->has_access_to('update',$article))abort(403);
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug,".$article->id,
-            'category_id'=>"required|exists:categories,id",
+            'category_id'=>"required|array",
+            'category_id.*'=>"required|exists:categories,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
+            'status'=>"in:draft,published",
         ]);
         $article->update([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
-            "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
+            "status"=>$request->status,
         ]);
+        $article->categories()->sync($request->category_id);
+        $article->tags()->sync($request->tag_id);
         if($request->hasFile('main_image')){
             $file = $this->store_file([
                 'source'=>$request->main_image,
                 'validation'=>"image",
                 'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
+                'type'=>'ARTICLE',
                 'user_id'=>\Auth::user()->id,
                 'resize'=>[500,1000],
                 'small_path'=>'small/',
@@ -150,10 +165,10 @@ class ArticleController extends Controller
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
                 /*'watermark'=>true,*/
                 'compress'=>'auto'
-            ]); 
+            ]);
             $article->update(['main_image'=>$file['filename']]);
         }
-        flash()->success('تم تحديث المقال بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 
@@ -165,9 +180,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if(!auth()->user()->has_access_to('delete',$article))abort(403);
         $article->delete();
-        flash()->success('تم حذف المقال بنجاح','عملية ناجحة');
+        toastr()->success('تم حذف المقال بنجاح','عملية ناجحة');
         return redirect()->route('admin.articles.index');
     }
 }

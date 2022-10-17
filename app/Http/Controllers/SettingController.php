@@ -7,14 +7,21 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:settings-update',   ['only' => ['index','update']]);
+    }
+
     public function index()
     {
+        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
         $settings = Setting::firstOrCreate();
         return view('admin.settings.index',compact('settings'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Setting $settings)
     {
+        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
         \App\Models\Setting::query()->update([
             'website_name'=>$request->website_name,
             'address'=>$request->address,
@@ -38,13 +45,11 @@ class SettingController extends Controller
             'another_link1'=>$request->another_link1,
             'another_link2'=>$request->another_link2,
             'another_link3'=>$request->another_link3,
-            'privacy_page'=>$request->privacy_page,
-            'terms_page'=>$request->terms_page,
-            'about_page'=>$request->about_page,
             'contact_page'=>$request->contact_page,
             'header_code'=>$request->header_code,
             'footer_code'=>$request->footer_code,
             'robots_txt'=>$request->robots_txt,
+            'dashboard_dark_mode'=>$request->dashboard_dark_mode==1?1:0
         ]);
         
         if($request->hasFile('website_logo')){
@@ -84,16 +89,14 @@ class SettingController extends Controller
                 'path_to_save'=>'/uploads/website/',
                 'type'=>'IMAGE', 
                 'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
+                //'resize'=>[500,1000],
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'compress'=>'auto'
+                //'compress'=>'auto'
             ])['filename'];
             \App\Models\Setting::query()->update(['website_icon'=>$file]);
         }
-        
-
         if($request->hasFile('website_cover')){
             $file = $this->store_file([
                 'source'=>$request->website_cover,
@@ -109,7 +112,7 @@ class SettingController extends Controller
             ])['filename'];
             \App\Models\Setting::query()->update(['website_cover'=>$file]);
         }
-        flash()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
         return redirect()->back();
 
     }

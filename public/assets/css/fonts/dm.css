@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1);
+.counter-wrapper .counter,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6,
+.post-title {
+  font-family: "DM Serif Display";
+  font-weight: 400 !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important
+}
+.display-1 {
+  font-size: calc(1.385rem + 1.62vw);
+  line-height: 1.1
+}
+@media (min-width:1200px) {
+  .display-1 {
+    font-size: 2.6rem
+  }
+}
+.display-2 {
+  font-size: calc(1.365rem + 1.38vw);
+  line-height: 1.15
+}
+@media (min-width:1200px) {
+  .display-2 {
+    font-size: 2.4rem
+  }
+}
+.display-3 {
+  font-size: calc(1.355rem + 1.26vw);
+  line-height: 1.15
+}
+@media (min-width:1200px) {
+  .display-3 {
+    font-size: 2.3rem
+  }
+}
+.display-4 {
+  font-size: calc(1.325rem + .9vw);
+  line-height: 1.2
+}
+@media (min-width:1200px) {
+  .display-4 {
+    font-size: 2rem
+  }
+}
+.display-5 {
+  font-size: calc(1.305rem + .66vw);
+  line-height: 1.2
+}
+@media (min-width:1200px) {
+  .display-5 {
+    font-size: 1.8rem
+  }
+}
+.display-6 {
+  font-size: calc(1.285rem + .42vw);
+  line-height: 1.25
+}
+@media (min-width:1200px) {
+  .display-6 {
+    font-size: 1.6rem
+  }
+}
+.h2.post-title,
+h2.post-title {
+  font-size: calc(1.265rem + .18vw)
+}
+@media (min-width:1200px) {
+  .h2.post-title,
+  h2.post-title {
+    font-size: 1.4rem
+  }
+}
+.h3.post-title,
+h3.post-title {
+  font-size: 1.2rem
+}
+.counter-wrapper .counter {
+  font-size: calc(1.335rem + 1.02vw)
+}
+@media (min-width:1200px) {
+  .counter-wrapper .counter {
+    font-size: 2.1rem
+  }
+}
+.counter-wrapper .counter.counter-lg {
+  font-size: calc(1.355rem + 1.26vw)
+}
+@media (min-width:1200px) {
+  .counter-wrapper .counter.counter-lg {
+    font-size: 2.3rem
+  }
+}

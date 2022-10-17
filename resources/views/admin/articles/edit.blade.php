@@ -18,10 +18,21 @@
                             القسم
                         </div>
                         <div class="col-12 pt-3">
-                            <select class="form-control" name="category_id" required>
-                                <option value selected disabled hidden>إختر قسم المقال</option>
+                            <select class="form-control select2-select" name="category_id[]" required multiple size="1" style="height:30px;opacity: 0;">
                                 @foreach($categories as $category)
-                                <option value="{{$category->id}}" @if($article->category_id==$category->id) selected @endif>{{$category->title}}</option>
+                                <option value="{{$category->id}}" @if(in_array($category->id,$article->categories->pluck('id')->toArray())) selected @endif>{{$category->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            الوسوم
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control select2-select" name="tag_id[]" multiple size="1" style="height:30px;opacity: 0;">
+                                @foreach($tags as $tag)
+                                <option value="{{$tag->id}}" @if(in_array($tag->id,$article->tags->pluck('id')->toArray())) selected @endif>{{$tag->tag_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -78,6 +89,17 @@
                             <select class="form-control" name="is_featured">
                                 <option @if($article->is_featured=="0") selected @endif value="0">لا</option>
                                 <option @if($article->is_featured=="1") selected @endif value="1">نعم</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <div class="col-12">
+                            الحالة
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control" name="status">
+                                <option @if($article->status=="draft") selected @endif value="draft">مسودة</option>
+                                <option @if($article->status=="published") selected @endif value="published">منشور</option>
                             </select>
                         </div>
                     </div>

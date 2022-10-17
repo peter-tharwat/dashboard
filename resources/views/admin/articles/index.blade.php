@@ -8,12 +8,14 @@
 				<div class="col-12 col-lg-4 py-3 px-3">
 					<span class="fas fa-articles"></span> المقالات
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
+					@permission('articles-create')
 					<a href="{{route('admin.articles.create')}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
+						<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
+					@endpermission
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -22,7 +24,7 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... ">
+					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
@@ -35,7 +37,7 @@
 					<tr>
 						<th>#</th>
 						<th>المستخدم</th>
-						<th>القسم</th>
+						{{-- <th>القسم</th> --}}
 						<th>الرابط</th>
 						<th>الشعار</th>
 						<th>العنوان</th>
@@ -48,9 +50,9 @@
 					<tr>
 						<td>{{$article->id}}</td>
 						<td>{{$article->user->name}}</td>
-						<td>
+						{{-- <td>
 							<a href="{{route('admin.categories.index',['id'=>$article->category_id])}}" style="color:#2381c6">{{$article->category->title_ar}}</a>
-						</td>
+						</td> --}}
 						<td>{{$article->slug}}</td>
 						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 						<td>{{$article->title}}</td>
@@ -59,30 +61,41 @@
 							<span class="fas fa-check-circle text-success" ></span>
 							@endif
 						</td>
-						<td style="width: 270px;">
+						<td style="width: 360px;">
 
-							@if(auth()->user()->has_access_to('read',$article))
+
+							
+
+							@permission('articles-read')
 							<a href="{{route('article.show',['article'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
 							</a>
-							@endif
+							@endpermission
+							
+							@permission('comments-read')
+							<a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
+								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+									<span class="fas fa-comments "></span> التعليقات
+								</span>
+							</a>
+							@endpermission
 
-							@if(auth()->user()->has_access_to('update',$article))
+							@permission('articles-update')
 							<a href="{{route('admin.articles.edit',$article)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endif
-							@if(auth()->user()->has_access_to('delete',$article))
+							@endpermission
+							@permission('articles-delete')
 							<form method="POST" action="{{route('admin.articles.destroy',$article)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endif
+							@endpermission
 						</td>
 					</tr>
 					@endforeach

@@ -6,9 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
+    use LaratrustUserTrait;
     use HasFactory;
     use Notifiable;
     /**
@@ -62,38 +64,19 @@ class User extends Authenticatable
         $this->timestamps = false;
         return $this;
     }
-
-    public function has_access_to($action , $item){
-        /*
-        create
-        read
-        update
-        delete
-        */
-
-        if(!($item   instanceof \Illuminate\Database\Eloquent\Model )) return 0;
-
-        if(auth()->user()->power == "ADMIN"){
-            return 1 ;
-        }elseif(auth()->user()->power == "EDITOR"){
-
-            if($item->getTable()=="users") 
-                return 0;
-            if($item->getTable()=="contacts") 
-                return 0;
-            return 1;
-
-        }elseif(auth()->user()->power == "CONTRIBUTOR"){
-           
-           if($item->getTable()=="users") 
-                return 0;
-           if($item->user_id == auth()->user()->id)
-                return 1;
-           else
-                return 0;
-        }
-
+    public function contacts(){
+        return $this->hasMany(\App\Models\Contact::class);
     }
+    public function articles(){
+        return $this->hasMany(\App\Models\Article::class);
+    }
+    public function traffics(){
+        return $this->hasMany(\App\Models\RateLimit::class);
+    }
+    public function report_errors(){
+        return $this->hasMany(\App\Models\ReportError::class);
+    }
+    
     
 
 }

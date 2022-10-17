@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+
     public function __construct()
     {
-        $this->middleware(['CheckRole:ADMIN'])->only(['create']);
+        $this->middleware('permission:users-create', ['only' => ['create','store']]);
+        $this->middleware('permission:users-read',   ['only' => ['show', 'index']]);
+        $this->middleware('permission:users-update',   ['only' => ['edit','update']]);
+        $this->middleware('permission:users-delete',   ['only' => ['delete']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         
@@ -37,7 +40,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $roles = \App\Models\Role::get();
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
@@ -48,12 +52,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'power'=>"required|in:ADMIN,EDITOR,CONTRIBUTOR",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email",
@@ -62,12 +63,19 @@ class UserController extends Controller
         $user = User::create([
             "name"=>$request->name,
             "phone"=>$request->phone,
-            "power"=>$request->power,
             "bio"=>$request->bio,
             "blocked"=>$request->blocked,
             "email"=>$request->email,
             "password"=>\Hash::make($request->password),
         ]);
+        if(auth()->user()->isAbleTo('user-roles-update')){
+            $request->validate([
+                'roles'=>"required|array",
+                'roles.*'=>"required|exists:roles,id",
+            ]);
+            $user->syncRoles($request->roles);
+            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
+        }
 
         if($request->hasFile('avatar')){
             $file = $this->store_file([
@@ -86,7 +94,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        flash()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
             
         
@@ -111,8 +119,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if(!auth()->user()->has_access_to('update',$user))abort(403);
-        return view('admin.users.edit',compact('user'));
+        $roles = \App\Models\Role::get();
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -124,11 +132,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if(!auth()->user()->has_access_to('update',$user))abort(403);
         $request->validate([
             'name'=>"nullable|max:190",
             'phone'=>"nullable|max:190",
-            'power'=>"required|in:ADMIN,EDITOR,CONTRIBUTOR",
             'bio'=>"nullable|max:5000",
             'blocked'=>"required|in:0,1",
             'email'=>"required|unique:users,email,".$user->id,
@@ -137,12 +143,20 @@ class UserController extends Controller
         $user->update([
             "name"=>$request->name,
             "phone"=>$request->phone,
-            "power"=>$request->power,
             "bio"=>$request->bio,
             "blocked"=>$request->blocked,
             "email"=>$request->email,
             
         ]);
+        if(auth()->user()->isAbleTo('user-roles-update')){
+            $request->validate([
+                'roles'=>"required|array",
+                'roles.*'=>"required|exists:roles,id",
+            ]);
+            $user->syncRoles($request->roles);
+            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
+        }
+
         if($request->password!=null){
             $user->update([
                 "password"=>\Hash::make($request->password)
@@ -165,7 +179,7 @@ class UserController extends Controller
             $user->update(['avatar'=>$file['filename']]);
         }
 
-        flash()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 
@@ -177,9 +191,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(!auth()->user()->has_access_to('delete',$user))abort(403);
+        if(!auth()->user()->isAbleTo('users-delete'))abort(403);
         $user->delete();
-        flash()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
     }
 }

@@ -1,9 +1,9 @@
 @if(isset($notifications))
 @foreach($notifications as $notification)
 @php
-$bg = $notification['read_at']==null ?"#f1f1f1":"#ffffff";
+$bg = $notification['read_at']==null ?"var(--border-color)":"#ffffff";
 @endphp 
-<div class="col-12 mb-1  px-0 pb-0 noselect notifications-notifications " style="border-bottom: 1px solid var(--bg-main-bg);background:{{$bg}}">
+<div class="col-12 mb-1  p-2 noselect notifications-notifications " style="border-bottom: 1px solid var(--bg-main-bg);background:{{$bg}}">
     <div class="col-12 row pl-0 pr-1">
         <div class="text-center" style="max-width: 63px;padding: 4px 9px 4px 9px!important;">
             <div style="display:flex;">
