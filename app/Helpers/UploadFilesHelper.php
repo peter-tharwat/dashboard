@@ -158,12 +158,12 @@ class UploadFilesHelper
             'type'=>'',
             'type_id'=>"",
             'user_id'=>NULL,
-            'resize'=>[400,15000],
+            'resize'=>[400,1200],
             'small_path'=>'small/',
             'visibility'=>'PUBLIC',
             'file_system_type'=>env('FILESYSTEM_DRIVER','s3'),
             'optimize'=>true,
-            'new_extension'=>"",
+            'new_extension'=>"webp",
             'used_at'=>NULL,
         ],$options);
 
@@ -183,45 +183,30 @@ class UploadFilesHelper
 
 
 
-        //dd('/'.strtolower($options['visibility']) . $path . $filename, $file);
-        if(null != $options["resize"] && $options['validation']=="image" && $options['optimize']==true ){
+        if($options['validation']=="image" && $options['optimize']==true ){
 
-            $manager_sm  = new ImageManager(['driver' => 'imagick']);
-            $image_sm    = $manager_sm->make($file);
-            if(isset($options["resize"][0]))
-                $image_sm = \Image::make($image_sm)->resize($options["resize"][0], null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })->encode($extension);
-            $image_sm->stream();
+            $image_sm = (new ImageManager('gd'))->make($file->getContent())->scaleDown(width:$options["resize"][0]);
+            $image_lg = (new ImageManager('gd'))->make($file->getContent())->scaleDown(width:$options["resize"][1]);
 
-
-            $manager_lg = new ImageManager(['driver' => 'imagick']);
-            $image_lg   = $manager_lg->make($file);
-            if(isset($options["resize"][1]))
-                $image_lg = \Image::make($image_lg)->resize($options["resize"][1], null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })->encode($extension);
-            $image_lg->stream();
-
- 
-            if(isset($options['optimize']) && $options['optimize']==true){
-                $quality=90;
-                if($image_lg->width()>=3000)
-                    $quality=30;
-                else if ($image_lg->width()<3000 && $image_lg->width()>=2000)
-                    $quality=40;
-                else if ($image_lg->width()<2000 && $image_lg->width()>=1000)
-                    $quality=50;
-                else
-                    $quality=60;
-
-                $imagick = new \Imagick();
-                $imagick->readImageBlob($image_lg);
-                $imagick->setImageCompressionQuality($quality);
-                $image_lg = $imagick->getImageBlob();
+            if(in_array($options['new_extension'], ['webp','jpeg','jpg','png','gif'])){
+                if($options['new_extension']=="webp"){
+                    $image_sm=$image_sm->toWebp()->toString();
+                    $image_lg=$image_lg->toWebp()->toString();
+                }elseif(in_array($options['new_extension'],['jpeg','jpg'])){
+                    $image_sm=$image_sm->toJpg()->toString();
+                    $image_lg=$image_lg->toJpg()->toString();
+                }elseif($options['new_extension']=="png"){
+                    $image_sm=$image_sm->toPng()->toString();
+                    $image_lg=$image_lg->toPng()->toString();
+                }elseif($options['new_extension']=="gif"){
+                    $image_sm=$image_sm->toGif()->toString();
+                    $image_lg=$image_lg->toGif()->toString();
+                }
+            }else{
+                $image_sm=$image_sm->toString();
+                $image_lg=$image_lg->toString();
             }
+
             try{ \Storage::disk($options["file_system_type"])->put(strtolower($options['visibility']) .$path_small .$filename, $image_sm , $filename);}catch(\Exception $e){}
             try{\Storage::disk($options["file_system_type"])->put(strtolower($options['visibility']) . $path .$filename, $image_lg); }catch(\Exception $e){}
 

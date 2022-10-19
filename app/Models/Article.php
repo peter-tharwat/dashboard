@@ -25,7 +25,7 @@ class Article extends Model
     public function comments(){
         return $this->hasMany(\App\Models\ArticleComment::class,'article_id');
     }
-    public function main_image($type==null){
+    public function main_image($type=null){
         if($this->main_image==null)
             return env('DEFAULT_IMAGE');
         else if($type=="small")

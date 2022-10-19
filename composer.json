@@ -10,7 +10,7 @@
         "doctrine/dbal": "^3.4",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "intervention/image": "^2.7",
+        "intervention/image": "^3.0.0-alpha.5",
         "laravel/framework": "^9.24",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
