@@ -13,5 +13,5 @@
 
 Route::prefix('blog')->group(function() {
     /*dd(Module::findOrFail('blog')->json()->icon);*/
-    Route::get('/', 'BlogController@index');
+    Route::get('/x', 'BlogController@index');
 });
