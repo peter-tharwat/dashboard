@@ -50,12 +50,22 @@ thead th {
 .top-nav {
     transition: .2s ease-in-out;
 }
-.aside .item.active {
-    background: #fff;
-    box-shadow: 0px 12px 17px #abd1c9;
-    border-bottom: 1px solid #abd1c9;
+.aside .item-container{
+    padding: 5px 0px 9px 0px;
+    border-radius: 8px;
 }
-.aside .item.active * {
+.aside .item-container.active {
+    background: #fff;
+    /*box-shadow: 0px 12px 17px #abd1c9;
+    border-bottom: 1px solid #abd1c9;*/
+}
+.aside .item-container.active * {
+    color: #38b59c;
+}
+.sub-item.active{
+    display: block;
+}
+.sub-item.active a.active * ,.sub-item.active a.active ,.sub-item a:hover *,.sub-item a:hover{
     color: #38b59c;
 }
 * {
@@ -71,7 +81,7 @@ thead th {
 .aside * {
     color: #575f66;
 }
-.aside .item div {
+.aside .item-container div {
     font-size: 17px;
 }
 .aside.active {
@@ -80,15 +90,32 @@ thead th {
 .aside.in-active {
     right: -260px;
 }
-.item {
+/*.item {
     padding: 5px 0px 10px 0px;
     margin: 2px 0px;
     border-radius: 8px;
-}
+}*/
 .main-box-wedit{
     box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
     border-radius: 10px 25px 10px 25px;
     background: #fff;
+}
+.item-container .item-container-title.has-sub-menu:after{
+    content:'\f107';
+    font-family: "Font Awesome 5 Pro";
+    width: 20px;
+    height: 20px;
+    display: flex;
+    left: 12px;
+    top: 4px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    font-size: 12px;
+}
+.item-container .item-container-title{
+    position: relative;
 }
 .main-content.active .top-nav {
     width: 100% !important;

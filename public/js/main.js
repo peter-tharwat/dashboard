@@ -37,7 +37,16 @@ $('.asideToggle').on('click', function() {
     $('.main-content').toggleClass('active');
     $('.main-content').toggleClass('in-active');
 });
-$("a[href='" + window.location.href + "'] >div").addClass('active');
+
+var getUrl = window.location;
+$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.item-container').addClass('active');
+$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.sub-item').addClass('active');
+$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.sub-item').find("a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").addClass('active');
+$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "'] >div").addClass('active');
+$(".aside a[href='" + window.location.href + "'] >div").addClass('active');
+$(".aside a[href='" + window.location.href + "']").addClass('active');
+
+
 $('.alert-click-hide').on('click', function() {
     $(this).fadeOut();
 });

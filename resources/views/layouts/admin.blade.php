@@ -74,12 +74,15 @@
         .aside *{
             color: var(--color-1)!important;
         }
-        .aside .item.active{
+        .aside .item-container.active{
             background: #192230!important;
             box-shadow: 0px 12px 17px #101d30!important;
             border-bottom: unset!important;
         }
-        .aside .item.active *{
+        .aside .item-container.active *{
+            color: #38b59c!important;
+        }
+        .sub-item.active a.active *, .sub-item.active a.active {
             color: #38b59c!important;
         }
         #home-dashboard-divider{
@@ -160,10 +163,28 @@
         #toast-container>div {
             opacity: 1;
         }
-        .item {
+        /*.item {
             padding: 3px 0px 7px 0px;
             margin: 2px 0px;
             border-radius: 8px;
+        }*/
+        .sub-item{
+            display: none;
+        }
+        .sub-item li a{
+            padding: 2px 0px;
+            display: block;
+        }
+        .item.active .sub-item.active{
+            display: block;
+        }
+
+        .sub-item{
+            background: var(--background-0);
+            padding: 15px 19px 18px 19px!important;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            border-radius:5px 25px 5px 25px;
         }
     </style>
     @yield('after-body')
@@ -242,22 +263,86 @@
                 <div class="col-12 px-3 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
 
                     <a href="{{route('admin.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex" >
+                        <div class="col-12 item-container px-0 d-flex" >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-home font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 الرئيسية
                             </div> 
                         </div>
                     </a>
+
+
+
+                    <div class="col-12 px-0" style="cursor: pointer;">
+                        <div class="col-12 item px-0 d-flex row " >
+                            <div class="col-12 d-flex px-0 item-container">
+                                <div style="width: 50px" class="px-3 text-center">
+                                    <span class="fal fa-newspaper font-2"> </span> 
+                                </div>
+                                <div style="width: calc(100% - 50px)" class="px-2 item-container-title has-sub-menu">
+                                    المحتوى
+                                </div> 
+                            </div>
+                            <div class="col-12 px-0" >
+                                <ul class="sub-item font-1" style="list-style:none;">
+                                    @permission('categories-read')
+                                    <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag pe-2" style="width: 22px;font-size: 15px;"></span> الأقسام</a></li>
+                                    @endpermission
+                                    @permission('articles-read')
+                                    <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book pe-2" style="width: 22px;font-size: 15px;"></span> المقالات</a></li>
+                                    @endpermission
+
+                                    @permission('comments-read')
+                                    <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments pe-2" style="width: 22px;font-size: 15px;"></span> التعليقات
+                                        @php
+                                        $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
+                                        @endphp
+                                        @if($article_comments)
+                                        <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{$article_comments}}</span>
+                                        
+                                        @endif
+
+                                    </a></li>
+                                    @endpermission
+
+                                    @permission('announcements-read')
+                                    <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn pe-2" style="width: 22px;font-size: 15px;"></span> الإعلانات
+                                    </a></li>
+                                    @endpermission
+                                    @permission('pages-read')
+                                    <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice pe-2" style="width: 22px;font-size: 15px;"></span> الصفحات
+                                    </a></li>
+                                    @endpermission
+
+                                    @permission('menus-read')
+                                    <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list pe-2" style="width: 22px;font-size: 15px;"></span> القوائم
+                                    </a></li>
+                                    @endpermission
+                                    @permission('faqs-read')
+                                    <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question pe-2" style="width: 22px;font-size: 15px;"></span> الأسئلة الشائعة
+                                    </a></li>
+                                    @endpermission
+ 
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
                     @permission('roles-read')
                     <a href="{{route('admin.roles.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-key font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 الصلاحيات
                             </div> 
                         </div>
@@ -265,48 +350,47 @@
                     @endpermission
                     @permission('users-read')
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-users font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 المستخدمين
                             </div> 
                         </div>
                     </a>
                     @endpermission
-                    
-                    @permission('categories-read')
+                    {{-- @permission('categories-read')
                     <a href="{{route('admin.categories.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-tag font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 الأقسام
                             </div> 
                         </div>
                     </a>
-                    @endpermission
-                    @permission('articles-read')
+                    @endpermission --}}
+                    {{-- @permission('articles-read')
                     <a href="{{route('admin.articles.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-newspaper font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 المقالات
                             </div> 
                         </div>
                     </a>
-                    @endpermission
-                    @permission('comments-read')
+                    @endpermission --}}
+                    {{-- @permission('comments-read')
                     <a href="{{route('admin.article-comments.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-comments font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 التعليقات
                             @php
                             $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
@@ -318,27 +402,16 @@
                             </div> 
                         </div>
                     </a>
-                    @endpermission
+                    @endpermission --}}
                     
-                    @permission('announcements-read')
-                    <a href="{{route('admin.announcements.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-bullhorn font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                الإعلانات
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
+                    
                     @permission('contacts-read')
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-phone font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                 طلب التواصل 
                             @php
                             $contacts_count = \App\Models\Contact::where('status','PENDING')->count();
@@ -351,49 +424,16 @@
                         </div>
                     </a>
                     @endpermission
-                    @permission('pages-read')
-                    <a href="{{route('admin.pages.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-file-invoice font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                الصفحات
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
-                    @permission('menus-read')
-                    <a href="{{route('admin.menus.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-list font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                القوائم
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
-                    @permission('faqs-read')
-                    <a href="{{route('admin.faqs.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-question font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
-                                الأسئلة الشائعة
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
+                   
+                    
+                    
                     @permission('settings-update')
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-wrench font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                الإعدادات
                             </div> 
                         </div>
@@ -404,11 +444,11 @@
                     
 
                     <a href="#" class="col-12 px-0" onclick="document.getElementById('logout-form').submit();">
-                        <div class="col-12 item px-0 d-flex " >
+                        <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
                                 <span class="fal fa-sign-out-alt font-2"> </span> 
                             </div>
-                            <div style="width: calc(100% - 50px)" class="px-2">
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
                                تسجيل خروج
                             </div> 
                         </div>
@@ -552,6 +592,10 @@
                     </div>')});
             }
         });
+        $('.item-container').on('click',function(){
+            $(this).siblings().find('.sub-item').slideToggle('fast');
+        });
+        $('.item').add
     </script>
     @livewireScripts
     @include('layouts.scripts')
