@@ -185,26 +185,26 @@ class UploadFilesHelper
 
         if($options['validation']=="image" && $options['optimize']==true ){
 
-            $image_sm = (new ImageManager('gd'))->make($file->getContent())->scaleDown(width:$options["resize"][0]);
-            $image_lg = (new ImageManager('gd'))->make($file->getContent())->scaleDown(width:$options["resize"][1]);
+            $image_sm = (new ImageManager('imagick'))->make($file->getContent())->scaleDown(width:$options["resize"][0]);
+            $image_lg = (new ImageManager('imagick'))->make($file->getContent())->scaleDown(width:$options["resize"][1]);
 
             if(in_array($options['new_extension'], ['webp','jpeg','jpg','png','gif'])){
                 if($options['new_extension']=="webp"){
-                    $image_sm=$image_sm->toWebp()->toString();
-                    $image_lg=$image_lg->toWebp()->toString();
+                    $image_sm=$image_sm->toWebp(95)->toString();
+                    $image_lg=$image_lg->toWebp(95)->toString();
                 }elseif(in_array($options['new_extension'],['jpeg','jpg'])){
-                    $image_sm=$image_sm->toJpg()->toString();
-                    $image_lg=$image_lg->toJpg()->toString();
+                    $image_sm=$image_sm->toJpeg(80)->toString();
+                    $image_lg=$image_lg->toJpeg(80)->toString();
                 }elseif($options['new_extension']=="png"){
-                    $image_sm=$image_sm->toPng()->toString();
-                    $image_lg=$image_lg->toPng()->toString();
+                    $image_sm=$image_sm->toPng(80)->toString();
+                    $image_lg=$image_lg->toPng(80)->toString();
                 }elseif($options['new_extension']=="gif"){
-                    $image_sm=$image_sm->toGif()->toString();
-                    $image_lg=$image_lg->toGif()->toString();
+                    $image_sm=$image_sm->toGif(80)->toString();
+                    $image_lg=$image_lg->toGif(80)->toString();
                 }
             }else{
-                $image_sm=$image_sm->toString();
-                $image_lg=$image_lg->toString();
+                $image_sm=$image_sm->toWebp(85)->toString();
+                $image_lg=$image_lg->toWebp(85)->toString();
             }
 
             try{ \Storage::disk($options["file_system_type"])->put(strtolower($options['visibility']) .$path_small .$filename, $image_sm , $filename);}catch(\Exception $e){}

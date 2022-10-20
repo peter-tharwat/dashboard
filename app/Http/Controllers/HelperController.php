@@ -17,7 +17,7 @@ class HelperController extends Controller
             'small_path'=>'small/',
             'visibility'=>'PUBLIC',
             'file_system_type'=>env('FILESYSTEM_DRIVER'),
-            /*'watermark'=>true,*/
+            'new_extension'=>"webp",
             'optimize'=>true
         ]); 
         return [
@@ -49,12 +49,12 @@ class HelperController extends Controller
             'validation'=>"image",
             'path_to_save'=>'/uploads/uploads/',
             'type'=>'uploads', 
-            'user_id'=>$request->user_id,
+            'user_id'=>\Auth::user()->id,
             'resize'=>[500,3000],
             'small_path'=>'small/',
             'visibility'=>'PUBLIC',
-            'file_system_type'=>'production',
-            'watermark'=>true,
+            'file_system_type'=>env('FILESYSTEM_DRIVER'),
+            'new_extension'=>"webp",
             'optimize'=>true
         ]);  
     }

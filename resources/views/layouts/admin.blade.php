@@ -274,7 +274,31 @@
                     </a>
 
 
-
+                    @permission('roles-read')
+                    <a href="{{route('admin.roles.index')}}" class="col-12 px-0" >
+                        <div class="col-12 item-container px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-key font-2"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
+                                الصلاحيات
+                            </div> 
+                        </div>
+                    </a>
+                    @endpermission
+                    @permission('users-read')
+                    <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
+                        <div class="col-12 item-container px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-users font-2"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
+                                المستخدمين
+                            </div> 
+                        </div>
+                    </a>
+                    @endpermission
+                    
                     <div class="col-12 px-0" style="cursor: pointer;">
                         <div class="col-12 item px-0 d-flex row " >
                             <div class="col-12 d-flex px-0 item-container">
@@ -336,74 +360,6 @@
                     </div>
 
 
-                    @permission('roles-read')
-                    <a href="{{route('admin.roles.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item-container px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-key font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                الصلاحيات
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
-                    @permission('users-read')
-                    <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item-container px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-users font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                المستخدمين
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission
-                    {{-- @permission('categories-read')
-                    <a href="{{route('admin.categories.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item-container px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-tag font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                الأقسام
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission --}}
-                    {{-- @permission('articles-read')
-                    <a href="{{route('admin.articles.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item-container px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-newspaper font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                المقالات
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission --}}
-                    {{-- @permission('comments-read')
-                    <a href="{{route('admin.article-comments.index')}}" class="col-12 px-0" >
-                        <div class="col-12 item-container px-0 d-flex " >
-                            <div style="width: 50px" class="px-3 text-center">
-                                <span class="fal fa-comments font-2"> </span> 
-                            </div>
-                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                التعليقات
-                            @php
-                            $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
-                            @endphp
-                            @if($article_comments)
-                            <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{$article_comments}}</span>
-                            
-                            @endif
-                            </div> 
-                        </div>
-                    </a>
-                    @endpermission --}}
-                    
                     
                     @permission('contacts-read')
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0" >

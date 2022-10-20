@@ -11,7 +11,7 @@
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^3.0.0-alpha.5",
-        "laravel/framework": "^9.24",
+        "laravel/framework": "^9.36",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
@@ -19,6 +19,7 @@
         "livewire/livewire": "^2.7",
         "nesbot/carbon": "^2.54",
         "santigarcor/laratrust": "^7.1",
+        "nwidart/laravel-modules": "^9.0",
         "stevebauman/location": "^6.2",
         "yoeunes/toastr": "^2.0"
     },
