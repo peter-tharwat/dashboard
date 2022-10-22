@@ -71,7 +71,7 @@ class ContactReplyController extends Controller
             $this->use_hub_file($uploaded_file['filename'],$contact_reply->id,auth()->user()->id);
         } 
 
-        toastr()->success(__('process_success_message'));
+        toastr()->success(__('utils.toastr.process_success_message'));
         return redirect()->back();
     }
 

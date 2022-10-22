@@ -88,7 +88,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        toastr()->success(__('article_store_success_message'), __('successful_process_message'));
+        toastr()->success(__('utils.toastr.article_store_success_message'), __('utils.toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -164,7 +164,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        toastr()->success(__('article_update_success_message'), __('successful_process_message'));
+        toastr()->success(__('utils.toastr.article_update_success_message'), __('utils.toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -177,7 +177,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        toastr()->success(__('article_destroy_success_message'), __('successful_process_message'));
+        toastr()->success(__('utils.toastr.article_destroy_success_message'), __('utils.toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 }
