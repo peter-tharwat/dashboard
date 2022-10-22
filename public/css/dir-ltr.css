@@ -1,0 +1,31 @@
+*{
+    direction: ltr!important;
+    text-align: left;
+}
+.aside.active{
+    left: 0px;
+    right: unset;
+}
+.main-content{
+    margin-inline-start:260px;
+    margin-inline-end: 0px;
+}
+@media (min-width: 700px){
+    .main-content.active {
+        width: 100% !important;
+        margin-left: 0px!important;
+    }
+}
+@media (max-width: 700px){
+    .main-content {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .aside.in-active {
+        left: -260px;
+    }
+}
+.aside.in-active{
+    left: -260px;
+    right: unset;
+}

@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-dashboard.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/dir-ltr.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style type="text/css">
@@ -163,11 +164,6 @@
         #toast-container>div {
             opacity: 1;
         }
-        /*.item {
-            padding: 3px 0px 7px 0px;
-            margin: 2px 0px;
-            border-radius: 8px;
-        }*/
         .sub-item{
             display: none;
         }
@@ -188,11 +184,6 @@
         }
     </style>
     @yield('after-body')
-  {{--   @if(flash()->message)
-        <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: var(--background-1);cursor: pointer;"  onclick="$(this).slideUp();">
-            <span class="fas fa-info-circle"></span> {{ flash()->message }} 
-        </div>
-    @endif  --}}
     <div class="col-12 justify-content-end d-flex">
         @if($errors->any())
         <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
@@ -200,32 +191,9 @@
         </div>
         @endif
     </div>
-
-{{--<div class="modal fade" data-bs-backdrop="static" id="open-image-selector-modal" data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
-      <div class="modal-dialog modal-xl  modal-fullscreen-sm-down ">
-        <div class="modal-content overflow-hidden">
-        <div class="col-12 px-0 d-flex row">
-
-            <div class="col-10 px-3 py-3">
-                <span class="fal fa-info-circle"></span>    إختر من الملفات
-            </div>
-            <div class="col-2 px-3 align-items-center d-flex justify-content-end">
-                <span class="far fa-times font-2 cursor-pointer mx-2" data-bs-dismiss="modal"></span>
-            </div>
-
-            <div class="col-12 divider" style="min-height: 2px;"></div>
-
-        </div>
-          <div class="modal-body p-0">
-            <div class="col-12">
-                <livewire:files-viewer />
-            </div>
-          </div>
-         
-        </div>
-      </div>
-    </div>
- --}}
+    @php
+    $plugins = Module::allEnabled();
+    @endphp
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
         <div style="width: 260px;background: #ddeaea;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
@@ -252,7 +220,7 @@
 
             <img src="{{auth()->user()->getUserAvatar()}}" style="width: 80px;height: 80px;color: var(--background-1);border-radius: 50%" class="d-inline-block">
                 </a>
-                <div class="col-12 px-0 mt-2" style="color: #232323;">
+                <div class="col-12 px-0 mt-2 text-center" style="color: #232323;">
                     مرحباً {{auth()->user()->name}}
                 </div> 
             </div>
@@ -299,6 +267,30 @@
                     </a>
                     @endpermission
                     
+
+                    
+
+                    @foreach($plugins as $plugin)
+                        @if($plugin->get('type')=="main")
+                            @permission($plugin->get('route').'-read')
+                                <a href="{{route('admin.'.$plugin->get('route').'.index')}}" class="col-12 px-0" >
+                                    <div class="col-12 item-container px-0 d-flex " >
+                                        <div style="width: 50px" class="px-3 text-center">
+                                            <span class="{{$plugin->get('icon')}} font-2"> </span> 
+                                        </div>
+                                        <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
+                                            {{$plugin->get('title')}}
+                                        </div> 
+                                    </div>
+                                </a>
+                            @endpermission
+                        @endif
+                    @endforeach
+
+
+
+
+
                     <div class="col-12 px-0" style="cursor: pointer;">
                         <div class="col-12 item px-0 d-flex row " >
                             <div class="col-12 d-flex px-0 item-container">
@@ -312,14 +304,14 @@
                             <div class="col-12 px-0" >
                                 <ul class="sub-item font-1" style="list-style:none;">
                                     @permission('categories-read')
-                                    <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag pe-2" style="width: 22px;font-size: 15px;"></span> الأقسام</a></li>
+                                    <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag px-2" style="width: 28px;font-size: 15px;"></span> الأقسام</a></li>
                                     @endpermission
                                     @permission('articles-read')
-                                    <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book pe-2" style="width: 22px;font-size: 15px;"></span> المقالات</a></li>
+                                    <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book px-2" style="width: 28px;font-size: 15px;"></span> المقالات</a></li>
                                     @endpermission
 
                                     @permission('comments-read')
-                                    <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments pe-2" style="width: 22px;font-size: 15px;"></span> التعليقات
+                                    <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments px-2" style="width: 28px;font-size: 15px;"></span> التعليقات
                                         @php
                                         $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
                                         @endphp
@@ -332,25 +324,30 @@
                                     @endpermission
 
                                     @permission('announcements-read')
-                                    <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn pe-2" style="width: 22px;font-size: 15px;"></span> الإعلانات
+                                    <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn px-2" style="width: 28px;font-size: 15px;"></span> الإعلانات
                                     </a></li>
                                     @endpermission
                                     @permission('pages-read')
-                                    <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice pe-2" style="width: 22px;font-size: 15px;"></span> الصفحات
+                                    <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice px-2" style="width: 28px;font-size: 15px;"></span> الصفحات
                                     </a></li>
                                     @endpermission
 
                                     @permission('menus-read')
-                                    <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list pe-2" style="width: 22px;font-size: 15px;"></span> القوائم
+                                    <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list px-2" style="width: 28px;font-size: 15px;"></span> القوائم
                                     </a></li>
                                     @endpermission
                                     @permission('faqs-read')
-                                    <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question pe-2" style="width: 22px;font-size: 15px;"></span> الأسئلة الشائعة
+                                    <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question px-2" style="width: 28px;font-size: 15px;"></span> الأسئلة الشائعة
                                     </a></li>
                                     @endpermission
- 
-
-
+                                    @permission('redirections-read')
+                                    <li><a href="{{route('admin.redirections.index')}}" style="font-size: 16px;"><span class="fal fa-directions px-2" style="width: 28px;font-size: 15px;"></span> التحويلات
+                                    </a></li>
+                                    @endpermission
+                                    @permission('tags-read')
+                                    <li><a href="{{route('admin.tags.index')}}" style="font-size: 16px;"><span class="fal fa-tags px-2" style="width: 28px;font-size: 15px;"></span> الوسوم
+                                    </a></li>
+                                    @endpermission
 
 
 
@@ -395,6 +392,54 @@
                         </div>
                     </a> 
                     @endpermission
+
+ 
+
+
+                    @permission('plugins-read')
+                    <div class="col-12 px-0" style="cursor: pointer;">
+                        <div class="col-12 item px-0 d-flex row " >
+                            <div class="col-12 d-flex px-0 item-container">
+                                <div style="width: 50px" class="px-3 text-center">
+                                    <span class="far fa-box-open font-2" style="color:#ff9800"> </span> 
+                                </div>
+                                <div style="width: calc(100% - 50px)" class="px-2 item-container-title has-sub-menu">
+                                    الاضافات
+                                </div> 
+                            </div>
+                            <div class="col-12 px-0" >
+                                <ul class="sub-item font-1" style="list-style:none;">
+                                    
+                                    @permission('plugins-read')
+                                    <li><a href="{{route('admin.plugins.index')}}" style="font-size: 16px;"><span class="fal fa-box-open px-2" style="width: 28px;font-size: 15px;"></span> كل الاضافات
+
+                                        @if(count($plugins))
+                                        <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{count($plugins)}}</span>
+                                        
+                                        @endif
+
+
+                                    </a></li>
+                                    @endpermission
+
+                               
+                                    @foreach($plugins as $plugin)
+                                        @if($plugin->get('type')=="plugin")
+                                            @permission($plugin->get('route').'-read')
+                                            <li><a href="{{route('admin.teams.index')}}" style="font-size: 16px;"><span class="{{$plugin->get('icon')}} px-2" style="width: 28px;font-size: 15px;"></span> {{$plugin->get('title')}}
+                                            </a></li>
+                                            @endpermission
+                                        @endif
+                                    @endforeach
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+                    @endpermission
+
+                    
                     
 
                     
@@ -455,9 +500,7 @@
 
                                 <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
 
-                                @permission('redirections-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.redirections.index')}}"><span class="fal fa-directions font-1"></span> التحويلات</a></li> 
-                                @endpermission
+                                
 
 
                                 @permission('hub-files-read')
@@ -472,9 +515,7 @@
                                 @permission('error-reports-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
                                 @endpermission
-                                @permission('tags-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.tags.index')}}"><span class="fal fa-tags font-1"></span> الوسوم</a></li> 
-                                @endpermission
+                                
  
 
 

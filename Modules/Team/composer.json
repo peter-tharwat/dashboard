@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/blog",
+    "name": "nwidart/team",
     "description": "",
     "authors": [
         {
@@ -15,9 +15,12 @@
             }
         }
     },
+    "require": {
+        "php": "^8.0.2"
+    },
     "autoload": {
         "psr-4": {
-            "Modules\\Blog\\": ""
+            "Modules\\Team\\": ""
         }
     }
 }

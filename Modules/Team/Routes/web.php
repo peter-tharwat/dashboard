@@ -1,5 +1,5 @@
 <?php
-
+use Modules\Team\Http\Controllers\TeamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +11,6 @@
 |
 */
 
-Route::prefix('blog')->group(function() {
-    /*dd(Module::findOrFail('blog')->json()->icon);*/
-    Route::get('/x', 'BlogController@index');
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('teams',TeamController::class);
 });

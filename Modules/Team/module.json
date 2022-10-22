@@ -1,0 +1,16 @@
+{
+    "name": "Team",
+    "alias": "team",
+    "type":"plugin",
+    "route":"teams",
+    "icon":"fal fa-users",
+    "title":"فريق العمل",
+    "description": "يمكنك من خلال هذه الإضافة اضافة فريق العمل الخاص بك، يحتوي على اسم الشخص والمسمى الوظيفي والصورة ونبذة مختصرة وكذلك وسائل التواصل مع كل عضو في الفريق",
+    "color":"#03a9f4",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Team\\Providers\\TeamServiceProvider"
+    ],
+    "files": []
+}

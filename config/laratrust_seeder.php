@@ -19,6 +19,7 @@ return [
             'user-roles' => 'r,u',
             'roles' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
+            'plugins'=>'c,r,u,d',
             'notifications' => 'c,r,u,d',
             'error-reports'=>"c,r,u,d",
             'articles' => 'c,r,u,d',

@@ -29,6 +29,8 @@ use App\Http\Controllers\UserPermissionController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PluginController;
+
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
@@ -53,8 +55,9 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('menus',MenuController::class);
         Route::resource('users',UserController::class);
         Route::resource('roles',RoleController::class);
-        #Route::get('user-permissions/{user}',[UserPermissionController::class,'index'])->name('users.permissions.index');
-        #Route::put('user-permissions/{user}',[UserPermissionController::class,'update'])->name('users.permissions.update');
+
+        
+
         Route::get('user-roles/{user}',[UserRoleController::class,'index'])->name('users.roles.index');
         Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
         Route::resource('articles',ArticleController::class);
@@ -85,6 +88,15 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('/remove-file',[HelperController::class,'remove_files'])->name('remove-file');
     });
 
+    Route::prefix('plugins')->name('plugins.')->group(function(){
+        Route::get('/',[PluginController::class,'index'])->name('index');
+        Route::get('/create',[PluginController::class,'create'])->name('create');
+        Route::post('/create',[PluginController::class,'store'])->name('store');
+        Route::post('/{plugin}/activate',[PluginController::class,'activate'])->name('activate');
+        Route::post('/{plugin}/deactivate',[PluginController::class,'deactivate'])->name('deactivate');
+        Route::post('/{plugin}/delete',[PluginController::class,'delete'])->name('delete');
+    });
+
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/',[ProfileController::class,'index'])->name('index');
         Route::get('/edit',[ProfileController::class,'edit'])->name('edit');
@@ -108,7 +120,7 @@ Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
 Route::get('manifest.json',[HelperController::class,'manifest'])->name('manifest');
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
-Route::get('sitemaps/links','SiteMapController@custom_links');
+Route::get('sitemaps/links',[SiteMapController::class,'custom_links']);
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);
 
 

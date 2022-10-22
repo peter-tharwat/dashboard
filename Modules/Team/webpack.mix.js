@@ -6,8 +6,8 @@ require('laravel-mix-merge-manifest');
 
 mix.setPublicPath('../../public').mergeManifest();
 
-mix.js(__dirname + '/Resources/assets/js/app.js', 'js/blog.js')
-    .sass( __dirname + '/Resources/assets/sass/app.scss', 'css/blog.css');
+mix.js(__dirname + '/Resources/assets/js/app.js', 'js/team.js')
+    .sass( __dirname + '/Resources/assets/sass/app.scss', 'css/team.css');
 
 if (mix.inProduction()) {
     mix.version();
