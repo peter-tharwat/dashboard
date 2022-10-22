@@ -96,7 +96,7 @@ class FileController extends Controller
         if(!auth()->user()->isAbleTo('hub-files-delete'))abort(403);
         $file->forceDelete();
         //you have to remove it if you want
-        toastr()->success("تمت العملية بنجاح");
+        toastr()->success(__('utils/toastr.process_success_message'));
         return redirect()->back();
     }
 }

@@ -101,7 +101,7 @@ class ContactController extends Controller
     {
         if(!auth()->user()->isAbleTo('contacts-delete'))abort(403);
         $contact->delete();
-        toastr()->success('تم حذف طلب التواصل بنجاح','عملية ناجحة');
+        toastr()->success(__('utils/toastr.contact_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.contacts.index');
     }
 

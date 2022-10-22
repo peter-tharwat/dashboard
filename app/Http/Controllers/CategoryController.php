@@ -86,7 +86,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        toastr()->success('تم إضافة القسم بنجاح','عملية ناجحة');
+        toastr()->success(__('utils/toastr.category_store_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
 
@@ -155,7 +155,7 @@ class CategoryController extends Controller
             ]); 
             $category->update(['image'=>$file['filename']]);
         }
-        toastr()->success('تم تحديث القسم بنجاح','عملية ناجحة');
+        toastr()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
 
@@ -169,7 +169,7 @@ class CategoryController extends Controller
     {
         if(!auth()->user()->isAbleTo('categories-delete'))abort(403);
         $category->delete();
-        toastr()->success('تم حذف القسم بنجاح','عملية ناجحة');
+        toastr()->success(__('utils/toastr.category_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
 }
