@@ -2,8 +2,8 @@
 
 # Simple Arabic Laravel Dashboard
 
--✅ Auto & Smart Seo
--✅ Optimized Notifications With Images
+- ✅ Auto & Smart Seo
+- ✅ Optimized Notifications With Images
 - ✅ Smart Alerts
 - ✅ Auto Js Validations
 - ✅ Front End Alert
