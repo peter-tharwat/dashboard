@@ -88,7 +88,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        toastr()->success('تم إضافة المقال بنجاح','عملية ناجحة');
+        toastr()->success(__('article_store_success_message'), __('successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -164,7 +164,7 @@ class ArticleController extends Controller
             ]); 
             $article->update(['main_image'=>$file['filename']]);
         }
-        toastr()->success('تم تحديث المقال بنجاح','عملية ناجحة');
+        toastr()->success(__('article_update_success_message'), __('successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -177,7 +177,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        toastr()->success('تم حذف المقال بنجاح','عملية ناجحة');
+        toastr()->success(__('article_destroy_success_message'), __('successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 }

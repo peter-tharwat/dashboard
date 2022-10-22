@@ -79,7 +79,7 @@ class AnnouncementController extends Controller
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }
-        toastr()->success('تمت الاضافة بنجاح');
+        toastr()->success(__('utils.toastr.store_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 
@@ -140,7 +140,7 @@ class AnnouncementController extends Controller
             ]); 
             $announcement->update(['image'=>$file['filename']]);
         }
-        toastr()->success('تم التعديل بنجاح');
+        toastr()->success(__('utils.toastr.update_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 
@@ -154,7 +154,7 @@ class AnnouncementController extends Controller
     {
         if(!auth()->user()->isAbleTo('announcements-delete'))abort(403);
         $announcement->delete();
-        toastr()->success('تم الحذف بنجاح');
+        toastr()->success(__('utils.toastr.destroy_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 }
