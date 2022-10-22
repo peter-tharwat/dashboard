@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Units\ModulesUnit;
 use Illuminate\Http\Request;
 use Nwidart\Modules\Facades\Module;
 use Illuminate\Support\Facades\DB;
@@ -44,7 +45,6 @@ class PluginController extends Controller
         Module::findorFail($plugin)->enable();
         $plugin = Module::findorFail($plugin);
         $module = $plugin->get('route');
-
         $permissions = ['create','read','update','delete'];
         foreach($permissions as $permission)
             $permission_ids[] = \App\Models\Permission::firstOrCreate([
@@ -78,7 +78,7 @@ class PluginController extends Controller
         foreach($permissions as $permission){
             \App\Models\Permission::where('name',$module . '-' . $permission)->delete();
         }
-        
+
 
         \Artisan::call('module:migrate-reset '.$plugin->getName());
         toastr()->success("تمت عملية تعطيل الاضافة بنجاح");
@@ -91,5 +91,5 @@ class PluginController extends Controller
         return redirect()->route('admin.plugins.index');
     }
 
-    
+
 }

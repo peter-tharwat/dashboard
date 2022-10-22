@@ -56,7 +56,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('users',UserController::class);
         Route::resource('roles',RoleController::class);
 
-        
+
 
         Route::get('user-roles/{user}',[UserRoleController::class,'index'])->name('users.roles.index');
         Route::put('user-roles/{user}',[UserRoleController::class,'update'])->name('users.roles.update');
@@ -112,7 +112,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('/create',[NotificationsController::class,'create'])->name('create');
         Route::post('/create',[NotificationsController::class,'store'])->name('store');
     });
-    
+
 });
 
 
