@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Units\ModulesUnit;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
@@ -37,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
             $settings = \App\Models\Setting::first();
             View::share('settings', $settings);
         }
-        
+
+        $modules = new ModulesUnit();
+        if(method_exists($modules , 'Menu'))  {
+            view()->share('MenuModules', $modules->Menu());
+
+        }
+
     }
 }

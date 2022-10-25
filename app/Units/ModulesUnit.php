@@ -37,7 +37,11 @@ class ModulesUnit
                 }
             }
         }
-
         return $data;
+    }
+
+
+    public function Menu() {
+        return $this->ShareDataModules('menu');
     }
 }
