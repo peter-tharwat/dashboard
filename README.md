@@ -45,46 +45,26 @@
 
 ### Screenshots
 
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/24.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/24.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/2.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/2.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/3.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/3.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/4.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/4.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/5.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/5.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/6.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/6.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/7.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/7.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/8.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/8.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/9.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/9.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/10.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/10.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/11.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/11.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/12.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/12.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/13.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/13.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/14.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/14.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/15.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/15.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/16.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/16.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/17.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/17.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/18.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/18.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/19.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/19.png)
-
-![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/20.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/20.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/24.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/24.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/2.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/2.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/3.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/3.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/4.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/4.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/5.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/5.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/6.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/6.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/7.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/7.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/8.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/8.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/9.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/9.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/10.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/10.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/11.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/11.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/12.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/12.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/13.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/13.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/14.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/14.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/15.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/15.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/16.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/16.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/17.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/17.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/18.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/18.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/19.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/19.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/20.png](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/screenshots/20.png)
 
 
 <!-- - ✅ Auto & Smart Seo
