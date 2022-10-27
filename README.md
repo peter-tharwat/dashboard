@@ -2,7 +2,74 @@
 
 # Simple Arabic Laravel Dashboard
 
-- ✅ Auto & Smart Seo
+
+- ✅ مهيئة للسيو بشكل تلقائي وذكي
+- ✅ جاهزة لعرض اشعارات مع صور
+- ✅ عرض التنبيهات بشكل لطيف
+- ✅ عرض الأخطاء بشكل لحظي وتلقائي
+- ✅ طريقة لعرض الصور باحترافية
+- ✅ تدعم السحب والافلات
+- ✅ الاشعارات في الوقت الفعلي
+- ✅ أيقونات مدفوعة بشكل مجاني
+- ✅ أفضل وأجمل الخطوط العربية
+- ✅ اعدادات Robots جاهزة
+- ✅ منشئ SiteMap تلقائي
+- ✅ جاهزة للتحويل إلى تطبيق هاتف
+- ✅ جميع الصفحات الأساسية وأكثر
+- ✅ احصائيات رائعة في لوحة التحكم
+- ✅ امكانية انشاء قوائم وتحديد أماكنها
+- ✅ امكانية ترتيب الروابط داخل القوائم
+- ✅ امكانية انشاء صفحات مخصصة
+- ✅ نظام اعلانات جاهز
+- ✅ مدونة متكاملة أقسام،مقالات ..
+- ✅ نظام تحويل الروابط
+- ✅ عربية بالكامل !
+- ✅ محرر جميل مع امكانية رفع صور
+- ✅ نظام مستخدمين ولهم صور
+- ✅ متجاوبة بالكامل
+- ✅ تستخدم آخر اصدار Laravel
+- ✅ تستخدم آخر اصدار Bootstrap
+- ✅ الاشعارات في الوقت الفعلي
+- ✅ راصد الأخطاء الذكي
+- ✅ نظام تتبع شامل
+- ✅ اضافة حدود الزيارات لزيادة الحماية
+- ✅ صفحات 404 مخصصة
+- ✅ صفحات الدخول والتسجيل وغيرها
+- ✅ نظام اعدادات الموقع
+- ✅ جاهزة للدمج مع كلاود فلاير
+- ✅ نظام متابعة ذكي
+- ✅ نظام صلاحيات متقدم
+- ✅ مرفق نماذج لصناعة الصفحات
+- ✅ نظام التذاكر للتواصل معنا
+- ✅ نظام Plugins جاهز لاضافة المزيد
+- ✅ المزيد 
+
+
+### Screenshots
+
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/24.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/24.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/2.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/2.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/3.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/3.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/4.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/4.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/5.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/5.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/6.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/6.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/7.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/7.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/8.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/8.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/9.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/9.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/10.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/10.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/11.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/11.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/12.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/12.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/13.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/13.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/14.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/14.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/15.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/15.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/16.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/16.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/17.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/17.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/18.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/18.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/19.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/19.png)
+![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/20.png]([https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/images/20.png)
+
+
+<!-- - ✅ Auto & Smart Seo
 - ✅ Optimized Notifications With Images
 - ✅ Smart Alerts
 - ✅ Auto Js Validations
@@ -28,11 +95,9 @@
 - ✅ Nice Login , Register and Confirm Email Pages
 - ✅ Most Common Settings
 - ✅ Ready to integrate CloudFlare Firewall
-- ✅ Smart Logging System
+- ✅ Smart Logging System -->
     
-    ![https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg](https://raw.githubusercontent.com/peter-tharwat/dashboard/master/public/screenshot.jpg)
-    
-- ✅ and More
+ 
 
 ### How to setup
 

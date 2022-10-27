@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "biscolab/laravel-recaptcha": "^5.3",
+        "darkaonline/l5-swagger": "^8.4",
         "doctrine/dbal": "^3.4",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -18,8 +19,8 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^2.7",
         "nesbot/carbon": "^2.54",
-        "santigarcor/laratrust": "^7.1",
         "nwidart/laravel-modules": "^9.0",
+        "santigarcor/laratrust": "^7.1",
         "stevebauman/location": "^6.2",
         "yoeunes/toastr": "^2.0"
     },
