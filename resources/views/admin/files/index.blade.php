@@ -76,7 +76,7 @@
 						<td style="width: 180px;">
 
 							@permission('hub-files-read')
-							<a href="{{$file->get_real_url()}}" target="_blank">
+							<a href="{{$file->get_url()}}" target="_blank">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1 py-1 px-2">
 								<span class="fas fa-eye "></span> عرض
 							</span>
