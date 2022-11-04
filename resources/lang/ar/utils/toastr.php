@@ -26,4 +26,4 @@ foreach ($entities as $entity_name => $display_text) {
 }
 
 
-return $messages
+return $messages;
