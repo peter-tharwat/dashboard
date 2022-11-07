@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
+		<!-- breadcrumb -->
+		<x-bread-crumb :breads="[
+			['url' => url('/admin') , 'title' => 'لوحة التحكم' , 'isactive' => false],
+			['url' => route('admin.users.index') , 'title' => 'المستخدمين' , 'isactive' => false],
+			['url' => '#' , 'title' =>  'اضافة مستخدم', 'isactive' => true],
+		]">
+		</x-bread-crumb>
+	<!-- /breadcrumb -->
 	<div class="col-12 col-lg-12 p-0 ">
 	 
 		

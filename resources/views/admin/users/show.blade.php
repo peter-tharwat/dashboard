@@ -1,5 +1,15 @@
 @extends('layouts.admin')
 @section('content')
+<div class=" p-3">
+    <!-- breadcrumb -->
+    <x-bread-crumb :breads="[
+        ['url' => url('/admin') , 'title' => 'لوحة التحكم' , 'isactive' => false],
+        ['url' => route('admin.users.index') , 'title' => 'المستخدمين' , 'isactive' => false],
+        ['url' => '#' , 'title' =>  $user->name, 'isactive' => true],
+    ]">
+    </x-bread-crumb>
+    <!-- /breadcrumb -->
+</div>
 <div class="col-12 py-5 rounded-2" style="text-align: center;background: var(--background-1);margin-top: -5px;">
     <div class="col-12" style="display:flex;justify-content: center;">
         <img src="{{$user->getUserAvatar()}}" style="width:130px;height: 130px;border-radius: 50%;">
