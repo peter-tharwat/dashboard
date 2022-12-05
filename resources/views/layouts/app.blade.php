@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">  
     @include('seo.index')
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
-    <link href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
+    <link rel="stylesheet" type="text/css" href="/css/cust-fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawsome.min.css" >
+    <link rel="stylesheet" type="text/css" href="/css/responsive-fonts.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"> --}}

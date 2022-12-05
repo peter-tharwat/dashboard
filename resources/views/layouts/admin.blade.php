@@ -4,16 +4,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
-    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/cust-fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/fontawsome.min.css')}}" >
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/responsive-fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/fileuploader-jquery.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-dashboard.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/dir-ltr.css')}}"> --}}
@@ -163,24 +161,6 @@
     <style type="text/css">
         #toast-container>div {
             opacity: 1;
-        }
-        .sub-item{
-            display: none;
-        }
-        .sub-item li a{
-            padding: 2px 0px;
-            display: block;
-        }
-        .item.active .sub-item.active{
-            display: block;
-        }
-
-        .sub-item{
-            background: var(--background-0);
-            padding: 15px 19px 18px 19px!important;
-            margin-bottom: 5px;
-            margin-top: 5px;
-            border-radius:5px 25px 5px 25px;
         }
     </style>
     @yield('after-body')

@@ -405,3 +405,21 @@ pre{
 .dropdown-menu.show{
     top: -3px!important;
 }
+.sub-item{
+    display: none;
+}
+.sub-item li a{
+    padding: 2px 0px;
+    display: block;
+}
+.item.active .sub-item.active{
+    display: block;
+}
+
+.sub-item{
+    background: var(--background-0);
+    padding: 15px 19px 18px 19px!important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius:5px 25px 5px 25px;
+}

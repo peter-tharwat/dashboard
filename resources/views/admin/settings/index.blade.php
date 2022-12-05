@@ -2,10 +2,13 @@
 @section('content')
 <style type="text/css">
 	.settings-tab-opener{
-		box-shadow: 0px 6px 12px #ebebeb;
-    	border-radius:11px;
+		/*box-shadow: 0px 6px 12px #ebebeb;*/
+    	border-radius:0px;
     	cursor: pointer;
-    	width:80px;height: 45px;
+    	width:80px;
+    	height: 45px;
+    	border-left:1px solid var(--border-color);
+    	border-bottom:1px solid var(--border-color);
 	}
 	.settings-tab-opener.active{
 		box-shadow: 0px 6px 12px #c8e0ff;
@@ -23,22 +26,22 @@
 	 		<h4 class="font-4">إعدادات الموقع</h4>
 	 	</div>
 	 	<div class="col-12 row" >
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener active" data-opentab="general-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener active" data-opentab="general-tab">
 				<span  class="fal fa-wrench me-2"></span>	عام
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener" data-opentab="appearance-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="appearance-tab">
 				<span  class="fal fa-paint-roller me-2"></span>	مظهر
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener" data-opentab="links-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="links-tab">
 				<span  class="fal fa-link me-2"></span>	روابط
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener" data-opentab="pages-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="pages-tab">
 				<span  class="fal fa-pager me-2"></span>	صفحات
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener" data-opentab="codes-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="codes-tab">
 				<span  class="fal fa-code me-2"></span>	أكواد
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 m-2 settings-tab-opener" data-opentab="others-tab">
+			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="others-tab">
 				<span  class="fal fa-cogs me-2"></span>	اخرى
 			</div>
 		</div>

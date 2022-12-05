@@ -74,7 +74,6 @@ class MainHelper {
     public static function notify_visitors(
         $options=[]
     ){
-
         $options = array_merge([
             'emails'=>["admin@admin.com"],
             'content'=>[],
@@ -83,8 +82,6 @@ class MainHelper {
             'image'=>"",
             'btn_text'=>"عرض الإشعار"
         ],$options);
-
-        dd($options['emails']);
          Notification::route('mail', $options['emails'])
                 ->notify(new \App\Notifications\GeneralNotification([
                     'content'=>$options['content'],
@@ -103,8 +100,8 @@ class MainHelper {
             'error_code'=>"",
             'details'=>json_encode(request()->instance())
         ],$options);
-        
-        if(Schema::hasTable('report_errors'))
+        try{
+            if(Schema::hasTable('report_errors'))
             \App\Models\ReportError::create([
                 'user_id'=>(auth()->check()?auth()->user()->id:null),
                 'title'=>$options['error'],
@@ -115,6 +112,7 @@ class MainHelper {
                 'request'=>json_encode(request()->all()),
                 'description'=>$options['details']
             ]);
+        }catch(\Exception $e){}
     }
     public static function binaryToString($binary)
     {

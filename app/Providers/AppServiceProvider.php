@@ -33,10 +33,12 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
 
-        if(Schema::hasTable('settings')){
-            $settings = \App\Models\Setting::first();
-            View::share('settings', $settings);
-        }
+        try{
+            if(Schema::hasTable('settings')){
+                $settings = \App\Models\Setting::first();
+                View::share('settings', $settings);
+            }
+        }catch(\Exception $e){}
         
     }
 }
