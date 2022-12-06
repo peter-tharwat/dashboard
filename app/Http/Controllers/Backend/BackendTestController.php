@@ -15,8 +15,7 @@ class BackendTestController extends Controller
             'content'=>["TEST"],
             'btn_text'=>"عرض التنبيه",
             'action_url'=>env("APP_URL"),
-        ]);
-        dd("TEST");
+        ]); 
     }
     public function user(Request $request , \App\Models\User $user){
         dd($user);

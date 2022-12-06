@@ -36,7 +36,7 @@ use App\Http\Controllers\FrontController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
-Route::get('/test',[BackendTestController::class,'test']);
+#Route::get('/test',[BackendTestController::class,'test']);
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
