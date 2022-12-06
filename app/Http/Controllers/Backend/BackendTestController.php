@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class BackendTestController extends Controller
 {
-    public function index(Request $request)
+    public function test(Request $request)
     {
-        (new \MainHelper)->notify_user([
-            'user_id'=>$request->user_id,
-            'content'=>[$request->content],
+        
+        \MainHelper::notify_user([
+            'user_id'=>1,
+            'content'=>["TEST"],
             'btn_text'=>"عرض التنبيه",
             'action_url'=>env("APP_URL"),
         ]);
+        dd("TEST");
     }
     public function user(Request $request , \App\Models\User $user){
         dd($user);

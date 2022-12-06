@@ -24,18 +24,16 @@ class MainHelper {
         ],$options);
         $user = \App\Models\User::where('id',$options['user_id'])->first();
         if($user!=null){
-            \App\Models\User::where('email', $user->email )->first()->notify(
-                new \App\Notifications\GeneralNotification([
-                    'content'=>$options['content'],
-                    'action_url'=>$options['action_url'],
-                    'btn_text'=>$options['btn_text'],
-                    'methods'=>$options['methods'],
-                    'image'=>$options['image']
-                ])
+            \App\Models\User::where('email', $user->email)->first()->notify(
+                (new \App\Notifications\GeneralNotification())
+                ->setContent($options['content'])
+                ->setMethods($options['methods'])
+                ->setActionUrl($options['action_url'])
+                ->setActionText($options['btn_text'])
+                ->setActionText($options['image'])
             );
         }
     }
-
     public static function recaptcha($cap){
         
          $ipAddress = 'NA';
@@ -83,13 +81,12 @@ class MainHelper {
             'btn_text'=>"عرض الإشعار"
         ],$options);
          Notification::route('mail', $options['emails'])
-                ->notify(new \App\Notifications\GeneralNotification([
-                    'content'=>$options['content'],
-                    'action_url'=>$options['action_url'],
-                    'btn_text'=>$options['btn_text'],
-                    'methods'=>$options['methods'],
-                    'image'=>$options['image']
-                ]));
+                ->notify((new \App\Notifications\GeneralNotification())
+                    ->setContent($options['content'])
+                ->setMethods($options['methods'])
+                ->setActionUrl($options['action_url'])
+                ->setActionText($options['btn_text'])
+                ->setActionText($options['image']));
     }
     
     public static function make_error_report(

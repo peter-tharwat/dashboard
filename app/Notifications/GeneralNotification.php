@@ -9,48 +9,41 @@ use Illuminate\Notifications\Notification;
 
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
+use App\Notifications\Traits\SetDataForNotifications;
 
-class GeneralNotification extends Notification implements ShouldQueue
+class GeneralNotification extends Notification /*implements ShouldQueue*/
 {
+    use SetDataForNotifications;
     use Queueable;
+
     public $tries = 2;
     public $timeout = 10;
-    public $options;
-    
-    public function __construct($options=[]){
-        array_merge([
-            'content'=>"",
-            'action_url'=>env("APP_URL"),
-            'btn_text'=>env("APP_NAME"),
-            'methods'=>['database'],
-            'image'=>env("DEFAULT_IMAGE_AVATAR"),
-            'inline_content'=>""
-        ],$options);
-        $this->options=$options;
-        $this->options['inline_content']=implode("\n",$options['content']);
+
+    public function __construct(){
+        $this->subject="اشعار جديد";
+        $this->greeting="مرحباً";
+        $this->actionUrl=env("APP_URL");
+        $this->actionText=env("APP_NAME");
+        $this->methods=['database'];
+        $this->image=env("DEFAULT_IMAGE_AVATAR");
+        $this->actionUrl=env("APP_URL");
     }
 
- 
     public function via($notifiable){ 
-        return $this->options['methods'];
-
+        return $this->methods;
     }
-
     public function toMail($notifiable){
-
         return (new MailMessage) 
-                ->subject("لديك إشعار جديد")
-                ->greeting("مرحباً") 
-                ->line($this->options['inline_content']) 
-                ->action($this->options['btn_text'], $this->options['action_url']);
+                ->subject($this->subject)
+                ->greeting($this->greeting) 
+                ->line($this->content) 
+                ->action($this->actionText, $this->actionUrl);
                     
     } 
     public function toDatabase($notifiable){
-
-        $content=$this->options['inline_content'];
         return [
-            'message'=>'<a href="'.$this->options['action_url'].'">'.$content.'</a>',
-            'image'=>$this->options['image'], 
+            'message'=>'<a href="'.$this->actionUrl.'">'.$this->content.'</a>',
+            'image'=>$this->image, 
         ];
     } 
 }

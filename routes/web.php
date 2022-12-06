@@ -36,6 +36,7 @@ use App\Http\Controllers\FrontController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
+Route::get('/test',[BackendTestController::class,'test']);
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
@@ -66,6 +67,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('traffics/{traffic}/logs',[BackendTrafficsController::class,'logs'])->name('traffics.logs');
         Route::get('error-reports',[BackendTrafficsController::class,'error_reports'])->name('traffics.error-reports');
         Route::get('error-reports/{report}',[BackendTrafficsController::class,'error_report'])->name('traffics.error-report');
+        
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/',[BackendSettingController::class,'index'])->name('index');
             Route::put('/{settings}/update',[BackendSettingController::class,'update'])->name('update');
