@@ -4,19 +4,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+
+{{--     <link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap.rtl.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/pace-theme-default.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/toastr.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/fancybox.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('/css/cust-fonts.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/fontawsome.min.css')}}" >
     <link rel="stylesheet" type="text/css" href="{{asset('/css/responsive-fonts.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/fileuploader-jquery.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-dashboard.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/dir-ltr.css')}}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/select2.min.css')}}" >
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/select2-bootstrap-5-theme.rtl.min.css')}}" > --}}
+
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/dir-ltr.css')}}"> --}}
+ 
+    <link rel="stylesheet" type="text/css" href="{{mix('/css/dashboard-all-mixed.css')}}">
+
     <style type="text/css">
         html{
             --background-0: #eef4f5;
@@ -520,20 +526,23 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="current_selected_editor">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" ></script>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- 
+    <script src="{{asset('/js/jquery-3.6.1.min.js')}}"></script>
+    <script src="{{asset('/js/fancybox.umd.js')}}"></script>
+    <script src="{{asset('/js/fancybox.umd.js')}}"></script>
+    <script src="{{asset('/js/toastr.min.js')}}"></script>
+    <script src="{{asset('/js/pace-1.2.4.min.js')}}"></script>
+    <script src="{{asset('/js/bootstrap.bundle.min.js')}}" ></script>
+    <script src="{{asset('/js/select2-4.1.0.min.js')}}"></script>
     <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
+ --}}
+    <script type="text/javascript" src="{{mix('/js/dashboard-all-mixed.js')}}"></script>
+
     <script type="text/javascript">
         $('input[required],select[required],textarea[required]').parent().parent().find('>div:nth-of-type(1)').append('<span style="color:red;font-size:16px">*</span>');
         $("[name='title'],[name='slug'],[name='meta_description']").on('keypress',function(){
@@ -572,7 +581,7 @@
         $('.item-container').on('click',function(){
             $(this).siblings().find('.sub-item').slideToggle('fast');
         });
-        $('.item').add
+        /*$('.item').add*/
     </script>
     @livewireScripts
     @include('layouts.scripts')

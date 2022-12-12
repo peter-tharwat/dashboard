@@ -1,4 +1,10 @@
 /*!
+  * Bootstrap v5.2.1 (https://getbootstrap.com/)
+  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
+
+/*!
  * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
  *
@@ -22,6 +28,14 @@
  *
  * Date: 2022-08-26T17:52Z
  */
+
+/*!
+ * pace.js v1.2.4
+ * https://github.com/CodeByZach/pace/
+ * Licensed MIT © HubSpot, Inc.
+ */
+
+/*! Select2 4.1.0-rc.0 | https://github.com/select2/select2/blob/master/LICENSE.md */
 
 /**
  * @license MIT

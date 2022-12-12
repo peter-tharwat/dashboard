@@ -17,9 +17,8 @@
 
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/plugins.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}"> --}}
-    <?php $assets_version='?v='.shell_exec('git log -1 --format=%at');$public_path=env('PUBLIC_PATH'); ?>
-    <link rel="stylesheet" type="text/css" href="{{mix('/css/all-mixed.css')}}?v={{$assets_version}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}"> --}} 
+    <link rel="stylesheet" type="text/css" href="{{mix('/css/all-mixed.css')}}">
     
     {!!$settings->header_code!!}
     @livewireStyles
@@ -152,7 +151,7 @@
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
      --}}
-    <script type="text/javascript" src="{{mix('/js/all-mixed.js')}}?v={{$assets_version}}"></script>
+    <script type="text/javascript" src="{{mix('/js/all-mixed.js')}}"></script>
     <script src="{{asset('/assets/js/plugins.js')}}"></script>
     <script src="{{asset('/assets/js/theme.js')}}"></script>
     
