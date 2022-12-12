@@ -13,10 +13,10 @@ class BackendArticleController extends Controller
     
     public function __construct()
     {
-        $this->middleware('permission:articles-create', ['only' => ['create','store']]);
-        $this->middleware('permission:articles-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:articles-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:articles-delete',   ['only' => ['delete']]);
+        $this->middleware('can:articles-create', ['only' => ['create','store']]);
+        $this->middleware('can:articles-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:articles-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:articles-delete',   ['only' => ['delete']]);
     }
 
 

@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@permission('pages-create')
+					@can('pages-create')
 					<a href="{{route('admin.pages.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endpermission
+					@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -54,28 +54,28 @@
 					 
 						<td style="width: 270px;">
 
-							@permission('pages-read')
+							@can('pages-read')
 							<a href="{{route('page.show',['page'=>$page])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
 							</a>
-							@endpermission
+							@endcan
 
-							@permission('pages-update')
+							@can('pages-update')
 							<a href="{{route('admin.pages.edit',$page)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endpermission
-							@permission('pages-delete')
+							@endcan
+							@can('pages-delete')
 							<form method="POST" action="{{route('admin.pages.destroy',$page)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endpermission
+							@endcan
 						</td>
 					</tr>
 					@endforeach

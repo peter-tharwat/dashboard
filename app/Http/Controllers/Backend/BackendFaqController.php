@@ -11,10 +11,10 @@ class BackendFaqController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:faqs-create', ['only' => ['create','store']]);
-        $this->middleware('permission:faqs-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:faqs-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:faqs-delete',   ['only' => ['delete']]);
+        $this->middleware('can:faqs-create', ['only' => ['create','store']]);
+        $this->middleware('can:faqs-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:faqs-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:faqs-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
@@ -104,7 +104,7 @@ class BackendFaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        if(!auth()->user()->isAbleTo('faqs-delete'))abort(403);
+        if(!auth()->user()->can('faqs-delete'))abort(403);
         $faq->delete();
         toastr()->success(__('utils/toastr.process_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.faqs.index');

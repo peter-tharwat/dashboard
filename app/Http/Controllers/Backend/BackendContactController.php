@@ -11,10 +11,10 @@ class BackendContactController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:contacts-create', ['only' => ['create','store']]);
-        $this->middleware('permission:contacts-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:contacts-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:contacts-delete',   ['only' => ['delete']]);
+        $this->middleware('can:contacts-create', ['only' => ['create','store']]);
+        $this->middleware('can:contacts-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:contacts-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:contacts-delete',   ['only' => ['delete']]);
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class BackendContactController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
+        if(!auth()->user()->can('contacts-read'))abort(403);
         $contacts =  Contact::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -43,7 +43,7 @@ class BackendContactController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
+        if(!auth()->user()->can('contacts-create'))abort(403);
     }
 
     /**
@@ -54,7 +54,7 @@ class BackendContactController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
+        if(!auth()->user()->can('contacts-create'))abort(403);
     }
 
     /**
@@ -65,7 +65,7 @@ class BackendContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
+        if(!auth()->user()->can('contacts-read'))abort(403);
         return view('admin.contacts.show',compact('contact'));
     }
 
@@ -77,7 +77,7 @@ class BackendContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
     }
 
     /**
@@ -89,7 +89,7 @@ class BackendContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
     }
 
     /**
@@ -100,14 +100,14 @@ class BackendContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        if(!auth()->user()->isAbleTo('contacts-delete'))abort(403);
+        if(!auth()->user()->can('contacts-delete'))abort(403);
         $contact->delete();
         toastr()->success(__('utils/toastr.contact_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.contacts.index');
     }
 
     public function resolve(Request $request){
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
         $contact = \App\Models\Contact::where('id',$request->id)->firstOrFail();
         $contact->update(['status'=>$contact->status=="PENDING"?"DONE":"PENDING"]);
         return ['status'=>$contact->status=="DONE"?"DONE":"PENDING" ];

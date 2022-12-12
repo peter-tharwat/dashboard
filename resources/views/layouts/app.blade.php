@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">  
     @include('seo.index')
-    <link rel="stylesheet" type="text/css" href="/css/cust-fonts.css">
+    {{-- <link rel="stylesheet" type="text/css" href="/css/cust-fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/fontawsome.min.css" >
-    <link rel="stylesheet" type="text/css" href="/css/responsive-fonts.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/responsive-fonts.css"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"> --}}
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"> --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
+    {{-- <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" /> --}}
 
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/font-fileuploader.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}"> --}}
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
+
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/plugins.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}"> --}}
+    <?php $assets_version='?v='.shell_exec('git log -1 --format=%at');$public_path=env('PUBLIC_PATH'); ?>
+    <link rel="stylesheet" type="text/css" href="{{mix('/css/all-mixed.css')}}?v={{$assets_version}}">
     
     {!!$settings->header_code!!}
     @livewireStyles
@@ -55,9 +54,6 @@
         html{
             font-size: 16px;
         }
-        /**:not(.fileuploader):not([class^=fa]):not([class^=vj]):not([class^=tie-]) {
-            font-family: dubai, sans-serif;
-        }*/
         .start-head {
             height: 20px;
             width: 12px;
@@ -127,6 +123,9 @@
         .offcanvas.offcanvas-end{
             right: -1px!important;
         }
+        .carousel__track{
+            direction: ltr;
+        }
     </style>
     @yield('styles')
 </head>
@@ -146,21 +145,94 @@
         <x-footer />
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script> 
- 
-    {{-- <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script> --}}
-    <script src="{{asset('/js/validatorjs.min.js')}}"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script> --}}
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+    {{--     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
+     --}}
+    <script type="text/javascript" src="{{mix('/js/all-mixed.js')}}?v={{$assets_version}}"></script>
     <script src="{{asset('/assets/js/plugins.js')}}"></script>
     <script src="{{asset('/assets/js/theme.js')}}"></script>
     
-
     @livewireScripts
     @include('layouts.scripts')
+    @auth
+    <script type="text/javascript">
+        function get_website_title(){
+            return $('meta[name="title"]').attr('content');
+        }
+        var notificationDropdown = document.getElementById('notificationDropdown')
+        notificationDropdown.addEventListener('show.bs.dropdown', function() {
+            $.ajax({
+                method: "POST",
+                url: "{{route('admin.notifications.see')}}",
+                data: { _token: "{{csrf_token()}}" }
+            }).done(function(res) {
+                $('#dropdown-notifications-icon').fadeOut();
+                favicon.badge(0);
+            });
+        });
+        function append_notification_notifications(msg) {
+            if (msg.count_unseen_notifications > 0) {
+                $('#dropdown-notifications-icon').fadeIn(0);
+                $('#dropdown-notifications-icon').text(msg.count_unseen_notifications);
+            } else {
+                $('#dropdown-notifications-icon').fadeOut(0);
+                favicon.badge(0);
+            }
+            $('.notifications-container').empty();
+            $('.notifications-container').append(msg.response);
+            $('.notifications-container a').on('click', function() { window.location.href = $(this).attr('href'); });
+        } 
+        function get_notifications() {
+            $.ajax({
+                method: "GET",
+                url: "{{route('admin.notifications.ajax')}}", 
+                success: function(data, textStatus, xhr) {
+
+                    favicon.badge(data.notifications.response.count_unseen_notifications);
+
+                    if (data.alert) {
+                        var audio = new Audio('{{asset("/sounds/notification.wav")}}');
+                        audio.play();
+                    }  
+                    append_notification_notifications(data.notifications.response); 
+                    if (data.notifications.response.count_unseen_notifications > 0) {
+                        $('title').text('(' + parseInt(data.notifications.response.count_unseen_notifications) + ')' + " " +  
+                        get_website_title());
+
+                    } else {
+                        $('title').text(get_website_title());
+                    }
+                }
+            });
+        } 
+        window.focused = 25000;
+        window.onfocus = function() {
+            get_notifications(); 
+            window.focused = 25000;
+        };
+        window.onblur = function() {
+            window.focused = 60000;
+        }; 
+        function get_nots() {
+            setTimeout(function() { 
+                get_notifications();
+                get_nots();
+            }, window.focused);
+        }
+        get_nots();
+        @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
+            @php
+            session(['seen_notifications'=>$unreadNotifications]);
+            @endphp
+            var audio = new Audio('{{asset("/sounds/notification.wav")}}');
+            audio.play();
+        @endif
+    </script>
+    @endauth
     @yield('scripts')
     {!!$settings->footer_code!!}
 </body>

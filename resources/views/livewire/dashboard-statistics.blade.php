@@ -50,7 +50,7 @@ $flat_colors = collect([
                             </div>
                         </a>
                     </div>
-                    @permission('settings-update')
+                    @can('settings-update')
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.settings.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -62,7 +62,7 @@ $flat_colors = collect([
                             </div>
                         </a>
                     </div>
-                    @endpermission
+                    @endcan
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.profile.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -97,7 +97,7 @@ $flat_colors = collect([
                             </div>
                         </a>
                     </div>
-                    @permission('announcements-read')
+                    @can('announcements-read')
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="{{route('admin.announcements.index')}}" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -110,7 +110,7 @@ $flat_colors = collect([
                             </div>
                         </a>
                     </div>
-                    @endpermission
+                    @endcan
                     <div class="col-4 d-flex justify-content-center align-items-center mb-3 py-2">
                         <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="color:inherit;">
                             <div class="col-12 p-0 text-center">
@@ -128,7 +128,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        @permission('admin-analytics-read')
+        @can('admin-analytics-read')
 
 
         <div class="col-12 col-lg-4 p-2">
@@ -308,10 +308,10 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>
-        @endpermission
+        @endcan
     </div>
     @section('scripts')
-    @permission('admin-analytics-read')
+    @can('admin-analytics-read')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script type="text/javascript">
@@ -564,6 +564,6 @@ $flat_colors = collect([
     });
 
     </script>
-    @endpermission
+    @endcan
     @endsection
 </div>

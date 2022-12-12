@@ -10,19 +10,19 @@ class BackendSettingController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:settings-update',   ['only' => ['index','update']]);
+        $this->middleware('can:settings-update',   ['only' => ['index','update']]);
     }
 
     public function index()
     {
-        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
+        if(!auth()->user()->can('settings-update'))abort(403);
         $settings = Setting::firstOrCreate();
         return view('admin.settings.index',compact('settings'));
     }
 
     public function update(Request $request, Setting $settings)
     {
-        if(!auth()->user()->isAbleTo('settings-update'))abort(403);
+        if(!auth()->user()->can('settings-update'))abort(403);
         \App\Models\Setting::query()->update([
             'website_name'=>$request->website_name,
             'address'=>$request->address,

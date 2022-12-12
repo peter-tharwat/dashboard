@@ -11,15 +11,15 @@ class BackendPageController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:pages-create', ['only' => ['create','store']]);
-        $this->middleware('permission:pages-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:pages-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:pages-delete',   ['only' => ['delete']]);
+        $this->middleware('can:pages-create', ['only' => ['create','store']]);
+        $this->middleware('can:pages-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:pages-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:pages-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
+        if(!auth()->user()->can('pages-read'))abort(403);
         $pages =  Page::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -36,7 +36,7 @@ class BackendPageController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('pages-create'))abort(403);
+        if(!auth()->user()->can('pages-create'))abort(403);
         return view('admin.pages.create');
     }
 
@@ -48,7 +48,7 @@ class BackendPageController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('pages-create'))abort(403);
+        if(!auth()->user()->can('pages-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -97,7 +97,7 @@ class BackendPageController extends Controller
      */
     public function show(Page $page)
     {
-        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
+        if(!auth()->user()->can('pages-read'))abort(403);
     }
 
     /**
@@ -108,7 +108,7 @@ class BackendPageController extends Controller
      */
     public function edit(Page $page)
     {
-        if(!auth()->user()->isAbleTo('pages-update'))abort(403);
+        if(!auth()->user()->can('pages-update'))abort(403);
         return view('admin.pages.edit',compact('page'));
     }
 
@@ -121,7 +121,7 @@ class BackendPageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        if(!auth()->user()->isAbleTo('pages-read'))abort(403);
+        if(!auth()->user()->can('pages-read'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);

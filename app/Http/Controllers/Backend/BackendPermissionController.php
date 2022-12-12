@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Permission;
+use Spatie\Permission\Models\Permission;
 class BackendPermissionController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('permission:permissions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:permissions-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:permissions-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:permissions-delete',   ['only' => ['delete']]);
+        $this->middleware('can:permissions-create', ['only' => ['create','store']]);
+        $this->middleware('can:permissions-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:permissions-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:permissions-delete',   ['only' => ['delete']]);
     }
 
     /**
@@ -23,7 +23,7 @@ class BackendPermissionController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('permissions-read'))abort(403);
+        if(!auth()->user()->can('permissions-read'))abort(403);
         $permissions =  Page::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -40,7 +40,7 @@ class BackendPermissionController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('permissions-create'))abort(403);
+        if(!auth()->user()->can('permissions-create'))abort(403);
         return view('admin.permissions.create');
     }
 
@@ -52,7 +52,7 @@ class BackendPermissionController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('permissions-create'))abort(403);
+        if(!auth()->user()->can('permissions-create'))abort(403);
         Permission::create([
             'name'=>$request->name,
             'display_name'=>$request->display_name,
@@ -71,7 +71,7 @@ class BackendPermissionController extends Controller
      */
     public function show(Permission $permission)
     {
-        if(!auth()->user()->isAbleTo('permissions-read'))abort(403);
+        if(!auth()->user()->can('permissions-read'))abort(403);
     }
 
     /**
@@ -82,7 +82,7 @@ class BackendPermissionController extends Controller
      */
     public function edit(Request $request,Permission $permission)
     {
-        if(!auth()->user()->isAbleTo('permissions-update'))abort(403);
+        if(!auth()->user()->can('permissions-update'))abort(403);
         return view('admin.permissions.edit',compact('permission'));
     }
 
@@ -95,7 +95,7 @@ class BackendPermissionController extends Controller
      */
     public function update(Request $request,Permission $permission)
     {
-        if(!auth()->user()->isAbleTo('permissions-update'))abort(403);
+        if(!auth()->user()->can('permissions-update'))abort(403);
         $permission->update([
             'name'=>$request->name,
             'display_name'=>$request->display_name,
@@ -114,7 +114,7 @@ class BackendPermissionController extends Controller
      */
     public function destroy($id)
     {
-        if(!auth()->user()->isAbleTo('permissions-delete'))abort(403);
+        if(!auth()->user()->can('permissions-delete'))abort(403);
         toastr()->success("تمت العملية بنجاح");
         return redirect()->back();
     }

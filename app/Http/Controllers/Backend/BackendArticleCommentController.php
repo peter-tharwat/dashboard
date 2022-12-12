@@ -12,10 +12,10 @@ class BackendArticleCommentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:comments-create', ['only' => ['create','store']]);
-        $this->middleware('permission:comments-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:comments-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:comments-delete',   ['only' => ['delete']]);
+        $this->middleware('can:comments-create', ['only' => ['create','store']]);
+        $this->middleware('can:comments-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:comments-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:comments-delete',   ['only' => ['delete']]);
     }
 
     /**

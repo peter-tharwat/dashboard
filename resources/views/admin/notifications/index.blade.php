@@ -2,11 +2,11 @@
 @section('content')
 <div class="container d-flex justify-content-end pt-4">
 	@if(request()->get('user_id')!=null)
-	@permission('notifications-create')
+	@can('notifications-create')
 	<a href="{{route('admin.notifications.create',['user_id'=>request()->get('user_id')])}}">
 		<span class="btn btn-primary"><span class="fas fa-bells"></span> إرسال تنبيه</span>
 	</a>
-	@endpermission
+	@endcan
 	@endif
 </div>
 <div class="col-12 container">

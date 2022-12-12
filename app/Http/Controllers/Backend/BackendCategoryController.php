@@ -11,10 +11,10 @@ class BackendCategoryController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:categories-create', ['only' => ['create','store']]);
-        $this->middleware('permission:categories-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:categories-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:categories-delete',   ['only' => ['delete']]);
+        $this->middleware('can:categories-create', ['only' => ['create','store']]);
+        $this->middleware('can:categories-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:categories-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:categories-delete',   ['only' => ['delete']]);
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class BackendCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('categories-read'))abort(403);
+        if(!auth()->user()->can('categories-read'))abort(403);
         $categories =  Category::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -41,7 +41,7 @@ class BackendCategoryController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('categories-create'))abort(403);
+        if(!auth()->user()->can('categories-create'))abort(403);
         return view('admin.categories.create');
     }
 
@@ -53,7 +53,7 @@ class BackendCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('categories-create'))abort(403);
+        if(!auth()->user()->can('categories-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -99,7 +99,7 @@ class BackendCategoryController extends Controller
      */
     public function show(Category $category)
     {
-        if(!auth()->user()->isAbleTo('categories-read'))abort(403);
+        if(!auth()->user()->can('categories-read'))abort(403);
     }
 
     /**
@@ -110,7 +110,7 @@ class BackendCategoryController extends Controller
      */
     public function edit(Category $category)
     {   
-        if(!auth()->user()->isAbleTo('categories-update'))abort(403);
+        if(!auth()->user()->can('categories-update'))abort(403);
         return view('admin.categories.edit',compact('category'));
     }
 
@@ -123,7 +123,7 @@ class BackendCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        if(!auth()->user()->isAbleTo('categories-update'))abort(403);
+        if(!auth()->user()->can('categories-update'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -168,7 +168,7 @@ class BackendCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(!auth()->user()->isAbleTo('categories-delete'))abort(403);
+        if(!auth()->user()->can('categories-delete'))abort(403);
         $category->delete();
         toastr()->success(__('utils/toastr.category_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');

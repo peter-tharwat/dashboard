@@ -54,20 +54,20 @@
 
 					 
 
-							@permission('comments-update')
+							@can('comments-update')
 							<a href="{{route('admin.article-comments.edit',$comment)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endpermission
-							@permission('comments-delete')
+							@endcan
+							@can('comments-delete')
 							<form method="POST" action="{{route('admin.article-comments.destroy',$comment)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endpermission
+							@endcan
 						</td>
 					</tr>
 					@endforeach

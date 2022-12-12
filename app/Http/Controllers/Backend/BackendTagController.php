@@ -13,10 +13,10 @@ class BackendTagController extends Controller
     
     public function __construct()
     {
-        $this->middleware('permission:tags-create', ['only' => ['create','store']]);
-        $this->middleware('permission:tags-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:tags-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:tags-delete',   ['only' => ['delete']]);
+        $this->middleware('can:tags-create', ['only' => ['create','store']]);
+        $this->middleware('can:tags-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:tags-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:tags-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)

@@ -11,15 +11,15 @@ class BackendMenuController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:menus-create', ['only' => ['create','store']]);
-        $this->middleware('permission:menus-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:menus-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:menus-delete',   ['only' => ['delete']]);
+        $this->middleware('can:menus-create', ['only' => ['create','store']]);
+        $this->middleware('can:menus-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:menus-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:menus-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('menus-read'))abort(403);
+        if(!auth()->user()->can('menus-read'))abort(403);
         $menus =  Menu::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -36,7 +36,7 @@ class BackendMenuController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('menus-create'))abort(403);
+        if(!auth()->user()->can('menus-create'))abort(403);
         return view('admin.menus.create');
     }
 
@@ -48,7 +48,7 @@ class BackendMenuController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('menus-create'))abort(403);
+        if(!auth()->user()->can('menus-create'))abort(403);
         $request->validate([
             'title'=>"required|max:190",
             'location'=>"required|unique:menus,location"
@@ -69,7 +69,7 @@ class BackendMenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        if(!auth()->user()->isAbleTo('menus-read'))abort(403);
+        if(!auth()->user()->can('menus-read'))abort(403);
     }
 
     /**
@@ -80,7 +80,7 @@ class BackendMenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        if(!auth()->user()->isAbleTo('menus-update'))abort(403);
+        if(!auth()->user()->can('menus-update'))abort(403);
         return view('admin.menus.edit',compact('menu'));
     }
 
@@ -93,7 +93,7 @@ class BackendMenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        if(!auth()->user()->isAbleTo('menus-update'))abort(403);
+        if(!auth()->user()->can('menus-update'))abort(403);
         $request->validate([
             'title'=>"required|max:190",
             'location'=>"required|unique:menus,location,".$menu->id,
@@ -114,7 +114,7 @@ class BackendMenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        if(!auth()->user()->isAbleTo('menus-delete'))abort(403);
+        if(!auth()->user()->can('menus-delete'))abort(403);
         $menu->delete();
         toastr()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');

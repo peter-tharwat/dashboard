@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             PagesSeeder::class,
             MenusSeeder::class,
-            LaratrustSeeder::class,
+            PermissionsSeeder::class,
             AttachSuperAdminPermissions::class
         ]);
     }

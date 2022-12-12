@@ -14,11 +14,11 @@ class BackendTrafficsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:traffics-read',   ['only' => ['logs', 'index','error_reports']]);
+        $this->middleware('can:traffics-read',   ['only' => ['logs', 'index','error_reports']]);
     }
 
     public function index(Request $request){
-      if(!auth()->user()->isAbleTo('traffics-read'))abort(403);
+      if(!auth()->user()->can('traffics-read'))abort(403);
         $traffics=RateLimit::where(function($q)use($request){
           if($request->id!=null)
             $q->where('id',$request->id);
@@ -39,12 +39,12 @@ class BackendTrafficsController extends Controller
         return view('admin.traffics.index',compact('traffics'));
     }
     public function logs(Request $request,RateLimit $traffic){
-      if(!auth()->user()->isAbleTo('traffics-read'))abort(403);
+      if(!auth()->user()->can('traffics-read'))abort(403);
         $logs = RateLimitDetail::where('rate_limit_id',$traffic->id)->whereNull('user_id')->where('url','NOT LIKE',"%manifest.json")->orderBy('id','DESC')->simplePaginate(50);
         return view('admin.traffics.logs',compact('logs'));
     }
     public function error_reports(Request $request){
-      if(!auth()->user()->isAbleTo('error-reports-read'))abort(403);
+      if(!auth()->user()->can('error-reports-read'))abort(403);
         $reports= ReportError::where(function($q)use($request){
           if($request->id!=null)
             $q->where('id',$request->id);

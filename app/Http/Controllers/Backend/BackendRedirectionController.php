@@ -10,15 +10,15 @@ class BackendRedirectionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:redirections-create', ['only' => ['create','store']]);
-        $this->middleware('permission:redirections-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:redirections-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:redirections-delete',   ['only' => ['delete']]);
+        $this->middleware('can:redirections-create', ['only' => ['create','store']]);
+        $this->middleware('can:redirections-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:redirections-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:redirections-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('redirections-read'))abort(403);
+        if(!auth()->user()->can('redirections-read'))abort(403);
         $redirections =  Redirection::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -35,7 +35,7 @@ class BackendRedirectionController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('redirections-create'))abort(403);
+        if(!auth()->user()->can('redirections-create'))abort(403);
         return view('admin.redirections.create');
     }
 
@@ -47,7 +47,7 @@ class BackendRedirectionController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('redirections-create'))abort(403);
+        if(!auth()->user()->can('redirections-create'))abort(403);
         $request->validate([
             'url'=>"required|url",
             'new_url'=>"required|url",
@@ -71,7 +71,7 @@ class BackendRedirectionController extends Controller
      */
     public function show(Redirection $redirection)
     {
-        if(!auth()->user()->isAbleTo('redirections-read'))abort(403);
+        if(!auth()->user()->can('redirections-read'))abort(403);
     }
 
     /**
@@ -82,7 +82,7 @@ class BackendRedirectionController extends Controller
      */
     public function edit(Redirection $redirection)
     {
-        if(!auth()->user()->isAbleTo('redirections-update'))abort(403);
+        if(!auth()->user()->can('redirections-update'))abort(403);
         return view('admin.redirections.edit',compact('redirection'));
     }
 
@@ -95,7 +95,7 @@ class BackendRedirectionController extends Controller
      */
     public function update(Request $request, Redirection $redirection)
     {
-        if(!auth()->user()->isAbleTo('redirections-update'))abort(403);
+        if(!auth()->user()->can('redirections-update'))abort(403);
         $request->validate([
             'url'=>"required|url",
             'new_url'=>"required|url",
@@ -118,7 +118,7 @@ class BackendRedirectionController extends Controller
      */
     public function destroy(Redirection $redirection)
     {
-        if(!auth()->user()->isAbleTo('redirections-delete'))abort(403);
+        if(!auth()->user()->can('redirections-delete'))abort(403);
         $redirection->delete();
         toastr()->success('تم حذف التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');

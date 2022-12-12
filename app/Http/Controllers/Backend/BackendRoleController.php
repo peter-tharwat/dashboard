@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 
 class BackendRoleController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('permission:roles-create', ['only' => ['create','store']]);
-        $this->middleware('permission:roles-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:roles-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:roles-delete',   ['only' => ['delete']]);
+        $this->middleware('can:roles-create', ['only' => ['create','store']]);
+        $this->middleware('can:roles-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:roles-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:roles-delete',   ['only' => ['delete']]);
     }
 
     /**

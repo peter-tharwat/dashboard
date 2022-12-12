@@ -10,13 +10,13 @@ class BackendNotificationsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:notifications-create', ['only' => ['create','store']]);
-        $this->middleware('permission:notifications-read',   ['only' => ['see', 'index','ajax']]);
+        $this->middleware('can:notifications-create', ['only' => ['create','store']]);
+        $this->middleware('can:notifications-read',   ['only' => ['see', 'index','ajax']]);
     }
 
 
     public function index(Request $request){
-        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
+        if(!auth()->user()->can('notifications-read'))abort(403);
 
         $user=auth()->user();
         if($request->user_id!=null)
@@ -27,13 +27,13 @@ class BackendNotificationsController extends Controller
         return view('admin.notifications.index',compact('notifications'));
     }
     public function see(Request $request){
-        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
+        if(!auth()->user()->can('notifications-read'))abort(403);
         session(['seen_notifications'=>0]);
         auth()->user()->unreadNotifications->markAsRead();
     }
 
     public function ajax(Request $request){
-        if(!auth()->user()->isAbleTo('notifications-read'))abort(403);
+        if(!auth()->user()->can('notifications-read'))abort(403);
         $notifications = \Auth::user()->notifications()->limit(15)->get(); 
         $not_response  = array(
             'response'                   => (new NotificationComponent($notifications))->render(1),
@@ -55,12 +55,12 @@ class BackendNotificationsController extends Controller
     }
 
     public function create(Request $request){
-        if(!auth()->user()->isAbleTo('notifications-create'))abort(403);
+        if(!auth()->user()->can('notifications-create'))abort(403);
         $request->validate(['user_id'=>"required|exists:users,id"]);
         return view('admin.notifications.create');
     }
     public function store(Request $request){
-        if(!auth()->user()->isAbleTo('notifications-create'))abort(403);
+        if(!auth()->user()->can('notifications-create'))abort(403);
         $contact = \App\Models\Contact::create([
             'user_id'=>$request->user_id,
             'message'=>$request->content,

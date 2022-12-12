@@ -4,18 +4,19 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
 
 class BackendUserRoleController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('permission:user-permissions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:user-roles-read',   ['only' => ['index']]);
-        $this->middleware('permission:user-roles-update',   ['only' => ['update']]);
-        //$this->middleware('permission:user-permissions-delete',   ['only' => ['delete']]);
+        //$this->middleware('can:user-permissions-create', ['only' => ['create','store']]);
+        $this->middleware('can:user-roles-read',   ['only' => ['index']]);
+        $this->middleware('can:user-roles-update',   ['only' => ['update']]);
+        //$this->middleware('can:user-permissions-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request,User $user){
@@ -24,7 +25,8 @@ class BackendUserRoleController extends Controller
     }
     public function update(Request $request,User $user){
         $user->syncRoles($request->roles);
-        $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
+
+        //$user->syncPermissions(DB::table('model_has_permissions')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         toastr()->success("تمت العملية بنجاح");
         return redirect()->route('admin.users.index');
     }

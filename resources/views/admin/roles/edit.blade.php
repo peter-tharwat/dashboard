@@ -56,11 +56,11 @@
                     </thead>
                     <tbody>
                         @php
-                        $permissions = \App\Models\Permission::groupBy('table')->get();
+                        $permissions = \Spatie\Permission\Models\Permission::groupBy('table')->get();
                         @endphp
                         @foreach($permissions as $permission)
                         @php
-                        $sub_permissions = \App\Models\Permission::where('table',$permission->table)->get();
+                        $sub_permissions = \Spatie\Permission\Models\Permission::where('table',$permission->table)->get();
                         @endphp
                         <tr>
                             
@@ -72,7 +72,7 @@
                             <td style="width: 56px;">
                                  
                                 <div class="form-check form-switch">
-                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-create'}}" value="{{$permission->table.'-create'}}" @if(isset($role)&&$role->hasPermission($permission->table.'-create')) checked @endif name="permissions[]">
+                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-create'}}" value="{{$permission->table.'-create'}}" @if(isset($role)&&$role->hasPermissionTo($permission->table.'-create')) checked @endif name="permissions[]">
                                 </div>
                             </td>
                             @else
@@ -83,7 +83,7 @@
                             <td style="width: 56px;">
                                  
                                 <div class="form-check form-switch">
-                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-read'}}" value="{{$permission->table.'-read'}}" @if(isset($role)&&$role->hasPermission($permission->table.'-read')) checked @endif name="permissions[]">
+                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-read'}}" value="{{$permission->table.'-read'}}" @if(isset($role)&&$role->hasPermissionTo($permission->table.'-read')) checked @endif name="permissions[]">
                                 </div>
                             </td>
                             @else
@@ -94,7 +94,7 @@
                             <td style="width: 56px;">
                                  
                                 <div class="form-check form-switch">
-                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-update'}}" value="{{$permission->table.'-update'}}" @if(isset($role)&&$role->hasPermission($permission->table.'-update')) checked @endif name="permissions[]">
+                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-update'}}" value="{{$permission->table.'-update'}}" @if(isset($role)&&$role->hasPermissionTo($permission->table.'-update')) checked @endif name="permissions[]">
                                 </div>
                             </td>
                             @else
@@ -105,7 +105,7 @@
                             <td style="width: 56px;">
                                  
                                 <div class="form-check form-switch">
-                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-delete'}}" value="{{$permission->table.'-delete'}}" @if(isset($role)&&$role->hasPermission($permission->table.'-delete')) checked @endif name="permissions[]">
+                                  <input class="form-check-input" type="checkbox" id="{{$permission->table.'-delete'}}" value="{{$permission->table.'-delete'}}" @if(isset($role)&&$role->hasPermissionTo($permission->table.'-delete')) checked @endif name="permissions[]">
                                 </div>
                             </td>
                             @else

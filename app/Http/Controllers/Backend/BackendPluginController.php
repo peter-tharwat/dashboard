@@ -11,10 +11,10 @@ class BackendPluginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:articles-create', ['only' => ['create','store']]);
-        $this->middleware('permission:articles-read',   ['only' => ['index']]);
-        $this->middleware('permission:articles-update',   ['only' => ['activate','deactivate']]);
-        $this->middleware('permission:articles-delete',   ['only' => ['delete']]);
+        $this->middleware('can:articles-create', ['only' => ['create','store']]);
+        $this->middleware('can:articles-read',   ['only' => ['index']]);
+        $this->middleware('can:articles-update',   ['only' => ['activate','deactivate']]);
+        $this->middleware('can:articles-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
@@ -48,19 +48,17 @@ class BackendPluginController extends Controller
 
         $permissions = ['create','read','update','delete'];
         foreach($permissions as $permission)
-            $permission_ids[] = \App\Models\Permission::firstOrCreate([
+            $permission_ids[] = \Spatie\Permission\Models\Permission::firstOrCreate([
                 'name' => $module . '-' . $permission,
-                'display_name' => ucfirst($permission) . ' ' . ucfirst($module),
-                'description' => ucfirst($permission) . ' ' . ucfirst($module),
                 'table'=>$module
             ])->id;
 
 
         $users = \App\Models\User::whereHas('roles',function($q){$q->where('name','superadmin');})->get();
-        $role = \App\Models\Role::where('name','superadmin')->first()->attachPermissions($permission_ids);
+        $role = \Spatie\Permission\Models\Role::where('name','superadmin')->first()->givePermissionTo($permission_ids);
 
         foreach($users as $user){
-            $user->syncPermissionsWithoutDetaching($permission_ids);
+            $user->syncPermissions($permission_ids);
         }
 
         \Artisan::call('module:migrate '.$plugin->getName());
@@ -77,7 +75,7 @@ class BackendPluginController extends Controller
         $permissions = ['create','read','update','delete'];
 
         foreach($permissions as $permission){
-            \App\Models\Permission::where('name',$module . '-' . $permission)->delete();
+            \Spatie\Permission\Models\Permission::where('name',$module . '-' . $permission)->delete();
         }
         
 

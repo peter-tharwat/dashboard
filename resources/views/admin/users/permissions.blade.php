@@ -28,7 +28,7 @@
 					<tbody>
 						@foreach($permissions as $permission)
 						@php
-						$sub_permissions = \App\Models\Permission::where('table',$permission->table)->get();
+						$sub_permissions = \Spatie\Permission\Models\Permission::where('table',$permission->table)->get();
 						@endphp
 						<tr>
 							

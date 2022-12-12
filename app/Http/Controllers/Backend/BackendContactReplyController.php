@@ -12,15 +12,15 @@ class BackendContactReplyController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:contacts-create', ['only' => ['create','store']]);
-        $this->middleware('permission:contacts-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:contacts-update',   ['only' => ['edit','update','resolve']]);
-        $this->middleware('permission:contacts-delete',   ['only' => ['delete']]);
+        $this->middleware('can:contacts-create', ['only' => ['create','store']]);
+        $this->middleware('can:contacts-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:contacts-update',   ['only' => ['edit','update','resolve']]);
+        $this->middleware('can:contacts-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
+        if(!auth()->user()->can('contacts-read'))abort(403);
         $request->validate(['contact_id'=>"required|exists:contacts,id"]);
         $contact= \App\Models\Contact::where('id',$request->id)->with(['replies'])->firstOrFail();
         return view('admin.contacts.replies.index',compact('contact'));
@@ -33,7 +33,7 @@ class BackendContactReplyController extends Controller
      */
     public function create(Request $request)
     {
-        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
+        if(!auth()->user()->can('contacts-create'))abort(403);
         $request->validate(['contact_id'=>"required|exists:contacts,id"]);
         $contact = \App\Models\Contact::where('id',$request->id)->with(['replies'])->firstOrFail();
         return view('admin.contacts.replies.create',compact('contact'));
@@ -48,7 +48,7 @@ class BackendContactReplyController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('contacts-create'))abort(403);
+        if(!auth()->user()->can('contacts-create'))abort(403);
         $contact= \App\Models\Contact::where('id',$request->contact_id)->firstOrFail();
         $contact->update(['has_support_reply'=>1]);
 
@@ -84,7 +84,7 @@ class BackendContactReplyController extends Controller
      */
     public function show(ContactReply $contactReply)
     {
-        if(!auth()->user()->isAbleTo('contacts-read'))abort(403);
+        if(!auth()->user()->can('contacts-read'))abort(403);
     }
 
     /**
@@ -95,7 +95,7 @@ class BackendContactReplyController extends Controller
      */
     public function edit(ContactReply $contactReply)
     {
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
     }
 
     /**
@@ -107,7 +107,7 @@ class BackendContactReplyController extends Controller
      */
     public function update(Request $request, ContactReply $contactReply)
     {
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
     }
 
     /**
@@ -118,11 +118,11 @@ class BackendContactReplyController extends Controller
      */
     public function destroy(ContactReply $contactReply)
     {
-        if(!auth()->user()->isAbleTo('contacts-delete'))abort(403);
+        if(!auth()->user()->can('contacts-delete'))abort(403);
     }
 
     public function resolve(Request $request){
-        if(!auth()->user()->isAbleTo('contacts-update'))abort(403);
+        if(!auth()->user()->can('contacts-update'))abort(403);
         $contact = \App\Models\Contact::where('contact_id',$request->contact_id)->firstOrFail();
         $contact->update(['status'=>$contact->status=="PENDING"?"DONE":"PENDING"]);
         return 1;

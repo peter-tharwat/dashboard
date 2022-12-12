@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3 row">
-@permission('users-read')
+@can('users-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 </div>
-@endpermission
+@endcan
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 </div>
-@permission('articles-read')
+@can('articles-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -49,8 +49,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('categories-read')
+@endcan
+@can('categories-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
@@ -66,8 +66,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('hub-files-read')
+@endcan
+@can('hub-files-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -83,8 +83,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('menus-read')
+@endcan
+@can('menus-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -100,8 +100,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('pages-read')
+@endcan
+@can('pages-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -117,8 +117,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('contacts-read')
+@endcan
+@can('contacts-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -134,8 +134,8 @@
 		</div>
 	</div>
 </div>
-@endpermission
-@permission('announcements-read')
+@endcan
+@can('announcements-read')
 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
@@ -151,7 +151,7 @@
 		</div>
 	</div>
 </div>
-@endpermission
+@endcan
 
 <div class="col-12 px-2 py-2">
 	<div style="height: 4px ;background: rgb(118 169 169);border-radius: 7px;transition: width .5s ease-in-out;width: 0%;" id="home-dashboard-divider"></div>

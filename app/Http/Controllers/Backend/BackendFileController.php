@@ -10,16 +10,16 @@ class BackendFileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:hub-files-create', ['only' => ['create','store']]);
-        $this->middleware('permission:hub-files-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:hub-files-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:hub-files-delete',   ['only' => ['delete']]);
+        $this->middleware('can:hub-files-create', ['only' => ['create','store']]);
+        $this->middleware('can:hub-files-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:hub-files-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:hub-files-delete',   ['only' => ['delete']]);
     }
 
 
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('hub-files-read'))abort(403);
+        if(!auth()->user()->can('hub-files-read'))abort(403);
         $files = HubFile::where(function($q)use($request){
 
             if($request->id!=null)
@@ -38,7 +38,7 @@ class BackendFileController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('hub-files-create'))abort(403);
+        if(!auth()->user()->can('hub-files-create'))abort(403);
     }
 
     /**
@@ -49,7 +49,7 @@ class BackendFileController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('hub-files-create'))abort(403);
+        if(!auth()->user()->can('hub-files-create'))abort(403);
     }
 
     /**
@@ -60,7 +60,7 @@ class BackendFileController extends Controller
      */
     public function show(HubFile $hubFile)
     {
-        if(!auth()->user()->isAbleTo('hub-files-read'))abort(403);
+        if(!auth()->user()->can('hub-files-read'))abort(403);
     }
 
     /**
@@ -71,7 +71,7 @@ class BackendFileController extends Controller
      */
     public function edit(HubFile $hubFile)
     {
-        if(!auth()->user()->isAbleTo('hub-files-update'))abort(403);
+        if(!auth()->user()->can('hub-files-update'))abort(403);
     }
 
     /**
@@ -83,7 +83,7 @@ class BackendFileController extends Controller
      */
     public function update(Request $request, HubFile $hubFile)
     {
-        if(!auth()->user()->isAbleTo('hub-files-update'))abort(403);
+        if(!auth()->user()->can('hub-files-update'))abort(403);
     }
 
     /**
@@ -94,7 +94,7 @@ class BackendFileController extends Controller
      */
     public function destroy(HubFile $file)
     {
-        if(!auth()->user()->isAbleTo('hub-files-delete'))abort(403);
+        if(!auth()->user()->can('hub-files-delete'))abort(403);
         $file->forceDelete();
         //you have to remove it if you want
         toastr()->success(__('utils/toastr.process_success_message'));

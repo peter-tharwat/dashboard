@@ -17,8 +17,8 @@ class BackendProfileController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:profile-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:profile-update',   ['only' => ['edit','update','update_password','update_email']]);
+        $this->middleware('can:profile-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:profile-update',   ['only' => ['edit','update','update_password','update_email']]);
     }
 
 

@@ -34,9 +34,9 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						@permission('contacts-update')
+						@can('contacts-update')
 						<th scope="col" style="width:40px;">تم</th>
-						@endpermission
+						@endcan
 						<th>المستخدم</th>
 						<th>محتوى التذكرة</th>
 						<th>تحكم</th>
@@ -49,7 +49,7 @@
 					class="@if($contact->status=="DONE") ticket-resolved @endif" 
 					 >
 						<td>{{$contact->id}}</td>
-						@permission('contacts-update')
+						@can('contacts-update')
 						<td scope="col" style="width:30px;">
 		      
 					      	<div class="form-switch">
@@ -57,7 +57,7 @@
 							</div>
 						 
 					      </td>
-					     @endpermission
+					     @endcan
 						<td>
 
 							@if($contact->user_id!=null)
@@ -95,20 +95,20 @@
 						</td>
 					 
 						<td style="width: 180px;">
-							@permission('contacts-read',$contact)
+							@can('contacts-read',$contact)
 							<a href="{{route('admin.contacts.show',$contact)}}">
 							<span class="btn  btn-success btn-sm font-1 mx-1">
 								<span class="fal fa-paper-plane"></span> مراسلة
 							</span>
 							</a>
-							@endpermission
-							@permission('contacts-delete',$contact)
+							@endcan
+							@can('contacts-delete',$contact)
 							<form method="POST" action="{{route('admin.contacts.destroy',$contact)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endpermission
+							@endcan
 						</td>
 					</tr>
 					@endforeach
@@ -123,7 +123,7 @@
 </div>
 @endsection
 @section('scripts')
-@permission('resolve')
+@can('resolve')
 <script type="text/javascript">
 	$('.toggle-contact-resolving').on('change',function(){
 		var id =$(this).attr('data-id');
@@ -141,5 +141,5 @@
 		});
 	});
 </script>
-@endpermission
+@endcan
 @endsection

@@ -11,10 +11,10 @@ class BackendAnnouncementController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:announcements-create', ['only' => ['create','store']]);
-        $this->middleware('permission:announcements-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:announcements-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:announcements-delete',   ['only' => ['delete']]);
+        $this->middleware('can:announcements-create', ['only' => ['create','store']]);
+        $this->middleware('can:announcements-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:announcements-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:announcements-delete',   ['only' => ['delete']]);
     }
 
     /**
@@ -24,7 +24,7 @@ class BackendAnnouncementController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->isAbleTo('announcements-read'))abort(403);
+        if(!auth()->user()->can('announcements-read'))abort(403);
 
         $announcements=Announcement::where(function($q)use($request){
             if($request->id!=null)
@@ -43,7 +43,7 @@ class BackendAnnouncementController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->isAbleTo('announcements-create'))abort(403);
+        if(!auth()->user()->can('announcements-create'))abort(403);
         return view('admin.announcements.create');
     }
 
@@ -55,7 +55,7 @@ class BackendAnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->isAbleTo('announcements-create'))abort(403);
+        if(!auth()->user()->can('announcements-create'))abort(403);
         $announcement= Announcement::create([
             'title'=>$request->title,
             'description'=>$request->description,
@@ -92,7 +92,7 @@ class BackendAnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        if(!auth()->user()->isAbleTo('announcements-read'))abort(403);
+        if(!auth()->user()->can('announcements-read'))abort(403);
     }
 
     /**
@@ -103,7 +103,7 @@ class BackendAnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        if(!auth()->user()->isAbleTo('announcements-update'))abort(403);
+        if(!auth()->user()->can('announcements-update'))abort(403);
         return view('admin.announcements.edit',compact('announcement'));
     }
 
@@ -116,7 +116,7 @@ class BackendAnnouncementController extends Controller
      */
     public function update(Request $request, Announcement $announcement)
     {
-        if(!auth()->user()->isAbleTo('announcements-update'))abort(403);
+        if(!auth()->user()->can('announcements-update'))abort(403);
         $announcement->update([
             'title'=>$request->title,
             'description'=>$request->description,
@@ -153,7 +153,7 @@ class BackendAnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        if(!auth()->user()->isAbleTo('announcements-delete'))abort(403);
+        if(!auth()->user()->can('announcements-delete'))abort(403);
         $announcement->delete();
         toastr()->success(__('utils/toastr.destroy_success_message'));
         return redirect()->route('admin.announcements.index');

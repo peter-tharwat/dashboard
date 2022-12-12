@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@permission('menu-links-create')
+					@can('menu-links-create')
 					<a href="{{route('admin.menu-links.create',['menu_id'=>request()->get('menu_id')])}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endpermission
+					@endcan
 				</div>
 			</div>
 			<div class="col-12 divider" style="min-height: 2px;"></div>
@@ -56,21 +56,21 @@
 						 
 							
 
-							@permission('menu-links-update')
+							@can('menu-links-update')
 							<a href="{{route('admin.menu-links.edit',$link)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
 									<span class="fas fa-wrench "></span> تحكم
 								</span>
 							</a>
-							@endpermission
+							@endcan
 
-							@permission('menu-links-delete')
+							@can('menu-links-delete')
 							<form method="POST" action="{{route('admin.menu-links.destroy',$link)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>
-							@endpermission
+							@endcan
 						</td>
 					</tr>
 					@endforeach

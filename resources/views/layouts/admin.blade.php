@@ -222,7 +222,7 @@
                     </a>
 
 
-                    @permission('roles-read')
+                    @can('roles-read')
                     <a href="{{route('admin.roles.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -233,8 +233,8 @@
                             </div> 
                         </div>
                     </a>
-                    @endpermission
-                    @permission('users-read')
+                    @endcan
+                    @can('users-read')
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -245,14 +245,14 @@
                             </div> 
                         </div>
                     </a>
-                    @endpermission
+                    @endcan
                     
 
                     
 
                     @foreach($plugins as $plugin)
                         @if($plugin->get('type')=="main")
-                            @permission($plugin->get('route').'-read')
+                            @can($plugin->get('route').'-read')
                                 <a href="{{route('admin.'.$plugin->get('route').'.index')}}" class="col-12 px-0" >
                                     <div class="col-12 item-container px-0 d-flex " >
                                         <div style="width: 50px" class="px-3 text-center">
@@ -263,7 +263,7 @@
                                         </div> 
                                     </div>
                                 </a>
-                            @endpermission
+                            @endcan
                         @endif
                     @endforeach
 
@@ -283,14 +283,14 @@
                             </div>
                             <div class="col-12 px-0" >
                                 <ul class="sub-item font-1" style="list-style:none;">
-                                    @permission('categories-read')
+                                    @can('categories-read')
                                     <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag px-2" style="width: 28px;font-size: 15px;"></span> الأقسام</a></li>
-                                    @endpermission
-                                    @permission('articles-read')
+                                    @endcan
+                                    @can('articles-read')
                                     <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book px-2" style="width: 28px;font-size: 15px;"></span> المقالات</a></li>
-                                    @endpermission
+                                    @endcan
 
-                                    @permission('comments-read')
+                                    @can('comments-read')
                                     <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments px-2" style="width: 28px;font-size: 15px;"></span> التعليقات
                                         @php
                                         $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
@@ -301,33 +301,33 @@
                                         @endif
 
                                     </a></li>
-                                    @endpermission
+                                    @endcan
 
-                                    @permission('announcements-read')
+                                    @can('announcements-read')
                                     <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn px-2" style="width: 28px;font-size: 15px;"></span> الإعلانات
                                     </a></li>
-                                    @endpermission
-                                    @permission('pages-read')
+                                    @endcan
+                                    @can('pages-read')
                                     <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice px-2" style="width: 28px;font-size: 15px;"></span> الصفحات
                                     </a></li>
-                                    @endpermission
+                                    @endcan
 
-                                    @permission('menus-read')
+                                    @can('menus-read')
                                     <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list px-2" style="width: 28px;font-size: 15px;"></span> القوائم
                                     </a></li>
-                                    @endpermission
-                                    @permission('faqs-read')
+                                    @endcan
+                                    @can('faqs-read')
                                     <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question px-2" style="width: 28px;font-size: 15px;"></span> الأسئلة الشائعة
                                     </a></li>
-                                    @endpermission
-                                    @permission('redirections-read')
+                                    @endcan
+                                    @can('redirections-read')
                                     <li><a href="{{route('admin.redirections.index')}}" style="font-size: 16px;"><span class="fal fa-directions px-2" style="width: 28px;font-size: 15px;"></span> التحويلات
                                     </a></li>
-                                    @endpermission
-                                    @permission('tags-read')
+                                    @endcan
+                                    @can('tags-read')
                                     <li><a href="{{route('admin.tags.index')}}" style="font-size: 16px;"><span class="fal fa-tags px-2" style="width: 28px;font-size: 15px;"></span> الوسوم
                                     </a></li>
-                                    @endpermission
+                                    @endcan
 
 
 
@@ -338,7 +338,7 @@
 
 
                     
-                    @permission('contacts-read')
+                    @can('contacts-read')
                     <a href="{{route('admin.contacts.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -356,11 +356,11 @@
                             </div> 
                         </div>
                     </a>
-                    @endpermission
+                    @endcan
                    
                     
                     
-                    @permission('settings-update')
+                    @can('settings-update')
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex " >
                             <div style="width: 50px" class="px-3 text-center">
@@ -371,12 +371,12 @@
                             </div> 
                         </div>
                     </a> 
-                    @endpermission
+                    @endcan
 
  
 
 
-                    @permission('plugins-read')
+                    @can('plugins-read')
                     <div class="col-12 px-0" style="cursor: pointer;">
                         <div class="col-12 item px-0 d-flex row " >
                             <div class="col-12 d-flex px-0 item-container">
@@ -390,7 +390,7 @@
                             <div class="col-12 px-0" >
                                 <ul class="sub-item font-1" style="list-style:none;">
                                     
-                                    @permission('plugins-read')
+                                    @can('plugins-read')
                                     <li><a href="{{route('admin.plugins.index')}}" style="font-size: 16px;"><span class="fal fa-box-open px-2" style="width: 28px;font-size: 15px;"></span> كل الاضافات
 
                                         @if(count($plugins))
@@ -400,15 +400,15 @@
 
 
                                     </a></li>
-                                    @endpermission
+                                    @endcan
 
                                
                                     @foreach($plugins as $plugin)
                                         @if($plugin->get('type')=="plugin")
-                                            @permission($plugin->get('route').'-read')
+                                            @can($plugin->get('route').'-read')
                                             <li><a href="{{route('admin.teams.index')}}" style="font-size: 16px;"><span class="{{$plugin->get('icon')}} px-2" style="width: 28px;font-size: 15px;"></span> {{$plugin->get('title')}}
                                             </a></li>
-                                            @endpermission
+                                            @endcan
                                         @endif
                                     @endforeach
 
@@ -417,7 +417,7 @@
                             </div>
                         </div>
                     </div> 
-                    @endpermission
+                    @endcan
 
                     
                     
@@ -483,18 +483,18 @@
                                 
 
 
-                                @permission('hub-files-read')
+                                @can('hub-files-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> الملفات</a></li> 
-                                @endpermission
+                                @endcan
 
 
-                                @permission('traffics-read')
+                                @can('traffics-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
-                                @endpermission
+                                @endcan
 
-                                @permission('error-reports-read')
+                                @can('error-reports-read')
                                 <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
-                                @endpermission
+                                @endcan
                                 
  
 

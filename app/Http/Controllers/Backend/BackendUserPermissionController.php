@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Permission;
+use Spatie\Permission\Models\Permission;
 
 class BackendUserPermissionController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('permission:user-permissions-create', ['only' => ['create','store']]);
-        $this->middleware('permission:user-permissions-read',   ['only' => ['index']]);
-        $this->middleware('permission:user-permissions-update',   ['only' => ['update']]);
-        //$this->middleware('permission:user-permissions-delete',   ['only' => ['delete']]);
+        //$this->middleware('can:user-permissions-create', ['only' => ['create','store']]);
+        $this->middleware('can:user-permissions-read',   ['only' => ['index']]);
+        $this->middleware('can:user-permissions-update',   ['only' => ['update']]);
+        //$this->middleware('can:user-permissions-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request,User $user){

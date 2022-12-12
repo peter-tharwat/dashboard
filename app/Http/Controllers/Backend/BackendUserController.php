@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 class BackendUserController extends Controller
@@ -14,10 +14,10 @@ class BackendUserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:users-create', ['only' => ['create','store']]);
-        $this->middleware('permission:users-read',   ['only' => ['show', 'index']]);
-        $this->middleware('permission:users-update',   ['only' => ['edit','update']]);
-        $this->middleware('permission:users-delete',   ['only' => ['delete']]);
+        $this->middleware('can:users-create', ['only' => ['create','store']]);
+        $this->middleware('can:users-read',   ['only' => ['show', 'index']]);
+        $this->middleware('can:users-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:users-delete',   ['only' => ['delete']]);
     }
 
     public function index(Request $request)
@@ -41,7 +41,7 @@ class BackendUserController extends Controller
      */
     public function create()
     {
-        $roles = \App\Models\Role::get();
+        $roles = Role::get();
         return view('admin.users.create',compact('roles'));
     }
 
@@ -69,13 +69,12 @@ class BackendUserController extends Controller
             "email"=>$request->email,
             "password"=>\Hash::make($request->password),
         ]);
-        if(auth()->user()->isAbleTo('user-roles-update')){
+        if(auth()->user()->can('user-roles-update')){
             $request->validate([
                 'roles'=>"required|array",
                 'roles.*'=>"required|exists:roles,id",
             ]);
             $user->syncRoles($request->roles);
-            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 
         if($request->hasFile('avatar')){
@@ -120,7 +119,7 @@ class BackendUserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = \App\Models\Role::get();
+        $roles = Role::get();
         return view('admin.users.edit',compact('user','roles'));
     }
 
@@ -149,13 +148,12 @@ class BackendUserController extends Controller
             "email"=>$request->email,
             
         ]);
-        if(auth()->user()->isAbleTo('user-roles-update')){
+        if(auth()->user()->can('user-roles-update')){
             $request->validate([
                 'roles'=>"required|array",
                 'roles.*'=>"required|exists:roles,id",
             ]);
             $user->syncRoles($request->roles);
-            $user->syncPermissions(DB::table('permission_role')->whereIn('role_id',$request->roles)->pluck('permission_id'));
         }
 
         if($request->password!=null){
@@ -192,7 +190,7 @@ class BackendUserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(!auth()->user()->isAbleTo('users-delete'))abort(403);
+        if(!auth()->user()->can('users-delete'))abort(403);
         $user->delete();
         toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');

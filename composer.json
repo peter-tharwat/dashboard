@@ -20,7 +20,7 @@
         "livewire/livewire": "^2.7",
         "nesbot/carbon": "^2.54",
         "nwidart/laravel-modules": "^9.0",
-        "santigarcor/laratrust": "^7.1",
+        "spatie/laravel-permission": "^5.7",
         "stevebauman/location": "^6.2",
         "yoeunes/toastr": "^2.0"
     },

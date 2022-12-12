@@ -11,11 +11,11 @@
 				<div class="col-12 col-lg-4 p-2">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@permission('plugins-create')
+					@can('plugins-create')
 					<a href="{{route('admin.plugins.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
-					@endpermission
+					@endcan
 				</div>
 			</div>
 			{{-- <div class="col-12 divider" style="min-height: 2px;"></div> --}}
