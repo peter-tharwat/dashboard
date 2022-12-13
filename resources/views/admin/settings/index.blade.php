@@ -45,7 +45,7 @@
 				<span  class="fal fa-cogs me-2"></span>	اخرى
 			</div>
 		</div>
-	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update',$settings)}}" enctype="multipart/form-data" >
+	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update')}}" enctype="multipart/form-data" >
 	 	@csrf
 	 	@method("PUT")
 	 	<div class="col-12 col-lg-8 px-3 py-5">
@@ -56,7 +56,7 @@
 		 				اسم الموقع
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="" name="website_name" class="form-control" value="{{$settings->website_name}}"  maxlength="190">
+		 				<input type="" name="settings[website_name]" class="form-control" value="{{$settings->where('key','website_name')->pluck('value')->first()}}"  maxlength="190">
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -64,7 +64,7 @@
 		 				العنوان
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<textarea name="address" class="form-control">{{$settings->address}}</textarea>
+		 				<textarea name="settings[address]" class="form-control">{{$settings->where('key','address')->pluck('value')->first()}}</textarea>
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -72,7 +72,7 @@
 		 				عن الموقع
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<textarea name="website_bio" class="form-control">{{$settings->website_bio}}</textarea>
+		 				<textarea name="settings[website_bio]" class="form-control">{{$settings->where('key','website_bio')->pluck('value')->first()}}</textarea>
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -80,7 +80,7 @@
 		 				بريد التواصل
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="email" name="contact_email" class="form-control" value="{{$settings->contact_email}}" >
+		 				<input type="email" name="settings[contact_email]" class="form-control" value="{{$settings->where('key','contact_email')->pluck('value')->first()}}" >
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -88,7 +88,7 @@
 		 				لوجو الموقع (200*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="website_logo" class="form-control" >
+		 				<input type="file" name="settings[website_logo]" class="form-control" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings->website_logo()}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -99,7 +99,7 @@
 		 				اللوجو عريض (500*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="website_wide_logo" class="form-control" >
+		 				<input type="file" name="settings[website_wide_logo]" class="form-control" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings->website_wide_logo()}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -110,20 +110,26 @@
 		 				الصورة المصغرة (50*50)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="website_icon" class="form-control" >
+		 				<input type="file" name="settings[website_icon]" class="form-control" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings->website_icon()}}" style="width:100px;max-height: 100px;">
 		 				</div>
 		 			</div> 
 		 		</div>
 	 		</div>
+
+
+
+
+
+
 	 		<div class="col-12 row p-0 taber" id="appearance-tab">
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 		 				غلاف الموقع (800*500)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="website_cover" class="form-control" >
+		 				<input type="file" name="settings[website_cover]" class="form-control" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings->website_cover()}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -134,7 +140,7 @@
 		 				اللون الرئيسي
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="color" name="main_color"  value="{{$settings->main_color}}" maxlength="190">
+		 				<input type="color" name="settings[main_color]"  value="{{$settings->where('key','main_color')->pluck('value')->first()}}" maxlength="190">
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -142,7 +148,7 @@
 		 				اللون الفرعي
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="color" name="hover_color"  value="{{$settings->hover_color}}" maxlength="190">
+		 				<input type="color" name="settings[hover_color]"  value="{{$settings->where('key','hover_color')->pluck('value')->first()}}" maxlength="190">
 		 			</div> 
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -151,7 +157,8 @@
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<div class="form-check form-switch">
-						  <input class="form-check-input" type="checkbox" id="DarkModeInput" name="dashboard_dark_mode" {{$settings->dashboard_dark_mode==1?"checked":""}} value="1">
+		 				<input type="hidden" name="settings[dashboard_dark_mode]" value="0" >
+						  <input class="form-check-input" type="checkbox" id="DarkModeInput" name="settings[dashboard_dark_mode]" {{$settings->where('key','dashboard_dark_mode')->pluck('value')->first()==1?'checked':""}} value="1">
 						</div>
 		 			</div> 
 		 		</div>
@@ -162,7 +169,7 @@
 	 				رقم الهاتف
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="" name="phone" class="form-control" value="{{$settings->phone}}" maxlength="190">
+	 				<input type="" name="settings[phone]" class="form-control" value="{{$settings->where('key','phone')->pluck('value')->first()}}" maxlength="190">
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -170,7 +177,7 @@
 	 				رقم الهاتف 2
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="" name="phone2" class="form-control" value="{{$settings->phone2}}" maxlength="190">
+	 				<input type="" name="settings[phone2]" class="form-control" value="{{$settings->where('key','phone2')->pluck('value')->first()}}" maxlength="190">
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -178,7 +185,7 @@
 	 				رقم واتس آب
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="" name="whatsapp_phone" class="form-control" value="{{$settings->whatsapp_phone}}" >
+	 				<input type="" name="settings[whatsapp_phone]" class="form-control" value="{{$settings->where('key','whatsapp_phone')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -186,7 +193,7 @@
 	 				رابط فيس بوك
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="facebook_link" class="form-control" value="{{$settings->facebook_link}}" >
+	 				<input type="url" name="settings[facebook_link]" class="form-control" value="{{$settings->where('key','facebook_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -194,7 +201,7 @@
 	 				رابط تويتر
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="twitter_link" class="form-control" value="{{$settings->twitter_link}}" >
+	 				<input type="url" name="settings[twitter_link]" class="form-control" value="{{$settings->where('key','twitter_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -202,7 +209,7 @@
 	 				رابط انستجرام
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="instagram_link" class="form-control" value="{{$settings->instagram_link}}" >
+	 				<input type="url" name="settings[instagram_link]" class="form-control" value="{{$settings->where('key','instagram_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -210,7 +217,7 @@
 	 				رابط يوتيوب
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="youtube_link" class="form-control" value="{{$settings->youtube_link}}" >
+	 				<input type="url" name="settings[youtube_link]" class="form-control" value="{{$settings->where('key','youtube_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -218,7 +225,7 @@
 	 				رابط تيلي جرام
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="telegram_link" class="form-control" value="{{$settings->telegram_link}}" >
+	 				<input type="url" name="settings[telegram_link]" class="form-control" value="{{$settings->where('key','telegram_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -226,7 +233,7 @@
 	 				رابط واتس أب
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="whatsapp_link" class="form-control" value="{{$settings->whatsapp_link}}" >
+	 				<input type="url" name="settings[whatsapp_link]" class="form-control" value="{{$settings->where('key','whatsapp_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -234,7 +241,7 @@
 	 				رابط تيك توك
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="tiktok_link" class="form-control" value="{{$settings->tiktok_link}}" >
+	 				<input type="url" name="settings[tiktok_link]" class="form-control" value="{{$settings->where('key','tiktok_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -242,7 +249,7 @@
 	 				رابط نفذلي
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="nafezly_link" class="form-control" value="{{$settings->nafezly_link}}" >
+	 				<input type="url" name="settings[nafezly_link]" class="form-control" value="{{$settings->where('key','nafezly_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -250,7 +257,7 @@
 	 				رابط لينكد ان
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="linkedin_link" class="form-control" value="{{$settings->linkedin_link}}" >
+	 				<input type="url" name="settings[linkedin_link]" class="form-control" value="{{$settings->where('key','linkedin_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -258,7 +265,7 @@
 	 				رابط جيت هب
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="github_link" class="form-control" value="{{$settings->github_link}}" >
+	 				<input type="url" name="settings[github_link]" class="form-control" value="{{$settings->where('key','github_link')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -270,7 +277,7 @@
 	 				رابط مخصص 1
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="another_link1" class="form-control" value="{{$settings->another_link1}}" >
+	 				<input type="url" name="settings[another_link1]" class="form-control" value="{{$settings->where('key','another_link1')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -278,7 +285,7 @@
 	 				رابط مخصص 2
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="another_link2" class="form-control" value="{{$settings->another_link2}}" >
+	 				<input type="url" name="settings[another_link2]" class="form-control" value="{{$settings->where('key','another_link2')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -286,7 +293,7 @@
 	 				رابط مخصص 3
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<input type="url" name="another_link3" class="form-control" value="{{$settings->another_link3}}" >
+	 				<input type="url" name="settings[another_link3]" class="form-control" value="{{$settings->where('key','another_link3')->pluck('value')->first()}}" >
 	 			</div> 
 	 		</div>
 	 	</div>
@@ -297,7 +304,7 @@
 	 				تواصل معنا
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="contact_page" class="form-control editor with-file-explorer">{{$settings->contact_page}}</textarea>
+	 				<textarea  name="settings[contact_page]" class="form-control editor with-file-explorer">{{$settings->where('key','contact_page')->pluck('value')->first()}}</textarea>
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -311,7 +318,7 @@
 	 				كود الهيدر
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea name="header_code" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->header_code}}</textarea>
+	 				<textarea name="settings[header_code]" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->where('key','header_code')->pluck('value')->first()}}</textarea>
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -319,7 +326,7 @@
 	 				كود الفوتر
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea name="footer_code" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->footer_code}}</textarea>
+	 				<textarea name="settings[footer_code]" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->where('key','footer_code')->pluck('value')->first()}}</textarea>
 	 			</div> 
 	 		</div> 
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
@@ -327,7 +334,7 @@
 	 				ملف robots
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea name="robots_txt" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->robots_txt}}</textarea>
+	 				<textarea name="settings[robots_txt]" class="form-control" style="min-height: 200px;text-align: left;direction: ltr;">{{$settings->where('key','robots_txt')->pluck('value')->first()}}</textarea>
 	 			</div> 
 	 		</div>
 	 	</div>

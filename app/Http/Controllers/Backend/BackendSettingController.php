@@ -20,72 +20,17 @@ class BackendSettingController extends Controller
         return view('admin.settings.index',compact('settings'));
     }
 
-    public function update(Request $request, Setting $settings)
+    public function update(Request $request)
     {
-        if(!auth()->user()->can('settings-update'))abort(403);
-        \App\Models\Setting::query()->update([
-            'website_name'=>$request->website_name,
-            'address'=>$request->address,
-            'website_bio'=>$request->website_bio,
-            'contact_email'=>$request->contact_email,
-            'main_color'=>$request->main_color,
-            'hover_color'=>$request->hover_color,
-            'phone'=>$request->phone,
-            'phone2'=>$request->phone2,
-            'whatsapp_phone'=>$request->whatsapp_phone,
-            'facebook_link'=>$request->facebook_link,
-            'twitter_link'=>$request->twitter_link,
-            'instagram_link'=>$request->instagram_link,
-            'youtube_link'=>$request->youtube_link,
-            'telegram_link'=>$request->telegram_link,
-            'whatsapp_link'=>$request->whatsapp_link,
-            'tiktok_link'=>$request->tiktok_link,
-            'nafezly_link'=>$request->nafezly_link,
-            'linkedin_link'=>$request->linkedin_link,
-            'github_link'=>$request->github_link,
-            'another_link1'=>$request->another_link1,
-            'another_link2'=>$request->another_link2,
-            'another_link3'=>$request->another_link3,
-            'contact_page'=>$request->contact_page,
-            'header_code'=>$request->header_code,
-            'footer_code'=>$request->footer_code,
-            'robots_txt'=>$request->robots_txt,
-            'dashboard_dark_mode'=>$request->dashboard_dark_mode==1?1:0
-        ]);
-        
-        if($request->hasFile('website_logo')){
-            $file = $this->store_file([
-                'source'=>$request->website_logo,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/website/',
-                'type'=>'IMAGE', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>null,
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'optimize'=>true
-            ])['filename'];
-            \App\Models\Setting::query()->update(['website_logo'=>$file]);
+
+        foreach($request->settings as $key => $value ){
+            if(!in_array($key,['website_logo','website_wide_logo','website_icon','website_cover']))
+                \App\Models\Setting::where('key',$key)->update(['value'=>$value]);
         }
-        if($request->hasFile('website_wide_logo')){
+
+        if($request->hasFile('settings.website_logo')){
             $file = $this->store_file([
-                'source'=>$request->website_wide_logo,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/website/',
-                'type'=>'IMAGE', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>null,
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                'optimize'=>true
-            ])['filename'];
-            \App\Models\Setting::query()->update(['website_wide_logo'=>$file]);
-        }
-        if($request->hasFile('website_icon')){
-            $file = $this->store_file([
-                'source'=>$request->website_icon,
+                'source'=>$request['settings']['website_logo'],
                 'validation'=>"image",
                 'path_to_save'=>'/uploads/website/',
                 'type'=>'IMAGE', 
@@ -94,13 +39,43 @@ class BackendSettingController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
-                //'optimize'=>true
+                'optimize'=>true
             ])['filename'];
-            \App\Models\Setting::query()->update(['website_icon'=>$file]);
+            \App\Models\Setting::where('key','website_logo')->update(['value'=>$file]);
         }
-        if($request->hasFile('website_cover')){
+        if($request->hasFile('settings.website_wide_logo')){
             $file = $this->store_file([
-                'source'=>$request->website_cover,
+                'source'=>$request['settings']['website_wide_logo'],
+                'validation'=>"image",
+                'path_to_save'=>'/uploads/website/',
+                'type'=>'IMAGE', 
+                'user_id'=>\Auth::user()->id,
+                //'resize'=>[500,1000],
+                'small_path'=>'small/',
+                'visibility'=>'PUBLIC',
+                'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
+                'optimize'=>true
+            ])['filename'];
+            \App\Models\Setting::where('key','website_wide_logo')->update(['value'=>$file]);
+        }
+        if($request->hasFile('settings.website_icon')){
+            $file = $this->store_file([
+                'source'=>$request['settings']['website_icon'],
+                'validation'=>"image",
+                'path_to_save'=>'/uploads/website/',
+                'type'=>'IMAGE', 
+                'user_id'=>\Auth::user()->id,
+                //'resize'=>[500,1000],
+                'small_path'=>'small/',
+                'visibility'=>'PUBLIC',
+                'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
+                'optimize'=>true
+            ])['filename'];
+            \App\Models\Setting::where('key','website_icon')->update(['value'=>$file]);
+        }
+        if($request->hasFile('settings.website_cover')){
+            $file = $this->store_file([
+                'source'=>$request['settings']['website_cover'],
                 'validation'=>"image",
                 'path_to_save'=>'/uploads/website/',
                 'type'=>'IMAGE', 
@@ -111,7 +86,7 @@ class BackendSettingController extends Controller
                 'file_system_type'=>env('FILESYSTEM_DRIVER','local'),
                 'optimize'=>true
             ])['filename'];
-            \App\Models\Setting::query()->update(['website_cover'=>$file]);
+            \App\Models\Setting::where('key','website_cover')->update(['value'=>$file]);
         }
         toastr()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
         return redirect()->back();

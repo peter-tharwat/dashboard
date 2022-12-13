@@ -51,7 +51,7 @@
         @endphp
     @endif
     
-    @if($settings->dashboard_dark_mode)
+    @if($settings->where('key','dashboard_dark_mode')->pluck('value')->first()=="1")
     <style type="text/css">
 
         html{

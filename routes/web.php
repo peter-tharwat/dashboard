@@ -70,7 +70,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/',[BackendSettingController::class,'index'])->name('index');
-            Route::put('/{settings}/update',[BackendSettingController::class,'update'])->name('update');
+            Route::put('/update',[BackendSettingController::class,'update'])->name('update');
         });
     });
 
