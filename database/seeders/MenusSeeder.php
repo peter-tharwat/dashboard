@@ -30,7 +30,7 @@ class MenusSeeder extends Seeder
             'type_id'=>null,
             'title'=>"الرئيسية",
             'url'=>env("APP_URL"),
-            'icon'=>"fas fa-home",
+            //'icon'=>"fas fa-home",
             'order'=>0,
         ]);
 
@@ -52,7 +52,7 @@ class MenusSeeder extends Seeder
             'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
             'title'=>"شروط الاستخدام",
             'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-            'icon'=>"fas fa-lock",
+            //'icon'=>"fas fa-lock",
             'order'=>2,
         ]);
 
@@ -75,7 +75,7 @@ class MenusSeeder extends Seeder
             'type_id'=>null,
             'title'=>"المدونة",
             'url'=>route('blog'),
-            'icon'=>"fas fa-pen-alt",
+            //'icon'=>"fas fa-pen-alt",
             'order'=>4,
         ]);
 
@@ -87,7 +87,7 @@ class MenusSeeder extends Seeder
             'type_id'=>null,
             'title'=>"تواصل معنا",
             'url'=>route('contact'),
-            'icon'=>"fas fa-phone",
+            //'icon'=>"fas fa-phone",
             'order'=>4,
         ]);
 
