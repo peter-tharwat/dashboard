@@ -1,18 +1,18 @@
 @php 
 $website_settings=[
     'website_url'=>env('APP_URL'),
-    'website_name'=>$settings->website_name,
-    'main_color'=>"#0172b8",
-    'second_color'=>"#d6e0ea",
+    'website_name'=>$settings->where('key','website_name')->pluck('value')->first(),
+    'main_color'=>$settings->where('key','main_color')->pluck('value')->first(),
+    'second_color'=>$settings->where('key','second_color')->pluck('value')->first(),
     'social_links'=>[
-        'facebook_link'=>"",
-        'twitter_link'=>"",
-        'instagram_link'=>"",
-        'youtube_link'=>"",
-        'telegram_link'=>"",
-        'linkedin_link'=>"",
-        'whatsapp_link'=>"",
-        'tiktok_link'=>"",
+        'facebook_link'=>$settings->where('key','facebook_link')->pluck('value')->first(),
+        'twitter_link'=>$settings->where('key','twitter_link')->pluck('value')->first(),
+        'instagram_link'=>$settings->where('key','instagram_link')->pluck('value')->first(),
+        'youtube_link'=>$settings->where('key','youtube_link')->pluck('value')->first(),
+        'telegram_link'=>$settings->where('key','telegram_link')->pluck('value')->first(),
+        'linkedin_link'=>$settings->where('key','linkedin_link')->pluck('value')->first(),
+        'whatsapp_link'=>$settings->where('key','whatsapp_link')->pluck('value')->first(),
+        'tiktok_link'=>$settings->where('key','tiktok_link')->pluck('value')->first(),
     ],
     'website_icon'=>$settings->website_icon()/*"data:image/png;base64,". base64_encode(file_get_contents($settings->website_icon()))*/, //lite
     'website_icon_url'=>$settings->website_icon(), //lite
@@ -139,8 +139,10 @@ $website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonic
     "sameAs": [
        
         @foreach($social_links as $link)
-            "{{$link}}" 
-            @if(!$loop->last),@endif
+            @if($link!="")
+                "{{$link}}" 
+                @if(!$loop->last),@endif
+            @endif
         @endforeach
     ],
     @endif
