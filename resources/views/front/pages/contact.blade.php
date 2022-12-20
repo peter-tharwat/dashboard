@@ -84,36 +84,36 @@
                       </div>
                       <!--/column -->
                       <div class="col-lg-4">
-                        @if($settings->address!=null)
+                        @if($settings['address']!=null)
                         <div class="d-flex flex-row">
                           <div>
                             <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="fal fa-map-marker-alt"></i> </div>
                           </div>
                           <div>
                             <h5 class="mb-1">العنوان</h5>
-                            <address>{{$settings->address}}</address>
+                            <address>{{$settings['address']}}</address>
                           </div>
                         </div>
                         @endif
-                        @if($settings->phone!=null)
+                        @if($settings['phone']!=null)
                         <div class="d-flex flex-row">
                           <div>
                             <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="fal fa-phone"></i> </div>
                           </div>
                           <div>
                             <h5 class="mb-1">الهاتف</h5>
-                            <p>{{$settings->phone}} <br />{{$settings->phone2}}</p>
+                            <p>{{$settings['phone']}} <br />{{$settings['phone2']}}</p>
                           </div>
                         </div>
                         @endif
-                        @if($settings->contact_email!=null)
+                        @if($settings['contact_email']!=null)
                         <div class="d-flex flex-row">
                           <div>
                             <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="fal fa-envelope-open"></i> </div>
                           </div>
                           <div>
                             <h5 class="mb-1">بريد التواصل</h5>
-                            <p class="mb-0"><a href="mailto:{{$settings->contact_email}}" class="text-body">{{$settings->contact_email}}</a></p>
+                            <p class="mb-0"><a href="mailto:{{$settings['contact_email']}}" class="text-body">{{$settings['contact_email']}}</a></p>
                           </div>
                         </div>
                         @endif

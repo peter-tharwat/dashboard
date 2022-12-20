@@ -13,11 +13,10 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $users = \App\Models\User::where('power',"ADMIN")->count();
+        $users = \App\Models\User::count();
         if($users==0)
             \App\Models\User::create([
-                'name'=>"ADMIN",
-                'power'=>"ADMIN",
+                'name'=>"مسؤول",
                 'email'=>env('DEFAULT_EMAIL'),
                 'email_verified_at'=>date("Y-m-d h:i:s"), 
                 'password'=>bcrypt(env('DEFAULT_PASSWORD'))
