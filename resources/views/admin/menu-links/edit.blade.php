@@ -93,7 +93,7 @@ function updateTypeIdList() {
             else
                 selected="";
             
-            $('#type_id').append($("<option value='"+response[i].id+"' data-title='"+response[i].title+"' data-url='"+response[i].url+"' "+selected+">"+response[i].title+"ssssss</option>"));
+            $('#type_id').append($("<option value='"+response[i].id+"' data-title='"+response[i].title+"' data-url='"+response[i].url+"' "+selected+">"+response[i].title+"</option>"));
 
         }
     });

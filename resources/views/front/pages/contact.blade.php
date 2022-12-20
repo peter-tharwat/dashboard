@@ -36,6 +36,8 @@
                       <div class="col-lg-8">
 
                          <form class="" method="POST" action="{{route('contact-post')}}" id="contact-form">
+                          <input type="hidden" name="recaptcha" id="recaptcha">
+                          @csrf
                           <div class="messages"></div>
                           <div class="row gx-4">
                             <div class="col-md-6">

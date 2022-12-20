@@ -29,13 +29,12 @@ class AppServiceProvider extends ServiceProvider
 
         \App\Models\ContactReply::observe(\App\Observers\ContactReplyObserver::class);
         \App\Models\Contact::observe(\App\Observers\ContactObserver::class);
-
+        
         Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
-
         try{
             if(Schema::hasTable('settings')){
-                $settings = \App\Models\Setting::first();
+                $settings = (new \App\Helpers\SettingsHelper)->getAllSettings();
                 View::share('settings', $settings);
             }
         }catch(\Exception $e){}

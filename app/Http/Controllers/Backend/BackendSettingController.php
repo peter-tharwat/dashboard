@@ -16,8 +16,7 @@ class BackendSettingController extends Controller
     public function index()
     {
         if(!auth()->user()->can('settings-update'))abort(403);
-        $settings = Setting::firstOrCreate();
-        return view('admin.settings.index',compact('settings'));
+        return view('admin.settings.index');
     }
 
     public function update(Request $request)

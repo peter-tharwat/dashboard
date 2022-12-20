@@ -35,6 +35,8 @@ class SettingsSeeder extends Seeder
         \App\Models\Setting::create(['key'=>'phone2','value'=>""]);
         \App\Models\Setting::create(['key'=>'whatsapp_phone','value'=>""]);
         \App\Models\Setting::create(['key'=>'facebook_link','value'=>""]);
+        \App\Models\Setting::create(['key'=>'telegram_link','value'=>""]);
+        \App\Models\Setting::create(['key'=>'whatsapp_link','value'=>""]);
         \App\Models\Setting::create(['key'=>'twitter_link','value'=>""]);
         \App\Models\Setting::create(['key'=>'instagram_link','value'=>""]);
         \App\Models\Setting::create(['key'=>'youtube_link','value'=>""]);

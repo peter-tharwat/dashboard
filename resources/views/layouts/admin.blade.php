@@ -50,8 +50,7 @@
         $unreadNotifications=auth()->user()->unreadNotifications()->count();
         @endphp
     @endif
-    
-    @if($settings->where('key','dashboard_dark_mode')->pluck('value')->first()=="1")
+    @if($settings['dashboard_dark_mode']=="1")
     <style type="text/css">
 
         html{
@@ -168,6 +167,7 @@
         #toast-container>div {
             opacity: 1;
         }
+        .phpdebugbar *{ direction:ltr!important }
     </style>
     @yield('after-body')
     <div class="col-12 justify-content-end d-flex">

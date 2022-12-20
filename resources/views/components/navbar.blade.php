@@ -5,12 +5,12 @@
   <div class="container flex-lg-row flex-nowrap align-items-center">
     <div class="navbar-brand">
       <a href="/">
-        <img src="{{$settings->website_wide_logo()}}" style="width: 140px;" srcset="./assets/img/logo@2x.png 2x" alt="" />
+        <img src="{{$settings['get_website_wide_logo']}}" style="width: 140px;" srcset="./assets/img/logo@2x.png 2x" alt="" />
       </a>
     </div>
     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-end navbar-light">
       <div class="offcanvas-header d-lg-none">
-        <a href="/"><img src="{{$settings->website_wide_logo()}}"  style="width: 140px;" srcset="./assets/img/logo-light@2x.png 2x" alt="" /></a>
+        <a href="/"><img src="{{$settings['get_website_wide_logo']}}"  style="width: 140px;" srcset="./assets/img/logo-light@2x.png 2x" alt="" /></a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body  d-flex flex-column h-100">

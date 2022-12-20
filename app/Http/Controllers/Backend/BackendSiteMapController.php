@@ -17,12 +17,12 @@ class BackendSiteMapController extends Controller
             route('home')
         ];
         $this->data= collect([
-            /*[
-                'name'=>"users",
-                'index_route_name'=>"users.index",
+            [
+                'name'=>"articles",
+                'index_route_name'=>"articles.index",
                 'show_route_name'=>"user.show",
                 'data'=>\App\Models\User::query(),
-            ],*/
+            ],
         ]);
     }
     public function sitemap_init(Request $request){

@@ -37,7 +37,7 @@
 							@if($sub_permissions->where('name',$permission->table.'-create')->first())
 							<td style="width: 56px;">
 
-								@if($role->hasPermission($permission->table.'-create')) 
+								@if($role->hasPermissionTo($permission->table.'-create')) 
 									<span class="fas fa-check font-2" style="color:green;"></span>
 								@endif
 
@@ -49,7 +49,7 @@
 							@endif
 							@if($sub_permissions->where('name',$permission->table.'-read')->first())
 							<td style="width: 56px;">
-								@if($role->hasPermission($permission->table.'-read')) 
+								@if($role->hasPermissionTo($permission->table.'-read')) 
 									<span class="fas fa-check font-2" style="color:green;"></span>
 								@endif
 							</td>
@@ -60,7 +60,7 @@
 							@if($sub_permissions->where('name',$permission->table.'-update')->first())
 							<td style="width: 56px;">
 								 
-								@if($role->hasPermission($permission->table.'-update')) 
+								@if($role->hasPermissionTo($permission->table.'-update')) 
 									<span class="fas fa-check font-2" style="color:green;"></span>
 								@endif
 							</td>
@@ -71,7 +71,7 @@
 							@if($sub_permissions->where('name',$permission->table.'-delete')->first())
 							<td style="width: 56px;">
 								 
-								@if($role->hasPermission($permission->table.'-delete')) 
+								@if($role->hasPermissionTo($permission->table.'-delete')) 
 									<span class="fas fa-check font-2" style="color:green;"></span>
 								@endif
 							</td>

@@ -47,17 +47,17 @@
         <!--/.row -->
         <p class="text-center">© {{date('Y')}} <a href="https://nafezly.com/u/Peter__Tharwat">Peter Ayoub</a>. جميع الحقوق محفوظة.</p>
         <nav class="nav social justify-content-center">
-          @if($settings->twitter_link!=null)
-          <a href="{{$settings->twitter_link}}"><i class="fab fa-twitter"></i></a>
+          @if($settings['twitter_link']!=null)
+          <a href="{{$settings['twitter_link']}}"><i class="fab fa-twitter"></i></a>
           @endif
-          @if($settings->facebook_link!=null)
-          <a href="{{$settings->facebook_link}}"><i class="fab fa-facebook-f"></i></a>
+          @if($settings['facebook_link']!=null)
+          <a href="{{$settings['facebook_link']}}"><i class="fab fa-facebook-f"></i></a>
           @endif
-          @if($settings->instagram_link!=null)
-          <a href="{{$settings->instagram_link}}"><i class="fab fa-instagram"></i></a>
+          @if($settings['instagram_link']!=null)
+          <a href="{{$settings['instagram_link']}}"><i class="fab fa-instagram"></i></a>
           @endif
-          @if($settings->youtube_link!=null)
-          <a href="{{$settings->youtube_link}}"><i class="fab fa-youtube"></i></a>
+          @if($settings['youtube_link']!=null)
+          <a href="{{$settings['youtube_link']}}"><i class="fab fa-youtube"></i></a>
           @endif
         </nav>
         <!-- /.social -->

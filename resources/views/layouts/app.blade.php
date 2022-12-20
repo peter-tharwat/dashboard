@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}"> --}} 
     <link rel="stylesheet" type="text/css" href="{{mix('/css/all-mixed.css')}}">
     
-    {!!$settings->header_code!!}
+    {!!$settings['header_code']!!}
     @livewireStyles
     @if(auth()->check())
         @php
@@ -233,6 +233,6 @@
     </script>
     @endauth
     @yield('scripts')
-    {!!$settings->footer_code!!}
+    {!!$settings['footer_code']!!}
 </body>
 </html>
