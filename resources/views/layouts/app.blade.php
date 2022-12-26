@@ -5,20 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">  
     @include('seo.index')
-    {{-- <link rel="stylesheet" type="text/css" href="/css/cust-fonts.css">
-    <link rel="stylesheet" type="text/css" href="/css/fontawsome.min.css" >
-    <link rel="stylesheet" type="text/css" href="/css/responsive-fonts.css"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"> --}}
-
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
-    {{-- <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" /> --}}
-
-
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/plugins.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style.css')}}"> --}} 
-    <link rel="stylesheet" type="text/css" href="{{mix('/css/all-mixed.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{mix('/css/app.css')}}">
     
     {!!$settings['header_code']!!}
     @livewireStyles
@@ -32,103 +19,33 @@
     @endif
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <style type="text/css">
-        *:not(.fileuploader):not([class^="fileuploader-icon-"]):not([class^="fa"]):not(.cairo):not([class^="vj"]):not([class^="tie-"]) {
-            font-family: 'DinNext',sans-serif!important;
-            /*direction: rtl;*/
+        body {
+            --bg-main: #fff;
+            --bg-second: #f4f4f4;
+            --font-1: #333333;
+            --font-2: #555555;
+            --border-color: #dddddd;
+            --main-color: #0194fe;
+            --main-color-flexable: #0194fe;
+            --scroll-bar-color: #d1d1d1;
         }
-        .navbar-light .navbar-nav .nav-link {
-            color: rgba(0,0,0,1);
+        body.night {
+            --bg-main: #1c222b;
+            --bg-second: #131923;
+            --font-1: #fff;
+            --font-2: #e3e3e3;
+            --border-color: #33343b;
+            --main-color: #0194fe;
+            --main-color-flexable: #15202b;
+            --scroll-bar-color: #505050;
         }
-        .navbar-dark .navbar-nav .nav-link {
-            color: rgba(255,255,255,1);
-        }
-        .fancybox__track{
-            direction: ltr;
-        }
-        body,*{
-            direction: rtl;
-            text-align: start;
-            
-        }
-        html{
-            font-size: 16px;
-        }
-        .start-head {
-            height: 20px;
-            width: 12px;
-            display: inline-block;
-            background: #0194fe;
-            position: relative;
-            top: 5px;
-            margin-left: 5px;
-        }
-        .main-box-stylex{
-            box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
-        }
-        .row{
-            margin: 0px;
-        }
-        /*.offcanvas.show:not(.hiding), */.offcanvas.showing{
-            transform: translateX(100%);
-        }
-        .offcanvas.offcanvas-start{
-            transform: translateX(100%);
-        }
-        .offcanvas-backdrop{
-            right: 0px;
-        }
-        @media (max-width: 991.98px){
-            .navbar-expand-lg .navbar-collapse .dropdown-toggle:after {
-                position: absolute;
-                right: 11.75rem;
-                top: 0.35rem;
-                font-size: .9rem;
-            }
-        }
-        .btn-close:before{
-            all: unset;
-        }
-        .dropdown-toggle:after {
-            font-size: 0.85rem;
-            margin-right: 0.1rem!important;
-        }
-        .dropdown-toggle:after{
-            margin-right: 0rem!important;
-        }
-        .navbar-nav .dropdown-menu{
-            position: absolute;
-        }
-        .dropdown-toggle:after {
-            margin-right: -0.4rem!important;
-        }
-        .dropdown-menu[data-bs-popper]{
-            top: 120%;
-        }
-        .nav-link{
-            font-weight: normal;
-        }
-        @media (max-width: 991.98px){
-            .navbar-expand-lg .navbar-brand {
-                padding: 0px;
-            }
         
-        }
-        .offcanvas{
-            background-color: #ffffff!important;
-        }
-        .navbar-expand-lg .navbar-collapse .nav-link, .navbar-expand-lg .navbar-collapse .nav-link.active, .navbar-expand-lg .navbar-collapse .nav-link:focus, .navbar-expand-lg .navbar-collapse .nav-link:hover, .navbar-expand-lg .navbar-collapse .show>.nav-link{
-            color: #232323!important;
-        }
-        .offcanvas.offcanvas-end{
-            right: -1px!important;
-        }
-        .carousel__track{
-            direction: ltr;
-        }
+        
+
     </style>
     @yield('styles')
 </head>
-<body style="background:#eef4f5">
+<body style="background:#eef4f5;margin-top: 65px;" class="body">
     <style type="text/css">
         #toast-container>div {
             opacity: 1;
@@ -137,28 +54,20 @@
     @yield('after-body')
     <div id="app">
         {{-- <div class="page-loader"></div> --}}
+        <div id="body-overlay"onclick="document.getElementById('aside-menu').classList.toggle('active');document.getElementById('body-overlay').classList.toggle('active');"></div>
         <x-navbar />
-        <main class="p-0">
+        <main class="p-0 font-2">
             @yield('content')
         </main>
         <x-footer />
     </div>
-
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script> --}}
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
-    {{--     <script src="{{asset('/js/validatorjs.min.js')}}"></script>
-    <script src="{{asset('/js/favicon_notification.js')}}"></script>
-    <script src="{{asset('/js/main.js')}}"></script>
-     --}}
     <script type="text/javascript" src="{{mix('/js/all-mixed.js')}}"></script>
-    <script src="{{asset('/assets/js/plugins.js')}}"></script>
-    <script src="{{asset('/assets/js/theme.js')}}"></script>
-    
     @livewireScripts
     @include('layouts.scripts')
     @auth
     <script type="text/javascript">
+        var favicon = new Favico({bgColor: '#dc0000',textColor: '#fff',animation: 'slide',fontStyle: 'bold',fontFamily: 'sans',type: 'circle'
+        });
         function get_website_title(){
             return $('meta[name="title"]').attr('content');
         }
@@ -223,6 +132,7 @@
             }, window.focused);
         }
         get_nots();
+
         @if($unreadNotifications!=session('seen_notifications') && $unreadNotifications!=0)
             @php
             session(['seen_notifications'=>$unreadNotifications]);

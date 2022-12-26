@@ -78,20 +78,8 @@ class BackendUserController extends Controller
         }
 
         if($request->hasFile('avatar')){
-            $file = $this->store_file([
-                'source'=>$request->avatar,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/users/',
-                'type'=>'USER', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $user->update(['avatar'=>$file['filename']]);
+            $avatar = $user->addMedia($request->avatar)->toMediaCollection('avatar');
+            $user->update(['avatar'=>$avatar->id.'/'.$avatar->file_name]);
         }
 
         toastr()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
@@ -162,20 +150,8 @@ class BackendUserController extends Controller
             ]);
         }
         if($request->hasFile('avatar')){
-            $file = $this->store_file([
-                'source'=>$request->avatar,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/users/',
-                'type'=>'USER', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $user->update(['avatar'=>$file['filename']]);
+            $avatar = $user->addMedia($request->avatar)->toMediaCollection('avatar');
+            $user->update(['avatar'=>$avatar->id.'/'.$avatar->file_name]);
         }
 
         toastr()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');

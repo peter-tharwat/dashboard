@@ -69,20 +69,7 @@ class BackendNotificationsController extends Controller
         ]);
         if($request->hasFile('files'))
         foreach($request['files'] as $file){
-            $uploaded_file = $this->store_file([
-                'source'=>$file,
-                'validation'=>"file",
-                'path_to_save'=>'/uploads/contacts/',
-                'type'=>'CONTACT', 
-                'user_id'=>auth()->user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]);
-            $this->use_hub_file($uploaded_file['filename'],$contact->id,$request->user_id);
+            $contact->addMedia($file)->toMediaCollection('file');
         } 
 
         $user = \App\Models\User::where('id',$request->user_id)->firstOrFail();

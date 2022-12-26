@@ -8,11 +8,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Image\Manipulations;
+
+
+class User extends Authenticatable implements HasMedia
 {
     use HasRoles;
     use HasFactory;
     use Notifiable;
+    use InteractsWithMedia;
     /**
      * The attributes that are mass assignable.
      *
@@ -52,11 +59,11 @@ class User extends Authenticatable
     ];*/
 
 
-    public function getUserAvatar(){
+    public function getUserAvatar($type="thumb"){
         if($this->avatar==null)
             return env('DEFAULT_IMAGE_AVATAR');
         else
-            return env('STORAGE_URL').'/uploads/users/'.$this->avatar;
+            return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->avatar,$type);
     }
     
     public function scopeWithoutTimestamps()
@@ -76,7 +83,31 @@ class User extends Authenticatable
     public function report_errors(){
         return $this->hasMany(\App\Models\ReportError::class);
     }
-    
-    
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('tiny')
+            ->fit(Manipulations::FIT_MAX, 120, 120)
+            ->width(120)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->nonQueued();
+
+        $this
+            ->addMediaConversion('thumb')
+            ->fit(Manipulations::FIT_MAX, 350, 1000)
+            ->width(350)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->nonQueued();
+
+        $this
+            ->addMediaConversion('original')
+            ->fit(Manipulations::FIT_MAX, 1200,10000)
+            ->width(1200)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->nonQueued();
+
+    }
+
 
 }

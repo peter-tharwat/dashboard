@@ -154,17 +154,18 @@ class UploadFilesHelper
         $options = array_merge([
             //'source'=>"",
             'validation'=>"file",
-            'path_to_save'=>'/uploads/files/',
+            //'path_to_save'=>'/uploads/files/',
             'type'=>'',
             'type_id'=>"",
             'user_id'=>NULL,
-            'resize'=>[400,1200],
-            'small_path'=>'small/',
-            'visibility'=>'PUBLIC',
-            'file_system_type'=>env('FILESYSTEM_DRIVER','s3'),
-            'optimize'=>true,
-            'new_extension'=>"webp",
-            'used_at'=>NULL,
+            'temp_file_selector'=>uniqid()
+            //'resize'=>[400,1200],
+            //'small_path'=>'small/',
+            //'visibility'=>'PUBLIC',
+            //'file_system_type'=>env('FILESYSTEM_DRIVER','s3'),
+            //'optimize'=>true,
+            //'new_extension'=>"webp",
+            //'used_at'=>NULL,
         ],$options);
 
         $validation=Validator::make($options, [ 'source' => "required|mimes:".self::get_validations($options["validation"])."|max:250000"]);  if($validation->fails()) {
@@ -172,16 +173,22 @@ class UploadFilesHelper
         }
         $user_id        = $options['user_id'];
         $file           = $options["source"];
-        $path           = $options["path_to_save"]; // '/uploads/files/temp/';
-        $path_small     = $options["path_to_save"] . $options["small_path"];
-        $old_size       = $file->getSize();
-        $new_size       = "";
-        $original_name  = $file->getClientOriginalName();
-        $extension = $options['new_extension']==""?$file->extension():$options['new_extension'];
-        $filename = self::generate_unique_filename($file,$options);
-        $file_system_type=$options["file_system_type"];
+        //$path           = $options["path_to_save"]; // '/uploads/files/temp/';
+        //$path_small     = $options["path_to_save"] . $options["small_path"];
+        //$old_size       = $file->getSize();
+        //$new_size       = "";
+        //$original_name  = $file->getClientOriginalName();
+        //$extension = $options['new_extension']==""?$file->extension():$options['new_extension'];
+
+/*120
+350
+1200*/
 
 
+        $temp_file = \App\Models\TempFile::create(['name'=>$options['temp_file_selector'],'user_id'=>auth()->check()?auth()->id():null]);
+        $uploaded_file = $temp_file->addMedia($file)->toMediaCollection($options['type']);
+ /*       dd($uploaded_file);
+ 
 
         if($options['validation']=="image" && $options['optimize']==true ){
 
@@ -213,9 +220,9 @@ class UploadFilesHelper
         }else{ 
            
             try{\Storage::disk($options["file_system_type"])->putFileAs(strtolower($options['visibility']) . $path  , $file , $filename);}catch(\Exception $e){}
-        }
+        }*/
 
-        $stored_data = \App\Models\HubFile::create(
+/*        $stored_data = \App\Models\HubFile::create(
             [
                 'user_id'       => $user_id,
                 'path'          => $options["path_to_save"],
@@ -230,16 +237,14 @@ class UploadFilesHelper
                 'used_at'       => $options['used_at'],
             ]
         );  
-
+*/
 
         return [
             'success'  => true, 
-            'filename' => $filename,
-            'link'     => $stored_data->get_url(),
-            'old_size' =>self::formatSizeUnits($old_size),
-            'new_size' =>self::formatSizeUnits(
-                $file->getSize()
-            ),
+            'filename' => $uploaded_file->file_name,
+            'link'     => $uploaded_file->getFullUrl(),
+            'old_size' => $uploaded_file->size,
+            'new_size' =>self::formatSizeUnits($uploaded_file->size),
             'saved'    =>"",
             "hasWarnings"=>false,
             "isSuccess"=>true,
@@ -247,17 +252,17 @@ class UploadFilesHelper
             "files"=>[
                 [
                     "date"=>date('Y-m-d h:i:s'),
-                    "extension"=>$file->extension(),
-                    "file"=>$filename,
+                    "extension"=>$uploaded_file->mime_type,
+                    "file"=>$uploaded_file->file_name,
                     "format"=>"application",
-                    "name"=>$filename,
+                    "name"=>$uploaded_file->file_name,
                     "old_name"=>"ملف",
                     "old_title"=>"ملف",
                     "replaced"=>false,
-                    "size"=>$file->getSize(),
-                    "size2"=>$file->getSize(),
-                    "title"=>$filename,
-                    "type"=>$file->getMimeType(),
+                    "size"=>$uploaded_file->size,
+                    "size2"=>$uploaded_file->size,
+                    "title"=>$uploaded_file->file_name,
+                    "type"=>$uploaded_file->mime_type,
                     "uploaded"=>true
                 ]
             ]

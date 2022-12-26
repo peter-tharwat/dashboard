@@ -8,6 +8,15 @@ window.Favico= favico;
 window.Fancybox= Fancybox;
 window.toastr= toastr;
 
+var favicon = new Favico({
+    bgColor: '#dc0000',
+    textColor: '#fff',
+    animation: 'slide',
+    fontStyle: 'bold',
+    fontFamily: 'sans',
+    type: 'circle'
+});
+
 
 /*window._ = require('lodash');*/
 

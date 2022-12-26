@@ -35,23 +35,8 @@ class BackendProfileController extends Controller
     {
         $user= User::where('id',auth()->id())->firstOrFail();
         if($request->avatar!=null){
-            $file = $this->store_file([
-                    'source'=>$this->base64ToFile($request->avatar),
-                    'validation'=>"image",
-                    'path_to_save'=>'/uploads/users/',
-                    'type'=>'AVATAR', 
-                    'user_id'=>\Auth::user()->id,
-                    'resize'=>[500,3000],
-                    'small_path'=>'small/',
-                    'visibility'=>'PUBLIC',
-                    'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                    'watermark'=>true,
-                    'optimize'=>true,
-                ])['filename'];
-            $this->use_hub_file($file, $user->id, auth()->user()->id);
-            $user->update([
-                'avatar'=>$file
-            ]);
+            $avatar = $user->addMedia($request->avatar)->toMediaCollection('avatar');
+            $user->update(['avatar'=>$avatar->id .'/'.$avatar->file_name]);
         }
         $request->validate([
             'name'=>"required|min:3|max:190",

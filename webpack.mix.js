@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,28 +18,21 @@ mix.js([
     'public/assets/js/plugins.js',*/
     'resources/js/app.js',
     /*'public/js/jquery-3.6.1.min.js',*/
-    /*'public/js/bootstrap.bundle-5.2.3.min.js',*/
+    'public/js/bootstrap.bundle-5.2.3.min.js',
     /*'public/js/fancybox.umd.js',*/
     /*'public/js/toastr.min.js',*/
     'public/js/validatorjs.min.js',
     /*'public/js/favicon_notification.js',*/
     'public/js/main.js',
-
-    
 ], 'public/js/all-mixed.js')
-.styles([
-    'public/assets/css/plugins.css',
-    'public/assets/css/style.css',
-    /*'public/css/bootstrap-5.2.3.min.css',*/
-    'public/css/cust-fonts.css',
-    'public/css/fontawsome.min.css',
-    'public/css/responsive-fonts.css',
-    'public/css/main-basic.css',
-    'public/css/toastr.min.css',
-    'public/css/fancybox.css',
-     
-
-],'public/css/all-mixed.css').version();
+.postCss('resources/css/app.css','public/css')
+.purgeCss({
+    content: [
+        "resources/**/*.php",
+        "app/**/*.php",
+        "public/js/fancybox.mid.js"
+    ]
+}).version();
 
 
 
@@ -90,3 +84,6 @@ mix.js([
     'public/css/select2-bootstrap-5-theme.rtl.min.css',  
 
 ],'public/css/dashboard-all-mixed.css').version();
+
+
+/*mix.styles(['public/css/app.css','public/css/fancybox.css'],'public/css/all-mixed.css');*/

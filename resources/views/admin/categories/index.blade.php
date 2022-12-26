@@ -36,9 +36,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>الرابط</th>
+						
 						<th>الشعار</th>
 						<th>العنوان</th>
+						<th>المقالات</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
@@ -47,10 +48,10 @@
 					<tr>
 						<td>{{$category->id}}</td>
 
-						<td>{{$category->slug}}</td>
 						<td><img src="{{$category->image()}}" style="width:40px"></td>
 						<td>{{$category->title}}</td>
-					 
+					 	<td><a href="{{route('admin.articles.index',['category_id'=>$category->id])}}">{{$category->articles_count}}</a></td>
+
 						<td style="width: 180px;">
 							@can('categories-update')
 							<a href="{{route('admin.categories.edit',$category)}}">

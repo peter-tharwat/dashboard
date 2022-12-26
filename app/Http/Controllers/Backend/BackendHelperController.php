@@ -19,7 +19,8 @@ class BackendHelperController extends Controller
             'visibility'=>'PUBLIC',
             'file_system_type'=>env('FILESYSTEM_DRIVER'),
             'new_extension'=>"webp",
-            'optimize'=>true
+            'optimize'=>true,
+            'temp_file_selector'=>$request->temp_file_selector
         ]); 
         return [
             'fileName'=>$file['filename'],
@@ -28,9 +29,9 @@ class BackendHelperController extends Controller
             "hasWarnings"=>false,
             "isSuccess"=>true,
             "warnings"=>[],
-            'location'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
-            'file'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
-            'url'=>env('STORAGE_URL')."/uploads/images/".$file['filename'],
+            'location'=>$file['link'],
+            'file'=>$file['link'],
+            'url'=>$file['link'],
             'files'=>$file['files'] 
             
         ];

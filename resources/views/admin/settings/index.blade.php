@@ -305,7 +305,7 @@
 	 				تواصل معنا
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="settings[contact_page]" class="form-control editor with-file-explorer">{{$settings['contact_page']}}</textarea>
+	 				<textarea  name="settings[contact_page]" class="form-control editor">{{$settings['contact_page']}}</textarea>
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">

@@ -23,13 +23,12 @@ class BackendCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->can('categories-read'))abort(403);
         $categories =  Category::where(function($q)use($request){
             if($request->id!=null)
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('title','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
-        })->orderBy('id','DESC')->paginate();
+        })->withCount(['articles'])->orderBy('id','DESC')->paginate();
 
         return view('admin.categories.index',compact('categories'));
     }
@@ -41,7 +40,6 @@ class BackendCategoryController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->can('categories-create'))abort(403);
         return view('admin.categories.create');
     }
 
@@ -53,7 +51,6 @@ class BackendCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->can('categories-create'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -72,21 +69,10 @@ class BackendCategoryController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/categories/',
-                'type'=>'CATEGORY', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $category->update(['image'=>$file['filename']]);
+            $image = $category->addMedia($request->image)->toMediaCollection('image');
+            $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
         toastr()->success(__('utils/toastr.category_store_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
@@ -99,7 +85,6 @@ class BackendCategoryController extends Controller
      */
     public function show(Category $category)
     {
-        if(!auth()->user()->can('categories-read'))abort(403);
     }
 
     /**
@@ -110,7 +95,6 @@ class BackendCategoryController extends Controller
      */
     public function edit(Category $category)
     {   
-        if(!auth()->user()->can('categories-update'))abort(403);
         return view('admin.categories.edit',compact('category'));
     }
 
@@ -123,7 +107,6 @@ class BackendCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        if(!auth()->user()->can('categories-update'))abort(403);
         $request->merge([
             'slug'=>\MainHelper::slug($request->slug)
         ]);
@@ -141,21 +124,10 @@ class BackendCategoryController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/categories/',
-                'type'=>'CATEGORY', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $category->update(['image'=>$file['filename']]);
+            $image = $category->addMedia($request->image)->toMediaCollection('image');
+            $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
         toastr()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
@@ -168,7 +140,6 @@ class BackendCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if(!auth()->user()->can('categories-delete'))abort(403);
         $category->delete();
         toastr()->success(__('utils/toastr.category_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');

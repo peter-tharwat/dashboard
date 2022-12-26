@@ -1,11 +1,3 @@
-var favicon = new Favico({
-    bgColor: '#dc0000',
-    textColor: '#fff',
-    animation: 'slide',
-    fontStyle: 'bold',
-    fontFamily: 'sans',
-    type: 'circle'
-});
 $("#validate-form").validate({ignore: [],});
 document.addEventListener("DOMContentLoaded", function(event) {
    $.extend( $.validator.messages, {

@@ -64,22 +64,12 @@ class BackendAnnouncementController extends Controller
             'url'=>$request->url,
             'open_url_in'=>$request->open_url_in=="NEW_WINDOW"?"NEW_WINDOW":"CURRENT_WINDOW",
         ]);
+
         if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/announcements/',
-                'type'=>'ANNOUNCEMENT', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $announcement->update(['image'=>$file['filename']]);
+            $image = $announcement->addMedia($request->image)->toMediaCollection('image');
+            $announcement->update(['image'=>$image->id.'/'.$image->file_name]);
         }
+
         toastr()->success(__('utils/toastr.store_success_message'));
         return redirect()->route('admin.announcements.index');
     }
@@ -126,20 +116,8 @@ class BackendAnnouncementController extends Controller
             'open_url_in'=>$request->open_url_in=="NEW_WINDOW"?"NEW_WINDOW":"CURRENT_WINDOW",
         ]);
         if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/announcements/',
-                'type'=>'ANNOUNCEMENT', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $announcement->update(['image'=>$file['filename']]);
+            $image = $announcement->addMedia($request->image)->toMediaCollection('image');
+            $announcement->update(['image'=>$image->id.'/'.$image->file_name]);
         }
         toastr()->success(__('utils/toastr.update_success_message'));
         return redirect()->route('admin.announcements.index');

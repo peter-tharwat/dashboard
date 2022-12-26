@@ -2,12 +2,12 @@
 <script type="text/javascript" src="/js/tinymce/ar.js"></script>
 <script>
 @if(auth()->check())
+    var temp_file_selector = document.getElementById('temp_file_selector') !== null?document.getElementById('temp_file_selector').value:null;
+
     tinymce.init({
         selector: '.editor,#editor',
         plugins: ' advlist image media autolink code codesample directionality table wordcount quickbars link lists numlist bullist',
-
-
-        images_upload_url:"{{route('admin.upload.image',['_token' => csrf_token() ])}}",
+        images_upload_url:"{{route('admin.upload.image',['_token' => csrf_token() ])}}&temp_file_selector="+temp_file_selector,
         file_picker_types: 'file image media',
         image_caption: true,
         image_dimensions:true,

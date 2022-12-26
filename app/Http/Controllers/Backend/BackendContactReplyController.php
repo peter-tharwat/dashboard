@@ -56,20 +56,7 @@ class BackendContactReplyController extends Controller
 
         if($request->hasFile('files'))
         foreach($request['files'] as $file){
-            $uploaded_file = $this->store_file([
-                'source'=>$file,
-                'validation'=>"file",
-                'path_to_save'=>'/uploads/contact-replies/',
-                'type'=>'CONTACT_REPLY', 
-                'user_id'=>auth()->user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]);
-            $this->use_hub_file($uploaded_file['filename'],$contact_reply->id,auth()->user()->id);
+            $contact_reply->addMedia($file)->toMediaCollection('files');
         } 
 
         toastr()->success(__('utils/toastr.process_success_message'));

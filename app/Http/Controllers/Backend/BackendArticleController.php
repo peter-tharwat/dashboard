@@ -73,21 +73,10 @@ class BackendArticleController extends Controller
         ]);
         $article->categories()->sync($request->category_id);
         $article->tags()->sync($request->tag_id);
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$article,"description");
         if($request->hasFile('main_image')){
-            $file = $this->store_file([
-                'source'=>$request->main_image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $article->update(['main_image'=>$file['filename']]);
+            $main_image = $article->addMedia($request->main_image)->toMediaCollection('image');
+            $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
         }
         toastr()->success(__('utils/toastr.article_store_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
@@ -149,21 +138,10 @@ class BackendArticleController extends Controller
         ]);
         $article->categories()->sync($request->category_id);
         $article->tags()->sync($request->tag_id);
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$article,"description");
         if($request->hasFile('main_image')){
-            $file = $this->store_file([
-                'source'=>$request->main_image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/articles/',
-                'type'=>'ARTICLE', 
-                'user_id'=>\Auth::user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
-                'optimize'=>true
-            ]); 
-            $article->update(['main_image'=>$file['filename']]);
+            $main_image = $article->addMedia($request->main_image)->toMediaCollection('image');
+            $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
         }
         toastr()->success(__('utils/toastr.article_update_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');

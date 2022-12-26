@@ -69,7 +69,13 @@ class BackendPageController extends Controller
             "meta_description"=>$request->meta_description,
             "removable"=>$request->removable,
         ]);
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$page,"description");
         if($request->hasFile('image')){
+            $image = $page->addMedia($request->image)->toMediaCollection('image');
+            $page->update(['image'=>$image->id.'/'.$image->file_name]);
+        }
+
+        /*if($request->hasFile('image')){
             $file = $this->store_file([
                 'source'=>$request->image,
                 'validation'=>"image",
@@ -80,11 +86,10 @@ class BackendPageController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
                 'optimize'=>true
             ]); 
             $page->update(['image'=>$file['filename']]);
-        }
+        }*/
         toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
@@ -141,7 +146,12 @@ class BackendPageController extends Controller
             "meta_description"=>$request->meta_description,
             "removable"=>$request->removable,
         ]);
+        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$page,"description");
         if($request->hasFile('image')){
+            $image = $page->addMedia($request->image)->toMediaCollection('image');
+            $page->update(['image'=>$image->id.'/'.$image->file_name]);
+        }
+        /*if($request->hasFile('image')){
             $file = $this->store_file([
                 'source'=>$request->image,
                 'validation'=>"image",
@@ -152,11 +162,10 @@ class BackendPageController extends Controller
                 'small_path'=>'small/',
                 'visibility'=>'PUBLIC',
                 'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                /*'watermark'=>true,*/
                 'optimize'=>true
             ]); 
             $page->update(['image'=>$file['filename']]);
-        }
+        }*/
         toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }

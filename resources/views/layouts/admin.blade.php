@@ -450,6 +450,10 @@
                     <span class="fal fa-bars font-4"></span>
                 </div> 
                 <div class="col-12 px-0 d-flex justify-content-end  " style="height: 60px;">
+
+
+
+
                     <div class="btn-group" id="notificationDropdown">
 
                         <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  " style="width: 55px;height: 55px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
@@ -460,7 +464,7 @@
                             @else
                             display: none;
                             @endif
-                            right: 0px;top: 0px;border-radius: 20px;background: #c00;color:var(--background-1);font-size: 14px;" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
+                            right: 0px;top: 0px;border-radius: 20px;background: #c00;color:#fff;font-size: 14px;" class="text-center" id="dropdown-notifications-icon">{{$unreadNotifications}}</span>
 
                         </div>
                         <div class="dropdown-menu py-0 rounded-0 border-0 shadow " style="cursor: auto!important;z-index: 20000;width: 350px;height: 450px;top: -3px!important;">
