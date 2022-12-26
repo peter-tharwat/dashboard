@@ -21,6 +21,13 @@ class Setting extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this
+            ->addMediaConversion('icon')
+            ->fit(Manipulations::FIT_MAX, 32, 32)
+            ->width(32)
+            ->format(Manipulations::FORMAT_WEBP)
+            ->nonQueued();
+
+        $this
             ->addMediaConversion('tiny')
             ->fit(Manipulations::FIT_MAX, 120, 120)
             ->width(120)

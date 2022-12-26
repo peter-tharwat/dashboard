@@ -31,6 +31,7 @@ class CreateRateLimitsTable extends Migration
             $table->string('code')->nullable()->index(); 
             $table->string('country_code')->nullable()->index();
             $table->string('country_name')->nullable()->index();  
+            $table->text('query')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
         });

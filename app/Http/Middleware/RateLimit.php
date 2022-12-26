@@ -37,7 +37,6 @@ class RateLimit
         $max_per_minute = \App\Models\RateLimit::where('ip',$ip)->where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
         if($max_per_minute>=150)
         abort(403);
-
         $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addHours(6))->first();
         if($last_insert==null){
             $prev_url="";
@@ -66,12 +65,14 @@ class RateLimit
                 'user_id'=>auth()->check() ? auth()->user()->id : null ,
                 'browser'=>UserSystemInfoHelper::get_browsers(),
                 'device'=>UserSystemInfoHelper::get_device(),
-                'operating_system'=>UserSystemInfoHelper::get_os()
+                'operating_system'=>UserSystemInfoHelper::get_os(),
+                'query'=>json_encode(request()->all())
             ]); 
         }else{
            $last_insert->details()->create([
                 'url'=>request()->url(),
-                'user_id'=> auth()->check() ? auth()->user()->id : null 
+                'user_id'=> auth()->check() ? auth()->user()->id : null,
+                'query'=>json_encode(request()->all())
            ]); 
         }
         return $next($request);

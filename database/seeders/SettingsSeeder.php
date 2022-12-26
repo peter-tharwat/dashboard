@@ -21,6 +21,7 @@ class SettingsSeeder extends Seeder
         \App\Models\Setting::create(['key'=>'website_logo','value'=>""]);
         \App\Models\Setting::create(['key'=>'website_wide_logo','value'=>""]);
         \App\Models\Setting::create(['key'=>'website_icon','value'=>""]);
+        \App\Models\Setting::create(['key'=>'website_icon_base64','value'=>""]);
         \App\Models\Setting::create(['key'=>'website_cover','value'=>""]);
         \App\Models\Setting::create(['key'=>'address','value'=>""]);
 

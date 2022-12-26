@@ -35,7 +35,7 @@ class BackendProfileController extends Controller
     {
         $user= User::where('id',auth()->id())->firstOrFail();
         if($request->avatar!=null){
-            $avatar = $user->addMedia($request->avatar)->toMediaCollection('avatar');
+            $avatar = $user->addMediaFromBase64($request->avatar)->toMediaCollection('avatar');
             $user->update(['avatar'=>$avatar->id .'/'.$avatar->file_name]);
         }
         $request->validate([

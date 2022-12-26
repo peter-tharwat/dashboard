@@ -21,6 +21,9 @@ class BackendSettingController extends Controller
 
     public function update(Request $request)
     {
+      
+        
+
 
         foreach($request->settings as $key => $value ){
             if(!in_array($key,['website_logo','website_wide_logo','website_icon','website_cover']))
@@ -40,6 +43,9 @@ class BackendSettingController extends Controller
             $website_icon_setting= \App\Models\Setting::where('key','website_icon')->first();
             $image = $website_icon_setting->addMedia($request['settings']['website_icon'])->toMediaCollection('website_icon');
             $website_icon_setting->update(['value'=>$image->id.'/'.$image->file_name]);
+            /*dd(base64_encode( \File::get($request['settings']['website_icon'])  ));
+            \App\Models\Setting::where('key','website_icon_base64')->update(['value'=>base64_encode($request['settings']['website_icon'])]);*/
+
         }
         if($request->hasFile('settings.website_cover')){
             $website_cover_setting= \App\Models\Setting::where('key','website_cover')->first();

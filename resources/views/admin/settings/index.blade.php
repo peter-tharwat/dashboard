@@ -36,7 +36,7 @@
 				<span  class="fal fa-link me-2"></span>	روابط
 			</div>
 			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="pages-tab">
-				<span  class="fal fa-pager me-2"></span>	صفحات
+				<span  class="fal fa-pager me-2"></span>	نصوص
 			</div>
 			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="codes-tab">
 				<span  class="fal fa-code me-2"></span>	أكواد
@@ -305,13 +305,10 @@
 	 				تواصل معنا
 	 			</div>
 	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="settings[contact_page]" class="form-control editor">{{$settings['contact_page']}}</textarea>
+	 				<textarea  name="settings[contact_page]" class="form-control" style="min-height: 300px">{{$settings['contact_page']}}</textarea>
 	 			</div> 
 	 		</div>
-	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
-	 			<br>
-	 			<hr>
-	 		</div>
+	 	 
 	 	</div>
 	 	<div class="col-12 row p-0 taber" id="codes-tab">
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">

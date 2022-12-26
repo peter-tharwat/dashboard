@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\HubFile;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
 class BackendFileController extends Controller
@@ -19,8 +19,7 @@ class BackendFileController extends Controller
 
     public function index(Request $request)
     {
-        if(!auth()->user()->can('hub-files-read'))abort(403);
-        $files = HubFile::where(function($q)use($request){
+        $files = Media::where(function($q)use($request){
 
             if($request->id!=null)
                 $q->where('id',$request->id);
@@ -55,10 +54,10 @@ class BackendFileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\HubFile  $hubFile
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(HubFile $hubFile)
+    public function show(Media $media)
     {
         if(!auth()->user()->can('hub-files-read'))abort(403);
     }
@@ -66,10 +65,10 @@ class BackendFileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\HubFile  $hubFile
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function edit(HubFile $hubFile)
+    public function edit(Media $media)
     {
         if(!auth()->user()->can('hub-files-update'))abort(403);
     }
@@ -78,10 +77,10 @@ class BackendFileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\HubFile  $hubFile
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HubFile $hubFile)
+    public function update(Request $request, Media $media)
     {
         if(!auth()->user()->can('hub-files-update'))abort(403);
     }
@@ -89,10 +88,10 @@ class BackendFileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HubFile  $hubFile
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HubFile $file)
+    public function destroy(Media $file)
     {
         if(!auth()->user()->can('hub-files-delete'))abort(403);
         $file->forceDelete();

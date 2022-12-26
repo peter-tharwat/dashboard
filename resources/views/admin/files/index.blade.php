@@ -29,7 +29,6 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>الرافع</th>
 						<th>الملف</th>
 						<th>مستخدم في</th> 
 						<th>تاريخ الرفع</th> 
@@ -40,20 +39,15 @@
 					@foreach($files as $file)
 					<tr>
 						<td>{{$file->id}}</td>
-						<td class="text-truncate" >
-							@if($file->user_id!=null)
-							<img src="{{$file->user->getUserAvatar()}}" style="width:20px;height: 20px;border-radius: 50%;display: inline-block;">
-							{{$file->user->name_ar}}
-							@endif
-						</td>
+						 
 						<td class="text-truncate d-flex">
 							@if( in_array($file->extension, ['jpg','jpeg','gif','png','webp']))
 							<div class="col-auto p-1">
-							<img src="{{$file->get_url()}}" style="width:60px;display: inline-block;" class="mx-2">
+							<img src="{{$file->getUrl()}}" style="width:60px;display: inline-block;" class="mx-2">
 							</div>
 							@endif
 							<div class="col-auto p-1">
-							<a href="{{$file->get_url()}}" style="display: inline-block;" target="_blank">
+							<a href="{{$file->getUrl()}}" style="display: inline-block;" target="_blank">
 							 <span class="fas fa-link mx-1"></span>	الرابط
 							</a>
 							<br>
@@ -76,7 +70,7 @@
 						<td style="width: 180px;">
 
 							@can('hub-files-read')
-							<a href="{{$file->get_url()}}" target="_blank">
+							<a href="{{$file->getUrl()}}" target="_blank">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1 py-1 px-2">
 								<span class="fas fa-eye "></span> عرض
 							</span>
