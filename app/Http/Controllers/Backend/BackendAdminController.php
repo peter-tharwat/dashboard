@@ -11,7 +11,5 @@ class BackendAdminController extends Controller
     {
        return view('admin.index');
     }
-    
-
        
 }
