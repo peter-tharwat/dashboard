@@ -22,47 +22,44 @@ class MenusSeeder extends Seeder
             'location'=>"NAVBAR"
         ]);
 
-        //home link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"الرئيسية",
-            'url'=>env("APP_URL"),
-            'icon'=>"fal fa-home",
-            'order'=>0,
-        ]);
-
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"المدونة",
-            'url'=>route('blog'),
-            'icon'=>"fal fa-pen-alt",
-            'order'=>1,
-        ]);
-
-        //terms link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"PAGE",
-            'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
-            'title'=>"شروط الاستخدام",
-            'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-            'icon'=>"fal fa-lock",
-            'order'=>2,
-        ]);
- 
-        //contact link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"تواصل معنا",
-            'url'=>route('contact'),
-            'icon'=>"fal fa-phone",
-            'order'=>3,
+        //NAVBAR links
+        MenuLink::insert([
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"الرئيسية",
+                'url'=>env("APP_URL"),
+                'icon'=>"fal fa-home",
+                'order'=>0
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"المدونة",
+                'url'=>route('blog'),
+                'icon'=>"fal fa-pen-alt",
+                'order'=>1,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"PAGE",
+                'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
+                'title'=>"شروط الاستخدام",
+                'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
+                'icon'=>"fal fa-lock",
+                'order'=>2,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"تواصل معنا",
+                'url'=>route('contact'),
+                'icon'=>"fal fa-phone",
+                'order'=>3,
+            ]
         ]);
 
 
@@ -74,68 +71,109 @@ class MenusSeeder extends Seeder
         ]);
 
          //home link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"الرئيسية",
-            'url'=>env("APP_URL"),
-            'icon'=>"fal fa-home",
-            'order'=>0,
-        ]);
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"المدونة",
-            'url'=>route('blog'),
-            'icon'=>"fal fa-pen-alt",
-            'order'=>1,
+        MenuLink::insert([
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"الرئيسية",
+                'url'=>env("APP_URL"),
+                'icon'=>"fal fa-home",
+                'order'=>0,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"المدونة",
+                'url'=>route('blog'),
+                'icon'=>"fal fa-pen-alt",
+                'order'=>1,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"PAGE",
+                'type_id'=>\App\Models\Page::where('slug','about')->first()->id,
+                'title'=>"معلومات عنا",
+                'url'=>route('page.show',\App\Models\Page::where('slug','about')->first()),
+                'icon'=>"fal fa-info",
+                'order'=>1,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"PAGE",
+                'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
+                'title'=>"شروط الاستخدام",
+                'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
+                'icon'=>"fal fa-lock",
+                'order'=>2,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"PAGE",
+                'type_id'=>\App\Models\Page::where('slug','privacy')->first()->id,
+                'title'=>"سياسة الخصوصية",
+                'url'=>route('page.show',\App\Models\Page::where('slug','privacy')->first()),
+                'icon'=>"fal fa-info",
+                'order'=>3,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"تواصل معنا",
+                'url'=>route('contact'),
+                'icon'=>"fal fa-phone",
+                'order'=>3,
+            ]
         ]);
 
-        //about link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"PAGE",
-            'type_id'=>\App\Models\Page::where('slug','about')->first()->id,
-            'title'=>"معلومات عنا",
-            'url'=>route('page.show',\App\Models\Page::where('slug','about')->first()),
-            'icon'=>"fal fa-info",
-            'order'=>1,
+
+        $menu = Menu::create([
+            'title'=>"قائمة الفوتر",
+            'location'=>"FOOTER"
         ]);
 
-        //terms link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"PAGE",
-            'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
-            'title'=>"شروط الاستخدام",
-            'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-            'icon'=>"fal fa-lock",
-            'order'=>2,
+        MenuLink::insert([
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"الرئيسية",
+                'url'=>env("APP_URL"),
+                'icon'=>"fal fa-home",
+                'order'=>0
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"المدونة",
+                'url'=>route('blog'),
+                'icon'=>"fal fa-pen-alt",
+                'order'=>1,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"PAGE",
+                'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
+                'title'=>"شروط الاستخدام",
+                'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
+                'icon'=>"fal fa-lock",
+                'order'=>2,
+            ],
+            [
+                'menu_id'=>$menu->id,
+                'type'=>"CUSTOM_LINK",
+                'type_id'=>null,
+                'title'=>"تواصل معنا",
+                'url'=>route('contact'),
+                'icon'=>"fal fa-phone",
+                'order'=>3,
+            ]
         ]);
 
-        //privacy link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"PAGE",
-            'type_id'=>\App\Models\Page::where('slug','privacy')->first()->id,
-            'title'=>"سياسة الخصوصية",
-            'url'=>route('page.show',\App\Models\Page::where('slug','privacy')->first()),
-            'icon'=>"fal fa-info",
-            'order'=>3,
-        ]);
 
-        //contact link
-        MenuLink::create([
-            'menu_id'=>$menu->id,
-            'type'=>"CUSTOM_LINK",
-            'type_id'=>null,
-            'title'=>"تواصل معنا",
-            'url'=>route('contact'),
-            'icon'=>"fal fa-phone",
-            'order'=>3,
-        ]);
 
 
 
