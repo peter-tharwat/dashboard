@@ -42,9 +42,6 @@
             --main-color-flexable: #15202b;
             --scroll-bar-color: #505050;
         }
-        
-        
-
     </style>
     @yield('styles')
 </head>
