@@ -5,10 +5,10 @@
         <div class="shape bg-dot primary rellax w-16 h-20" data-rellax-speed="1" style="top: 3rem; left: 5.5rem"></div>
         <div class="overlap-grid overlap-grid-2">
           <div class="item">
-            <figure class="rounded shadow"><img src="/assets/img/photos/7.jpg" srcset="./assets/img/photos/about2@2x.jpg 2x" alt=""  data-fancybox></figure>
+            <figure class="rounded shadow"><img src="/assets/img/photos/7.jpg"  alt=""  data-fancybox></figure>
           </div>
           <div class="item">
-            <figure class="rounded shadow"><img src="/assets/img/photos/9.jpg" srcset="./assets/img/photos/about3@2x.jpg 2x" alt="" data-fancybox></figure>
+            <figure class="rounded shadow"><img src="/assets/img/photos/9.jpg"  alt="" data-fancybox></figure>
           </div>
         </div>
       </div>
