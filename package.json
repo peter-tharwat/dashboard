@@ -1,13 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "dev": "vite",
+        "prod": "vite build",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",
@@ -27,6 +24,9 @@
         "toastr": "^2.1.4"
     },
     "dependencies": {
-        "@fancyapps/ui": "^4.0.31"
+        "@fancyapps/ui": "^4.0.31",
+        "laravel-vite-plugin": "^0.7.3",
+        "source-map-support": "^0.5.21",
+        "vite": "^4.0.3"
     }
 }

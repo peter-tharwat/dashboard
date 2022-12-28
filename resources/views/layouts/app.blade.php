@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">  
     @include('seo.index')
-    <link rel="stylesheet" type="text/css" href="{{mix('/css/app.css')}}">
-    
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+
+
     {!!$settings['header_code']!!}
     @livewireStyles
     @if(auth()->check())
