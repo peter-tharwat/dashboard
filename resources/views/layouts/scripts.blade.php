@@ -1,5 +1,7 @@
+@auth
 <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="/js/tinymce/ar.js"></script>
+@endauth
 <script>
 @if(auth()->check())
     var temp_file_selector = document.getElementById('temp_file_selector') !== null?document.getElementById('temp_file_selector').value:null;
