@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">  
     @include('seo.index')
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    
+    
 
 
     {!!$settings['header_code']!!}
@@ -19,6 +19,7 @@
         $unreadNotifications=auth()->user()->unreadNotifications()->count();
         @endphp
     @endif
+    @vite('resources/css/app.css')
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <style type="text/css">
         body {
@@ -63,8 +64,8 @@
         </main>
         <x-footer />
     </div>
-    <script type="text/javascript" src="{{mix('/js/all-mixed.js')}}"></script>
     @livewireScripts
+    @vite('resources/js/app.js')
     @include('layouts.scripts')
     @auth
     <script type="text/javascript">
