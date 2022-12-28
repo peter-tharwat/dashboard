@@ -64,8 +64,10 @@
         </main>
         <x-footer />
     </div>
-    @livewireScripts
+
+
     @vite('resources/js/app.js')
+    @livewireScripts
     @include('layouts.scripts')
     @auth
     <script type="text/javascript">
