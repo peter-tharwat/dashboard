@@ -5,6 +5,6 @@
 <x-faqs />
 <x-blog />
 <x-about />
-<x-map />
+{{-- <x-map /> --}}
 <x-call-to-action />
 @endsection
