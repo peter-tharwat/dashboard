@@ -19,9 +19,9 @@
     <div class="row mt-n10 mt-lg-0">
       <div class="col-xl-12 mx-auto">
         <div class="row mb-5">
-          <div class="col-md-6">
+          <div class="col-md-6 mb-3">
             <div class="widget">
-              <img src="{{$settings['get_website_wide_logo']}}" style="width:160px;max-width:100%">
+              <img src="{{$settings['get_website_wide_logo']}}" style="width:160px;max-width:100%" class="mb-3">
               <div class="widget-title">{{$settings['website_bio']}}</div>
             </div>
             <!-- /.widget -->
@@ -30,7 +30,7 @@
 
           
           <!--/column -->
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
             <div class="widget">
               <h4 class="widget-title">روابط</h4>
               @php
@@ -49,7 +49,7 @@
             <!-- /.widget -->
           </div>
           <!--/column -->
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
             <div class="widget">
               <h4 class="widget-title">تابعنا</h4>
               <nav class="nav social">
