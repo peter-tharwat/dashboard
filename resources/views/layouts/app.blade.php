@@ -69,8 +69,6 @@
     @include('layouts.scripts')
     @auth
     <script type="text/javascript">
-        var favicon = new Favico({bgColor: '#dc0000',textColor: '#fff',animation: 'slide',fontStyle: 'bold',fontFamily: 'sans',type: 'circle'
-        });
         function get_website_title(){
             return $('meta[name="title"]').attr('content');
         }
