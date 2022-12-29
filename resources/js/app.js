@@ -4,9 +4,6 @@ import toastr from 'toastr';
 import { Fancybox } from "@fancyapps/ui";
 
 import '/public/js/bootstrap.bundle.min.js';
-import '/public/js/fancybox.umd.js';
-import '/public/js/favicon_notification.js';
-import '/public/js/jquery-3.6.1.min.js';
 import '/public/js/validatorjs.min.js';
 import '/public/js/main.js';
 import '/public/assets/js/theme.js';
