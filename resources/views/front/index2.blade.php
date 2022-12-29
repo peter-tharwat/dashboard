@@ -28,6 +28,13 @@
 	    height: 100%;
 	    top:0px;
 	}
+	.category-section{
+		transition:0.3s all ease-in-out;
+	}
+	.category-section:hover{
+		transform: translateY(-5px);
+	    box-shadow: rgb(0 0 0 / 30%) 0 16px 16px 0;
+	}
 	.category-section::after{
 		transition:all 0.2s ease-in-out;
 		background: #000;
@@ -38,6 +45,7 @@
 	    width: 100%;
 	    height: 100%;
 	    top:0px;
+	    
 	}
 	.category-section:hover::after{
 		opacity:0.3!important;
