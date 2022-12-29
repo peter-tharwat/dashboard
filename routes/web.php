@@ -37,7 +37,7 @@ use App\Http\Controllers\FrontController;
 Auth::routes();
 
 Route::get('/', [FrontController::class,'index'])->name('home');
-Route::get('/index2', function(){return view('front.index2')})->name('index2');
+Route::get('/index2', function(){return view('front.index2');})->name('index2');
 
 #Route::get('/test',[BackendTestController::class,'test']);
 
