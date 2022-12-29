@@ -1,10 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite",
-        "prod": "vite build",
-        "build": "vite build",
-        "preview": "vite preview"
+        "dev": "vite && vite --config vite.config.dashboard.js",
+        "prod": "vite build && vite build --config vite.config.dashboard.js",
+        "build": "vite build && vite build --config vite.config.dashboard.js",
+        "preview": "vite preview && vite build --config vite.config.dashboard.js "
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",
@@ -25,7 +25,11 @@
     },
     "dependencies": {
         "@fancyapps/ui": "^4.0.31",
+        "bootstrap": "^5.2.3",
+        "install": "^0.13.0",
+        "jquery-validation": "^1.19.5",
         "laravel-vite-plugin": "^0.7.3",
+        "select2": "^4.1.0-rc.0",
         "source-map-support": "^0.5.21",
         "vite": "^4.0.3"
     }

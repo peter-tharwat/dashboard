@@ -1,6 +1,6 @@
-$("#validate-form").validate({ignore: [],});
-document.addEventListener("DOMContentLoaded", function(event) {
-   $.extend( $.validator.messages, {
+document.addEventListener("DOMContentLoaded", () => {
+    $("#validate-form").validate({ignore: [],});
+    $.extend( $.validator.messages, {
         required: "برجاء ملئ هذا الحقل",
         remote: "يرجى تصحيح هذا الحقل للمتابعة",
         email: "رجاء إدخال عنوان بريد إلكتروني صحيح",
@@ -19,28 +19,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
         max: $.validator.format( "رجاء إدخال عدد أقل من أو يساوي {0}" ),
         min: $.validator.format( "رجاء إدخال عدد أكبر من أو يساوي {0}" )
     });
+    Fancybox.bind("[data-fancybox]", {});
+    Fancybox.bind("img.data-fancybox", {});
+    Fancybox.bind(".data-fancybox img", {});
+    $('.alert-click-hide').on('click', function() {
+        $(this).fadeOut();
+    });
+    toastr.options = {progressBar:true,preventDuplicates:true,newestOnTop:true,positionClass:'toast-top-left',timeOut:10000}
+    let smart_alert = toastr;
+    var favicon = new Favico({
+        bgColor: '#dc0000',
+        textColor: '#fff',
+        animation: 'slide',
+        fontStyle: 'bold',
+        fontFamily: 'sans',
+        type: 'circle'
+    });
 });
-Fancybox.bind("[data-fancybox]", {});
-Fancybox.bind("img.data-fancybox", {});
-Fancybox.bind(".data-fancybox img", {});
-$('.asideToggle').on('click', function() {
-    $('.aside').toggleClass('active');
-    $('.aside').toggleClass('in-active');
-    $('.main-content').toggleClass('active');
-    $('.main-content').toggleClass('in-active');
-});
-
-var getUrl = window.location;
-$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.item-container').addClass('active');
-$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.sub-item').addClass('active');
-$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").closest('.item').find('.sub-item').find("a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "']").addClass('active');
-$(".aside a[href='" + getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" +getUrl.pathname.split('/')[2] + "'] >div").addClass('active');
-$(".aside a[href='" + window.location.href + "'] >div").addClass('active');
-$(".aside a[href='" + window.location.href + "']").addClass('active');
-
-
-$('.alert-click-hide').on('click', function() {
-    $(this).fadeOut();
-});
-toastr.options = {progressBar:true,preventDuplicates:true,newestOnTop:true,positionClass:'toast-top-left',timeOut:10000}
-let smart_alert = toastr;

@@ -16,7 +16,7 @@ class FrontController extends Controller
     
     public function index(Request $request)
     {
-        return view('front.index');
+        return view('front.index2');
     }
     
     public function comment_post(Request $request)

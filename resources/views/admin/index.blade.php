@@ -159,8 +159,3 @@
 <livewire:dashboard-statistics />
 </div>
 @endsection
-@push('scripts')
-<script type="text/javascript">
-	$('#home-dashboard-divider').css('width','40%');
-</script>
-@endpush

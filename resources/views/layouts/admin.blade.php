@@ -4,24 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-{{--     <link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap.rtl.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/pace-theme-default.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/toastr.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/fancybox.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/cust-fonts.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/fontawsome.min.css')}}" >
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/responsive-fonts.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/fileuploader-jquery.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-dashboard.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/main-basic.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/flag-icons.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/select2.min.css')}}" >
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/select2-bootstrap-5-theme.rtl.min.css')}}" > --}}
-
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/css/dir-ltr.css')}}"> --}}
- 
-    <link rel="stylesheet" type="text/css" href="{{mix('/css/dashboard-all-mixed.css')}}">
+    @vite('resources/css/dashboard.css')
+    @vite('resources/js/dashboard.js')
 
     <style type="text/css">
         html{
@@ -531,65 +515,11 @@
         </div>
     </div>
 
-
-{{-- 
-    <script src="{{asset('/js/jquery-3.6.1.min.js')}}"></script>
-    <script src="{{asset('/js/fancybox.umd.js')}}"></script>
-    <script src="{{asset('/js/fancybox.umd.js')}}"></script>
-    <script src="{{asset('/js/toastr.min.js')}}"></script>
-    <script src="{{asset('/js/pace-1.2.4.min.js')}}"></script>
-    <script src="{{asset('/js/bootstrap.bundle.min.js')}}" ></script>
-    <script src="{{asset('/js/select2-4.1.0.min.js')}}"></script>
-    <script src="{{asset('/js/jquery.fileuploader.min.js')}}"></script>
-    <script src="{{asset('/js/validatorjs.min.js')}}"></script>
-    <script src="{{asset('/js/favicon_notification.js')}}"></script>
-    <script src="{{asset('/js/main.js')}}"></script>
- --}}
-    <script type="text/javascript" src="{{mix('/js/dashboard-all-mixed.js')}}"></script>
-
-    <script type="text/javascript">
-        $('input[required],select[required],textarea[required]').parent().parent().find('>div:nth-of-type(1)').append('<span style="color:red;font-size:16px">*</span>');
-        $("[name='title'],[name='slug'],[name='meta_description']").on('keypress',function(){
-            $(this).parent().find('.last_appended_counter').remove();
-            $(this).parent().append('<div class="col-12 p-2 last_appended_counter"><span class="d-inline-block" style="font-size:13px">عدد الحروف <span style="font-weight:bolder;color:#007469;font-size:15px">'+$(this).val().length+'</span> حرفاً</span></div>');
-        });
-
-        $("[name='title'],[name='slug'],[name='description_ar'],[name='description_en'],[name='meta_description']").append(function(){
-            $(this).parent().find('.last_appended_counter').remove();
-            $(this).parent().append('<div class="col-12 p-2 last_appended_counter"><span class="d-inline-block" style="font-size:13px">عدد الحروف <span style="font-weight:bolder;color:#007469;font-size:15px">'+$(this).val().length+'</span> حرفاً</span></div>');
-        }); 
-        $(document).ready(function() {
-            $('.select2-select').select2();
-        });
-        setTimeout(function(){
-            $('#loading-image-container').fadeOut();
-        },500);
-        $('input[type="file"]').on('change',function(e){ 
-            $('#upload_'+$(this).attr('rand_key')).remove();
-            var rand_key = (Math.random() + 1).toString(36).substring(7);
-            $(this).attr('rand_key',rand_key);
-            if(e.target.files.length){
-                $(this).attr('rand_key',rand_key);
-                $('<div class="col-12 py-2 px-0" id="upload_'+rand_key+'"></div>').insertAfter(this);
-                $.each(e.target.files,(key,value)=>{
-                    $('#upload_'+rand_key).append('<div class="row d-flex m-0   btn" style="border:1px solid rgb(136 136 136 / 17%);max-width: 100%;padding: 5px;width: 220px;background: rgb(142 142 142 / 6%);margin-bottom:10px!important"><div style="max-height: 35px;overflow: hidden;display:flex;flex-flow: nowrap;" class="p-0 align-items-center">\
-                        <span class="d-inline-block font-small " style="line-height: 1.2;opacity: 0.7;border-radius: 12px;overflow:hidden;width:71px">\
-                            <span class="fal fa-cloud-download p-2 font-2 me-2" style="background:rgb(129 129 129 / 24%);border-radius: 12px;"></span>\
-                        </span>\
-                        <span style="direction: ltr;position: relative;top: -2px;height:14px;overflow:hidden" class="d-inline-block naskh font-small"> '+value.name+' </span>\
-                            <span class="d-inline-block font-small px-2" style="position: relative;font-weight: bold;"> '+(Math.round(value.size/1000000 * 100) / 100).toFixed(2)+'M </span>\
-                        </div>\
-                    </div>')});
-            }
-        });
-        $('.item-container').on('click',function(){
-            $(this).siblings().find('.sub-item').slideToggle('fast');
-        });
-        /*$('.item').add*/
-    </script>
+ 
     @livewireScripts
     @include('layouts.scripts')
     @yield('scripts')
     @stack('scripts')
+
 </body>
 </html>
