@@ -1,8 +1,8 @@
-<footer class="bg-soft-primary pt-5">
+<footer class="bg-soft-primary pt-5" id="footer">
   <div class="container">
     <div class="row">
       <div class="col-xl-11 col-xxl-10 mx-auto">
-        <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5" style="background:{{$settings['main_color']}}">
+        <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5 footer-cta" style="background:{{$settings['main_color']}}">
           <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
             <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">كن ايجابيا وساعد في تطوير اللوحة أكثر في كل مرة تستخدمها في مشروع جديد.</h3>
             <a href="https://www.paypal.me/nafezlycom" class="btn btn-white rounded-pill mb-0 text-nowrap">قدم مساعدة</a>
@@ -40,7 +40,7 @@
               @foreach($footer_menu->links as $link)
               <div class="col-auto d-flex align-items-center p-0 mx-1 " >
                   <a href="{{$link->url}}" class="d-flex align-items-center p-1 rounded" style="color: inherit;">
-                      <span class="{{$link->icon}} ms-1"></span> {{$link->title}}
+                      <span class="{{$link->icon}} mx-1"></span> {{$link->title}}
                   </a>
               </div>
               @endforeach

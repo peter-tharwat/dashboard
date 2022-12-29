@@ -1,10 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite && vite --config vite.config.dashboard.js",
-        "prod": "vite build && vite build --config vite.config.dashboard.js",
-        "build": "vite build && vite build --config vite.config.dashboard.js",
-        "preview": "vite preview && vite build --config vite.config.dashboard.js "
+        "dev": "vite ",
+        "prod": "vite build",
+        "build": "vite build",
+        "preview": "vite preview "
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",

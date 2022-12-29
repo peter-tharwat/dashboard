@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('styles')
 <style type="text/css">
 	.hero-image {
 		background-image:url('https://demo.ar-themes.com/bahr7/wp-content/uploads/sites/57/2020/09/26.06.2019-fut-1.jpg');
@@ -28,6 +28,20 @@
 	    height: 100%;
 	    top:0px;
 	}
+	.category-section::after{
+		transition:all 0.2s ease-in-out;
+		background: #000;
+	    opacity: 0.4;
+	    pointer-events: none;
+	    position: absolute;
+	    content: '';
+	    width: 100%;
+	    height: 100%;
+	    top:0px;
+	}
+	.category-section:hover::after{
+		opacity:0.3!important;
+	}
 	.position-relative-inner *{
 		position:relative;
 	}
@@ -45,10 +59,16 @@
 	body{
 		background:#fff!important;
 	}
+	.footer-cta{
+		display:none;
+	}
+	#footer{
+		padding-top:60px!important;
+	}
 </style>
+@endsection
+@section('content')
 <div class="blog-style">
-	 
-
 <div class="col-12 p-0 " style="height:400px;position: relative;">
 	<div class="col-12 hero-image"></div>
 	<div class="col-12 p-2 position-relative-inner d-flex align-items-center justify-content-center h-100" >
@@ -64,10 +84,31 @@
 		</div>
 	</div>
 </div>
-
-
-<div class="col-12 p-12">
+<div class="col-12 py-12 p-0">
+	<div class="container p-0">
+		
 	
+	<div class="col-12 p-3 row d-flex">
+		<div class="col-12 text-center display-4 mb-12">
+			الأقسام
+		</div>
+		@php
+		$categories = \App\Models\Category::orderBy('id','DESC')->get();
+		@endphp
+		@foreach($categories as $category)
+		<div class="col-12 col-md-6 col-lg-4 p-2 my-lg-3 ">
+			<a href="{{route('category.show',$category)}}">
+			<div class="col-12 p-0 category-section position-relative d-flex align-items-center justify-content-center font-3 font-lg-5 rounded" style="height:200px;overflow: hidden;">
+				<div style="background-image:url('{{$category->image()}}');padding: 20px;height: 100%;background-size: cover;background-position: center;border-radius: 8px;color: #fff;width: 100%;position: absolute;"></div>
+				<div style="z-index:1;color:#fff;font-weight:bold;">{{$category->title}}</div>
+			</div>
+			</a>
+		</div>
+		@endforeach
+
+
+	</div>
+	</div>
 </div>
 </div>
 @endsection

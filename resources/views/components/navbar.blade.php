@@ -23,7 +23,7 @@
                     @foreach($menu->links as $link)
                     <div class="col-auto  d-none d-lg-flex align-items-center p-0 mx-1 " >
                         <a href="{{$link->url}}" class="d-flex align-items-center py-2 px-3 top-navbar-link rounded" style="color: inherit;">
-                            <span class="{{$link->icon}} ms-1"></span> {{$link->title}}
+                            <span class="{{$link->icon}} mx-1"></span> {{$link->title}}
                         </a>
                     </div>
                     @endforeach
