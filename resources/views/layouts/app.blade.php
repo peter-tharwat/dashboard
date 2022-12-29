@@ -67,7 +67,7 @@
     @livewireScripts
     @include('layouts.scripts')
     @auth
-    <script type="text/javascript">
+    <script type="module">
         function get_website_title(){
             return $('meta[name="title"]').attr('content');
         }
