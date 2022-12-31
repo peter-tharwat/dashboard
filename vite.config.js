@@ -14,7 +14,7 @@ export default defineConfig({
             refresh: true,
         }),
         htmlPurge({
-            content: ['./resources/**/*.php']
+            content: ['./resources/**/*.php','./public/css/fancybox.css']
         }),
         
     ]
