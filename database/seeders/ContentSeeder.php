@@ -45,7 +45,9 @@ class ContentSeeder extends Seeder
             $image = $category->addMediaFromUrl("https://loremflickr.com/700/500/nature")->toMediaCollection('image');
             $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
+
         $this->command->info("Sleeping For 5 Seconds!");
+        sleep(5);
 
         for($i =0 ; $i<$articles_count ;$i++){
             $this->command->info("creating article with title ".$faker->realText(50));
@@ -55,8 +57,6 @@ class ContentSeeder extends Seeder
                 'title'=>$faker->realText(50),
                 'description'=>$faker->realText(10000)
             ]);
-
-            $article->categories()->sync($category->id);
             $main_image = $article->addMediaFromUrl("https://loremflickr.com/700/500/nature")->toMediaCollection('main_image');
             $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
             $article->categories()->sync(\App\Models\Category::inRandomOrder()->first()->id);
