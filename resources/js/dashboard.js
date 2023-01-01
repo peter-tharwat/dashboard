@@ -3,7 +3,8 @@ import favico from 'favico.js';
 import toastr from 'toastr';
 import { Fancybox } from "@fancyapps/ui";
 import select2 from 'select2';
-select2();
+import validate from 'jquery-validation'
+
 
 window.$ = $;
 window.Favico= favico;
@@ -11,7 +12,11 @@ window.toastr= toastr;
 window.Fancybox= Fancybox;
 
 
-import 'jquery-validation';
+select2();
+validate();
+
+
+
 import '/public/js/bootstrap.bundle.min.js';
 import '/public/js/main.js';
 import '/public/js/main-dashboard.js';

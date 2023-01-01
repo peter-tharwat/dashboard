@@ -1,8 +1,8 @@
-@import "../../public/css/bootstrap.502.rtl.min.css";
-@import "../../public/css/cust-fonts.css";
-@import "../../public/css/fontawsome.min.css";
-@import "../../public/css/responsive-fonts.css";
-@import "../../public/css/main-dashboard.css";
+@import "/public/css/bootstrap.502.rtl.min.css";
+@import "/public/css/cust-fonts.css";
+@import "/public/css/fontawsome.min.css";
+@import "/public/css/responsive-fonts.css";
+@import "/public/css/main-dashboard.css";
 
 /* purgecss start ignore */
 
