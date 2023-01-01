@@ -45,9 +45,10 @@ class ContentSeeder extends Seeder
             $image = $category->addMediaFromUrl("https://loremflickr.com/700/500/nature")->toMediaCollection('image');
             $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        
+        $this->command->info("Sleeping For 5 Seconds!");
+
         for($i =0 ; $i<$articles_count ;$i++){
-            $this->command->info("creating ".$i);
+            $this->command->info("creating article with title ".$faker->realText(50));
             $article = \App\Models\Article::create([
                 'user_id'=>\App\Models\User::firstOrFail()->id,
                 'slug'=>uniqid().rand(1,10000),
