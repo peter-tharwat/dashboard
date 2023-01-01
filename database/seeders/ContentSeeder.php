@@ -56,7 +56,7 @@ class ContentSeeder extends Seeder
             ]);
 
             $article->categories()->sync($category->id);
-            $main_image = $article->addMediaFromUrl("https://loremflickr.com/700/500/nature")->toMediaCollection('image');
+            $main_image = $article->addMediaFromUrl("https://loremflickr.com/700/500/nature")->toMediaCollection('main_image');
             $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
             $article->categories()->sync(\App\Models\Category::inRandomOrder()->first()->id);
         } 

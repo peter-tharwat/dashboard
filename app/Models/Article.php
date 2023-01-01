@@ -31,7 +31,7 @@ class Article extends Model implements HasMedia
     public function comments(){
         return $this->hasMany(\App\Models\ArticleComment::class,'article_id');
     }
-    public function main_image($type=null){
+    public function main_image($type='thumb'){
         if($this->main_image==null)
             return env('DEFAULT_IMAGE');
         else
