@@ -20,7 +20,7 @@
     height: 100vh;
     z-index: 6000;
     background: var(--bg-main);
-    transition: .2s ease-in-out;
+    transition: all 0.35s ease;
     margin-inline-start: -330px;
     top: 0px;
     overflow: hidden;

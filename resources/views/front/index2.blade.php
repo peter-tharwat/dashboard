@@ -96,12 +96,12 @@
 	<div class="container p-0">
 		
 	
-	<div class="col-12 p-3 row d-flex">
+	<div class="col-12 p-3 row d-flex justify-content-center">
 		<div class="col-12 text-center display-4 mb-12">
 			الأقسام
 		</div>
 		@php
-		$categories = \App\Models\Category::orderBy('id','DESC')->get();
+		$categories = \App\Models\Category::orderBy('id','ASC')->get();
 		@endphp
 		@foreach($categories as $category)
 		<div class="col-12 col-md-6 col-lg-4 p-2 my-lg-3 ">

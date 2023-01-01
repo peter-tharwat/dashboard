@@ -42,6 +42,12 @@
             --main-color-flexable: #15202b;
             --scroll-bar-color: #505050;
         }
+        .pagination{
+            direction:ltr;
+        }
+        .pagination .page-link{
+            width:70px;
+        }
     </style>
     @yield('styles')
 </head>

@@ -26,14 +26,14 @@
     <section class="wrapper bg-light">
               <div class="container py-14 py-md-16">
                 <div class="row">
-                  <div class="col-xl-10 mx-auto">
+                  <div class="col-xl-8 mx-auto">
                      
-                    <div class="col-12 py-4">
+                    {{-- <div class="col-12 py-4">
                         {!!$settings['contact_page']!!}
-                    </div>
-                    <div class="row gy-10 gx-lg-8 gx-xl-12">
+                    </div> --}}
+                    <div class="row m-0">
 
-                      <div class="col-lg-8">
+                      <div class="col-lg-12">
 
                          <form class="" method="POST" action="{{route('contact-post')}}" id="contact-form">
                           <input type="hidden" name="recaptcha" id="recaptcha">
