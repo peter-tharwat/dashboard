@@ -52,6 +52,21 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
+	 				مكان الاعلان
+	 			</div>
+	 			<div class="col-9 px-2" >
+	 				<select class="form-control" name="location" required>
+	 					<option disabled hidden selected value>اختر مكان الاعلان</option>
+	 					<option value="HOME" {{old('location',$announcement??"")=="HOME"?"selected":""}}>الرئيسية</option>
+	 					<option value="TOP" {{old('location',$announcement??"")=="TOP"?"selected":""}}>أعلى الموقع</option>
+	 					<option value="ASIDE" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>القائمة الجانبية</option>
+	 					<option value="FOOTER" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>تذييل الموقع</option>
+	 					<option value="POPUP" {{old('location',$announcement??"")=="POPUP"?"selected":""}}>النافذة المنبثقة</option>
+	 				</select>
+	 			</div> 
+	 		</div>
+	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
+	 			<div class="col-3 px-2 text-start pt-1">
 	 				فتح الرابط في نافذة جديدة
 	 			</div>
 	 			<div class="col-9 px-2" >

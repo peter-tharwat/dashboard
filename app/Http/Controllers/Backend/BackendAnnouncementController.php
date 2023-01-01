@@ -24,7 +24,6 @@ class BackendAnnouncementController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->user()->can('announcements-read'))abort(403);
 
         $announcements=Announcement::where(function($q)use($request){
             if($request->id!=null)
@@ -43,7 +42,6 @@ class BackendAnnouncementController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->can('announcements-create'))abort(403);
         return view('admin.announcements.create');
     }
 
@@ -55,13 +53,13 @@ class BackendAnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->user()->can('announcements-create'))abort(403);
         $announcement= Announcement::create([
             'title'=>$request->title,
             'description'=>$request->description,
             'start_date'=>$request->start_date,
             'end_date'=>$request->end_date,
             'url'=>$request->url,
+            'location'=>$request->location,
             'open_url_in'=>$request->open_url_in=="NEW_WINDOW"?"NEW_WINDOW":"CURRENT_WINDOW",
         ]);
 
@@ -82,7 +80,7 @@ class BackendAnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        if(!auth()->user()->can('announcements-read'))abort(403);
+        
     }
 
     /**
@@ -93,7 +91,6 @@ class BackendAnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        if(!auth()->user()->can('announcements-update'))abort(403);
         return view('admin.announcements.edit',compact('announcement'));
     }
 
@@ -106,13 +103,13 @@ class BackendAnnouncementController extends Controller
      */
     public function update(Request $request, Announcement $announcement)
     {
-        if(!auth()->user()->can('announcements-update'))abort(403);
         $announcement->update([
             'title'=>$request->title,
             'description'=>$request->description,
             'start_date'=>$request->start_date,
             'end_date'=>$request->end_date,
             'url'=>$request->url,
+            'location'=>$request->location,
             'open_url_in'=>$request->open_url_in=="NEW_WINDOW"?"NEW_WINDOW":"CURRENT_WINDOW",
         ]);
         if($request->hasFile('image')){
@@ -131,7 +128,6 @@ class BackendAnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        if(!auth()->user()->can('announcements-delete'))abort(403);
         $announcement->delete();
         toastr()->success(__('utils/toastr.destroy_success_message'));
         return redirect()->route('admin.announcements.index');

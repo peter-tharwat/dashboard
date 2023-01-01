@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('end_date')->nullable();
             $table->string('url')->nullable();
             $table->string('image')->nullable();
+            $table->string('location')->nullable();
             $table->string('open_url_in')->default('NEW_WINDOW'); // NEW_WINDOW,CURRENT_WINDOW
             $table->timestamps();
         });
