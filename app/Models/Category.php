@@ -29,11 +29,11 @@ class Category extends Model implements HasMedia
     public function articles(){
         return $this->belongsToMany(\App\Models\Article::class,'article_categories');
     }
-    public function image(){
+    public function image($type='thumb'){
         if($this->image==null)
             return env('DEFAULT_IMAGE');
         else
-            return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->image,'thumb');
+            return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->image,$type);
     }
     public function registerMediaConversions(Media $media = null): void
     {

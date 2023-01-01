@@ -28,25 +28,25 @@
 			@foreach($plugins as $plugin)
 			<div class="col-12 col-md-6 col-lg-4 col-xxl-3 p-2 my-3">
 				<div class="col-12 main-box p-3 text-center">
-					<div class="col-12 p-1">
+					<div class="col-12 p-1 text-center">
 						<span class="{{$plugin->get('icon')}} font-10 my-3" style="color:{{$plugin->get('color')}}"></span>
 					</div>
 					<div class="col-12 p-0">
-						<div class="col-12 p-0 font-2" style="font-weight:bold">
+						<div class="col-12 p-0 font-2 text-center" style="font-weight:bold">
 							@if($plugin->isEnabled()) <span class="fas fa-check-circle text-success"></span> @endif {{$plugin->get('title')}}
 						</div>
-						<div class="col-12 px-0 py-3" style="text-align: justify;">
+						<div class="col-12 px-0 py-3 text-center" style="text-align: justify;">
 							{{$plugin->get('description')}}
 						</div>
 						<div class="col-12 px-0 py-3 text-center row" style="text-align: justify;">
 							@if($plugin->isEnabled())
-							<form method="POST" action="{{route('admin.plugins.deactivate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1">@csrf
+							<form method="POST" action="{{route('admin.plugins.deactivate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1 text-center">@csrf
 								<button class="btn btn-outline-warning rounded-0 px-4" onclick="var result = confirm('هل أنت متأكد من عملية إلغاء تفعيل الإضافة؟');if(result){}else{event.preventDefault()}">
 									الغاء تفعيل الإضافة
 								</button>
 							</form>
 							@else
-							<form method="POST" action="{{route('admin.plugins.activate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1">@csrf
+							<form method="POST" action="{{route('admin.plugins.activate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1 text-center">@csrf
 								<button class="btn btn-outline-success rounded-0 px-4" onclick="var result = confirm('هل أنت متأكد من عملية تفعيل الإضافة؟');if(result){}else{event.preventDefault()}">
 									تفعيل الإضافة
 								</button>
