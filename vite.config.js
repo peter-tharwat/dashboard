@@ -14,7 +14,12 @@ export default defineConfig({
             refresh: true,
         }),
         htmlPurge({
-            content: ['./resources/**/*.php','./public/css/fancybox.css']
+            content: [
+            './resources/**/*.php',
+            './public/css/fancybox.css',
+            './public/css/select2.min.css',
+            './public/css/select2-bootstrap-5-theme.rtl.min.css'
+            ]
         }),
         
     ]

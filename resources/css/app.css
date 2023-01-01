@@ -1,9 +1,9 @@
-@import "../../public/css/bootstrap-5.2.3.min.css";
-@import "../../public/css/cust-fonts.css";
-@import "../../public/css/fontawsome.min.css";
-@import "../../public/css/responsive-fonts.css";
-@import "../../public/assets/css/style.css";
-@import "../../public/assets/css/plugins.css";
+@import "/public/css/bootstrap-5.2.3.min.css";
+@import "/public/css/cust-fonts.css";
+@import "/public/css/fontawsome.min.css";
+@import "/public/css/responsive-fonts.css";
+@import "/public/assets/css/style.css";
+@import "/public/assets/css/plugins.css";
 
 /* purgecss start ignore */
 /*main-basic*/

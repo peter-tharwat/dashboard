@@ -8,7 +8,7 @@
 
     tinymce.init({
         selector: '.editor,#editor',
-        plugins: ' advlist image media autolink code codesample directionality table wordcount quickbars link lists numlist bullist',
+        plugins: ' advlist image media autolink code codesample directionality table wordcount quickbars link lists',
         images_upload_url:"{{route('admin.upload.image',['_token' => csrf_token() ])}}&temp_file_selector="+temp_file_selector,
         file_picker_types: 'file image media',
         image_caption: true,
