@@ -15,7 +15,7 @@
 @endsection
 @section('after-body')
 <button data-bs-toggle="modal" data-bs-target="#changeAvatar" id="changeAvatarBtn" class="d-none"></button>
-<div class="modal fade" id="changeAvatar" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
+<div class="modal fade " id="changeAvatar" tabindex="-1" aria-labelledby="changeAvatarLabel" aria-hidden="true">
   <div class="modal-dialog" style="width:394px;max-width: 100%">
     <div class="modal-content">
       <div class="modal-header">
