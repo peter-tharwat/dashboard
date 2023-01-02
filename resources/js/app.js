@@ -4,7 +4,7 @@ import toastr from 'toastr';
 import { Fancybox } from "@fancyapps/ui";
 
 import '/public/js/bootstrap.bundle.min.js';
-import '/public/js/validatorjs.min.js';
+/*import '/public/js/validatorjs.min.js';*/
 import '/public/js/main.js';
 /*import '/public/assets/js/theme.js';
 import '/public/assets/js/plugins.js';*/
