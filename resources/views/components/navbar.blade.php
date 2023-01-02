@@ -10,7 +10,7 @@
             </div>
             <div class="col-auto d-flex align-items-center px-1 py-2">
                 <a href="/">
-                    <img src="{{$settings['get_website_wide_logo']}}" style="width: 105px;" alt="لوجو موقع نفذلي" id="nafezly-logo">
+                    <img src="{{$settings['get_website_wide_logo']}}" style="width: 105px;" alt="{{$settings['website_name']}}" >
                 </a>
             </div>
             <div class="col me-auto p-0 row justify-content-between d-flex">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 55px;height: 55px;" >
                         <div style="width: 55px;height: 55px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
-                            <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;">
+                            <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;" alt="{{auth()->user()->name}}">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0 py-2" aria-labelledby="dropdownMenuButton1" style="top: -3px;">
                                 <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
