@@ -313,7 +313,6 @@ $flat_colors = collect([
     @section('scripts')
     @can('admin-analytics-read')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script type="text/javascript">
 
         new Chart(document.getElementById('traffics-chart').getContext('2d'), {
