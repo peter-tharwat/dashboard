@@ -7,6 +7,7 @@
         "preview": "vite preview "
     },
     "devDependencies": {
+        "@originjs/vite-plugin-commonjs": "^1.0.3",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.0",
         "alpinejs": "^2.7.3",
@@ -24,6 +25,7 @@
     "dependencies": {
         "@fancyapps/ui": "^4.0.31",
         "bootstrap": "^5.2.3",
+        "croppie": "^2.6.5",
         "favico.js": "^0.3.10",
         "install": "^0.13.0",
         "jquery": "^3.6.1",

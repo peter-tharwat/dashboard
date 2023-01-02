@@ -214,10 +214,12 @@
 </div>
 @endsection
 @section('scripts')
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.js"></script>
-<script type="text/javascript">
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.js"></script>
+<script type="module">
 $(document).ready(function() { 
+    //$('body').css({'background':"#333"});
+
+
         var $uploadCrop = $('#avatar-image-selector').croppie({
             aspectRatio:1,
             viewport: {

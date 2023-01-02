@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/dashboard.css')
-    @vite('resources/js/dashboard.js')
+    
 
     <style type="text/css">
         html{
@@ -515,7 +515,7 @@
         </div>
     </div>
 
- 
+    @vite('resources/js/dashboard.js')
     @livewireScripts
     @include('layouts.scripts')
     @yield('scripts')

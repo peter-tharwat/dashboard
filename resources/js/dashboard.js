@@ -1,20 +1,17 @@
 import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+
 import favico from 'favico.js';
 import toastr from 'toastr';
 import { Fancybox } from "@fancyapps/ui";
 import select2 from 'select2';
-import validate from 'jquery-validation'
+/*import validate from 'jquery-validation';*/
 
-
-window.$ = $;
 window.Favico= favico;
 window.toastr= toastr;
 window.Fancybox= Fancybox;
-
-
 select2();
-validate();
-
 
 
 import '/public/js/bootstrap.bundle.min.js';
