@@ -19,7 +19,7 @@ class RateLimit
 
 
         if(auth()->check())
-            \App\Models\User::where('id',auth()->user()->id)->withoutTimestamps()->update(['last_activity'=>now()]);
+            \App\Models\User::where('id',auth()->user()->id)->update(['last_activity'=>now()]);
       
 
 

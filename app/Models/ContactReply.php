@@ -4,10 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Image\Manipulations;
 
-class ContactReply extends Model
+ 
+
+class ContactReply extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
+    
     protected $guarded=[];
     public function user()
     {

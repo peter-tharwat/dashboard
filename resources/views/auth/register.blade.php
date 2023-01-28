@@ -74,10 +74,10 @@
 
                         <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
-                                <label for="confirm_password" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px;border-radius: 3px!important">تأكيد كلمة المرور</label>
-                                <input id="confirm_password" type="password" class="form-control mt-2 d-inline-block @error('confirm_password') is-invalid @enderror" name="confirm_password" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" minlength="6" aria-invalid="true">
+                                <label for="password_confirmation" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px;border-radius: 3px!important">تأكيد كلمة المرور</label>
+                                <input id="password_confirmation" type="password" class="form-control mt-2 d-inline-block @error('password_confirmation') is-invalid @enderror" name="password_confirmation" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" minlength="6" aria-invalid="true">
                             </div>
-                            @error('confirm_password')
+                            @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
