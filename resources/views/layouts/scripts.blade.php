@@ -26,10 +26,12 @@
 
 @endif
 
+</script>
+<script type="module">
+toastr.options={"positionClass": "toast-top-left"};
 @if($errors->any())
     @foreach($errors->all() as $error)
         toastr.info("{{ $error }}");
     @endforeach
 @endif
-
 </script>

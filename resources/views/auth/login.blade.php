@@ -4,14 +4,6 @@
     #navbar{
         display: none;
     }
-    .form-control{
-        box-shadow: none!important;
-        font-size: 14px;
-    }
-    .form-control:focus{
-        border: 1px solid #0194fe!important;
-        background: rgb(1 148 254 / 4%)!important;
-    }
     .form-control.is-invalid, .was-validated .form-control:invalid {
         border-color: #dc3545!important;
         background-color: rgb(255 184 184 / 41%)!important;
@@ -21,20 +13,50 @@
         background-position: left calc(0.375em + 0.1875rem) center;
         background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
     }
+    body{
+        background:#fff!important;
+    }
 </style>
-<div class="col-12 p-0 row">
-    <div class="col-12 col-xxl-4 col-lg-6  mx-auto text-center p-0" style="">
-        <div class="col-12 p-4 align-items-center justify-content-center d-flex row" style="height:100vh">
-            <div class="col-12 p-3 p-lg-4" style="background:#fff;border-radius: 10px;">
-                    <form method="POST" action="{{ route('login') }}">
+
+<div class="container p-0">
+    <div class="col-12 p-0 row d-flex">
+        <div class="col-12 col-lg-6 text-center p-0" style="">
+            <div class="col-12 p-2 p-lg-4 align-items-center justify-content-center d-flex row" style="min-height:70vh">
+                <div class="col-12 p-3 p-lg-4" style="background:#fff;border-radius: 10px;">
+                    <form method="POST" action="{{ route('login') }}" class="row m-0">
                         @csrf
                        
                         <div class="col-12 p-0 mb-5 mt-3" style="width: 550px;max-width: 100%;margin: 0px auto;">
-                            <h3 class="mb-4 text-center font-4">{{ __('lang.login') }}</h3>
+                            <h3 class="mb-4 font-4">{{ __('lang.login') }}</h3>
                              
                         </div>
 
-                        <div class="form-group row mb-4 col-12   px-0 pt-2 ">
+                        
+
+                        @if(env('GOOGLE_CLIENT_ID')!=null)
+                        <div class="col-6 py-2 px-2">
+                            <div class="col-12 p-0">
+                                <a href="/login/google/redirect" style="border:2px solid #51c75b;color:inherit;box-shadow: 0px 6px 10px rgb(52 52 52 / 12%);" class="col-12 d-flex p-3 align-items-center justify-content-center btn">
+                                 دخول عبر <img src="/images/icons/google.png" style="width:30px" class="mx-2" />
+                                </a>
+                            </div>
+                        </div>
+                        @endif
+                        @if(env('FACEBOOK_CLIENT_ID')!=null)
+                        <div class="col-6 py-2 px-2">
+                            <div class="col-12 p-0">
+                                <a href="/login/facebook/redirect" style="border:2px solid #3f71cd;color:inherit;box-shadow: 0px 6px 10px rgb(52 52 52 / 12%);background: #3f71cd;color:#fff" class="col-12 d-flex p-3 align-items-center justify-content-center btn">
+                                 دخول عبر  <span class="fab fa-facebook-f mx-2" style="color:#fff"></span>
+                                </a>
+                            </div>
+                        </div>
+                        @endif
+                        
+
+                        <div class="nafezly-divider-right" style="    background-image: linear-gradient( 90deg,transparent,rgb(0 0 0/72%));right: auto;left: 10px;opacity: .1;margin: 14px 0;min-height: 2px;"></div>
+
+
+                        <div class="form-group row mb-4 col-12 col-lg-6   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
                                 <label for="email" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">البريد الالكتروني</label>
                                 <input id="email" type="email" class="form-control mt-2 d-inline-block @error('email') is-invalid @enderror" name="email" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" value="{{ old('email') }}">
@@ -46,7 +68,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group row mb-4 col-12   px-0 pt-2 ">
+                        <div class="form-group row mb-4 col-12 col-lg-6   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
                                 <label for="password" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px;border-radius: 3px!important">كلمة المرور</label>
                                 <input id="password" type="password" class="form-control mt-2 d-inline-block @error('password') is-invalid @enderror" name="password" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" minlength="6" aria-invalid="true">
@@ -57,6 +79,11 @@
                                 </span>
                             @enderror
                         </div>
+
+
+
+
+
 
                         <div class="col-12 p-0 row d-flex align-items-center">
                             <div class="col-12 col-lg-6 p-2">
@@ -73,7 +100,7 @@
                             <div class="col-12 col-lg-6 p-2 ">
                                 <div class="form-group row mb-0 ">
                                     <div class="col-12 p-0 d-flex justify-content-lg-end">
-                                        <button type="submit" class="btn btn-primary font-1">
+                                        <button type="submit" class="btn btn-success font-1">
                                             {{ __('lang.login') }}
                                         </button>
                                     </div>
@@ -82,8 +109,10 @@
                             </div>
                         </div>
                         
-                        <div class="nafezly-divider-right" style="    background-image: linear-gradient( 90deg,transparent,rgb(0 0 0/72%));right: auto;left: 10px;opacity: .1;margin: 14px 0;min-height: 2px;"></div>
+                        
 
+ 
+                        
 
                         <div class="col-12 px-4 py-2">
                             <div class="col-12 px-0 mb-2">
@@ -101,6 +130,16 @@
 
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 d-none d-lg-flex text-center p-0 d-flex align-items-center justify-content-center row position-relative" style="">
+            <div class="overlap-grid overlap-grid-2">
+                <div class="item mx-auto">
+                    <div class="shape bg-dot primary rellax w-16 h-20" data-rellax-speed="1" style="top: 3rem; left: 5.5rem"></div>
+                    <div class="col-12 p-0 align-items-center py-5 justify-content-center d-flex svg-animation" style="background-image: url('{{$settings['get_website_logo']}}');background-size: cover;padding-top: 57%;background-position: center;height: 342px;z-index: 1;position: relative;">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

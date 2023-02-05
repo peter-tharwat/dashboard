@@ -109,3 +109,250 @@
     border-width: 3px!important;
 
 }
+.pagination {
+    direction: ltr;
+}
+
+.pagination .page-link {
+    width: 70px;
+}
+
+.hero-image:after {
+    background: #000;
+    opacity: 0.6;
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+.category-section {
+    transition: 0.3s all ease-in-out;
+}
+
+.category-section:hover {
+    transform: translateY(-5px);
+    box-shadow: rgb(0 0 0 / 30%) 0 16px 16px 0;
+}
+
+.category-section::after {
+    transition: all 0.2s ease-in-out;
+    background: #000;
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0px;
+
+}
+
+.category-section:hover::after {
+    opacity: 0.3 !important;
+}
+
+.position-relative-inner * {
+    position: relative;
+}
+
+.blog-style input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1;
+    /* Firefox */
+}
+
+.blog-style .hero-search-btn {
+    top: 8px;
+    border-radius: 50%;
+    width: 55px;
+    padding: 0px;
+    height: 55px;
+}
+
+body {
+    background: #fff !important;
+}
+
+.footer-cta {
+    display: none;
+}
+
+#footer {
+    padding-top: 60px !important;
+}
+
+.main-nav.toper {
+    top: -70px !important;
+    background: #fff !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #2db05a !important;
+    color: #fff !important;
+}
+
+.btn-success {
+    background-color: #3bb95a !important;
+    border-color: #3bb95a !important;
+}
+
+.col-form-label {
+    color: #000 !important;
+}
+
+@keyframes svg-motion {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes svg-animation-small {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+
+.features-list i {
+    width: 50px;
+}
+
+.btn-white.btn-circle.ripple::after,
+.btn-white.btn-circle.ripple::before {
+    background: #51c75b;
+}
+
+.svg-animation {
+    animation: svg-motion 1.4s ease-in-out infinite alternate;
+    color: rgb(152, 102, 183);
+}
+
+.svg-animation-small {
+    animation: svg-animation-small 1.4s ease-in-out infinite alternate;
+    color: rgb(152, 102, 183);
+}
+
+
+.toast-message {
+    font-size: 15px !important;
+}
+
+.form-control:focus {
+    border: 1px solid #51c75b !important;
+    background: rgb(1 254 90 / 4%) !important;
+    box-shadow: none;
+}
+
+.form-control {
+    border-color: #2db05a;
+}
+
+.form-check-input {
+    border-color: #2db05a;
+}
+
+.form-check-input:checked {
+    background-color: #51c75b;
+    border-color: #51c75b;
+}
+
+.border-dashed {
+    border: 2px dashed #51c75b;
+}
+
+.border-solid {
+    border: 2px solid #51c75b;
+}
+
+a {
+    color: #3bb95a;
+}
+
+a:hover {
+    color: #009688;
+}
+
+/*.form-switch .form-check-input{
+        background-image:#ff9800!important;
+    }*/
+#toast-container>.toast-warning {
+    background-image: unset !important;
+}
+
+#toast-container>.toast-success {
+    background-image: unset !important;
+}
+
+.btn-outline-success {
+    color: #3bb95a;
+    border-color: #3bb95a;
+}
+
+.btn-outline-success:hover {
+    border-color: #3bb95a;
+}
+
+.grecaptcha-badge {
+    display: none;
+}
+
+.toast-message {
+    padding: 5px;
+}
+.toast-info{
+    background:#0194fe;
+}
+.toast-success{
+    background:var(--main-color);
+}
+.toast-danger,.toast-error{
+    background:#e53935;
+}
+
+
+.pagination {
+    box-shadow: none;
+}
+
+.bottom-0 {
+    bottom: 0px !important;
+}
+.form-control:focus {
+    border: 1px solid #ff9800 !important;
+    background: rgb(254 141 1 / 4%) !important;
+    box-shadow:none;
+}
+.form-control{
+    border-color:#ffc36a;
+}
+.form-check-input{
+    border-color:#ffc36a;
+}
+.form-check-input:checked {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+.border-dashed{
+    border:2px dashed #ff9800;
+}
+.border-solid{
+    border:2px solid #ff9800;
+}
+/*.form-switch .form-check-input{
+    background-image:#ff9800!important;
+}*/
+#toast-container>.toast-warning{
+    background-image:unset!important;
+}

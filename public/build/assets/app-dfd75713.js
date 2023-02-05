@@ -1,1 +1,0 @@
-import{$ as o,f as i,R as t,t as a}from"./main-07febffb.js";window.$=window.jQuery=o;window.Favico=i;window.Fancybox=t;window.toastr=a;new Favico({bgColor:"#dc0000",textColor:"#fff",animation:"slide",fontStyle:"bold",fontFamily:"sans",type:"circle"});

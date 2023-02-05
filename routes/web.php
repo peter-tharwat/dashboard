@@ -110,6 +110,11 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
 });
 
+Route::get('/login/google/redirect', [LoginController::class,'redirect_google']);
+Route::get('/login/google/callback', [LoginController::class,'callback_google']);
+Route::get('/login/facebook/redirect', [LoginController::class,'redirect_facebook']);
+Route::get('/login/facebook/callback', [LoginController::class,'callback_facebook']);
+
 
 Route::get('blocked',[BackendHelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[BackendHelperController::class,'robots']);

@@ -1,78 +1,64 @@
-<footer class="bg-soft-primary pt-5" id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-11 col-xxl-10 mx-auto">
-        <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400 mt-n50p mb-n5 footer-cta" style="background:{{$settings['main_color']}}">
-          <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
-            <h3 class="display-6 mb-6 mb-lg-0 pe-lg-15 pe-xxl-18 text-white">كن ايجابيا وساعد في تطوير اللوحة أكثر في كل مرة تستخدمها في مشروع جديد.</h3>
-            <a href="https://www.paypal.me/nafezlycom" class="btn btn-white rounded-pill mb-0 text-nowrap">قدم مساعدة</a>
-          </div>
-          <!--/.card-body -->
-        </div>
-        <!--/.card -->
-      </div>
-      <!-- /column -->
-    </div>
-    <!-- /.row -->
-  </div>
-  <div class="container pb-4 text-center">
+<footer class=" pt-5" style="background:#fff;border-top:1px solid #f1f1f1;">
+ 
+  <div class="container pb-12 text-center pt-12">
     <div class="row mt-n10 mt-lg-0">
-      <div class="col-xl-12 mx-auto">
-        <div class="row mb-5">
+      <div class="col-xl-10 mx-auto">
+        <div class="row mb-3 d-flex">
           <div class="col-md-6 mb-3">
             <div class="widget">
-              <img src="{{$settings['get_website_wide_logo']}}" style="width:160px;max-width:100%" class="mb-3">
-              <div class="widget-title">{{$settings['website_bio']}}</div>
+                <img src="{{$settings['get_website_wide_logo']}}" style="width:160px;max-width:100%" class="mb-3">
+              <div style="text-align:justify;">{{$settings['website_bio']}}</div>
             </div>
             <!-- /.widget -->
           </div>
-
-
-          
-          <!--/column -->
+   
           <div class="col-md-3 mb-3">
             <div class="widget">
-              <h4 class="widget-title">روابط</h4>
+              <div class="widget-title display-6 mb-5" >روابط</div>
+
               @php
               $footer_menu = \App\Models\Menu::where('location',"FOOTER")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
               @endphp
+
               @if($footer_menu !=null)
-              @foreach($footer_menu->links as $link)
-              <div class="col-auto d-flex align-items-center p-0 mx-1 " >
-                  <a href="{{$link->url}}" class="d-flex align-items-center p-1 rounded" style="color: inherit;">
-                      <span class="{{$link->icon}} mx-1"></span> {{$link->title}}
-                  </a>
-              </div>
-              @endforeach
+                @foreach($footer_menu->links as $link)
+                <div><a href="{{$link->url}}" class="link-body"><span class="{{$link->icon}} font-1 d-none" style="color: #0194fe;width: 15px"></span> {{$link->title}}</a></div>
+                @endforeach
               @endif
+          
+ 
             </div>
             <!-- /.widget -->
           </div>
-          <!--/column -->
+
           <div class="col-md-3 mb-3">
             <div class="widget">
-              <h4 class="widget-title">تابعنا</h4>
+              <div class="widget-title display-6 mb-5" >تابعنا</div>
+
               <nav class="nav social">
-                @if($settings['twitter_link']!=null)
-                <a href="{{$settings['twitter_link']}}"><i class="fab fa-twitter"></i></a>
-                @endif
-                @if($settings['facebook_link']!=null)
-                <a href="{{$settings['facebook_link']}}"><i class="fab fa-facebook-f"></i></a>
-                @endif
-                @if($settings['instagram_link']!=null)
-                <a href="{{$settings['instagram_link']}}"><i class="fab fa-instagram"></i></a>
-                @endif
-                @if($settings['youtube_link']!=null)
-                <a href="{{$settings['youtube_link']}}"><i class="fab fa-youtube"></i></a>
-                @endif
-              </nav>
+              @if($settings['twitter_link']!=null)
+              <a href="{{$settings['twitter_link']}}"><i class="fab fa-twitter"></i></a>
+              @endif
+              @if($settings['facebook_link']!=null)
+              <a href="{{$settings['facebook_link']}}"><i class="fab fa-facebook-f"></i></a>
+              @endif
+              @if($settings['instagram_link']!=null)
+              <a href="{{$settings['instagram_link']}}"><i class="fab fa-instagram"></i></a>
+              @endif
+              @if($settings['youtube_link']!=null)
+              <a href="{{$settings['youtube_link']}}"><i class="fab fa-youtube"></i></a>
+              @endif
+            </nav>
+          
+ 
             </div>
             <!-- /.widget -->
           </div>
+
           <!--/column -->
         </div>
         <!--/.row -->
-        <p class="text-center"> جميع الحقوق محفوظة © {{date('Y')}} {{$settings['website_name']}}   <a href="https://nafezly.com/u/Peter__Tharwat">Peter Ayoub</a></p>
+        {{-- <p class="text-center">جميع الحقوق محفوظة ©  موقع بيت التك {{date('Y')}} </p> --}}
         
         <!-- /.social -->
       </div>
@@ -82,3 +68,5 @@
   </div>
   <!-- /.container -->
 </footer>
+
+<div class="col-12" style="background-image: linear-gradient(to right, rgba(0,0,0,0.01) , rgba(0,0,0,0.01) );border-top:1px solid rgb(145 145 145 / 3%);display: flex; align-items: center;justify-content: center;direction: rtl;"> <div class="container "> <div class="col-12 row d-flex justify-content-between p-0"> <div class="col-12 text-center mt-1 mb-2 pt-3 pb-2 "> <p style="font-size: 14px;line-height: 1.8;margin:0px" class="my-0  kufi text-center"><span class="d-inline-block kufi"> جميع الحقوق محفوظة © {{$settings['website_name']}} {{date('Y')}} </span> <span class="d-inline-block kufi"> All rights reserved</span></p> </div> </div> </div> </div>

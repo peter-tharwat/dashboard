@@ -74,7 +74,7 @@
                             <!-- /column -->
                             <div class="col-12">
                               <input type="submit" class="btn btn-primary rounded-pill btn-send mb-3" value="ارسل رسالتك">
-                              <p class="text-muted"><strong>*</strong> الحقول هذه مطلوبة. (برجاء تفعيل Google ReCaptha في ملف .env)</p>
+                              <p class="text-muted"><strong>*</strong> الحقول هذه مطلوبة. @if(env('APP_ENV')=="local") (برجاء تفعيل Google ReCaptha في ملف .env)@endif</p>
                             </div>
                             <!-- /column -->
                           </div>

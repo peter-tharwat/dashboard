@@ -17,6 +17,7 @@ export default defineConfig({
             content: [
             './resources/**/*.php',
             './public/css/fancybox.css',
+            './public/vendor/**/*.css',
             './public/css/select2.min.css',
             './public/css/select2-bootstrap-5-theme.rtl.min.css',
             './public/css/croppie.min.css',

@@ -29,6 +29,7 @@
             --font-2: #555555;
             --border-color: #dddddd;
             --main-color: #0194fe;
+            --main-color-rgb: 1,148,254;
             --main-color-flexable: #0194fe;
             --scroll-bar-color: #d1d1d1;
         }
@@ -39,15 +40,11 @@
             --font-2: #e3e3e3;
             --border-color: #33343b;
             --main-color: #0194fe;
+            --main-color-rgb: 1,148,254;
             --main-color-flexable: #15202b;
             --scroll-bar-color: #505050;
         }
-        .pagination{
-            direction:ltr;
-        }
-        .pagination .page-link{
-            width:70px;
-        }
+        
     </style>
     @yield('styles')
 </head>
