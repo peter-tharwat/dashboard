@@ -63,7 +63,7 @@
                                 <x-notifications :notifications="$notifications" />
                             </div>
                             <div class="col-12 d-flex border-top" style="border-color: rgb(46 46 46 / 9%)!important;"> 
-                                <a href="{{route('admin.notifications.index')}}" class="d-block py-2 px-3 ">
+                                <a href="{{route('user.notifications')}}" class="d-block py-2 px-3 ">
                                     <div class="col-12 align-items-center">
                                       <span class="fal fa-bells"></span>  عرض كل الإشعارات
                                     </div>
@@ -76,21 +76,17 @@
                             <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;" alt="{{auth()->user()->name}}">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0 py-2" aria-labelledby="dropdownMenuButton1" style="top: -3px;">
-                                <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
-                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+                                <li><a class="dropdown-item font-1" href="{{route('user.dashboard')}}" ><span class="fal fa-sliders-h font-1" style="width: 20px;"></span> لوحة التحكم</a></li>
+                                <li><a class="dropdown-item font-1" href="{{route('user.support')}}"><span class="fal fa-comments-alt font-1" style="width: 20px;"></span> الدعم الفني</a></li>
 
-                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
-                                @can('hub-files-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> الملفات</a></li> 
-                                @endcan
-                                @can('traffics-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
-                                @endcan
-                                @can('error-reports-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
-                                @endcan
+                        
+
+                                <li><a class="dropdown-item font-1" href="{{route('user.profile.edit')}}"><span class="fal fa-wrench font-1" style="width: 20px;"></span> الاعدادات</a></li>
+
+                                <li><a class="dropdown-item font-1" href="{{route('user.notifications')}}"><span class="fal fa-bells font-1" style="width: 20px;"></span> الاشعارات</a></li> 
+                           
                                 <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
-                                <li><a class="dropdown-item font-1"  onclick="document.getElementById('logout-form').submit();" style="cursor:pointer;"><span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
+                                <li><a class="dropdown-item font-1"  onclick="document.getElementById('logout-form').submit();" style="cursor:pointer;"><span class="fal fa-sign-out-alt font-1" style="width: 20px;"></span> تسجيل خروج</a></li>
                         </ul>
 
                     </div>

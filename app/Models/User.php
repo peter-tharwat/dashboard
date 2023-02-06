@@ -109,5 +109,17 @@ class User extends Authenticatable implements HasMedia
 
     }
 
+    public function is_online(){
+        if($this->last_activity<\Carbon::now()->subMinutes(10)->format('Y-m-d H:i:s'))
+            return 0;return 1;
+        //return $this->last_activity;
+    }
+
+
+    public function item_seens()
+    {
+        return $this->hasMany(\App\Models\ItemSeen::class,'type_id','id')->where('type',"USER");
+    }
+
 
 }

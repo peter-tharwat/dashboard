@@ -32,12 +32,36 @@ use App\Http\Controllers\Backend\BackendPluginController;
 
 # Frontend Controllers
 use App\Http\Controllers\FrontController;
-
+use App\Http\Controllers\FrontendProfileController;
 
 Auth::routes();
 
+
+
+
+
 Route::get('/', [FrontController::class,'index'])->name('home');
 Route::get('/index2', function(){return view('front.index2');})->name('index2');
+
+
+
+Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->name('user.')->group(function () {
+    Route::get('/', [FrontendProfileController::class,'dashboard'])->name('dashboard');
+    Route::get('/support', [FrontendProfileController::class,'support'])->name('support');
+    Route::get('/support/create-ticket', [FrontendProfileController::class,'create_ticket'])->name('create-ticket');
+    Route::post('/support/create-ticket', [FrontendProfileController::class,'store_ticket'])->name('store-ticket');
+    Route::get('/support/{ticket}', [FrontendProfileController::class,'ticket'])->name('ticket');
+    Route::post('/support/{ticket}/reply', [FrontendProfileController::class,'reply_ticket'])->name('reply-ticket');
+    Route::get('/notifications', [FrontendProfileController::class,'notifications'])->name('notifications');
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/settings',[FrontendProfileController::class,'profile_edit'])->name('edit');
+        Route::put('/update',[FrontendProfileController::class,'profile_update'])->name('update');
+        Route::put('/update-password',[FrontendProfileController::class,'profile_update_password'])->name('update-password');
+        Route::put('/update-email',[FrontendProfileController::class,'profile_update_email'])->name('update-email');
+    });
+});
+
+
 
 #Route::get('/test',[BackendTestController::class,'test']);
 

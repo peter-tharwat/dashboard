@@ -47,7 +47,7 @@ class ContactReplyObserver
             \MainHelper::notify_user([
                 'user_id'=>$contactReply->contact->user_id,
                 'content'=>[$contactReply->content],
-                'action_url'=>route('admin.contacts.show',$contactReply->contact),
+                'action_url'=>$contactReply->contact->user_id == auth()->id()? route('user.ticket',$contactReply->contact):route('admin.contacts.show',$contactReply->contact),
                 'methods'=>env("MAIL_USERNAME")!=null?['database','mail']:['database'],
                 'btn_text'=>"عرض التذكرة"
             ]);
