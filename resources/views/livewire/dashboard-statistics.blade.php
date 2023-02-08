@@ -149,7 +149,7 @@ $flat_colors = collect([
                                       <span class="visually-hidden"></span>
                                     </div>
 
-                                    <span style="font-weight: bold;"><a href="{{route('admin.traffics.logs')}}">{{count($data['current_visitors'])}}</a></span>
+                                    <span style="font-weight: bold;"><a href="{{route('admin.traffics.logs')}}">{{$data['current_visitors']}}</a></span>
                                 </div>
                             </div>
                         </div>

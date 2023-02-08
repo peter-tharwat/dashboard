@@ -221,7 +221,7 @@ class DashboardStatistics extends Component
             if($this->user_id!=null)
                 $q->where('user_id',$this->user_id);
             
-        })->where('created_at','>',\Carbon::parse(now())->subMinutes(3)->format('Y-m-d H:i:s'))->groupBy('rate_limit_id')->get();
+        })->where('created_at','>',\Carbon::parse(now())->subMinutes(3)->format('Y-m-d H:i:s'))->groupBy('rate_limit_id')->groupby('rate_limit_id')->distinct('rate_limit_id')->count();
     }
 
 }
