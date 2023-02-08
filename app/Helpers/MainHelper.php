@@ -126,7 +126,7 @@ class MainHelper {
 
     public static function rate_limit_insert(){
         $ip=\UserSystemInfoHelper::get_ip();
-        $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addHours(6))->first();
+        $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addMinutes(3))->first();
         if($last_insert==null){
             $prev_url="";
             $prev_domain="";
