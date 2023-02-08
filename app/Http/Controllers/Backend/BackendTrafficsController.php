@@ -14,9 +14,30 @@ class BackendTrafficsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('can:traffics-read',   ['only' => ['logs', 'index','error_reports']]);
+        $this->middleware('can:traffics-read',   ['only' => ['logs', 'index','error_reports','links']]);
     }
+    public function links(Request $request){
+      $links = \App\Models\Link::orderBy('id','DESC')->paginate(50);
+      return view('admin.traffics.links',compact('links'));
+    }
+    public function details(Request $request){
+      $logs = RateLimitDetail::where(function($q)use($request){
 
+        if($request->rate_limit_id!=null)
+          $q->where('rate_limit_id',$request->rate_limit_id);
+
+        if($request->user_id!=null)
+          $q->where('user_id',$request->user_id);
+
+        if($request->url!=null)
+          $q->where('url','LIKE','%'.$request->url.'%');
+
+        if($request->ip!=null)
+          $q->whereHas('rate_limit',function($q)use($request){$q->where('ip',$request->ip);});
+
+      })->with(['rate_limit','user'])->where('url','NOT LIKE',"%manifest.json")->orderBy('id','DESC')->simplePaginate(50);
+      return view('admin.traffics.logs',compact('logs'));
+    }
     public function index(Request $request){
       if(!auth()->user()->can('traffics-read'))abort(403);
         $traffics=RateLimit::where(function($q)use($request){
@@ -38,10 +59,27 @@ class BackendTrafficsController extends Controller
 
         return view('admin.traffics.index',compact('traffics'));
     }
-    public function logs(Request $request,RateLimit $traffic){
+    public function show(Request $request,RateLimit $traffic){
+      return dd($traffic);
+    }
+    public function logs(Request $request){
       if(!auth()->user()->can('traffics-read'))abort(403);
-        $logs = RateLimitDetail::where('rate_limit_id',$traffic->id)->whereNull('user_id')->where('url','NOT LIKE',"%manifest.json")->orderBy('id','DESC')->simplePaginate(50);
-        return view('admin.traffics.logs',compact('logs'));
+      $logs = RateLimitDetail::where(function($q)use($request){
+
+        if($request->rate_limit_id!=null)
+          $q->where('rate_limit_id',$request->rate_limit_id);
+
+        if($request->user_id!=null)
+          $q->where('user_id',$request->user_id);
+
+        if($request->url!=null)
+          $q->where('url','LIKE','%'.$request->url.'%');
+
+        if($request->ip!=null)
+          $q->whereHas('rate_limit',function($q)use($request){$q->where('ip',$request->ip);});
+
+      })->with(['rate_limit','user'])->where('url','NOT LIKE',"%manifest.json")->orderBy('id','DESC')->simplePaginate(50);
+      return view('admin.traffics.logs',compact('logs'));
     }
     public function error_reports(Request $request){
       if(!auth()->user()->can('error-reports-read'))abort(403);

@@ -124,6 +124,54 @@ class MainHelper {
     }
     /*/src=[\"\'][^\'\']+[\"\']/*/
 
+    public static function rate_limit_insert(){
+        $ip=\UserSystemInfoHelper::get_ip();
+        $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addHours(6))->first();
+        if($last_insert==null){
+            $prev_url="";
+            $prev_domain="";
+            if(filter_var(url()->previous(), FILTER_VALIDATE_URL)) // is a valid url 
+            { 
+                $parsex= parse_url(url()->previous());
+                $prev_domain=$parsex['host'];  
+                $prev_domain="";
+                try{
+                    $prev_url= url()->previous();
+                    $prev_domain=$parsex['host'];
+                }catch(\Exception $e){
+
+                }   
+            }  
+            $country=(new UserSystemInfoHelper)->get_country_from_ip($ip);
+            $traffic= \App\Models\RateLimit::create([
+                'traffic_landing'=>\Request::fullUrl(),
+                'domain'=>$prev_domain,
+                'prev_link'=>$prev_url,
+                'ip'=>$ip,
+                'country_code'=>$country['country_code'],
+                'country_name'=>$country['country'],
+                'agent_name'=>request()->header('User-Agent'),
+                'user_id'=>auth()->check() ? auth()->user()->id : null ,
+                'browser'=>UserSystemInfoHelper::get_browsers(),
+                'device'=>UserSystemInfoHelper::get_device(),
+                'operating_system'=>UserSystemInfoHelper::get_os()
+            ]); 
+            \App\Models\RateLimitDetail::create([
+                'url'=>request()->fullUrl(),
+                'user_id'=> auth()->check() ? auth()->user()->id : null,
+                'rate_limit_id'=>$traffic->id
+            ]);
+            return $traffic;
+        }else{
+            \App\Models\RateLimitDetail::create([
+                'url'=>request()->fullUrl(),
+                'user_id'=> auth()->check() ? auth()->user()->id : null,
+                'rate_limit_id'=>$last_insert->id
+            ]);
+        }
+        return $last_insert;
+    }
+
     public static function focus_urls($string)
     {
          $url_regex = '~(http|ftp)s?://[a-z0-9.-]+\.[a-z]{2,7}(/\S*)?~i';
@@ -187,6 +235,12 @@ class MainHelper {
             }
         }
         return 1;
+    }
+    public static function get_validations($type="file"){
+        if($type=="file") 
+            return "3gp,7z,7zip,ai,apk,avi,bin,bmp,bz2,css,csv,doc,docx,egg,flv,gif,gz,h264,htm,html,ia,icns,ico,jpeg,jpg,m4v,markdown,md,mdb,mkv,mov,mp3,mp4,mpa,mpeg,mpg,mpga,octet-stream,odp,ods,odt,ogg,otf,pak,pdf,pea,png,pps,ppt,pptx,psd,rar,rm,rss,rtf,s7z,sql,svg,tar,targz,tbz2,tex,tgz,tif,tiff,tlz,ttf,vob,wav,webm,wma,wmv,xhtml,xlr,xls,xlsx,xml,z,zip,zipx,gif,png,jpeg,qt";
+        else if($type=="image")
+            return "jpeg,bmp,png,gif";
     }
 
 

@@ -515,6 +515,6 @@ a:hover {
     background-image:unset!important;
 }
 .user-menu a.active {
-    border-bottom:6px solid var(--main-color);
+    border-bottom:6px solid var(--main-color)!important;
 }
 /*! purgecss end ignore */

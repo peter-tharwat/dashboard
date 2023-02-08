@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            الرابط عربي
+                            الرابط
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug')}}">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            العنوان عربي
+                            العنوان
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="title" required maxlength="190" class="form-control" value="{{old('title')}}">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-12  p-2">
                         <div class="col-12">
-                            الوصف عربي
+                            الوصف
                         </div>
                         <div class="col-12 pt-3">
                             <textarea name="description" class="editor with-file-explorer">{{old('description')}}</textarea>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-12 p-2">
                         <div class="col-12">
-                            ميتا الوصف عربي
+                            ميتا الوصف
                         </div>
                         <div class="col-12 pt-3">
                             <textarea name="meta_description" class="form-control" style="min-height:150px">{{old('meta_description')}}</textarea>

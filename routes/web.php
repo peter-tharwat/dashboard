@@ -91,7 +91,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('categories',BackendCategoryController::class);
         Route::resource('redirections',BackendRedirectionController::class);
         Route::get('traffics',[BackendTrafficsController::class,'index'])->name('traffics.index');
-        Route::get('traffics/{traffic}/logs',[BackendTrafficsController::class,'logs'])->name('traffics.logs');
+        Route::get('traffics/logs',[BackendTrafficsController::class,'logs'])->name('traffics.logs');
         Route::get('error-reports',[BackendTrafficsController::class,'error_reports'])->name('traffics.error-reports');
         Route::get('error-reports/{report}',[BackendTrafficsController::class,'error_report'])->name('traffics.error-report');
         

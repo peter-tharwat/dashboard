@@ -42,17 +42,17 @@
                             </div>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="navbar-nav ms-auto mb-0 mb-lg-0">
-                                    <a href="{{route('user.dashboard')}}" class="d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
+                                    <a href="{{route('user.dashboard')}}" class="user-menu d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
                                         <span class="fal fa-home mx-2"></span> الرئيسية
                                     </a>
                                   
-                                    <a href="{{route('user.support')}}" class="d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
+                                    <a href="{{route('user.support')}}" class="user-menu d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
                                         <span class="fal fa-comments-alt mx-2"></span> الدعم
                                     </a>
-                                    <a href="{{route('user.notifications')}}" class="d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
+                                    <a href="{{route('user.notifications')}}" class="user-menu d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
                                         <span class="fal fa-bells mx-2"></span> التنبيهات
                                     </a>
-                                    <a href="{{route('user.profile.edit')}}" class="d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
+                                    <a href="{{route('user.profile.edit')}}" class="user-menu d-flex align-items-center col-auto justify-content-lg-center justify-content-start py-3 px-2" style="min-width:120px;border-bottom:6px solid transparent;height: 100%;color: inherit;transition: 0s all ease;">
                                         <span class="fal fa-wrench mx-2"></span> الاعدادات
                                     </a>
                                 </div>
@@ -68,7 +68,7 @@
             <div class="container p-0">
                 <div class="col-12 row user-menu">
                     <div class="col-12 row d-flex px-1" style="width: 600px;margin: 0px auto;">
-                        <div class="d-flex align-items-center justify-content-center row text-center p-0" style="font-size:13px">
+                        <div class="user-menu d-flex align-items-center justify-content-center row text-center p-0" style="font-size:13px">
                             <div class="col p-0 text-center">
                                 <a href="{{route('home')}}" style="color:inherit;padding: 5px 1px 10px;margin: 0px 2px;position: relative;" class="mobile-menu-link d-block font-1 font-lg-2 ">
                                     <div class="p-0 text-center"><span class="fal fa-home  p-0 font-1 font-lg-2"></span></div>
@@ -118,10 +118,9 @@
 <x-call-to-action /> --}}
 @endsection
 @section('scripts')
-@push('scripts')
 <script type="module">
-
-    
+    setTimeout(function(){
+        $('a[href="'+ window.location.href + '"], a[href="'+ window.location.path + '"]').addClass('active');
+    },10);
 </script>
-@endpush
 @endsection

@@ -77,7 +77,7 @@
                 <td style="font-size: 12px">{{$traffic->country_code}}</td>
                 <td style="font-size: 12px">{{$traffic->country_name}}</td>
                 <td style="font-size: 12px">
-                    <a href="{{route('admin.traffics.logs',$traffic)}}">
+                    <a href="{{route('admin.traffics.logs',['rate_limit_id'=>$traffic->id])}}">
                         <span style="width: 30px;height: 30px;background: #2381c6;color:#fff;border-radius: 50%" class="text-center d-inline-block font-3">
                             {{$traffic->details_count}}
                         </span>

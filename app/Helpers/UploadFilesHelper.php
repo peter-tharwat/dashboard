@@ -23,7 +23,7 @@ class UploadFilesHelper
     public static function __callStatic($name,$args){
 
     }
-
+    
     public static function url_to_uploaded_file($file,$filename=null){
         $fileData = $file;
         $name= $filename==null?Str::uuid()->toString():$filename;
