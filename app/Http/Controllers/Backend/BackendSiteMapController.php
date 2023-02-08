@@ -20,8 +20,8 @@ class BackendSiteMapController extends Controller
             [
                 'name'=>"articles",
                 'index_route_name'=>"articles.index",
-                'show_route_name'=>"user.show",
-                'data'=>\App\Models\User::query(),
+                'show_route_name'=>"article.show",
+                'data'=>\App\Models\Article::query(),
             ],
         ]);
     }

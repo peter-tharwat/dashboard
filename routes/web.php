@@ -74,6 +74,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('contacts/resolve',[BackendContactController::class,'resolve']);
         Route::resource('contacts',BackendContactController::class);
         Route::resource('menus',BackendMenuController::class);
+        Route::get('users/{user}/access',[BackendUserController::class,'access'])->name('users.access');
         Route::resource('users',BackendUserController::class);
         Route::resource('roles',BackendRoleController::class);
         Route::get('user-roles/{user}',[BackendUserRoleController::class,'index'])->name('users.roles.index');

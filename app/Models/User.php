@@ -77,8 +77,14 @@ class User extends Authenticatable implements HasMedia
     public function articles(){
         return $this->hasMany(\App\Models\Article::class);
     }
+    public function comments(){
+        return $this->hasMany(\App\Models\ArticleComment::class);
+    }
     public function traffics(){
         return $this->hasMany(\App\Models\RateLimit::class);
+    }
+    public function logs(){
+        return $this->hasMany(\App\Models\RateLimitDetail::class,'user_id');
     }
     public function report_errors(){
         return $this->hasMany(\App\Models\ReportError::class);

@@ -28,7 +28,7 @@ class BackendUserController extends Controller
                 $q->where('id',$request->id);
             if($request->q!=null)
                 $q->where('name','LIKE','%'.$request->q.'%')->orWhere('phone','LIKE','%'.$request->q.'%')->orWhere('email','LIKE','%'.$request->q.'%');
-        })->orderBy('id','DESC')->paginate();
+        })->withCount(['logs','articles','contacts','comments'])->with(['roles'])->orderBy('last_activity','DESC')->orderBy('id','DESC')->paginate();
 
         return view('admin.users.index',compact('users'));
         
@@ -170,5 +170,13 @@ class BackendUserController extends Controller
         $user->delete();
         toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
         return redirect()->route('admin.users.index');
+    }
+
+    public function access(Request $request,User $user){
+        if(auth()->user()->hasRole('superadmin')){
+            auth()->logout();
+            auth()->loginUsingId($user->id);
+            return redirect('/');
+        }
     }
 }
