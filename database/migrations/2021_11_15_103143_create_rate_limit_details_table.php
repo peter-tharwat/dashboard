@@ -21,6 +21,7 @@ class CreateRateLimitDetailsTable extends Migration
             $table->foreign('rate_limit_id')->references('id')->on("rate_limits")->onDelete('cascade');
             $table->text('query')->nullable();
             $table->string('url')->nullable()->index();
+            $table->string('ip')->index();
             $table->timestamps();
         });
     }

@@ -23,9 +23,9 @@ class BackendScheduleController extends Controller
       $under_attacks=\App\Models\UnderAttack::where('status','UNDER_ATTACK')->where('created_at','<',\Carbon::parse(now())->addMinutes(15)->format('Y-m-d H:i:s'))->count();
       if($under_attacks){
         (new \App\Helpers\SecurityHelper)->disable_under_attack_mode(); 
-        \App\UnderAttack::where('status','UNDER_ATTACK')->where('created_at','<',\Carbon::parse(now())->format('Y-m-d H:i:s'))->update(['status'=>"MEDIUM"]);
+        \App\Models\UnderAttack::where('status','UNDER_ATTACK')->update(['status'=>"MEDIUM"]);
       }
-      $blocked_ips = \App\Models\BlockIp::where('ip',\UserSystemInfoHelper::get_ip())->where('created_at','<',\Carbon::parse(now())->addMinutes(15)->format('Y-m-d H:i:s'))->get();
+      $blocked_ips = \App\Models\BlockIp::whereDate('created_at','<',\Carbon::parse(now())->subMinutes(30)->format('Y-m-d H:i:s'))->get();
       foreach($blocked_ips as $blocked_ip){
         $response =  (new \App\Helpers\SecurityHelper)->unblock_ip($blocked_ip->state_id);
       }
