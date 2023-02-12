@@ -125,8 +125,29 @@ class MainHelper {
     /*/src=[\"\'][^\'\']+[\"\']/*/
 
     public static function rate_limit_insert(){
+
+
         $ip=\UserSystemInfoHelper::get_ip();
+
+        $total_req_per_minute = \App\RateLimit::where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
+        if($total_req_per_minute>=env('CF_ATTACK_CONNECTION_COUNT',1200)){ 
+            $attacks=\App\Models\UnderAttack::where('status','UNDER_ATTACK')->where('release_at','>',\Carbon::parse(now())->format('Y-m-d H:i:s'))->count();
+            if($attacks==0){ 
+                \App\Models\UnderAttack::create(['status'=>"UNDER_ATTACK",'release_at'=>\Carbon::parse(now())->addMinutes(30)->format('Y-m-d H:i:s')]);
+                (new \App\Helpers\SecurityHelper)->enable_under_attack_mode(); 
+            }
+        }
+        $limit_for_ip = \App\Models\RateLimit::where('ip',\UserSystemInfoHelper::get_ip())->where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
+        if($limit_for_ip>=env('CF_MAX_CONNECTIONS_PER_IP',150)){
+            $response =  (new \App\Helpers\SecurityHelper)->block_ip($ip,$request->header('User-Agent')); 
+            abort(403);
+        }
+
+
+
+        
         $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addMinutes(3))->first();
+
         if($last_insert==null){
             $prev_url="";
             $prev_domain="";

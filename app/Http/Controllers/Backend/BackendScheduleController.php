@@ -19,18 +19,18 @@ class BackendScheduleController extends Controller
       \DB::select('DELETE FROM rate_limits where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
       \DB::select('DELETE FROM rate_limit_details where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
     }
-    /*public function update_traffic(){
-        $get_traffics=\App\Models\RateLimit::whereNull('country_code')->whereDate('created_at', \Carbon::today())->get();      
-          foreach ($get_traffics as $get_traffic) {
-            $g_c=$get=\UserSystemInfoHelper::get_country_from_ip($get_traffic->ip);
-            \App\Models\RateLimit::where('id',$get_traffic->id)->update([
-              'country_code'=>$g_c['country_code'],
-              'country_name'=>$g_c['country']
-            ]);
-          }
-    }*/
-     
- 
+    public function update_under_attack_limits(){
+      $under_attacks=\App\Models\UnderAttack::where('status','UNDER_ATTACK')->where('created_at','<',\Carbon::parse(now())->addMinutes(15)->format('Y-m-d H:i:s'))->count();
+      if($under_attacks){
+        (new \App\Helpers\SecurityHelper)->disable_under_attack_mode(); 
+        \App\UnderAttack::where('status','UNDER_ATTACK')->where('created_at','<',\Carbon::parse(now())->format('Y-m-d H:i:s'))->update(['status'=>"MEDIUM"]);
+      }
+      $blocked_ips = \App\Models\BlockIp::where('ip',\UserSystemInfoHelper::get_ip())->where('created_at','<',\Carbon::parse(now())->addMinutes(15)->format('Y-m-d H:i:s'))->get();
+      foreach($blocked_ips as $blocked_ip){
+        $response =  (new \App\Helpers\SecurityHelper)->unblock_ip($blocked_ip->state_id);
+      }
+    }
+
       
 
 }

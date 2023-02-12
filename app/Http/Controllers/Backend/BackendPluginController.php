@@ -61,7 +61,7 @@ class BackendPluginController extends Controller
             $user->syncPermissions($permission_ids);
         }
 
-        \Artisan::call('module:migrate '.$plugin->getName());
+        \Artisan::call('module:migrate '.$plugin->getName(),['--force' => true]);
         toastr()->success("تمت عملية تفعيل الاضافة بنجاح");
         return redirect()->route('admin.plugins.index');
     }
@@ -79,7 +79,7 @@ class BackendPluginController extends Controller
         }
         
 
-        \Artisan::call('module:migrate-reset '.$plugin->getName());
+        \Artisan::call('module:migrate-reset '.$plugin->getName(),['--force' => true]);
         toastr()->success("تمت عملية تعطيل الاضافة بنجاح");
         return redirect()->route('admin.plugins.index');
     }
