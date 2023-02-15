@@ -80,6 +80,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('user-roles/{user}',[BackendUserRoleController::class,'index'])->name('users.roles.index');
         Route::put('user-roles/{user}',[BackendUserRoleController::class,'update'])->name('users.roles.update');
         Route::resource('articles',BackendArticleController::class);
+        Route::post('article-comments/change_status',[BackendArticleCommentController::class,'change_status'])->name('article-comments.change_status');
         Route::resource('article-comments',BackendArticleCommentController::class);
         Route::resource('pages',BackendPageController::class);
         Route::resource('tags',BackendTagController::class);

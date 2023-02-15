@@ -14,7 +14,7 @@ class BackendArticleCommentController extends Controller
     {
         $this->middleware('can:comments-create', ['only' => ['create','store']]);
         $this->middleware('can:comments-read',   ['only' => ['show', 'index']]);
-        $this->middleware('can:comments-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:comments-update',   ['only' => ['edit','update','change_status']]);
         $this->middleware('can:comments-delete',   ['only' => ['delete']]);
     }
 
@@ -113,5 +113,19 @@ class BackendArticleCommentController extends Controller
         $article_comment->delete();
         toastr()->success(__('utils/toastr.process_success_message'));
         return redirect()->back();
+    }
+    public function change_status(Request $request){
+
+
+        if(auth()->user()->hasRole('content-creator')){
+            ArticleComment::where('id',$request->id)->whereHas('article',function($q){
+                $q->where('user_id',auth()->user()->id);
+            })->firstOrFail();
+        }
+
+        
+        $comment = ArticleComment::where('id',$request->id)->firstOrFail();
+        $comment->update(['reviewed'=>!$comment->reviewed]);
+        return 1;
     }
 }

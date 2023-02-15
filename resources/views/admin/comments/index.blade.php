@@ -28,11 +28,15 @@
 			<table class="table table-bordered  table-hover">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>المستخدم</th>
-						<th>تمت المراجعة</th>
+						<th style="width:25px;">#</th>
+						<th style="width:130px;">المستخدم</th>
+						<th style="width:100px;">تمت المراجعة</th>
 						<th>المحتوى</th>
-						<th>تحكم</th>
+						@if(auth()->user()->hasRole('superadmin'))
+						<th>ip</th>
+						@endif
+						<th style="width:250px;">المقال</th>
+						<th style="width:170px;">تحكم</th>
 					</tr>
 				</thead>
 				<tbody id="sortable-table">
@@ -41,16 +45,25 @@
 						<td class="ui-state-default drag-handler" data-comment="{{$comment->id}}">{{$comment->id}}</td>
 						<td>
 							<img class="rounded-circle mx-2" alt="" src="{{$comment->user==null?env('DEFAULT_IMAGE_AVATAR'):$comment->user->getUserAvatar()}}"  style="width:20px;height: 20px;" />
-							<a href="{{$comment->user==null?'#':route('admin.users.show',$comment->user)}}" class="link-dark">{{$comment->user==null?$comment->adder_name:$comment->user->name}}</a></td>
+							<a href="{{$comment->user==null?'#':route('admin.users.show',$comment->user)}}" class="link-dark">{{$comment->user==null?mb_strimwidth(($comment->adder_name), 0, 20, "...")  : mb_strimwidth(($comment->user->name), 0, 20, "...")}}</a></td>
 						<td>
-							@if($comment->reviewed==1)
-							<span class="fas fa-check-circle text-success" ></span>
-							@endif
+							 
+
+							<div class="form-switch">
+		                      <input name="id" class="form-check-input change_comment_status" type="checkbox" id="flexSwitchCheckDefault" {{old('reviewed',$comment??0)=="1"?"checked":""}} style="width: 50px;height:25px" value="1" data-id="{{$comment->id}}">
+		                    </div>
+
 						</td>
 						<td>
 							{{$comment->content}}
 						</td>
-						<td style="width: 270px;">
+						@if(auth()->user()->hasRole('superadmin'))
+						<td><a href="{{route('admin.traffics.logs',['ip'=>$comment->ip])}}">{{$comment->ip}}</a></td>
+						@endif
+						<td>
+							<a href="{{route('article.show',['article'=>$comment->article,'user'=>$comment->article->user])}}" >{{mb_strimwidth(($comment->article->title), 0, 80, "...")}}</a>
+						</td>
+						<td style="width: 170px;">
 
 					 
 
@@ -81,3 +94,15 @@
 	</div>
 </div>
 @endsection
+@push('scripts')
+<script type="module">
+	$('.change_comment_status').on('change',function(){
+		$.ajax({
+			url:"{{route('admin.article-comments.change_status')}}",
+			method:"POST",
+			data:{_token:"{{csrf_token()}}",id:$(this).attr('data-id')}
+		}).done(function(res){
+		});
+	});
+</script>
+@endpush

@@ -54,6 +54,9 @@
 						@if(auth()->user()->can('comments-read'))
 						<th>التعليقات</th>
 						@endif
+						@if(auth()->user()->can('traffics-read'))
+						<th>الترافيك</th>
+						@endif
 						<th>الصلاحيات</th>
 						<th>تحكم</th>
 					</tr>
@@ -74,6 +77,9 @@
 						@endif
 						@if(auth()->user()->can('comments-read'))
 						<td><a href="{{route('admin.article-comments.index',['user_id'=>$user->id])}}">{{$user->comments_count}}</a></td>
+						@endif
+						@if(auth()->user()->can('traffics-read'))
+						<td><a href="{{route('admin.traffics.logs',['user_id'=>$user->id])}}">{{$user->logs_count}}</a></td>
 						@endif
 
 
