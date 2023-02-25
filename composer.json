@@ -15,6 +15,7 @@
         "laravel/framework": "^9.36",
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.6",
+        "mews/purifier": "^3.3",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "league/flysystem-aws-s3-v3": "^3.0",
