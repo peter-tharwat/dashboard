@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     { 
         $this->call([
-            TagSeeder::class,
+            //TagSeeder::class,
             UsersSeeder::class,
             SettingsSeeder::class,
             PagesSeeder::class,
             MenusSeeder::class,
             PermissionsSeeder::class,
-            ContentSeeder::class,
+            //ContentSeeder::class,
             AttachSuperAdminPermissions::class
         ]);
     }

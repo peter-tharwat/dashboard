@@ -27,6 +27,8 @@ class Kernel extends ConsoleKernel
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@update_under_attack_limits')->everyFiveMinutes();
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@clean_items_seens')->daily();
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@clean_dashboard_logs')->daily();
+        $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@clean_sessions_rate_limits')->daily();
+        
         
         // $schedule->command('inspire')->hourly();
     }

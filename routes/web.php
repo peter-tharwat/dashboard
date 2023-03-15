@@ -71,7 +71,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
     Route::middleware('auth')->group(function () {
         Route::resource('announcements',BackendAnnouncementController::class);
         Route::resource('files',BackendFileController::class);
-        Route::post('contacts/resolve',[BackendContactController::class,'resolve']);
+        Route::post('contacts/resolve',[BackendContactController::class,'resolve'])->name('contacts.resolve');
         Route::resource('contacts',BackendContactController::class);
         Route::resource('menus',BackendMenuController::class);
         Route::get('users/{user}/access',[BackendUserController::class,'access'])->name('users.access');

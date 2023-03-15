@@ -30,6 +30,21 @@ class BackendScheduleController extends Controller
         $response =  (new \App\Helpers\SecurityHelper)->unblock_ip($blocked_ip->state_id);
       }
     }
+    public function clean_sessions_rate_limits(){
+        //general users
+        $delete_sessions = \App\Session::whereNull('user_id')->delete();
+
+        //loged in users
+        $delete_old_sessions = \App\Session::whereNull('user_id')->where('last_activity','<',\Carbon::now()->subDays(30)->valueOf()/1000)->delete();
+
+        //delete rate limits
+        $delete_old_rate_limits = \App\RateLimit::whereDate('created_at', '<',Carbon::now()->subDays(3))->delete();
+
+
+        //delete item seens
+        $delete_old_rate_limits = \App\ItemSeen::whereDate('created_at', '<',Carbon::now()->subDays(1))->delete();
+
+    }
 
       
 

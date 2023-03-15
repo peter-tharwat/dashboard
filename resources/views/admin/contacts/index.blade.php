@@ -123,8 +123,8 @@
 </div>
 @endsection
 @section('scripts')
-@can('resolve')
-<script type="text/javascript">
+@can('contacts-update')
+<script type="module">
 	$('.toggle-contact-resolving').on('change',function(){
 		var id =$(this).attr('data-id');
 		$.ajax({
