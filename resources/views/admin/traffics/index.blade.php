@@ -57,18 +57,22 @@
                     {{$traffic->id}}
                     @endif
                 </td>
+
                 <td style="font-size: 12px">
-                    <a href="{{$traffic->traffic_landing}}" target="_blank" data-container="body" data-toggle="popover" data-placement="top" data-content="{{$traffic->traffic_landing}}">
-                        {{
-                        substr(str_replace(env('APP_URL'),'W',$traffic->traffic_landing), 0, 20)
-                        }}
-                    </a>
-                </td>
-                <td style="font-size: 12px">
-                    <a href="{{$traffic->prev_link}}">
-                        {{$traffic->prev_link}}
-                    </a>
-                </td>
+                <a href="{{$traffic->traffic_landing}}" target="_blank" data-container="body" data-toggle="popover" data-placement="top" data-content="{{$traffic->user_agent}}"  >
+                  {{
+                    substr(str_replace(env('APP_URL'),'W/',$traffic->traffic_landing), 0, 20)
+                    }} 
+                </a>
+                 </td> 
+              <td style="font-size: 12px">
+                <a href="{{$traffic->prev_link}}">
+                    {{parse_url($traffic->prev_link)['host']}}
+                </a>
+              </td>
+
+
+           
                 <td style="font-size: 12px">{{$traffic->ip}}</td>
                 <td style="font-size: 9px;max-width: 100px;">
                     {{$traffic->device}}

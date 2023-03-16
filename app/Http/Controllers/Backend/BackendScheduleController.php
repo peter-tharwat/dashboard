@@ -19,6 +19,16 @@ class BackendScheduleController extends Controller
       \DB::select('DELETE FROM rate_limits where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
       \DB::select('DELETE FROM rate_limit_details where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
     }
+    public function update_traffics_country(){
+      $rate_limits = \App\Models\RateLimit::whereNull('country_code')->get();
+      foreach($rate_limits as $rate_limit){
+        $country=(new UserSystemInfoHelper)->get_country_from_ip($rate_limit->ip);
+        $rate_limit->update([
+        'country_code'=>$country['country_code'],
+        'country_name'=>$country['country']
+        ]);
+      }
+    }
     public function update_under_attack_limits(){
       $under_attacks=\App\Models\UnderAttack::where('status','UNDER_ATTACK')->where('created_at','<',\Carbon::parse(now())->addMinutes(15)->format('Y-m-d H:i:s'))->count();
       if($under_attacks){

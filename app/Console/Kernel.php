@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@update_traffics_country')->everyMinute();
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@update_under_attack_limits')->everyFiveMinutes();
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@clean_items_seens')->daily();
         $schedule->call('\App\Http\Controllers\Backend\BackendScheduleController@clean_dashboard_logs')->daily();
