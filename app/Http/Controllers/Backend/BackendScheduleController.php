@@ -22,7 +22,7 @@ class BackendScheduleController extends Controller
     public function update_traffics_country(){
       $rate_limits = \App\Models\RateLimit::whereNull('country_code')->get();
       foreach($rate_limits as $rate_limit){
-        $country=(new UserSystemInfoHelper)->get_country_from_ip($rate_limit->ip);
+        $country=(new \UserSystemInfoHelper)->get_country_from_ip($rate_limit->ip);
         $rate_limit->update([
         'country_code'=>$country['country_code'],
         'country_name'=>$country['country']
