@@ -158,7 +158,7 @@ class MainHelper {
 
                 }   
             }  
-            $country=(new UserSystemInfoHelper)->get_country_from_ip($ip);
+            //$country=(new UserSystemInfoHelper)->get_country_from_ip($ip);
             $traffic= \App\Models\RateLimit::create([
                 'traffic_landing'=>\Request::fullUrl(),
                 'domain'=>$prev_domain,
