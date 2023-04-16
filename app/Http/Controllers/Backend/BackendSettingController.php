@@ -27,7 +27,7 @@ class BackendSettingController extends Controller
 
         foreach($request->settings as $key => $value ){
             if(!in_array($key,['website_logo','website_wide_logo','website_icon','website_cover']))
-                \App\Models\Setting::where('key',$key)->update(['value'=>$value]);
+                \App\Models\Setting::updateOrCreate(['key'=>$key],['value'=>$value]);
         }
         if($request->hasFile('settings.website_logo')){
             $website_logo_setting= \App\Models\Setting::where('key','website_logo')->first();
