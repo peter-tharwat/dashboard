@@ -312,7 +312,7 @@ $flat_colors = collect([
     </div>
     @section('scripts')
     @can('admin-analytics-read')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/chartjs.min.js"></script>
     <script type="text/javascript">
 
         new Chart(document.getElementById('traffics-chart').getContext('2d'), {
