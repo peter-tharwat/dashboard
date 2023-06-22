@@ -105,7 +105,7 @@ class FrontController extends Controller
 
         if(view()->exists($customView)) {
             // If the file exists, return custom page
-            return view($customView);
+            return view($customView,compact('page'));
         }         
 
         return view('front.pages.page',compact('page'));
