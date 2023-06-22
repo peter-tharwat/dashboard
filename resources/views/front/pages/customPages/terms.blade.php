@@ -10,7 +10,7 @@
 			  {{--   <div class="col-12 p-0 mt-1" style="opacity: .7;">
 			        معلومات عنا
 			    </div> --}}
-				asd
+				
 			</div>
 			<div class="col-12 col-lg-8 p-2">
 				{{-- {!!$settings['terms_page']!!} --}}
