@@ -13,11 +13,11 @@ use Symfony\Component\HttpFoundation\File\File;
 class BackendScheduleController extends Controller
 {
     public function clean_items_seens(){
-      \DB::select('DELETE FROM item_seens where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
+      \App\Models\ItemSeen::where('created_at','<',\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s'))->delete();
     }
     public function clean_dashboard_logs(){
-      \DB::select('DELETE FROM rate_limits where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
-      \DB::select('DELETE FROM rate_limit_details where DATE(created_at) < "'.\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s').'"');
+      \App\Models\RateLimit::where('created_at','<',\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s'))->delete();
+      \App\Models\RateLimitDetail::where('created_at','<',\Carbon::parse(now())->subDays(8)->format('Y-m-d H:i:s'))->delete();
     }
     public function update_traffics_country(){
       $rate_limits = \App\Models\RateLimit::whereNull('country_code')->get();
