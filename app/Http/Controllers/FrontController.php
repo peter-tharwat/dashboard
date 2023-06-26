@@ -101,7 +101,7 @@ class FrontController extends Controller
     public function page(Request $request,Page $page)
     {
     
-        $customView = 'front.pages.customPages.' . $page->slug;
+        $customView = 'front.pages.custom-pages.' . $page->slug;
 
         if(view()->exists($customView)) {
             // If the file exists, return custom page
