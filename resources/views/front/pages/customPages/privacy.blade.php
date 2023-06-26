@@ -12,7 +12,7 @@
 			    </div> --}}
 			</div>
 			<div class="col-12 col-lg-8 p-2">
-				{!!$settings['privacy_page']!!}
+				{{-- {!!$settings['privacy_page']!!} --}}
 			</div>
 		</div>
 	</div>

@@ -100,6 +100,14 @@ class FrontController extends Controller
     }
     public function page(Request $request,Page $page)
     {
+    
+        $customView = 'front.pages.customPages.' . $page->slug;
+
+        if(view()->exists($customView)) {
+            // If the file exists, return custom page
+            return view($customView,compact('page'));
+        }         
+
         return view('front.pages.page',compact('page'));
     }
     public function blog(Request $request)
