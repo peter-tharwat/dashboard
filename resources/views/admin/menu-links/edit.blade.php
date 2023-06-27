@@ -74,7 +74,7 @@
 </div>
 @endsection
 @section('scripts')
-<script type="text/javascript">
+<script type="module">
 function updateTypeIdList() {
     var type = $('#type').val();
     $.ajax({
@@ -88,7 +88,7 @@ function updateTypeIdList() {
         for (var i = 0; i < response.length; i++){
 
             var selected="";
-            if({{$menuLink->type_id}}==response[i].id && "{{$menuLink->type}}"==type)
+            if("{{$menuLink->type_id}}"==response[i].id && "{{$menuLink->type}}"==type)
                 selected="selected";
             else
                 selected="";

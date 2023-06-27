@@ -73,7 +73,7 @@
 </div>
 @endsection
 @section('scripts')
-<script type="text/javascript">
+<script type="module">
 $('#type').change(function() {
     var type = $('#type').val();
     $.ajax({
