@@ -49,7 +49,7 @@ class BackendTagController extends Controller
      * @param  \App\Http\Requests\StoreTagRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTagRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'tag_name'=>"required|unique:tags,tag_name",
