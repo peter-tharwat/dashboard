@@ -16,6 +16,7 @@ class BackendSettingController extends Controller
     public function index()
     {
         if(!auth()->user()->can('settings-update'))abort(403);
+        cache()->forget('settings');
         return view('admin.settings.index');
     }
 
@@ -23,7 +24,7 @@ class BackendSettingController extends Controller
     {
       
         
-
+        cache()->forget('settings');
 
         foreach($request->settings as $key => $value ){
             if(!in_array($key,['website_logo','website_wide_logo','website_icon','website_cover']))

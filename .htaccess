@@ -1,28 +1,25 @@
 <IfModule mod_rewrite.c>
-
-<IfModule mod_negotiation.c>
-Options -MultiViews
-</IfModule>
-
+Options +FollowSymLinks
 RewriteEngine On
-# Prevent direct access to the "public" folder - redirect to root
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /public/
-RewriteRule ^public/(.*) /$1 [R=302,L]
 
-# Redirect Trailing Slashes If Not A Folder...
-# - but look for the file in the "public" folder
-# (ensure we are not already in the "public" folder)
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteCond %{DOCUMENT_ROOT}/public/$1 !-d
-RewriteRule ^(.*)/$ /$1 [R=302,L]
+# Disable index view
+Options -Indexes
 
-# Rewrite "everything" to the "public" subdirectory if not already
-# This ignores existing files/dirs in the document root
-RewriteCond %{REQUEST_URI} ^/(.*)
-RewriteRule !^public/ public/%1
+# Hide a specific file
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
 
-# Handle Front Controller... (as before)
+
+RewriteCond %{REQUEST_URI} !^/public/ 
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [L]
+
+
+
+RewriteRule ^(.*)$ /public/$1 
+#RewriteRule ^ index.php [L]
+RewriteRule ^(/)?$ public/index.php [L] 
 </IfModule>
