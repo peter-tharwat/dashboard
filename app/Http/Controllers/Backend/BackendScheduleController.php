@@ -48,11 +48,11 @@ class BackendScheduleController extends Controller
         $delete_old_sessions = \App\Session::whereNull('user_id')->where('last_activity','<',\Carbon::now()->subDays(30)->valueOf()/1000)->delete();
 
         //delete rate limits
-        $delete_old_rate_limits = \App\RateLimit::whereDate('created_at', '<',Carbon::now()->subDays(3))->delete();
+        $delete_old_rate_limits = \App\RateLimit::whereDate('created_at', '<',\Carbon::now()->subDays(3))->delete();
 
 
         //delete item seens
-        $delete_old_rate_limits = \App\ItemSeen::whereDate('created_at', '<',Carbon::now()->subDays(1))->delete();
+        $delete_old_rate_limits = \App\ItemSeen::whereDate('created_at', '<',\Carbon::now()->subDays(1))->delete();
 
     }
 
