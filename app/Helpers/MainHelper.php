@@ -95,7 +95,7 @@ class MainHelper {
         $options = array_merge([
             'error'=>"",
             'error_code'=>"",
-            'details'=>json_encode(request()->instance())
+            'details'=>json_encode(request()->all())
         ],$options);
         try{
             if(Schema::hasTable('report_errors'))
@@ -259,6 +259,27 @@ class MainHelper {
             return "3gp,7z,7zip,ai,apk,avi,bin,bmp,bz2,css,csv,doc,docx,egg,flv,gif,gz,h264,htm,html,ia,icns,ico,jpeg,jpg,m4v,markdown,md,mdb,mkv,mov,mp3,mp4,mpa,mpeg,mpg,mpga,octet-stream,odp,ods,odt,ogg,otf,pak,pdf,pea,png,pps,ppt,pptx,psd,rar,rm,rss,rtf,s7z,sql,svg,tar,targz,tbz2,tex,tgz,tif,tiff,tlz,ttf,vob,wav,webm,wma,wmv,xhtml,xlr,xls,xlsx,xml,z,zip,zipx,gif,png,jpeg,qt";
         else if($type=="image")
             return "jpeg,bmp,png,gif";
+    }
+    public static function allowed_files_mimetypes($type="file"){
+
+        $file =  ['video/3gpp','application/x-7z-compressed','application/x-7z-compressed','application/postscript','application/vnd.android.package-archive','video/x-msvideo','application/octet-stream','image/bmp','application/x-bzip2','text/css','text/csv','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.python.egg','video/x-flv','image/gif','application/gzip','video/h264','text/html','text/html','application/itch','image/icns','image/vnd.microsoft.icon','image/jpeg','image/jpeg','video/x-m4v','text/markdown','text/markdown','application/vnd.ms-access','video/x-matroska','video/quicktime','audio/mpeg','video/mp4','video/mpeg','video/mpeg','audio/mpeg','application/octet-stream','application/vnd.oasis.opendocument.presentation','application/vnd.oasis.opendocument.spreadsheet','application/vnd.oasis.opendocument.text','audio/ogg','font/otf','application/x-pak','application/pdf','application/x-pea','image/png','application/vnd.ms-powerpoint','application/vnd.ms-powerpoint','application/vnd.openxmlformats-officedocument.presentationml.presentation','image/vnd.adobe.photoshop','application/x-rar-compressed','application/vnd.rn-realmedia','application/rss+xml','application/rtf','application/x-7z-compressed','application/sql'/*,'image/svg+xml'*/,'application/x-tar','application/gzip','application/x-bzip2','application/x-tex','application/gzip','image/tiff','image/tiff','application/x-lzma','font/ttf','text/plain','video/dvd','audio/wav','video/webm','audio/x-ms-wma','video/x-ms-wmv','application/xhtml+xml','application/vnd.ms-excel','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/xml','application/x-compress','application/zip','application/x-zip-compressed'];
+
+        $image= ['image/bmp','image/gif','image/jpeg','image/jpeg','image/png','image/vnd.microsoft.icon','image/jpeg','image/tiff','image/tiff'/*,'image/svg+xml'*/,'image/png','image/vnd.adobe.photoshop'];
+
+        $video = ['video/3gpp','video/x-msvideo','video/x-flv','video/h264','video/x-m4v','video/quicktime','video/mp4','video/mpeg','video/mpeg','video/x-matroska','video/vnd.rn-realmedia','video/webm','video/x-ms-wma','video/x-ms-wmv','video/dvd'];
+
+        $pdf = ['application/pdf'];
+
+        if($type=="file")
+            return $file;
+        elseif($type=="image")
+            return $image;
+        elseif($type=="video")
+            return $video;
+        elseif($type=="pdf")
+            return $pdf;
+        else
+            return [];
     }
 
 

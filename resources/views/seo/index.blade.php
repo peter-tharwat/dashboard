@@ -30,7 +30,7 @@ if(request()->url()==env("APP_URL"))
 $page_title=  isset($page_title)&&$page_title !=null?$website_settings['website_name'] .' | '. $page_title :$website_settings['website_name'];
 else
 $page_title=  isset($page_title)&&$page_title !=null?$page_title.' | '.$website_settings['website_name']:$website_settings['website_name'];
-$page_description=isset($seo_meta_description)&&$seo_meta_description !=null?$seo_meta_description:$website_settings['website_name'];
+$page_description=isset($page_description)&&$page_description !=null?$page_description:$website_settings['website_name'];
 $page_image= isset($page_image)&&$page_image !=null?$page_image:$website_settings['website_cover'];
 $page_keywords= isset($seo_key_words)&&$seo_key_words !=null? $seo_key_words:"";
 $website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonical:$website_settings['canonical'];
