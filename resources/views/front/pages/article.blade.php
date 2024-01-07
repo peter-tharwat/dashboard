@@ -57,10 +57,7 @@ pre[class*=language-] {
                     <figure class="card-img-top"><img src="{{$article->main_image()}}" alt="" data-fancybox /></figure>
                     <div class="col-12 p-4 card-body">
                         <div class="post-category text-line mt-3 ">
-                            @foreach($article->categories as $article_category)
-                            @if($loop->index<5) <a href="{{route('category.show',$article_category)}}" class="hover pe-2" rel="category">{{$article_category->title}}</a>
-                                @endif
-                                @endforeach
+                            <a href="{{route('category.show',$article->category)}}" class="hover pe-2" rel="category">{{$article->category->title}}</a>
                         </div>
                         <h1 class="font-3 font-lg-5 mb-4 ">{{$article->title}}</h1>
                         <ul class="post-meta mb-5">
@@ -170,7 +167,7 @@ pre[class*=language-] {
                     <div class="col-12 p-0">
                         <div class="col-12 aside-post " style="background: var(--second-background);border-radius: 5px;">
                           @php
-                          $random_articles = \App\Models\Article::orderBy('id','DESC')->with(['categories'=>function($q){$q->first();}])->paginate(5);
+                          $random_articles = \App\Models\Article::orderBy('id','DESC')->with(['category'=>function($q){$q->first();}])->paginate(5);
                           @endphp
 
                           @foreach($random_articles as $single_article)
@@ -188,10 +185,7 @@ pre[class*=language-] {
                                     <div class="col-12 mt-1 font-small" style="overflow: hidden;filter: grayscale(1);">
                                         <div class="d-inline-block">
                                             <div class="d-inline-block">
-                                              @foreach($single_article->categories as $single_article_category)
-                                                @if($loop->index<5) <a href="{{route('category.show',$single_article_category)}}" class="px-0" >{{$single_article_category->title}}</a>
-                                                    @endif
-                                              @endforeach
+                                           <a href="#" class="px-0" >{{$single_article->category_id}}</a>
                                             </div>
                                         </div>
                                         <span class="posted-on"><span rel="bookmark"><span class="d-inline-block px-0 font-small" ><time class="updated" >{{\Carbon::parse($single_article->created_at)->diffForHumans()}}</time><span></span></span>

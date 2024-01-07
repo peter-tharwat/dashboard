@@ -36,10 +36,12 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>المستخدم</th>
-						<th>الشعار</th>
 						<th>العنوان</th>
+						<th>الكاتب</th>
+						<th>القسم</th>
+						<th>الصورة</th>
 						<th>مميز</th>
+						<th>المستخدم</th>
 						<th>زيارات</th>
 						<th>تحكم</th>
 					</tr>
@@ -48,24 +50,23 @@
 					@foreach($articles as $article)
 					<tr>
 						<td>{{$article->id}}</td>
-						<td>{{$article->user->name}}</td>
 						{{-- <td>
 							<a href="{{route('admin.categories.index',['id'=>$article->category_id])}}" style="color:#2381c6">{{$article->category->title_ar}}</a>
 						</td> --}}
-						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 						<td>{{$article->title}}</td>
+						<td>{{$article->editor->name}}</td>
+						<td>{{$article->category->title}}</td>
+
+						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 
 						<td>
 							@if($article->is_featured==1)
 							<span class="fas fa-check-circle text-success" ></span>
 							@endif
 						</td>
+						<td>{{$article->user->name}}</td>
 						<td>{{$article->views}}</td>
 						<td style="width: 360px;">
-
-
-							
-
 							@can('articles-read')
 							<a href="{{route('article.show',['article'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">

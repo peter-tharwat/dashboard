@@ -25,8 +25,11 @@ class Article extends Model implements HasMedia
     public function user(){
         return $this->belongsTo(\App\Models\User::class);
     }
-    public function categories(){
-        return $this->belongsToMany(\App\Models\Category::class,'article_categories');
+    public function category(){
+        return $this->belongsTo(\App\Models\Category::class);
+    }
+    public function editor(){
+        return $this->belongsTo(\App\Models\Editor::class);
     }
     public function comments(){
         return $this->hasMany(\App\Models\ArticleComment::class,'article_id');

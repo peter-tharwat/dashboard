@@ -10,7 +10,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
 
-class Category extends Model implements HasMedia
+class Editor extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
@@ -20,20 +20,20 @@ class Category extends Model implements HasMedia
     public function getRouteKeyName(){
         return 'slug';
     }
-    public function user(){
-        return $this->belongsTo(\App\Models\User::class);
-    }
+
     public function getUrlAttribute(){
-        return route('category.show',$this);
+        return route('editor.show',$this);
     }
+
     public function articles(){
         return $this->hasMany(\App\Models\Article::class);
     }
-    public function image($type='thumb'){
-        if($this->image==null)
+
+    public function avatar($type='thumb'){
+        if($this->avatar==null)
             return env('DEFAULT_IMAGE');
         else
-            return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->image,$type);
+            return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->avatar,$type);
     }
     public function registerMediaConversions(Media $media = null): void
     {

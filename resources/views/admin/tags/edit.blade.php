@@ -17,13 +17,13 @@
                 <div class="col-12 p-3 row">
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            اسم المهارة 
+                            اسم الوسم 
                         </div>
                         <div class="col-12 pt-3">
-                            <input type="text" name="tag_name" required maxlength="190" class="form-control" value="{{old('tag_name',$tag??"")}}" placeholder="مثال: تصميم الجرافيك">
+                            <input type="text" name="tag_name" required maxlength="190" class="form-control" value="{{old('tag_name',$tag??"")}}">
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 p-2">
+                    <!--div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
                             الاسم باللغة العربية
                         </div>
@@ -39,14 +39,14 @@
                             <input type="text" name="english_name" required maxlength="190" class="form-control" value="{{old('english_name',$tag??"")}}" placeholder="مثال: Graphic Design">
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 p-2">
+                    <div-- class="col-12 col-lg-6 p-2">
                         <div class="col-12">
                             رمز المهارة
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug',$tag??"")}}" placeholder="مثال: graphic-design">
                         </div>
-                    </div>
+                    </div-->
                 </div>
                     
               

@@ -94,7 +94,7 @@ class FrontController extends Controller
     }
     public function article(Request $request,Article $article)
     {
-        $article->load(['categories','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
+        $article->load(['category','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
         $this->views_increase_article($article);
         return view('front.pages.article',compact('article'));
     }

@@ -6,13 +6,13 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-tags"></span> عرض الكل
+					<span class="fas fa-categories"></span> الأقسام
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('tags-create')
-					<a href="{{route('admin.tags.create')}}">
+					@can('editors-create')
+					<a href="{{route('admin.editors.create')}}">
 					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
 					</a>
 					@endcan
@@ -36,26 +36,32 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						
+						<th>الصورة الشخصية</th>
 						<th>الاسم</th>
+						<th>المقالات</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
-				<tbody id="sortable-table">
-					@foreach($tags as $tag)
-					<tr >
-						<td>{{$tag->id}}</td>
-						<td>{{$tag->tag_name}}</td>
-					 
-						<td style="width: 270px;">
-							@can('tags-update')
-							<a href="{{route('admin.tags.edit',$tag)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
+				<tbody>
+					@foreach($editors as $editor)
+					<tr>
+						<td>{{$editor->id}}</td>
+
+						<td><img src="{{$editor->avatar()}}" style="width:40px"></td>
+						<td>{{$editor->name}}</td>
+					 	<td><a href="{{route('admin.articles.index',['editor_id'=>$editor->id])}}">{{$editor->articles_count}}</a></td>
+
+						<td style="width: 180px;">
+							@can('editors-update')
+							<a href="{{route('admin.editors.edit',$editor)}}">
+							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
+								<span class="fas fa-wrench "></span> تحكم
+							</span>
 							</a>
 							@endcan
-							@can('tags-delete')
-							<form method="POST" action="{{route('admin.tags.destroy',$tag)}}" class="d-inline-block">@csrf @method("DELETE")
+							@can('editors-delete')
+							<form method="POST" action="{{route('admin.editors.destroy',$editor)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
@@ -69,7 +75,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3">
-			{{$tags->appends(request()->query())->render()}}
+			{{$editors->appends(request()->query())->render()}}
 		</div>
 	</div>
 </div>

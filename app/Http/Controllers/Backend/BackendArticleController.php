@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Editor;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,9 @@ class BackendArticleController extends Controller
     public function create()
     {
         $tags = Tag::get();
-        $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.create',compact('categories','tags'));
+        $categories= Category::orderBy('title','DESC')->get();
+        $editors=Editor::orderBy('name','DESC')->get();
+        return view('admin.articles.create',compact('categories','tags','editors'));
     }
 
     /**
@@ -56,8 +58,8 @@ class BackendArticleController extends Controller
         ]);
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug",
-            'category_id'=>"required|array",
-            'category_id.*'=>"required|exists:categories,id",
+            'category_id'=>"required|exists:categories,id",
+            'editor_id'=>"required|exists:editors,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
@@ -65,13 +67,15 @@ class BackendArticleController extends Controller
         ]);
         $article = Article::create([
             'user_id'=>auth()->user()->id,
+            'editor_id'=>$request->editor_id,
+            'category_id'=>$request->category_id,
+
             "slug"=>$request->slug,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
-        $article->categories()->sync($request->category_id);
         $article->tags()->sync($request->tag_id);
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$article,"description");
         if($request->hasFile('main_image')){
@@ -102,8 +106,9 @@ class BackendArticleController extends Controller
     public function edit(Article $article)
     {
         $tags = Tag::get();
-        $categories= Category::orderBy('id','DESC')->get();
-        return view('admin.articles.edit',compact('article','categories','tags'));
+        $categories= Category::orderBy('title','DESC')->get();
+        $editors=Editor::orderBy('name','DESC')->get();
+        return view('admin.articles.edit',compact('article','categories','tags','editors'));
     }
 
     /**
@@ -121,8 +126,8 @@ class BackendArticleController extends Controller
 
         $request->validate([
             'slug'=>"required|max:190|unique:articles,slug,".$article->id,
-            'category_id'=>"required|array",
-            'category_id.*'=>"required|exists:categories,id",
+            'category_id'=>"required|exists:categories,id",
+            'editor_id'=>"required|exists:editors,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
             'description'=>"nullable|max:100000",
@@ -131,12 +136,13 @@ class BackendArticleController extends Controller
         $article->update([
             'user_id'=>auth()->user()->id,
             "slug"=>$request->slug,
+            "editor_id"=>$request->editor_id,
+            "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
-        $article->categories()->sync($request->category_id);
         $article->tags()->sync($request->tag_id);
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$article,"description");
         if($request->hasFile('main_image')){

@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\BackendSiteMapController;
 use App\Http\Controllers\Backend\BackendSettingController;
 use App\Http\Controllers\Backend\BackendContactController;
 use App\Http\Controllers\Backend\BackendCategoryController;
+use App\Http\Controllers\Backend\BackendEditorController;
+
 use App\Http\Controllers\Backend\BackendRedirectionController;
 use App\Http\Controllers\Backend\BackendUserController;
 use App\Http\Controllers\Backend\BackendTrafficsController;
@@ -91,6 +93,8 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('menu-links/order',[BackendMenuLinkController::class,'order'])->name('menu-links.order');
         Route::resource('menu-links',BackendMenuLinkController::class);
         Route::resource('categories',BackendCategoryController::class);
+        Route::resource('editors',BackendEditorController::class);
+
         Route::resource('redirections',BackendRedirectionController::class);
         Route::get('traffics',[BackendTrafficsController::class,'index'])->name('traffics.index');
         Route::get('traffics/logs',[BackendTrafficsController::class,'logs'])->name('traffics.logs');
@@ -154,6 +158,8 @@ Route::view('contact','front.pages.contact')->name('contact');
 Route::get('page/{page}',[FrontController::class,'page'])->name('page.show');
 Route::get('tag/{tag}',[FrontController::class,'tag'])->name('tag.show');
 Route::get('category/{category}',[FrontController::class,'category'])->name('category.show');
+Route::get('editor/{editor}',[FrontController::class,'editor'])->name('editor.show');
+
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
