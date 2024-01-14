@@ -160,8 +160,6 @@ pre[class*=language-] {
 
 
               <div class="col-12 p-0" style="background:var(--bg-main);border-radius: 6px;">
-                
-              
          
                 <div class="col-12 p-2">
                     <div class="col-12 p-0">

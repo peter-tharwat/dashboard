@@ -1,0 +1,124 @@
+/*=================================================================*/
+/*                     BUTTONS
+/*=================================================================*/
+button {
+    @include transition(.3s);
+    &:focus {
+        outline: none;
+        box-shadow: none !important;
+    }
+}
+
+.btn {
+    color: #FFF;
+    border: 0;
+    border-radius: 25px;
+    font-family: $fontstack;
+    font-size: 14px;
+    font-weight: 400;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;    
+    @include transition(.3s);
+}
+
+.btn:focus {
+    outline: 0;
+    @include shadow(none);
+}
+
+.btn-default {
+    color: #FFF;
+    padding: 9.5px 36px;
+    @include linear-gradient(to right, $colorpink 0%, $colororange 51%, $colorpink 100%);
+    background-size: 200% auto;
+    &:hover {
+        color: #FFF;
+        background-position: right center;
+    }
+}
+
+.btn-default-secondary{
+    color: #FFF;
+    padding: 9.5px 36px;
+    @include linear-gradient(to right, $colorsecondary 0%, $colorsecondarygradient 51%, $colorsecondary 100%);
+    background-size: 200% auto;
+    &:hover {
+        color: #FFF;
+        background-position: right center;
+    }
+}
+
+.btn-simple {
+    color: $colordefault;
+    padding: 9.5px 36px;
+    background: transparent;
+    border: solid 1px #EBEBEB;
+    &:hover {
+        color: $colorpink;
+        border-color: $colorpink;
+    }
+}
+
+.btn-light {
+    color: #FFF;
+    padding: 9.5px 36px;
+    background: transparent;
+    border: solid 1px #FFF;
+    &:hover {
+        color: $colorpink;
+        border-color: #FFF;
+    }
+}
+
+.btn-full {
+    padding: 9.5px 36px;
+    width: 100%;
+}
+
+.btn-lg {
+    padding: 13px 40px;
+    font-size: 16px;
+}
+
+.btn-sm {
+    padding: 7px 20px;
+    font-size: 12px;
+}
+
+.btn-xs {
+    padding: 5px 10px;
+    font-size: 11px;
+}
+
+.icon-button {
+    color: #FFF;
+    border: 0;
+    border-radius: 50%;
+    @include linear-gradient(to top, $colororange 0%, $colorpink 51%, $colororange 100%);
+    background-size: auto 200%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 37px;
+    line-height: 39px;
+    text-align: center;
+    vertical-align: middle;
+    width: 37px;
+    @include shadow(0px 2px 4px 0px rgba(0,0,0,0.15));
+    @include transition(.2s);
+    &:hover {
+        background-position: bottom center;
+    }
+}
+
+.btn-instagram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    z-index: 1;
+}

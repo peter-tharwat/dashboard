@@ -14,9 +14,22 @@ use App\Models\Category;
 class FrontController extends Controller
 {
     
-    public function index(Request $request)
+    public function index()
     {
-        return view('front.index');
+        $research=Article::research()->latest()->get()->take(5);
+
+        $most_viewed_research=Article::research()->orderBy('views', 'desc')->get()->take(4);
+
+        $latestposts=Article::article()->latest()->get()->take(5);
+
+        $latestnews=Article::news()->latest()->get()->take(4);
+
+        $discussions=Article::discussion()->latest()->get()->take(4);
+        $policies=Article::policies()->latest()->get()->take(4);
+        $booksReviews=Article::booksReview()->latest()->get()->take(4);
+        $books=Article::book()->latest()->get()->take(4);
+
+        return view('front.index',compact('research','most_viewed_research','latestnews','latestposts','discussions','policies','booksReviews','books'));
     }
     
     public function comment_post(Request $request)

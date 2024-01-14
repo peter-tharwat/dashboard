@@ -17,12 +17,30 @@
 
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
+                            عنوان المقال
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="title" required maxlength="190" class="form-control" value="{{$article->title}}">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            الرابط
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{$article->slug}}">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
                             الكاتب
                         </div>
                         <div class="col-12 pt-3">
                             <select class="form-control select2-select" name="editor_id" required size="1" style="height:30px;opacity: 0;">
                                 @foreach($editors as $editor)
-                                <option value="{{$editor->id}}" @if(old('editor_id')==$editor->id) selected @endif>{{$editor->name}}</option>
+                                <option value="{{$editor->id}}" @if($article->editor_id==$editor->id) selected @endif>{{$editor->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -33,9 +51,9 @@
                             القسم
                         </div>
                         <div class="col-12 pt-3">
-                            <select class="form-control select2-select" name="category_id" required size="1" style="height:30px;opacity: 0;">
+                            <select class="form-control select2-select"  name="category_id" required size="1" style="height:30px;opacity: 0;">
                                 @foreach($categories as $category)
-                                <option value="{{$category->id}}" @if(old('category_id')==$category->id) selected @endif>{{$category->title}}</option>
+                                <option value="{{$category->id}}" @if($article->category_id==$category->id) selected @endif>{{$category->title}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,23 +61,13 @@
 
                     <div class="col-12"></div>
 
-                    <div class="col-12 col-lg-6 p-2">
+                    
+                    <div class="col-12  p-2">
                         <div class="col-12">
-                            العنوان
+                            رابط المقال على الدرايف
                         </div>
                         <div class="col-12 pt-3">
-                            <input type="text" name="title" required maxlength="190" class="form-control" value="{{$article->title}}">
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="col-12">
-                            الرابط
-                        </div>
-                        <div class="col-12 pt-3">
-                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{$article->slug}}">
+                            <input type="url" name="file_url" required maxlength="400" class="form-control" value="{{$article->file_url}}">
                         </div>
                     </div>
 

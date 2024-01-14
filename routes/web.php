@@ -39,9 +39,6 @@ use App\Http\Controllers\FrontendProfileController;
 Auth::routes();
 
 
-
-
-
 Route::get('/', [FrontController::class,'index'])->name('home');
 Route::get('/index2', function(){return view('front.index2');})->name('index2');
 

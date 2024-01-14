@@ -51,19 +51,9 @@
 				</div>
 			</div>
 
-
-			<div class="col-12  p-2">
-				<div class="col-12">
-					الوصف
-				</div>
-				<div class="col-12 pt-3">
-					<textarea name="description" class="editor with-file-explorer" >{{$editor->description}}</textarea>
-				</div>
-			</div>
-
 			<div class="col-12 col-lg-12 p-2">
 				<div class="col-12">
-					ميتا الوصف
+					 الوصف
 				</div>
 				<div class="col-12 pt-3">
 					<textarea name="meta_description" class="form-control" style="min-height:150px">{{$editor->meta_description}}</textarea>

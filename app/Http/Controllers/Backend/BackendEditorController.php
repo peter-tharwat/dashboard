@@ -67,9 +67,9 @@ class BackendEditorController extends Controller
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
-        if($request->hasFile('image')){
-            $image = $editor->addMedia($request->image)->toMediaCollection('image');
-            $editor->update(['image'=>$image->id.'/'.$image->file_name]);
+        if($request->hasFile('avatar')){
+            $image = $editor->addMedia($request->avatar)->toMediaCollection('image');
+            $editor->update(['avatar'=>$image->id.'/'.$image->file_name]);
         }
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$editor,"description");
         toastr()->success(__('utils/toastr.editor_store_success_message'), __('utils/toastr.successful_process_message'));
@@ -123,7 +123,7 @@ class BackendEditorController extends Controller
             "meta_description"=>$request->meta_description,
         ]);
         if($request->hasFile('avatar')){
-            $image = $editor->addMedia($request->image)->toMediaCollection('avatar');
+            $image = $editor->addMedia($request->avatar)->toMediaCollection('avatar');
             $editor->update(['avatar'=>$image->id.'/'.$image->file_name]);
         }
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$editor,"description");

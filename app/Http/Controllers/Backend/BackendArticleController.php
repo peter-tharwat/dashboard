@@ -62,6 +62,7 @@ class BackendArticleController extends Controller
             'editor_id'=>"required|exists:editors,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
+            'file_url'=>"max:400",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
         ]);
@@ -73,6 +74,8 @@ class BackendArticleController extends Controller
             "slug"=>$request->slug,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
+            "file_url"=>$request->file_url,
+
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);
@@ -130,6 +133,7 @@ class BackendArticleController extends Controller
             'editor_id'=>"required|exists:editors,id",
             'is_featured'=>"required|in:0,1",
             'title'=>"required|max:190",
+            'file_url'=>"max:400",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
         ]);
@@ -140,6 +144,7 @@ class BackendArticleController extends Controller
             "category_id"=>$request->category_id,
             "is_featured"=>$request->is_featured==1?1:0,
             "title"=>$request->title,
+            "file_url"=>$request->file_url,
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
         ]);

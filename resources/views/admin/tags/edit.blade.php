@@ -31,22 +31,22 @@
                             <input type="text" name="arabic_name" required maxlength="190" class="form-control" value="{{old('arabic_name',$tag??"")}}" placeholder="مثال: التصميم الجرافيكي">
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 p-2">
+                    <div-- class="col-12 col-lg-6 p-2">
                         <div class="col-12">
                             الاسم باللغة الانجليزية 
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="english_name" required maxlength="190" class="form-control" value="{{old('english_name',$tag??"")}}" placeholder="مثال: Graphic Design">
                         </div>
-                    </div>
-                    <div-- class="col-12 col-lg-6 p-2">
+                    </div-->
+                    <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            رمز المهارة
+                            رابط الوسم
                         </div>
                         <div class="col-12 pt-3">
-                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug',$tag??"")}}" placeholder="مثال: graphic-design">
+                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug',$tag??"")}}">
                         </div>
-                    </div-->
+                    </div>
                 </div>
                     
               

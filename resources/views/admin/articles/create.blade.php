@@ -13,6 +13,26 @@
                     <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>
                 <div class="col-12 p-3 row">
+
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            عنوان المقال
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="title" required maxlength="190" class="form-control" value="{{old('title')}}">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 p-2">
+                        <div class="col-12">
+                            الرابط
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug')}}">
+                        </div>
+                    </div>
+
+
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
                             الكاتب
@@ -39,25 +59,16 @@
                         </div>
                     </div>
 
+                    <div class="col-12  p-2">
+                        <div class="col-12">
+                            رابط المقال على الدرايف
+                        </div>
+                        <div class="col-12 pt-3">
+                            <input type="url" name="file_url" required maxlength="400" class="form-control" value="{{old('file_url')}}">
+                        </div>
+                    </div>
+
                     <div class="col-12">
-                    </div>
-
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="col-12">
-                            العنوان
-                        </div>
-                        <div class="col-12 pt-3">
-                            <input type="text" name="title" required maxlength="190" class="form-control" value="{{old('title')}}">
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-6 p-2">
-                        <div class="col-12">
-                            الرابط
-                        </div>
-                        <div class="col-12 pt-3">
-                            <input type="text" name="slug" required maxlength="190" class="form-control" value="{{old('slug')}}">
-                        </div>
                     </div>
 
                     <div class="col-12 p-2">

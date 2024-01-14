@@ -43,6 +43,7 @@
 						<th>مميز</th>
 						<th>المستخدم</th>
 						<th>زيارات</th>
+						<th>رابط الدرايف</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
@@ -66,6 +67,8 @@
 						</td>
 						<td>{{$article->user->name}}</td>
 						<td>{{$article->views}}</td>
+						<td><a target="_BLANK" href="{{$article->file_url}}">فتح الرابط</a></td>
+
 						<td style="width: 360px;">
 							@can('articles-read')
 							<a href="{{route('article.show',['article'=>$article])}}">
@@ -76,11 +79,11 @@
 							@endcan
 							
 							@can('comments-read')
-							<a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
+							<!--a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-comments "></span> التعليقات
 								</span>
-							</a>
+							</a-->
 							@endcan
 
 							@can('articles-update')

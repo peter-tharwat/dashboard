@@ -40,25 +40,16 @@
 					الصورة
 				</div>
 				<div class="col-12 pt-3">
-					<input type="file" name="avatar"    class="form-control" accept="image/*">
+					<input type="file" name="avatar" class="form-control" accept="image/*">
 				</div>
 				<div class="col-12 pt-3">
 
-				</div>
-			</div>
-
-			<div class="col-12  p-2">
-				<div class="col-12">
-					الوصف
-				</div>
-				<div class="col-12 pt-3">
-					<textarea name="description" class="editor with-file-explorer" >{{old('description')}}</textarea>
 				</div>
 			</div>
 
 			<div class="col-12 col-lg-12 p-2">
 				<div class="col-12">
-					ميتا الوصف
+					 الوصف
 				</div>
 				<div class="col-12 pt-3">
 					<textarea name="meta_description" class="form-control" style="min-height:150px">{{old('meta_description')}}</textarea>

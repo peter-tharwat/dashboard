@@ -1,0 +1,40 @@
+/*
+Template Name: Katen
+Version: 1.0
+Author: ThemeGer
+Author URI: http://themeforest.net/user/themeger
+Description: Minimal Blog and Magazine HTML Template
+
+[TABLE OF CONTENTS]
+
+01. Base
+02. Preloader
+03. Typography
+04. Header
+05. Sections
+06. Post
+07. About author
+08. Post comments
+09. Page
+10. Contact
+11. Widgets
+12. Instagram feed
+13. Footer
+14. Search Popup
+15. Helpers
+16. Buttons
+17. Bootstrap Elements
+18. Theme Elements
+19. Slick Settings
+20. Responsive Settings
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import "sass/mixins";
+@import "sass/base";
+@import "sass/header";
+@import "sass/main";
+@import "sass/helper";
+@import "sass/buttons";
+@import "sass/elements";
+@import "sass/slick";
+@import "sass/responsive";

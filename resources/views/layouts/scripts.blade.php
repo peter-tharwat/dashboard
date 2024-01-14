@@ -1,7 +1,16 @@
 @auth
 <script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="/js/tinymce/ar.js"></script>
+
 @endauth
+<!-- JAVA SCRIPTS -->
+<script src="/front/js/jquery.min.js"></script>
+<script src="/front/js/popper.min.js"></script>
+<script src="/front/js/bootstrap.min.js"></script>
+<script src="/front/js/slick.min.js"></script>
+<script src="/front/js/jquery.sticky-sidebar.min.js"></script>
+<script src="/front/js/custom.js"></script>
+
 <script>
 @if(auth()->check())
     var temp_file_selector = document.getElementById('temp_file_selector') !== null?document.getElementById('temp_file_selector').value:null;

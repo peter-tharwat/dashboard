@@ -1,0 +1,269 @@
+/*=================================================================*/
+/*                      BASE                              
+/*=================================================================*/
+body {
+    color: $colordefault;
+    background-color: #fff;
+    font-family: $fontstack;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.relative {
+    position: relative;
+}
+
+/*=================================================================*/
+/*                      Preloader                              
+/*=================================================================*/
+#preloader {
+    background: #FFF;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1031;
+}
+
+.book {
+    --color: #1076BC;
+    --duration: 6.8s;
+    width: 32px;
+    height: 12px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+    .inner {
+        width: 32px;
+        height: 12px;
+        position: relative;
+        transform-origin: 2px 2px;
+        transform: rotateZ(-90deg);
+        animation: book var(--duration) ease infinite;
+        .left,
+        .right {
+            width: 60px;
+            height: 4px;
+            top: 0;
+            border-radius: 2px;
+            background: var(--color);
+            position: absolute;
+            &:before {
+                content: '';
+                width: 48px;
+                height: 4px;
+                border-radius: 2px;
+                background: inherit;
+                position: absolute;
+                top: -10px;
+                left: 6px;
+            }
+        }
+        .left {
+            right: 28px;
+            transform-origin: 58px 2px;
+            transform: rotateZ(90deg);
+            animation: left var(--duration) ease infinite;
+        }
+        .right {
+            left: 28px;
+            transform-origin: 2px 2px;
+            transform: rotateZ(-90deg);
+            animation: right var(--duration) ease infinite;
+        }
+        .middle {
+            width: 32px;
+            height: 12px;
+            border: 4px solid var(--color);
+            border-top: 0;
+            border-radius: 0 0 9px 9px;
+            transform: translateY(2px);
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        li {
+            height: 4px;
+            border-radius: 2px;
+            transform-origin: 100% 2px;
+            width: 48px;
+            right: 0;
+            top: -10px;
+            position: absolute;
+            background: var(--color);
+            transform: rotateZ(0deg) translateX(-18px);
+            animation-duration: var(--duration);
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            $i: 0;
+            @while $i < 19 {
+                &:nth-child(#{$i}) {
+                    animation-name: page-#{$i};
+                }
+                $i: $i + 1;
+            }
+        }
+    }
+}
+
+$i: 0;
+@while $i < 19 {
+    $delay: $i * 1.86;
+    $delay-after: $i * 1.74;
+    @keyframes page-#{$i} {
+        #{4 + $delay}% {
+            transform: rotateZ(0deg) translateX(-18px);
+        }
+        #{13 + $delay-after}%,
+        #{54 + $delay}% {
+            transform: rotateZ(180deg) translateX(-18px);
+        }
+        #{63 + $delay-after}% {
+            transform: rotateZ(0deg) translateX(-18px);
+        }
+    }
+    $i: $i + 1;
+}
+
+@keyframes left {
+    4% {
+        transform: rotateZ(90deg);
+    }
+    10%,
+    40% {
+        transform: rotateZ(0deg);
+    }
+    46%,
+    54% {
+        transform: rotateZ(90deg);
+    }
+    60%,
+    90% {
+        transform: rotateZ(0deg);
+    }
+    96% {
+        transform: rotateZ(90deg);
+    }
+}
+
+@keyframes right {
+    4% {
+        transform: rotateZ(-90deg);
+    }
+    10%,
+    40% {
+        transform: rotateZ(0deg);
+    }
+    46%,
+    54% {
+        transform: rotateZ(-90deg);
+    }
+    60%,
+    90% {
+        transform: rotateZ(0deg);
+    }
+    96% {
+        transform: rotateZ(-90deg);
+    }
+}
+
+@keyframes book {
+    4% {
+        transform: rotateZ(-90deg);
+    }
+    10%,
+    40% {
+        transform: rotateZ(0deg);
+        transform-origin: 2px 2px;
+    }
+    40.01%,
+    59.99% {
+        transform-origin: 30px 2px;
+    }
+    46%,
+    54% {
+        transform: rotateZ(90deg);
+    }
+    60%,
+    90% {
+        transform: rotateZ(0deg);
+        transform-origin: 2px 2px;
+    }
+    96% {
+        transform: rotateZ(-90deg);
+    }
+}
+
+/*=================================================================*/
+/*                      TYPOGRAPHY                              
+/*=================================================================*/
+h1,h2,h3,h4,h5,h6 {
+    color: $colordark;
+    font-family: $fonthead;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+a {
+    color: $colorpink;
+    outline: 0;
+    text-decoration: none;
+    @include transition(.2s);
+    &:hover {
+        color: $colordark;
+    }
+    &:focus {
+        outline: 0;
+    }
+}
+
+.blockquote {
+    font-size: 18px;
+}
+
+blockquote {
+    padding: 20px 20px;
+    margin: 0 0 20px;
+    background: #fff8fa;
+    border-left: solid 3px $colorpink;
+    border-radius: 5px;
+}
+
+blockquote p {
+    line-height: 1.6;
+}
+
+.blockquote-footer {
+    margin-top: 0;
+}
+
+.table {
+    color: $colortext;
+}
