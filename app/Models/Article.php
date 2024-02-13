@@ -26,6 +26,8 @@ class Article extends Model implements HasMedia
     public function user(){
         return $this->belongsTo(\App\Models\User::class);
     }
+
+    
     public function category(){
         return $this->belongsTo(\App\Models\Category::class);
     }
@@ -88,7 +90,17 @@ class Article extends Model implements HasMedia
         return $query->where('category_id', $category->id);
     }
 
+    public function scopeWorkshop(Builder $query)
+    {
+        $category=Category::where('title','أوراق العمل')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
 
+    public function scopeFeatured(Builder $query)
+    {
+        return $query->where('is_featured', 1);
+    }
+    
     public function registerMediaConversions(Media $media = null): void
     {
         $this

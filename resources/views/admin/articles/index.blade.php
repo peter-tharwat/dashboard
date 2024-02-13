@@ -71,7 +71,7 @@
 
 						<td style="width: 360px;">
 							@can('articles-read')
-							<a href="{{route('article.show',['article'=>$article])}}">
+							<a href="{{route('article.show',['category'=>$article->category->title,'post_slug'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
