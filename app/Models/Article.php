@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -25,8 +26,13 @@ class Article extends Model implements HasMedia
     public function user(){
         return $this->belongsTo(\App\Models\User::class);
     }
-    public function categories(){
-        return $this->belongsToMany(\App\Models\Category::class,'article_categories');
+
+    
+    public function category(){
+        return $this->belongsTo(\App\Models\Category::class);
+    }
+    public function editor(){
+        return $this->belongsTo(\App\Models\Editor::class);
     }
     public function comments(){
         return $this->hasMany(\App\Models\ArticleComment::class,'article_id');
@@ -42,6 +48,59 @@ class Article extends Model implements HasMedia
 
     }
 
+    public function scopeResearch(Builder $query)
+    {
+        $category=Category::where('title','الأبحاث')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+
+    public function scopeArticle(Builder $query)
+    {
+        $category=Category::where('title','المقالات البحثية')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+
+    public function scopeNews(Builder $query)
+    {
+        $category=Category::where('title','الأخبار')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+
+    public function scopeDiscussion(Builder $query)
+    {
+        $category=Category::where('title','الحوارات')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+    
+    public function scopePolicies(Builder $query)
+    {
+        $category=Category::where('title','أوراق السياسات')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }   
+
+    public function scopeBooksReview(Builder $query)
+    {
+        $category=Category::where('title','مراجعات الكتب')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    } 
+
+    public function scopeBook(Builder $query)
+    {
+        $category=Category::where('title','إصدارات المركز')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+
+    public function scopeWorkshop(Builder $query)
+    {
+        $category=Category::where('title','أوراق العمل')->limit(1)->get()[0];
+        return $query->where('category_id', $category->id);
+    }
+
+    public function scopeFeatured(Builder $query)
+    {
+        return $query->where('is_featured', 1);
+    }
+    
     public function registerMediaConversions(Media $media = null): void
     {
         $this

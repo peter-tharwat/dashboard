@@ -55,7 +55,7 @@
 						<td style="width: 270px;">
 
 							@can('pages-read')
-							<a href="{{route('page.show',['page'=>$page])}}">
+							<a href="{{route('page.show',['page_slug'=>$page])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>

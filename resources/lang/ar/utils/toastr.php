@@ -16,6 +16,8 @@ $messages = [
 $entities = [
     'article' => 'المقال',
     'category' => 'القسم',
+    'editor' => 'الكاتب',
+
     'contact' => 'طلب التواصل',
 ];
 

@@ -1,0 +1,128 @@
+/*=================================================================*/
+/*                      HELPER                              
+/*=================================================================*/
+.rounded {
+	border-radius: 10px !important;
+}
+
+.bordered {
+	border: solid 1px #EBEBEB;
+}
+
+.padding-30 {
+	padding: 30px;
+}
+
+.alignleft {
+	float: left;
+	margin: 0.375em 1.75em 1em 0;
+}
+
+.alignright {
+    float: right;
+    margin: 0.375em 0 1em 1.75em;
+}
+
+.newsletter-headline {
+	font-size: 15px;
+	font-weight: bold;
+	color: $colordark;
+	display: block;
+}
+
+.newsletter-privacy {
+	font-size: 13px;
+	display: block;
+}
+
+.ads-title {
+	color: #C0C0C0;
+	font-family: $fonthead;
+	font-size: 12px;
+	display: block;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+::selection {
+	color: #FFF;
+	background: $colorpink;
+	/* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+	color: #FFF;
+	background: $colorpink;
+	/* Gecko Browsers */
+}
+
+.tag {
+	color: $colordefault;
+	border: solid 1px #EBEBEB;
+	border-radius: 25px;
+	font-size: 13px;
+	display: inline-block;
+	padding: 3px 14px;
+	margin: 4px 0;
+	&:hover {
+		border-color: $colorpink;
+		color: $colorpink;
+	}
+}
+
+.mouse {
+	border: solid 1px #FFF;
+    border-radius: 16px;
+    display: block;
+    height: 26px;
+    width: 20px;
+    left: 50%;
+    bottom: 100px;
+    position: absolute;
+    z-index: 1;
+	@include transform(translateX(-50%));
+  }
+
+.mouse .wheel {
+	background: #FFF;
+	border-radius: 100%;
+	display: block;
+	position: absolute;
+	top: 8px;
+	left: 50%;
+	@include transform(translateX(-50%));
+	height: 3px;
+	width: 3px;
+	-webkit-animation: animation-mouse 2s linear infinite;
+	animation: animation-mouse 2s linear infinite;
+}
+
+@-webkit-keyframes animation-mouse {
+	0% {
+		top: 29%;
+	}
+	15% {
+		top: 50%;
+	}
+	50% {
+		top: 50%;
+	}
+	100% {
+		top: 29%;
+	}
+}
+@keyframes animation-mouse {
+	0% {
+		top: 29%;
+	}
+	15% {
+		top: 50%;
+	}
+	50% {
+		top: 50%;
+	}
+	100% {
+		top: 29%;
+	}
+}

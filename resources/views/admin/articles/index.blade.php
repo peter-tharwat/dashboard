@@ -36,11 +36,14 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>المستخدم</th>
-						<th>الشعار</th>
 						<th>العنوان</th>
+						<th>الكاتب</th>
+						<th>القسم</th>
+						<th>الصورة</th>
 						<th>مميز</th>
+						<th>المستخدم</th>
 						<th>زيارات</th>
+						<th>رابط الدرايف</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
@@ -48,26 +51,27 @@
 					@foreach($articles as $article)
 					<tr>
 						<td>{{$article->id}}</td>
-						<td>{{$article->user->name}}</td>
 						{{-- <td>
 							<a href="{{route('admin.categories.index',['id'=>$article->category_id])}}" style="color:#2381c6">{{$article->category->title_ar}}</a>
 						</td> --}}
-						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 						<td>{{$article->title}}</td>
+						<td>{{$article->editor->name}}</td>
+						<td>{{$article->category->title}}</td>
+
+						<td><img src="{{$article->main_image()}}" style="width:40px"></td>
 
 						<td>
 							@if($article->is_featured==1)
 							<span class="fas fa-check-circle text-success" ></span>
 							@endif
 						</td>
+						<td>{{$article->user->name}}</td>
 						<td>{{$article->views}}</td>
+						<td><a target="_BLANK" href="{{$article->file_url}}">فتح الرابط</a></td>
+
 						<td style="width: 360px;">
-
-
-							
-
 							@can('articles-read')
-							<a href="{{route('article.show',['article'=>$article])}}">
+							<a href="{{route('article.show',['category'=>$article->category->title,'post_slug'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
 								</span>
@@ -75,11 +79,11 @@
 							@endcan
 							
 							@can('comments-read')
-							<a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
+							<!--a href="{{route('admin.article-comments.index',['article_id'=>$article->id])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-comments "></span> التعليقات
 								</span>
-							</a>
+							</a-->
 							@endcan
 
 							@can('articles-update')

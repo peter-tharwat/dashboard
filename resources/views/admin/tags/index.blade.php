@@ -37,7 +37,6 @@
 					<tr>
 						<th>#</th>
 						<th>الاسم</th>
-						<th>الرمز</th>
 						<th>تحكم</th>
 					</tr>
 				</thead>
@@ -46,7 +45,6 @@
 					<tr >
 						<td>{{$tag->id}}</td>
 						<td>{{$tag->tag_name}}</td>
-						<td>{{$tag->slug}}</td>
 					 
 						<td style="width: 270px;">
 							@can('tags-update')

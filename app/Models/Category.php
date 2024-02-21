@@ -27,7 +27,7 @@ class Category extends Model implements HasMedia
         return route('category.show',$this);
     }
     public function articles(){
-        return $this->belongsToMany(\App\Models\Article::class,'article_categories');
+        return $this->hasMany(\App\Models\Article::class);
     }
     public function image($type='thumb'){
         if($this->image==null)

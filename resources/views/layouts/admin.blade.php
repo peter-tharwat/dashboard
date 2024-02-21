@@ -224,6 +224,7 @@
                         </div>
                     </a>
                     @endcan
+
                     @can('users-read')
                     <a href="{{route('admin.users.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex " >
@@ -237,7 +238,18 @@
                     </a>
                     @endcan
                     
-
+                    @can('editors-read')
+                    <a href="{{route('admin.editors.index')}}" class="col-12 px-0" >
+                        <div class="col-12 item-container px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-users font-2"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
+                                الكُتّاب
+                            </div> 
+                        </div>
+                    </a>
+                    @endcan
                     
 
                     @foreach($plugins as $plugin)

@@ -57,6 +57,7 @@
                     <tbody>
                         @php
                         $permissions = \Spatie\Permission\Models\Permission::groupBy('table')->get();
+                        
                         @endphp
                         @foreach($permissions as $permission)
                         @php
@@ -64,13 +65,10 @@
                         @endphp
                         <tr>
                             
-                         
-
                             <td>{{$permission->table}}</td>
 
                             @if($sub_permissions->where('name',$permission->table.'-create')->first())
                             <td style="width: 56px;">
-                                 
                                 <div class="form-check form-switch">
                                   <input class="form-check-input" type="checkbox" id="{{$permission->table.'-create'}}" value="{{$permission->table.'-create'}}" @if(isset($role)&&$role->hasPermissionTo($permission->table.'-create')) checked @endif name="permissions[]">
                                 </div>

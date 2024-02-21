@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\BackendSiteMapController;
 use App\Http\Controllers\Backend\BackendSettingController;
 use App\Http\Controllers\Backend\BackendContactController;
 use App\Http\Controllers\Backend\BackendCategoryController;
+use App\Http\Controllers\Backend\BackendEditorController;
+
 use App\Http\Controllers\Backend\BackendRedirectionController;
 use App\Http\Controllers\Backend\BackendUserController;
 use App\Http\Controllers\Backend\BackendTrafficsController;
@@ -34,16 +36,12 @@ use App\Http\Controllers\Backend\BackendPluginController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\FrontendProfileController;
 
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PostController;
+use App\Http\Controllers\Frontend\AjaxController;
+use App\Http\Controllers\Frontend\DownloadController;
+
 Auth::routes();
-
-
-
-
-
-Route::get('/', [FrontController::class,'index'])->name('home');
-Route::get('/index2', function(){return view('front.index2');})->name('index2');
-
-
 
 Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->name('user.')->group(function () {
     Route::get('/', [FrontendProfileController::class,'dashboard'])->name('dashboard');
@@ -60,10 +58,6 @@ Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->nam
         Route::put('/update-email',[FrontendProfileController::class,'profile_update_email'])->name('update-email');
     });
 });
-
-
-
-#Route::get('/test',[BackendTestController::class,'test']);
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
@@ -91,6 +85,8 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('menu-links/order',[BackendMenuLinkController::class,'order'])->name('menu-links.order');
         Route::resource('menu-links',BackendMenuLinkController::class);
         Route::resource('categories',BackendCategoryController::class);
+        Route::resource('editors',BackendEditorController::class);
+
         Route::resource('redirections',BackendRedirectionController::class);
         Route::get('traffics',[BackendTrafficsController::class,'index'])->name('traffics.index');
         Route::get('traffics/logs',[BackendTrafficsController::class,'logs'])->name('traffics.logs');
@@ -136,12 +132,13 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
 });
 
+# Authentication routes
 Route::get('/login/google/redirect', [LoginController::class,'redirect_google']);
 Route::get('/login/google/callback', [LoginController::class,'callback_google']);
 Route::get('/login/facebook/redirect', [LoginController::class,'redirect_facebook']);
 Route::get('/login/facebook/callback', [LoginController::class,'callback_facebook']);
 
-
+# SEO routes
 Route::get('blocked',[BackendHelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[BackendHelperController::class,'robots']);
 Route::get('manifest.json',[BackendHelperController::class,'manifest'])->name('manifest');
@@ -149,12 +146,28 @@ Route::get('sitemap.xml',[BackendSiteMapController::class,'sitemap']);
 Route::get('sitemaps/links',[BackendSiteMapController::class,'custom_links']);
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[BackendSiteMapController::class,'viewer']);
 
+# Frontend routes
 
-Route::view('contact','front.pages.contact')->name('contact');
-Route::get('page/{page}',[FrontController::class,'page'])->name('page.show');
-Route::get('tag/{tag}',[FrontController::class,'tag'])->name('tag.show');
-Route::get('category/{category}',[FrontController::class,'category'])->name('category.show');
-Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
-Route::get('blog',[FrontController::class,'blog'])->name('blog');
-Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
-Route::post('comment',[FrontController::class,'comment_post'])->name('comment-post');
+#Route::get('tag/{tag}',[FrontController::class,'tag'])->name('tag.show');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/authors', [HomeController::class, 'authors']);
+
+Route::get('/authors/{author_slug}', [HomeController::class, 'author'])
+    ->where('author_slug', '[\w-]+')->name('editor.show'); 
+
+Route::get('/pages/{page_slug}', [HomeController::class, 'page'])
+    ->where('page_slug', '[\w-]+')->name('page.show'); 
+
+Route::get('/{category}/{post_slug}', [PostController::class, 'article'])
+    ->where(['category' => '[\w-]+', 'post_slug' => '[\w-]+'])->name('article.show');
+
+Route::get('/{category}', [HomeController::class, 'category'])
+    ->where('category', '[\w-]+')->name('category.show');
+
+//------------------auth routes-------------------------------
+Route::middleware(['auth'])->group(function () {
+    Route::get('/like_increment/{id}', [AjaxController::class, 'likes']); 
+    Route::get('/favorite_increment/{id}', [AjaxController::class, 'favorites']); 
+});
+Route::get('/download_increment/{id}/{type}', [DownloadController::class, 'downloadIncrement']); 

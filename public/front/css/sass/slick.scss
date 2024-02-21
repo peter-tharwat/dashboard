@@ -1,0 +1,142 @@
+/*=================================================================*/
+/*                      SLICK SETTINGS
+/*=================================================================*/
+.slick-slide {
+    height: auto;
+    outline: none;
+}
+
+.slick-next,.slick-prev {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: transparent;
+    border-radius: 50%;
+    border: solid 1px #EBEBEB;
+    top: 50%;
+    @include transform(translateY(-50%));
+    z-index: 1;
+    @include transition(.3s);
+}
+
+.slick-next:hover,.slick-next:focus,.slick-prev:hover,.slick-prev:focus {
+    background: #FFF;
+    border-color: #EBEBEB;
+    &:before {
+        color: $colororange;
+    }
+}
+
+.slick-prev {
+    left: -30px;
+    &:hover {
+        background: $colorpink;
+    }
+}
+
+.slick-next {
+    right: -30px;
+    &:hover {
+        background: $colorpink;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #909090;
+    font-size: 10px;
+    opacity: 1;
+}
+
+.slick-prev:before {
+    content: "\e605";
+    font-family: 'simple-line-icons';
+    top: 9px;
+    left: 9px;
+    position: absolute;
+}
+
+.slick-next:before {
+    content: "\e606";
+    font-family: 'simple-line-icons';
+    position: absolute;
+    top: 9px;
+    left: 9px;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0;
+}
+
+.slick-dots {
+    position: relative;
+    bottom: 0;
+    padding: 0;
+    margin: 25px 0 0;
+}
+
+.slick-dots li {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+}
+
+.slick-dots li.slick-active {
+    width: 25px;
+    height: 8px;
+}
+
+.slick-dots li button {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+.slick-dots li.slick-active button:before {
+    @include linear-gradient(to right, $colorpink 0%, $colororange 100%);
+    border-radius: 5px;
+    opacity: 1;
+    width: 25px;
+}
+
+.slick-dots li button:before {
+    content: "";
+    background: #d4d4d4;
+    border-radius: 50%;
+    opacity: 1;
+    top: 8px;
+    left: 8px;
+    height: 8px;
+    width: 8px;
+}
+
+.slick-arrows-top {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    @include transform(translate(0px, -50%));
+}
+
+.slick-arrows-bot {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.slick-custom-buttons {
+    color: #909090;
+    font-size: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #FFF;
+    border-radius: 50%;
+    border: solid 1px #EBEBEB;
+    padding: 0;
+    @include transition(.3s);
+    &:hover {
+        color: $colorpink;
+        border-color: $colorpink;
+    }
+}
