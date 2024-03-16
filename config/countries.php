@@ -11,6 +11,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇫",
         "order" => 0,
+        "currency_ar" => "أفغاني أفغاني",
+        "currency_en" => "Afghan Afghani",
     ],
     [
         "name" => "Albania",
@@ -23,6 +25,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇱",
         "order" => 0,
+        "currency_ar" => "ألبانيا لك",
+        "currency_en" => "Albanian lek",
     ],
     [
         "name" => "Algeria",
@@ -35,6 +39,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇿",
         "order" => 13,
+        "currency_ar" => "دينار جزائري",
+        "currency_en" => "Algerian dinar",
     ],
     [
         "name" => "Andorra",
@@ -47,6 +53,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇩",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Angola",
@@ -59,6 +67,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇴",
         "order" => 0,
+        "currency_ar" => "أنجولية أولا",
+        "currency_en" => "Angolan kwanza",
     ],
     [
         "name" => "Anguilla",
@@ -71,6 +81,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇮",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Antigua and Barbuda",
@@ -83,6 +95,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇬",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Argentina",
@@ -95,6 +109,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇷",
         "order" => 0,
+        "currency_ar" => "بيزو أرجنتيني",
+        "currency_en" => "Argentine peso",
     ],
     [
         "name" => "Armenia",
@@ -107,6 +123,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇲",
         "order" => 0,
+        "currency_ar" => "دراما أرمنية",
+        "currency_en" => "Armenian dram",
     ],
     [
         "name" => "Aruba",
@@ -119,6 +137,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇼",
         "order" => 0,
+        "currency_ar" => "جلدر أروبي",
+        "currency_en" => "Aruban guilder",
     ],
     [
         "name" => "Australia",
@@ -131,6 +151,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇺",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Austria",
@@ -143,6 +165,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇹",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Azerbaijan",
@@ -155,6 +179,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇦🇿",
         "order" => 0,
+        "currency_ar" => "مانات أذربيجاني جديد",
+        "currency_en" => "New azerbaijani Manat",
     ],
     [
         "name" => "Bahamas",
@@ -167,6 +193,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇸",
         "order" => 0,
+        "currency_ar" => "دولار بهامي",
+        "currency_en" => "Bahamian dollar",
     ],
     [
         "name" => "Bahrain",
@@ -179,6 +207,8 @@ return [
         "is_khaliji_country" => true,
         "flag" => "🇧🇭",
         "order" => 20,
+        "currency_ar" => "دينار بحريني",
+        "currency_en" => "Bahraini dinar",
     ],
     [
         "name" => "Bangladesh",
@@ -191,6 +221,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇩",
         "order" => 0,
+        "currency_ar" => "قدم بنجلاديشية",
+        "currency_en" => "Bangladeshi taka",
     ],
     [
         "name" => "Barbados",
@@ -203,6 +235,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇧",
         "order" => 0,
+        "currency_ar" => "دولار بربادوس",
+        "currency_en" => "Barbados dollar",
     ],
     [
         "name" => "Belarus",
@@ -215,6 +249,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇾",
         "order" => 0,
+        "currency_ar" => "روبل بيلاروسي",
+        "currency_en" => "Belarusian ruble",
     ],
     [
         "name" => "Belgium",
@@ -227,6 +263,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Belize",
@@ -239,6 +277,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇿",
         "order" => 0,
+        "currency_ar" => "دولار بليز",
+        "currency_en" => "Belize dollar",
     ],
     [
         "name" => "Benin",
@@ -251,6 +291,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇯",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Bermuda",
@@ -263,6 +305,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇲",
         "order" => 0,
+        "currency_ar" => "دولار برمودي",
+        "currency_en" => "Bermudian dollar",
     ],
     [
         "name" => "Bhutan",
@@ -275,6 +319,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇹",
         "order" => 0,
+        "currency_ar" => "نولتروم بوتاني",
+        "currency_en" => "Bhutanese ngultrum",
     ],
     [
         "name" => "Bolivia",
@@ -287,6 +333,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇴",
         "order" => 0,
+        "currency_ar" => "بوليفية",
+        "currency_en" => "Boliviano",
     ],
     [
         "name" => "Bosnia and Herzegovina",
@@ -299,6 +347,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇦",
         "order" => 0,
+        "currency_ar" => "علامة قابلة للتحويل",
+        "currency_en" => "Convertible mark",
     ],
     [
         "name" => "Botswana",
@@ -311,6 +361,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇼",
         "order" => 0,
+        "currency_ar" => "بوتسوانا مطر",
+        "currency_en" => "Botswana pula",
     ],
     [
         "name" => "Brazil",
@@ -323,6 +375,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇷",
         "order" => 0,
+        "currency_ar" => "ريال برازيلي",
+        "currency_en" => "Brazilian real",
     ],
     [
         "name" => "British Indian Ocean Territory",
@@ -335,6 +389,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇴",
         "order" => 0,
+        "currency_ar" => "جنيه استرليني",
+        "currency_en" => "Pound sterling",
     ],
     [
         "name" => "Brunei",
@@ -347,6 +403,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇳",
         "order" => 0,
+        "currency_ar" => "دولار بروناي",
+        "currency_en" => "Brunei dollar",
     ],
     [
         "name" => "Bulgaria",
@@ -359,6 +417,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇬",
         "order" => 0,
+        "currency_ar" => "ليف بلغاري",
+        "currency_en" => "Bulgarian lev",
     ],
     [
         "name" => "Burkina Faso",
@@ -371,6 +431,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇫",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Myanmar",
@@ -383,6 +445,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇲",
         "order" => 0,
+        "currency_ar" => "ميانما كيت",
+        "currency_en" => "Myanma kyat",
     ],
     [
         "name" => "Burundi",
@@ -395,6 +459,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇧🇮",
         "order" => 0,
+        "currency_ar" => "فرنك بوروندي",
+        "currency_en" => "Burundian franc",
     ],
     [
         "name" => "Cambodia",
@@ -407,6 +473,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇭",
         "order" => 0,
+        "currency_ar" => "رييل كمبودي",
+        "currency_en" => "Cambodian riel",
     ],
     [
         "name" => "Cameroon",
@@ -419,6 +487,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇲",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Canada",
@@ -431,6 +501,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇦",
         "order" => 0,
+        "currency_ar" => "دولار كندي",
+        "currency_en" => "Canadian dollar",
     ],
     [
         "name" => "Cape Verde",
@@ -443,6 +515,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇻",
         "order" => 0,
+        "currency_ar" => "درع رأس أخضر",
+        "currency_en" => "Cape Verde escudo",
     ],
     [
         "name" => "Cayman Islands",
@@ -455,6 +529,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇾",
         "order" => 0,
+        "currency_ar" => "دولار جزر كايمان",
+        "currency_en" => "Cayman Islands dollar",
     ],
     [
         "name" => "Central African Republic",
@@ -467,6 +543,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇫",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Chad",
@@ -479,6 +557,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇩",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Christmas Island",
@@ -491,6 +571,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇽",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Cocos (Keeling) Islands",
@@ -503,6 +585,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇨",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Cook Islands",
@@ -515,6 +599,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇰",
         "order" => 0,
+        "currency_ar" => "دولار نيوزيلندي",
+        "currency_en" => "New Zealand dollar",
     ],
     [
         "name" => "Chile",
@@ -527,6 +613,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇱",
         "order" => 0,
+        "currency_ar" => "بيزو تشيلي",
+        "currency_en" => "Chilean peso",
     ],
     [
         "name" => "China",
@@ -539,6 +627,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇳",
         "order" => 0,
+        "currency_ar" => "يوان رينمنبي صيني (RMB)",
+        "currency_en" => "Chinese yuan renminbi (RMB)",
     ],
     [
         "name" => "Colombia",
@@ -551,6 +641,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇴",
         "order" => 0,
+        "currency_ar" => "بيزو كولومبي",
+        "currency_en" => "Colombian peso",
     ],
     [
         "name" => "Comoros",
@@ -563,6 +655,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇲",
         "order" => 0,
+        "currency_ar" => "فرنك جزر قمر",
+        "currency_en" => "Comoro franc",
     ],
     [
         "name" => "Congo",
@@ -575,6 +669,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇬",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Costa Rica",
@@ -587,6 +683,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇷",
         "order" => 0,
+        "currency_ar" => "قولون كوستاريكي",
+        "currency_en" => "Costa Rican colon",
     ],
     [
         "name" => "Croatia",
@@ -599,6 +697,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇷",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Cuba",
@@ -611,6 +711,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇺",
         "order" => 0,
+        "currency_ar" => "بيزو كوبي قابل للتحويل (->CUP)",
+        "currency_en" => "Cuban convertible Peso (->CUP)",
     ],
     [
         "name" => "Cyprus",
@@ -623,18 +725,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇾",
         "order" => 0,
-    ],
-    [
-        "name" => "Czech Republic",
-        "name_ar" => "جمهورية التشيك",
-        "dial_code" => "+420",
-        "currency" => "CZK",
-        "iso2" => "CZ",
-        "iso3" => "CZE",
-        "is_arabian_country" => false,
-        "is_khaliji_country" => false,
-        "flag" => "🇨🇿",
-        "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Denmark",
@@ -647,6 +739,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇰",
         "order" => 0,
+        "currency_ar" => "كرونة دنماركية",
+        "currency_en" => "Danish krone",
     ],
     [
         "name" => "Djibouti",
@@ -659,6 +753,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇯",
         "order" => 0,
+        "currency_ar" => "فرنك جيبوتي",
+        "currency_en" => "Djiboutian franc",
     ],
     [
         "name" => "Dominica",
@@ -671,6 +767,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇲",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Dominican Republic",
@@ -683,6 +781,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇴",
         "order" => 0,
+        "currency_ar" => "بيزو دومينيكي",
+        "currency_en" => "Dominican peso",
     ],
     [
         "name" => "Timor-Leste",
@@ -695,6 +795,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇱",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Tokelau",
@@ -707,6 +809,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇰",
         "order" => 0,
+        "currency_ar" => "دولار نيوزيلندي",
+        "currency_en" => "New Zealand dollar",
     ],
     [
         "name" => "Turks and Caicos Islands",
@@ -719,6 +823,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇨",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Ecuador",
@@ -731,6 +837,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇨",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Egypt",
@@ -743,6 +851,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇬",
         "order" => 16,
+        "currency_ar" => "جنيه مصري",
+        "currency_en" => "Egyptian pound",
     ],
     [
         "name" => "El Salvador",
@@ -755,6 +865,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇻",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Equatorial Guinea",
@@ -767,6 +879,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇶",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Eritrea",
@@ -779,6 +893,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇷",
         "order" => 0,
+        "currency_ar" => "إريتريا نقف",
+        "currency_en" => "Eritrean nakfa",
     ],
     [
         "name" => "Estonia",
@@ -791,6 +907,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Ethiopia",
@@ -803,6 +921,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇹",
         "order" => 0,
+        "currency_ar" => "بير اثيوبي",
+        "currency_en" => "Ethipian birr",
     ],
     [
         "name" => "Faroe Islands",
@@ -815,6 +935,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇫🇴",
         "order" => 0,
+        "currency_ar" => "كرونة دنماركية",
+        "currency_en" => "Danish krone",
     ],
     [
         "name" => "Falkland Islands",
@@ -827,6 +949,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇫🇰",
         "order" => 0,
+        "currency_ar" => "جنيه جزر فوكلاند",
+        "currency_en" => "Falkland Islands pound",
     ],
     [
         "name" => "Fiji",
@@ -839,6 +963,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇫🇯",
         "order" => 0,
+        "currency_ar" => "دولار فيجي",
+        "currency_en" => "Fiji dollar",
     ],
     [
         "name" => "Finland",
@@ -851,6 +977,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇫🇮",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "France",
@@ -863,6 +991,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇫🇷",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "French Polynesia",
@@ -875,6 +1005,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇫",
         "order" => 0,
+        "currency_ar" => "فرنك محيط هادئ فرنسي",
+        "currency_en" => "French pacific franc",
     ],
     [
         "name" => "Gabon",
@@ -887,6 +1019,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇦",
         "order" => 0,
+        "currency_ar" => "فرنك CFA",
+        "currency_en" => "CFA Franc BEAC",
     ],
     [
         "name" => "Gambia",
@@ -899,6 +1033,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇲",
         "order" => 0,
+        "currency_ar" => "دالاس غامبية",
+        "currency_en" => "Gambian dalasi",
     ],
     [
         "name" => "Georgia",
@@ -911,6 +1047,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇪",
         "order" => 0,
+        "currency_ar" => "هرب جورجية",
+        "currency_en" => "Georgian lari",
     ],
     [
         "name" => "Gibraltar",
@@ -923,6 +1061,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇮",
         "order" => 0,
+        "currency_ar" => "جنيه جبل طارق",
+        "currency_en" => "Gibraltar pound",
     ],
     [
         "name" => "Germany",
@@ -935,6 +1075,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇩🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Ghana",
@@ -947,6 +1089,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇭",
         "order" => 0,
+        "currency_ar" => "سيدي غاني",
+        "currency_en" => "Ghanaian Cedi",
     ],
     [
         "name" => "Greece",
@@ -959,6 +1103,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇷",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Greenland",
@@ -971,6 +1117,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇱",
         "order" => 0,
+        "currency_ar" => "كرونة دنماركية",
+        "currency_en" => "Danish krone",
     ],
     [
         "name" => "Guadeloupe",
@@ -983,6 +1131,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇵",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Grenada",
@@ -995,6 +1145,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇩",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Guernsey",
@@ -1007,6 +1159,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇬",
         "order" => 0,
+        "currency_ar" => "جنيه جيرنسي",
+        "currency_en" => "Guernsey Pound",
     ],
     [
         "name" => "Guatemala",
@@ -1019,6 +1173,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇹",
         "order" => 0,
+        "currency_ar" => "كوازال غواتيمالي",
+        "currency_en" => "Guatemalan quetzal",
     ],
     [
         "name" => "Guam",
@@ -1031,6 +1187,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇺",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Guinea",
@@ -1043,6 +1201,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇳",
         "order" => 0,
+        "currency_ar" => "فرنك غيني",
+        "currency_en" => "Guinean franc",
     ],
     [
         "name" => "Guinea-Bissau",
@@ -1055,6 +1215,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇼",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Guyana",
@@ -1067,6 +1229,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇾",
         "order" => 0,
+        "currency_ar" => "دولار جوياني",
+        "currency_en" => "Guyanese dollar",
     ],
     [
         "name" => "Haiti",
@@ -1079,6 +1243,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇹",
         "order" => 0,
+        "currency_ar" => "غورد هايتي",
+        "currency_en" => "Haitian gourde",
     ],
     [
         "name" => "Heard Island and McDonald Islands",
@@ -1091,6 +1257,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇲",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Jordan",
@@ -1103,6 +1271,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇯🇴",
         "order" => 4,
+        "currency_ar" => "دينار أردني",
+        "currency_en" => "Jordanian dinar",
     ],
     [
         "name" => "Yemen",
@@ -1115,6 +1285,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇾🇪",
         "order" => 3,
+        "currency_ar" => "ريال يمني",
+        "currency_en" => "Yemeni rial",
     ],
     [
         "name" => "Honduras",
@@ -1127,6 +1299,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇳",
         "order" => 0,
+        "currency_ar" => "لمبيرا هندوراس",
+        "currency_en" => "Honduran lempira",
     ],
     [
         "name" => "Hong Kong",
@@ -1139,6 +1313,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇰",
         "order" => 0,
+        "currency_ar" => "دولار هونج كونج",
+        "currency_en" => "Hong Kong dollar",
     ],
     [
         "name" => "Hungary",
@@ -1151,6 +1327,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇭🇺",
         "order" => 0,
+        "currency_ar" => "فورنت مجري",
+        "currency_en" => "Hungarian forint",
     ],
     [
         "name" => "Iceland",
@@ -1163,6 +1341,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇸",
         "order" => 0,
+        "currency_ar" => "كرونا أيسلندية",
+        "currency_en" => "Icelandic króna",
     ],
     [
         "name" => "India",
@@ -1175,6 +1355,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇳",
         "order" => 0,
+        "currency_ar" => "روبية هندية",
+        "currency_en" => "Indian rupee",
     ],
     [
         "name" => "Indonesia",
@@ -1187,6 +1369,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇩",
         "order" => 0,
+        "currency_ar" => "روبية اندونيسية",
+        "currency_en" => "Indonesian rupiah",
     ],
     [
         "name" => "Iran",
@@ -1199,6 +1383,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇷",
         "order" => 0,
+        "currency_ar" => "ريال إيراني",
+        "currency_en" => "Iranian rial",
     ],
     [
         "name" => "Iraq",
@@ -1211,6 +1397,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇶",
         "order" => 6,
+        "currency_ar" => "دينار عراقي",
+        "currency_en" => "Iraqi dinar",
     ],
     [
         "name" => "Ireland",
@@ -1223,6 +1411,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Isle of Man",
@@ -1235,6 +1425,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇲",
         "order" => 0,
+        "currency_ar" => "جنيه مانكس",
+        "currency_en" => "Manx pound",
     ],
     [
         "name" => "Palestine",
@@ -1247,6 +1439,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇸",
         "order" => 7,
+        "currency_ar" => "شيكل إسرائيلي جديد",
+        "currency_en" => "Israeli new shekel",
     ],
     [
         "name" => "Israel",
@@ -1259,6 +1453,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇱",
         "order" => 0,
+        "currency_ar" => "شيكل إسرائيلي جديد",
+        "currency_en" => "Israeli new shekel",
     ],
     [
         "name" => "Italy",
@@ -1271,6 +1467,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇮🇹",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Ivory Coast",
@@ -1283,6 +1481,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇮",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Jamaica",
@@ -1295,6 +1495,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇯🇲",
         "order" => 0,
+        "currency_ar" => "دولار جامايكي",
+        "currency_en" => "Jamaican dollar",
     ],
     [
         "name" => "Jersey",
@@ -1307,6 +1509,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇯🇪",
         "order" => 0,
+        "currency_ar" => "جنيه جيرسي",
+        "currency_en" => "Jersey pound",
     ],
     [
         "name" => "Japan",
@@ -1319,6 +1523,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇯🇵",
         "order" => 0,
+        "currency_ar" => "ين ياباني",
+        "currency_en" => "Japanese yen",
     ],
     [
         "name" => "Kazakhstan",
@@ -1331,6 +1537,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇿",
         "order" => 0,
+        "currency_ar" => "تنغي كازاخستاني",
+        "currency_en" => "Kazakhstani tenge",
     ],
     [
         "name" => "Kenya",
@@ -1343,6 +1551,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇪",
         "order" => 0,
+        "currency_ar" => "شلن كيني",
+        "currency_en" => "Kenyan shilling",
     ],
     [
         "name" => "Kiribati",
@@ -1355,6 +1565,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇮",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "North Korea",
@@ -1367,18 +1579,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇵",
         "order" => 0,
-    ],
-    [
-        "name" => "Kosovo",
-        "name_ar" => "كوسوفو",
-        "dial_code" => "+383",
-        "currency" => "EUR",
-        "iso2" => "XK",
-        "iso3" => "XKX",
-        "is_arabian_country" => false,
-        "is_khaliji_country" => false,
-        "flag" => "🇽🇰",
-        "order" => 0,
+        "currency_ar" => "فازت كوريا شمالية",
+        "currency_en" => "North Korean won",
     ],
     [
         "name" => "Kuwait",
@@ -1391,6 +1593,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇼",
         "order" => 21,
+        "currency_ar" => "دينار كويتي",
+        "currency_en" => "Kuwaiti dinar",
     ],
     [
         "name" => "Kyrgyzstan",
@@ -1403,6 +1607,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇬",
         "order" => 0,
+        "currency_ar" => "سوم قيرغيزستان",
+        "currency_en" => "Kyrgyzstani som",
     ],
     [
         "name" => "Laos",
@@ -1415,6 +1621,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇦",
         "order" => 0,
+        "currency_ar" => "دجاج لاو",
+        "currency_en" => "Lao kip",
     ],
     [
         "name" => "Latvia",
@@ -1427,6 +1635,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇻",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Lebanon",
@@ -1439,6 +1649,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇧",
         "order" => 5,
+        "currency_ar" => "ليرة لبنانية",
+        "currency_en" => "Lebanese pound",
     ],
     [
         "name" => "Lesotho",
@@ -1451,6 +1663,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇸",
         "order" => 0,
+        "currency_ar" => "ليسوتو تتذكر",
+        "currency_en" => "Lesotho loti",
     ],
     [
         "name" => "Liberia",
@@ -1463,6 +1677,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇷",
         "order" => 0,
+        "currency_ar" => "دولار ليبيري",
+        "currency_en" => "Liberian dollar",
     ],
     [
         "name" => "Libya",
@@ -1475,6 +1691,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇾",
         "order" => 11,
+        "currency_ar" => "دينار ليبي",
+        "currency_en" => "Libyan dinar",
     ],
     [
         "name" => "Liechtenstein",
@@ -1487,6 +1705,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇮",
         "order" => 0,
+        "currency_ar" => "فرنك سويسري",
+        "currency_en" => "Swiss franc",
     ],
     [
         "name" => "Luxembourg",
@@ -1499,6 +1719,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇺",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Macedonia",
@@ -1511,6 +1733,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇰",
         "order" => 0,
+        "currency_ar" => "دينار مقدوني",
+        "currency_en" => "Macedonian denar",
     ],
     [
         "name" => "Madagascar",
@@ -1523,6 +1747,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇬",
         "order" => 0,
+        "currency_ar" => "أرياير مدغشقر",
+        "currency_en" => "Malagasy ariayry",
     ],
     [
         "name" => "Marshall Islands",
@@ -1535,6 +1761,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇭",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Macau",
@@ -1547,6 +1775,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇴",
         "order" => 0,
+        "currency_ar" => "باتاكا ماكاوية",
+        "currency_en" => "Macanese pataca",
     ],
     [
         "name" => "Malawi",
@@ -1559,6 +1789,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇼",
         "order" => 0,
+        "currency_ar" => "صباح ملاوي",
+        "currency_en" => "Malawian kwacha",
     ],
     [
         "name" => "Malaysia",
@@ -1571,6 +1803,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇾",
         "order" => 0,
+        "currency_ar" => "رينغيت ماليزي",
+        "currency_en" => "Malaysian ringgit",
     ],
     [
         "name" => "Maldives",
@@ -1583,6 +1817,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇻",
         "order" => 0,
+        "currency_ar" => "روبية جزر مالديف",
+        "currency_en" => "Maldivian rufiyaa",
     ],
     [
         "name" => "Mali",
@@ -1595,6 +1831,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇱",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Malta",
@@ -1607,6 +1845,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇹",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Martinique",
@@ -1619,6 +1859,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇶",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Mauritania",
@@ -1631,6 +1873,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇷",
         "order" => 15,
+        "currency_ar" => "أوقية موريتانية",
+        "currency_en" => "Mauritanian ouguiya",
     ],
     [
         "name" => "Mauritius",
@@ -1643,6 +1887,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇺",
         "order" => 0,
+        "currency_ar" => "روبية موريشيوسية",
+        "currency_en" => "Mauritian rupee",
     ],
     [
         "name" => "Mayotte",
@@ -1655,6 +1901,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇾🇹",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Mexico",
@@ -1667,6 +1915,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇽",
         "order" => 0,
+        "currency_ar" => "بيزو مكسيكي",
+        "currency_en" => "Mexican peso",
     ],
     [
         "name" => "Moldova",
@@ -1679,6 +1929,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇩",
         "order" => 0,
+        "currency_ar" => "ليو مولدوفي",
+        "currency_en" => "Moldovan leu",
     ],
     [
         "name" => "Mongolia",
@@ -1691,6 +1943,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇳",
         "order" => 0,
+        "currency_ar" => "توغرك منغولي",
+        "currency_en" => "Mongolian tugrik",
     ],
     [
         "name" => "Montenegro",
@@ -1703,6 +1957,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Monaco",
@@ -1715,6 +1971,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇨",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Montserrat",
@@ -1727,6 +1985,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇸",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Morocco",
@@ -1739,6 +1999,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇦",
         "order" => 14,
+        "currency_ar" => "درهم مغربي",
+        "currency_en" => "Moroccan dirham",
     ],
     [
         "name" => "Mozambique",
@@ -1751,6 +2013,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇿",
         "order" => 0,
+        "currency_ar" => "موزمبيق ميتيكال",
+        "currency_en" => "Mozambican metical",
     ],
     [
         "name" => "Namibia",
@@ -1763,6 +2027,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇦",
         "order" => 0,
+        "currency_ar" => "دولار ناميبي",
+        "currency_en" => "Namibian dollar",
     ],
     [
         "name" => "Nauru",
@@ -1775,6 +2041,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇷",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Nepal",
@@ -1787,6 +2055,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇵",
         "order" => 0,
+        "currency_ar" => "روبية نيبالية",
+        "currency_en" => "Nepalese rupee",
     ],
     [
         "name" => "Netherlands",
@@ -1799,6 +2069,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇱",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "New Caledonia",
@@ -1811,6 +2083,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇨",
         "order" => 0,
+        "currency_ar" => "فرنك محيط هادئ فرنسي",
+        "currency_en" => "French pacific franc",
     ],
     [
         "name" => "New Zealand",
@@ -1823,6 +2097,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇿",
         "order" => 0,
+        "currency_ar" => "دولار نيوزيلندي",
+        "currency_en" => "New Zealand dollar",
     ],
     [
         "name" => "Nicaragua",
@@ -1835,6 +2111,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇮",
         "order" => 0,
+        "currency_ar" => "قرطبة نيكاراغوا",
+        "currency_en" => "Nicaraguan córdoba",
     ],
     [
         "name" => "Niger",
@@ -1847,6 +2125,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇪",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Nigeria",
@@ -1859,6 +2139,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇬",
         "order" => 0,
+        "currency_ar" => "2 معلومات عن إسهال وما إلى ذلك",
+        "currency_en" => "Nigerian naira",
     ],
     [
         "name" => "Norway",
@@ -1871,6 +2153,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇴",
         "order" => 0,
+        "currency_ar" => "كرونة نرويجية",
+        "currency_en" => "Norwegian krone",
     ],
     [
         "name" => "Niue",
@@ -1883,6 +2167,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇺",
         "order" => 0,
+        "currency_ar" => "دولار نيوزيلندي",
+        "currency_en" => "New Zealand dollar",
     ],
     [
         "name" => "Norfolk Island",
@@ -1895,6 +2181,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇳🇫",
         "order" => 0,
+        "currency_ar" => "دولار استرالي",
+        "currency_en" => "Australian dollar",
     ],
     [
         "name" => "Northern Mariana Islands",
@@ -1907,6 +2195,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇲🇵",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Oman",
@@ -1919,6 +2209,8 @@ return [
         "is_khaliji_country" => true,
         "flag" => "🇴🇲",
         "order" => 17,
+        "currency_ar" => "ريال عماني",
+        "currency_en" => "Omani rial",
     ],
     [
         "name" => "Pakistan",
@@ -1931,6 +2223,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇰",
         "order" => 0,
+        "currency_ar" => "روبية باكستانية",
+        "currency_en" => "Pakistani rupee",
     ],
     [
         "name" => "Pitcairn",
@@ -1943,6 +2237,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇳",
         "order" => 0,
+        "currency_ar" => "دولار نيوزيلندي",
+        "currency_en" => "New Zealand dollar",
     ],
     [
         "name" => "Palau",
@@ -1955,6 +2251,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇼",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "Panama",
@@ -1967,6 +2265,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇦",
         "order" => 0,
+        "currency_ar" => "بالبوا بنمي",
+        "currency_en" => "Panamanian balboa",
     ],
     [
         "name" => "Papua New Guinea",
@@ -1979,6 +2279,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇬",
         "order" => 0,
+        "currency_ar" => "بابوا غينيا جديدة",
+        "currency_en" => "Papua New Guinean kina",
     ],
     [
         "name" => "Paraguay",
@@ -1991,6 +2293,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇾",
         "order" => 0,
+        "currency_ar" => "غواراني باراغواي",
+        "currency_en" => "Paraguayan guaraní",
     ],
     [
         "name" => "Peru",
@@ -2003,6 +2307,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇪",
         "order" => 0,
+        "currency_ar" => "شمس بيرو جديدة",
+        "currency_en" => "Peruvian nuevo sol",
     ],
     [
         "name" => "Philippines",
@@ -2015,6 +2321,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇭",
         "order" => 0,
+        "currency_ar" => "بيزو فلبيني",
+        "currency_en" => "Philippine peso",
     ],
     [
         "name" => "Poland",
@@ -2027,6 +2335,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇱",
         "order" => 0,
+        "currency_ar" => "زلوتي بولندي",
+        "currency_en" => "Polish zloty",
     ],
     [
         "name" => "Portugal",
@@ -2039,6 +2349,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇹",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Puerto Rico",
@@ -2051,6 +2363,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇷",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
     [
         "name" => "South Korea",
@@ -2063,6 +2377,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇷",
         "order" => 0,
+        "currency_ar" => "فازت كوريا جنوبية",
+        "currency_en" => "South Korean won",
     ],
     [
         "name" => "Lithuania",
@@ -2075,6 +2391,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇹",
         "order" => 0,
+        "currency_ar" => "ليتاس ليتوانية",
+        "currency_en" => "Lithuanian litas",
     ],
     [
         "name" => "Qatar",
@@ -2087,6 +2405,8 @@ return [
         "is_khaliji_country" => true,
         "flag" => "🇶🇦",
         "order" => 19,
+        "currency_ar" => "ريال قطري",
+        "currency_en" => "Qatari riyal",
     ],
     [
         "name" => "Romania",
@@ -2099,6 +2419,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇷🇴",
         "order" => 0,
+        "currency_ar" => "ليو روماني جديد",
+        "currency_en" => "Romanian new Leu",
     ],
     [
         "name" => "Russia",
@@ -2111,6 +2433,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇷🇺",
         "order" => 0,
+        "currency_ar" => "روبل روسي",
+        "currency_en" => "Russian ruble",
     ],
     [
         "name" => "Rwanda",
@@ -2123,6 +2447,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇷🇼",
         "order" => 0,
+        "currency_ar" => "فرنك رواندي",
+        "currency_en" => "Rwandan franc",
     ],
     [
         "name" => "Réunion",
@@ -2135,6 +2461,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇷🇪",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Samoa",
@@ -2147,6 +2475,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇼🇸",
         "order" => 0,
+        "currency_ar" => "قصة ساموا",
+        "currency_en" => "Samoan tala",
     ],
     [
         "name" => "Saint Lucia",
@@ -2159,6 +2489,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇨",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "San Marino",
@@ -2171,6 +2503,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇲",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Saint Kitts and Nevis",
@@ -2183,6 +2517,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇰🇳",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Saint Pierre and Miquelon",
@@ -2195,6 +2531,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇵🇲",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Saint Vincent and the Grenadines",
@@ -2207,6 +2545,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇻🇨",
         "order" => 0,
+        "currency_ar" => "دولار شرق كاريبي",
+        "currency_en" => "East Caribbean dollar",
     ],
     [
         "name" => "Saudi Arabia",
@@ -2219,6 +2559,8 @@ return [
         "is_khaliji_country" => true,
         "flag" => "🇸🇦",
         "order" => 22,
+        "currency_ar" => "ريال سعودي",
+        "currency_en" => "Saudi riyal",
     ],
     [
         "name" => "Senegal",
@@ -2231,6 +2573,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇳",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "South Georgia and the South Sandwich Islands",
@@ -2243,6 +2587,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇬🇸",
         "order" => 0,
+        "currency_ar" => "جنيه استرليني",
+        "currency_en" => "Pound sterling",
     ],
     [
         "name" => "Sao Tome and Principe",
@@ -2255,6 +2601,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇹",
         "order" => 0,
+        "currency_ar" => "ساو تومي يتضاعف",
+        "currency_en" => "São Tomé dobra",
     ],
     [
         "name" => "Sierra Leone",
@@ -2267,6 +2615,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇱",
         "order" => 0,
+        "currency_ar" => "ليون سيراليوني جديد",
+        "currency_en" => "new Sierra Leonean leone",
     ],
     [
         "name" => "Serbia",
@@ -2279,6 +2629,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇷🇸",
         "order" => 0,
+        "currency_ar" => "دينار صربي",
+        "currency_en" => "Serbian dinar",
     ],
     [
         "name" => "Seychelles",
@@ -2291,6 +2643,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇨",
         "order" => 0,
+        "currency_ar" => "روبية سيشيل",
+        "currency_en" => "Seychelles rupee",
     ],
     [
         "name" => "Singapore",
@@ -2303,6 +2657,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇬",
         "order" => 0,
+        "currency_ar" => "دولار سينغافوري",
+        "currency_en" => "Singapore dollar",
     ],
     [
         "name" => "Slovakia",
@@ -2315,6 +2671,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇰",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Slovenia",
@@ -2327,6 +2685,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇮",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Solomon Islands",
@@ -2339,6 +2699,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇧",
         "order" => 0,
+        "currency_ar" => "دولار جزر سليمان",
+        "currency_en" => "Solomon Islands dollar",
     ],
     [
         "name" => "Somalia",
@@ -2351,6 +2713,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇴",
         "order" => 9,
+        "currency_ar" => "شلن صومالي",
+        "currency_en" => "Somali shilling",
     ],
     [
         "name" => "South Africa",
@@ -2363,6 +2727,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇿🇦",
         "order" => 0,
+        "currency_ar" => "راند جنوب أفريقيا",
+        "currency_en" => "South African rand",
     ],
     [
         "name" => "Spain",
@@ -2375,6 +2741,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇪🇸",
         "order" => 0,
+        "currency_ar" => "يورو",
+        "currency_en" => "Euro",
     ],
     [
         "name" => "Sri Lanka",
@@ -2387,6 +2755,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇱🇰",
         "order" => 0,
+        "currency_ar" => "سريلانكا روبية",
+        "currency_en" => "Sri Lankan rupee",
     ],
     [
         "name" => "Sudan",
@@ -2399,6 +2769,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇩",
         "order" => 10,
+        "currency_ar" => "جنيه سوداني",
+        "currency_en" => "Sudanese pound",
     ],
     [
         "name" => "Suriname",
@@ -2411,6 +2783,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇷",
         "order" => 0,
+        "currency_ar" => "دولار سورينامي",
+        "currency_en" => "Surinamese dollar",
     ],
     [
         "name" => "Swaziland",
@@ -2423,6 +2797,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇿",
         "order" => 0,
+        "currency_ar" => "سوازيلاند في شمس",
+        "currency_en" => "Swazi lilangeni",
     ],
     [
         "name" => "Sweden",
@@ -2435,6 +2811,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇪",
         "order" => 0,
+        "currency_ar" => "كرونة سويدية",
+        "currency_en" => "Swedish krona",
     ],
     [
         "name" => "Switzerland",
@@ -2447,6 +2825,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇨🇭",
         "order" => 0,
+        "currency_ar" => "فرنك سويسري",
+        "currency_en" => "Swiss franc",
     ],
     [
         "name" => "Syria",
@@ -2459,6 +2839,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇸🇾",
         "order" => 8,
+        "currency_ar" => "ليرة سورية",
+        "currency_en" => "Syrian pound",
     ],
     [
         "name" => "Taiwan",
@@ -2471,6 +2853,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇼",
         "order" => 0,
+        "currency_ar" => "دولار تايواني جديد",
+        "currency_en" => "New Taiwan dollar",
     ],
     [
         "name" => "Tanzania",
@@ -2483,6 +2867,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇿",
         "order" => 0,
+        "currency_ar" => "شلن تنزاني",
+        "currency_en" => "Tanzanian shilling",
     ],
     [
         "name" => "Thailand",
@@ -2495,6 +2881,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇭",
         "order" => 0,
+        "currency_ar" => "باهت تايلاندي",
+        "currency_en" => "Thai baht",
     ],
     [
         "name" => "Togo",
@@ -2507,6 +2895,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇬",
         "order" => 0,
+        "currency_ar" => "فرنك CFA BCEAO",
+        "currency_en" => "CFA Franc BCEAO",
     ],
     [
         "name" => "Tonga",
@@ -2519,6 +2909,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇴",
         "order" => 0,
+        "currency_ar" => "نفوذ تونغي",
+        "currency_en" => "Tongan pa\\\\\'anga",
     ],
     [
         "name" => "Trinidad and Tobago",
@@ -2531,6 +2923,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇹",
         "order" => 0,
+        "currency_ar" => "دولار ترينيداد",
+        "currency_en" => "Trinidad dollar",
     ],
     [
         "name" => "Tunisia",
@@ -2543,6 +2937,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇳",
         "order" => 12,
+        "currency_ar" => "دينار تونسي",
+        "currency_en" => "Tunisian dinar",
     ],
     [
         "name" => "Turkey",
@@ -2555,6 +2951,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇷",
         "order" => 0,
+        "currency_ar" => "ليرة تركية",
+        "currency_en" => "Turkish lira",
     ],
     [
         "name" => "Turkmenistan",
@@ -2567,6 +2965,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇹🇲",
         "order" => 0,
+        "currency_ar" => "مانات تركمان جديد",
+        "currency_en" => "Turkmenistani new manat",
     ],
     [
         "name" => "Uganda",
@@ -2579,6 +2979,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇺🇬",
         "order" => 0,
+        "currency_ar" => "مدينة أوغندية عمرها",
+        "currency_en" => "Ugandan shilling",
     ],
     [
         "name" => "Ukraine",
@@ -2591,6 +2993,8 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇺🇦",
         "order" => 0,
+        "currency_ar" => "هريفنيا أوكرانية",
+        "currency_en" => "Ukrainian hryvnia",
     ],
     [
         "name" => "United Arab Emirates",
@@ -2603,18 +3007,8 @@ return [
         "is_khaliji_country" => true,
         "flag" => "🇦🇪",
         "order" => 18,
-    ],
-    [
-        "name" => "United Kingdom",
-        "name_ar" => "المملكة المتحدة",
-        "dial_code" => "+44",
-        "currency" => "GBP",
-        "iso2" => "GB",
-        "iso3" => "GBR",
-        "is_arabian_country" => false,
-        "is_khaliji_country" => false,
-        "flag" => "🇬🇧",
-        "order" => 0,
+        "currency_ar" => "درهم اماراتي",
+        "currency_en" => "UAE dirham",
     ],
     [
         "name" => "United States",
@@ -2627,5 +3021,7 @@ return [
         "is_khaliji_country" => false,
         "flag" => "🇺🇸",
         "order" => 0,
+        "currency_ar" => "دولار أمريكي",
+        "currency_en" => "US dollar",
     ],
 ];
