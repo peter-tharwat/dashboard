@@ -19,7 +19,7 @@
                             السؤال
                         </div>
                         <div class="col-12 pt-3">
-                            <input type="text" name="question" required maxlength="190" class="form-control" value="{{old('question',$level??"")}}">
+                            <input type="text" name="question" required maxlength="190" class="form-control" value="{{old('question',$faq??"")}}">
                         </div>
                     </div>
                     <div class="col-12 col-lg-12 p-2">
@@ -27,7 +27,7 @@
                             الجواب
                         </div>
                         <div class="col-12 pt-3">
-                            <textarea name="answer" class="form-control" style="min-height:150px">{{old('answer',$level??"")}}</textarea>
+                            <textarea name="answer" class="form-control" style="min-height:150px">{{old('answer',$faq??"")}}</textarea>
                         </div>
                     </div>
                     <div class="col-12 p-2">
@@ -36,8 +36,8 @@
                         </div>
                         <div class="col-12 pt-3">
                             <select class="form-control" name="is_featured">
-                                <option @if(old('is_featured',$level??"")=="0" ) selected @endif value="0">لا</option>
-                                <option @if(old('is_featured',$level??"")=="1" ) selected @endif value="1">نعم</option>
+                                <option @if(old('is_featured',$faq??"")=="0" ) selected @endif value="0">لا</option>
+                                <option @if(old('is_featured',$faq??"")=="1" ) selected @endif value="1">نعم</option>
                             </select>
                         </div>
                     </div>
