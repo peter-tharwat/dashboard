@@ -3,8 +3,8 @@
 <div class="col-12 p-3">
 	<!-- breadcrumb -->
 	<x-bread-crumb :breads="[
-			['url' => url('/admin') , 'title' => 'لوحة التحكم' , 'isactive' => false],
-			['url' => route('admin.users.index') , 'title' => 'المستخدمين' , 'isactive' => true],
+			['url' => url('/admin') , 'title' => __('lang.dashboard') , 'isactive' => false],
+			['url' => route('admin.users.index') , 'title' => __('lang.users') , 'isactive' => true],
 		]">
 		</x-bread-crumb>
 	<!-- /breadcrumb -->
@@ -12,14 +12,14 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-users"></span>	المستخدمين
+					<span class="fas fa-users"></span>	{{ __('lang.blocked') }}
 				</div>
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('users-create')
 					<a href="{{route('admin.users.create')}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
+					<span class="btn btn-primary"><span class="fas fa-plus"></span> {{ __('lang.add_new') }}</span>
 					</a>
 					@endcan
 				</div>
@@ -42,23 +42,23 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>نشط</th>
-						<th>الاسم</th>
-						<th>البريد</th>
+						<th>{{ __('lang.active') }}</th>
+						<th>{{ __('lang.name') }}</th>
+						<th>{{ __('lang.email') }}</th>
 						@if(auth()->user()->can('articles-read'))
-						<th>المقالات</th>
+						<th>{{ __('lang.articles') }}</th>
 						@endif
 						@if(auth()->user()->can('contacts-read'))
-						<th>التذاكر</th>
+						<th>{{ __('lang.tickets') }}</th>
 						@endif
 						@if(auth()->user()->can('comments-read'))
-						<th>التعليقات</th>
+						<th>{{ __('lang.comments') }}</th>
 						@endif
 						@if(auth()->user()->can('traffics-read'))
-						<th>الترافيك</th>
+						<th>{{ __('lang.trafic') }}</th>
 						@endif
-						<th>الصلاحيات</th>
-						<th>تحكم</th>
+						<th>{{ __('lang.roles') }}</th>
+						<th>{{ __('lang.control') }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -90,7 +90,7 @@
 							@can('users-read')
 							<a href="{{route('admin.users.show',$user)}}">
 							<span class="btn  btn-outline-primary btn-sm font-small mx-1">
-								<span class="fas fa-search "></span> عرض
+								<span class="fas fa-search "></span> {{ __('lang.show') }}
 							</span>
 							</a>
 							@endcan
@@ -101,7 +101,7 @@
 							@can('notifications-create')
 							<a href="{{route('admin.notifications.index',['user_id'=>$user->id])}}">
 							<span class="btn  btn-outline-primary btn-sm font-small mx-1">
-								<span class="far fa-bells"></span> الاشعارات
+								<span class="far fa-bells"></span> {{ __('lang.notifications') }}
 							</span>
 							</a>
 							<a href="{{route('admin.notifications.create',['user_id'=>$user->id])}}">
@@ -114,7 +114,7 @@
 							@can('user-roles-update')
 							<a href="{{route('admin.users.roles.index',$user)}}">
 							<span class="btn btn-outline-primary btn-sm font-small mx-1">
-								<span class="fal fa-key "></span> الصلاحيات
+								<span class="fal fa-key "></span> {{ __('lang.roles') }}
 							</span>
 							</a>
 							@endcan
@@ -122,7 +122,7 @@
 							@can('users-update')
 							<a href="{{route('admin.users.edit',$user)}}">
 							<span class="btn  btn-outline-success btn-sm font-small mx-1">
-								<span class="fas fa-wrench "></span> تحكم
+								<span class="fas fa-wrench "></span> {{ __('lang.control') }}
 							</span>
 							</a>
 							@endcan
@@ -131,7 +131,7 @@
 							@can('users-delete')
 							<form method="POST" action="{{route('admin.users.destroy',$user)}}" class="d-inline-block">@csrf @method("DELETE")
 								<button class="btn  btn-outline-danger btn-sm font-small mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
+									<span class="fas fa-trash "></span> {{ __('lang.delete') }}
 								</button>
 							</form>
 							@endcan
@@ -144,13 +144,15 @@
 								</button>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 29px, 0px);">
 								@can('users-update')
-								<li><a class="dropdown-item font-1" href="{{route('admin.users.access',$user)}}"><span class="fal fa-eye"></span> دخول</a></li>
+								<li><a class="dropdown-item font-1" href="{{route('admin.users.access',$user)}}"><span class="fal fa-eye"></span> {{ __('lang.entry') }}</a></li>
 								@endcan
 
  
 
 								@can('users-update')
-								<li><a class="dropdown-item font-1" href="{{route('admin.traffics.logs',['user_id'=>$user->id])}}"><span class="fal fa-boxes"></span> مراقبة النشاط <span class="badge bg-danger">{{$user->logs_count}}</span></a></li>
+								<li><a class="dropdown-item font-1" href="{{route('admin.traffics.logs',['user_id'=>$user->id])}}"><span class="fal fa-boxes"></span>
+									{{ __('lang.activity_monitoring') }}
+									<span class="badge bg-danger">{{$user->logs_count}}</span></a></li>
 								@endcan
 								</ul>
 								</div>

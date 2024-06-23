@@ -1,13 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-{{-- <div class=" p-3">
-    <x-bread-crumb :breads="[
-        ['url' => url('/admin') , 'title' => 'لوحة التحكم' , 'isactive' => false],
-        ['url' => route('admin.users.index') , 'title' => 'المستخدمين' , 'isactive' => false],
-        ['url' => '#' , 'title' =>  $user->name, 'isactive' => true],
-    ]">
-    </x-bread-crumb> 
-</div> --}}
 <div class="col-12 py-5 rounded-2" style="text-align: center;background: var(--background-1);margin-top: -5px;">
     <div class="col-12" style="display:flex;justify-content: center;">
         <img src="{{$user->getUserAvatar()}}" style="width:130px;height: 130px;border-radius: 50%;">
@@ -21,9 +13,7 @@
 </div>
 <div class="col-12 py-0 px-3 row">
     <div class="col-12  pt-2" style="min-height: 80vh">
-        {{-- <div class="col-12 px-3">
-            <h4>المستخدم</h4>
-        </div> --}}
+     
         <div class="col-12 col-lg-9 px-3 py-5 d-flex mx-auto justify-content-center align-items-center">
             <div class="col-12 p-0 row justify-content-center">
                 <div class="col-12 row p-0">
@@ -36,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div style="width: calc(100% - 80px)" class="px-2 py-2">
-                                    <h6 class="font-1">المقالات</h6>
+                                    <h6 class="font-1">{{ __('lang.articles') }}</h6>
                                     <h6 class="font-3">{{$user->articles->count()}}</h6>
                                 </div>
                             </div>
@@ -51,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div style="width: calc(100% - 80px)" class="px-2 py-2">
-                                    <h6 class="font-1">الترافيك</h6>
+                                    <h6 class="font-1">{{ __('lang.traffic') }}</h6>
                                     <h6 class="font-3">{{$user->traffics->count()}}</h6>
                                 </div>
                             </div>
@@ -66,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div style="width: calc(100% - 80px)" class="px-2 py-2">
-                                    <h6 class="font-1">تقارير الأخطاء</h6>
+                                    <h6 class="font-1">{{ __('lang.bug_reports') }}</h6>
                                     <h6 class="font-3">{{$user->report_errors->count()}}</h6>
                                 </div>
                             </div>
@@ -82,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div style="width: calc(100% - 80px)" class="px-2 py-2">
-                                    <h6 class="font-1">طلبات الاتصال</h6>
+                                    <h6 class="font-1">{{ __('lang.contact_requests') }}</h6>
                                     <h6 class="font-3">{{$user->contacts->count()}}</h6>
                                 </div>
                             </div>

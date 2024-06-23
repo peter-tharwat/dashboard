@@ -11,7 +11,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1"  href="{{route('admin.users.index')}}" style="color: #212529">
-				المستخدمين
+				{{ __('lang.users') }}
 				<h6 class="font-3">{{\App\Models\User::count()}}</h6>
 			</a>
 		</div>
@@ -27,7 +27,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.notifications.index')}}" style="color: #212529">
-				الإشعارات
+				{{ __('lang.notifications') }}
 				<h6 class="font-3">{{auth()->user()->unreadNotifications->count()}}</h6>
 			</a>
 		</div>
@@ -43,7 +43,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.articles.index')}}" style="color: #212529;">
-				المقالات
+				{{ __('lang.articles') }}
 				<h6 class="font-3">{{\App\Models\Article::count()}}</h6>
 			</a>
 		</div>
@@ -60,7 +60,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.categories.index')}}" style="color: #212529;">
-				الأقسام
+				{{ __('lang.categories') }}
 				<h6 class="font-3">{{\App\Models\Category::count()}}</h6>
 			</a>
 		</div>
@@ -77,7 +77,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.files.index')}}" style="color: #212529;">
-				الملفات
+				{{ __('lang.files') }}
 				<h6 class="font-3">{{\App\Models\HubFile::count()}}</h6>
 			</a>
 		</div>
@@ -94,7 +94,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.menus.index')}}" style="color: #212529;">
-				القوائم
+				{{ __('lang.menus') }}
 				<h6 class="font-3">{{\App\Models\Menu::count()}}</h6>
 			</a>
 		</div>
@@ -111,7 +111,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.pages.index')}}" style="color: #212529;">
-				الصفحات
+				{{ __('lang.pages') }}
 				<h6 class="font-3">{{\App\Models\Page::count()}}</h6>
 			</a>
 		</div>
@@ -128,7 +128,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.contacts.index')}}" style="color: #212529;">
-				التواصل
+				{{ __('lang.contacts') }}
 				<h6 class="font-3">{{\App\Models\Contact::count()}}</h6>
 			</a> 
 		</div>
@@ -145,7 +145,7 @@
 		</div>
 		<div style="width: calc(100% - 80px)" class="px-2 py-2">
 			<a class="font-1" href="{{route('admin.announcements.index')}}" style="color: #212529;">
-				الإعلانات
+				{{ __('lang.announcements') }}
 				<h6 class="font-3">{{\App\Models\Announcement::count()}}</h6>
 			</a>
 		</div>

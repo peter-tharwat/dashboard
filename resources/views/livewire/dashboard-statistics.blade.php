@@ -34,7 +34,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        إجرائات سريعة
+                        {{ __('lang.fast_procedures') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -45,7 +45,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/house.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-home font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    الموقع
+                                    {{ __('lang.website') }}
                                 </div>
                             </div>
                         </a>
@@ -57,7 +57,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/settings.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-wrench font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    الإعدادات
+                                    {{ __('lang.settings') }}
                                 </div>
                             </div>
                         </a>
@@ -69,7 +69,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/man.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-user font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    ملفي
+                                    {{ __('lang.my_profile') }}
                                 </div>
                             </div>
                         </a>
@@ -80,7 +80,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/edit.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-user-edit font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    تعديل ملفي
+                                    {{ __('lang.edit_profile') }}
                                 </div>
                             </div>
                         </a>
@@ -92,7 +92,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/notification.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-bells font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    الإشعارات
+                                    {{ __('lang.notifications') }}
                                 </div>
                             </div>
                         </a>
@@ -105,7 +105,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/annonce.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-bullhorn font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    الإعلانات
+                                    {{ __('lang.announcements') }}
                                 </div>
                             </div>
                         </a>
@@ -118,7 +118,7 @@ $flat_colors = collect([
                                 <img src="/images/icons/logout.png" style="width:30px;height: 30px">
                                 {{-- <span class="fal fa-sign-out-alt font-5" ></span> --}}
                                 <div class="col-12 p-0 text-center" >
-                                    خروج
+                                    {{ __('lang.logout') }}
                                 </div>
                             </div>
                         </a>
@@ -138,8 +138,7 @@ $flat_colors = collect([
                         <div class="col-12 p-0">
                             <div class="col-12 p-0 row">
                                 <div class="col-4">
-                                    معدل الزوار
-
+                                    {{ __('lang.visitors_rate') }}
                                     
                                 </div>
                                 <div class="col-8 d-flex justify-content-end align-items-center">
@@ -167,7 +166,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        المستخدمين الجدد
+                        {{ __('lang.new_users') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -180,7 +179,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        أعلى الصفحات زيارة
+                        {{ __('lang.top_visited_pages') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -205,7 +204,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box" style="min-height:100%">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        أعلى مصادر الزيارات
+                        {{ __('lang.top_traffic_sources') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -236,7 +235,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box" style="min-height:100%">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        أعلى الدول وصولاً
+                        {{ __('lang.highest_access_countries') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -273,7 +272,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        المتصفحات
+                        {{ __('lang.browsers') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -286,7 +285,8 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        انظمة التشغيل
+                        {{ __('lang.operating_systems') }}
+                    
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -299,7 +299,7 @@ $flat_colors = collect([
             <div class="col-12 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        أعلى الأجهزة
+                        {{ __('lang.top_devices') }}
                     </div>
                     <div class="col-12 " style="min-height: 1px;background: var(--border-color);"></div>
                 </div>
@@ -324,7 +324,7 @@ $flat_colors = collect([
             @endforeach
             ],
             datasets: [{
-                label: '# معدل الزوار',
+                label: '#'+ "{{ __('lang.visitors_rate') }}",
                     data: [
                     @foreach(array_reverse($data['traffics']) as $key => $value)
                     "{{$value}}",
@@ -403,7 +403,7 @@ $flat_colors = collect([
             @endforeach
             ],
             datasets: [{
-                label: '# معدل المستخدمين الجدد',
+                label: '#'+ "{{ __('lang.new_users') }}",
                     data: [
                     @foreach(array_reverse($data['new_users']['counts_list']) as $count)
                     "{{$count}}",
@@ -477,7 +477,7 @@ $flat_colors = collect([
                 @endforeach
             ],
             datasets: [{
-                label: 'المتصفحات',
+                label: '#'+ "{{ __('lang.browsers') }}",
                 data: [
                     @foreach($data['top_browsers'] as $browser)
                     "{{$browser->count}}",
@@ -508,7 +508,7 @@ $flat_colors = collect([
                 @endforeach
             ],
             datasets: [{
-                label: 'أنظمة التشغيل',
+                label: '#'+ "{{ __('lang.operating_systems') }}",
                 data: [
                     @foreach($data['top_operating_systems'] as $os)
                     "{{$os->count}}",
@@ -539,7 +539,7 @@ $flat_colors = collect([
                 @endforeach
             ],
             datasets: [{
-                label: 'المتصفحات',
+                label: '#'+ "{{ __('lang.top_devices') }}",
                 data: [
                     @foreach($data['top_devices'] as $device)
                     "{{$device->count}}",
