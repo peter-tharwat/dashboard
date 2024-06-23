@@ -8,7 +8,7 @@
             <div class="col-12 col-lg-8 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        <span class="fas fa-info-circle"></span> إضافة جديد
+                        <span class="fas fa-info-circle"></span>{{ __('lang.add_new') }}
                     </div>
                     <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>
@@ -18,19 +18,19 @@
 
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            النوع
+                            {{ __('lang.type') }}
                         </div>
                         <div class="col-12 pt-3">
                             <select class="form-control select2-select" name="type" id="type">
-                                <option value="CUSTOM_LINK" @if(old('type')=="CUSTOM_LINK") selected @endif>رابط مخصص</option>
-                                <option value="PAGE" @if(old('type')=="PAGE") selected @endif>صفحة</option>
-                                <option value="CATEGORY" @if(old('type')=="CATEGORY") selected @endif>قسم</option>
+                                <option value="CUSTOM_LINK" @if(old('type')=="CUSTOM_LINK") selected @endif>{{ __('lang.custom_link') }}</option>
+                                <option value="PAGE" @if(old('type')=="PAGE") selected @endif>{{ __('lang.page') }}</option>
+                                <option value="CATEGORY" @if(old('type')=="CATEGORY") selected @endif>{{ __('lang.section') }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            القيمة
+                            {{ __('lang.value') }}
                         </div>
                         <div class="col-12 pt-3">
                             <select class="form-control select2-select" name="type_id" id="type_id">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            عنوان الرابط
+                            {{ __('lang.title') }}
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="title" required maxlength="190" class="form-control" value="{{old('title')}}" id="title">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            الرابط
+                            {{ __('lang.link') }}
                         </div>
                         <div class="col-12 pt-3">
                             <input type="url" name="url" required class="form-control" value="{{old('url')}}" id="url">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            الأيقونة
+                            {{ __('lang.icon') }}
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="icon" class="form-control" value="{{old('icon')}}">
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="col-12 p-3">
-                <button class="btn btn-success" id="submitEvaluation">حفظ</button>
+                <button class="btn btn-success" id="submitEvaluation">{{ __('lang.save') }}</button>
             </div>
         </form>
     </div>

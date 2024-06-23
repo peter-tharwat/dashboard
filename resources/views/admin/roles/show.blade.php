@@ -7,7 +7,7 @@
 
 			<div class="col-12 px-0">
 				<div class="col-12 px-3 py-3">
-				 	<span class="fas fa-info-circle"></span> صلاحيات المستخدم
+				 	<span class="fas fa-info-circle"></span>{{ __('lang.user_permissions') }}
 				</div>
 				<div class="col-12 divider" style="min-height: 2px;"></div>
 			</div>
@@ -16,11 +16,11 @@
 				<table class="table table-hover" style="width:400px">
 					<thead>
 						<tr style="">
-							<th>الجدول</th>
-							<th style="width: 56px;">اضافة</th>
-							<th style="width: 56px;">عرض</th>
-							<th style="width: 56px;">تعديل</th>
-							<th style="width: 56px;">حذف</th>
+							<th>{{ __('lang.table') }}</th>
+							<th style="width: 56px;">{{ __('lang.add') }}</th>
+							<th style="width: 56px;">{{ __('lang.show') }}</th>
+							<th style="width: 56px;">{{ __('lang.edit') }}</th>
+							<th style="width: 56px;">{{ __('lang.delete') }}</th>
 						</tr>
 					</thead>
 					<tbody>

@@ -6,14 +6,14 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-redirections"></span> التحويلات
+					<span class="fas fa-redirections"></span> {{ __('lang.redirects') }}
 				</div>
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('redirections-create')
 					<a href="{{route('admin.redirections.create')}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
+					<span class="btn btn-primary"><span class="fas fa-plus"></span> {{ __('lang.add_new') }}</span>
 					</a>
 					@endcan
 				</div>
@@ -24,7 +24,7 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
@@ -36,10 +36,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>الرابط القديم</th>
-						<th>الرابط الجديد</th>
-						<th>نوع التحويل</th>
-						<th>تحكم</th>
+						<th>{{ __('lang.old_link') }}</th>
+						<th>{{ __('lang.new_link') }}د</th>
+						<th>{{ __('lang.redirect_code') }}</th>
+						<th>{{ __('lang.control') }}</th>
 					</tr>
 				</thead> 
 
@@ -51,23 +51,23 @@
 						<td>{{urldecode($redirection->new_url)}}</td>
 						<td>
 							@if($redirection->code==302)
-							مؤقت
+							{{ __('lang.temporary') }}
 							@else
-							دائم
+							{{ __('lang.permanent') }}
 							@endif
 						</td>
 						<td style="width: 180px;">
 							@can('redirections-update')
 							<a href="{{route('admin.redirections.edit',$redirection)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-								<span class="fas fa-wrench "></span> تحكم
+								<span class="fas fa-wrench "></span> {{ __('lang.control') }}
 							</span>
 							</a>
 							@endif
 							@can('redirections-delete')
 							<form method="POST" action="{{route('admin.redirections.destroy',$redirection)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
+								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
+									<span class="fas fa-trash "></span> {{ __('lang.delete') }}
 								</button>
 							</form>
 							@endcan

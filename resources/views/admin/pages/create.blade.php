@@ -8,7 +8,7 @@
             <div class="col-12 col-lg-8 p-0 main-box">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        <span class="fas fa-info-circle"></span> إضافة جديد
+                        <span class="fas fa-info-circle"></span> {{ __('lang.add_new') }}
                     </div>
                     <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>

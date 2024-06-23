@@ -191,7 +191,8 @@
             <img src="{{auth()->user()->getUserAvatar()}}" style="width: 80px;height: 80px;color: var(--background-1);border-radius: 50%" class="d-inline-block">
                 </a>
                 <div class="col-12 px-0 mt-2 text-center" style="color: #232323;">
-                    مرحباً {{auth()->user()->name}}
+                    {{ __('lang.hello') }}
+                    {{auth()->user()->name}}
                 </div> 
             </div>
             <div class="col-12 px-0">
@@ -206,7 +207,7 @@
                                 <span class="fal fa-home font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                الرئيسية
+                                {{ __('lang.home') }}
                             </div> 
                         </div>
                     </a>
@@ -219,7 +220,7 @@
                                 <span class="fal fa-key font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                الصلاحيات
+                                {{ __('lang.permissions') }}
                             </div> 
                         </div>
                     </a>
@@ -231,7 +232,7 @@
                                 <span class="fal fa-users font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                المستخدمين
+                                {{ __('lang.users') }}
                             </div> 
                         </div>
                     </a>
@@ -268,20 +269,20 @@
                                     <span class="fal fa-newspaper font-2"> </span> 
                                 </div>
                                 <div style="width: calc(100% - 50px)" class="px-2 item-container-title has-sub-menu">
-                                    المحتوى
+                                    {{ __('lang.content') }}
                                 </div> 
                             </div>
                             <div class="col-12 px-0" >
                                 <ul class="sub-item font-1" style="list-style:none;">
                                     @can('categories-read')
-                                    <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag px-2" style="width: 28px;font-size: 15px;"></span> الأقسام</a></li>
+                                    <li><a href="{{route('admin.categories.index')}}" style="font-size: 16px;"><span class="fal fa-tag px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.categories') }}</a></li>
                                     @endcan
                                     @can('articles-read')
-                                    <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book px-2" style="width: 28px;font-size: 15px;"></span> المقالات</a></li>
+                                    <li><a href="{{route('admin.articles.index')}}" style="font-size: 16px;"><span class="fal fa-book px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.articles') }}</a></li>
                                     @endcan
 
                                     @can('comments-read')
-                                    <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments px-2" style="width: 28px;font-size: 15px;"></span> التعليقات
+                                    <li><a href="{{route('admin.article-comments.index')}}" style="font-size: 16px;"><span class="fal fa-comments px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.comments') }}
                                         @php
                                         $article_comments = \App\Models\ArticleComment::where('reviewed',0)->count();
                                         @endphp
@@ -294,28 +295,28 @@
                                     @endcan
 
                                     @can('announcements-read')
-                                    <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn px-2" style="width: 28px;font-size: 15px;"></span> الإعلانات
+                                    <li><a href="{{route('admin.announcements.index')}}" style="font-size: 16px;"><span class="fal fa-bullhorn px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.ads') }}
                                     </a></li>
                                     @endcan
                                     @can('pages-read')
-                                    <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice px-2" style="width: 28px;font-size: 15px;"></span> الصفحات
+                                    <li><a href="{{route('admin.pages.index')}}" style="font-size: 16px;"><span class="fal fa-file-invoice px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.pages') }}
                                     </a></li>
                                     @endcan
 
                                     @can('menus-read')
-                                    <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list px-2" style="width: 28px;font-size: 15px;"></span> القوائم
+                                    <li><a href="{{route('admin.menus.index')}}" style="font-size: 16px;"><span class="fal fa-list px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.menu') }}
                                     </a></li>
                                     @endcan
                                     @can('faqs-read')
-                                    <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question px-2" style="width: 28px;font-size: 15px;"></span> الأسئلة الشائعة
+                                    <li><a href="{{route('admin.faqs.index')}}" style="font-size: 16px;"><span class="fal fa-question px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.faq') }} 
                                     </a></li>
                                     @endcan
                                     @can('redirections-read')
-                                    <li><a href="{{route('admin.redirections.index')}}" style="font-size: 16px;"><span class="fal fa-directions px-2" style="width: 28px;font-size: 15px;"></span> التحويلات
+                                    <li><a href="{{route('admin.redirections.index')}}" style="font-size: 16px;"><span class="fal fa-directions px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.transactions') }}
                                     </a></li>
                                     @endcan
                                     @can('tags-read')
-                                    <li><a href="{{route('admin.tags.index')}}" style="font-size: 16px;"><span class="fal fa-tags px-2" style="width: 28px;font-size: 15px;"></span> الوسوم
+                                    <li><a href="{{route('admin.tags.index')}}" style="font-size: 16px;"><span class="fal fa-tags px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.tags') }}
                                     </a></li>
                                     @endcan
 
@@ -335,8 +336,8 @@
                                 <span class="fal fa-phone font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                طلب التواصل 
-                            @php
+                                {{ __('lang.contact_requests') }}
+                                @php
                             $contacts_count = \App\Models\Contact::where('status','PENDING')->count();
                             @endphp
                             @if($contacts_count)
@@ -357,7 +358,7 @@
                                 <span class="fal fa-wrench font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                               الإعدادات
+                                {{ __('lang.settings') }}
                             </div> 
                         </div>
                     </a> 
@@ -374,14 +375,15 @@
                                     <span class="far fa-box-open font-2" style="color:#ff9800"> </span> 
                                 </div>
                                 <div style="width: calc(100% - 50px)" class="px-2 item-container-title has-sub-menu">
-                                    الاضافات
+                                    {{ __('lang.plugins') }}
+
                                 </div> 
                             </div>
                             <div class="col-12 px-0" >
                                 <ul class="sub-item font-1" style="list-style:none;">
                                     
                                     @can('plugins-read')
-                                    <li><a href="{{route('admin.plugins.index')}}" style="font-size: 16px;"><span class="fal fa-box-open px-2" style="width: 28px;font-size: 15px;"></span> كل الاضافات
+                                    <li><a href="{{route('admin.plugins.index')}}" style="font-size: 16px;"><span class="fal fa-box-open px-2" style="width: 28px;font-size: 15px;"></span> {{ __('lang.all_plugins') }}
 
                                         @if(count($plugins))
                                         <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{count($plugins)}}</span>
@@ -420,7 +422,7 @@
                                 <span class="fal fa-sign-out-alt font-2"> </span> 
                             </div>
                             <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                               تسجيل خروج
+                                {{ __('lang.logout') }}
                             </div> 
                         </div>
                     </a>
@@ -458,7 +460,9 @@
                             <div class="col-12 d-flex border-top"> 
                                 <a href="{{route('admin.notifications.index')}}" class="d-block py-2 px-3 ">
                                     <div class="col-12 align-items-center">
-                                      <span class="fal fa-bells"></span>  عرض كل الإشعارات
+                                      <span class="fal fa-bells"></span> 
+                                      {{ __('lang.show_all_notifications') }}
+
                                     </div>
                                 </a>
                             </div>
@@ -469,32 +473,34 @@
                             <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;">
                         </div>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" style="top: -3px;">
-                                <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
-                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+                                <li><a class="dropdown-item font-1" href="/" target="_blank"><span class="fal fa-desktop font-1"></span> {{ __('lang.view_site') }}</a></li>
+                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.index')}}"><span class="fal fa-user font-1"></span> {{ __('lang.my_profile') }}</a></li>
 
-                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li> 
+                                <li><a class="dropdown-item font-1" href="{{route('admin.profile.edit')}}"><span class="fal fa-edit font-1"></span>{{ __('lang.edit_profile') }}</a></li> 
 
                                 
 
 
                                 @can('hub-files-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> الملفات</a></li> 
+                                <li><a class="dropdown-item font-1" href="{{route('admin.files.index')}}"><span class="fal fa-file font-1"></span> {{ __('lang.files') }}</a></li> 
                                 @endcan
 
 
                                 @can('traffics-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> الترافيك</a></li> 
+                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.index')}}"><span class="fal fa-traffic-light font-1"></span> {{ __('lang.traffic') }}</a></li> 
                                 @endcan
 
                                 @can('error-reports-read')
-                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> تقارير الأخطاء</a></li> 
+                                <li><a class="dropdown-item font-1" href="{{route('admin.traffics.error-reports')}}"><span class="fal fa-bug font-1"></span> {{ __('lang.bug_reports') }}</a></li> 
                                 @endcan
                                 
  
 
 
                                 <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
-                                <li><a class="dropdown-item font-1" href="#" onclick="document.getElementById('logout-form').submit();"><span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
+                                <li><a class="dropdown-item font-1" href="#" onclick="document.getElementById('logout-form').submit();"><span class="fal fa-sign-out-alt font-1"></span> 
+                                    {{ __('lang.logout') }}
+                                </a></li>
                         </ul>
 
                     </div>

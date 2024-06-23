@@ -37,18 +37,18 @@
                         </div>
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
-                                {{ __('A fresh verification link has been sent to your email address.') }}
+                                {{ __('lang_a1') }}
                             </div>
                         @endif
 
-                        {{ __('Before proceeding, please check your email for a verification link.') }}
-                        {{ __('If you did not receive the email') }}
+                        {{ __('lang_a2') }}
+                        {{ __('lang_a3') }}
                         <br>
                         {{auth()->user()->email}}
                         <br>
                         <form class="d-block mt-3" method="POST" action="{{ route('verification.resend') }}">
                             @csrf
-                            <button type="submit" class="btn btn-success py-2 px-3 m-0 align-baseline">{{ __('click here to request another') }}</button>
+                            <button type="submit" class="btn btn-success py-2 px-3 m-0 align-baseline">{{ __('lang.a4') }}</button>
                         </form>
                 </div>
 

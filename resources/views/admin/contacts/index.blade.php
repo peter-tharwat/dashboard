@@ -11,7 +11,7 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-contacts"></span> الاتصالات
+					<span class="fas fa-contacts"></span> {{ __('lang.contacts') }}
 				</div>
 				<div class="col-12 col-lg-4 p-0">
 				</div>
@@ -22,7 +22,7 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
@@ -35,11 +35,11 @@
 					<tr>
 						<th>#</th>
 						@can('contacts-update')
-						<th scope="col" style="width:40px;">تم</th>
+						<th scope="col" style="width:40px;">{{ __('lang.yes') }}</th>
 						@endcan
-						<th>المستخدم</th>
-						<th>محتوى التذكرة</th>
-						<th>تحكم</th>
+						<th>{{ __('lang.user') }}</th>
+						<th>{{ __('lang.content') }}</th>
+						<th>{{ __('lang.control') }}</th>
 					</tr>
 				</thead>  
 				<tbody>
@@ -76,13 +76,13 @@
 						</td>
 						<td>{{mb_strimwidth($contact->message,0,80,'...')}}
 							<br>
-							آخر رد من :
+							{{ __('lang.last_reply') }}:
 							@php
 							$last_reply= $contact->replies()->orderBy('id','DESC')->first();
 							@endphp
 							@if($last_reply!=null)
 								{{
-									$last_reply->is_support_reply==1?"الدعم الفني":$contact->name
+									$last_reply->is_support_reply==1?"{{ __('lang.support') }}":$contact->name
 								}}
 								<br>
 								{{
@@ -98,14 +98,14 @@
 							@can('contacts-read',$contact)
 							<a href="{{route('admin.contacts.show',$contact)}}">
 							<span class="btn  btn-success btn-sm font-1 mx-1">
-								<span class="fal fa-paper-plane"></span> مراسلة
+								<span class="fal fa-paper-plane"></span> {{ __('lang.messages') }}
 							</span>
 							</a>
 							@endcan
 							@can('contacts-delete',$contact)
 							<form method="POST" action="{{route('admin.contacts.destroy',$contact)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
+								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
+									<span class="fas fa-trash "></span> {{ __('lang.delete') }}
 								</button>
 							</form>
 							@endcan

@@ -7,14 +7,18 @@
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row ">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-contacts"></span> الاعلانات
+					<span class="fas fa-contacts"></span> 
+					{{ __('lang.announcements') }}
+
 				</div>
 				<div class="col-12 col-lg-4 py-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('announcements-create')
 		 			<a href="{{route('admin.announcements.create')}}">
-		 				<button class="btn btn-primary pb-2"><span class="fas fa-plus"></span> إضافة إعلان</button>
+		 				<button class="btn btn-primary pb-2"><span class="fas fa-plus"></span>
+							{{ __('lang.add_announcement') }}
+						</button>
 		 			</a>
 		 			@endcan
 				</div>
@@ -25,7 +29,7 @@
 		<div class="col-12 py-2 px-2 row justify-content-between">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 			<div class="col-12 col-lg-4 px-2 justify-content-end d-flex mb-2">
@@ -40,10 +44,10 @@
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">العنوان</th>
-		      <th scope="col">الوصف</th>
-		      <th scope="col">الرابط</th>
-		      <th scope="col">تحكم</th>
+		      <th scope="col">{{ __('lang.title') }}</th>
+		      <th scope="col">{{ __('lang.description') }}</th>
+		      <th scope="col">{{ __('lang.link') }}</th>
+		      <th scope="col">{{ __('lang.control') }}</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -63,7 +67,7 @@
 		      	@endcan
 		      	
 		      	@can('announcements-delete')
-		      	<a href="#" style="width: 30px;height: 30px;color: #fff;background: #c00;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1" onclick='var result = confirm("هل أنت متأكد من عملية الحذف");if (result) {$("#announcement_delete_{{$announcement->id}}").submit();}'>
+		      	<a href="#" style="width: 30px;height: 30px;color: #fff;background: #c00;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1" onclick='var result = confirm("{{ __('lang.are_you_sure_for_delete') }}");if (result) {$("#announcement_delete_{{$announcement->id}}").submit();}'>
 		      		<span class="fal fa-trash"></span>
 		      	</a>
 		      	@endcan

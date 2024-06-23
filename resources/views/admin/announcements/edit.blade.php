@@ -12,7 +12,7 @@
 	 		
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				العنوان
+					{{ __('lang.title') }}
 	 			</div>
 	 			<div class="col-9 px-2">
 	 				<input type="" name="title" class="form-control" value="{{old('title',$announcement)}}" required="" min="3" max="255">
@@ -20,7 +20,7 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				الوصف
+					{{ __('lang.description') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<textarea class="form-control" name="description" min="3" max="1000" style="min-height: 200px"  required="">{{old('description',$announcement)}}</textarea> 
@@ -28,7 +28,7 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				تاريخ البداية
+					{{ __('lang.start_date') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<input type="datetime-local" name="start_date" value="{{old('start_date',$announcement)}}" class="form-control">
@@ -36,7 +36,7 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				تاريخ الإنتهاء
+					{{ __('lang.end_date') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<input type="datetime-local" name="end_date" value="{{old('end_date',$announcement)}}" class="form-control">
@@ -44,7 +44,7 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				الرابط
+					{{ __('lang.link') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<input type="url" name="url" value="{{old('url',$announcement)}}" class="form-control">
@@ -52,23 +52,23 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				مكان الاعلان
+					{{ __('lang.ad_position') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<select class="form-control" name="location" required>
-	 					<option disabled hidden selected value>اختر مكان الاعلان</option>
-	 					<option value="HOME" {{old('location',$announcement??"")=="HOME"?"selected":""}}>الرئيسية</option>
-	 					<option value="TOP" {{old('location',$announcement??"")=="TOP"?"selected":""}}>أعلى الموقع</option>
-	 					<option value="ASIDE" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>القائمة الجانبية</option>
-	 					<option value="FOOTER" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>تذييل الموقع</option>
-	 					<option value="POPUP" {{old('location',$announcement??"")=="POPUP"?"selected":""}}>النافذة المنبثقة</option>
+	 					<option disabled hidden selected value>{{ __('lang.select_ad_position') }}</option>
+	 					<option value="HOME" {{old('location',$announcement??"")=="HOME"?"selected":""}}>{{ __('lang.home') }}</option>
+	 					<option value="TOP" {{old('location',$announcement??"")=="TOP"?"selected":""}}>{{ __('lang.header') }}</option>
+	 					<option value="ASIDE" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>{{ __('lang.sidebar') }}</option>
+	 					<option value="FOOTER" {{old('location',$announcement??"")=="ASIDE"?"selected":""}}>{{ __('lang.footer') }}</option>
+	 					<option value="POPUP" {{old('location',$announcement??"")=="POPUP"?"selected":""}}>{{ __('lang.popup') }}</option>
 	 				</select>
 	 			</div> 
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				فتح الرابط في نافذة جديدة
-	 			</div>
+					{{ __('lang.open_in_new_tab') }}
+				</div>
 	 			<div class="col-9 px-2" >
 	 				<div class="form-switch">
 					  <input name="open_url_in" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" {{old('open_url_in',$announcement)=="NEW_WINDOW"?"checked":""}} style="width: 50px;height:25px" value="NEW_WINDOW">
@@ -77,7 +77,7 @@
 	 		</div>
 	 		<div class="col-12 col-md-6 px-0 d-flex mb-3">
 	 			<div class="col-3 px-2 text-start pt-1">
-	 				الصورة
+					{{ __('lang.image') }}
 	 			</div>
 	 			<div class="col-9 px-2" >
 	 				<input type="file" name="image" class="form-control" accept="image/*">
@@ -95,7 +95,7 @@
 	 				 
 	 			</div>
 	 			<div class="col-9 px-2">
-	 				<button class="btn pb-2 px-4" style="background: #ffa725;border-radius: 0px;color: #fff ">إعتماد</button>
+	 				<button class="btn pb-2 px-4" style="background: #ffa725;border-radius: 0px;color: #fff ">{{ __('lang.save') }}</button>
 	 			</div> 
 
 	 		</div>
