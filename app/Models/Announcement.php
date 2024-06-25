@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,9 +13,27 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
 
 class Announcement extends Model implements HasMedia
-{
+, TranslatableContract{
+    public $my_translatedAttributes = [
+        'description' => 'textarea',
+        'title' => 'string',
+    ];
+
+    public $my_columns = [
+        'image' => 'file',
+        'location' => 'no',
+        'open_url_in' => 'bool',
+        'url' => 'string',
+    ];
+
+    public $columns = ['image', 'location', 'open_url_in', 'url'];
+
+    public $translatedAttributes = ['description', 'title'];
+
+
     use HasFactory;
     use InteractsWithMedia;
+use Translatable;
     protected $guarded=[];
     public function image($type="original"){
         if($this->image==null)
@@ -33,7 +52,7 @@ class Announcement extends Model implements HasMedia
         if($value==null)return;
         return \Carbon::parse($value)->format('Y-m-d\TH:i');
     }
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $this
             ->addMediaConversion('tiny')

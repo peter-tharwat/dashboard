@@ -19,7 +19,9 @@ class UsersSeeder extends Seeder
                 'name'=>"مسؤول",
                 'email'=>env('DEFAULT_EMAIL'),
                 'email_verified_at'=>date("Y-m-d h:i:s"), 
-                'password'=>bcrypt(env('DEFAULT_PASSWORD'))
+                'password'=>bcrypt(env('DEFAULT_PASSWORD')),
+                'country_id'   => 64,
+                'city_id'      => 1872,
             ]);
     }
 }

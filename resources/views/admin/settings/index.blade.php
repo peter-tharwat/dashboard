@@ -1,25 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<style type="text/css">
-	.settings-tab-opener{
-		/*box-shadow: 0px 6px 12px #ebebeb;*/
-    	border-radius:0px;
-    	cursor: pointer;
-    	width:80px;
-    	height: 45px;
-    	border-left:1px solid var(--border-color);
-    	border-bottom:1px solid var(--border-color);
-	}
-	.settings-tab-opener.active{
-		box-shadow: 0px 6px 12px #c8e0ff;
-		color: #fff;
-		background: #2196f3;
-	}
-	.taber:not(.active){
-		display: none;
-	}
-	
-</style>
 <div class="col-12 p-3 row">
 	 <div class="col-12 p-2 p-lg-4 main-box" style="min-height: 80vh;border-radius:10px">
 	 	<div class="col-12 px-3 pb-3 pt-2">

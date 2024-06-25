@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Test\TestStatus\Success;
 
-class BackendCategoryController extends Controller
+class BackendCategoryController extends BaseController
 {
 
-    public function __construct()
+    public function __construct(CategoryService $service)
     {
+        parent::__construct($service);
         $this->middleware('can:categories-create', ['only' => ['create','store']]);
         $this->middleware('can:categories-read',   ['only' => ['show', 'index']]);
         $this->middleware('can:categories-update',   ['only' => ['edit','update']]);
@@ -19,28 +25,28 @@ class BackendCategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $categories =  Category::where(function($q)use($request){
-            if($request->id!=null)
-                $q->where('id',$request->id);
-            if($request->q!=null)
-                $q->where('title','LIKE','%'.$request->q.'%')->orWhere('description','LIKE','%'.$request->q.'%');
-        })->withCount(['articles'])->orderBy('id','DESC')->paginate();
+        $response = $this->service->get_paginated($request);
+        if ($response['success']) {
+            $categories = $response['data']; 
 
-        return view('admin.categories.index',compact('categories'));
+            return view('admin.categories.index',compact('categories'));
+        } else {
+            abort($response['status'], $response['message']);
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $translateFields = $this->service->translate_fields();
+        $columns_fields = $this->service->columns_fields();
+        return view('admin.categories.create', compact('translateFields', 'columns_fields'));
     }
 
     /**
@@ -49,53 +55,28 @@ class BackendCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $request->merge([
-            'slug'=>\MainHelper::slug($request->slug)
-        ]);
-
-        $request->validate([
-            'slug'=>"required|max:190|unique:categories,slug",
-            'title'=>"required|max:190",
-            'description'=>"nullable|max:10000",
-            'meta_description'=>"nullable|max:10000",
-        ]);
-        $category = Category::create([
-            'user_id'=>auth()->user()->id,
-            "slug"=>$request->slug,
-            "title"=>$request->title,
-            "description"=>$request->description,
-            "meta_description"=>$request->meta_description,
-        ]);
-        if($request->hasFile('image')){
-            $image = $category->addMedia($request->image)->toMediaCollection('image');
-            $category->update(['image'=>$image->id.'/'.$image->file_name]);
+        $response = $this->service->create($request);
+        if ($response['success']) {
+            toastr()->success(__('utils/toastr.category_store_success_message'), __('utils/toastr.successful_process_message'));
+        } else {
+            toastr()->error(__('utils/toastr.failed_process_message'));
         }
-        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
-        toastr()->success(__('utils/toastr.category_store_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
     {   
-        return view('admin.categories.edit',compact('category'));
+        $translateFields = $this->service->translate_fields();
+        $columns_fields = $this->service->columns_fields();
+
+        return view('admin.categories.edit',compact('category', 'translateFields', 'columns_fields'));
     }
 
     /**
@@ -105,30 +86,14 @@ class BackendCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $request->merge([
-            'slug'=>\MainHelper::slug($request->slug)
-        ]);
-
-        $request->validate([
-            'slug'=>"required|max:190|unique:categories,slug,".$category->id,
-            'title'=>"required|max:190",
-            'description'=>"nullable|max:10000",
-            'meta_description'=>"nullable|max:10000",
-        ]);
-        $category->update([
-            "slug"=>$request->slug,
-            "title"=>$request->title,
-            "description"=>$request->description,
-            "meta_description"=>$request->meta_description,
-        ]);
-        if($request->hasFile('image')){
-            $image = $category->addMedia($request->image)->toMediaCollection('image');
-            $category->update(['image'=>$image->id.'/'.$image->file_name]);
+        $response = $this->service->update($request->validated(), $category->id);
+        if ($response['success']) {
+            toastr()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
+        } else {
+            toastr()->error(__('utils/toastr.failed_process_message'));
         }
-        \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
-        toastr()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.categories.index');
     }
 
@@ -140,8 +105,12 @@ class BackendCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        toastr()->success(__('utils/toastr.category_destroy_success_message'), __('utils/toastr.successful_process_message'));
+        $response = $this->service->delete($category->id);
+        if ($response['success']) {
+            toastr()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
+        } else {
+            toastr()->error(__('utils/toastr.failed_process_message'));
+        }
         return redirect()->route('admin.categories.index');
     }
 }

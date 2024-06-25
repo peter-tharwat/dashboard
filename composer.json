@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2.0",
+        "astrotomic/laravel-translatable": "^11.13",
         "darkaonline/l5-swagger": "^8.4",
         "doctrine/dbal": "^3.4",
         "guzzlehttp/guzzle": "^7.0.1",

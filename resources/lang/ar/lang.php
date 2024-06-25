@@ -246,6 +246,7 @@ return [
     'top_devices'=>'أعلى الأجهزة',
     'no_files'=>'لا توجد ملفات',
     'select_files'=>'اختر ملفات',
+	'not_found_record' => 'العنصر غير موجود',
 
 
 ];

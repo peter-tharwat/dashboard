@@ -243,4 +243,5 @@ return [
     'top_devices'=>'Top Devices',
     'no_files'=>'There are no files',
     'select_files'=>'Select Files',
+    'not_found_record' => 'The record is not found',
 ];
