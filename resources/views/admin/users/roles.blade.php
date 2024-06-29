@@ -5,7 +5,7 @@
 		<form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.users.roles.update',$user)}}">
 		@csrf
 		@method("PUT")
-		<div class="col-12 col-lg-12 p-0 main-box">
+		<div class="col-12 col-lg-12 p-0 card">
 
 			<div class="col-12 px-0">
 				<div class="col-12 px-3 py-3">

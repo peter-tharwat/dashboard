@@ -49,7 +49,7 @@
 				<form method="POST" action="{{route('admin.profile.update')}}" enctype="multipart/form-data">
 					@csrf
 					@method("PUT")
-					<div class="col-12 p-0 main-box shadow">
+					<div class="col-12 p-0 card shadow">
 						<div class="col-12 px-0">
 							<div class="col-12 px-3 py-3">
 							 	<span class="fal fa-info-circle"></span>	{{ __('lang.main_information') }}
@@ -104,7 +104,7 @@
                 <form method="POST" action="{{route('admin.profile.update-email')}}" >
                     @csrf
                     @method("PUT")
-                    <div class="col-12 p-0 main-box shadow">
+                    <div class="col-12 p-0 card shadow">
                         <div class="col-12 px-0">
                             <div class="col-12 px-3 py-3">
                                 <span class="fal fa-envelope"></span> {{ __('lang.change_email') }}
@@ -155,7 +155,7 @@
                 <form method="POST" action="{{route('admin.profile.update-password')}}" >
                     @csrf
                     @method("PUT")
-                    <div class="col-12 p-0 main-box shadow">
+                    <div class="col-12 p-0 card shadow">
                         <div class="col-12 px-0">
                             <div class="col-12 px-3 py-3">
                                 <span class="fal fa-key"></span>  {{ __('lang.change_password') }}

@@ -1,9 +1,9 @@
 @php
 $flat_colors = collect([
-'#2196f3',
-'#2196f3dd',
+'#7367f0',
+'#be96f3',
 '#7cc5ffaa',
-'#9ed2fb88',
+'#cfaaff',
 '#0fb8ff66',
 '#5aceff44',
 '#8eddff22',
@@ -14,24 +14,9 @@ $flat_colors = collect([
 ]);
 @endphp
 <div class="col-12 p-0">
-    <div class="">
-        {{-- {{dd($data)}} --}}
-    </div>
-    {{-- <div class="col-12 my-2 px-2 ">
-        <div class="col-12  main-box row">
-            <div class="col-12  px-3 py-3 ">
-                @php
-                $from = Carbon::parse($from);
-                $to = Carbon::parse($to);
-                @endphp
-                إحصائيات {{$from->diffInDays($to)}} أيام
-            </div>
-        </div>
-    </div> --}}
     <div class="col-12 row p-0 d-flex">
-        <div class="col-12 col-lg-4 p-2">
-            
-            <div class="col-12 p-0 main-box">
+        <div class="col-12 col-lg-4 p-2">            
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.fast_procedures') }}
@@ -132,7 +117,7 @@ $flat_colors = collect([
 
 
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         <div class="col-12 p-0">
@@ -144,7 +129,7 @@ $flat_colors = collect([
                                 <div class="col-8 d-flex justify-content-end align-items-center">
                                     
 
-                                    <div class="spinner-grow text-info mx-2" role="status" style="width:15px;height: 15px">
+                                    <div class="spinner-grow text-primary mx-2" role="status" style="width:15px;height: 15px">
                                       <span class="visually-hidden"></span>
                                     </div>
 
@@ -163,7 +148,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.new_users') }}
@@ -176,7 +161,7 @@ $flat_colors = collect([
                 </div>
             </div>
         </div>        <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.top_visited_pages') }}
@@ -187,7 +172,7 @@ $flat_colors = collect([
                     @foreach($data['top_pages'] as $page)
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7367f0;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$page->count}}
                             </span>
                         </div>
@@ -201,7 +186,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box" style="min-height:100%">
+            <div class="card" style="min-height:100%">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.top_traffic_sources') }}
@@ -214,7 +199,7 @@ $flat_colors = collect([
              
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7367f0;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$main_domain->domain_count}}
                             </span>
                             
@@ -232,7 +217,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box" style="min-height:100%">
+            <div class="card" style="min-height:100%">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.highest_access_countries') }}
@@ -250,7 +235,7 @@ $flat_colors = collect([
              
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7367f0;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$country->count}}
                             </span>
                             
@@ -269,7 +254,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.browsers') }}
@@ -282,7 +267,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.operating_systems') }}
@@ -296,7 +281,7 @@ $flat_colors = collect([
             </div>
         </div>
         <div class="col-12 col-lg-4 p-2">
-            <div class="col-12 p-0 main-box">
+            <div class="card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         {{ __('lang.top_devices') }}
@@ -330,14 +315,14 @@ $flat_colors = collect([
                     "{{$value}}",
                     @endforeach
                     ],
-                        backgroundColor: "#2196f3cc",
-                        borderColor: '#2196f3',
+                        backgroundColor: "#7367f0",
+                        borderColor: '#7367f0',
                         pointStyle: 'rect',
                         lineTension: '.15',
                         tension: 0.1,
                         fill: true,
                         pointStyle:"circle",
-                        pointBorderColor:"#2196f3",
+                        pointBorderColor:"#7367f0",
                         pointBackgroundColor:"#fff",
                         pointRadius:4,
                         borderWidth: 3.5,
@@ -409,14 +394,14 @@ $flat_colors = collect([
                     "{{$count}}",
                     @endforeach
                     ],
-                        backgroundColor: "#2196f3cc",
-                        borderColor: '#2196f3',
+                        backgroundColor: "#7367f0",
+                        borderColor: '#7367f0',
                         pointStyle: 'rect',
                         lineTension: '.15',
                         tension: 0.1,
                         fill: true,
                         pointStyle:"circle",
-                        pointBorderColor:"#2196f3",
+                        pointBorderColor:"#7367f0",
                         pointBackgroundColor:"#fff",
                         pointRadius:4,
                         borderWidth: 3.5,

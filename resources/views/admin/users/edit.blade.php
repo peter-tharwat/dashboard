@@ -1,22 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
-	<!-- breadcrumb -->
-		<x-bread-crumb :breads="[
-			['url' => url('/admin') , 'title' => __('lang.dashboard') , 'isactive' => false],
-			['url' => route('admin.users.index') , 'title' => __('lang.users') , 'isactive' => false],
-			['url' => route('admin.users.show', $user->id) , 'title' =>  $user->name, 'isactive' => false],
-			['url' => '#' , 'title' => __('lang.edit') , 'isactive' => true],
-		]">
-		</x-bread-crumb>
-	<!-- /breadcrumb -->
 	<div class="col-12 col-lg-12 p-0 ">
 	 
 		
 		<form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.users.update',$user)}}">
 		@csrf
 		@method("PUT")
-		<div class="col-12 col-lg-8 p-0 main-box">
+		<div class="col-12 col-lg-8 p-0 card">
 			<div class="col-12 px-0">
 				<div class="col-12 px-3 py-3">
 				 	<span class="fas fa-info-circle"></span> {{ __('lang.edit_user') }}

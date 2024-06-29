@@ -1,0 +1,11 @@
+{
+    "name": "Course",
+    "alias": "course",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Course\\Providers\\CourseServiceProvider"
+    ],
+    "files": []
+}

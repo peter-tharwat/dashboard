@@ -1,0 +1,80 @@
+.app-logistics-fleet-wrapper {
+  position: relative;
+  border: none;
+  overflow: hidden;
+  height: calc(100vh - 13.7rem);
+}
+@media (max-width: 1199.98px) {
+  .app-logistics-fleet-wrapper {
+    height: calc(100vh - 10.5rem);
+  }
+}
+.layout-navbar-hidden .app-logistics-fleet-wrapper {
+  height: calc(100vh - 6.5rem);
+}
+.layout-navbar-hidden .app-logistics-fleet-wrapper .logistics-fleet-sidebar-body {
+  height: calc(100vh - 15.5rem + 4rem);
+}
+.app-logistics-fleet-wrapper .app-logistics-fleet-sidebar {
+  position: absolute;
+  overflow: hidden;
+  background-color: #fff;
+  flex-grow: 0;
+  flex-basis: 21rem;
+  left: calc(-21rem - 1.2rem);
+  height: 100%;
+  width: 21rem;
+  transition: all 0.3s;
+  z-index: 2;
+}
+.app-logistics-fleet-wrapper .app-logistics-fleet-sidebar.show {
+  left: 0;
+}
+.app-logistics-fleet-wrapper .close-sidebar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.app-logistics-fleet-wrapper .logistics-fleet-sidebar-body {
+  height: calc(100vh - 15.5rem);
+}
+@media (max-width: 767.98px) {
+  .app-logistics-fleet-wrapper {
+    height: calc(100vh - 11.5rem);
+  }
+  .app-logistics-fleet-wrapper .logistics-fleet-sidebar-body {
+    height: calc(100vh - 15.5rem - 2rem);
+  }
+  .layout-navbar-hidden .app-logistics-fleet-wrapper {
+    height: calc(100vh - 6.5rem);
+  }
+  .layout-navbar-hidden .app-logistics-fleet-wrapper .logistics-fleet-sidebar-body {
+    height: calc(100vh - 15.5rem + 2.5rem);
+  }
+}
+@media (min-width: 768px) {
+  .app-logistics-fleet-wrapper .app-logistics-fleet-sidebar {
+    position: static;
+    height: auto;
+    background-color: transparent !important;
+  }
+}
+
+[dir=rtl] .app-logistics-fleet-wrapper .app-logistics-fleet-sidebar {
+  left: auto;
+  right: calc(-21rem - 1.2rem);
+}
+[dir=rtl] .app-logistics-fleet-wrapper .app-logistics-fleet-sidebar.show {
+  left: auto;
+  right: 0;
+}
+[dir=rtl] .app-logistics-fleet-wrapper .close-sidebar {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: auto;
+}
+
+.dark-style .app-logistics-fleet-wrapper .app-logistics-fleet-sidebar {
+  background-color: #2f3349;
+}

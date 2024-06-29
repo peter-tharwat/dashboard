@@ -1,0 +1,36 @@
+.pricing-plans-comparison .table tr > th:first-child,
+.pricing-plans-comparison .table tr > td:first-child {
+  white-space: nowrap;
+  text-align: start;
+}
+.pricing-plans-comparison .table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.price-yearly-toggle {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.light-style .bg-alt-pricing {
+  background-color: #f8f7fa;
+}
+
+.dark-style .bg-alt-pricing {
+  background-color: #25293c;
+}
+
+@media (min-width: 992px) {
+  .pricing-free-trial img {
+    position: absolute;
+    bottom: 0;
+  }
+  html:not([dir=rtl]) .pricing-free-trial img {
+    right: 0;
+  }
+  [dir=rtl] .pricing-free-trial img {
+    left: 0;
+  }
+}

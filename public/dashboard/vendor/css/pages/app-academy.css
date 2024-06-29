@@ -1,0 +1,31 @@
+.app-academy .app-academy-img-height {
+  height: 130px;
+}
+
+@media (min-width: 768px) {
+  .app-academy .app-academy-md-25 {
+    width: 25%;
+  }
+  .app-academy .app-academy-md-50 {
+    width: 50%;
+  }
+  .app-academy .app-academy-md-80 {
+    width: 80%;
+  }
+}
+@media (min-width: 576px) {
+  .app-academy .app-academy-sm-40 {
+    width: 40% !important;
+  }
+  .app-academy .app-academy-sm-60 {
+    width: 60% !important;
+  }
+}
+@media (min-width: 1200px) {
+  .app-academy .app-academy-xl-100 {
+    width: 100% !important;
+  }
+  .app-academy .app-academy-xl-100 {
+    width: 100% !important;
+  }
+}

@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnnouncementTranslation extends Model
 {
+    public $fillable = ['description', 'title'];
+
     use HasFactory;
 }

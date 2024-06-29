@@ -5,32 +5,23 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
 
-class Announcement extends Model implements HasMedia
-, TranslatableContract{
-    public $my_translatedAttributes = [
-        'description' => 'textarea',
-        'title' => 'string',
-    ];
-
-    public $my_columns = [
-        'image' => 'file',
-        'location' => 'no',
-        'open_url_in' => 'bool',
-        'url' => 'string',
-    ];
+class Announcement extends Model implements HasMedia {
+    public $searchable = ['description', 'title'];
 
     public $columns = ['image', 'location', 'open_url_in', 'url'];
 
     public $translatedAttributes = ['description', 'title'];
 
 
+
+
+
+    
     use HasFactory;
     use InteractsWithMedia;
 use Translatable;

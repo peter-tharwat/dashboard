@@ -1,0 +1,23 @@
+table.table {
+    text-align: center;
+}
+
+.databaseHelper .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Ensure each child takes equal height */
+.databaseHelper .col-lg-4, 
+.databaseHelper .col-md-6 {
+    display: flex;
+    flex: 1;
+    min-width: calc(33.33% - 10px); /* Adjust width for spacing */
+    margin: 5px;
+}
+
+.databaseHelper .card-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}

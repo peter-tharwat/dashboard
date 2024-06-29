@@ -5,7 +5,7 @@
         <form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.menu-links.store')}}">
             @csrf
             <input type="hidden" name="menu_id" value="{{request()->get('menu_id')}}">
-            <div class="col-12 col-lg-8 p-0 main-box">
+            <div class="col-12 col-lg-8 p-0 card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
                         <span class="fas fa-info-circle"></span>{{ __('lang.add_new') }}

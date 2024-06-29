@@ -1,0 +1,48 @@
+table.dataTable.fixedHeader-floating,
+table.dataTable.fixedHeader-locked {
+  background-color: white;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+table.dataTable.fixedHeader-locked {
+  position: absolute !important;
+}
+
+@media print {
+  table.fixedHeader-floating {
+    display: none;
+  }
+}
+html[data-bs-theme=dark] table.dataTable.fixedHeader-floating,
+html[data-bs-theme=dark] table.dataTable.fixedHeader-locked {
+  background-color: var(--bs-body-bg);
+}
+
+.dt-fixedheader.fixedHeader-floating.table.dataTable {
+  width: auto !important;
+}
+
+.dt-fixedheader.fixedHeader-locked.table.dataTable {
+  display: none;
+}
+
+.light-style .dtfh-floatingparenthead {
+  border-bottom: 2px solid #f8f7fa;
+}
+.light-style .dt-fixedheader.fixedHeader-floating.table.dataTable thead > tr > th,
+.light-style .dt-fixedheader.fixedHeader-locked.table.dataTable thead > tr > th {
+  background-color: #fff;
+  border-bottom-width: 1px;
+  border-color: #f8f7fa;
+}
+
+.dark-style .dtfh-floatingparenthead {
+  border-bottom: 2px solid #25293c;
+}
+.dark-style .dt-fixedheader.fixedHeader-floating.table.dataTable thead > tr > th,
+.dark-style .dt-fixedheader.fixedHeader-locked.table.dataTable thead > tr > th {
+  background-color: #2f3349;
+  border-bottom-width: 1px;
+  border-color: #25293c;
+}

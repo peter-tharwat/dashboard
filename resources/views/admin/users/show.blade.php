@@ -19,7 +19,7 @@
                 <div class="col-12 row p-0">
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3  px-2 mb-3">
                         <a href="{{route('admin.articles.index',['user_id'=>$user->id])}}" style="color:inherit;">
-                            <div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #ffffff;">
+                            <div class="col-12 px-0 py-2 d-flex rounded-3 card-wedit" style="background: #ffffff;">
                                 <div style="width: 80px;" class="p-2">
                                     <div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04))!important;height: 64px;border-radius: 50%;">
                                         <span class="fal fa-book font-5"></span>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3  px-2 mb-3">
                         <a href="{{route('admin.traffics.index',['user_id'=>$user->id])}}" style="color:inherit;">
-                            <div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #ffffff;">
+                            <div class="col-12 px-0 py-2 d-flex rounded-3 card-wedit" style="background: #ffffff;">
                                 <div style="width: 80px;" class="p-2">
                                     <div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04))!important;height: 64px;border-radius: 50%;">
                                         <span class="fal fa-traffic-light font-5"></span>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3  px-2 mb-3">
                         <a href="{{route('admin.traffics.error-reports',['user_id'=>$user->id])}}" style="color:inherit;">
-                            <div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #ffffff;">
+                            <div class="col-12 px-0 py-2 d-flex rounded-3 card-wedit" style="background: #ffffff;">
                                 <div style="width: 80px;" class="p-2">
                                     <div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04))!important;height: 64px;border-radius: 50%;">
                                         <span class="fal fa-bug font-5"></span>
@@ -65,7 +65,7 @@
 
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3  px-2 mb-3">
                         <a href="{{route('admin.contacts.index',['user_id'=>$user->id])}}" style="color:inherit;">
-                            <div class="col-12 px-0 py-2 d-flex rounded-3 main-box-wedit" style="background: #ffffff;">
+                            <div class="col-12 px-0 py-2 d-flex rounded-3 card-wedit" style="background: #ffffff;">
                                 <div style="width: 80px;" class="p-2">
                                     <div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,.04),rgba(0,0,0,.04))!important;height: 64px;border-radius: 50%;">
                                         <span class="fal fa-phone font-5"></span>

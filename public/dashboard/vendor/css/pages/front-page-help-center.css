@@ -1,0 +1,8 @@
+.help-center-header .input-wrapper {
+  max-width: 31.25rem;
+}
+@media (max-width: 575.98px) {
+  .help-center-header .input-wrapper {
+    max-width: 80%;
+  }
+}

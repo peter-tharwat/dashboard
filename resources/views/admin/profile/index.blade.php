@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-12 py-3">
 	<div class="container">
-		<div class="p-3 main-box mx-auto" style="width:600px;max-width: 100%;">
+		<div class="p-3 card mx-auto" style="width:600px;max-width: 100%;">
 			<div class="d-flex align-items-center justify-content-center py-4">
 			 	<div class="col-12 d-flex justify-content-center align-items-center mx-auto " style="width:100%">
 			 		<div class="col-12 p-0 text-center">

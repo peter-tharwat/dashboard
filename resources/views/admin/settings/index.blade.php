@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3 row">
-	 <div class="col-12 p-2 p-lg-4 main-box" style="min-height: 80vh;border-radius:10px">
+	 <div class="col-12 p-2 p-lg-4 card" style="min-height: 80vh;border-radius:10px">
 	 	<div class="col-12 px-3 pb-3 pt-2">
 	 		<h4 class="font-4">{{ __('lang.site_settings') }}</h4>
 	 	</div>

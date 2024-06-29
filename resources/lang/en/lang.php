@@ -244,4 +244,12 @@ return [
     'no_files'=>'There are no files',
     'select_files'=>'Select Files',
     'not_found_record' => 'The record is not found',
+
+
+
+    'translatable' => 'Translatable',
+    'column' => 'Column',
+    'searchable'=>'Searchable',
+    'handle_old_tables'=>'Handle Old Tables',
+
 ];

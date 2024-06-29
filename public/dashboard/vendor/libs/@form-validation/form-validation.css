@@ -1,0 +1,217 @@
+.fv-sr-only {
+  display: none;
+}
+
+.fv-plugins-framework input::-ms-clear,
+.fv-plugins-framework textarea::-ms-clear {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.fv-plugins-icon-container {
+  position: relative;
+}
+
+.fv-plugins-icon {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+.fv-plugins-icon--enabled {
+  visibility: visible;
+}
+
+.fv-plugins-icon--disabled {
+  visibility: hidden;
+}
+
+.fv-plugins-message-container--enabled {
+  display: block;
+}
+
+.fv-plugins-message-container--disabled {
+  display: none;
+}
+
+.fv-plugins-tooltip {
+  max-width: 256px;
+  position: absolute;
+  text-align: center;
+  z-index: 10000;
+}
+
+.fv-plugins-tooltip .fv-plugins-tooltip__content {
+  background: #000;
+  border-radius: 3px;
+  color: #eee;
+  padding: 8px;
+  position: relative;
+}
+
+.fv-plugins-tooltip .fv-plugins-tooltip__content:before {
+  border: 8px solid transparent;
+  content: "";
+  position: absolute;
+}
+
+.fv-plugins-tooltip--hide {
+  display: none;
+}
+
+.fv-plugins-tooltip--top-left {
+  transform: translateY(-8px);
+}
+
+.fv-plugins-tooltip--top-left .fv-plugins-tooltip__content:before {
+  border-top-color: #000;
+  left: 8px;
+  top: 100%;
+}
+
+.fv-plugins-tooltip--top {
+  transform: translateY(-8px);
+}
+
+.fv-plugins-tooltip--top .fv-plugins-tooltip__content:before {
+  border-top-color: #000;
+  left: 50%;
+  margin-left: -8px;
+  top: 100%;
+}
+
+.fv-plugins-tooltip--top-right {
+  transform: translateY(-8px);
+}
+
+.fv-plugins-tooltip--top-right .fv-plugins-tooltip__content:before {
+  border-top-color: #000;
+  right: 8px;
+  top: 100%;
+}
+
+.fv-plugins-tooltip--right {
+  transform: translateX(8px);
+}
+
+.fv-plugins-tooltip--right .fv-plugins-tooltip__content:before {
+  border-right-color: #000;
+  margin-top: -8px;
+  right: 100%;
+  top: 50%;
+}
+
+.fv-plugins-tooltip--bottom-right {
+  transform: translateY(8px);
+}
+
+.fv-plugins-tooltip--bottom-right .fv-plugins-tooltip__content:before {
+  border-bottom-color: #000;
+  bottom: 100%;
+  right: 8px;
+}
+
+.fv-plugins-tooltip--bottom {
+  transform: translateY(8px);
+}
+
+.fv-plugins-tooltip--bottom .fv-plugins-tooltip__content:before {
+  border-bottom-color: #000;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+}
+
+.fv-plugins-tooltip--bottom-left {
+  transform: translateY(8px);
+}
+
+.fv-plugins-tooltip--bottom-left .fv-plugins-tooltip__content:before {
+  border-bottom-color: #000;
+  bottom: 100%;
+  left: 8px;
+}
+
+.fv-plugins-tooltip--left {
+  transform: translateX(-8px);
+}
+
+.fv-plugins-tooltip--left .fv-plugins-tooltip__content:before {
+  border-left-color: #000;
+  left: 100%;
+  margin-top: -8px;
+  top: 50%;
+}
+
+.fv-plugins-tooltip-icon {
+  cursor: pointer;
+  pointer-events: inherit;
+}
+
+.fv-plugins-bootstrap5 {
+  /* Support floating label */
+  /* For horizontal form */
+  /* Stacked form */
+  /* Inline form */
+}
+
+.fv-plugins-bootstrap5 .fv-plugins-bootstrap5-row-invalid .fv-plugins-icon {
+  color: #dc3545;
+}
+
+.fv-plugins-bootstrap5 .fv-plugins-bootstrap5-row-valid .fv-plugins-icon {
+  color: #198754;
+}
+
+.fv-plugins-bootstrap5 .fv-plugins-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+}
+
+.fv-plugins-bootstrap5 .input-group ~ .fv-plugins-icon {
+  z-index: 3;
+}
+
+.fv-plugins-bootstrap5 .fv-plugins-icon-input-group {
+  right: -38px;
+}
+
+.fv-plugins-bootstrap5 .form-floating .fv-plugins-icon {
+  height: 58px;
+}
+
+.fv-plugins-bootstrap5 .row .fv-plugins-icon {
+  right: 12px;
+}
+
+.fv-plugins-bootstrap5 .row .fv-plugins-icon-check {
+  top: -7px; /* labelHeight/2 - iconHeight/2 */
+}
+
+.fv-plugins-bootstrap5:not(.fv-plugins-bootstrap5-form-inline) label ~ .fv-plugins-icon {
+  top: 32px;
+}
+
+.fv-plugins-bootstrap5:not(.fv-plugins-bootstrap5-form-inline) label ~ .fv-plugins-icon-check {
+  top: 25px;
+}
+
+.fv-plugins-bootstrap5:not(.fv-plugins-bootstrap5-form-inline) label.sr-only ~ .fv-plugins-icon-check {
+  top: -7px;
+}
+
+.fv-plugins-bootstrap5.fv-plugins-bootstrap5-form-inline .fv-plugins-icon {
+  right: calc(var(--bs-gutter-x, 1.5rem) / 2);
+}
+
+.fv-plugins-bootstrap5 .form-select.fv-plugins-icon-input.is-valid,
+.fv-plugins-bootstrap5 .form-select.fv-plugins-icon-input.is-invalid,
+.fv-plugins-bootstrap5 .form-control.fv-plugins-icon-input.is-valid,
+.fv-plugins-bootstrap5 .form-control.fv-plugins-icon-input.is-invalid {
+  background-image: none;
+}

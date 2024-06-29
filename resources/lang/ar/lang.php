@@ -247,6 +247,11 @@ return [
     'no_files'=>'لا توجد ملفات',
     'select_files'=>'اختر ملفات',
 	'not_found_record' => 'العنصر غير موجود',
+    'translatable' => 'يترجم ؟',
+	'column'=>'عمود',
+	'searchable'=>'قابل للبحث',
+    'handle_old_tables'=>'معالجة الجداول القديمة',
+
 
 
 ];

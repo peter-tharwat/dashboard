@@ -1,0 +1,35 @@
+.user-profile-header-banner img {
+  width: 100%;
+  object-fit: cover;
+  height: 250px;
+}
+
+.user-profile-header {
+  margin-top: -2rem;
+}
+.user-profile-header .user-profile-img {
+  border: 5px solid;
+  width: 120px;
+}
+
+.light-style .user-profile-header .user-profile-img {
+  border-color: #fff;
+}
+
+.dark-style .user-profile-header .user-profile-img {
+  border-color: #2f3349;
+}
+
+.dataTables_wrapper .card-header .dataTables_filter label {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+  .user-profile-header-banner img {
+    height: 150px;
+  }
+  .user-profile-header .user-profile-img {
+    width: 100px;
+  }
+}
