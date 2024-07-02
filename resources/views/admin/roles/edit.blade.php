@@ -5,10 +5,10 @@
         <form id="validate-form" class="row" enctype="multipart/form-data" method="POST" action="{{route('admin.roles.update',$role)}}">
             @csrf
             @method("PUT")
-                        <div class="col-12 col-lg-5 p-0 main-box">
+                        <div class="col-12 col-lg-5 p-0 card">
                 <div class="col-12 px-0">
                     <div class="col-12 px-3 py-3">
-                        <span class="fas fa-info-circle"></span> إضافة جديد
+                        <span class="fas fa-info-circle"></span> {{ __('lang.edit_role') }}
                     </div>
                     <div class="col-12 divider" style="min-height: 2px;"></div>
                 </div>
@@ -17,7 +17,7 @@
                     
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            اسم القاعدة
+                            {{ __('lang.name') }}
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="name" required maxlength="190" class="form-control" value="{{old('name',$role??"")}}">
@@ -26,7 +26,7 @@
 
                     <div class="col-12 col-lg-6 p-2">
                         <div class="col-12">
-                            يعرض ك
+                            {{ __('lang.show_as') }}
                         </div>
                         <div class="col-12 pt-3">
                             <input type="text" name="display_name" required maxlength="190" class="form-control" value="{{old('display_name',$role??"")}}">
@@ -36,7 +36,7 @@
                     
                     <div class="col-12 p-2">
                         <div class="col-12">
-                            الوصف
+                            {{ __('lang.description') }}
                         </div>
                         <div class="col-12 pt-3">
                             <textarea name="description" class="form-control" style="min-height:150px">{{old('description',$role??"")}}</textarea>
@@ -47,11 +47,11 @@
                     <table class="table table-hover">
                     <thead>
                         <tr style="">
-                            <th>الجدول</th>
-                            <th style="width: 56px;">اضافة</th>
-                            <th style="width: 56px;">عرض</th>
-                            <th style="width: 56px;">تعديل</th>
-                            <th style="width: 56px;">حذف</th>
+                            <th>{{ __('lang.table') }}</th>
+                            <th style="width: 56px;">{{ __('lang.add') }}</th>
+                            <th style="width: 56px;">{{ __('lang.show') }}</th>
+                            <th style="width: 56px;">{{ __('lang.edit') }}</th>
+                            <th style="width: 56px;">{{ __('lang.delete') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="col-12 p-3">
-                <button class="btn btn-success" id="submitEvaluation">حفظ</button>
+                <button class="btn btn-success" id="submitEvaluation">{{ __('lang.save') }}</button>
             </div>
         </form>
     </div>

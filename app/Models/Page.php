@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,9 +12,16 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
 
 class Page extends Model implements HasMedia
-{
+, TranslatableContract{
+    public $searchable = ['description', 'meta_description', 'title'];
+
+    public $columns = ['image', 'removable', 'slug'];
+
+    public $translatedAttributes = ['description', 'meta_description', 'title'];
+
     use HasFactory;
     use InteractsWithMedia;
+use Translatable;
     public $guarded=['id','created_at','updated_at'];
     public $appends=['url'];
     public function getUrlAttribute(){

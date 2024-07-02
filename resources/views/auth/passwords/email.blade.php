@@ -40,13 +40,13 @@
 
                        
                         <div class="col-12 p-0 mb-5 mt-3" style="width: 550px;max-width: 100%;margin: 0px auto;">
-                            <h3 class="mb-4 text-center font-4">{{ __('Reset Password') }}</h3>
+                            <h3 class="mb-4 text-center font-4">{{ __('lang.a5') }}</h3>
                              
                         </div>
 
                         <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
-                                <label for="email" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('Email') }}</label>
+                                <label for="email" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('lang.email') }}</label>
                                 <input id="email" type="email" class="form-control mt-2 d-inline-block @error('email') is-invalid @enderror" name="email" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" value="{{ old('email') }}">
                             </div>
                             @error('email')
@@ -62,7 +62,7 @@
                                 <div class="form-group row mb-0 ">
                                     <div class="col-12 p-0 d-flex">
                                         <button type="submit" class="btn btn-success font-1">
-                                            {{ __('Send Password Reset Link') }}
+                                            {{ __('lang.a6') }}
                                         </button>
                                     </div>
                                 </div>

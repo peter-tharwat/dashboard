@@ -3,7 +3,7 @@
 <div class="col-12 py-0 px-3 row">
     <div class="col-12  pt-4" style="background: #fff;min-height: 80vh">
         <div class="col-12 px-3">
-            <h5>عرض الرسالة رقم {{$contact->id}} القادمة من {{$contact->name}}</h5>
+            <h5>{{ __('lang.view_ticket_number') }}{{$contact->id}} {{ __('lang.send_from') }} {{$contact->name}}</h5>
         </div>
         @if($contact->files()->count() !=0)
         <div class="col-12 px-3">
@@ -118,7 +118,7 @@
 	                    </div>
 	                    @if($reply->files()->count() !=0)
 				        <div class="col-12 px-3">
-				        	<h6>مرفقات</h6>
+				        	<h6>{{ __('lang.attachments') }}</h6>
 				        	@include('admin.templates.attachments',['attachments'=>$reply->files])
 				        </div>
 				        @endif
@@ -133,17 +133,17 @@
                 @csrf
                 <div class="col-12 col-md-10 col-lg-9 col-xl-6 p-0 mb-3">
                     <div class="col-12 px-0 pt-1 mb-3">
-                        إرسال رد
+                        {{ __('lang.send_reply') }}
                     </div>
                     <div class="col-12 px-0">
                         <input type="hidden" name="contact_id" value="{{$contact->id}}">
                         <textarea name="content" class="form-control" min="3" max="1000" style="min-height: 200px"></textarea>
-                        <h6>مرفقات</h6>
+                        <h6>{{ __('lang.attachments') }}</h6>
                         <input type="file" name="files[]" multiple class="form-control col-12 col-lg-6">
                     </div>
                 </div>
                 <div class="col-12 p-0">
-                    <button class="btn btn-primary">إرسال رد</button>
+                    <button class="btn btn-primary"> {{ __('lang.send_reply') }}</button>
                 </div>
             </form>
         </div>

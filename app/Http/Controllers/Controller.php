@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function store_file($options=[])
     {   
         $options = array_merge([

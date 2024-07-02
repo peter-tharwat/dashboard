@@ -1,0 +1,25 @@
+html,
+body {
+  background: #fff !important;
+}
+
+body > :not(.invoice-print) {
+  display: none !important;
+}
+
+.invoice-print {
+  min-width: 768px !important;
+  font-size: 15px !important;
+}
+.invoice-print svg {
+  fill: #6f6b7d !important;
+}
+
+.invoice-print * {
+  border-color: rgba(75, 70, 92, 0.5) !important;
+  color: #6f6b7d !important;
+}
+
+.dark-style .invoice-print th {
+  color: #fff !important;
+}

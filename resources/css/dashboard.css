@@ -86,6 +86,130 @@ body,*{
     text-align: start;
     
 }
+/** Start Test **/
+html[dark="false"] {
+    --background-0: #eef4f5;
+    --background-1: #fff;
+    --background-aside: #11233b;
+    --background-active-link: #141e2e;
+    --background-form-control-focus: #161d26;
+    --color-1: #fff;
+    --color-2: #575f66;
+    --border-color: #f1f1f1;
+    --bs-table-hover-color: #f7f7f7!important; 
+} 
+html[dark='true'] {
+    --background-0: #131923;
+    --background-1: #1c222b;
+    --background-aside: #11233b;
+    --background-active-link: #141e2e;
+    --background-form-control-focus: #161d26;
+
+    --color-1: #fff;
+    --color-2: #f1f1f1;
+    --border-color: #282b2f;
+    --bs-table-hover-color: #f7f7f7!important; 
+}
+
+
+
+html[dark='true'] .select2-dropdown,
+html[dark='true'] .select2-container--default .select2-selection--multiple,
+html[dark='true'] .select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color: var(--background-0)!important;
+}
+html[dark='true'] td, 
+html[dark='true'] th {
+    border-color: var(--border-color)!important;
+}
+html[dark='true'] .aside{
+    background: #171f2a!important;
+}
+html[dark='true'] .aside *{
+    color: var(--color-1)!important;
+}
+html[dark='true'] .aside .item-container.active{
+    background: #192230!important;
+    box-shadow: 0px 12px 17px #101d30!important;
+    border-bottom: unset!important;
+}
+html[dark='true'] .aside .item-container.active *{
+    color: #38b59c!important;
+}
+html[dark='true'] .sub-item.active a.active *, 
+html[dark='true'] .sub-item.active a.active {
+    color: #38b59c!important;
+}
+html[dark='true'] #home-dashboard-divider{
+    background: #0194fe!important;
+}
+html[dark='true'] body{
+    color: var(--color-1)!important;
+    background: #131923!important;
+}
+html[dark='true'] .main-box-wedit {
+    box-shadow: unset;
+    border-radius: 10px 25px 10px 25px;
+    background: #1c222b!important;
+}
+html[dark='true'] .main-box{
+    background: #1c222b!important;
+    box-shadow: unset!important;
+}
+html[dark='true'] .btn{
+    color: var(--color-2)!important;
+}
+html[dark='true'] table{
+    color: var(--color-2)!important;
+    border-color: var(--border-color)!important;
+}
+html[dark='true'] thead th{
+    border-color: var(--border-color)!important;
+}
+html[dark='true'] *,
+html[dark='true'] .dropdown-item{
+    color: var(--color-1);
+}
+html[dark='true'] .dropdown-menu{
+    background-color: var(--background-1)!important;
+}
+html[dark='true'] .dropdown-item:focus, 
+html[dark='true'] .dropdown-item:hover {
+    color: var(--color-1);
+    background-color: var(--background-2)!important;
+}
+html[dark='true'] *[class*='border-']{
+    border-color: var(--border-color)!important;
+}
+html[dark='true'] hr{
+    background: var(--border-color);
+}
+html[dark='true'] .form-control {
+    background: rgb(39 38 37 / 20%);
+    border-color: #8c6934;
+}
+html[dark='true'] .form-control{
+    background: var(--background-1);
+    border-color: var(--border-color);
+}
+html[dark='true'] .form-control:focus {
+    box-shadow: unset!important;
+    border: 1px solid #ff9800!important;
+    background: #0e0d0c!important;
+}
+html[dark='true'] .form-control ,
+html[dark='true'] .form-control:focus{
+    color: var(--color-1);
+}
+html[dark='true'] .settings-tab-opener.active,
+html[dark='true'] .settings-tab-opener{
+    box-shadow: unset!important;
+}
+#toast-container>div {
+    opacity: 1;
+}
+.phpdebugbar *{ direction:ltr!important }
+/*************************************/
 html{
     font-size: 16px;
 }
@@ -162,4 +286,22 @@ html{
 .carousel__track{
     direction: ltr;
 }
+
+.settings-tab-opener{
+    /*box-shadow: 0px 6px 12px #ebebeb;*/
+    border-radius:0px;
+    cursor: pointer;
+    width:80px;
+    height: 45px;
+    border-left:1px solid var(--border-color);
+    border-bottom:1px solid var(--border-color);
+}
+.settings-tab-opener.active{
+    box-shadow: 0px 6px 12px #c8e0ff;
+    color: #fff;
+    background: #2196f3;
+}
+.taber:not(.active){
+    display: none;
+} 
 /*! purgecss end ignore */

@@ -1,0 +1,11 @@
+.app-ecommerce-category .comment-editor .ql-editor,
+.app-ecommerce .comment-editor .ql-editor {
+  min-height: 7rem;
+}
+
+@media (max-width: 575.98px) {
+  .widget-separator .border-shift.border-end {
+    border-right: none !important;
+    border-left: none !important;
+  }
+}

@@ -1,0 +1,10 @@
+.api-key-actions {
+  position: absolute !important;
+  top: 0.75rem;
+}
+html:not([dir=rtl]) .api-key-actions {
+  right: 0.5rem;
+}
+[dir=rtl] .api-key-actions {
+  left: 0.5rem;
+}

@@ -4,7 +4,7 @@
 	@if(request()->get('user_id')!=null)
 	@can('notifications-create')
 	<a href="{{route('admin.notifications.create',['user_id'=>request()->get('user_id')])}}">
-		<span class="btn btn-primary"><span class="fas fa-bells"></span> إرسال تنبيه</span>
+		<span class="btn btn-primary"><span class="fas fa-bells"></span>{{ __('lang.send_notification') }}</span>
 	</a>
 	@endcan
 	@endif

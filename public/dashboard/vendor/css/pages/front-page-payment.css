@@ -1,0 +1,5 @@
+@media (max-width: 991.98px) {
+  .section-py .card-body.border-end {
+    border: 0 !important;
+  }
+}

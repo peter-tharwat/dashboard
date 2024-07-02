@@ -24,6 +24,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('last_activity')->nullable()->index();
             $table->string('password');
+            $table->integer('country_id')->unsigned();
+            $table->integer('city_id')->unsigned();
+            
+            $table->foreign('country_id')->references('id')->on('marketopia_countries')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('city_id')->references('id')->on('marketopia_cities')->cascadeOnDelete()->cascadeOnUpdate();
             $table->rememberToken();
             $table->timestamps();
         });

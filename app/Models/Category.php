@@ -4,18 +4,36 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
-
-class Category extends Model implements HasMedia
+use Spatie\Image\Enums\Fit;
+class Category extends Model implements HasMedia, TranslatableContract
 {
+
+    
     use HasFactory;
     use InteractsWithMedia;
-
-    public $guarded=['id','created_at','updated_at'];
+    use Translatable;
+    public $translatedAttributes = ['title', 'meta_description', 'description'];
+    
+    public $my_translatedAttributes = [
+        'title' => 'string', 
+        'meta_description'=>'textarea', 
+        'description'=>'editor'
+    ];
+    public $guarded = ['id','created_at','updated_at'];
+    public $columns = ['user_id','slug', 'image'];
+    public $my_columns = [
+        'user_id' => 'no',
+        'image'     => 'file',
+        'slug'      => 'string'
+    ];
+    public $indexWith = [];
+    public $indexWithCount = ['articles'];
     public $appends=['url'];
     public function getRouteKeyName(){
         return 'slug';
@@ -35,27 +53,27 @@ class Category extends Model implements HasMedia
         else
             return env("STORAGE_URL").'/'.\MainHelper::get_conversion($this->image,$type);
     }
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $this
             ->addMediaConversion('tiny')
-            ->fit(Manipulations::FIT_MAX, 120, 120)
+            ->fit(Fit::Max, 120, 120)
             ->width(120)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
         $this
             ->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_MAX, 350, 1000)
+            ->fit(Fit::Max, 350, 1000)
             ->width(350)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
         $this
             ->addMediaConversion('original')
-            ->fit(Manipulations::FIT_MAX, 1200,10000)
+            ->fit(Fit::Max, 1200,10000)
             ->width(1200)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
     }
 

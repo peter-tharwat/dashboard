@@ -8,12 +8,18 @@
 				<div class="row align-items-center py-5 main-nafez-box-styles" style=";border-radius: 12px">
 					<div class="col text-center py-5">
 						<span class="fal fa-exclamation-triangle font-12 pb-4" style="color: var(--bg-color-4)"></span>
-						<h4 class="text-center">حدث خطأ أثناء معالجة طلبك</h4>
+						<h4 class="text-center">{{ __('lang.a7') }}</h4>
 					
-						<h6 class="text-center">لا تقلق . يعمل فريقنا على حل المشكلة في الوقت الحالي <br> يمكنك اعادة تحديث الصفحة</h6>
+						<h6 class="text-center">
+							{{ __('lang.a8') }}
+							<br> 
+							{{ __('lang.a9') }}
+						</h6>
 										<div class="col-12 text-center px-2" dir="ltr" style="padding-top: 8px;">
-						<a href="{{url()->current()}}" class="d-inline-block ">
-						<span class="btn btn-primary cairo px-5" style=" padding: 5px 10px 9px;cursor: pointer;border:none;border-radius: 90px;">  تحديث الصفحة </span>
+						<a href="/" class="d-inline-block ">
+							<span class="btn btn-primary cairo px-5" style=" padding: 5px 10px 9px;cursor: pointer;border:none;border-radius: 90px;"> <span class="fal fa-home font-1 " style="color: #fff"></span> 
+							{{ __('lang.home') }}
+
 						</a>
 						</div>
 					</div>

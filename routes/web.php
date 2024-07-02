@@ -1,5 +1,6 @@
 <?php
 # Backend Controllers
+use App\Http\Controllers\TranslationHandlerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\BackendAdminController;
 use App\Http\Controllers\Backend\BackendNotificationsController;
@@ -63,12 +64,20 @@ Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->nam
 
 
 
-#Route::get('/test',[BackendTestController::class,'test']);
+Route::get('/test',[BackendTestController::class,'test']);
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
     Route::get('/',[BackendAdminController::class,'index'])->name('index');
     Route::middleware('auth')->group(function () {
+
+        
+        Route::get('translation-handler', [TranslationHandlerController::class, 'index']);
+        Route::post('translation-handler', [TranslationHandlerController::class, 'store'])->name('translation_handler.store');
+        
+
+
+
         Route::resource('announcements',BackendAnnouncementController::class);
         Route::resource('files',BackendFileController::class);
         Route::post('contacts/resolve',[BackendContactController::class,'resolve'])->name('contacts.resolve');

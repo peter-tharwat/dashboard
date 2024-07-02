@@ -1,0 +1,7886 @@
+[
+    {
+        "id": "1",
+        "car_brand_id": "1",
+        "code": "CL_MODELS",
+        "title": "CL Models (4)"
+    },
+    {
+        "id": "2",
+        "car_brand_id": "1",
+        "code": "2.2CL",
+        "title": " - 2.2CL"
+    },
+    {
+        "id": "3",
+        "car_brand_id": "1",
+        "code": "2.3CL",
+        "title": " - 2.3CL"
+    },
+    {
+        "id": "4",
+        "car_brand_id": "1",
+        "code": "3.0CL",
+        "title": " - 3.0CL"
+    },
+    {
+        "id": "5",
+        "car_brand_id": "1",
+        "code": "3.2CL",
+        "title": " - 3.2CL"
+    },
+    {
+        "id": "6",
+        "car_brand_id": "1",
+        "code": "ILX",
+        "title": "ILX"
+    },
+    {
+        "id": "7",
+        "car_brand_id": "1",
+        "code": "INTEG",
+        "title": "Integra"
+    },
+    {
+        "id": "8",
+        "car_brand_id": "1",
+        "code": "LEGEND",
+        "title": "Legend"
+    },
+    {
+        "id": "9",
+        "car_brand_id": "1",
+        "code": "MDX",
+        "title": "MDX"
+    },
+    {
+        "id": "10",
+        "car_brand_id": "1",
+        "code": "NSX",
+        "title": "NSX"
+    },
+    {
+        "id": "11",
+        "car_brand_id": "1",
+        "code": "RDX",
+        "title": "RDX"
+    },
+    {
+        "id": "12",
+        "car_brand_id": "1",
+        "code": "RL_MODELS",
+        "title": "RL Models (2)"
+    },
+    {
+        "id": "13",
+        "car_brand_id": "1",
+        "code": "3.5RL",
+        "title": " - 3.5 RL"
+    },
+    {
+        "id": "14",
+        "car_brand_id": "1",
+        "code": "RL",
+        "title": " - RL"
+    },
+    {
+        "id": "15",
+        "car_brand_id": "1",
+        "code": "RSX",
+        "title": "RSX"
+    },
+    {
+        "id": "16",
+        "car_brand_id": "1",
+        "code": "SLX",
+        "title": "SLX"
+    },
+    {
+        "id": "17",
+        "car_brand_id": "1",
+        "code": "TL_MODELS",
+        "title": "TL Models (3)"
+    },
+    {
+        "id": "18",
+        "car_brand_id": "1",
+        "code": "2.5TL",
+        "title": " - 2.5TL"
+    },
+    {
+        "id": "19",
+        "car_brand_id": "1",
+        "code": "3.2TL",
+        "title": " - 3.2TL"
+    },
+    {
+        "id": "20",
+        "car_brand_id": "1",
+        "code": "TL",
+        "title": " - TL"
+    },
+    {
+        "id": "21",
+        "car_brand_id": "1",
+        "code": "TSX",
+        "title": "TSX"
+    },
+    {
+        "id": "22",
+        "car_brand_id": "1",
+        "code": "VIGOR",
+        "title": "Vigor"
+    },
+    {
+        "id": "23",
+        "car_brand_id": "1",
+        "code": "ZDX",
+        "title": "ZDX"
+    },
+    {
+        "id": "24",
+        "car_brand_id": "1",
+        "code": "ACUOTH",
+        "title": "Other Acura Models"
+    },
+    {
+        "id": "25",
+        "car_brand_id": "2",
+        "code": "ALFA164",
+        "title": "164"
+    },
+    {
+        "id": "26",
+        "car_brand_id": "2",
+        "code": "ALFA8C",
+        "title": "8C Competizione"
+    },
+    {
+        "id": "27",
+        "car_brand_id": "2",
+        "code": "ALFAGT",
+        "title": "GTV-6"
+    },
+    {
+        "id": "28",
+        "car_brand_id": "2",
+        "code": "MIL",
+        "title": "Milano"
+    },
+    {
+        "id": "29",
+        "car_brand_id": "2",
+        "code": "SPID",
+        "title": "Spider"
+    },
+    {
+        "id": "30",
+        "car_brand_id": "2",
+        "code": "ALFAOTH",
+        "title": "Other Alfa Romeo Models"
+    },
+    {
+        "id": "31",
+        "car_brand_id": "3",
+        "code": "AMCALLIAN",
+        "title": "Alliance"
+    },
+    {
+        "id": "32",
+        "car_brand_id": "3",
+        "code": "CON",
+        "title": "Concord"
+    },
+    {
+        "id": "33",
+        "car_brand_id": "3",
+        "code": "EAGLE",
+        "title": "Eagle"
+    },
+    {
+        "id": "34",
+        "car_brand_id": "3",
+        "code": "AMCENC",
+        "title": "Encore"
+    },
+    {
+        "id": "35",
+        "car_brand_id": "3",
+        "code": "AMCSPIRIT",
+        "title": "Spirit"
+    },
+    {
+        "id": "36",
+        "car_brand_id": "3",
+        "code": "AMCOTH",
+        "title": "Other AMC Models"
+    },
+    {
+        "id": "37",
+        "car_brand_id": "4",
+        "code": "DB7",
+        "title": "DB7"
+    },
+    {
+        "id": "38",
+        "car_brand_id": "4",
+        "code": "DB9",
+        "title": "DB9"
+    },
+    {
+        "id": "39",
+        "car_brand_id": "4",
+        "code": "DBS",
+        "title": "DBS"
+    },
+    {
+        "id": "40",
+        "car_brand_id": "4",
+        "code": "LAGONDA",
+        "title": "Lagonda"
+    },
+    {
+        "id": "41",
+        "car_brand_id": "4",
+        "code": "RAPIDE",
+        "title": "Rapide"
+    },
+    {
+        "id": "42",
+        "car_brand_id": "4",
+        "code": "V12VANT",
+        "title": "V12 Vantage"
+    },
+    {
+        "id": "43",
+        "car_brand_id": "4",
+        "code": "VANTAGE",
+        "title": "V8 Vantage"
+    },
+    {
+        "id": "44",
+        "car_brand_id": "4",
+        "code": "VANQUISH",
+        "title": "Vanquish"
+    },
+    {
+        "id": "45",
+        "car_brand_id": "4",
+        "code": "VIRAGE",
+        "title": "Virage"
+    },
+    {
+        "id": "46",
+        "car_brand_id": "4",
+        "code": "UNAVAILAST",
+        "title": "Other Aston Martin Models"
+    },
+    {
+        "id": "47",
+        "car_brand_id": "5",
+        "code": "AUDI100",
+        "title": "100"
+    },
+    {
+        "id": "48",
+        "car_brand_id": "5",
+        "code": "AUDI200",
+        "title": "200"
+    },
+    {
+        "id": "49",
+        "car_brand_id": "5",
+        "code": "4000",
+        "title": "4000"
+    },
+    {
+        "id": "50",
+        "car_brand_id": "5",
+        "code": "5000",
+        "title": "5000"
+    },
+    {
+        "id": "51",
+        "car_brand_id": "5",
+        "code": "80",
+        "title": "80"
+    },
+    {
+        "id": "52",
+        "car_brand_id": "5",
+        "code": "90",
+        "title": "90"
+    },
+    {
+        "id": "53",
+        "car_brand_id": "5",
+        "code": "A3",
+        "title": "A3"
+    },
+    {
+        "id": "54",
+        "car_brand_id": "5",
+        "code": "A4",
+        "title": "A4"
+    },
+    {
+        "id": "55",
+        "car_brand_id": "5",
+        "code": "A5",
+        "title": "A5"
+    },
+    {
+        "id": "56",
+        "car_brand_id": "5",
+        "code": "A6",
+        "title": "A6"
+    },
+    {
+        "id": "57",
+        "car_brand_id": "5",
+        "code": "A7",
+        "title": "A7"
+    },
+    {
+        "id": "58",
+        "car_brand_id": "5",
+        "code": "A8",
+        "title": "A8"
+    },
+    {
+        "id": "59",
+        "car_brand_id": "5",
+        "code": "ALLRDQUA",
+        "title": "allroad"
+    },
+    {
+        "id": "60",
+        "car_brand_id": "5",
+        "code": "AUDICABRI",
+        "title": "Cabriolet"
+    },
+    {
+        "id": "61",
+        "car_brand_id": "5",
+        "code": "AUDICOUPE",
+        "title": "Coupe"
+    },
+    {
+        "id": "62",
+        "car_brand_id": "5",
+        "code": "Q3",
+        "title": "Q3"
+    },
+    {
+        "id": "63",
+        "car_brand_id": "5",
+        "code": "Q5",
+        "title": "Q5"
+    },
+    {
+        "id": "64",
+        "car_brand_id": "5",
+        "code": "Q7",
+        "title": "Q7"
+    },
+    {
+        "id": "65",
+        "car_brand_id": "5",
+        "code": "QUATTR",
+        "title": "Quattro"
+    },
+    {
+        "id": "66",
+        "car_brand_id": "5",
+        "code": "R8",
+        "title": "R8"
+    },
+    {
+        "id": "67",
+        "car_brand_id": "5",
+        "code": "RS4",
+        "title": "RS 4"
+    },
+    {
+        "id": "68",
+        "car_brand_id": "5",
+        "code": "RS5",
+        "title": "RS 5"
+    },
+    {
+        "id": "69",
+        "car_brand_id": "5",
+        "code": "RS6",
+        "title": "RS 6"
+    },
+    {
+        "id": "70",
+        "car_brand_id": "5",
+        "code": "S4",
+        "title": "S4"
+    },
+    {
+        "id": "71",
+        "car_brand_id": "5",
+        "code": "S5",
+        "title": "S5"
+    },
+    {
+        "id": "72",
+        "car_brand_id": "5",
+        "code": "S6",
+        "title": "S6"
+    },
+    {
+        "id": "73",
+        "car_brand_id": "5",
+        "code": "S7",
+        "title": "S7"
+    },
+    {
+        "id": "74",
+        "car_brand_id": "5",
+        "code": "S8",
+        "title": "S8"
+    },
+    {
+        "id": "75",
+        "car_brand_id": "5",
+        "code": "TT",
+        "title": "TT"
+    },
+    {
+        "id": "76",
+        "car_brand_id": "5",
+        "code": "TTRS",
+        "title": "TT RS"
+    },
+    {
+        "id": "77",
+        "car_brand_id": "5",
+        "code": "TTS",
+        "title": "TTS"
+    },
+    {
+        "id": "78",
+        "car_brand_id": "5",
+        "code": "V8",
+        "title": "V8 Quattro"
+    },
+    {
+        "id": "79",
+        "car_brand_id": "5",
+        "code": "AUDOTH",
+        "title": "Other Audi Models"
+    },
+    {
+        "id": "80",
+        "car_brand_id": "6",
+        "code": "CONVERT",
+        "title": "Convertible"
+    },
+    {
+        "id": "81",
+        "car_brand_id": "6",
+        "code": "COUPEAVANT",
+        "title": "Coupe"
+    },
+    {
+        "id": "82",
+        "car_brand_id": "6",
+        "code": "SEDAN",
+        "title": "Sedan"
+    },
+    {
+        "id": "83",
+        "car_brand_id": "6",
+        "code": "UNAVAILAVA",
+        "title": "Other Avanti Models"
+    },
+    {
+        "id": "84",
+        "car_brand_id": "7",
+        "code": "ARNAGE",
+        "title": "Arnage"
+    },
+    {
+        "id": "85",
+        "car_brand_id": "7",
+        "code": "AZURE",
+        "title": "Azure"
+    },
+    {
+        "id": "86",
+        "car_brand_id": "7",
+        "code": "BROOKLANDS",
+        "title": "Brooklands"
+    },
+    {
+        "id": "87",
+        "car_brand_id": "7",
+        "code": "BENCONT",
+        "title": "Continental"
+    },
+    {
+        "id": "88",
+        "car_brand_id": "7",
+        "code": "CORNICHE",
+        "title": "Corniche"
+    },
+    {
+        "id": "89",
+        "car_brand_id": "7",
+        "code": "BENEIGHT",
+        "title": "Eight"
+    },
+    {
+        "id": "90",
+        "car_brand_id": "7",
+        "code": "BENMUL",
+        "title": "Mulsanne"
+    },
+    {
+        "id": "91",
+        "car_brand_id": "7",
+        "code": "BENTURBO",
+        "title": "Turbo R"
+    },
+    {
+        "id": "92",
+        "car_brand_id": "7",
+        "code": "UNAVAILBEN",
+        "title": "Other Bentley Models"
+    },
+    {
+        "id": "93",
+        "car_brand_id": "8",
+        "code": "1_SERIES",
+        "title": "1 Series (3)"
+    },
+    {
+        "id": "94",
+        "car_brand_id": "8",
+        "code": "128I",
+        "title": " - 128i"
+    },
+    {
+        "id": "95",
+        "car_brand_id": "8",
+        "code": "135I",
+        "title": " - 135i"
+    },
+    {
+        "id": "96",
+        "car_brand_id": "8",
+        "code": "135IS",
+        "title": " - 135is"
+    },
+    {
+        "id": "97",
+        "car_brand_id": "8",
+        "code": "3_SERIES",
+        "title": "3 Series (29)"
+    },
+    {
+        "id": "98",
+        "car_brand_id": "8",
+        "code": "318I",
+        "title": " - 318i"
+    },
+    {
+        "id": "99",
+        "car_brand_id": "8",
+        "code": "318IC",
+        "title": " - 318iC"
+    },
+    {
+        "id": "100",
+        "car_brand_id": "8",
+        "code": "318IS",
+        "title": " - 318iS"
+    },
+    {
+        "id": "101",
+        "car_brand_id": "8",
+        "code": "318TI",
+        "title": " - 318ti"
+    },
+    {
+        "id": "102",
+        "car_brand_id": "8",
+        "code": "320I",
+        "title": " - 320i"
+    },
+    {
+        "id": "103",
+        "car_brand_id": "8",
+        "code": "323CI",
+        "title": " - 323ci"
+    },
+    {
+        "id": "104",
+        "car_brand_id": "8",
+        "code": "323I",
+        "title": " - 323i"
+    },
+    {
+        "id": "105",
+        "car_brand_id": "8",
+        "code": "323IS",
+        "title": " - 323is"
+    },
+    {
+        "id": "106",
+        "car_brand_id": "8",
+        "code": "323IT",
+        "title": " - 323iT"
+    },
+    {
+        "id": "107",
+        "car_brand_id": "8",
+        "code": "325CI",
+        "title": " - 325Ci"
+    },
+    {
+        "id": "108",
+        "car_brand_id": "8",
+        "code": "325E",
+        "title": " - 325e"
+    },
+    {
+        "id": "109",
+        "car_brand_id": "8",
+        "code": "325ES",
+        "title": " - 325es"
+    },
+    {
+        "id": "110",
+        "car_brand_id": "8",
+        "code": "325I",
+        "title": " - 325i"
+    },
+    {
+        "id": "111",
+        "car_brand_id": "8",
+        "code": "325IS",
+        "title": " - 325is"
+    },
+    {
+        "id": "112",
+        "car_brand_id": "8",
+        "code": "325IX",
+        "title": " - 325iX"
+    },
+    {
+        "id": "113",
+        "car_brand_id": "8",
+        "code": "325XI",
+        "title": " - 325xi"
+    },
+    {
+        "id": "114",
+        "car_brand_id": "8",
+        "code": "328CI",
+        "title": " - 328Ci"
+    },
+    {
+        "id": "115",
+        "car_brand_id": "8",
+        "code": "328I",
+        "title": " - 328i"
+    },
+    {
+        "id": "116",
+        "car_brand_id": "8",
+        "code": "328IS",
+        "title": " - 328iS"
+    },
+    {
+        "id": "117",
+        "car_brand_id": "8",
+        "code": "328XI",
+        "title": " - 328xi"
+    },
+    {
+        "id": "118",
+        "car_brand_id": "8",
+        "code": "330CI",
+        "title": " - 330Ci"
+    },
+    {
+        "id": "119",
+        "car_brand_id": "8",
+        "code": "330I",
+        "title": " - 330i"
+    },
+    {
+        "id": "120",
+        "car_brand_id": "8",
+        "code": "330XI",
+        "title": " - 330xi"
+    },
+    {
+        "id": "121",
+        "car_brand_id": "8",
+        "code": "335D",
+        "title": " - 335d"
+    },
+    {
+        "id": "122",
+        "car_brand_id": "8",
+        "code": "335I",
+        "title": " - 335i"
+    },
+    {
+        "id": "123",
+        "car_brand_id": "8",
+        "code": "335IS",
+        "title": " - 335is"
+    },
+    {
+        "id": "124",
+        "car_brand_id": "8",
+        "code": "335XI",
+        "title": " - 335xi"
+    },
+    {
+        "id": "125",
+        "car_brand_id": "8",
+        "code": "ACTIVE3",
+        "title": " - ActiveHybrid 3"
+    },
+    {
+        "id": "126",
+        "car_brand_id": "8",
+        "code": "BMW325",
+        "title": " - 325"
+    },
+    {
+        "id": "127",
+        "car_brand_id": "8",
+        "code": "5_SERIES",
+        "title": "5 Series (19)"
+    },
+    {
+        "id": "128",
+        "car_brand_id": "8",
+        "code": "524TD",
+        "title": " - 524td"
+    },
+    {
+        "id": "129",
+        "car_brand_id": "8",
+        "code": "525I",
+        "title": " - 525i"
+    },
+    {
+        "id": "130",
+        "car_brand_id": "8",
+        "code": "525XI",
+        "title": " - 525xi"
+    },
+    {
+        "id": "131",
+        "car_brand_id": "8",
+        "code": "528E",
+        "title": " - 528e"
+    },
+    {
+        "id": "132",
+        "car_brand_id": "8",
+        "code": "528I",
+        "title": " - 528i"
+    },
+    {
+        "id": "133",
+        "car_brand_id": "8",
+        "code": "528IT",
+        "title": " - 528iT"
+    },
+    {
+        "id": "134",
+        "car_brand_id": "8",
+        "code": "528XI",
+        "title": " - 528xi"
+    },
+    {
+        "id": "135",
+        "car_brand_id": "8",
+        "code": "530I",
+        "title": " - 530i"
+    },
+    {
+        "id": "136",
+        "car_brand_id": "8",
+        "code": "530IT",
+        "title": " - 530iT"
+    },
+    {
+        "id": "137",
+        "car_brand_id": "8",
+        "code": "530XI",
+        "title": " - 530xi"
+    },
+    {
+        "id": "138",
+        "car_brand_id": "8",
+        "code": "533I",
+        "title": " - 533i"
+    },
+    {
+        "id": "139",
+        "car_brand_id": "8",
+        "code": "535I",
+        "title": " - 535i"
+    },
+    {
+        "id": "140",
+        "car_brand_id": "8",
+        "code": "535IGT",
+        "title": " - 535i Gran Turismo"
+    },
+    {
+        "id": "141",
+        "car_brand_id": "8",
+        "code": "535XI",
+        "title": " - 535xi"
+    },
+    {
+        "id": "142",
+        "car_brand_id": "8",
+        "code": "540I",
+        "title": " - 540i"
+    },
+    {
+        "id": "143",
+        "car_brand_id": "8",
+        "code": "545I",
+        "title": " - 545i"
+    },
+    {
+        "id": "144",
+        "car_brand_id": "8",
+        "code": "550I",
+        "title": " - 550i"
+    },
+    {
+        "id": "145",
+        "car_brand_id": "8",
+        "code": "550IGT",
+        "title": " - 550i Gran Turismo"
+    },
+    {
+        "id": "146",
+        "car_brand_id": "8",
+        "code": "ACTIVE5",
+        "title": " - ActiveHybrid 5"
+    },
+    {
+        "id": "147",
+        "car_brand_id": "8",
+        "code": "6_SERIES",
+        "title": "6 Series (8)"
+    },
+    {
+        "id": "148",
+        "car_brand_id": "8",
+        "code": "633CSI",
+        "title": " - 633CSi"
+    },
+    {
+        "id": "149",
+        "car_brand_id": "8",
+        "code": "635CSI",
+        "title": " - 635CSi"
+    },
+    {
+        "id": "150",
+        "car_brand_id": "8",
+        "code": "640I",
+        "title": " - 640i"
+    },
+    {
+        "id": "151",
+        "car_brand_id": "8",
+        "code": "640IGC",
+        "title": " - 640i Gran Coupe"
+    },
+    {
+        "id": "152",
+        "car_brand_id": "8",
+        "code": "645CI",
+        "title": " - 645Ci"
+    },
+    {
+        "id": "153",
+        "car_brand_id": "8",
+        "code": "650I",
+        "title": " - 650i"
+    },
+    {
+        "id": "154",
+        "car_brand_id": "8",
+        "code": "650IGC",
+        "title": " - 650i Gran Coupe"
+    },
+    {
+        "id": "155",
+        "car_brand_id": "8",
+        "code": "L6",
+        "title": " - L6"
+    },
+    {
+        "id": "156",
+        "car_brand_id": "8",
+        "code": "7_SERIES",
+        "title": "7 Series (15)"
+    },
+    {
+        "id": "157",
+        "car_brand_id": "8",
+        "code": "733I",
+        "title": " - 733i"
+    },
+    {
+        "id": "158",
+        "car_brand_id": "8",
+        "code": "735I",
+        "title": " - 735i"
+    },
+    {
+        "id": "159",
+        "car_brand_id": "8",
+        "code": "735IL",
+        "title": " - 735iL"
+    },
+    {
+        "id": "160",
+        "car_brand_id": "8",
+        "code": "740I",
+        "title": " - 740i"
+    },
+    {
+        "id": "161",
+        "car_brand_id": "8",
+        "code": "740IL",
+        "title": " - 740iL"
+    },
+    {
+        "id": "162",
+        "car_brand_id": "8",
+        "code": "740LI",
+        "title": " - 740Li"
+    },
+    {
+        "id": "163",
+        "car_brand_id": "8",
+        "code": "745I",
+        "title": " - 745i"
+    },
+    {
+        "id": "164",
+        "car_brand_id": "8",
+        "code": "745LI",
+        "title": " - 745Li"
+    },
+    {
+        "id": "165",
+        "car_brand_id": "8",
+        "code": "750I",
+        "title": " - 750i"
+    },
+    {
+        "id": "166",
+        "car_brand_id": "8",
+        "code": "750IL",
+        "title": " - 750iL"
+    },
+    {
+        "id": "167",
+        "car_brand_id": "8",
+        "code": "750LI",
+        "title": " - 750Li"
+    },
+    {
+        "id": "168",
+        "car_brand_id": "8",
+        "code": "760I",
+        "title": " - 760i"
+    },
+    {
+        "id": "169",
+        "car_brand_id": "8",
+        "code": "760LI",
+        "title": " - 760Li"
+    },
+    {
+        "id": "170",
+        "car_brand_id": "8",
+        "code": "ACTIVE7",
+        "title": " - ActiveHybrid 7"
+    },
+    {
+        "id": "171",
+        "car_brand_id": "8",
+        "code": "ALPINAB7",
+        "title": " - Alpina B7"
+    },
+    {
+        "id": "172",
+        "car_brand_id": "8",
+        "code": "8_SERIES",
+        "title": "8 Series (4)"
+    },
+    {
+        "id": "173",
+        "car_brand_id": "8",
+        "code": "840CI",
+        "title": " - 840Ci"
+    },
+    {
+        "id": "174",
+        "car_brand_id": "8",
+        "code": "850CI",
+        "title": " - 850Ci"
+    },
+    {
+        "id": "175",
+        "car_brand_id": "8",
+        "code": "850CSI",
+        "title": " - 850CSi"
+    },
+    {
+        "id": "176",
+        "car_brand_id": "8",
+        "code": "850I",
+        "title": " - 850i"
+    },
+    {
+        "id": "177",
+        "car_brand_id": "8",
+        "code": "L_SERIES",
+        "title": "L Series (1)"
+    },
+    {
+        "id": "178",
+        "car_brand_id": "8",
+        "code": "L7",
+        "title": " - L7"
+    },
+    {
+        "id": "179",
+        "car_brand_id": "8",
+        "code": "M_SERIES",
+        "title": "M Series (8)"
+    },
+    {
+        "id": "180",
+        "car_brand_id": "8",
+        "code": "1SERIESM",
+        "title": " - 1 Series M"
+    },
+    {
+        "id": "181",
+        "car_brand_id": "8",
+        "code": "BMWMCOUPE",
+        "title": " - M Coupe"
+    },
+    {
+        "id": "182",
+        "car_brand_id": "8",
+        "code": "BMWROAD",
+        "title": " - M Roadster"
+    },
+    {
+        "id": "183",
+        "car_brand_id": "8",
+        "code": "M3",
+        "title": " - M3"
+    },
+    {
+        "id": "184",
+        "car_brand_id": "8",
+        "code": "M5",
+        "title": " - M5"
+    },
+    {
+        "id": "185",
+        "car_brand_id": "8",
+        "code": "M6",
+        "title": " - M6"
+    },
+    {
+        "id": "186",
+        "car_brand_id": "8",
+        "code": "X5M",
+        "title": " - X5 M"
+    },
+    {
+        "id": "187",
+        "car_brand_id": "8",
+        "code": "X6M",
+        "title": " - X6 M"
+    },
+    {
+        "id": "188",
+        "car_brand_id": "8",
+        "code": "X_SERIES",
+        "title": "X Series (5)"
+    },
+    {
+        "id": "189",
+        "car_brand_id": "8",
+        "code": "ACTIVEX6",
+        "title": " - ActiveHybrid X6"
+    },
+    {
+        "id": "190",
+        "car_brand_id": "8",
+        "code": "X1",
+        "title": " - X1"
+    },
+    {
+        "id": "191",
+        "car_brand_id": "8",
+        "code": "X3",
+        "title": " - X3"
+    },
+    {
+        "id": "192",
+        "car_brand_id": "8",
+        "code": "X5",
+        "title": " - X5"
+    },
+    {
+        "id": "193",
+        "car_brand_id": "8",
+        "code": "X6",
+        "title": " - X6"
+    },
+    {
+        "id": "194",
+        "car_brand_id": "8",
+        "code": "Z_SERIES",
+        "title": "Z Series (3)"
+    },
+    {
+        "id": "195",
+        "car_brand_id": "8",
+        "code": "Z3",
+        "title": " - Z3"
+    },
+    {
+        "id": "196",
+        "car_brand_id": "8",
+        "code": "Z4",
+        "title": " - Z4"
+    },
+    {
+        "id": "197",
+        "car_brand_id": "8",
+        "code": "Z8",
+        "title": " - Z8"
+    },
+    {
+        "id": "198",
+        "car_brand_id": "8",
+        "code": "BMWOTH",
+        "title": "Other BMW Models"
+    },
+    {
+        "id": "199",
+        "car_brand_id": "9",
+        "code": "CENT",
+        "title": "Century"
+    },
+    {
+        "id": "200",
+        "car_brand_id": "9",
+        "code": "ELEC",
+        "title": "Electra"
+    },
+    {
+        "id": "201",
+        "car_brand_id": "9",
+        "code": "ENCLAVE",
+        "title": "Enclave"
+    },
+    {
+        "id": "202",
+        "car_brand_id": "9",
+        "code": "BUIENC",
+        "title": "Encore"
+    },
+    {
+        "id": "203",
+        "car_brand_id": "9",
+        "code": "LACROSSE",
+        "title": "LaCrosse"
+    },
+    {
+        "id": "204",
+        "car_brand_id": "9",
+        "code": "LESA",
+        "title": "Le Sabre"
+    },
+    {
+        "id": "205",
+        "car_brand_id": "9",
+        "code": "LUCERNE",
+        "title": "Lucerne"
+    },
+    {
+        "id": "206",
+        "car_brand_id": "9",
+        "code": "PARK",
+        "title": "Park Avenue"
+    },
+    {
+        "id": "207",
+        "car_brand_id": "9",
+        "code": "RAINIER",
+        "title": "Rainier"
+    },
+    {
+        "id": "208",
+        "car_brand_id": "9",
+        "code": "REATTA",
+        "title": "Reatta"
+    },
+    {
+        "id": "209",
+        "car_brand_id": "9",
+        "code": "REG",
+        "title": "Regal"
+    },
+    {
+        "id": "210",
+        "car_brand_id": "9",
+        "code": "RENDEZVOUS",
+        "title": "Rendezvous"
+    },
+    {
+        "id": "211",
+        "car_brand_id": "9",
+        "code": "RIV",
+        "title": "Riviera"
+    },
+    {
+        "id": "212",
+        "car_brand_id": "9",
+        "code": "BUICKROAD",
+        "title": "Roadmaster"
+    },
+    {
+        "id": "213",
+        "car_brand_id": "9",
+        "code": "SKYH",
+        "title": "Skyhawk"
+    },
+    {
+        "id": "214",
+        "car_brand_id": "9",
+        "code": "SKYL",
+        "title": "Skylark"
+    },
+    {
+        "id": "215",
+        "car_brand_id": "9",
+        "code": "SOMER",
+        "title": "Somerset"
+    },
+    {
+        "id": "216",
+        "car_brand_id": "9",
+        "code": "TERRAZA",
+        "title": "Terraza"
+    },
+    {
+        "id": "217",
+        "car_brand_id": "9",
+        "code": "BUVERANO",
+        "title": "Verano"
+    },
+    {
+        "id": "218",
+        "car_brand_id": "9",
+        "code": "BUOTH",
+        "title": "Other Buick Models"
+    },
+    {
+        "id": "219",
+        "car_brand_id": "10",
+        "code": "ALLANT",
+        "title": "Allante"
+    },
+    {
+        "id": "220",
+        "car_brand_id": "10",
+        "code": "ATS",
+        "title": "ATS"
+    },
+    {
+        "id": "221",
+        "car_brand_id": "10",
+        "code": "BROUGH",
+        "title": "Brougham"
+    },
+    {
+        "id": "222",
+        "car_brand_id": "10",
+        "code": "CATERA",
+        "title": "Catera"
+    },
+    {
+        "id": "223",
+        "car_brand_id": "10",
+        "code": "CIMA",
+        "title": "Cimarron"
+    },
+    {
+        "id": "224",
+        "car_brand_id": "10",
+        "code": "CTS",
+        "title": "CTS"
+    },
+    {
+        "id": "225",
+        "car_brand_id": "10",
+        "code": "DEV",
+        "title": "De Ville"
+    },
+    {
+        "id": "226",
+        "car_brand_id": "10",
+        "code": "DTS",
+        "title": "DTS"
+    },
+    {
+        "id": "227",
+        "car_brand_id": "10",
+        "code": "ELDO",
+        "title": "Eldorado"
+    },
+    {
+        "id": "228",
+        "car_brand_id": "10",
+        "code": "ESCALA",
+        "title": "Escalade"
+    },
+    {
+        "id": "229",
+        "car_brand_id": "10",
+        "code": "ESCALAESV",
+        "title": "Escalade ESV"
+    },
+    {
+        "id": "230",
+        "car_brand_id": "10",
+        "code": "EXT",
+        "title": "Escalade EXT"
+    },
+    {
+        "id": "231",
+        "car_brand_id": "10",
+        "code": "FLEE",
+        "title": "Fleetwood"
+    },
+    {
+        "id": "232",
+        "car_brand_id": "10",
+        "code": "SEV",
+        "title": "Seville"
+    },
+    {
+        "id": "233",
+        "car_brand_id": "10",
+        "code": "SRX",
+        "title": "SRX"
+    },
+    {
+        "id": "234",
+        "car_brand_id": "10",
+        "code": "STS",
+        "title": "STS"
+    },
+    {
+        "id": "235",
+        "car_brand_id": "10",
+        "code": "XLR",
+        "title": "XLR"
+    },
+    {
+        "id": "236",
+        "car_brand_id": "10",
+        "code": "XTS",
+        "title": "XTS"
+    },
+    {
+        "id": "237",
+        "car_brand_id": "10",
+        "code": "CADOTH",
+        "title": "Other Cadillac Models"
+    },
+    {
+        "id": "238",
+        "car_brand_id": "11",
+        "code": "ASTRO",
+        "title": "Astro"
+    },
+    {
+        "id": "239",
+        "car_brand_id": "11",
+        "code": "AVALNCH",
+        "title": "Avalanche"
+    },
+    {
+        "id": "240",
+        "car_brand_id": "11",
+        "code": "AVEO",
+        "title": "Aveo"
+    },
+    {
+        "id": "241",
+        "car_brand_id": "11",
+        "code": "AVEO5",
+        "title": "Aveo5"
+    },
+    {
+        "id": "242",
+        "car_brand_id": "11",
+        "code": "BERETT",
+        "title": "Beretta"
+    },
+    {
+        "id": "243",
+        "car_brand_id": "11",
+        "code": "BLAZER",
+        "title": "Blazer"
+    },
+    {
+        "id": "244",
+        "car_brand_id": "11",
+        "code": "CAM",
+        "title": "Camaro"
+    },
+    {
+        "id": "245",
+        "car_brand_id": "11",
+        "code": "CAP",
+        "title": "Caprice"
+    },
+    {
+        "id": "246",
+        "car_brand_id": "11",
+        "code": "CHECAPS",
+        "title": "Captiva Sport"
+    },
+    {
+        "id": "247",
+        "car_brand_id": "11",
+        "code": "CAV",
+        "title": "Cavalier"
+    },
+    {
+        "id": "248",
+        "car_brand_id": "11",
+        "code": "CELE",
+        "title": "Celebrity"
+    },
+    {
+        "id": "249",
+        "car_brand_id": "11",
+        "code": "CHEVETTE",
+        "title": "Chevette"
+    },
+    {
+        "id": "250",
+        "car_brand_id": "11",
+        "code": "CITATION",
+        "title": "Citation"
+    },
+    {
+        "id": "251",
+        "car_brand_id": "11",
+        "code": "COBALT",
+        "title": "Cobalt"
+    },
+    {
+        "id": "252",
+        "car_brand_id": "11",
+        "code": "COLORADO",
+        "title": "Colorado"
+    },
+    {
+        "id": "253",
+        "car_brand_id": "11",
+        "code": "CORSI",
+        "title": "Corsica"
+    },
+    {
+        "id": "254",
+        "car_brand_id": "11",
+        "code": "CORV",
+        "title": "Corvette"
+    },
+    {
+        "id": "255",
+        "car_brand_id": "11",
+        "code": "CRUZE",
+        "title": "Cruze"
+    },
+    {
+        "id": "256",
+        "car_brand_id": "11",
+        "code": "ELCAM",
+        "title": "El Camino"
+    },
+    {
+        "id": "257",
+        "car_brand_id": "11",
+        "code": "EQUINOX",
+        "title": "Equinox"
+    },
+    {
+        "id": "258",
+        "car_brand_id": "11",
+        "code": "G15EXP",
+        "title": "Express Van"
+    },
+    {
+        "id": "259",
+        "car_brand_id": "11",
+        "code": "G10",
+        "title": "G Van"
+    },
+    {
+        "id": "260",
+        "car_brand_id": "11",
+        "code": "HHR",
+        "title": "HHR"
+    },
+    {
+        "id": "261",
+        "car_brand_id": "11",
+        "code": "CHEVIMP",
+        "title": "Impala"
+    },
+    {
+        "id": "262",
+        "car_brand_id": "11",
+        "code": "KODC4500",
+        "title": "Kodiak C4500"
+    },
+    {
+        "id": "263",
+        "car_brand_id": "11",
+        "code": "LUMINA",
+        "title": "Lumina"
+    },
+    {
+        "id": "264",
+        "car_brand_id": "11",
+        "code": "LAPV",
+        "title": "Lumina APV"
+    },
+    {
+        "id": "265",
+        "car_brand_id": "11",
+        "code": "LUV",
+        "title": "LUV"
+    },
+    {
+        "id": "266",
+        "car_brand_id": "11",
+        "code": "MALI",
+        "title": "Malibu"
+    },
+    {
+        "id": "267",
+        "car_brand_id": "11",
+        "code": "CHVMETR",
+        "title": "Metro"
+    },
+    {
+        "id": "268",
+        "car_brand_id": "11",
+        "code": "CHEVMONT",
+        "title": "Monte Carlo"
+    },
+    {
+        "id": "269",
+        "car_brand_id": "11",
+        "code": "NOVA",
+        "title": "Nova"
+    },
+    {
+        "id": "270",
+        "car_brand_id": "11",
+        "code": "CHEVPRIZM",
+        "title": "Prizm"
+    },
+    {
+        "id": "271",
+        "car_brand_id": "11",
+        "code": "CHVST",
+        "title": "S10 Blazer"
+    },
+    {
+        "id": "272",
+        "car_brand_id": "11",
+        "code": "S10PICKUP",
+        "title": "S10 Pickup"
+    },
+    {
+        "id": "273",
+        "car_brand_id": "11",
+        "code": "CHEV150",
+        "title": "Silverado and other C/K1500"
+    },
+    {
+        "id": "274",
+        "car_brand_id": "11",
+        "code": "CHEVC25",
+        "title": "Silverado and other C/K2500"
+    },
+    {
+        "id": "275",
+        "car_brand_id": "11",
+        "code": "CH3500PU",
+        "title": "Silverado and other C/K3500"
+    },
+    {
+        "id": "276",
+        "car_brand_id": "11",
+        "code": "SONIC",
+        "title": "Sonic"
+    },
+    {
+        "id": "277",
+        "car_brand_id": "11",
+        "code": "SPARK",
+        "title": "Spark"
+    },
+    {
+        "id": "278",
+        "car_brand_id": "11",
+        "code": "CHEVSPEC",
+        "title": "Spectrum"
+    },
+    {
+        "id": "279",
+        "car_brand_id": "11",
+        "code": "CHSPRINT",
+        "title": "Sprint"
+    },
+    {
+        "id": "280",
+        "car_brand_id": "11",
+        "code": "SSR",
+        "title": "SSR"
+    },
+    {
+        "id": "281",
+        "car_brand_id": "11",
+        "code": "CHEVSUB",
+        "title": "Suburban"
+    },
+    {
+        "id": "282",
+        "car_brand_id": "11",
+        "code": "TAHOE",
+        "title": "Tahoe"
+    },
+    {
+        "id": "283",
+        "car_brand_id": "11",
+        "code": "TRACKE",
+        "title": "Tracker"
+    },
+    {
+        "id": "284",
+        "car_brand_id": "11",
+        "code": "TRAILBLZ",
+        "title": "TrailBlazer"
+    },
+    {
+        "id": "285",
+        "car_brand_id": "11",
+        "code": "TRAILBZEXT",
+        "title": "TrailBlazer EXT"
+    },
+    {
+        "id": "286",
+        "car_brand_id": "11",
+        "code": "TRAVERSE",
+        "title": "Traverse"
+    },
+    {
+        "id": "287",
+        "car_brand_id": "11",
+        "code": "UPLANDER",
+        "title": "Uplander"
+    },
+    {
+        "id": "288",
+        "car_brand_id": "11",
+        "code": "VENTUR",
+        "title": "Venture"
+    },
+    {
+        "id": "289",
+        "car_brand_id": "11",
+        "code": "VOLT",
+        "title": "Volt"
+    },
+    {
+        "id": "290",
+        "car_brand_id": "11",
+        "code": "CHEOTH",
+        "title": "Other Chevrolet Models"
+    },
+    {
+        "id": "291",
+        "car_brand_id": "12",
+        "code": "CHRYS200",
+        "title": "200"
+    },
+    {
+        "id": "292",
+        "car_brand_id": "12",
+        "code": "300",
+        "title": "300"
+    },
+    {
+        "id": "293",
+        "car_brand_id": "12",
+        "code": "CHRY300",
+        "title": "300M"
+    },
+    {
+        "id": "294",
+        "car_brand_id": "12",
+        "code": "ASPEN",
+        "title": "Aspen"
+    },
+    {
+        "id": "295",
+        "car_brand_id": "12",
+        "code": "CARAVAN",
+        "title": "Caravan"
+    },
+    {
+        "id": "296",
+        "car_brand_id": "12",
+        "code": "CIRRUS",
+        "title": "Cirrus"
+    },
+    {
+        "id": "297",
+        "car_brand_id": "12",
+        "code": "CONC",
+        "title": "Concorde"
+    },
+    {
+        "id": "298",
+        "car_brand_id": "12",
+        "code": "CHRYCONQ",
+        "title": "Conquest"
+    },
+    {
+        "id": "299",
+        "car_brand_id": "12",
+        "code": "CORDOBA",
+        "title": "Cordoba"
+    },
+    {
+        "id": "300",
+        "car_brand_id": "12",
+        "code": "CROSSFIRE",
+        "title": "Crossfire"
+    },
+    {
+        "id": "301",
+        "car_brand_id": "12",
+        "code": "ECLASS",
+        "title": "E Class"
+    },
+    {
+        "id": "302",
+        "car_brand_id": "12",
+        "code": "FIFTH",
+        "title": "Fifth Avenue"
+    },
+    {
+        "id": "303",
+        "car_brand_id": "12",
+        "code": "CHRYGRANDV",
+        "title": "Grand Voyager"
+    },
+    {
+        "id": "304",
+        "car_brand_id": "12",
+        "code": "IMPE",
+        "title": "Imperial"
+    },
+    {
+        "id": "305",
+        "car_brand_id": "12",
+        "code": "INTREPID",
+        "title": "Intrepid"
+    },
+    {
+        "id": "306",
+        "car_brand_id": "12",
+        "code": "CHRYLAS",
+        "title": "Laser"
+    },
+    {
+        "id": "307",
+        "car_brand_id": "12",
+        "code": "LEBA",
+        "title": "LeBaron"
+    },
+    {
+        "id": "308",
+        "car_brand_id": "12",
+        "code": "LHS",
+        "title": "LHS"
+    },
+    {
+        "id": "309",
+        "car_brand_id": "12",
+        "code": "CHRYNEON",
+        "title": "Neon"
+    },
+    {
+        "id": "310",
+        "car_brand_id": "12",
+        "code": "NY",
+        "title": "New Yorker"
+    },
+    {
+        "id": "311",
+        "car_brand_id": "12",
+        "code": "NEWPORT",
+        "title": "Newport"
+    },
+    {
+        "id": "312",
+        "car_brand_id": "12",
+        "code": "PACIFICA",
+        "title": "Pacifica"
+    },
+    {
+        "id": "313",
+        "car_brand_id": "12",
+        "code": "CHPROWLE",
+        "title": "Prowler"
+    },
+    {
+        "id": "314",
+        "car_brand_id": "12",
+        "code": "PTCRUIS",
+        "title": "PT Cruiser"
+    },
+    {
+        "id": "315",
+        "car_brand_id": "12",
+        "code": "CHRYSEB",
+        "title": "Sebring"
+    },
+    {
+        "id": "316",
+        "car_brand_id": "12",
+        "code": "CHRYTC",
+        "title": "TC by Maserati"
+    },
+    {
+        "id": "317",
+        "car_brand_id": "12",
+        "code": "TANDC",
+        "title": "Town & Country"
+    },
+    {
+        "id": "318",
+        "car_brand_id": "12",
+        "code": "VOYAGER",
+        "title": "Voyager"
+    },
+    {
+        "id": "319",
+        "car_brand_id": "12",
+        "code": "CHOTH",
+        "title": "Other Chrysler Models"
+    },
+    {
+        "id": "320",
+        "car_brand_id": "13",
+        "code": "LANOS",
+        "title": "Lanos"
+    },
+    {
+        "id": "321",
+        "car_brand_id": "13",
+        "code": "LEGANZA",
+        "title": "Leganza"
+    },
+    {
+        "id": "322",
+        "car_brand_id": "13",
+        "code": "NUBIRA",
+        "title": "Nubira"
+    },
+    {
+        "id": "323",
+        "car_brand_id": "13",
+        "code": "DAEOTH",
+        "title": "Other Daewoo Models"
+    },
+    {
+        "id": "324",
+        "car_brand_id": "14",
+        "code": "CHAR",
+        "title": "Charade"
+    },
+    {
+        "id": "325",
+        "car_brand_id": "14",
+        "code": "ROCKY",
+        "title": "Rocky"
+    },
+    {
+        "id": "326",
+        "car_brand_id": "14",
+        "code": "DAIHOTH",
+        "title": "Other Daihatsu Models"
+    },
+    {
+        "id": "327",
+        "car_brand_id": "15",
+        "code": "DAT200SX",
+        "title": "200SX"
+    },
+    {
+        "id": "328",
+        "car_brand_id": "15",
+        "code": "DAT210",
+        "title": "210"
+    },
+    {
+        "id": "329",
+        "car_brand_id": "15",
+        "code": "280Z",
+        "title": "280ZX"
+    },
+    {
+        "id": "330",
+        "car_brand_id": "15",
+        "code": "300ZX",
+        "title": "300ZX"
+    },
+    {
+        "id": "331",
+        "car_brand_id": "15",
+        "code": "310",
+        "title": "310"
+    },
+    {
+        "id": "332",
+        "car_brand_id": "15",
+        "code": "510",
+        "title": "510"
+    },
+    {
+        "id": "333",
+        "car_brand_id": "15",
+        "code": "720",
+        "title": "720"
+    },
+    {
+        "id": "334",
+        "car_brand_id": "15",
+        "code": "810",
+        "title": "810"
+    },
+    {
+        "id": "335",
+        "car_brand_id": "15",
+        "code": "DATMAX",
+        "title": "Maxima"
+    },
+    {
+        "id": "336",
+        "car_brand_id": "15",
+        "code": "DATPU",
+        "title": "Pickup"
+    },
+    {
+        "id": "337",
+        "car_brand_id": "15",
+        "code": "PUL",
+        "title": "Pulsar"
+    },
+    {
+        "id": "338",
+        "car_brand_id": "15",
+        "code": "DATSENT",
+        "title": "Sentra"
+    },
+    {
+        "id": "339",
+        "car_brand_id": "15",
+        "code": "STAN",
+        "title": "Stanza"
+    },
+    {
+        "id": "340",
+        "car_brand_id": "15",
+        "code": "DATOTH",
+        "title": "Other Datsun Models"
+    },
+    {
+        "id": "341",
+        "car_brand_id": "16",
+        "code": "DMC12",
+        "title": "DMC-12"
+    },
+    {
+        "id": "342",
+        "car_brand_id": "17",
+        "code": "400",
+        "title": "400"
+    },
+    {
+        "id": "343",
+        "car_brand_id": "17",
+        "code": "DOD600",
+        "title": "600"
+    },
+    {
+        "id": "344",
+        "car_brand_id": "17",
+        "code": "ARI",
+        "title": "Aries"
+    },
+    {
+        "id": "345",
+        "car_brand_id": "17",
+        "code": "AVENGR",
+        "title": "Avenger"
+    },
+    {
+        "id": "346",
+        "car_brand_id": "17",
+        "code": "CALIBER",
+        "title": "Caliber"
+    },
+    {
+        "id": "347",
+        "car_brand_id": "17",
+        "code": "DODCARA",
+        "title": "Caravan"
+    },
+    {
+        "id": "348",
+        "car_brand_id": "17",
+        "code": "CHALLENGER",
+        "title": "Challenger"
+    },
+    {
+        "id": "349",
+        "car_brand_id": "17",
+        "code": "DODCHAR",
+        "title": "Charger"
+    },
+    {
+        "id": "350",
+        "car_brand_id": "17",
+        "code": "DODCOLT",
+        "title": "Colt"
+    },
+    {
+        "id": "351",
+        "car_brand_id": "17",
+        "code": "DODCONQ",
+        "title": "Conquest"
+    },
+    {
+        "id": "352",
+        "car_brand_id": "17",
+        "code": "DODDW",
+        "title": "D/W Truck"
+    },
+    {
+        "id": "353",
+        "car_brand_id": "17",
+        "code": "DAKOTA",
+        "title": "Dakota"
+    },
+    {
+        "id": "354",
+        "car_brand_id": "17",
+        "code": "DODDART",
+        "title": "Dart"
+    },
+    {
+        "id": "355",
+        "car_brand_id": "17",
+        "code": "DAY",
+        "title": "Daytona"
+    },
+    {
+        "id": "356",
+        "car_brand_id": "17",
+        "code": "DIPLOMA",
+        "title": "Diplomat"
+    },
+    {
+        "id": "357",
+        "car_brand_id": "17",
+        "code": "DURANG",
+        "title": "Durango"
+    },
+    {
+        "id": "358",
+        "car_brand_id": "17",
+        "code": "DODDYNA",
+        "title": "Dynasty"
+    },
+    {
+        "id": "359",
+        "car_brand_id": "17",
+        "code": "GRANDCARAV",
+        "title": "Grand Caravan"
+    },
+    {
+        "id": "360",
+        "car_brand_id": "17",
+        "code": "INTRE",
+        "title": "Intrepid"
+    },
+    {
+        "id": "361",
+        "car_brand_id": "17",
+        "code": "JOURNEY",
+        "title": "Journey"
+    },
+    {
+        "id": "362",
+        "car_brand_id": "17",
+        "code": "LANCERDODG",
+        "title": "Lancer"
+    },
+    {
+        "id": "363",
+        "car_brand_id": "17",
+        "code": "MAGNUM",
+        "title": "Magnum"
+    },
+    {
+        "id": "364",
+        "car_brand_id": "17",
+        "code": "MIRADA",
+        "title": "Mirada"
+    },
+    {
+        "id": "365",
+        "car_brand_id": "17",
+        "code": "MONACO",
+        "title": "Monaco"
+    },
+    {
+        "id": "366",
+        "car_brand_id": "17",
+        "code": "DODNEON",
+        "title": "Neon"
+    },
+    {
+        "id": "367",
+        "car_brand_id": "17",
+        "code": "NITRO",
+        "title": "Nitro"
+    },
+    {
+        "id": "368",
+        "car_brand_id": "17",
+        "code": "OMNI",
+        "title": "Omni"
+    },
+    {
+        "id": "369",
+        "car_brand_id": "17",
+        "code": "RAIDER",
+        "title": "Raider"
+    },
+    {
+        "id": "370",
+        "car_brand_id": "17",
+        "code": "RAM1504WD",
+        "title": "Ram 1500 Truck"
+    },
+    {
+        "id": "371",
+        "car_brand_id": "17",
+        "code": "RAM25002WD",
+        "title": "Ram 2500 Truck"
+    },
+    {
+        "id": "372",
+        "car_brand_id": "17",
+        "code": "RAM3502WD",
+        "title": "Ram 3500 Truck"
+    },
+    {
+        "id": "373",
+        "car_brand_id": "17",
+        "code": "RAM4500",
+        "title": "Ram 4500 Truck"
+    },
+    {
+        "id": "374",
+        "car_brand_id": "17",
+        "code": "DODD50",
+        "title": "Ram 50 Truck"
+    },
+    {
+        "id": "375",
+        "car_brand_id": "17",
+        "code": "CV",
+        "title": "RAM C/V"
+    },
+    {
+        "id": "376",
+        "car_brand_id": "17",
+        "code": "RAMSRT10",
+        "title": "Ram SRT-10"
+    },
+    {
+        "id": "377",
+        "car_brand_id": "17",
+        "code": "RAMVANV8",
+        "title": "Ram Van"
+    },
+    {
+        "id": "378",
+        "car_brand_id": "17",
+        "code": "RAMWAGON",
+        "title": "Ram Wagon"
+    },
+    {
+        "id": "379",
+        "car_brand_id": "17",
+        "code": "RAMCGR",
+        "title": "Ramcharger"
+    },
+    {
+        "id": "380",
+        "car_brand_id": "17",
+        "code": "RAMPAGE",
+        "title": "Rampage"
+    },
+    {
+        "id": "381",
+        "car_brand_id": "17",
+        "code": "DODSHAD",
+        "title": "Shadow"
+    },
+    {
+        "id": "382",
+        "car_brand_id": "17",
+        "code": "DODSPIR",
+        "title": "Spirit"
+    },
+    {
+        "id": "383",
+        "car_brand_id": "17",
+        "code": "SPRINTER",
+        "title": "Sprinter"
+    },
+    {
+        "id": "384",
+        "car_brand_id": "17",
+        "code": "SRT4",
+        "title": "SRT-4"
+    },
+    {
+        "id": "385",
+        "car_brand_id": "17",
+        "code": "STREGIS",
+        "title": "St. Regis"
+    },
+    {
+        "id": "386",
+        "car_brand_id": "17",
+        "code": "STEAL",
+        "title": "Stealth"
+    },
+    {
+        "id": "387",
+        "car_brand_id": "17",
+        "code": "STRATU",
+        "title": "Stratus"
+    },
+    {
+        "id": "388",
+        "car_brand_id": "17",
+        "code": "VIPER",
+        "title": "Viper"
+    },
+    {
+        "id": "389",
+        "car_brand_id": "17",
+        "code": "DOOTH",
+        "title": "Other Dodge Models"
+    },
+    {
+        "id": "390",
+        "car_brand_id": "18",
+        "code": "EAGLEMED",
+        "title": "Medallion"
+    },
+    {
+        "id": "391",
+        "car_brand_id": "18",
+        "code": "EAGLEPREM",
+        "title": "Premier"
+    },
+    {
+        "id": "392",
+        "car_brand_id": "18",
+        "code": "SUMMIT",
+        "title": "Summit"
+    },
+    {
+        "id": "393",
+        "car_brand_id": "18",
+        "code": "TALON",
+        "title": "Talon"
+    },
+    {
+        "id": "394",
+        "car_brand_id": "18",
+        "code": "VISION",
+        "title": "Vision"
+    },
+    {
+        "id": "395",
+        "car_brand_id": "18",
+        "code": "EAGOTH",
+        "title": "Other Eagle Models"
+    },
+    {
+        "id": "396",
+        "car_brand_id": "19",
+        "code": "308GTB",
+        "title": "308 GTB Quattrovalvole"
+    },
+    {
+        "id": "397",
+        "car_brand_id": "19",
+        "code": "308TBI",
+        "title": "308 GTBI"
+    },
+    {
+        "id": "398",
+        "car_brand_id": "19",
+        "code": "308GTS",
+        "title": "308 GTS Quattrovalvole"
+    },
+    {
+        "id": "399",
+        "car_brand_id": "19",
+        "code": "308TSI",
+        "title": "308 GTSI"
+    },
+    {
+        "id": "400",
+        "car_brand_id": "19",
+        "code": "328GTB",
+        "title": "328 GTB"
+    },
+    {
+        "id": "401",
+        "car_brand_id": "19",
+        "code": "328GTS",
+        "title": "328 GTS"
+    },
+    {
+        "id": "402",
+        "car_brand_id": "19",
+        "code": "348GTB",
+        "title": "348 GTB"
+    },
+    {
+        "id": "403",
+        "car_brand_id": "19",
+        "code": "348GTS",
+        "title": "348 GTS"
+    },
+    {
+        "id": "404",
+        "car_brand_id": "19",
+        "code": "348SPI",
+        "title": "348 Spider"
+    },
+    {
+        "id": "405",
+        "car_brand_id": "19",
+        "code": "348TB",
+        "title": "348 TB"
+    },
+    {
+        "id": "406",
+        "car_brand_id": "19",
+        "code": "348TS",
+        "title": "348 TS"
+    },
+    {
+        "id": "407",
+        "car_brand_id": "19",
+        "code": "360",
+        "title": "360"
+    },
+    {
+        "id": "408",
+        "car_brand_id": "19",
+        "code": "456GT",
+        "title": "456 GT"
+    },
+    {
+        "id": "409",
+        "car_brand_id": "19",
+        "code": "456MGT",
+        "title": "456M GT"
+    },
+    {
+        "id": "410",
+        "car_brand_id": "19",
+        "code": "458ITALIA",
+        "title": "458 Italia"
+    },
+    {
+        "id": "411",
+        "car_brand_id": "19",
+        "code": "512BBI",
+        "title": "512 BBi"
+    },
+    {
+        "id": "412",
+        "car_brand_id": "19",
+        "code": "512M",
+        "title": "512M"
+    },
+    {
+        "id": "413",
+        "car_brand_id": "19",
+        "code": "512TR",
+        "title": "512TR"
+    },
+    {
+        "id": "414",
+        "car_brand_id": "19",
+        "code": "550M",
+        "title": "550 Maranello"
+    },
+    {
+        "id": "415",
+        "car_brand_id": "19",
+        "code": "575M",
+        "title": "575M Maranello"
+    },
+    {
+        "id": "416",
+        "car_brand_id": "19",
+        "code": "599GTB",
+        "title": "599 GTB Fiorano"
+    },
+    {
+        "id": "417",
+        "car_brand_id": "19",
+        "code": "599GTO",
+        "title": "599 GTO"
+    },
+    {
+        "id": "418",
+        "car_brand_id": "19",
+        "code": "612SCAGLIE",
+        "title": "612 Scaglietti"
+    },
+    {
+        "id": "419",
+        "car_brand_id": "19",
+        "code": "FERCALIF",
+        "title": "California"
+    },
+    {
+        "id": "420",
+        "car_brand_id": "19",
+        "code": "ENZO",
+        "title": "Enzo"
+    },
+    {
+        "id": "421",
+        "car_brand_id": "19",
+        "code": "F355",
+        "title": "F355"
+    },
+    {
+        "id": "422",
+        "car_brand_id": "19",
+        "code": "F40",
+        "title": "F40"
+    },
+    {
+        "id": "423",
+        "car_brand_id": "19",
+        "code": "F430",
+        "title": "F430"
+    },
+    {
+        "id": "424",
+        "car_brand_id": "19",
+        "code": "F50",
+        "title": "F50"
+    },
+    {
+        "id": "425",
+        "car_brand_id": "19",
+        "code": "FERFF",
+        "title": "FF"
+    },
+    {
+        "id": "426",
+        "car_brand_id": "19",
+        "code": "MOND",
+        "title": "Mondial"
+    },
+    {
+        "id": "427",
+        "car_brand_id": "19",
+        "code": "TEST",
+        "title": "Testarossa"
+    },
+    {
+        "id": "428",
+        "car_brand_id": "19",
+        "code": "UNAVAILFER",
+        "title": "Other Ferrari Models"
+    },
+    {
+        "id": "429",
+        "car_brand_id": "20",
+        "code": "2000",
+        "title": "2000 Spider"
+    },
+    {
+        "id": "430",
+        "car_brand_id": "20",
+        "code": "FIAT500",
+        "title": "500"
+    },
+    {
+        "id": "431",
+        "car_brand_id": "20",
+        "code": "BERTON",
+        "title": "Bertone X1/9"
+    },
+    {
+        "id": "432",
+        "car_brand_id": "20",
+        "code": "BRAVA",
+        "title": "Brava"
+    },
+    {
+        "id": "433",
+        "car_brand_id": "20",
+        "code": "PININ",
+        "title": "Pininfarina Spider"
+    },
+    {
+        "id": "434",
+        "car_brand_id": "20",
+        "code": "STRADA",
+        "title": "Strada"
+    },
+    {
+        "id": "435",
+        "car_brand_id": "20",
+        "code": "FIATX19",
+        "title": "X1/9"
+    },
+    {
+        "id": "436",
+        "car_brand_id": "20",
+        "code": "UNAVAILFIA",
+        "title": "Other Fiat Models"
+    },
+    {
+        "id": "437",
+        "car_brand_id": "21",
+        "code": "KARMA",
+        "title": "Karma"
+    },
+    {
+        "id": "438",
+        "car_brand_id": "22",
+        "code": "AERO",
+        "title": "Aerostar"
+    },
+    {
+        "id": "439",
+        "car_brand_id": "22",
+        "code": "ASPIRE",
+        "title": "Aspire"
+    },
+    {
+        "id": "440",
+        "car_brand_id": "22",
+        "code": "BRON",
+        "title": "Bronco"
+    },
+    {
+        "id": "441",
+        "car_brand_id": "22",
+        "code": "B2",
+        "title": "Bronco II"
+    },
+    {
+        "id": "442",
+        "car_brand_id": "22",
+        "code": "FOCMAX",
+        "title": "C-MAX"
+    },
+    {
+        "id": "443",
+        "car_brand_id": "22",
+        "code": "FORDCLUB",
+        "title": "Club Wagon"
+    },
+    {
+        "id": "444",
+        "car_brand_id": "22",
+        "code": "CONTOUR",
+        "title": "Contour"
+    },
+    {
+        "id": "445",
+        "car_brand_id": "22",
+        "code": "COURIER",
+        "title": "Courier"
+    },
+    {
+        "id": "446",
+        "car_brand_id": "22",
+        "code": "CROWNVIC",
+        "title": "Crown Victoria"
+    },
+    {
+        "id": "447",
+        "car_brand_id": "22",
+        "code": "E150ECON",
+        "title": "E-150 and Econoline 150"
+    },
+    {
+        "id": "448",
+        "car_brand_id": "22",
+        "code": "E250ECON",
+        "title": "E-250 and Econoline 250"
+    },
+    {
+        "id": "449",
+        "car_brand_id": "22",
+        "code": "E350ECON",
+        "title": "E-350 and Econoline 350"
+    },
+    {
+        "id": "450",
+        "car_brand_id": "22",
+        "code": "EDGE",
+        "title": "Edge"
+    },
+    {
+        "id": "451",
+        "car_brand_id": "22",
+        "code": "ESCAPE",
+        "title": "Escape"
+    },
+    {
+        "id": "452",
+        "car_brand_id": "22",
+        "code": "ESCO",
+        "title": "Escort"
+    },
+    {
+        "id": "453",
+        "car_brand_id": "22",
+        "code": "EXCURSION",
+        "title": "Excursion"
+    },
+    {
+        "id": "454",
+        "car_brand_id": "22",
+        "code": "EXP",
+        "title": "EXP"
+    },
+    {
+        "id": "455",
+        "car_brand_id": "22",
+        "code": "EXPEDI",
+        "title": "Expedition"
+    },
+    {
+        "id": "456",
+        "car_brand_id": "22",
+        "code": "EXPEDIEL",
+        "title": "Expedition EL"
+    },
+    {
+        "id": "457",
+        "car_brand_id": "22",
+        "code": "EXPLOR",
+        "title": "Explorer"
+    },
+    {
+        "id": "458",
+        "car_brand_id": "22",
+        "code": "SPORTTRAC",
+        "title": "Explorer Sport Trac"
+    },
+    {
+        "id": "459",
+        "car_brand_id": "22",
+        "code": "F100",
+        "title": "F100"
+    },
+    {
+        "id": "460",
+        "car_brand_id": "22",
+        "code": "F150PICKUP",
+        "title": "F150"
+    },
+    {
+        "id": "461",
+        "car_brand_id": "22",
+        "code": "F250",
+        "title": "F250"
+    },
+    {
+        "id": "462",
+        "car_brand_id": "22",
+        "code": "F350",
+        "title": "F350"
+    },
+    {
+        "id": "463",
+        "car_brand_id": "22",
+        "code": "F450",
+        "title": "F450"
+    },
+    {
+        "id": "464",
+        "car_brand_id": "22",
+        "code": "FAIRM",
+        "title": "Fairmont"
+    },
+    {
+        "id": "465",
+        "car_brand_id": "22",
+        "code": "FESTIV",
+        "title": "Festiva"
+    },
+    {
+        "id": "466",
+        "car_brand_id": "22",
+        "code": "FIESTA",
+        "title": "Fiesta"
+    },
+    {
+        "id": "467",
+        "car_brand_id": "22",
+        "code": "FIVEHUNDRE",
+        "title": "Five Hundred"
+    },
+    {
+        "id": "468",
+        "car_brand_id": "22",
+        "code": "FLEX",
+        "title": "Flex"
+    },
+    {
+        "id": "469",
+        "car_brand_id": "22",
+        "code": "FOCUS",
+        "title": "Focus"
+    },
+    {
+        "id": "470",
+        "car_brand_id": "22",
+        "code": "FREESTAR",
+        "title": "Freestar"
+    },
+    {
+        "id": "471",
+        "car_brand_id": "22",
+        "code": "FREESTYLE",
+        "title": "Freestyle"
+    },
+    {
+        "id": "472",
+        "car_brand_id": "22",
+        "code": "FUSION",
+        "title": "Fusion"
+    },
+    {
+        "id": "473",
+        "car_brand_id": "22",
+        "code": "GRANADA",
+        "title": "Granada"
+    },
+    {
+        "id": "474",
+        "car_brand_id": "22",
+        "code": "GT",
+        "title": "GT"
+    },
+    {
+        "id": "475",
+        "car_brand_id": "22",
+        "code": "LTD",
+        "title": "LTD"
+    },
+    {
+        "id": "476",
+        "car_brand_id": "22",
+        "code": "MUST",
+        "title": "Mustang"
+    },
+    {
+        "id": "477",
+        "car_brand_id": "22",
+        "code": "PROBE",
+        "title": "Probe"
+    },
+    {
+        "id": "478",
+        "car_brand_id": "22",
+        "code": "RANGER",
+        "title": "Ranger"
+    },
+    {
+        "id": "479",
+        "car_brand_id": "22",
+        "code": "TAURUS",
+        "title": "Taurus"
+    },
+    {
+        "id": "480",
+        "car_brand_id": "22",
+        "code": "TAURUSX",
+        "title": "Taurus X"
+    },
+    {
+        "id": "481",
+        "car_brand_id": "22",
+        "code": "TEMPO",
+        "title": "Tempo"
+    },
+    {
+        "id": "482",
+        "car_brand_id": "22",
+        "code": "TBIRD",
+        "title": "Thunderbird"
+    },
+    {
+        "id": "483",
+        "car_brand_id": "22",
+        "code": "TRANSCONN",
+        "title": "Transit Connect"
+    },
+    {
+        "id": "484",
+        "car_brand_id": "22",
+        "code": "WINDST",
+        "title": "Windstar"
+    },
+    {
+        "id": "485",
+        "car_brand_id": "22",
+        "code": "FORDZX2",
+        "title": "ZX2 Escort"
+    },
+    {
+        "id": "486",
+        "car_brand_id": "22",
+        "code": "FOOTH",
+        "title": "Other Ford Models"
+    },
+    {
+        "id": "487",
+        "car_brand_id": "23",
+        "code": "FRESPRINT",
+        "title": "Sprinter"
+    },
+    {
+        "id": "488",
+        "car_brand_id": "24",
+        "code": "GEOMETRO",
+        "title": "Metro"
+    },
+    {
+        "id": "489",
+        "car_brand_id": "24",
+        "code": "GEOPRIZM",
+        "title": "Prizm"
+    },
+    {
+        "id": "490",
+        "car_brand_id": "24",
+        "code": "SPECT",
+        "title": "Spectrum"
+    },
+    {
+        "id": "491",
+        "car_brand_id": "24",
+        "code": "STORM",
+        "title": "Storm"
+    },
+    {
+        "id": "492",
+        "car_brand_id": "24",
+        "code": "GEOTRACK",
+        "title": "Tracker"
+    },
+    {
+        "id": "493",
+        "car_brand_id": "24",
+        "code": "GEOOTH",
+        "title": "Other Geo Models"
+    },
+    {
+        "id": "494",
+        "car_brand_id": "25",
+        "code": "ACADIA",
+        "title": "Acadia"
+    },
+    {
+        "id": "495",
+        "car_brand_id": "25",
+        "code": "CABALLERO",
+        "title": "Caballero"
+    },
+    {
+        "id": "496",
+        "car_brand_id": "25",
+        "code": "CANYON",
+        "title": "Canyon"
+    },
+    {
+        "id": "497",
+        "car_brand_id": "25",
+        "code": "ENVOY",
+        "title": "Envoy"
+    },
+    {
+        "id": "498",
+        "car_brand_id": "25",
+        "code": "ENVOYXL",
+        "title": "Envoy XL"
+    },
+    {
+        "id": "499",
+        "car_brand_id": "25",
+        "code": "ENVOYXUV",
+        "title": "Envoy XUV"
+    },
+    {
+        "id": "500",
+        "car_brand_id": "25",
+        "code": "JIM",
+        "title": "Jimmy"
+    },
+    {
+        "id": "501",
+        "car_brand_id": "25",
+        "code": "RALLYWAG",
+        "title": "Rally Wagon"
+    },
+    {
+        "id": "502",
+        "car_brand_id": "25",
+        "code": "GMCS15",
+        "title": "S15 Jimmy"
+    },
+    {
+        "id": "503",
+        "car_brand_id": "25",
+        "code": "S15",
+        "title": "S15 Pickup"
+    },
+    {
+        "id": "504",
+        "car_brand_id": "25",
+        "code": "SAFARIGMC",
+        "title": "Safari"
+    },
+    {
+        "id": "505",
+        "car_brand_id": "25",
+        "code": "GMCSAVANA",
+        "title": "Savana"
+    },
+    {
+        "id": "506",
+        "car_brand_id": "25",
+        "code": "15SIPU4WD",
+        "title": "Sierra C/K1500"
+    },
+    {
+        "id": "507",
+        "car_brand_id": "25",
+        "code": "GMCC25PU",
+        "title": "Sierra C/K2500"
+    },
+    {
+        "id": "508",
+        "car_brand_id": "25",
+        "code": "GMC3500PU",
+        "title": "Sierra C/K3500"
+    },
+    {
+        "id": "509",
+        "car_brand_id": "25",
+        "code": "SONOMA",
+        "title": "Sonoma"
+    },
+    {
+        "id": "510",
+        "car_brand_id": "25",
+        "code": "SUB",
+        "title": "Suburban"
+    },
+    {
+        "id": "511",
+        "car_brand_id": "25",
+        "code": "GMCSYCLON",
+        "title": "Syclone"
+    },
+    {
+        "id": "512",
+        "car_brand_id": "25",
+        "code": "TERRAIN",
+        "title": "Terrain"
+    },
+    {
+        "id": "513",
+        "car_brand_id": "25",
+        "code": "TOPC4500",
+        "title": "TopKick C4500"
+    },
+    {
+        "id": "514",
+        "car_brand_id": "25",
+        "code": "TYPH",
+        "title": "Typhoon"
+    },
+    {
+        "id": "515",
+        "car_brand_id": "25",
+        "code": "GMCVANDUR",
+        "title": "Vandura"
+    },
+    {
+        "id": "516",
+        "car_brand_id": "25",
+        "code": "YUKON",
+        "title": "Yukon"
+    },
+    {
+        "id": "517",
+        "car_brand_id": "25",
+        "code": "YUKONXL",
+        "title": "Yukon XL"
+    },
+    {
+        "id": "518",
+        "car_brand_id": "25",
+        "code": "GMCOTH",
+        "title": "Other GMC Models"
+    },
+    {
+        "id": "519",
+        "car_brand_id": "26",
+        "code": "ACCORD",
+        "title": "Accord"
+    },
+    {
+        "id": "520",
+        "car_brand_id": "26",
+        "code": "CIVIC",
+        "title": "Civic"
+    },
+    {
+        "id": "521",
+        "car_brand_id": "26",
+        "code": "CRV",
+        "title": "CR-V"
+    },
+    {
+        "id": "522",
+        "car_brand_id": "26",
+        "code": "CRZ",
+        "title": "CR-Z"
+    },
+    {
+        "id": "523",
+        "car_brand_id": "26",
+        "code": "CRX",
+        "title": "CRX"
+    },
+    {
+        "id": "524",
+        "car_brand_id": "26",
+        "code": "CROSSTOUR_MODELS",
+        "title": "Crosstour and Accord Crosstour Models (2)"
+    },
+    {
+        "id": "525",
+        "car_brand_id": "26",
+        "code": "CROSSTOUR",
+        "title": " - Accord Crosstour"
+    },
+    {
+        "id": "526",
+        "car_brand_id": "26",
+        "code": "HONCROSS",
+        "title": " - Crosstour"
+    },
+    {
+        "id": "527",
+        "car_brand_id": "26",
+        "code": "HONDELSOL",
+        "title": "Del Sol"
+    },
+    {
+        "id": "528",
+        "car_brand_id": "26",
+        "code": "ELEMENT",
+        "title": "Element"
+    },
+    {
+        "id": "529",
+        "car_brand_id": "26",
+        "code": "FIT",
+        "title": "Fit"
+    },
+    {
+        "id": "530",
+        "car_brand_id": "26",
+        "code": "INSIGHT",
+        "title": "Insight"
+    },
+    {
+        "id": "531",
+        "car_brand_id": "26",
+        "code": "ODYSSEY",
+        "title": "Odyssey"
+    },
+    {
+        "id": "532",
+        "car_brand_id": "26",
+        "code": "PASSPO",
+        "title": "Passport"
+    },
+    {
+        "id": "533",
+        "car_brand_id": "26",
+        "code": "PILOT",
+        "title": "Pilot"
+    },
+    {
+        "id": "534",
+        "car_brand_id": "26",
+        "code": "PRE",
+        "title": "Prelude"
+    },
+    {
+        "id": "535",
+        "car_brand_id": "26",
+        "code": "RIDGELINE",
+        "title": "Ridgeline"
+    },
+    {
+        "id": "536",
+        "car_brand_id": "26",
+        "code": "S2000",
+        "title": "S2000"
+    },
+    {
+        "id": "537",
+        "car_brand_id": "26",
+        "code": "HONOTH",
+        "title": "Other Honda Models"
+    },
+    {
+        "id": "538",
+        "car_brand_id": "27",
+        "code": "HUMMER",
+        "title": "H1"
+    },
+    {
+        "id": "539",
+        "car_brand_id": "27",
+        "code": "H2",
+        "title": "H2"
+    },
+    {
+        "id": "540",
+        "car_brand_id": "27",
+        "code": "H3",
+        "title": "H3"
+    },
+    {
+        "id": "541",
+        "car_brand_id": "27",
+        "code": "H3T",
+        "title": "H3T"
+    },
+    {
+        "id": "542",
+        "car_brand_id": "27",
+        "code": "AMGOTH",
+        "title": "Other Hummer Models"
+    },
+    {
+        "id": "543",
+        "car_brand_id": "28",
+        "code": "ACCENT",
+        "title": "Accent"
+    },
+    {
+        "id": "544",
+        "car_brand_id": "28",
+        "code": "AZERA",
+        "title": "Azera"
+    },
+    {
+        "id": "545",
+        "car_brand_id": "28",
+        "code": "ELANTR",
+        "title": "Elantra"
+    },
+    {
+        "id": "546",
+        "car_brand_id": "28",
+        "code": "HYUELANCPE",
+        "title": "Elantra Coupe"
+    },
+    {
+        "id": "547",
+        "car_brand_id": "28",
+        "code": "ELANTOUR",
+        "title": "Elantra Touring"
+    },
+    {
+        "id": "548",
+        "car_brand_id": "28",
+        "code": "ENTOURAGE",
+        "title": "Entourage"
+    },
+    {
+        "id": "549",
+        "car_brand_id": "28",
+        "code": "EQUUS",
+        "title": "Equus"
+    },
+    {
+        "id": "550",
+        "car_brand_id": "28",
+        "code": "HYUEXCEL",
+        "title": "Excel"
+    },
+    {
+        "id": "551",
+        "car_brand_id": "28",
+        "code": "GENESIS",
+        "title": "Genesis"
+    },
+    {
+        "id": "552",
+        "car_brand_id": "28",
+        "code": "GENESISCPE",
+        "title": "Genesis Coupe"
+    },
+    {
+        "id": "553",
+        "car_brand_id": "28",
+        "code": "SANTAFE",
+        "title": "Santa Fe"
+    },
+    {
+        "id": "554",
+        "car_brand_id": "28",
+        "code": "SCOUPE",
+        "title": "Scoupe"
+    },
+    {
+        "id": "555",
+        "car_brand_id": "28",
+        "code": "SONATA",
+        "title": "Sonata"
+    },
+    {
+        "id": "556",
+        "car_brand_id": "28",
+        "code": "TIBURO",
+        "title": "Tiburon"
+    },
+    {
+        "id": "557",
+        "car_brand_id": "28",
+        "code": "TUCSON",
+        "title": "Tucson"
+    },
+    {
+        "id": "558",
+        "car_brand_id": "28",
+        "code": "VELOSTER",
+        "title": "Veloster"
+    },
+    {
+        "id": "559",
+        "car_brand_id": "28",
+        "code": "VERACRUZ",
+        "title": "Veracruz"
+    },
+    {
+        "id": "560",
+        "car_brand_id": "28",
+        "code": "XG300",
+        "title": "XG300"
+    },
+    {
+        "id": "561",
+        "car_brand_id": "28",
+        "code": "XG350",
+        "title": "XG350"
+    },
+    {
+        "id": "562",
+        "car_brand_id": "28",
+        "code": "HYUOTH",
+        "title": "Other Hyundai Models"
+    },
+    {
+        "id": "563",
+        "car_brand_id": "29",
+        "code": "EX_MODELS",
+        "title": "EX Models (2)"
+    },
+    {
+        "id": "564",
+        "car_brand_id": "29",
+        "code": "EX35",
+        "title": " - EX35"
+    },
+    {
+        "id": "565",
+        "car_brand_id": "29",
+        "code": "EX37",
+        "title": " - EX37"
+    },
+    {
+        "id": "566",
+        "car_brand_id": "29",
+        "code": "FX_MODELS",
+        "title": "FX Models (4)"
+    },
+    {
+        "id": "567",
+        "car_brand_id": "29",
+        "code": "FX35",
+        "title": " - FX35"
+    },
+    {
+        "id": "568",
+        "car_brand_id": "29",
+        "code": "FX37",
+        "title": " - FX37"
+    },
+    {
+        "id": "569",
+        "car_brand_id": "29",
+        "code": "FX45",
+        "title": " - FX45"
+    },
+    {
+        "id": "570",
+        "car_brand_id": "29",
+        "code": "FX50",
+        "title": " - FX50"
+    },
+    {
+        "id": "571",
+        "car_brand_id": "29",
+        "code": "G_MODELS",
+        "title": "G Models (4)"
+    },
+    {
+        "id": "572",
+        "car_brand_id": "29",
+        "code": "G20",
+        "title": " - G20"
+    },
+    {
+        "id": "573",
+        "car_brand_id": "29",
+        "code": "G25",
+        "title": " - G25"
+    },
+    {
+        "id": "574",
+        "car_brand_id": "29",
+        "code": "G35",
+        "title": " - G35"
+    },
+    {
+        "id": "575",
+        "car_brand_id": "29",
+        "code": "G37",
+        "title": " - G37"
+    },
+    {
+        "id": "576",
+        "car_brand_id": "29",
+        "code": "I_MODELS",
+        "title": "I Models (2)"
+    },
+    {
+        "id": "577",
+        "car_brand_id": "29",
+        "code": "I30",
+        "title": " - I30"
+    },
+    {
+        "id": "578",
+        "car_brand_id": "29",
+        "code": "I35",
+        "title": " - I35"
+    },
+    {
+        "id": "579",
+        "car_brand_id": "29",
+        "code": "J_MODELS",
+        "title": "J Models (1)"
+    },
+    {
+        "id": "580",
+        "car_brand_id": "29",
+        "code": "J30",
+        "title": " - J30"
+    },
+    {
+        "id": "581",
+        "car_brand_id": "29",
+        "code": "JX_MODELS",
+        "title": "JX Models (1)"
+    },
+    {
+        "id": "582",
+        "car_brand_id": "29",
+        "code": "JX35",
+        "title": " - JX35"
+    },
+    {
+        "id": "583",
+        "car_brand_id": "29",
+        "code": "M_MODELS",
+        "title": "M Models (6)"
+    },
+    {
+        "id": "584",
+        "car_brand_id": "29",
+        "code": "M30",
+        "title": " - M30"
+    },
+    {
+        "id": "585",
+        "car_brand_id": "29",
+        "code": "M35",
+        "title": " - M35"
+    },
+    {
+        "id": "586",
+        "car_brand_id": "29",
+        "code": "M35HYBRID",
+        "title": " - M35h"
+    },
+    {
+        "id": "587",
+        "car_brand_id": "29",
+        "code": "M37",
+        "title": " - M37"
+    },
+    {
+        "id": "588",
+        "car_brand_id": "29",
+        "code": "M45",
+        "title": " - M45"
+    },
+    {
+        "id": "589",
+        "car_brand_id": "29",
+        "code": "M56",
+        "title": " - M56"
+    },
+    {
+        "id": "590",
+        "car_brand_id": "29",
+        "code": "Q_MODELS",
+        "title": "Q Models (1)"
+    },
+    {
+        "id": "591",
+        "car_brand_id": "29",
+        "code": "Q45",
+        "title": " - Q45"
+    },
+    {
+        "id": "592",
+        "car_brand_id": "29",
+        "code": "QX_MODELS",
+        "title": "QX Models (2)"
+    },
+    {
+        "id": "593",
+        "car_brand_id": "29",
+        "code": "QX4",
+        "title": " - QX4"
+    },
+    {
+        "id": "594",
+        "car_brand_id": "29",
+        "code": "QX56",
+        "title": " - QX56"
+    },
+    {
+        "id": "595",
+        "car_brand_id": "29",
+        "code": "INFOTH",
+        "title": "Other Infiniti Models"
+    },
+    {
+        "id": "596",
+        "car_brand_id": "30",
+        "code": "AMIGO",
+        "title": "Amigo"
+    },
+    {
+        "id": "597",
+        "car_brand_id": "30",
+        "code": "ASCENDER",
+        "title": "Ascender"
+    },
+    {
+        "id": "598",
+        "car_brand_id": "30",
+        "code": "AXIOM",
+        "title": "Axiom"
+    },
+    {
+        "id": "599",
+        "car_brand_id": "30",
+        "code": "HOMBRE",
+        "title": "Hombre"
+    },
+    {
+        "id": "600",
+        "car_brand_id": "30",
+        "code": "I280",
+        "title": "i-280"
+    },
+    {
+        "id": "601",
+        "car_brand_id": "30",
+        "code": "I290",
+        "title": "i-290"
+    },
+    {
+        "id": "602",
+        "car_brand_id": "30",
+        "code": "I350",
+        "title": "i-350"
+    },
+    {
+        "id": "603",
+        "car_brand_id": "30",
+        "code": "I370",
+        "title": "i-370"
+    },
+    {
+        "id": "604",
+        "car_brand_id": "30",
+        "code": "ISUMARK",
+        "title": "I-Mark"
+    },
+    {
+        "id": "605",
+        "car_brand_id": "30",
+        "code": "ISUIMP",
+        "title": "Impulse"
+    },
+    {
+        "id": "606",
+        "car_brand_id": "30",
+        "code": "OASIS",
+        "title": "Oasis"
+    },
+    {
+        "id": "607",
+        "car_brand_id": "30",
+        "code": "ISUPU",
+        "title": "Pickup"
+    },
+    {
+        "id": "608",
+        "car_brand_id": "30",
+        "code": "RODEO",
+        "title": "Rodeo"
+    },
+    {
+        "id": "609",
+        "car_brand_id": "30",
+        "code": "STYLUS",
+        "title": "Stylus"
+    },
+    {
+        "id": "610",
+        "car_brand_id": "30",
+        "code": "TROOP",
+        "title": "Trooper"
+    },
+    {
+        "id": "611",
+        "car_brand_id": "30",
+        "code": "TRP2",
+        "title": "Trooper II"
+    },
+    {
+        "id": "612",
+        "car_brand_id": "30",
+        "code": "VEHICROSS",
+        "title": "VehiCROSS"
+    },
+    {
+        "id": "613",
+        "car_brand_id": "30",
+        "code": "ISUOTH",
+        "title": "Other Isuzu Models"
+    },
+    {
+        "id": "614",
+        "car_brand_id": "31",
+        "code": "STYPE",
+        "title": "S-Type"
+    },
+    {
+        "id": "615",
+        "car_brand_id": "31",
+        "code": "XTYPE",
+        "title": "X-Type"
+    },
+    {
+        "id": "616",
+        "car_brand_id": "31",
+        "code": "XF",
+        "title": "XF"
+    },
+    {
+        "id": "617",
+        "car_brand_id": "31",
+        "code": "XJ_SERIES",
+        "title": "XJ Series (10)"
+    },
+    {
+        "id": "618",
+        "car_brand_id": "31",
+        "code": "JAGXJ12",
+        "title": " - XJ12"
+    },
+    {
+        "id": "619",
+        "car_brand_id": "31",
+        "code": "JAGXJ6",
+        "title": " - XJ6"
+    },
+    {
+        "id": "620",
+        "car_brand_id": "31",
+        "code": "JAGXJR",
+        "title": " - XJR"
+    },
+    {
+        "id": "621",
+        "car_brand_id": "31",
+        "code": "JAGXJRS",
+        "title": " - XJR-S"
+    },
+    {
+        "id": "622",
+        "car_brand_id": "31",
+        "code": "JAGXJS",
+        "title": " - XJS"
+    },
+    {
+        "id": "623",
+        "car_brand_id": "31",
+        "code": "VANDEN",
+        "title": " - XJ Vanden Plas"
+    },
+    {
+        "id": "624",
+        "car_brand_id": "31",
+        "code": "XJ",
+        "title": " - XJ"
+    },
+    {
+        "id": "625",
+        "car_brand_id": "31",
+        "code": "XJ8",
+        "title": " - XJ8"
+    },
+    {
+        "id": "626",
+        "car_brand_id": "31",
+        "code": "XJ8L",
+        "title": " - XJ8 L"
+    },
+    {
+        "id": "627",
+        "car_brand_id": "31",
+        "code": "XJSPORT",
+        "title": " - XJ Sport"
+    },
+    {
+        "id": "628",
+        "car_brand_id": "31",
+        "code": "XK_SERIES",
+        "title": "XK Series (3)"
+    },
+    {
+        "id": "629",
+        "car_brand_id": "31",
+        "code": "JAGXK8",
+        "title": " - XK8"
+    },
+    {
+        "id": "630",
+        "car_brand_id": "31",
+        "code": "XK",
+        "title": " - XK"
+    },
+    {
+        "id": "631",
+        "car_brand_id": "31",
+        "code": "XKR",
+        "title": " - XKR"
+    },
+    {
+        "id": "632",
+        "car_brand_id": "31",
+        "code": "JAGOTH",
+        "title": "Other Jaguar Models"
+    },
+    {
+        "id": "633",
+        "car_brand_id": "32",
+        "code": "CHER",
+        "title": "Cherokee"
+    },
+    {
+        "id": "634",
+        "car_brand_id": "32",
+        "code": "JEEPCJ",
+        "title": "CJ"
+    },
+    {
+        "id": "635",
+        "car_brand_id": "32",
+        "code": "COMANC",
+        "title": "Comanche"
+    },
+    {
+        "id": "636",
+        "car_brand_id": "32",
+        "code": "COMMANDER",
+        "title": "Commander"
+    },
+    {
+        "id": "637",
+        "car_brand_id": "32",
+        "code": "COMPASS",
+        "title": "Compass"
+    },
+    {
+        "id": "638",
+        "car_brand_id": "32",
+        "code": "JEEPGRAND",
+        "title": "Grand Cherokee"
+    },
+    {
+        "id": "639",
+        "car_brand_id": "32",
+        "code": "GRWAG",
+        "title": "Grand Wagoneer"
+    },
+    {
+        "id": "640",
+        "car_brand_id": "32",
+        "code": "LIBERTY",
+        "title": "Liberty"
+    },
+    {
+        "id": "641",
+        "car_brand_id": "32",
+        "code": "PATRIOT",
+        "title": "Patriot"
+    },
+    {
+        "id": "642",
+        "car_brand_id": "32",
+        "code": "JEEPPU",
+        "title": "Pickup"
+    },
+    {
+        "id": "643",
+        "car_brand_id": "32",
+        "code": "SCRAMBLE",
+        "title": "Scrambler"
+    },
+    {
+        "id": "644",
+        "car_brand_id": "32",
+        "code": "WAGONE",
+        "title": "Wagoneer"
+    },
+    {
+        "id": "645",
+        "car_brand_id": "32",
+        "code": "WRANGLER",
+        "title": "Wrangler"
+    },
+    {
+        "id": "646",
+        "car_brand_id": "32",
+        "code": "JEOTH",
+        "title": "Other Jeep Models"
+    },
+    {
+        "id": "647",
+        "car_brand_id": "33",
+        "code": "AMANTI",
+        "title": "Amanti"
+    },
+    {
+        "id": "648",
+        "car_brand_id": "33",
+        "code": "BORREGO",
+        "title": "Borrego"
+    },
+    {
+        "id": "649",
+        "car_brand_id": "33",
+        "code": "FORTE",
+        "title": "Forte"
+    },
+    {
+        "id": "650",
+        "car_brand_id": "33",
+        "code": "FORTEKOUP",
+        "title": "Forte Koup"
+    },
+    {
+        "id": "651",
+        "car_brand_id": "33",
+        "code": "OPTIMA",
+        "title": "Optima"
+    },
+    {
+        "id": "652",
+        "car_brand_id": "33",
+        "code": "RIO",
+        "title": "Rio"
+    },
+    {
+        "id": "653",
+        "car_brand_id": "33",
+        "code": "RIO5",
+        "title": "Rio5"
+    },
+    {
+        "id": "654",
+        "car_brand_id": "33",
+        "code": "RONDO",
+        "title": "Rondo"
+    },
+    {
+        "id": "655",
+        "car_brand_id": "33",
+        "code": "SEDONA",
+        "title": "Sedona"
+    },
+    {
+        "id": "656",
+        "car_brand_id": "33",
+        "code": "SEPHIA",
+        "title": "Sephia"
+    },
+    {
+        "id": "657",
+        "car_brand_id": "33",
+        "code": "SORENTO",
+        "title": "Sorento"
+    },
+    {
+        "id": "658",
+        "car_brand_id": "33",
+        "code": "SOUL",
+        "title": "Soul"
+    },
+    {
+        "id": "659",
+        "car_brand_id": "33",
+        "code": "SPECTRA",
+        "title": "Spectra"
+    },
+    {
+        "id": "660",
+        "car_brand_id": "33",
+        "code": "SPECTRA5",
+        "title": "Spectra5"
+    },
+    {
+        "id": "661",
+        "car_brand_id": "33",
+        "code": "SPORTA",
+        "title": "Sportage"
+    },
+    {
+        "id": "662",
+        "car_brand_id": "33",
+        "code": "KIAOTH",
+        "title": "Other Kia Models"
+    },
+    {
+        "id": "663",
+        "car_brand_id": "34",
+        "code": "AVENT",
+        "title": "Aventador"
+    },
+    {
+        "id": "664",
+        "car_brand_id": "34",
+        "code": "COUNT",
+        "title": "Countach"
+    },
+    {
+        "id": "665",
+        "car_brand_id": "34",
+        "code": "DIABLO",
+        "title": "Diablo"
+    },
+    {
+        "id": "666",
+        "car_brand_id": "34",
+        "code": "GALLARDO",
+        "title": "Gallardo"
+    },
+    {
+        "id": "667",
+        "car_brand_id": "34",
+        "code": "JALPA",
+        "title": "Jalpa"
+    },
+    {
+        "id": "668",
+        "car_brand_id": "34",
+        "code": "LM002",
+        "title": "LM002"
+    },
+    {
+        "id": "669",
+        "car_brand_id": "34",
+        "code": "MURCIELAGO",
+        "title": "Murcielago"
+    },
+    {
+        "id": "670",
+        "car_brand_id": "34",
+        "code": "UNAVAILLAM",
+        "title": "Other Lamborghini Models"
+    },
+    {
+        "id": "671",
+        "car_brand_id": "35",
+        "code": "BETA",
+        "title": "Beta"
+    },
+    {
+        "id": "672",
+        "car_brand_id": "35",
+        "code": "ZAGATO",
+        "title": "Zagato"
+    },
+    {
+        "id": "673",
+        "car_brand_id": "35",
+        "code": "UNAVAILLAN",
+        "title": "Other Lancia Models"
+    },
+    {
+        "id": "674",
+        "car_brand_id": "36",
+        "code": "DEFEND",
+        "title": "Defender"
+    },
+    {
+        "id": "675",
+        "car_brand_id": "36",
+        "code": "DISCOV",
+        "title": "Discovery"
+    },
+    {
+        "id": "676",
+        "car_brand_id": "36",
+        "code": "FRELNDR",
+        "title": "Freelander"
+    },
+    {
+        "id": "677",
+        "car_brand_id": "36",
+        "code": "LR2",
+        "title": "LR2"
+    },
+    {
+        "id": "678",
+        "car_brand_id": "36",
+        "code": "LR3",
+        "title": "LR3"
+    },
+    {
+        "id": "679",
+        "car_brand_id": "36",
+        "code": "LR4",
+        "title": "LR4"
+    },
+    {
+        "id": "680",
+        "car_brand_id": "36",
+        "code": "RANGE",
+        "title": "Range Rover"
+    },
+    {
+        "id": "681",
+        "car_brand_id": "36",
+        "code": "EVOQUE",
+        "title": "Range Rover Evoque"
+    },
+    {
+        "id": "682",
+        "car_brand_id": "36",
+        "code": "RANGESPORT",
+        "title": "Range Rover Sport"
+    },
+    {
+        "id": "683",
+        "car_brand_id": "36",
+        "code": "ROVOTH",
+        "title": "Other Land Rover Models"
+    },
+    {
+        "id": "684",
+        "car_brand_id": "37",
+        "code": "CT_MODELS",
+        "title": "CT Models (1)"
+    },
+    {
+        "id": "685",
+        "car_brand_id": "37",
+        "code": "CT200H",
+        "title": " - CT 200h"
+    },
+    {
+        "id": "686",
+        "car_brand_id": "37",
+        "code": "ES_MODELS",
+        "title": "ES Models (5)"
+    },
+    {
+        "id": "687",
+        "car_brand_id": "37",
+        "code": "ES250",
+        "title": " - ES 250"
+    },
+    {
+        "id": "688",
+        "car_brand_id": "37",
+        "code": "ES300",
+        "title": " - ES 300"
+    },
+    {
+        "id": "689",
+        "car_brand_id": "37",
+        "code": "ES300H",
+        "title": " - ES 300h"
+    },
+    {
+        "id": "690",
+        "car_brand_id": "37",
+        "code": "ES330",
+        "title": " - ES 330"
+    },
+    {
+        "id": "691",
+        "car_brand_id": "37",
+        "code": "ES350",
+        "title": " - ES 350"
+    },
+    {
+        "id": "692",
+        "car_brand_id": "37",
+        "code": "GS_MODELS",
+        "title": "GS Models (6)"
+    },
+    {
+        "id": "693",
+        "car_brand_id": "37",
+        "code": "GS300",
+        "title": " - GS 300"
+    },
+    {
+        "id": "694",
+        "car_brand_id": "37",
+        "code": "GS350",
+        "title": " - GS 350"
+    },
+    {
+        "id": "695",
+        "car_brand_id": "37",
+        "code": "GS400",
+        "title": " - GS 400"
+    },
+    {
+        "id": "696",
+        "car_brand_id": "37",
+        "code": "GS430",
+        "title": " - GS 430"
+    },
+    {
+        "id": "697",
+        "car_brand_id": "37",
+        "code": "GS450H",
+        "title": " - GS 450h"
+    },
+    {
+        "id": "698",
+        "car_brand_id": "37",
+        "code": "GS460",
+        "title": " - GS 460"
+    },
+    {
+        "id": "699",
+        "car_brand_id": "37",
+        "code": "GX_MODELS",
+        "title": "GX Models (2)"
+    },
+    {
+        "id": "700",
+        "car_brand_id": "37",
+        "code": "GX460",
+        "title": " - GX 460"
+    },
+    {
+        "id": "701",
+        "car_brand_id": "37",
+        "code": "GX470",
+        "title": " - GX 470"
+    },
+    {
+        "id": "702",
+        "car_brand_id": "37",
+        "code": "HS_MODELS",
+        "title": "HS Models (1)"
+    },
+    {
+        "id": "703",
+        "car_brand_id": "37",
+        "code": "HS250H",
+        "title": " - HS 250h"
+    },
+    {
+        "id": "704",
+        "car_brand_id": "37",
+        "code": "IS_MODELS",
+        "title": "IS Models (6)"
+    },
+    {
+        "id": "705",
+        "car_brand_id": "37",
+        "code": "IS250",
+        "title": " - IS 250"
+    },
+    {
+        "id": "706",
+        "car_brand_id": "37",
+        "code": "IS250C",
+        "title": " - IS 250C"
+    },
+    {
+        "id": "707",
+        "car_brand_id": "37",
+        "code": "IS300",
+        "title": " - IS 300"
+    },
+    {
+        "id": "708",
+        "car_brand_id": "37",
+        "code": "IS350",
+        "title": " - IS 350"
+    },
+    {
+        "id": "709",
+        "car_brand_id": "37",
+        "code": "IS350C",
+        "title": " - IS 350C"
+    },
+    {
+        "id": "710",
+        "car_brand_id": "37",
+        "code": "ISF",
+        "title": " - IS F"
+    },
+    {
+        "id": "711",
+        "car_brand_id": "37",
+        "code": "LEXLFA",
+        "title": "LFA"
+    },
+    {
+        "id": "712",
+        "car_brand_id": "37",
+        "code": "LS_MODELS",
+        "title": "LS Models (4)"
+    },
+    {
+        "id": "713",
+        "car_brand_id": "37",
+        "code": "LS400",
+        "title": " - LS 400"
+    },
+    {
+        "id": "714",
+        "car_brand_id": "37",
+        "code": "LS430",
+        "title": " - LS 430"
+    },
+    {
+        "id": "715",
+        "car_brand_id": "37",
+        "code": "LS460",
+        "title": " - LS 460"
+    },
+    {
+        "id": "716",
+        "car_brand_id": "37",
+        "code": "LS600H",
+        "title": " - LS 600h"
+    },
+    {
+        "id": "717",
+        "car_brand_id": "37",
+        "code": "LX_MODELS",
+        "title": "LX Models (3)"
+    },
+    {
+        "id": "718",
+        "car_brand_id": "37",
+        "code": "LX450",
+        "title": " - LX 450"
+    },
+    {
+        "id": "719",
+        "car_brand_id": "37",
+        "code": "LX470",
+        "title": " - LX 470"
+    },
+    {
+        "id": "720",
+        "car_brand_id": "37",
+        "code": "LX570",
+        "title": " - LX 570"
+    },
+    {
+        "id": "721",
+        "car_brand_id": "37",
+        "code": "RX_MODELS",
+        "title": "RX Models (5)"
+    },
+    {
+        "id": "722",
+        "car_brand_id": "37",
+        "code": "RX300",
+        "title": " - RX 300"
+    },
+    {
+        "id": "723",
+        "car_brand_id": "37",
+        "code": "RX330",
+        "title": " - RX 330"
+    },
+    {
+        "id": "724",
+        "car_brand_id": "37",
+        "code": "RX350",
+        "title": " - RX 350"
+    },
+    {
+        "id": "725",
+        "car_brand_id": "37",
+        "code": "RX400H",
+        "title": " - RX 400h"
+    },
+    {
+        "id": "726",
+        "car_brand_id": "37",
+        "code": "RX450H",
+        "title": " - RX 450h"
+    },
+    {
+        "id": "727",
+        "car_brand_id": "37",
+        "code": "SC_MODELS",
+        "title": "SC Models (3)"
+    },
+    {
+        "id": "728",
+        "car_brand_id": "37",
+        "code": "SC300",
+        "title": " - SC 300"
+    },
+    {
+        "id": "729",
+        "car_brand_id": "37",
+        "code": "SC400",
+        "title": " - SC 400"
+    },
+    {
+        "id": "730",
+        "car_brand_id": "37",
+        "code": "SC430",
+        "title": " - SC 430"
+    },
+    {
+        "id": "731",
+        "car_brand_id": "37",
+        "code": "LEXOTH",
+        "title": "Other Lexus Models"
+    },
+    {
+        "id": "732",
+        "car_brand_id": "38",
+        "code": "AVIATOR",
+        "title": "Aviator"
+    },
+    {
+        "id": "733",
+        "car_brand_id": "38",
+        "code": "BLKWOOD",
+        "title": "Blackwood"
+    },
+    {
+        "id": "734",
+        "car_brand_id": "38",
+        "code": "CONT",
+        "title": "Continental"
+    },
+    {
+        "id": "735",
+        "car_brand_id": "38",
+        "code": "LSLINCOLN",
+        "title": "LS"
+    },
+    {
+        "id": "736",
+        "car_brand_id": "38",
+        "code": "MARKLT",
+        "title": "Mark LT"
+    },
+    {
+        "id": "737",
+        "car_brand_id": "38",
+        "code": "MARK6",
+        "title": "Mark VI"
+    },
+    {
+        "id": "738",
+        "car_brand_id": "38",
+        "code": "MARK7",
+        "title": "Mark VII"
+    },
+    {
+        "id": "739",
+        "car_brand_id": "38",
+        "code": "MARK8",
+        "title": "Mark VIII"
+    },
+    {
+        "id": "740",
+        "car_brand_id": "38",
+        "code": "MKS",
+        "title": "MKS"
+    },
+    {
+        "id": "741",
+        "car_brand_id": "38",
+        "code": "MKT",
+        "title": "MKT"
+    },
+    {
+        "id": "742",
+        "car_brand_id": "38",
+        "code": "MKX",
+        "title": "MKX"
+    },
+    {
+        "id": "743",
+        "car_brand_id": "38",
+        "code": "MKZ",
+        "title": "MKZ"
+    },
+    {
+        "id": "744",
+        "car_brand_id": "38",
+        "code": "NAVIGA",
+        "title": "Navigator"
+    },
+    {
+        "id": "745",
+        "car_brand_id": "38",
+        "code": "NAVIGAL",
+        "title": "Navigator L"
+    },
+    {
+        "id": "746",
+        "car_brand_id": "38",
+        "code": "LINCTC",
+        "title": "Town Car"
+    },
+    {
+        "id": "747",
+        "car_brand_id": "38",
+        "code": "ZEPHYR",
+        "title": "Zephyr"
+    },
+    {
+        "id": "748",
+        "car_brand_id": "38",
+        "code": "LINOTH",
+        "title": "Other Lincoln Models"
+    },
+    {
+        "id": "749",
+        "car_brand_id": "39",
+        "code": "ELAN",
+        "title": "Elan"
+    },
+    {
+        "id": "750",
+        "car_brand_id": "39",
+        "code": "LOTELISE",
+        "title": "Elise"
+    },
+    {
+        "id": "751",
+        "car_brand_id": "39",
+        "code": "ESPRIT",
+        "title": "Esprit"
+    },
+    {
+        "id": "752",
+        "car_brand_id": "39",
+        "code": "EVORA",
+        "title": "Evora"
+    },
+    {
+        "id": "753",
+        "car_brand_id": "39",
+        "code": "EXIGE",
+        "title": "Exige"
+    },
+    {
+        "id": "754",
+        "car_brand_id": "39",
+        "code": "UNAVAILLOT",
+        "title": "Other Lotus Models"
+    },
+    {
+        "id": "755",
+        "car_brand_id": "40",
+        "code": "430",
+        "title": "430"
+    },
+    {
+        "id": "756",
+        "car_brand_id": "40",
+        "code": "BITRBO",
+        "title": "Biturbo"
+    },
+    {
+        "id": "757",
+        "car_brand_id": "40",
+        "code": "COUPEMAS",
+        "title": "Coupe"
+    },
+    {
+        "id": "758",
+        "car_brand_id": "40",
+        "code": "GRANSPORT",
+        "title": "GranSport"
+    },
+    {
+        "id": "759",
+        "car_brand_id": "40",
+        "code": "GRANTURISM",
+        "title": "GranTurismo"
+    },
+    {
+        "id": "760",
+        "car_brand_id": "40",
+        "code": "QP",
+        "title": "Quattroporte"
+    },
+    {
+        "id": "761",
+        "car_brand_id": "40",
+        "code": "SPYDER",
+        "title": "Spyder"
+    },
+    {
+        "id": "762",
+        "car_brand_id": "40",
+        "code": "UNAVAILMAS",
+        "title": "Other Maserati Models"
+    },
+    {
+        "id": "763",
+        "car_brand_id": "41",
+        "code": "57MAYBACH",
+        "title": "57"
+    },
+    {
+        "id": "764",
+        "car_brand_id": "41",
+        "code": "62MAYBACH",
+        "title": "62"
+    },
+    {
+        "id": "765",
+        "car_brand_id": "41",
+        "code": "UNAVAILMAY",
+        "title": "Other Maybach Models"
+    },
+    {
+        "id": "766",
+        "car_brand_id": "42",
+        "code": "MAZDA323",
+        "title": "323"
+    },
+    {
+        "id": "767",
+        "car_brand_id": "42",
+        "code": "MAZDA626",
+        "title": "626"
+    },
+    {
+        "id": "768",
+        "car_brand_id": "42",
+        "code": "929",
+        "title": "929"
+    },
+    {
+        "id": "769",
+        "car_brand_id": "42",
+        "code": "B-SERIES",
+        "title": "B-Series Pickup"
+    },
+    {
+        "id": "770",
+        "car_brand_id": "42",
+        "code": "CX-5",
+        "title": "CX-5"
+    },
+    {
+        "id": "771",
+        "car_brand_id": "42",
+        "code": "CX-7",
+        "title": "CX-7"
+    },
+    {
+        "id": "772",
+        "car_brand_id": "42",
+        "code": "CX-9",
+        "title": "CX-9"
+    },
+    {
+        "id": "773",
+        "car_brand_id": "42",
+        "code": "GLC",
+        "title": "GLC"
+    },
+    {
+        "id": "774",
+        "car_brand_id": "42",
+        "code": "MAZDA2",
+        "title": "MAZDA2"
+    },
+    {
+        "id": "775",
+        "car_brand_id": "42",
+        "code": "MAZDA3",
+        "title": "MAZDA3"
+    },
+    {
+        "id": "776",
+        "car_brand_id": "42",
+        "code": "MAZDA5",
+        "title": "MAZDA5"
+    },
+    {
+        "id": "777",
+        "car_brand_id": "42",
+        "code": "MAZDA6",
+        "title": "MAZDA6"
+    },
+    {
+        "id": "778",
+        "car_brand_id": "42",
+        "code": "MAZDASPD3",
+        "title": "MAZDASPEED3"
+    },
+    {
+        "id": "779",
+        "car_brand_id": "42",
+        "code": "MAZDASPD6",
+        "title": "MAZDASPEED6"
+    },
+    {
+        "id": "780",
+        "car_brand_id": "42",
+        "code": "MIATA",
+        "title": "Miata MX5"
+    },
+    {
+        "id": "781",
+        "car_brand_id": "42",
+        "code": "MILL",
+        "title": "Millenia"
+    },
+    {
+        "id": "782",
+        "car_brand_id": "42",
+        "code": "MPV",
+        "title": "MPV"
+    },
+    {
+        "id": "783",
+        "car_brand_id": "42",
+        "code": "MX3",
+        "title": "MX3"
+    },
+    {
+        "id": "784",
+        "car_brand_id": "42",
+        "code": "MX6",
+        "title": "MX6"
+    },
+    {
+        "id": "785",
+        "car_brand_id": "42",
+        "code": "NAVAJO",
+        "title": "Navajo"
+    },
+    {
+        "id": "786",
+        "car_brand_id": "42",
+        "code": "PROTE",
+        "title": "Protege"
+    },
+    {
+        "id": "787",
+        "car_brand_id": "42",
+        "code": "PROTE5",
+        "title": "Protege5"
+    },
+    {
+        "id": "788",
+        "car_brand_id": "42",
+        "code": "RX7",
+        "title": "RX-7"
+    },
+    {
+        "id": "789",
+        "car_brand_id": "42",
+        "code": "RX8",
+        "title": "RX-8"
+    },
+    {
+        "id": "790",
+        "car_brand_id": "42",
+        "code": "TRIBUTE",
+        "title": "Tribute"
+    },
+    {
+        "id": "791",
+        "car_brand_id": "42",
+        "code": "MAZOTH",
+        "title": "Other Mazda Models"
+    },
+    {
+        "id": "792",
+        "car_brand_id": "43",
+        "code": "MP4",
+        "title": "MP4-12C"
+    },
+    {
+        "id": "793",
+        "car_brand_id": "44",
+        "code": "190_CLASS",
+        "title": "190 Class (2)"
+    },
+    {
+        "id": "794",
+        "car_brand_id": "44",
+        "code": "190D",
+        "title": " - 190D"
+    },
+    {
+        "id": "795",
+        "car_brand_id": "44",
+        "code": "190E",
+        "title": " - 190E"
+    },
+    {
+        "id": "796",
+        "car_brand_id": "44",
+        "code": "240_CLASS",
+        "title": "240 Class (1)"
+    },
+    {
+        "id": "797",
+        "car_brand_id": "44",
+        "code": "240D",
+        "title": " - 240D"
+    },
+    {
+        "id": "798",
+        "car_brand_id": "44",
+        "code": "300_CLASS_E_CLASS",
+        "title": "300 Class / E Class (6)"
+    },
+    {
+        "id": "799",
+        "car_brand_id": "44",
+        "code": "300CD",
+        "title": " - 300CD"
+    },
+    {
+        "id": "800",
+        "car_brand_id": "44",
+        "code": "300CE",
+        "title": " - 300CE"
+    },
+    {
+        "id": "801",
+        "car_brand_id": "44",
+        "code": "300D",
+        "title": " - 300D"
+    },
+    {
+        "id": "802",
+        "car_brand_id": "44",
+        "code": "300E",
+        "title": " - 300E"
+    },
+    {
+        "id": "803",
+        "car_brand_id": "44",
+        "code": "300TD",
+        "title": " - 300TD"
+    },
+    {
+        "id": "804",
+        "car_brand_id": "44",
+        "code": "300TE",
+        "title": " - 300TE"
+    },
+    {
+        "id": "805",
+        "car_brand_id": "44",
+        "code": "C_CLASS",
+        "title": "C Class (13)"
+    },
+    {
+        "id": "806",
+        "car_brand_id": "44",
+        "code": "C220",
+        "title": " - C220"
+    },
+    {
+        "id": "807",
+        "car_brand_id": "44",
+        "code": "C230",
+        "title": " - C230"
+    },
+    {
+        "id": "808",
+        "car_brand_id": "44",
+        "code": "C240",
+        "title": " - C240"
+    },
+    {
+        "id": "809",
+        "car_brand_id": "44",
+        "code": "C250",
+        "title": " - C250"
+    },
+    {
+        "id": "810",
+        "car_brand_id": "44",
+        "code": "C280",
+        "title": " - C280"
+    },
+    {
+        "id": "811",
+        "car_brand_id": "44",
+        "code": "C300",
+        "title": " - C300"
+    },
+    {
+        "id": "812",
+        "car_brand_id": "44",
+        "code": "C320",
+        "title": " - C320"
+    },
+    {
+        "id": "813",
+        "car_brand_id": "44",
+        "code": "C32AMG",
+        "title": " - C32 AMG"
+    },
+    {
+        "id": "814",
+        "car_brand_id": "44",
+        "code": "C350",
+        "title": " - C350"
+    },
+    {
+        "id": "815",
+        "car_brand_id": "44",
+        "code": "C36AMG",
+        "title": " - C36 AMG"
+    },
+    {
+        "id": "816",
+        "car_brand_id": "44",
+        "code": "C43AMG",
+        "title": " - C43 AMG"
+    },
+    {
+        "id": "817",
+        "car_brand_id": "44",
+        "code": "C55AMG",
+        "title": " - C55 AMG"
+    },
+    {
+        "id": "818",
+        "car_brand_id": "44",
+        "code": "C63AMG",
+        "title": " - C63 AMG"
+    },
+    {
+        "id": "819",
+        "car_brand_id": "44",
+        "code": "CL_CLASS",
+        "title": "CL Class (6)"
+    },
+    {
+        "id": "820",
+        "car_brand_id": "44",
+        "code": "CL500",
+        "title": " - CL500"
+    },
+    {
+        "id": "821",
+        "car_brand_id": "44",
+        "code": "CL550",
+        "title": " - CL550"
+    },
+    {
+        "id": "822",
+        "car_brand_id": "44",
+        "code": "CL55AMG",
+        "title": " - CL55 AMG"
+    },
+    {
+        "id": "823",
+        "car_brand_id": "44",
+        "code": "CL600",
+        "title": " - CL600"
+    },
+    {
+        "id": "824",
+        "car_brand_id": "44",
+        "code": "CL63AMG",
+        "title": " - CL63 AMG"
+    },
+    {
+        "id": "825",
+        "car_brand_id": "44",
+        "code": "CL65AMG",
+        "title": " - CL65 AMG"
+    },
+    {
+        "id": "826",
+        "car_brand_id": "44",
+        "code": "CLK_CLASS",
+        "title": "CLK Class (7)"
+    },
+    {
+        "id": "827",
+        "car_brand_id": "44",
+        "code": "CLK320",
+        "title": " - CLK320"
+    },
+    {
+        "id": "828",
+        "car_brand_id": "44",
+        "code": "CLK350",
+        "title": " - CLK350"
+    },
+    {
+        "id": "829",
+        "car_brand_id": "44",
+        "code": "CLK430",
+        "title": " - CLK430"
+    },
+    {
+        "id": "830",
+        "car_brand_id": "44",
+        "code": "CLK500",
+        "title": " - CLK500"
+    },
+    {
+        "id": "831",
+        "car_brand_id": "44",
+        "code": "CLK550",
+        "title": " - CLK550"
+    },
+    {
+        "id": "832",
+        "car_brand_id": "44",
+        "code": "CLK55AMG",
+        "title": " - CLK55 AMG"
+    },
+    {
+        "id": "833",
+        "car_brand_id": "44",
+        "code": "CLK63AMG",
+        "title": " - CLK63 AMG"
+    },
+    {
+        "id": "834",
+        "car_brand_id": "44",
+        "code": "CLS_CLASS",
+        "title": "CLS Class (4)"
+    },
+    {
+        "id": "835",
+        "car_brand_id": "44",
+        "code": "CLS500",
+        "title": " - CLS500"
+    },
+    {
+        "id": "836",
+        "car_brand_id": "44",
+        "code": "CLS550",
+        "title": " - CLS550"
+    },
+    {
+        "id": "837",
+        "car_brand_id": "44",
+        "code": "CLS55AMG",
+        "title": " - CLS55 AMG"
+    },
+    {
+        "id": "838",
+        "car_brand_id": "44",
+        "code": "CLS63AMG",
+        "title": " - CLS63 AMG"
+    },
+    {
+        "id": "839",
+        "car_brand_id": "44",
+        "code": "E_CLASS",
+        "title": "E Class (18)"
+    },
+    {
+        "id": "840",
+        "car_brand_id": "44",
+        "code": "260E",
+        "title": " - 260E"
+    },
+    {
+        "id": "841",
+        "car_brand_id": "44",
+        "code": "280CE",
+        "title": " - 280CE"
+    },
+    {
+        "id": "842",
+        "car_brand_id": "44",
+        "code": "280E",
+        "title": " - 280E"
+    },
+    {
+        "id": "843",
+        "car_brand_id": "44",
+        "code": "400E",
+        "title": " - 400E"
+    },
+    {
+        "id": "844",
+        "car_brand_id": "44",
+        "code": "500E",
+        "title": " - 500E"
+    },
+    {
+        "id": "845",
+        "car_brand_id": "44",
+        "code": "E300",
+        "title": " - E300"
+    },
+    {
+        "id": "846",
+        "car_brand_id": "44",
+        "code": "E320",
+        "title": " - E320"
+    },
+    {
+        "id": "847",
+        "car_brand_id": "44",
+        "code": "E320BLUE",
+        "title": " - E320 Bluetec"
+    },
+    {
+        "id": "848",
+        "car_brand_id": "44",
+        "code": "E320CDI",
+        "title": " - E320 CDI"
+    },
+    {
+        "id": "849",
+        "car_brand_id": "44",
+        "code": "E350",
+        "title": " - E350"
+    },
+    {
+        "id": "850",
+        "car_brand_id": "44",
+        "code": "E350BLUE",
+        "title": " - E350 Bluetec"
+    },
+    {
+        "id": "851",
+        "car_brand_id": "44",
+        "code": "E400",
+        "title": " - E400 Hybrid"
+    },
+    {
+        "id": "852",
+        "car_brand_id": "44",
+        "code": "E420",
+        "title": " - E420"
+    },
+    {
+        "id": "853",
+        "car_brand_id": "44",
+        "code": "E430",
+        "title": " - E430"
+    },
+    {
+        "id": "854",
+        "car_brand_id": "44",
+        "code": "E500",
+        "title": " - E500"
+    },
+    {
+        "id": "855",
+        "car_brand_id": "44",
+        "code": "E550",
+        "title": " - E550"
+    },
+    {
+        "id": "856",
+        "car_brand_id": "44",
+        "code": "E55AMG",
+        "title": " - E55 AMG"
+    },
+    {
+        "id": "857",
+        "car_brand_id": "44",
+        "code": "E63AMG",
+        "title": " - E63 AMG"
+    },
+    {
+        "id": "858",
+        "car_brand_id": "44",
+        "code": "G_CLASS",
+        "title": "G Class (4)"
+    },
+    {
+        "id": "859",
+        "car_brand_id": "44",
+        "code": "G500",
+        "title": " - G500"
+    },
+    {
+        "id": "860",
+        "car_brand_id": "44",
+        "code": "G550",
+        "title": " - G550"
+    },
+    {
+        "id": "861",
+        "car_brand_id": "44",
+        "code": "G55AMG",
+        "title": " - G55 AMG"
+    },
+    {
+        "id": "862",
+        "car_brand_id": "44",
+        "code": "G63AMG",
+        "title": " - G63 AMG"
+    },
+    {
+        "id": "863",
+        "car_brand_id": "44",
+        "code": "GL_CLASS",
+        "title": "GL Class (5)"
+    },
+    {
+        "id": "864",
+        "car_brand_id": "44",
+        "code": "GL320BLUE",
+        "title": " - GL320 Bluetec"
+    },
+    {
+        "id": "865",
+        "car_brand_id": "44",
+        "code": "GL320CDI",
+        "title": " - GL320 CDI"
+    },
+    {
+        "id": "866",
+        "car_brand_id": "44",
+        "code": "GL350BLUE",
+        "title": " - GL350 Bluetec"
+    },
+    {
+        "id": "867",
+        "car_brand_id": "44",
+        "code": "GL450",
+        "title": " - GL450"
+    },
+    {
+        "id": "868",
+        "car_brand_id": "44",
+        "code": "GL550",
+        "title": " - GL550"
+    },
+    {
+        "id": "869",
+        "car_brand_id": "44",
+        "code": "GLK_CLASS",
+        "title": "GLK Class (1)"
+    },
+    {
+        "id": "870",
+        "car_brand_id": "44",
+        "code": "GLK350",
+        "title": " - GLK350"
+    },
+    {
+        "id": "871",
+        "car_brand_id": "44",
+        "code": "M_CLASS",
+        "title": "M Class (11)"
+    },
+    {
+        "id": "872",
+        "car_brand_id": "44",
+        "code": "ML320",
+        "title": " - ML320"
+    },
+    {
+        "id": "873",
+        "car_brand_id": "44",
+        "code": "ML320BLUE",
+        "title": " - ML320 Bluetec"
+    },
+    {
+        "id": "874",
+        "car_brand_id": "44",
+        "code": "ML320CDI",
+        "title": " - ML320 CDI"
+    },
+    {
+        "id": "875",
+        "car_brand_id": "44",
+        "code": "ML350",
+        "title": " - ML350"
+    },
+    {
+        "id": "876",
+        "car_brand_id": "44",
+        "code": "ML350BLUE",
+        "title": " - ML350 Bluetec"
+    },
+    {
+        "id": "877",
+        "car_brand_id": "44",
+        "code": "ML430",
+        "title": " - ML430"
+    },
+    {
+        "id": "878",
+        "car_brand_id": "44",
+        "code": "ML450HY",
+        "title": " - ML450 Hybrid"
+    },
+    {
+        "id": "879",
+        "car_brand_id": "44",
+        "code": "ML500",
+        "title": " - ML500"
+    },
+    {
+        "id": "880",
+        "car_brand_id": "44",
+        "code": "ML550",
+        "title": " - ML550"
+    },
+    {
+        "id": "881",
+        "car_brand_id": "44",
+        "code": "ML55AMG",
+        "title": " - ML55 AMG"
+    },
+    {
+        "id": "882",
+        "car_brand_id": "44",
+        "code": "ML63AMG",
+        "title": " - ML63 AMG"
+    },
+    {
+        "id": "883",
+        "car_brand_id": "44",
+        "code": "R_CLASS",
+        "title": "R Class (6)"
+    },
+    {
+        "id": "884",
+        "car_brand_id": "44",
+        "code": "R320BLUE",
+        "title": " - R320 Bluetec"
+    },
+    {
+        "id": "885",
+        "car_brand_id": "44",
+        "code": "R320CDI",
+        "title": " - R320 CDI"
+    },
+    {
+        "id": "886",
+        "car_brand_id": "44",
+        "code": "R350",
+        "title": " - R350"
+    },
+    {
+        "id": "887",
+        "car_brand_id": "44",
+        "code": "R350BLUE",
+        "title": " - R350 Bluetec"
+    },
+    {
+        "id": "888",
+        "car_brand_id": "44",
+        "code": "R500",
+        "title": " - R500"
+    },
+    {
+        "id": "889",
+        "car_brand_id": "44",
+        "code": "R63AMG",
+        "title": " - R63 AMG"
+    },
+    {
+        "id": "890",
+        "car_brand_id": "44",
+        "code": "S_CLASS",
+        "title": "S Class (30)"
+    },
+    {
+        "id": "891",
+        "car_brand_id": "44",
+        "code": "300SD",
+        "title": " - 300SD"
+    },
+    {
+        "id": "892",
+        "car_brand_id": "44",
+        "code": "300SDL",
+        "title": " - 300SDL"
+    },
+    {
+        "id": "893",
+        "car_brand_id": "44",
+        "code": "300SE",
+        "title": " - 300SE"
+    },
+    {
+        "id": "894",
+        "car_brand_id": "44",
+        "code": "300SEL",
+        "title": " - 300SEL"
+    },
+    {
+        "id": "895",
+        "car_brand_id": "44",
+        "code": "350SD",
+        "title": " - 350SD"
+    },
+    {
+        "id": "896",
+        "car_brand_id": "44",
+        "code": "350SDL",
+        "title": " - 350SDL"
+    },
+    {
+        "id": "897",
+        "car_brand_id": "44",
+        "code": "380SE",
+        "title": " - 380SE"
+    },
+    {
+        "id": "898",
+        "car_brand_id": "44",
+        "code": "380SEC",
+        "title": " - 380SEC"
+    },
+    {
+        "id": "899",
+        "car_brand_id": "44",
+        "code": "380SEL",
+        "title": " - 380SEL"
+    },
+    {
+        "id": "900",
+        "car_brand_id": "44",
+        "code": "400SE",
+        "title": " - 400SE"
+    },
+    {
+        "id": "901",
+        "car_brand_id": "44",
+        "code": "400SEL",
+        "title": " - 400SEL"
+    },
+    {
+        "id": "902",
+        "car_brand_id": "44",
+        "code": "420SEL",
+        "title": " - 420SEL"
+    },
+    {
+        "id": "903",
+        "car_brand_id": "44",
+        "code": "500SEC",
+        "title": " - 500SEC"
+    },
+    {
+        "id": "904",
+        "car_brand_id": "44",
+        "code": "500SEL",
+        "title": " - 500SEL"
+    },
+    {
+        "id": "905",
+        "car_brand_id": "44",
+        "code": "560SEC",
+        "title": " - 560SEC"
+    },
+    {
+        "id": "906",
+        "car_brand_id": "44",
+        "code": "560SEL",
+        "title": " - 560SEL"
+    },
+    {
+        "id": "907",
+        "car_brand_id": "44",
+        "code": "600SEC",
+        "title": " - 600SEC"
+    },
+    {
+        "id": "908",
+        "car_brand_id": "44",
+        "code": "600SEL",
+        "title": " - 600SEL"
+    },
+    {
+        "id": "909",
+        "car_brand_id": "44",
+        "code": "S320",
+        "title": " - S320"
+    },
+    {
+        "id": "910",
+        "car_brand_id": "44",
+        "code": "S350",
+        "title": " - S350"
+    },
+    {
+        "id": "911",
+        "car_brand_id": "44",
+        "code": "S350BLUE",
+        "title": " - S350 Bluetec"
+    },
+    {
+        "id": "912",
+        "car_brand_id": "44",
+        "code": "S400HY",
+        "title": " - S400 Hybrid"
+    },
+    {
+        "id": "913",
+        "car_brand_id": "44",
+        "code": "S420",
+        "title": " - S420"
+    },
+    {
+        "id": "914",
+        "car_brand_id": "44",
+        "code": "S430",
+        "title": " - S430"
+    },
+    {
+        "id": "915",
+        "car_brand_id": "44",
+        "code": "S500",
+        "title": " - S500"
+    },
+    {
+        "id": "916",
+        "car_brand_id": "44",
+        "code": "S550",
+        "title": " - S550"
+    },
+    {
+        "id": "917",
+        "car_brand_id": "44",
+        "code": "S55AMG",
+        "title": " - S55 AMG"
+    },
+    {
+        "id": "918",
+        "car_brand_id": "44",
+        "code": "S600",
+        "title": " - S600"
+    },
+    {
+        "id": "919",
+        "car_brand_id": "44",
+        "code": "S63AMG",
+        "title": " - S63 AMG"
+    },
+    {
+        "id": "920",
+        "car_brand_id": "44",
+        "code": "S65AMG",
+        "title": " - S65 AMG"
+    },
+    {
+        "id": "921",
+        "car_brand_id": "44",
+        "code": "SL_CLASS",
+        "title": "SL Class (13)"
+    },
+    {
+        "id": "922",
+        "car_brand_id": "44",
+        "code": "300SL",
+        "title": " - 300SL"
+    },
+    {
+        "id": "923",
+        "car_brand_id": "44",
+        "code": "380SL",
+        "title": " - 380SL"
+    },
+    {
+        "id": "924",
+        "car_brand_id": "44",
+        "code": "380SLC",
+        "title": " - 380SLC"
+    },
+    {
+        "id": "925",
+        "car_brand_id": "44",
+        "code": "500SL",
+        "title": " - 500SL"
+    },
+    {
+        "id": "926",
+        "car_brand_id": "44",
+        "code": "560SL",
+        "title": " - 560SL"
+    },
+    {
+        "id": "927",
+        "car_brand_id": "44",
+        "code": "600SL",
+        "title": " - 600SL"
+    },
+    {
+        "id": "928",
+        "car_brand_id": "44",
+        "code": "SL320",
+        "title": " - SL320"
+    },
+    {
+        "id": "929",
+        "car_brand_id": "44",
+        "code": "SL500",
+        "title": " - SL500"
+    },
+    {
+        "id": "930",
+        "car_brand_id": "44",
+        "code": "SL550",
+        "title": " - SL550"
+    },
+    {
+        "id": "931",
+        "car_brand_id": "44",
+        "code": "SL55AMG",
+        "title": " - SL55 AMG"
+    },
+    {
+        "id": "932",
+        "car_brand_id": "44",
+        "code": "SL600",
+        "title": " - SL600"
+    },
+    {
+        "id": "933",
+        "car_brand_id": "44",
+        "code": "SL63AMG",
+        "title": " - SL63 AMG"
+    },
+    {
+        "id": "934",
+        "car_brand_id": "44",
+        "code": "SL65AMG",
+        "title": " - SL65 AMG"
+    },
+    {
+        "id": "935",
+        "car_brand_id": "44",
+        "code": "SLK_CLASS",
+        "title": "SLK Class (8)"
+    },
+    {
+        "id": "936",
+        "car_brand_id": "44",
+        "code": "SLK230",
+        "title": " - SLK230"
+    },
+    {
+        "id": "937",
+        "car_brand_id": "44",
+        "code": "SLK250",
+        "title": " - SLK250"
+    },
+    {
+        "id": "938",
+        "car_brand_id": "44",
+        "code": "SLK280",
+        "title": " - SLK280"
+    },
+    {
+        "id": "939",
+        "car_brand_id": "44",
+        "code": "SLK300",
+        "title": " - SLK300"
+    },
+    {
+        "id": "940",
+        "car_brand_id": "44",
+        "code": "SLK320",
+        "title": " - SLK320"
+    },
+    {
+        "id": "941",
+        "car_brand_id": "44",
+        "code": "SLK32AMG",
+        "title": " - SLK32 AMG"
+    },
+    {
+        "id": "942",
+        "car_brand_id": "44",
+        "code": "SLK350",
+        "title": " - SLK350"
+    },
+    {
+        "id": "943",
+        "car_brand_id": "44",
+        "code": "SLK55AMG",
+        "title": " - SLK55 AMG"
+    },
+    {
+        "id": "944",
+        "car_brand_id": "44",
+        "code": "SLR_CLASS",
+        "title": "SLR Class (1)"
+    },
+    {
+        "id": "945",
+        "car_brand_id": "44",
+        "code": "SLR",
+        "title": " - SLR"
+    },
+    {
+        "id": "946",
+        "car_brand_id": "44",
+        "code": "SLS_CLASS",
+        "title": "SLS Class (1)"
+    },
+    {
+        "id": "947",
+        "car_brand_id": "44",
+        "code": "SLSAMG",
+        "title": " - SLS AMG"
+    },
+    {
+        "id": "948",
+        "car_brand_id": "44",
+        "code": "SPRINTER_CLASS",
+        "title": "Sprinter Class (1)"
+    },
+    {
+        "id": "949",
+        "car_brand_id": "44",
+        "code": "MBSPRINTER",
+        "title": " - Sprinter"
+    },
+    {
+        "id": "950",
+        "car_brand_id": "44",
+        "code": "MBOTH",
+        "title": "Other Mercedes-Benz Models"
+    },
+    {
+        "id": "951",
+        "car_brand_id": "45",
+        "code": "CAPRI",
+        "title": "Capri"
+    },
+    {
+        "id": "952",
+        "car_brand_id": "45",
+        "code": "COUGAR",
+        "title": "Cougar"
+    },
+    {
+        "id": "953",
+        "car_brand_id": "45",
+        "code": "MERCGRAND",
+        "title": "Grand Marquis"
+    },
+    {
+        "id": "954",
+        "car_brand_id": "45",
+        "code": "LYNX",
+        "title": "Lynx"
+    },
+    {
+        "id": "955",
+        "car_brand_id": "45",
+        "code": "MARAUDER",
+        "title": "Marauder"
+    },
+    {
+        "id": "956",
+        "car_brand_id": "45",
+        "code": "MARINER",
+        "title": "Mariner"
+    },
+    {
+        "id": "957",
+        "car_brand_id": "45",
+        "code": "MARQ",
+        "title": "Marquis"
+    },
+    {
+        "id": "958",
+        "car_brand_id": "45",
+        "code": "MILAN",
+        "title": "Milan"
+    },
+    {
+        "id": "959",
+        "car_brand_id": "45",
+        "code": "MONTEGO",
+        "title": "Montego"
+    },
+    {
+        "id": "960",
+        "car_brand_id": "45",
+        "code": "MONTEREY",
+        "title": "Monterey"
+    },
+    {
+        "id": "961",
+        "car_brand_id": "45",
+        "code": "MOUNTA",
+        "title": "Mountaineer"
+    },
+    {
+        "id": "962",
+        "car_brand_id": "45",
+        "code": "MYSTIQ",
+        "title": "Mystique"
+    },
+    {
+        "id": "963",
+        "car_brand_id": "45",
+        "code": "SABLE",
+        "title": "Sable"
+    },
+    {
+        "id": "964",
+        "car_brand_id": "45",
+        "code": "TOPAZ",
+        "title": "Topaz"
+    },
+    {
+        "id": "965",
+        "car_brand_id": "45",
+        "code": "TRACER",
+        "title": "Tracer"
+    },
+    {
+        "id": "966",
+        "car_brand_id": "45",
+        "code": "VILLA",
+        "title": "Villager"
+    },
+    {
+        "id": "967",
+        "car_brand_id": "45",
+        "code": "MERCZEP",
+        "title": "Zephyr"
+    },
+    {
+        "id": "968",
+        "car_brand_id": "45",
+        "code": "MEOTH",
+        "title": "Other Mercury Models"
+    },
+    {
+        "id": "969",
+        "car_brand_id": "46",
+        "code": "SCORP",
+        "title": "Scorpio"
+    },
+    {
+        "id": "970",
+        "car_brand_id": "46",
+        "code": "XR4TI",
+        "title": "XR4Ti"
+    },
+    {
+        "id": "971",
+        "car_brand_id": "46",
+        "code": "MEROTH",
+        "title": "Other Merkur Models"
+    },
+    {
+        "id": "972",
+        "car_brand_id": "47",
+        "code": "COOPRCLUB_MODELS",
+        "title": "Cooper Clubman Models (2)"
+    },
+    {
+        "id": "973",
+        "car_brand_id": "47",
+        "code": "COOPERCLUB",
+        "title": " - Cooper Clubman"
+    },
+    {
+        "id": "974",
+        "car_brand_id": "47",
+        "code": "COOPRCLUBS",
+        "title": " - Cooper S Clubman"
+    },
+    {
+        "id": "975",
+        "car_brand_id": "47",
+        "code": "COOPCOUNTRY_MODELS",
+        "title": "Cooper Countryman Models (2)"
+    },
+    {
+        "id": "976",
+        "car_brand_id": "47",
+        "code": "COUNTRYMAN",
+        "title": " - Cooper Countryman"
+    },
+    {
+        "id": "977",
+        "car_brand_id": "47",
+        "code": "COUNTRYMNS",
+        "title": " - Cooper S Countryman"
+    },
+    {
+        "id": "978",
+        "car_brand_id": "47",
+        "code": "COOPCOUP_MODELS",
+        "title": "Cooper Coupe Models (2)"
+    },
+    {
+        "id": "979",
+        "car_brand_id": "47",
+        "code": "MINICOUPE",
+        "title": " - Cooper Coupe"
+    },
+    {
+        "id": "980",
+        "car_brand_id": "47",
+        "code": "MINISCOUPE",
+        "title": " - Cooper S Coupe"
+    },
+    {
+        "id": "981",
+        "car_brand_id": "47",
+        "code": "COOPER_MODELS",
+        "title": "Cooper Models (2)"
+    },
+    {
+        "id": "982",
+        "car_brand_id": "47",
+        "code": "COOPER",
+        "title": " - Cooper"
+    },
+    {
+        "id": "983",
+        "car_brand_id": "47",
+        "code": "COOPERS",
+        "title": " - Cooper S"
+    },
+    {
+        "id": "984",
+        "car_brand_id": "47",
+        "code": "COOPRROAD_MODELS",
+        "title": "Cooper Roadster Models (2)"
+    },
+    {
+        "id": "985",
+        "car_brand_id": "47",
+        "code": "COOPERROAD",
+        "title": " - Cooper Roadster"
+    },
+    {
+        "id": "986",
+        "car_brand_id": "47",
+        "code": "COOPERSRD",
+        "title": " - Cooper S Roadster"
+    },
+    {
+        "id": "987",
+        "car_brand_id": "48",
+        "code": "3000GT",
+        "title": "3000GT"
+    },
+    {
+        "id": "988",
+        "car_brand_id": "48",
+        "code": "CORD",
+        "title": "Cordia"
+    },
+    {
+        "id": "989",
+        "car_brand_id": "48",
+        "code": "DIAMAN",
+        "title": "Diamante"
+    },
+    {
+        "id": "990",
+        "car_brand_id": "48",
+        "code": "ECLIP",
+        "title": "Eclipse"
+    },
+    {
+        "id": "991",
+        "car_brand_id": "48",
+        "code": "ENDEAVOR",
+        "title": "Endeavor"
+    },
+    {
+        "id": "992",
+        "car_brand_id": "48",
+        "code": "MITEXP",
+        "title": "Expo"
+    },
+    {
+        "id": "993",
+        "car_brand_id": "48",
+        "code": "GALANT",
+        "title": "Galant"
+    },
+    {
+        "id": "994",
+        "car_brand_id": "48",
+        "code": "MITI",
+        "title": "i"
+    },
+    {
+        "id": "995",
+        "car_brand_id": "48",
+        "code": "LANCERMITS",
+        "title": "Lancer"
+    },
+    {
+        "id": "996",
+        "car_brand_id": "48",
+        "code": "LANCEREVO",
+        "title": "Lancer Evolution"
+    },
+    {
+        "id": "997",
+        "car_brand_id": "48",
+        "code": "MITPU",
+        "title": "Mighty Max"
+    },
+    {
+        "id": "998",
+        "car_brand_id": "48",
+        "code": "MIRAGE",
+        "title": "Mirage"
+    },
+    {
+        "id": "999",
+        "car_brand_id": "48",
+        "code": "MONT",
+        "title": "Montero"
+    },
+    {
+        "id": "1000",
+        "car_brand_id": "48",
+        "code": "MONTSPORT",
+        "title": "Montero Sport"
+    },
+    {
+        "id": "1001",
+        "car_brand_id": "48",
+        "code": "OUTLANDER",
+        "title": "Outlander"
+    },
+    {
+        "id": "1002",
+        "car_brand_id": "48",
+        "code": "OUTLANDSPT",
+        "title": "Outlander Sport"
+    },
+    {
+        "id": "1003",
+        "car_brand_id": "48",
+        "code": "PRECIS",
+        "title": "Precis"
+    },
+    {
+        "id": "1004",
+        "car_brand_id": "48",
+        "code": "RAIDERMITS",
+        "title": "Raider"
+    },
+    {
+        "id": "1005",
+        "car_brand_id": "48",
+        "code": "SIGMA",
+        "title": "Sigma"
+    },
+    {
+        "id": "1006",
+        "car_brand_id": "48",
+        "code": "MITSTAR",
+        "title": "Starion"
+    },
+    {
+        "id": "1007",
+        "car_brand_id": "48",
+        "code": "TRED",
+        "title": "Tredia"
+    },
+    {
+        "id": "1008",
+        "car_brand_id": "48",
+        "code": "MITVAN",
+        "title": "Van"
+    },
+    {
+        "id": "1009",
+        "car_brand_id": "48",
+        "code": "MITOTH",
+        "title": "Other Mitsubishi Models"
+    },
+    {
+        "id": "1010",
+        "car_brand_id": "49",
+        "code": "NIS200SX",
+        "title": "200SX"
+    },
+    {
+        "id": "1011",
+        "car_brand_id": "49",
+        "code": "240SX",
+        "title": "240SX"
+    },
+    {
+        "id": "1012",
+        "car_brand_id": "49",
+        "code": "300ZXTURBO",
+        "title": "300ZX"
+    },
+    {
+        "id": "1013",
+        "car_brand_id": "49",
+        "code": "350Z",
+        "title": "350Z"
+    },
+    {
+        "id": "1014",
+        "car_brand_id": "49",
+        "code": "370Z",
+        "title": "370Z"
+    },
+    {
+        "id": "1015",
+        "car_brand_id": "49",
+        "code": "ALTIMA",
+        "title": "Altima"
+    },
+    {
+        "id": "1016",
+        "car_brand_id": "49",
+        "code": "PATHARMADA",
+        "title": "Armada"
+    },
+    {
+        "id": "1017",
+        "car_brand_id": "49",
+        "code": "AXXESS",
+        "title": "Axxess"
+    },
+    {
+        "id": "1018",
+        "car_brand_id": "49",
+        "code": "CUBE",
+        "title": "Cube"
+    },
+    {
+        "id": "1019",
+        "car_brand_id": "49",
+        "code": "FRONTI",
+        "title": "Frontier"
+    },
+    {
+        "id": "1020",
+        "car_brand_id": "49",
+        "code": "GT-R",
+        "title": "GT-R"
+    },
+    {
+        "id": "1021",
+        "car_brand_id": "49",
+        "code": "JUKE",
+        "title": "Juke"
+    },
+    {
+        "id": "1022",
+        "car_brand_id": "49",
+        "code": "LEAF",
+        "title": "Leaf"
+    },
+    {
+        "id": "1023",
+        "car_brand_id": "49",
+        "code": "MAX",
+        "title": "Maxima"
+    },
+    {
+        "id": "1024",
+        "car_brand_id": "49",
+        "code": "MURANO",
+        "title": "Murano"
+    },
+    {
+        "id": "1025",
+        "car_brand_id": "49",
+        "code": "MURANOCROS",
+        "title": "Murano CrossCabriolet"
+    },
+    {
+        "id": "1026",
+        "car_brand_id": "49",
+        "code": "NV",
+        "title": "NV"
+    },
+    {
+        "id": "1027",
+        "car_brand_id": "49",
+        "code": "NX",
+        "title": "NX"
+    },
+    {
+        "id": "1028",
+        "car_brand_id": "49",
+        "code": "PATH",
+        "title": "Pathfinder"
+    },
+    {
+        "id": "1029",
+        "car_brand_id": "49",
+        "code": "NISPU",
+        "title": "Pickup"
+    },
+    {
+        "id": "1030",
+        "car_brand_id": "49",
+        "code": "PULSAR",
+        "title": "Pulsar"
+    },
+    {
+        "id": "1031",
+        "car_brand_id": "49",
+        "code": "QUEST",
+        "title": "Quest"
+    },
+    {
+        "id": "1032",
+        "car_brand_id": "49",
+        "code": "ROGUE",
+        "title": "Rogue"
+    },
+    {
+        "id": "1033",
+        "car_brand_id": "49",
+        "code": "SENTRA",
+        "title": "Sentra"
+    },
+    {
+        "id": "1034",
+        "car_brand_id": "49",
+        "code": "STANZA",
+        "title": "Stanza"
+    },
+    {
+        "id": "1035",
+        "car_brand_id": "49",
+        "code": "TITAN",
+        "title": "Titan"
+    },
+    {
+        "id": "1036",
+        "car_brand_id": "49",
+        "code": "NISVAN",
+        "title": "Van"
+    },
+    {
+        "id": "1037",
+        "car_brand_id": "49",
+        "code": "VERSA",
+        "title": "Versa"
+    },
+    {
+        "id": "1038",
+        "car_brand_id": "49",
+        "code": "XTERRA",
+        "title": "Xterra"
+    },
+    {
+        "id": "1039",
+        "car_brand_id": "49",
+        "code": "NISSOTH",
+        "title": "Other Nissan Models"
+    },
+    {
+        "id": "1040",
+        "car_brand_id": "50",
+        "code": "88",
+        "title": "88"
+    },
+    {
+        "id": "1041",
+        "car_brand_id": "50",
+        "code": "ACHIEV",
+        "title": "Achieva"
+    },
+    {
+        "id": "1042",
+        "car_brand_id": "50",
+        "code": "ALERO",
+        "title": "Alero"
+    },
+    {
+        "id": "1043",
+        "car_brand_id": "50",
+        "code": "AURORA",
+        "title": "Aurora"
+    },
+    {
+        "id": "1044",
+        "car_brand_id": "50",
+        "code": "BRAV",
+        "title": "Bravada"
+    },
+    {
+        "id": "1045",
+        "car_brand_id": "50",
+        "code": "CUCR",
+        "title": "Custom Cruiser"
+    },
+    {
+        "id": "1046",
+        "car_brand_id": "50",
+        "code": "OLDCUS",
+        "title": "Cutlass"
+    },
+    {
+        "id": "1047",
+        "car_brand_id": "50",
+        "code": "OLDCALAIS",
+        "title": "Cutlass Calais"
+    },
+    {
+        "id": "1048",
+        "car_brand_id": "50",
+        "code": "CIERA",
+        "title": "Cutlass Ciera"
+    },
+    {
+        "id": "1049",
+        "car_brand_id": "50",
+        "code": "CSUPR",
+        "title": "Cutlass Supreme"
+    },
+    {
+        "id": "1050",
+        "car_brand_id": "50",
+        "code": "OLDSFIR",
+        "title": "Firenza"
+    },
+    {
+        "id": "1051",
+        "car_brand_id": "50",
+        "code": "INTRIG",
+        "title": "Intrigue"
+    },
+    {
+        "id": "1052",
+        "car_brand_id": "50",
+        "code": "98",
+        "title": "Ninety-Eight"
+    },
+    {
+        "id": "1053",
+        "car_brand_id": "50",
+        "code": "OMEG",
+        "title": "Omega"
+    },
+    {
+        "id": "1054",
+        "car_brand_id": "50",
+        "code": "REGEN",
+        "title": "Regency"
+    },
+    {
+        "id": "1055",
+        "car_brand_id": "50",
+        "code": "SILHO",
+        "title": "Silhouette"
+    },
+    {
+        "id": "1056",
+        "car_brand_id": "50",
+        "code": "TORO",
+        "title": "Toronado"
+    },
+    {
+        "id": "1057",
+        "car_brand_id": "50",
+        "code": "OLDOTH",
+        "title": "Other Oldsmobile Models"
+    },
+    {
+        "id": "1058",
+        "car_brand_id": "51",
+        "code": "405",
+        "title": "405"
+    },
+    {
+        "id": "1059",
+        "car_brand_id": "51",
+        "code": "504",
+        "title": "504"
+    },
+    {
+        "id": "1060",
+        "car_brand_id": "51",
+        "code": "505",
+        "title": "505"
+    },
+    {
+        "id": "1061",
+        "car_brand_id": "51",
+        "code": "604",
+        "title": "604"
+    },
+    {
+        "id": "1062",
+        "car_brand_id": "51",
+        "code": "UNAVAILPEU",
+        "title": "Other Peugeot Models"
+    },
+    {
+        "id": "1063",
+        "car_brand_id": "52",
+        "code": "ACC",
+        "title": "Acclaim"
+    },
+    {
+        "id": "1064",
+        "car_brand_id": "52",
+        "code": "ARROW",
+        "title": "Arrow"
+    },
+    {
+        "id": "1065",
+        "car_brand_id": "52",
+        "code": "BREEZE",
+        "title": "Breeze"
+    },
+    {
+        "id": "1066",
+        "car_brand_id": "52",
+        "code": "CARAVE",
+        "title": "Caravelle"
+    },
+    {
+        "id": "1067",
+        "car_brand_id": "52",
+        "code": "CHAMP",
+        "title": "Champ"
+    },
+    {
+        "id": "1068",
+        "car_brand_id": "52",
+        "code": "COLT",
+        "title": "Colt"
+    },
+    {
+        "id": "1069",
+        "car_brand_id": "52",
+        "code": "PLYMCONQ",
+        "title": "Conquest"
+    },
+    {
+        "id": "1070",
+        "car_brand_id": "52",
+        "code": "GRANFURY",
+        "title": "Gran Fury"
+    },
+    {
+        "id": "1071",
+        "car_brand_id": "52",
+        "code": "PLYMGRANV",
+        "title": "Grand Voyager"
+    },
+    {
+        "id": "1072",
+        "car_brand_id": "52",
+        "code": "HORI",
+        "title": "Horizon"
+    },
+    {
+        "id": "1073",
+        "car_brand_id": "52",
+        "code": "LASER",
+        "title": "Laser"
+    },
+    {
+        "id": "1074",
+        "car_brand_id": "52",
+        "code": "NEON",
+        "title": "Neon"
+    },
+    {
+        "id": "1075",
+        "car_brand_id": "52",
+        "code": "PROWLE",
+        "title": "Prowler"
+    },
+    {
+        "id": "1076",
+        "car_brand_id": "52",
+        "code": "RELI",
+        "title": "Reliant"
+    },
+    {
+        "id": "1077",
+        "car_brand_id": "52",
+        "code": "SAPPOROPLY",
+        "title": "Sapporo"
+    },
+    {
+        "id": "1078",
+        "car_brand_id": "52",
+        "code": "SCAMP",
+        "title": "Scamp"
+    },
+    {
+        "id": "1079",
+        "car_brand_id": "52",
+        "code": "SUNDAN",
+        "title": "Sundance"
+    },
+    {
+        "id": "1080",
+        "car_brand_id": "52",
+        "code": "TRAILDUST",
+        "title": "Trailduster"
+    },
+    {
+        "id": "1081",
+        "car_brand_id": "52",
+        "code": "VOYA",
+        "title": "Voyager"
+    },
+    {
+        "id": "1082",
+        "car_brand_id": "52",
+        "code": "PLYOTH",
+        "title": "Other Plymouth Models"
+    },
+    {
+        "id": "1083",
+        "car_brand_id": "53",
+        "code": "T-1000",
+        "title": "1000"
+    },
+    {
+        "id": "1084",
+        "car_brand_id": "53",
+        "code": "6000",
+        "title": "6000"
+    },
+    {
+        "id": "1085",
+        "car_brand_id": "53",
+        "code": "AZTEK",
+        "title": "Aztek"
+    },
+    {
+        "id": "1086",
+        "car_brand_id": "53",
+        "code": "BON",
+        "title": "Bonneville"
+    },
+    {
+        "id": "1087",
+        "car_brand_id": "53",
+        "code": "CATALINA",
+        "title": "Catalina"
+    },
+    {
+        "id": "1088",
+        "car_brand_id": "53",
+        "code": "FIERO",
+        "title": "Fiero"
+    },
+    {
+        "id": "1089",
+        "car_brand_id": "53",
+        "code": "FBIRD",
+        "title": "Firebird"
+    },
+    {
+        "id": "1090",
+        "car_brand_id": "53",
+        "code": "G3",
+        "title": "G3"
+    },
+    {
+        "id": "1091",
+        "car_brand_id": "53",
+        "code": "G5",
+        "title": "G5"
+    },
+    {
+        "id": "1092",
+        "car_brand_id": "53",
+        "code": "G6",
+        "title": "G6"
+    },
+    {
+        "id": "1093",
+        "car_brand_id": "53",
+        "code": "G8",
+        "title": "G8"
+    },
+    {
+        "id": "1094",
+        "car_brand_id": "53",
+        "code": "GRNDAM",
+        "title": "Grand Am"
+    },
+    {
+        "id": "1095",
+        "car_brand_id": "53",
+        "code": "GP",
+        "title": "Grand Prix"
+    },
+    {
+        "id": "1096",
+        "car_brand_id": "53",
+        "code": "GTO",
+        "title": "GTO"
+    },
+    {
+        "id": "1097",
+        "car_brand_id": "53",
+        "code": "J2000",
+        "title": "J2000"
+    },
+    {
+        "id": "1098",
+        "car_brand_id": "53",
+        "code": "LEMANS",
+        "title": "Le Mans"
+    },
+    {
+        "id": "1099",
+        "car_brand_id": "53",
+        "code": "MONTANA",
+        "title": "Montana"
+    },
+    {
+        "id": "1100",
+        "car_brand_id": "53",
+        "code": "PARISI",
+        "title": "Parisienne"
+    },
+    {
+        "id": "1101",
+        "car_brand_id": "53",
+        "code": "PHOENIX",
+        "title": "Phoenix"
+    },
+    {
+        "id": "1102",
+        "car_brand_id": "53",
+        "code": "SAFARIPONT",
+        "title": "Safari"
+    },
+    {
+        "id": "1103",
+        "car_brand_id": "53",
+        "code": "SOLSTICE",
+        "title": "Solstice"
+    },
+    {
+        "id": "1104",
+        "car_brand_id": "53",
+        "code": "SUNBIR",
+        "title": "Sunbird"
+    },
+    {
+        "id": "1105",
+        "car_brand_id": "53",
+        "code": "SUNFIR",
+        "title": "Sunfire"
+    },
+    {
+        "id": "1106",
+        "car_brand_id": "53",
+        "code": "TORRENT",
+        "title": "Torrent"
+    },
+    {
+        "id": "1107",
+        "car_brand_id": "53",
+        "code": "TS",
+        "title": "Trans Sport"
+    },
+    {
+        "id": "1108",
+        "car_brand_id": "53",
+        "code": "VIBE",
+        "title": "Vibe"
+    },
+    {
+        "id": "1109",
+        "car_brand_id": "53",
+        "code": "PONOTH",
+        "title": "Other Pontiac Models"
+    },
+    {
+        "id": "1110",
+        "car_brand_id": "54",
+        "code": "911",
+        "title": "911"
+    },
+    {
+        "id": "1111",
+        "car_brand_id": "54",
+        "code": "924",
+        "title": "924"
+    },
+    {
+        "id": "1112",
+        "car_brand_id": "54",
+        "code": "928",
+        "title": "928"
+    },
+    {
+        "id": "1113",
+        "car_brand_id": "54",
+        "code": "944",
+        "title": "944"
+    },
+    {
+        "id": "1114",
+        "car_brand_id": "54",
+        "code": "968",
+        "title": "968"
+    },
+    {
+        "id": "1115",
+        "car_brand_id": "54",
+        "code": "BOXSTE",
+        "title": "Boxster"
+    },
+    {
+        "id": "1116",
+        "car_brand_id": "54",
+        "code": "CARRERAGT",
+        "title": "Carrera GT"
+    },
+    {
+        "id": "1117",
+        "car_brand_id": "54",
+        "code": "CAYENNE",
+        "title": "Cayenne"
+    },
+    {
+        "id": "1118",
+        "car_brand_id": "54",
+        "code": "CAYMAN",
+        "title": "Cayman"
+    },
+    {
+        "id": "1119",
+        "car_brand_id": "54",
+        "code": "PANAMERA",
+        "title": "Panamera"
+    },
+    {
+        "id": "1120",
+        "car_brand_id": "54",
+        "code": "POROTH",
+        "title": "Other Porsche Models"
+    },
+    {
+        "id": "1121",
+        "car_brand_id": "55",
+        "code": "RAM1504WD",
+        "title": "1500"
+    },
+    {
+        "id": "1122",
+        "car_brand_id": "55",
+        "code": "RAM25002WD",
+        "title": "2500"
+    },
+    {
+        "id": "1123",
+        "car_brand_id": "55",
+        "code": "RAM3502WD",
+        "title": "3500"
+    },
+    {
+        "id": "1124",
+        "car_brand_id": "55",
+        "code": "RAM4500",
+        "title": "4500"
+    },
+    {
+        "id": "1125",
+        "car_brand_id": "56",
+        "code": "18I",
+        "title": "18i"
+    },
+    {
+        "id": "1126",
+        "car_brand_id": "56",
+        "code": "FU",
+        "title": "Fuego"
+    },
+    {
+        "id": "1127",
+        "car_brand_id": "56",
+        "code": "LECAR",
+        "title": "Le Car"
+    },
+    {
+        "id": "1128",
+        "car_brand_id": "56",
+        "code": "R18",
+        "title": "R18"
+    },
+    {
+        "id": "1129",
+        "car_brand_id": "56",
+        "code": "RENSPORT",
+        "title": "Sportwagon"
+    },
+    {
+        "id": "1130",
+        "car_brand_id": "56",
+        "code": "UNAVAILREN",
+        "title": "Other Renault Models"
+    },
+    {
+        "id": "1131",
+        "car_brand_id": "57",
+        "code": "CAMAR",
+        "title": "Camargue"
+    },
+    {
+        "id": "1132",
+        "car_brand_id": "57",
+        "code": "CORN",
+        "title": "Corniche"
+    },
+    {
+        "id": "1133",
+        "car_brand_id": "57",
+        "code": "GHOST",
+        "title": "Ghost"
+    },
+    {
+        "id": "1134",
+        "car_brand_id": "57",
+        "code": "PARKWARD",
+        "title": "Park Ward"
+    },
+    {
+        "id": "1135",
+        "car_brand_id": "57",
+        "code": "PHANT",
+        "title": "Phantom"
+    },
+    {
+        "id": "1136",
+        "car_brand_id": "57",
+        "code": "DAWN",
+        "title": "Silver Dawn"
+    },
+    {
+        "id": "1137",
+        "car_brand_id": "57",
+        "code": "SILSERAPH",
+        "title": "Silver Seraph"
+    },
+    {
+        "id": "1138",
+        "car_brand_id": "57",
+        "code": "RRSPIR",
+        "title": "Silver Spirit"
+    },
+    {
+        "id": "1139",
+        "car_brand_id": "57",
+        "code": "SPUR",
+        "title": "Silver Spur"
+    },
+    {
+        "id": "1140",
+        "car_brand_id": "57",
+        "code": "UNAVAILRR",
+        "title": "Other Rolls-Royce Models"
+    },
+    {
+        "id": "1141",
+        "car_brand_id": "58",
+        "code": "9-2X",
+        "title": "9-2X"
+    },
+    {
+        "id": "1142",
+        "car_brand_id": "58",
+        "code": "9-3",
+        "title": "9-3"
+    },
+    {
+        "id": "1143",
+        "car_brand_id": "58",
+        "code": "9-4X",
+        "title": "9-4X"
+    },
+    {
+        "id": "1144",
+        "car_brand_id": "58",
+        "code": "9-5",
+        "title": "9-5"
+    },
+    {
+        "id": "1145",
+        "car_brand_id": "58",
+        "code": "97X",
+        "title": "9-7X"
+    },
+    {
+        "id": "1146",
+        "car_brand_id": "58",
+        "code": "900",
+        "title": "900"
+    },
+    {
+        "id": "1147",
+        "car_brand_id": "58",
+        "code": "9000",
+        "title": "9000"
+    },
+    {
+        "id": "1148",
+        "car_brand_id": "58",
+        "code": "SAOTH",
+        "title": "Other Saab Models"
+    },
+    {
+        "id": "1149",
+        "car_brand_id": "59",
+        "code": "ASTRA",
+        "title": "Astra"
+    },
+    {
+        "id": "1150",
+        "car_brand_id": "59",
+        "code": "AURA",
+        "title": "Aura"
+    },
+    {
+        "id": "1151",
+        "car_brand_id": "59",
+        "code": "ION",
+        "title": "ION"
+    },
+    {
+        "id": "1152",
+        "car_brand_id": "59",
+        "code": "L_SERIES",
+        "title": "L Series (3)"
+    },
+    {
+        "id": "1153",
+        "car_brand_id": "59",
+        "code": "L100",
+        "title": " - L100"
+    },
+    {
+        "id": "1154",
+        "car_brand_id": "59",
+        "code": "L200",
+        "title": " - L200"
+    },
+    {
+        "id": "1155",
+        "car_brand_id": "59",
+        "code": "L300",
+        "title": " - L300"
+    },
+    {
+        "id": "1156",
+        "car_brand_id": "59",
+        "code": "LSSATURN",
+        "title": "LS"
+    },
+    {
+        "id": "1157",
+        "car_brand_id": "59",
+        "code": "LW_SERIES",
+        "title": "LW Series (4)"
+    },
+    {
+        "id": "1158",
+        "car_brand_id": "59",
+        "code": "LW",
+        "title": " - LW1"
+    },
+    {
+        "id": "1159",
+        "car_brand_id": "59",
+        "code": "LW2",
+        "title": " - LW2"
+    },
+    {
+        "id": "1160",
+        "car_brand_id": "59",
+        "code": "LW200",
+        "title": " - LW200"
+    },
+    {
+        "id": "1161",
+        "car_brand_id": "59",
+        "code": "LW300",
+        "title": " - LW300"
+    },
+    {
+        "id": "1162",
+        "car_brand_id": "59",
+        "code": "OUTLOOK",
+        "title": "Outlook"
+    },
+    {
+        "id": "1163",
+        "car_brand_id": "59",
+        "code": "RELAY",
+        "title": "Relay"
+    },
+    {
+        "id": "1164",
+        "car_brand_id": "59",
+        "code": "SC_SERIES",
+        "title": "SC Series (2)"
+    },
+    {
+        "id": "1165",
+        "car_brand_id": "59",
+        "code": "SC1",
+        "title": " - SC1"
+    },
+    {
+        "id": "1166",
+        "car_brand_id": "59",
+        "code": "SC2",
+        "title": " - SC2"
+    },
+    {
+        "id": "1167",
+        "car_brand_id": "59",
+        "code": "SKY",
+        "title": "Sky"
+    },
+    {
+        "id": "1168",
+        "car_brand_id": "59",
+        "code": "SL_SERIES",
+        "title": "SL Series (3)"
+    },
+    {
+        "id": "1169",
+        "car_brand_id": "59",
+        "code": "SL",
+        "title": " - SL"
+    },
+    {
+        "id": "1170",
+        "car_brand_id": "59",
+        "code": "SL1",
+        "title": " - SL1"
+    },
+    {
+        "id": "1171",
+        "car_brand_id": "59",
+        "code": "SL2",
+        "title": " - SL2"
+    },
+    {
+        "id": "1172",
+        "car_brand_id": "59",
+        "code": "SW_SERIES",
+        "title": "SW Series (2)"
+    },
+    {
+        "id": "1173",
+        "car_brand_id": "59",
+        "code": "SW1",
+        "title": " - SW1"
+    },
+    {
+        "id": "1174",
+        "car_brand_id": "59",
+        "code": "SW2",
+        "title": " - SW2"
+    },
+    {
+        "id": "1175",
+        "car_brand_id": "59",
+        "code": "VUE",
+        "title": "Vue"
+    },
+    {
+        "id": "1176",
+        "car_brand_id": "59",
+        "code": "SATOTH",
+        "title": "Other Saturn Models"
+    },
+    {
+        "id": "1177",
+        "car_brand_id": "60",
+        "code": "SCIFRS",
+        "title": "FR-S"
+    },
+    {
+        "id": "1178",
+        "car_brand_id": "60",
+        "code": "IQ",
+        "title": "iQ"
+    },
+    {
+        "id": "1179",
+        "car_brand_id": "60",
+        "code": "TC",
+        "title": "tC"
+    },
+    {
+        "id": "1180",
+        "car_brand_id": "60",
+        "code": "XA",
+        "title": "xA"
+    },
+    {
+        "id": "1181",
+        "car_brand_id": "60",
+        "code": "XB",
+        "title": "xB"
+    },
+    {
+        "id": "1182",
+        "car_brand_id": "60",
+        "code": "XD",
+        "title": "xD"
+    },
+    {
+        "id": "1183",
+        "car_brand_id": "61",
+        "code": "FORTWO",
+        "title": "fortwo"
+    },
+    {
+        "id": "1184",
+        "car_brand_id": "61",
+        "code": "SMOTH",
+        "title": "Other smart Models"
+    },
+    {
+        "id": "1185",
+        "car_brand_id": "62",
+        "code": "SRTVIPER",
+        "title": "Viper"
+    },
+    {
+        "id": "1186",
+        "car_brand_id": "63",
+        "code": "825",
+        "title": "825"
+    },
+    {
+        "id": "1187",
+        "car_brand_id": "63",
+        "code": "827",
+        "title": "827"
+    },
+    {
+        "id": "1188",
+        "car_brand_id": "63",
+        "code": "UNAVAILSTE",
+        "title": "Other Sterling Models"
+    },
+    {
+        "id": "1189",
+        "car_brand_id": "64",
+        "code": "BAJA",
+        "title": "Baja"
+    },
+    {
+        "id": "1190",
+        "car_brand_id": "64",
+        "code": "BRAT",
+        "title": "Brat"
+    },
+    {
+        "id": "1191",
+        "car_brand_id": "64",
+        "code": "SUBBRZ",
+        "title": "BRZ"
+    },
+    {
+        "id": "1192",
+        "car_brand_id": "64",
+        "code": "FOREST",
+        "title": "Forester"
+    },
+    {
+        "id": "1193",
+        "car_brand_id": "64",
+        "code": "IMPREZ",
+        "title": "Impreza"
+    },
+    {
+        "id": "1194",
+        "car_brand_id": "64",
+        "code": "IMPWRX",
+        "title": "Impreza WRX"
+    },
+    {
+        "id": "1195",
+        "car_brand_id": "64",
+        "code": "JUSTY",
+        "title": "Justy"
+    },
+    {
+        "id": "1196",
+        "car_brand_id": "64",
+        "code": "SUBL",
+        "title": "L Series"
+    },
+    {
+        "id": "1197",
+        "car_brand_id": "64",
+        "code": "LEGACY",
+        "title": "Legacy"
+    },
+    {
+        "id": "1198",
+        "car_brand_id": "64",
+        "code": "LOYALE",
+        "title": "Loyale"
+    },
+    {
+        "id": "1199",
+        "car_brand_id": "64",
+        "code": "SUBOUTBK",
+        "title": "Outback"
+    },
+    {
+        "id": "1200",
+        "car_brand_id": "64",
+        "code": "SVX",
+        "title": "SVX"
+    },
+    {
+        "id": "1201",
+        "car_brand_id": "64",
+        "code": "B9TRIBECA",
+        "title": "Tribeca"
+    },
+    {
+        "id": "1202",
+        "car_brand_id": "64",
+        "code": "XT",
+        "title": "XT"
+    },
+    {
+        "id": "1203",
+        "car_brand_id": "64",
+        "code": "XVCRSSTREK",
+        "title": "XV Crosstrek"
+    },
+    {
+        "id": "1204",
+        "car_brand_id": "64",
+        "code": "SUBOTH",
+        "title": "Other Subaru Models"
+    },
+    {
+        "id": "1205",
+        "car_brand_id": "65",
+        "code": "AERIO",
+        "title": "Aerio"
+    },
+    {
+        "id": "1206",
+        "car_brand_id": "65",
+        "code": "EQUATOR",
+        "title": "Equator"
+    },
+    {
+        "id": "1207",
+        "car_brand_id": "65",
+        "code": "ESTEEM",
+        "title": "Esteem"
+    },
+    {
+        "id": "1208",
+        "car_brand_id": "65",
+        "code": "FORENZA",
+        "title": "Forenza"
+    },
+    {
+        "id": "1209",
+        "car_brand_id": "65",
+        "code": "GRANDV",
+        "title": "Grand Vitara"
+    },
+    {
+        "id": "1210",
+        "car_brand_id": "65",
+        "code": "KIZASHI",
+        "title": "Kizashi"
+    },
+    {
+        "id": "1211",
+        "car_brand_id": "65",
+        "code": "RENO",
+        "title": "Reno"
+    },
+    {
+        "id": "1212",
+        "car_brand_id": "65",
+        "code": "SAMUR",
+        "title": "Samurai"
+    },
+    {
+        "id": "1213",
+        "car_brand_id": "65",
+        "code": "SIDE",
+        "title": "Sidekick"
+    },
+    {
+        "id": "1214",
+        "car_brand_id": "65",
+        "code": "SWIFT",
+        "title": "Swift"
+    },
+    {
+        "id": "1215",
+        "car_brand_id": "65",
+        "code": "SX4",
+        "title": "SX4"
+    },
+    {
+        "id": "1216",
+        "car_brand_id": "65",
+        "code": "VERONA",
+        "title": "Verona"
+    },
+    {
+        "id": "1217",
+        "car_brand_id": "65",
+        "code": "VITARA",
+        "title": "Vitara"
+    },
+    {
+        "id": "1218",
+        "car_brand_id": "65",
+        "code": "X90",
+        "title": "X-90"
+    },
+    {
+        "id": "1219",
+        "car_brand_id": "65",
+        "code": "XL7",
+        "title": "XL7"
+    },
+    {
+        "id": "1220",
+        "car_brand_id": "65",
+        "code": "SUZOTH",
+        "title": "Other Suzuki Models"
+    },
+    {
+        "id": "1221",
+        "car_brand_id": "66",
+        "code": "ROADSTER",
+        "title": "Roadster"
+    },
+    {
+        "id": "1222",
+        "car_brand_id": "67",
+        "code": "4RUN",
+        "title": "4Runner"
+    },
+    {
+        "id": "1223",
+        "car_brand_id": "67",
+        "code": "AVALON",
+        "title": "Avalon"
+    },
+    {
+        "id": "1224",
+        "car_brand_id": "67",
+        "code": "CAMRY",
+        "title": "Camry"
+    },
+    {
+        "id": "1225",
+        "car_brand_id": "67",
+        "code": "CELICA",
+        "title": "Celica"
+    },
+    {
+        "id": "1226",
+        "car_brand_id": "67",
+        "code": "COROL",
+        "title": "Corolla"
+    },
+    {
+        "id": "1227",
+        "car_brand_id": "67",
+        "code": "CORONA",
+        "title": "Corona"
+    },
+    {
+        "id": "1228",
+        "car_brand_id": "67",
+        "code": "CRESS",
+        "title": "Cressida"
+    },
+    {
+        "id": "1229",
+        "car_brand_id": "67",
+        "code": "ECHO",
+        "title": "Echo"
+    },
+    {
+        "id": "1230",
+        "car_brand_id": "67",
+        "code": "FJCRUIS",
+        "title": "FJ Cruiser"
+    },
+    {
+        "id": "1231",
+        "car_brand_id": "67",
+        "code": "HIGHLANDER",
+        "title": "Highlander"
+    },
+    {
+        "id": "1232",
+        "car_brand_id": "67",
+        "code": "LC",
+        "title": "Land Cruiser"
+    },
+    {
+        "id": "1233",
+        "car_brand_id": "67",
+        "code": "MATRIX",
+        "title": "Matrix"
+    },
+    {
+        "id": "1234",
+        "car_brand_id": "67",
+        "code": "MR2",
+        "title": "MR2"
+    },
+    {
+        "id": "1235",
+        "car_brand_id": "67",
+        "code": "MR2SPYDR",
+        "title": "MR2 Spyder"
+    },
+    {
+        "id": "1236",
+        "car_brand_id": "67",
+        "code": "PASEO",
+        "title": "Paseo"
+    },
+    {
+        "id": "1237",
+        "car_brand_id": "67",
+        "code": "PICKUP",
+        "title": "Pickup"
+    },
+    {
+        "id": "1238",
+        "car_brand_id": "67",
+        "code": "PREVIA",
+        "title": "Previa"
+    },
+    {
+        "id": "1239",
+        "car_brand_id": "67",
+        "code": "PRIUS",
+        "title": "Prius"
+    },
+    {
+        "id": "1240",
+        "car_brand_id": "67",
+        "code": "PRIUSC",
+        "title": "Prius C"
+    },
+    {
+        "id": "1241",
+        "car_brand_id": "67",
+        "code": "PRIUSV",
+        "title": "Prius V"
+    },
+    {
+        "id": "1242",
+        "car_brand_id": "67",
+        "code": "RAV4",
+        "title": "RAV4"
+    },
+    {
+        "id": "1243",
+        "car_brand_id": "67",
+        "code": "SEQUOIA",
+        "title": "Sequoia"
+    },
+    {
+        "id": "1244",
+        "car_brand_id": "67",
+        "code": "SIENNA",
+        "title": "Sienna"
+    },
+    {
+        "id": "1245",
+        "car_brand_id": "67",
+        "code": "SOLARA",
+        "title": "Solara"
+    },
+    {
+        "id": "1246",
+        "car_brand_id": "67",
+        "code": "STARLET",
+        "title": "Starlet"
+    },
+    {
+        "id": "1247",
+        "car_brand_id": "67",
+        "code": "SUPRA",
+        "title": "Supra"
+    },
+    {
+        "id": "1248",
+        "car_brand_id": "67",
+        "code": "T100",
+        "title": "T100"
+    },
+    {
+        "id": "1249",
+        "car_brand_id": "67",
+        "code": "TACOMA",
+        "title": "Tacoma"
+    },
+    {
+        "id": "1250",
+        "car_brand_id": "67",
+        "code": "TERCEL",
+        "title": "Tercel"
+    },
+    {
+        "id": "1251",
+        "car_brand_id": "67",
+        "code": "TUNDRA",
+        "title": "Tundra"
+    },
+    {
+        "id": "1252",
+        "car_brand_id": "67",
+        "code": "TOYVAN",
+        "title": "Van"
+    },
+    {
+        "id": "1253",
+        "car_brand_id": "67",
+        "code": "VENZA",
+        "title": "Venza"
+    },
+    {
+        "id": "1254",
+        "car_brand_id": "67",
+        "code": "YARIS",
+        "title": "Yaris"
+    },
+    {
+        "id": "1255",
+        "car_brand_id": "67",
+        "code": "TOYOTH",
+        "title": "Other Toyota Models"
+    },
+    {
+        "id": "1256",
+        "car_brand_id": "68",
+        "code": "TR7",
+        "title": "TR7"
+    },
+    {
+        "id": "1257",
+        "car_brand_id": "68",
+        "code": "TR8",
+        "title": "TR8"
+    },
+    {
+        "id": "1258",
+        "car_brand_id": "68",
+        "code": "TRIOTH",
+        "title": "Other Triumph Models"
+    },
+    {
+        "id": "1259",
+        "car_brand_id": "69",
+        "code": "BEETLE",
+        "title": "Beetle"
+    },
+    {
+        "id": "1260",
+        "car_brand_id": "69",
+        "code": "VOLKSCAB",
+        "title": "Cabrio"
+    },
+    {
+        "id": "1261",
+        "car_brand_id": "69",
+        "code": "CAB",
+        "title": "Cabriolet"
+    },
+    {
+        "id": "1262",
+        "car_brand_id": "69",
+        "code": "CC",
+        "title": "CC"
+    },
+    {
+        "id": "1263",
+        "car_brand_id": "69",
+        "code": "CORR",
+        "title": "Corrado"
+    },
+    {
+        "id": "1264",
+        "car_brand_id": "69",
+        "code": "DASHER",
+        "title": "Dasher"
+    },
+    {
+        "id": "1265",
+        "car_brand_id": "69",
+        "code": "EOS",
+        "title": "Eos"
+    },
+    {
+        "id": "1266",
+        "car_brand_id": "69",
+        "code": "EUROVAN",
+        "title": "Eurovan"
+    },
+    {
+        "id": "1267",
+        "car_brand_id": "69",
+        "code": "VOLKSFOX",
+        "title": "Fox"
+    },
+    {
+        "id": "1268",
+        "car_brand_id": "69",
+        "code": "GLI",
+        "title": "GLI"
+    },
+    {
+        "id": "1269",
+        "car_brand_id": "69",
+        "code": "GOLFR",
+        "title": "Golf R"
+    },
+    {
+        "id": "1270",
+        "car_brand_id": "69",
+        "code": "GTI",
+        "title": "GTI"
+    },
+    {
+        "id": "1271",
+        "car_brand_id": "69",
+        "code": "GOLFANDRABBITMODELS",
+        "title": "Golf and Rabbit Models (2)"
+    },
+    {
+        "id": "1272",
+        "car_brand_id": "69",
+        "code": "GOLF",
+        "title": " - Golf"
+    },
+    {
+        "id": "1273",
+        "car_brand_id": "69",
+        "code": "RABBIT",
+        "title": " - Rabbit"
+    },
+    {
+        "id": "1274",
+        "car_brand_id": "69",
+        "code": "JET",
+        "title": "Jetta"
+    },
+    {
+        "id": "1275",
+        "car_brand_id": "69",
+        "code": "PASS",
+        "title": "Passat"
+    },
+    {
+        "id": "1276",
+        "car_brand_id": "69",
+        "code": "PHAETON",
+        "title": "Phaeton"
+    },
+    {
+        "id": "1277",
+        "car_brand_id": "69",
+        "code": "RABBITPU",
+        "title": "Pickup"
+    },
+    {
+        "id": "1278",
+        "car_brand_id": "69",
+        "code": "QUAN",
+        "title": "Quantum"
+    },
+    {
+        "id": "1279",
+        "car_brand_id": "69",
+        "code": "R32",
+        "title": "R32"
+    },
+    {
+        "id": "1280",
+        "car_brand_id": "69",
+        "code": "ROUTAN",
+        "title": "Routan"
+    },
+    {
+        "id": "1281",
+        "car_brand_id": "69",
+        "code": "SCIR",
+        "title": "Scirocco"
+    },
+    {
+        "id": "1282",
+        "car_brand_id": "69",
+        "code": "TIGUAN",
+        "title": "Tiguan"
+    },
+    {
+        "id": "1283",
+        "car_brand_id": "69",
+        "code": "TOUAREG",
+        "title": "Touareg"
+    },
+    {
+        "id": "1284",
+        "car_brand_id": "69",
+        "code": "VANAG",
+        "title": "Vanagon"
+    },
+    {
+        "id": "1285",
+        "car_brand_id": "69",
+        "code": "VWOTH",
+        "title": "Other Volkswagen Models"
+    },
+    {
+        "id": "1286",
+        "car_brand_id": "70",
+        "code": "240",
+        "title": "240"
+    },
+    {
+        "id": "1287",
+        "car_brand_id": "70",
+        "code": "260",
+        "title": "260"
+    },
+    {
+        "id": "1288",
+        "car_brand_id": "70",
+        "code": "740",
+        "title": "740"
+    },
+    {
+        "id": "1289",
+        "car_brand_id": "70",
+        "code": "760",
+        "title": "760"
+    },
+    {
+        "id": "1290",
+        "car_brand_id": "70",
+        "code": "780",
+        "title": "780"
+    },
+    {
+        "id": "1291",
+        "car_brand_id": "70",
+        "code": "850",
+        "title": "850"
+    },
+    {
+        "id": "1292",
+        "car_brand_id": "70",
+        "code": "940",
+        "title": "940"
+    },
+    {
+        "id": "1293",
+        "car_brand_id": "70",
+        "code": "960",
+        "title": "960"
+    },
+    {
+        "id": "1294",
+        "car_brand_id": "70",
+        "code": "C30",
+        "title": "C30"
+    },
+    {
+        "id": "1295",
+        "car_brand_id": "70",
+        "code": "C70",
+        "title": "C70"
+    },
+    {
+        "id": "1296",
+        "car_brand_id": "70",
+        "code": "S40",
+        "title": "S40"
+    },
+    {
+        "id": "1297",
+        "car_brand_id": "70",
+        "code": "S60",
+        "title": "S60"
+    },
+    {
+        "id": "1298",
+        "car_brand_id": "70",
+        "code": "S70",
+        "title": "S70"
+    },
+    {
+        "id": "1299",
+        "car_brand_id": "70",
+        "code": "S80",
+        "title": "S80"
+    },
+    {
+        "id": "1300",
+        "car_brand_id": "70",
+        "code": "S90",
+        "title": "S90"
+    },
+    {
+        "id": "1301",
+        "car_brand_id": "70",
+        "code": "V40",
+        "title": "V40"
+    },
+    {
+        "id": "1302",
+        "car_brand_id": "70",
+        "code": "V50",
+        "title": "V50"
+    },
+    {
+        "id": "1303",
+        "car_brand_id": "70",
+        "code": "V70",
+        "title": "V70"
+    },
+    {
+        "id": "1304",
+        "car_brand_id": "70",
+        "code": "V90",
+        "title": "V90"
+    },
+    {
+        "id": "1305",
+        "car_brand_id": "70",
+        "code": "XC60",
+        "title": "XC60"
+    },
+    {
+        "id": "1306",
+        "car_brand_id": "70",
+        "code": "XC",
+        "title": "XC70"
+    },
+    {
+        "id": "1307",
+        "car_brand_id": "70",
+        "code": "XC90",
+        "title": "XC90"
+    },
+    {
+        "id": "1308",
+        "car_brand_id": "70",
+        "code": "VOLOTH",
+        "title": "Other Volvo Models"
+    },
+    {
+        "id": "1309",
+        "car_brand_id": "71",
+        "code": "GV",
+        "title": "GV"
+    },
+    {
+        "id": "1310",
+        "car_brand_id": "71",
+        "code": "GVC",
+        "title": "GVC"
+    },
+    {
+        "id": "1311",
+        "car_brand_id": "71",
+        "code": "GVL",
+        "title": "GVL"
+    },
+    {
+        "id": "1312",
+        "car_brand_id": "71",
+        "code": "GVS",
+        "title": "GVS"
+    },
+    {
+        "id": "1313",
+        "car_brand_id": "71",
+        "code": "GVX",
+        "title": "GVX"
+    },
+    {
+        "id": "1314",
+        "car_brand_id": "71",
+        "code": "YUOTH",
+        "title": "Other Yugo Models"
+    }
+]

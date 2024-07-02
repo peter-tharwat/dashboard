@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-12 py-3">
 	<div class="container">
-		<div class="p-3 main-box mx-auto" style="width:600px;max-width: 100%;">
+		<div class="p-3 card mx-auto" style="width:600px;max-width: 100%;">
 			<div class="d-flex align-items-center justify-content-center py-4">
 			 	<div class="col-12 d-flex justify-content-center align-items-center mx-auto " style="width:100%">
 			 		<div class="col-12 p-0 text-center">
@@ -19,25 +19,25 @@
 				<table class="table table-bordered table-striped rounded table-hover">
 					<tbody>
 						<tr>
-							<td>البريد الإلكتروني</td>
+							<td>{{ __('lang.email') }}</td>
 							<td>{{auth()->user()->email}}</td>
 						</tr>
 						<tr>
-							<td>الهاتف</td>
+							<td>{{ __('lang.phone') }}</td>
 							<td>
 								@if(auth()->user()->phone==null)
-									لا يوجد
+								{{ __('lang.not_found') }}
 								@else
 									{{auth()->user()->phone}}
 								@endif
 							</td>
 						</tr>
 						<tr>
-							<td>نوع الحساب</td>
+							<td>{{ __('lang.account_type') }}</td>
 							<td>{{auth()->user()->power}}</td>
 						</tr>
 						<tr>
-							<td>فعال</td>
+							<td>{{ __('lang.active') }}</td>
 							<td>
 								@if(!auth()->user()->blocked)
 									<span class="fas fa-check-circle text-success"></span>
@@ -47,15 +47,15 @@
 
 						</td>
 						<tr>
-							<td>نبذة</td>
+							<td>{{ __('lang.bio') }}</td>
 							<td>
 								{{auth()->user()->bio}}
 							</td>
 						</tr>
 						
 						<tr>
-							<td>تحكم</td>
-							<td><a href="{{route('admin.profile.edit')}}" class="rounded-0 btn btn-success btn-sm border"><span class="fal fa-wrench"></span> تعديل</a></td>
+							<td>{{ __('lang.control') }}</td>
+							<td><a href="{{route('admin.profile.edit')}}" class="rounded-0 btn btn-success btn-sm border"><span class="fal fa-wrench"></span> {{ __('lang.save') }}</a></td>
 						</tr>
 
 						

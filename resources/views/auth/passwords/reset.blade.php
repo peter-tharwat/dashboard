@@ -30,18 +30,18 @@
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
                         <div class="col-12 p-0 mb-5 mt-3" style="width: 550px;max-width: 100%;margin: 0px auto;">
-                            <h3 class="mb-4 text-center font-4">{{ __('Reset Password') }}</h3>
+                            <h3 class="mb-4 text-center font-4">{{ __('lang.a5') }}</h3>
                              
                         </div>
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
-                                {{ __('A fresh verification link has been sent to your email address.') }}
+                                {{ __('lang.a1') }}
                             </div>
                         @endif
 
                         <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
-                                <label for="email" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('Email') }}</label>
+                                <label for="email" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('lang.email') }}</label>
                                 <input id="email" type="email" class="form-control mt-2 d-inline-block @error('email') is-invalid @enderror" name="email" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" value="{{ old('email') }}">
                             </div>
                             @error('email')
@@ -53,7 +53,7 @@
 
                         <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
-                                <label for="password" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('Password') }}</label>
+                                <label for="password" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('lang.password') }}</label>
                                 <input id="password" type="password" class="form-control mt-2 d-inline-block @error('password') is-invalid @enderror" name="password" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" value="{{ old('password') }}">
                             </div>
                             @error('password')
@@ -65,7 +65,7 @@
 
                         <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                             <div class="col-md-12 px-2 pt-4" style="position: relative;">
-                                <label for="password-confirm" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline" style="background:#f4f4f4;position: absolute;top: 17px;right: 20px; border-radius: 3px!important">{{ __('lang.confirm_password') }}</label>
                                 <input id="password-confirm" type="password-confirm" class="form-control mt-2 d-inline-block @error('password-confirm') is-invalid @enderror" name="password_confirmation" value="" required="" autocomplete="off" autofocus="" style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important" value="{{ old('password-confirm') }}">
                             </div>
                             @error('password-confirm')
@@ -79,7 +79,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
+                                    {{ __('lang.a5') }}
                                 </button>
                             </div>
                         </div>

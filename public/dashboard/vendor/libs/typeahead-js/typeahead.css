@@ -1,0 +1,91 @@
+.twitter-typeahead {
+  display: block !important;
+}
+.twitter-typeahead .tt-menu {
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  display: none;
+}
+[dir=rtl] .twitter-typeahead .tt-menu {
+  float: right;
+  left: auto !important;
+  right: 0 !important;
+  text-align: right;
+}
+.twitter-typeahead .tt-menu .tt-suggestion {
+  text-align: inherit;
+  border: 0;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  background: none;
+  clear: both;
+  cursor: pointer;
+}
+.twitter-typeahead .tt-menu .tt-suggestion p {
+  margin: 0;
+}
+.twitter-typeahead .tt-menu .tt-suggestion .tt-highlight {
+  font-weight: 500;
+}
+.twitter-typeahead .tt-hint {
+  color: #999;
+}
+[dir=rtl] .twitter-typeahead .tt-input {
+  direction: rtl;
+}
+
+.light-style .twitter-typeahead .tt-menu {
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  font-size: 0.9375rem;
+  z-index: 1000;
+  margin: 0.25rem 0;
+  color: #6f6b7d;
+  box-shadow: 0 0.25rem 1rem rgba(165, 163, 174, 0.45);
+  background-color: #fff;
+  border-radius: 0.375rem;
+}
+.light-style .twitter-typeahead .tt-hint {
+  color: #b7b5be;
+}
+.light-style .twitter-typeahead .tt-suggestion {
+  font-weight: 400;
+  color: #5d596c;
+  padding: 0.42rem 1rem;
+}
+.light-style .twitter-typeahead .tt-suggestion:hover, .light-style .twitter-typeahead .tt-suggestion:focus {
+  text-decoration: none;
+  color: #7367f0;
+  background-color: rgba(115, 103, 240, 0.08);
+}
+
+.dark-style .twitter-typeahead .tt-menu {
+  color: #b6bee3;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.25rem 0;
+  box-shadow: 0 0.25rem 1rem rgba(15, 20, 34, 0.55);
+  font-size: 0.9375rem;
+  background-color: #2f3349;
+  z-index: 1000;
+  border-radius: 0.375rem;
+}
+.dark-style .twitter-typeahead .tt-menu .tt-suggestion {
+  font-weight: 400;
+  color: #cfd3ec;
+  padding: 0.42rem 1rem;
+}
+.dark-style .twitter-typeahead .tt-menu .tt-suggestion:hover, .dark-style .twitter-typeahead .tt-menu .tt-suggestion:focus {
+  text-decoration: none;
+  color: #7367f0;
+  background-color: rgba(115, 103, 240, 0.08);
+}
+.dark-style .twitter-typeahead .tt-hint {
+  color: #5e6692;
+}

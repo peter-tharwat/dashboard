@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
-	<div class="col-12 col-lg-12 p-0 main-box">
+	<div class="col-12 col-lg-12 p-0 card">
 	 
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
@@ -24,12 +24,12 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="table-responsive text-nowrap">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -71,7 +71,7 @@
 							@endcan
 							@can('pages-delete')
 							<form method="POST" action="{{route('admin.pages.destroy',$page)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
+								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
 									<span class="fas fa-trash "></span> حذف
 								</button>
 							</form>

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
-	<div class="col-12 col-lg-12 p-0 main-box">
+	<div class="col-12 col-lg-12 p-0 card">
 	 
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-links"></span> الصفحات
+					<span class="fas fa-links"></span>  {{ __('lang.menu_links') }}
 				</div>
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('menu-links-create')
 					<a href="{{route('admin.menu-links.create',['menu_id'=>request()->get('menu_id')])}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
+					<span class="btn btn-primary"><span class="fas fa-plus"></span> {{ __('lang.add_new') }} </span>
 					</a>
 					@endcan
 				</div>
@@ -24,22 +24,22 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="table-responsive text-nowrap">
 				
 			
 			<table class="table table-bordered  table-hover sortable-table">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>العنوان</th>
-						<th>الرابط</th>
+						<th>{{ __('lang.title') }}</th>
+						<th>{{ __('lang.link') }}</th>
 						
-						<th>تحكم</th>
+						<th>{{ __('lang.control') }}</th>
 					</tr>
 				</thead>
 				<tbody id="sortable-table">
@@ -59,15 +59,15 @@
 							@can('menu-links-update')
 							<a href="{{route('admin.menu-links.edit',$link)}}">
 								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
+									<span class="fas fa-wrench "></span> {{ __('lang.control') }}
 								</span>
 							</a>
 							@endcan
 
 							@can('menu-links-delete')
 							<form method="POST" action="{{route('admin.menu-links.destroy',$link)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
+								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
+									<span class="fas fa-trash "></span> {{ __('lang.delete') }}
 								</button>
 							</form>
 							@endcan

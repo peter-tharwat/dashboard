@@ -1,0 +1,870 @@
+{
+  "pages": [
+    {
+      "name": "Dashboard Analytics",
+      "icon": "ti-smart-home",
+      "url": "index.html"
+    },
+    {
+      "name": "Dashboard CRM",
+      "icon": "ti-smart-home",
+      "url": "dashboards-crm.html"
+    },
+    {
+      "name": "Layout Collapsed menu",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-collapsed-menu.html"
+    },
+    {
+      "name": "Layout Content navbar",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-content-navbar.html"
+    },
+    {
+      "name": "Layout Content nav + Sidebar",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-content-navbar-with-sidebar.html"
+    },
+    {
+      "name": "Layout Without menu",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-without-menu.html"
+    },
+    {
+      "name": "Layout Without navbar",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-without-navbar.html"
+    },
+    {
+      "name": "Layout Fluid",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-fluid.html"
+    },
+    {
+      "name": "Layout Container",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-container.html"
+    },
+    {
+      "name": "Layout Blank",
+      "icon": "ti-layout-sidebar",
+      "url": "layouts-blank.html"
+    },
+    {
+      "name": "Email",
+      "icon": "ti-mail",
+      "url": "app-email.html"
+    },
+    {
+      "name": "Chat",
+      "icon": "ti-messages",
+      "url": "app-chat.html"
+    },
+    {
+      "name": "Calendar",
+      "icon": "ti-calendar",
+      "url": "app-calendar.html"
+    },
+    {
+      "name": "Kanban",
+      "icon": "ti-layout-kanban",
+      "url": "app-kanban.html"
+    },
+    {
+      "name": "eCommerce Dashboard",
+      "icon": "ti-smart-home",
+      "url": "app-ecommerce-dashboard.html"
+    },
+    {
+      "name": "eCommerce - Product",
+      "icon": "ti-building-factory-2",
+      "url": "app-ecommerce-product-list.html"
+    },
+    {
+      "name": "eCommerce - Product List",
+      "icon": "ti-list-details",
+      "url": "app-ecommerce-product-list.html"
+    },
+    {
+      "name": "eCommerce - Add Product",
+      "icon": "ti-plus",
+      "url": "app-ecommerce-product-add.html"
+    },
+    {
+      "name": "eCommerce - Category List",
+      "icon": "ti-list",
+      "url": "app-ecommerce-category-list.html"
+    },
+    {
+      "name": "eCommerce - Order List",
+      "icon": "ti-list",
+      "url": "app-ecommerce-order-list.html"
+    },
+    {
+      "name": "eCommerce - Orders Details",
+      "icon": "ti-list-check",
+      "url": "app-ecommerce-order-details.html"
+    },
+    {
+      "name": "eCommerce - Customers",
+      "icon": "ti-user",
+      "url": "app-ecommerce-customer-all.html"
+    },
+    {
+      "name": "eCommerce - Customers Overview",
+      "icon": "ti-list-details",
+      "url": "app-ecommerce-customer-details-overview.html"
+    },
+    {
+      "name": "eCommerce - Customers Security",
+      "icon": "ti-home-shield",
+      "url": "app-ecommerce-customer-details-security.html"
+    },
+    {
+      "name": "eCommerce - Customers Address and Billing",
+      "icon": "ti-map-pin",
+      "url": "app-ecommerce-customer-details-billing.html"
+    },
+    {
+      "name": "eCommerce - Customers Notifications",
+      "icon": "ti-bell",
+      "url": "app-ecommerce-customer-details-notifications.html"
+    },
+    {
+      "name": "eCommerce - Manage Reviews",
+      "icon": "ti-quote",
+      "url": "app-ecommerce-manage-reviews.html"
+    },
+    {
+      "name": "eCommerce - Referrals",
+      "icon": "ti-building-factory-2",
+      "url": "app-ecommerce-referral.html"
+    },
+    {
+      "name": "eCommerce - Settings Store Details",
+      "icon": "ti-building-store",
+      "url": "app-ecommerce-settings-detail.html"
+    },
+    {
+      "name": "eCommerce - Settings Store Payments",
+      "icon": "ti-currency-dollar",
+      "url": "app-ecommerce-settings-payments.html"
+    },
+    {
+      "name": "eCommerce - Settings Store Checkout",
+      "icon": "ti-shopping-cart",
+      "url": "app-ecommerce-settings-checkout.html"
+    },
+    {
+      "name": "eCommerce - Settings Shipping & Delivery",
+      "icon": "ti-truck",
+      "url": "app-ecommerce-settings-shipping.html"
+    },
+    {
+      "name": "eCommerce - Settings Locations",
+      "icon": "ti-map-pin",
+      "url": "app-ecommerce-settings-locations.html"
+    },
+    {
+      "name": "eCommerce - Settings Notifications",
+      "icon": "ti-bell-ringing",
+      "url": "app-ecommerce-settings-notifications.html"
+    },
+    {
+      "name": "Academy - Dashboard",
+      "icon": "ti-book",
+      "url": "app-academy-dashboard.html"
+    },
+    {
+      "name": "Academy - My Course",
+      "icon": "ti-list",
+      "url": "app-academy-course.html"
+    },
+    {
+      "name": "Academy - Course Details",
+      "icon": "ti-list",
+      "url": "app-academy-course-details.html"
+    },
+    {
+      "name": "User List",
+      "icon": "ti-list-numbers",
+      "url": "app-user-list.html"
+    },
+    {
+      "name": "User View - Account",
+      "icon": "ti-user",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "User View - Security",
+      "icon": "ti-shield-chevron",
+      "url": "app-user-view-security.html"
+    },
+    {
+      "name": "User View - Billing & Plans",
+      "icon": "ti-file-text",
+      "url": "app-user-view-billing.html"
+    },
+    {
+      "name": "User View - Notifications",
+      "icon": "ti-notification",
+      "url": "app-user-view-notifications.html"
+    },
+    {
+      "name": "User View - Connections",
+      "icon": "ti-brand-google",
+      "url": "app-user-view-connections.html"
+    },
+    {
+      "name": "Roles",
+      "icon": "ti-shield-checkered",
+      "url": "app-access-roles.html"
+    },
+    {
+      "name": "Permission",
+      "icon": "ti-ban",
+      "url": "app-access-permission.html"
+    },
+    {
+      "name": "Logistics Dashboard",
+      "icon": "ti-truck",
+      "url": "app-logistics-dashboard.html"
+    },
+    {
+      "name": "Logistics Fleet",
+      "icon": "ti-car",
+      "url": "app-logistics-fleet.html"
+    },
+    {
+      "name": "Invoice List",
+      "icon": "ti-list-numbers",
+      "url": "app-invoice-list.html"
+    },
+    {
+      "name": "Invoice Preview",
+      "icon": "ti-file-text",
+      "url": "app-invoice-preview.html"
+    },
+    {
+      "name": "Invoice Edit",
+      "icon": "ti-pencil",
+      "url": "app-invoice-edit.html"
+    },
+    {
+      "name": "Invoice Add",
+      "icon": "ti-user-plus",
+      "url": "app-invoice-add.html"
+    },
+    {
+      "name": "User Profile",
+      "icon": "ti-user-circle",
+      "url": "pages-profile-user.html"
+    },
+    {
+      "name": "User Profile - Teams",
+      "icon": "ti-users",
+      "url": "pages-profile-teams.html"
+    },
+    {
+      "name": "User Profile - Projects",
+      "icon": "ti-layout-grid",
+      "url": "pages-profile-projects.html"
+    },
+    {
+      "name": "User Profile - Connections",
+      "icon": "ti-link",
+      "url": "pages-profile-connections.html"
+    },
+    {
+      "name": "Account Settings - Account",
+      "icon": "ti-user",
+      "url": "pages-account-settings-account.html"
+    },
+    {
+      "name": "Account Settings - Security",
+      "icon": "ti-shield-chevron",
+      "url": "pages-account-settings-security.html"
+    },
+    {
+      "name": "Account Settings - Billing & Plans",
+      "icon": "ti-file-text",
+      "url": "pages-account-settings-billing.html"
+    },
+    {
+      "name": "Account Settings - Notifications",
+      "icon": "ti-notification",
+      "url": "pages-account-settings-notifications.html"
+    },
+    {
+      "name": "Account Settings - Connections",
+      "icon": "ti-link",
+      "url": "pages-account-settings-connections.html"
+    },
+    {
+      "name": "FAQ",
+      "icon": "ti-help",
+      "url": "pages-faq.html"
+    },
+    {
+      "name": "Pricing",
+      "icon": "ti-diamond",
+      "url": "pages-pricing.html"
+    },
+    {
+      "name": "Error",
+      "icon": "ti-alert-circle",
+      "url": "pages-misc-error.html"
+    },
+    {
+      "name": "Under Maintenance",
+      "icon": "ti-barrier-block",
+      "url": "pages-misc-under-maintenance.html"
+    },
+    {
+      "name": "Coming Soon",
+      "icon": "ti-clock",
+      "url": "pages-misc-comingsoon.html"
+    },
+    {
+      "name": "Not Authorized",
+      "icon": "ti-user-x",
+      "url": "pages-misc-not-authorized.html"
+    },
+    {
+      "name": "Login Basic",
+      "icon": "ti-login",
+      "url": "auth-login-basic.html"
+    },
+    {
+      "name": "Login Cover",
+      "icon": "ti-login",
+      "url": "auth-login-cover.html"
+    },
+    {
+      "name": "Register Basic",
+      "icon": "ti-user-plus",
+      "url": "auth-register-basic.html"
+    },
+    {
+      "name": "Register Cover",
+      "icon": "ti-user-plus",
+      "url": "auth-register-cover.html"
+    },
+    {
+      "name": "Register Multi-steps",
+      "icon": "ti-user-plus",
+      "url": "auth-register-multisteps.html"
+    },
+    {
+      "name": "Verify Email Basic",
+      "icon": "ti-mail",
+      "url": "auth-verify-email-basic.html"
+    },
+    {
+      "name": "Verify Email Cover",
+      "icon": "ti-mail",
+      "url": "auth-verify-email-cover.html"
+    },
+    {
+      "name": "Reset Password Basic",
+      "icon": "ti-help",
+      "url": "auth-reset-password-basic.html"
+    },
+    {
+      "name": "Reset Password Cover",
+      "icon": "ti-help",
+      "url": "auth-reset-password-cover.html"
+    },
+    {
+      "name": "Forgot Password Basic",
+      "icon": "ti-question-mark",
+      "url": "auth-forgot-password-basic.html"
+    },
+    {
+      "name": "Forgot Password Cover",
+      "icon": "ti-question-mark",
+      "url": "auth-forgot-password-cover.html"
+    },
+    {
+      "name": "Two Steps Verification Basic",
+      "icon": "ti-question-mark",
+      "url": "auth-two-steps-basic.html"
+    },
+    {
+      "name": "Two Steps Verification Cover",
+      "icon": "ti-question-mark",
+      "url": "auth-two-steps-cover.html"
+    },
+    {
+      "name": "Help Center Front",
+      "icon": "ti-progress-help",
+      "url": "../front-pages/help-center-landing.html"
+    },
+    {
+      "name": "Landing Front",
+      "icon": "ti-files",
+      "url": "../front-pages/landing-page.html"
+    },
+    {
+      "name": "Pricing Front",
+      "icon": "ti-currency-dollar",
+      "url": "../front-pages/pricing-page.html"
+    },
+    {
+      "name": "Checkout Front",
+      "icon": "ti-check",
+      "url": "../front-pages/checkout-page.html"
+    },
+    {
+      "name": "Payment Front",
+      "icon": "ti-credit-card",
+      "url": "../front-pages/payment-page.html"
+    },
+    {
+      "name": "Modal Examples",
+      "icon": "ti-square",
+      "url": "modal-examples.html"
+    },
+    {
+      "name": "Checkout Wizard",
+      "icon": "ti-shopping-cart",
+      "url": "wizard-ex-checkout.html"
+    },
+    {
+      "name": "Property Listing Wizard",
+      "icon": "ti-building-cottage",
+      "url": "wizard-ex-property-listing.html"
+    },
+    {
+      "name": "Create Deal Wizard",
+      "icon": "ti-gift",
+      "url": "wizard-ex-create-deal.html"
+    },
+    {
+      "name": "Tabler",
+      "icon": "ti-pencil",
+      "url": "icons-tabler.html"
+    },
+    {
+      "name": "Font Awesome",
+      "icon": "ti-typography",
+      "url": "icons-font-awesome.html"
+    },
+    {
+      "name": "Basic Cards",
+      "icon": "ti-credit-card",
+      "url": "cards-basic.html"
+    },
+    {
+      "name": "Advance Cards",
+      "icon": "ti-id",
+      "url": "cards-advance.html"
+    },
+    {
+      "name": "Statistics Cards",
+      "icon": "ti-chart-bar",
+      "url": "cards-statistics.html"
+    },
+    {
+      "name": "Analytics Cards",
+      "icon": "ti-chart-bar",
+      "url": "cards-analytics.html"
+    },
+    {
+      "name": "Actions Cards",
+      "icon": "ti-mouse-2",
+      "url": "cards-actions.html"
+    },
+    {
+      "name": "Accordion",
+      "icon": "ti-arrows-maximize",
+      "url": "ui-accordion.html"
+    },
+    {
+      "name": "Alerts",
+      "icon": "ti-alert-triangle",
+      "url": "ui-alerts.html"
+    },
+    {
+      "name": "Badges",
+      "icon": "ti-badge",
+      "url": "ui-badges.html"
+    },
+    {
+      "name": "Buttons",
+      "icon": "ti-circle-plus",
+      "url": "ui-buttons.html"
+    },
+    {
+      "name": "Carousel",
+      "icon": "ti-photo",
+      "url": "ui-carousel.html"
+    },
+    {
+      "name": "Collapse",
+      "icon": "ti-arrows-minimize",
+      "url": "ui-collapse.html"
+    },
+    {
+      "name": "Dropdowns",
+      "icon": "ti-arrow-autofit-height",
+      "url": "ui-dropdowns.html"
+    },
+    {
+      "name": "Footer",
+      "icon": "ti-layout-bottombar",
+      "url": "ui-footer.html"
+    },
+    {
+      "name": "List Groups",
+      "icon": "ti-list-numbers",
+      "url": "ui-list-groups.html"
+    },
+    {
+      "name": "Modals",
+      "icon": "ti-layout",
+      "url": "ui-modals.html"
+    },
+    {
+      "name": "Navbar",
+      "icon": "ti-layout-navbar",
+      "url": "ui-navbar.html"
+    },
+    {
+      "name": "Offcanvas",
+      "icon": "ti-layout",
+      "url": "ui-offcanvas.html"
+    },
+    {
+      "name": "Pagination & Breadcrumbs",
+      "icon": "ti-chevrons-right",
+      "url": "ui-pagination-breadcrumbs.html"
+    },
+    {
+      "name": "Progress",
+      "icon": "ti-adjustments-horizontal",
+      "url": "ui-progress.html"
+    },
+    {
+      "name": "Spinners",
+      "icon": "ti-loader-2",
+      "url": "ui-spinners.html"
+    },
+    {
+      "name": "Tabs & Pills",
+      "icon": "ti-server-2",
+      "url": "ui-tabs-pills.html"
+    },
+    {
+      "name": "Toasts",
+      "icon": "ti-box-model",
+      "url": "ui-toasts.html"
+    },
+    {
+      "name": "Tooltips & Popovers",
+      "icon": "ti-message-2",
+      "url": "ui-tooltips-popovers.html"
+    },
+    {
+      "name": "Typography",
+      "icon": "ti-typography",
+      "url": "ui-typography.html"
+    },
+    {
+      "name": "Avatar",
+      "icon": "ti-user-circle",
+      "url": "extended-ui-avatar.html"
+    },
+    {
+      "name": "BlockUI",
+      "icon": "ti-window-maximize",
+      "url": "extended-ui-blockui.html"
+    },
+    {
+      "name": "Drag & Drop",
+      "icon": "ti-drag-drop",
+      "url": "extended-ui-drag-and-drop.html"
+    },
+    {
+      "name": "Media Player",
+      "icon": "ti-music",
+      "url": "extended-ui-media-player.html"
+    },
+    {
+      "name": "Perfect Scrollbar",
+      "icon": "ti-arrows-move-vertical",
+      "url": "extended-ui-perfect-scrollbar.html"
+    },
+    {
+      "name": "Star Ratings",
+      "icon": "ti-star",
+      "url": "extended-ui-star-ratings.html"
+    },
+    {
+      "name": "SweetAlert2",
+      "icon": "ti-alert-triangle",
+      "url": "extended-ui-sweetalert2.html"
+    },
+    {
+      "name": "Text Divider",
+      "icon": "ti-separator-horizontal",
+      "url": "extended-ui-text-divider.html"
+    },
+    {
+      "name": "Timeline Basic",
+      "icon": "ti-arrows-horizontal",
+      "url": "extended-ui-timeline-basic.html"
+    },
+    {
+      "name": "Timeline Fullscreen",
+      "icon": "ti-arrows-horizontal",
+      "url": "extended-ui-timeline-fullscreen.html"
+    },
+    {
+      "name": "Tour",
+      "icon": "ti-brand-telegram",
+      "url": "extended-ui-tour.html"
+    },
+    {
+      "name": "Treeview",
+      "icon": "ti-git-fork rotate-180",
+      "url": "extended-ui-treeview.html"
+    },
+    {
+      "name": "Miscellaneous",
+      "icon": "ti-sitemap",
+      "url": "extended-ui-misc.html"
+    },
+    {
+      "name": "Basic Inputs",
+      "icon": "ti-cursor-text",
+      "url": "forms-basic-inputs.html"
+    },
+    {
+      "name": "Input groups",
+      "icon": "ti-arrow-autofit-content",
+      "url": "forms-input-groups.html"
+    },
+    {
+      "name": "Custom Options",
+      "icon": "ti-circle",
+      "url": "forms-custom-options.html"
+    },
+    {
+      "name": "Editors",
+      "icon": "ti-text-resize",
+      "url": "forms-editors.html"
+    },
+    {
+      "name": "File Upload",
+      "icon": "ti-file-upload",
+      "url": "forms-file-upload.html"
+    },
+    {
+      "name": "Pickers",
+      "icon": "ti-edit-circle",
+      "url": "forms-pickers.html"
+    },
+    {
+      "name": "Select & Tags",
+      "icon": "ti-select",
+      "url": "forms-selects.html"
+    },
+    {
+      "name": "Sliders",
+      "icon": "ti-adjustments-alt rotate-90",
+      "url": "forms-sliders.html"
+    },
+    {
+      "name": "Switches",
+      "icon": "ti-toggle-right",
+      "url": "forms-switches.html"
+    },
+    {
+      "name": "Extras",
+      "icon": "ti-circle-plus",
+      "url": "forms-extras.html"
+    },
+    {
+      "name": "Vertical Form",
+      "icon": "ti-file-text",
+      "url": "form-layouts-vertical.html"
+    },
+    {
+      "name": "Horizontal Form",
+      "icon": "ti-file-text",
+      "url": "form-layouts-horizontal.html"
+    },
+    {
+      "name": "Sticky Actions",
+      "icon": "ti-file-text",
+      "url": "form-layouts-sticky.html"
+    },
+    {
+      "name": "Numbered Wizard",
+      "icon": "ti-text-wrap-disabled",
+      "url": "form-wizard-numbered.html"
+    },
+    {
+      "name": "Icons Wizard",
+      "icon": "ti-text-wrap-disabled",
+      "url": "form-wizard-icons.html"
+    },
+    {
+      "name": "Form Validation",
+      "icon": "ti-checkbox",
+      "url": "form-validation.html"
+    },
+    {
+      "name": "Tables",
+      "icon": "ti-table",
+      "url": "tables-basic.html"
+    },
+    {
+      "name": "Datatable Basic",
+      "icon": "ti-layout-grid",
+      "url": "tables-datatables-basic.html"
+    },
+    {
+      "name": "Datatable Advanced",
+      "icon": "ti-layout-grid",
+      "url": "tables-datatables-advanced.html"
+    },
+    {
+      "name": "Datatable Extensions",
+      "icon": "ti-layout-grid",
+      "url": "tables-datatables-extensions.html"
+    },
+    {
+      "name": "Apex Charts",
+      "icon": "ti-chart-line",
+      "url": "charts-apex.html"
+    },
+    {
+      "name": "ChartJS",
+      "icon": "ti-chart-bar",
+      "url": "charts-chartjs.html"
+    },
+    {
+      "name": "Leaflet Maps",
+      "icon": "ti-map-pin",
+      "url": "maps-leaflet.html"
+    }
+  ],
+  "files": [
+    {
+      "name": "Class Attendance",
+      "subtitle": "By Tommy Shelby",
+      "src": "img/icons/misc/search-xls.png",
+      "meta": "17kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Passport Image",
+      "subtitle": "By William Budd",
+      "src": "img/icons/misc/search-jpg.png",
+      "meta": "35kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Class Notes",
+      "subtitle": "By Laurel Lance",
+      "src": "img/icons/misc/search-doc.png",
+      "meta": "153kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Receipt",
+      "subtitle": "By Donnie Darko",
+      "src": "img/icons/misc/search-jpg.png",
+      "meta": "25kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Social Guide",
+      "subtitle": "By Ryan Middleton",
+      "src": "img/icons/misc/search-doc.png",
+      "meta": "39kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Expenses",
+      "subtitle": "By Slade Wilson",
+      "src": "img/icons/misc/search-xls.png",
+      "meta": "15kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Documentation",
+      "subtitle": "By Walter White",
+      "src": "img/icons/misc/search-doc.png",
+      "meta": "200kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Avatar",
+      "subtitle": "By Ross Geller",
+      "src": "img/icons/misc/search-jpg.png",
+      "meta": "100kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Data",
+      "subtitle": "By Erik Foreman",
+      "src": "img/icons/misc/search-xls.png",
+      "meta": "5kb",
+      "url": "app-file-manager.html"
+    },
+    {
+      "name": "Gardening Guide",
+      "subtitle": "By Jerry Seinfeld",
+      "src": "img/icons/misc/search-doc.png",
+      "meta": "25kb",
+      "url": "app-file-manager.html"
+    }
+  ],
+  "members": [
+    {
+      "name": "John Doe",
+      "subtitle": "Admin",
+      "src": "img/avatars/1.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "Micheal Clarke",
+      "subtitle": "Customer",
+      "src": "img/avatars/2.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "Melina Gibson",
+      "subtitle": "Staff",
+      "src": "img/avatars/5.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "Anna Strong",
+      "subtitle": "Staff",
+      "src": "img/avatars/7.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "Stephanie Gould",
+      "subtitle": "Customer",
+      "src": "img/avatars/3.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "David Budd",
+      "subtitle": "Admin",
+      "src": "img/avatars/10.png",
+      "url": "app-user-view-account.html"
+    },
+    {
+      "name": "Mark Shepiro",
+      "subtitle": "Admin",
+      "src": "img/avatars/12.png",
+      "url": "app-user-view-account.html"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "product_name": "Oneplus 10",
+      "product_info": "Storage:128gb",
+      "image": "oneplus.png",
+      "qty": 3,
+      "price": 896
+    },
+    {
+      "id": 2,
+      "product_name": "Nike Jordan",
+      "product_info": "Size:8UK",
+      "image": "nikejordan.png",
+      "qty": 1,
+      "price": 392
+    },
+    {
+      "id": 3,
+      "product_name": "Wooden Chair",
+      "product_info": "Material: Wooden",
+      "image": "woodenchair.png",
+      "qty": 2,
+      "price": 841
+    },
+    {
+      "id": 4,
+      "product_name": "Face cream",
+      "product_info": "Gender:Women",
+      "image": "facecream.png",
+      "qty": 2,
+      "price": 813
+    }
+  ]
+}

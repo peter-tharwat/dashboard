@@ -19,7 +19,7 @@
   <div class="modal-dialog" style="width:394px;max-width: 100%">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="changeAvatarLabel">تغيير الصورة الشخصية</h5>
+        <h5 class="modal-title" id="changeAvatarLabel">{{ __('lang.change_profile_image') }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -30,8 +30,8 @@
             </div>
             <div class="col-12 text-left
              mt-3">
-                <button class="btn btn-secondary mx-1 font-1" data-bs-dismiss="modal" aria-label="Close">إلغاء</button>
-                <button class="btn btn-primary mx-1 font-1 save-image" >تغيير الصورة</button>
+                <button class="btn btn-secondary mx-1 font-1" data-bs-dismiss="modal" aria-label="Close">{{ __('lang.cancel') }}</button>
+                <button class="btn btn-primary mx-1 font-1 save-image" >{{ __('lang.change_image') }}</button>
             </div>
         </div>
 
@@ -49,10 +49,10 @@
 				<form method="POST" action="{{route('admin.profile.update')}}" enctype="multipart/form-data">
 					@csrf
 					@method("PUT")
-					<div class="col-12 p-0 main-box shadow">
+					<div class="col-12 p-0 card shadow">
 						<div class="col-12 px-0">
 							<div class="col-12 px-3 py-3">
-							 	<span class="fal fa-info-circle"></span>	البيانات الأساسية
+							 	<span class="fal fa-info-circle"></span>	{{ __('lang.main_information') }}
 							</div>
 							<div class="col-12 divider" style="min-height: 2px;"></div>
 						</div>
@@ -62,7 +62,7 @@
 							</div>
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    الصورة الشخصية
+                                    {{ __('lang.profile_image') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="file" name=""  class="form-control" value="{{auth()->user()->name}}" id="avatar-image">
@@ -71,7 +71,7 @@
                             </div>
 							<div class="col-12 p-2">
 								<div class="col-12">
-									اسم المستخدم
+									{{ __('lang.name') }}
 								</div>
 								<div class="col-12 pt-3">
 									<input type="text" name="name" required min="3" max="190" class="form-control" value="{{auth()->user()->name}}" accept="image/*">
@@ -79,7 +79,7 @@
 							</div>
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    النبذة
+                                    {{ __('lang.bio') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <textarea class="form-control" name="bio" style="min-height:150px">{{auth()->user()->bio}}</textarea>
@@ -89,7 +89,7 @@
 
 							<div class="col-12 p-2">
 								<div class="col-12 pt-3">
-									<button class="btn btn-primary">حفظ البيانات</button>
+									<button class="btn btn-primary">{{ __('lang.save') }}</button>
 									
 								</div>
 							</div>
@@ -104,17 +104,17 @@
                 <form method="POST" action="{{route('admin.profile.update-email')}}" >
                     @csrf
                     @method("PUT")
-                    <div class="col-12 p-0 main-box shadow">
+                    <div class="col-12 p-0 card shadow">
                         <div class="col-12 px-0">
                             <div class="col-12 px-3 py-3">
-                                <span class="fal fa-envelope"></span> تغيير البيرد الاكتروني
+                                <span class="fal fa-envelope"></span> {{ __('lang.change_email') }}
                             </div>
                             <div class="col-12 divider" style="min-height: 2px;"></div>
                         </div>
                         <div class="col-12 p-3">
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    البريد الالكتروني الحالي
+                                    {{ __('lang.current_email') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="email" name="old_email" class="form-control" required value="{{auth()->user()->email}}">
@@ -123,7 +123,7 @@
 
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    البريد الالكتروني الجديد
+                                    {{ __('lang.new_email') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="email" name="email" class="form-control" required>
@@ -131,7 +131,7 @@
                             </div>
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    تأكيد البريد الالكتروني الجديد
+                                    {{ __('lang.confirm_new_email') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="email" name="email_confirmation" class="form-control" required>
@@ -140,7 +140,7 @@
 
                             <div class="col-12 p-2">
                                 <div class="col-12 pt-3">
-                                    <button class="btn btn-primary">تغيير البريد الالكتروني</button>
+                                    <button class="btn btn-primary">{{ __('lang.change_email') }}</button>
                                     
                                 </div>
                             </div>
@@ -155,10 +155,10 @@
                 <form method="POST" action="{{route('admin.profile.update-password')}}" >
                     @csrf
                     @method("PUT")
-                    <div class="col-12 p-0 main-box shadow">
+                    <div class="col-12 p-0 card shadow">
                         <div class="col-12 px-0">
                             <div class="col-12 px-3 py-3">
-                                <span class="fal fa-key"></span>  كلمة المرور
+                                <span class="fal fa-key"></span>  {{ __('lang.change_password') }}
                             </div>
                             <div class="col-12 divider" style="min-height: 2px;"></div>
                         </div>
@@ -166,13 +166,13 @@
                             <div class="col-12 p-2">
                                 <div class="col-12 pt-3">
                                     <div class="alert alert-warning">
-                                        يفضل إستخدام كلمة مرور مكونة من أحرف وأرقام وعلامات خاصة مثل ( % $ # @ )
+                                        {{ __('lang.password_info') }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    كلمة المرور الحالية
+                                    {{ __('lang.current_password') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="password" name="old_password" class="form-control" required minlength="8" maxlength="190" >
@@ -181,7 +181,7 @@
 
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    كلمة المرور الجديدة
+                                    {{ __('lang.new_password') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="password" name="password" class="form-control" required minlength="8" maxlength="190" >
@@ -189,7 +189,7 @@
                             </div>
                             <div class="col-12 p-2">
                                 <div class="col-12">
-                                    تأكيد المرور الجديدة
+                                    {{ __('lang.confirm_new_password') }}
                                 </div>
                                 <div class="col-12 pt-3">
                                     <input type="password" name="password_confirmation" class="form-control" required minlength="8" maxlength="190" >
@@ -198,7 +198,7 @@
 
                             <div class="col-12 p-2">
                                 <div class="col-12 pt-3">
-                                    <button class="btn btn-primary">تغيير كلمة المرور</button>
+                                    <button class="btn btn-primary">{{ __('lang.save') }}</button>
                                     
                                 </div>
                             </div>

@@ -1,0 +1,79 @@
+[
+    {
+      "type": "tinyInteger",
+      "size": "1 byte",
+      "range": {
+        "signed": "-128 to 127",
+        "unsigned": "0 to 255"
+      }
+    },
+    {
+      "type": "smallInteger",
+      "size": "2 bytes",
+      "range": {
+        "signed": "-32,768 to 32,767",
+        "unsigned": "0 to 65,535"
+      }
+    },
+    {
+      "type": "mediumInteger",
+      "size": "3 bytes",
+      "range": {
+        "signed": "-8,388,608 to 8,388,607",
+        "unsigned": "0 to 16,777,215"
+      }
+    },
+    {
+      "type": "integer",
+      "size": "4 bytes",
+      "range": {
+        "signed": "-2,147,483,648 to 2,147,483,647",
+        "unsigned": "0 to 4,294,967,295"
+      }
+    },
+    {
+      "type": "bigInteger",
+      "size": "8 bytes",
+      "range": {
+        "signed": "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807",
+        "unsigned": "0 to 18,446,744,073,709,551,615"
+      }
+    },
+    {
+      "type": "float",
+      "size": "4 bytes",
+      "range": "Approximate values, up to 7 decimal places of precision"
+    },
+    {
+      "type": "DECIMAL",
+      "size": "Variable",
+      "range": "Exact values, defined by precision and scale"
+    },
+   
+      {
+        "type": "string",
+        "size": "0 to 65,535 characters",
+        "description": "Variable-length string"
+      },
+      {
+        "type": "tinyText",
+        "size": "0 to 255 characters",
+        "description": "Very small text"
+      },
+      {
+        "type": "text",
+        "size": "0 to 65,535 characters",
+        "description": "Small text"
+      },
+      {
+        "type": "mediumText",
+        "size": "0 to 16,777,215 characters",
+        "description": "Medium-sized text"
+      },
+      {
+        "type": "longText",
+        "size": "0 to 4,294,967,295 characters",
+        "description": "Large text"
+      }
+  ]
+  

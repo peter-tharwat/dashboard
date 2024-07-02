@@ -1,0 +1,60 @@
+.wizard-checkout-example .content {
+  min-height: 30rem;
+}
+.wizard-checkout-example .content .wizard-header.title {
+  display: none;
+}
+.wizard-checkout-example .content .card-body.offers {
+  border-left-width: 0.25rem !important;
+}
+.wizard-checkout-example .content .card-body .size-qty-inputs input {
+  width: 2.1875rem;
+  text-align: center;
+}
+.wizard-checkout-example .order-details .list-group-item {
+  position: relative;
+}
+.wizard-checkout-example .order-details .list-group-item .remove-item {
+  font-size: 1.15rem;
+  position: absolute;
+  right: 0;
+  top: 0.3125rem;
+}
+.wizard-checkout-example .order-details i {
+  font-size: 1.5rem;
+}
+
+.property-wizard svg {
+  height: 9.375rem;
+  width: 9.375rem;
+}
+
+.loan-application-wizard svg {
+  height: 6.25rem;
+  width: 6.25rem;
+}
+
+.light-style .custom-wizard-header {
+  background-color: #fff;
+  color: #fff;
+}
+.light-style .custom-wizard-header .app-brand-text {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .light-style [dir=rtl] .checkout-wizard.wizard > .steps li a .step-title {
+    margin-right: 0;
+  }
+}
+
+.dark-style .custom-wizard-header {
+  background-color: #44475b;
+}
+.dark-style .custom-wizard-header .app-brand-text {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .dark-style [dir=rtl] .checkout-wizard.wizard > .steps li a .step-title {
+    margin-right: 0;
+  }
+}

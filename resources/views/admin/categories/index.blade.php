@@ -1,19 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 <div class="col-12 p-3">
-	<div class="col-12 col-lg-12 p-0 main-box">
-	 
+	<div class="col-12 col-lg-12 p-0 card">
 		<div class="col-12 px-0">
 			<div class="col-12 p-0 row">
 				<div class="col-12 col-lg-4 py-3 px-3">
-					<span class="fas fa-categories"></span> الأقسام
+					<span class="fas fa-categories"></span> {{ __('lang.categories') }}
 				</div>
 				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('categories-create')
 					<a href="{{route('admin.categories.create')}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
+					<span class="btn btn-primary"><span class="fas fa-plus"></span> {{ __('lang.add_new') }}</span>
 					</a>
 					@endcan
 				</div>
@@ -24,12 +23,12 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
+					<input type="text" name="q" class="form-control" placeholder="{{ __('lang.search') }}" value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="table-responsive text-nowrap">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -37,10 +36,10 @@
 					<tr>
 						<th>#</th>
 						
-						<th>الشعار</th>
-						<th>العنوان</th>
-						<th>المقالات</th>
-						<th>تحكم</th>
+						<th>{{ __('lang.image') }}</th>
+						<th>{{ __('lang.title') }}</th>
+						<th>{{ __('lang.articles') }}</th>
+						<th>{{ __('lang.control') }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,14 +55,14 @@
 							@can('categories-update')
 							<a href="{{route('admin.categories.edit',$category)}}">
 							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-								<span class="fas fa-wrench "></span> تحكم
+								<span class="fas fa-wrench "></span> {{ __('lang.control') }}
 							</span>
 							</a>
 							@endcan
 							@can('categories-delete')
 							<form method="POST" action="{{route('admin.categories.destroy',$category)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
+								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('{{ __('lang.are_you_sure_for_delete') }} ؟');if(result){}else{event.preventDefault()}">
+									<span class="fas fa-trash "></span> {{ __('lang.delete') }}
 								</button>
 							</form>
 							@endcan
