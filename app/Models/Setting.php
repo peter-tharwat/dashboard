@@ -9,6 +9,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
+use Spatie\Image\Enums\Fit;
 
 class Setting extends Model implements HasMedia
 {
@@ -22,30 +23,30 @@ class Setting extends Model implements HasMedia
     {
         $this
             ->addMediaConversion('icon')
-            ->fit(Manipulations::FIT_MAX, 32, 32)
+            ->fit(Fit::Max, 32, 32)
             ->width(32)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
         $this
             ->addMediaConversion('tiny')
-            ->fit(Manipulations::FIT_MAX, 120, 120)
+            ->fit(Fit::Max, 120, 120)
             ->width(120)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
         $this
             ->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_MAX, 350, 1000)
+            ->fit(Fit::Max, 350, 1000)
             ->width(350)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
         $this
             ->addMediaConversion('original')
-            ->fit(Manipulations::FIT_MAX, 1200,10000)
+            ->fit(Fit::Max, 1200, 10000)
             ->width(1200)
-            ->format(Manipulations::FORMAT_WEBP)
+            ->format('webp')
             ->nonQueued();
 
     }

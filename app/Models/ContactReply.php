@@ -8,6 +8,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Image\Manipulations;
+use Spatie\Image\Enums\Fit;
 
  
 
