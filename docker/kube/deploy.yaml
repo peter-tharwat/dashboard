@@ -1,0 +1,404 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: create-directory-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: create-directory-superzaki
+  template:
+    metadata:
+      labels:
+        app: create-directory-superzaki
+    spec:
+      containers:
+        - name: create-directory-superzaki
+          image: alpine/git:latest
+          command: ["/bin/sh", "-c"]
+          workingDir: /var/www/html/superzaki.com
+          args:
+            - |
+              if [ ! -d /var/www/html/superzaki.com ]; then \
+                mkdir -p /var/www/html/superzaki.com; \
+              fi && \
+              while true; do \
+                sleep 60; \
+              done
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /var/www/html/
+              subPath: ./
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git-pull-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: git-pull-superzaki
+  template:
+    metadata:
+      labels:
+        app: git-pull-superzaki
+    spec:
+      containers:
+        - name: git-pull-superzaki
+          image: alpine/git:latest
+          command: ["/bin/sh", "-c"]
+          workingDir: /var/www/html/superzaki.com
+          args:
+            - |
+              if [ ! -d /var/www/html/superzaki.com ]; then \
+                mkdir -p /var/www/html/superzaki.com; \
+              fi && \
+
+              apk add --no-cache git && \
+              git config --global user.email "ptharwat@gmail.com" && \
+              git config --global user.name "petertharwat" && \
+              git config --global --add safe.directory /var/www/html/superzaki.com && /
+              while true; do \
+                
+                cd /var/www/html/superzaki.com/ && \
+                if [ ! -d /var/www/html/superzaki.com/.git ]; then \
+                  rm -rf /var/www/html/superzaki.com/* && \
+                  echo "first pull of the repository..."; \
+                  git init && git remote add origin https://${GITHUB_SUPERZAKI_TOKEN}@github.com/peter-tharwat/super-zaki.git && \ 
+                  git pull origin master; \
+                else \
+                  echo "Git directory exists. Resetting and cleaning..."; \
+                  rm -rf /var/www/html/superzaki.com/.git/index.lock && \
+                  git clean -f -d; \
+                fi && \
+                echo "Pulling the latest changes..."; \
+                git pull https://${GITHUB_SUPERZAKI_TOKEN}@github.com/peter-tharwat/super-zaki.git master --allow-unrelated-histories; \
+                chmod 777 -R * && \
+                sleep 60; \
+              done
+          env:
+            - name: GITHUB_SUPERZAKI_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: github-superzaki-token
+                  key: token
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /var/www/html/superzaki.com
+              subPath: ./superzaki.com
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-dev-deployment-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-dev-basic-superzaki
+  template:
+    metadata:
+      labels:
+        app: nginx-dev-basic-superzaki
+    spec:
+      containers:
+        - name: nginx-dev-container-superzaki
+          image: nginx:1.27.0
+          ports:
+            - containerPort: 81
+          workingDir: /var/www/html/superzaki.com
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /storage
+              subPath: ./
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-controller-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-basic-superzaki
+  template:
+    metadata:
+      labels:
+        app: nginx-basic-superzaki
+    spec:
+      containers:
+      - name: nginx-container-superzaki
+        image: nginx:1.27.0
+        env:
+          - name: DOMAIN_NAME
+            value: "superzaki.com"
+          - name: PHP_SERVICE_NAME
+            value: php-service-superzaki
+          - name: PHP_SERVICE_PORT
+            value: "9000"
+        ports:
+          - containerPort: 80
+            name: http
+          - containerPort: 443
+            name: https
+        workingDir: /var/www/html/superzaki.com
+        command: ["/bin/bash","-c"]
+        args: ["/docker-entrypoint.sh"]
+        volumeMounts:
+
+          - name: superzaki-storage
+            mountPath: /docker-entrypoint.sh
+            subPath: ./superzaki.com/docker/nginx/entrypoint.sh
+
+          #- name: superzaki-storage
+          #  mountPath: /etc/nginx/nginx.conf
+          #  subPath: ./superzaki.com/docker/nginx/nginx.conf
+
+          #- name: superzaki-storage
+          #  mountPath: /etc/nginx/conf.d/superzaki.conf
+          #  subPath: ./superzaki.com/docker/nginx/site.conf
+
+          - name: superzaki-storage
+            mountPath: /var/www/html/superzaki.com
+            subPath: ./superzaki.com
+
+          - name: superzaki-storage
+            mountPath: /etc/nginx/ssl
+            subPath: ./superzaki.com/docker/nginx/ssl
+
+          - name: superzaki-storage
+            mountPath: /etc/letsencrypt
+            subPath: ./superzaki.com/docker/certbot/conf
+
+          - name: superzaki-storage
+            mountPath: /var/www/certbot
+            subPath: ./superzaki.com/docker/certbot/html
+
+          
+
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: composer-deployment-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: composer-basic-superzaki
+  template:
+    metadata:
+      labels:
+        app: composer-basic-superzaki
+    spec:
+      containers:
+        - name: php-composer-container-superzaki
+          image: composer:latest
+          workingDir: /var/www/html/superzaki.com
+          env:
+            - name: COMPOSER_ALLOW_SUPERUSER
+              value: "1"
+            - name: DOMAIN_NAME
+              value: "superzaki.com"
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /var/www/html/superzaki.com
+              subPath: ./superzaki.com
+
+            - name: superzaki-storage
+              mountPath: /entrypoint.sh
+              subPath: ./superzaki.com/docker/php-composer/entrypoint.sh
+
+            - name: superzaki-storage
+              mountPath: /var/www/configs/superzaki.com/composer_json_hash/.composer_json_hash
+              subPath: ./superzaki.com/docker/php-composer/.composer_json_hash
+
+          command: ["/bin/sh","-c","/entrypoint.sh"]
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: php-basic-superzaki
+  template:
+    metadata:
+      labels:
+        app: php-basic-superzaki
+    spec:
+      containers:
+        - name: php-fpm-container-superzaki
+          image: petertharwat/php-8.3-fpm:latest
+          workingDir: /var/www/html/superzaki.com
+          ports:
+            - containerPort: 9000
+          env:
+            - name: PHP_UPLOAD_MAX_FILESIZE
+              value: '2000M'
+            - name: PHP_POST_MAX_SIZE
+              value: '2000M'
+            - name: PHP_MAX_EXECUTION_TIME
+              value: '300'
+            - name: PHP_MEMORY_LIMIT
+              value: '50000M'
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /var/www/html/superzaki.com
+              subPath: ./superzaki.com
+
+            - name: superzaki-storage
+              mountPath: /opt/bitnami/php/etc/php-fpm.conf
+              subPath: ./superzaki.com/docker/php-fpm/php-fpm.ini
+              
+            - name: superzaki-storage
+              mountPath: /usr/local/etc/php/php.ini-production
+              subPath: ./superzaki.com/docker/php-fpm/php.ini
+
+            - name: superzaki-storage
+              mountPath: /usr/local/etc/php/php.ini-development
+              subPath: ./superzaki.com/docker/php-fpm/php-dev.ini
+
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-superzaki
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue-superzaki
+  template:
+    metadata:
+      labels:
+        app: queue-superzaki
+    spec:
+      containers:
+        - name: queue-superzaki
+          image: petertharwat/php-8.3-fpm:latest
+          workingDir: /var/www/html/superzaki.com
+          command: ["php", "/var/www/html/superzaki.com/artisan", "queue:work", "--tries=3"]
+          volumeMounts:
+            - name: superzaki-storage
+              mountPath: /var/www/html/superzaki.com
+              subPath: ./superzaki.com
+      volumes:
+        - name: superzaki-storage
+          persistentVolumeClaim:
+            claimName: superzaki-pvc
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: schedule-superzaki
+  namespace: general-namespace
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          #completions: 1  # Total number of pods to run
+          #parallelism: 1  # Number of pods to run in parallel
+          restartPolicy: OnFailure
+          containers:
+            - name: schedule-superzaki
+              image: petertharwat/php-8.3-fpm:latest
+              workingDir: /var/www/html/superzaki.com
+              command: ["php", "/var/www/html/superzaki.com", "schedule:run"]
+              volumeMounts:
+                - name: superzaki-storage
+                  mountPath: /var/www/html/superzaki.com
+                  subPath: ./superzaki.com
+          volumes:
+            - name: superzaki-storage
+              persistentVolumeClaim:
+                claimName: superzaki-pvc
+---
+
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: certbot-deployment
+#  namespace: general-namespace
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: certbot-app
+#  template:
+#    metadata:
+#      labels:
+#        app: certbot-app
+#    spec:
+#      containers:
+#        - name: certbot-container
+#          image: certbot/certbot:latest
+#          env:
+#            - name: APP_URL
+#              value: "https://superzaki.com"
+#            - name: DOMAIN_NAME
+#              value: "superzaki.com"
+#          command: ["/bin/sh","-c" ,"/entrypoint.sh"]
+#
+#          volumeMounts:
+#            - name: superzaki-storage
+#              mountPath: /entrypoint.sh
+#              subPath: ./superzaki.com/docker/certbot/entrypoint.sh
+#
+#            - name: superzaki-storage
+#              mountPath: /etc/letsencrypt
+#              subPath: ./superzaki.com/docker/certbot/conf
+#              
+#            - name: superzaki-storage
+#              mountPath: /var/www/certbot
+#              subPath: ./superzaki.com/docker/certbot/html
+#
+#            - name: superzaki-storage
+#              mountPath: /var/www/nginx/site.conf
+#              subPath: ./superzaki.com/docker/nginx/site.conf
+#
+#            - name: superzaki-storage
+#              mountPath: /var/www/nginx/ssl
+#              subPath: ./superzaki.com/docker/nginx/ssl
+#
+#      volumes:
+#        - name: superzaki-storage
+#          persistentVolumeClaim:
+#            claimName: superzaki-pvc
