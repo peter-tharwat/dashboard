@@ -1,0 +1,92 @@
+services:
+    # We need to run the FPM container for our application
+    laravel.fpm:
+        build:
+            context: .
+            target: fpm_server
+        image: laravel-in-kubernetes/fpm_server
+        # We can override any env values here.
+        # By default the .env in the project root will be loaded as the environment for all containers
+        environment:
+            APP_DEBUG: "true"
+        ports:
+            - 6003:6379
+        # Mount the codebase, so any code changes we make will be propagated to the running application
+        volumes:
+            # Here we mount in our codebase so any changes are immediately reflected into the container
+            - '.:/opt/apps/laravel-in-kubernetes'
+        networks:
+            - laravel-in-kubernetes
+
+    # Run the web server container for static content, and proxying to our FPM container
+    laravel.web:
+        build:
+            context: .
+            target: web_server
+        image: laravel-in-kubernetes/web_server
+        # Expose our application port (80) through a port on our local machine (8080)
+        ports:
+            - '8080:80'
+        environment:
+            # We need to pass in the new FPM hst as the name of the fpm container on port 9000
+            FPM_HOST: "laravel.fpm:9000"
+        # Mount the public directory into the container so we can serve any static files directly when they change
+        volumes:
+            # Here we mount in our codebase so any changes are immediately reflected into the container
+            - './public:/opt/apps/laravel-in-kubernetes/public'
+        networks:
+            - laravel-in-kubernetes
+    # Run the Laravel Scheduler
+    laravel.cron:
+        build:
+            context: .
+            target: cron
+        image: laravel-in-kubernetes/cron
+        # Here we mount in our codebase so any changes are immediately reflected into the container
+        volumes:
+            # Here we mount in our codebase so any changes are immediately reflected into the container
+            - '.:/opt/apps/laravel-in-kubernetes'
+        networks:
+            - laravel-in-kubernetes
+    # Run the frontend, and file watcher in a container, so any changes are immediately compiled and servable
+    laravel.frontend:
+        build:
+            context: .
+            target: frontend
+        # Override the default CMD, so we can watch changes to frontend files, and re-transpile them.
+        command: ["npm", "run", "watch"]
+        image: laravel-in-kubernetes/frontend
+        volumes:
+            # Here we mount in our codebase so any changes are immediately reflected into the container
+            - '.:/opt/apps/laravel-in-kubernetes'
+            # Add node_modeules as singular volume.
+            # This prevents our local node_modules from being propagated into the container,
+            # So the node_modules can be compiled for each of the different architectures (Local, Image)
+            - '/opt/app/node_modules/'
+        networks:
+            - laravel-in-kubernetes
+
+    mysql:
+        image: 'mysql:8.0'
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            #MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - 'laravel-in-kubernetes-mysql:/var/lib/mysql'
+        networks:
+            - laravel-in-kubernetes
+        healthcheck:
+          test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+          retries: 3
+          timeout: 5s
+
+networks:
+    laravel-in-kubernetes:
+
+volumes:
+    laravel-in-kubernetes-mysql:

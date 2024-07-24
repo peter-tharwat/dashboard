@@ -1,0 +1,279 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config-file-dashboard
+  namespace: general-namespace
+data:
+  site.conf: |
+    server {  
+     listen 80; 
+     listen 443;
+     #access_log off;
+     server_name dash.peterayoub.me www.dash.peterayoub.me; 
+     root /var/www/html/site/public;  
+     index index.php index.html index.htm index.nginx-debian.html;
+     proxy_cache_valid 200 365d;
+     charset utf-8; 
+     
+     if (!-d $request_filename) {
+          rewrite ^/(.+)/$ /$1 permanent;
+     }
+     if ($request_uri ~* //) {
+          rewrite ^/(.*) /$1 permanent;
+     }
+     location ~ \.(env|log|htaccess)$ {
+          deny all;
+     } 
+ 
+     #access_log off;  
+     error_log /var/log/nginx/error.log error;  
+
+     sendfile off;  
+
+     client_max_body_size 1000m;  
+
+     location ~ /.well-known/acme-challenge {
+          root /var/www/certbot;
+          allow all;
+     }
+
+     location ~*\.(?:js|jpg|jpeg|gif|png|css|tgz|gz|rar|bz2|doc|pdf|ppt|tar|wav|bmp|rtf|swf|ico|flv|txt|woff|woff2|svg|mp3|jpe?g,eot|ttf|svg)$ {
+        access_log off;
+        expires 360d;
+        add_header Access-Control-Allow-Origin *;
+        add_header Pragma public;
+        add_header Cache-Control "public";
+        add_header Vary Accept-Encoding; 
+        try_files $uri $uri/ /index.php?$query_string;
+     }
+
+     location / {
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header Host $host;
+          
+          if ($host ~* ^www\.(.*)) {
+             return 301 $scheme://$1$request_uri;
+          }
+          add_header Access-Control-Allow-Origin *;
+          try_files $uri $uri/ /index.php?$query_string;
+     }
+
+     location ~ \.php$ {
+
+          try_files $uri =404;
+          fastcgi_split_path_info ^(.+\.php)(/.+)$;
+          fastcgi_pass php-service-dashboard:9000;
+          fastcgi_index index.php;
+          include fastcgi_params;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          fastcgi_param PATH_INFO $fastcgi_path_info;
+        
+          fastcgi_read_timeout 8600;
+          fastcgi_intercept_errors off;  
+          fastcgi_buffer_size 16k;  
+          fastcgi_buffers 4 16k; 
+
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header Host $host; 
+    
+     }  
+
+     location ~ /.ht {  
+      deny all;  
+     }
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-controller-dashboard
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-basic-dashboard
+  template:
+    metadata:
+      labels:
+        app: nginx-basic-dashboard
+    spec:
+      containers:
+      - name: nginx-container-dashboard
+        image: petertharwat/nginx-1.27-github:v1.0.6
+        env:
+          - name: REPO_URL
+            valueFrom:
+              configMapKeyRef:
+                  name: laravel-env-dashboard
+                  key: REPO_URL
+
+          - name: DOMAIN_NAME
+            value: "dash.peterayoub.me"
+          - name: PHP_SERVICE_NAME
+            value: php-service-dashboard
+          - name: PHP_SERVICE_PORT
+            value: "9000"
+          - name: ENABLE_SSL_PASSTHROUGH
+            value: "true"
+        ports:
+          - containerPort: 80
+            name: http
+          - containerPort: 443
+            name: https
+        #command: ["/bin/bash","-c"]
+        #args: ["/docker-entrypoint.sh"]
+        volumeMounts:
+          - name: nginx-config-file-dashboard
+            mountPath: /etc/nginx/conf.d/default.conf
+            subPath: site.conf
+
+      volumes:
+        - name: nginx-config-file-dashboard
+          configMap:
+           name: nginx-config-file-dashboard
+           items:
+           - key: site.conf
+             path: site.conf
+
+        - name: laravel-env-dashboard
+          configMap:
+            name: laravel-env-dashboard
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment-dashboard
+  namespace: general-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: php-basic-dashboard
+  template:
+    metadata:
+      labels:
+        app: php-basic-dashboard
+    spec:
+      containers:
+        - name: php-fpm-container-dashboard
+          image: petertharwat/php-fpm-8.3-github:v1.0.6
+          ports:
+            - containerPort: 9000
+          env:
+            - name: REPO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: laravel-env-dashboard
+                  key: REPO_URL
+
+            - name: RUN_SHELL_AFTER_PULL
+              value: "chown -R www-data:www-data /var/www/html/site && chmod 777 -R /var/www/html/site && php /var/www/html/site/artisan optimize:clear"
+            - name: PHP_UPLOAD_MAX_FILESIZE
+              value: '2000M'
+            - name: PHP_POST_MAX_SIZE
+              value: '2000M'
+            - name: PHP_MAX_EXECUTION_TIME
+              value: '300'
+            - name: PHP_MEMORY_LIMIT
+              value: '50000M'
+
+          volumeMounts:
+            - name: laravel-env-dashboard
+              mountPath: /var/www/html/site/.env
+              subPath: .env
+
+            #- name: log-volume
+            #  mountPath: /var/log
+
+      volumes:
+        - name: laravel-env-dashboard
+          configMap:
+            name: laravel-env-dashboard
+        #- name: log-volume
+        #  emptyDir: {}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-dashboard
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue-dashboard
+  template:
+    metadata:
+      labels:
+        app: queue-dashboard
+    spec:
+      containers:
+        - name: queue-dashboard
+          image: petertharwat/php-fpm-8.3-github:v1.0.6
+          env:
+            - name: CRON_SCRIPT_CONTENT
+              value: "php /var/www/html/site/artisan queue:restart && php artisan queue:work --tries=3"
+            - name: CRON_SCHEDULE
+              value: "* * * * *"
+
+            - name: REPO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: laravel-env-dashboard
+                  key: REPO_URL
+
+          volumeMounts:
+            - name: laravel-env-dashboard
+              mountPath: /var/www/html/site/.env
+              subPath: .env
+
+      volumes:
+        - name: laravel-env-dashboard
+          configMap:
+            name: laravel-env-dashboard
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedule-dashboard
+  namespace: general-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: schedule-dashboard
+  template:
+    metadata:
+      labels:
+        app: schedule-dashboard
+    spec:
+      containers:
+        - name: schedule-dashboard
+          image: petertharwat/php-fpm-8.3-github:v1.0.6
+          env:
+
+            - name: CRON_SCHEDULE
+              value: "* * * * *"  # This schedule runs every minute
+            - name: CRON_SCRIPT_CONTENT
+              value: "php /var/www/html/site/artisan schedule:run"
+            - name: REPO_URL
+              valueFrom:
+                configMapKeyRef:
+                    name: laravel-env-dashboard
+                    key: REPO_URL
+
+          volumeMounts:
+            - name: laravel-env-dashboard
+              mountPath: /var/www/html/site/.env
+              subPath: .env
+
+      volumes:
+        - name: laravel-env-dashboard
+          configMap:
+            name: laravel-env-dashboard

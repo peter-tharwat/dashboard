@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\URL;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,7 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+        
         \App\Models\ContactReply::observe(\App\Observers\ContactReplyObserver::class);
         \App\Models\Contact::observe(\App\Observers\ContactObserver::class);
         
