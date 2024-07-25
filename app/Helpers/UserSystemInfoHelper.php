@@ -53,6 +53,10 @@ class UserSystemInfoHelper
             $ipaddress = $_SERVER['HTTP_FORWARDED'];
         else if(isset($_SERVER['REMOTE_ADDR']))
             $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else if(isset($_SERVER['X-Real-IP']))
+            $ipaddress = $_SERVER['X-Real-IP'];
+        else if(isset($_SERVER['X-Real-IP']))
+            $ipaddress = $_SERVER['X-Real-IP'];
         else if(request()->ip()!=null)
             $ipaddress = request()->ip();
         else
