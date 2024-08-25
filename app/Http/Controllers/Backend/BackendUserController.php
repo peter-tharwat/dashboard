@@ -74,7 +74,7 @@ class BackendUserController extends Controller
                 'roles'=>"required|array",
                 'roles.*'=>"required|exists:roles,id",
             ]);
-            $user->syncRoles($request->roles);
+            $user->syncRoles(array_map('intval',$request->roles));
         }
 
         if($request->hasFile('avatar')){
