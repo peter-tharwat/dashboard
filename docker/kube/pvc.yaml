@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: dashbaord-pv
-  namespace: general-namespace
+  name: dash-peterayoub-me-pv
+  namespace: dashboard-namespace-namespace
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   storageClassName: "nfs-storage"
@@ -16,12 +16,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: dashbaord-pvc
-  namespace: general-namespace
+  name: dash-peterayoub-me-pvc
+  namespace: dash-peterayoub-me
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi
   storageClassName: "nfs-storage"

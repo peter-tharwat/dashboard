@@ -125,69 +125,30 @@ class MainHelper {
     /*/src=[\"\'][^\'\']+[\"\']/*/
 
     public static function rate_limit_insert(){
-
-        $ip=\UserSystemInfoHelper::get_ip();
-        $total_req_per_minute = \App\Models\RateLimitDetail::where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
-        if($total_req_per_minute>=2000){ 
-            $attacks=\App\Models\UnderAttack::where('status','UNDER_ATTACK')->where('release_at','>',\Carbon::parse(now())->format('Y-m-d H:i:s'))->count();
-            if($attacks==0){ 
-                \App\Models\UnderAttack::create(['status'=>"UNDER_ATTACK",'release_at'=>\Carbon::parse(now())->addMinutes(30)->format('Y-m-d H:i:s')]);
-                (new \App\Helpers\SecurityHelper)->enable_under_attack_mode(); 
-            }
-        }
-        $limit_for_ip = \App\Models\RateLimitDetail::where('ip',\UserSystemInfoHelper::get_ip())->where('created_at','>=',\Carbon::parse(now())->subMinutes(1)->format('Y-m-d H:i:s'))->orderBy('id','DESC')->count();
-        if($limit_for_ip>=100){
-            $response =  (new \App\Helpers\SecurityHelper)->block_ip($ip,request()->header('User-Agent')); 
-            abort(403);
-        }
-
-        $last_insert = \App\Models\RateLimit::where('ip',$ip)->where('created_at','<=',\Carbon::parse(now())->addMinutes(3))->first();
-
-        if($last_insert==null){
-            $prev_url="";
+        $prev_url="";
+        $prev_domain="";
+        if(filter_var(url()->previous(), FILTER_VALIDATE_URL))
+        { 
+            $parsex= parse_url(url()->previous());
+            $prev_domain=$parsex['host'];  
             $prev_domain="";
-            if(filter_var(url()->previous(), FILTER_VALIDATE_URL)) // is a valid url 
-            { 
-                $parsex= parse_url(url()->previous());
-                $prev_domain=$parsex['host'];  
-                $prev_domain="";
-                try{
-                    $prev_url= url()->previous();
-                    $prev_domain=$parsex['host'];
-                }catch(\Exception $e){
-
-                }   
-            }  
-            $country=(new UserSystemInfoHelper)->get_country_from_ip($ip);
-            $traffic= \App\Models\RateLimit::create([
-                'traffic_landing'=>\Request::fullUrl(),
-                'domain'=>$prev_domain,
-                'prev_link'=>$prev_url,
-                'ip'=>$ip,
-                //'country_code'=>$country['country_code'],
-                //'country_name'=>$country['country'],
-                'agent_name'=>request()->header('User-Agent'),
-                'user_id'=>auth()->check() ? auth()->user()->id : null ,
-                'browser'=>UserSystemInfoHelper::get_browsers(),
-                'device'=>UserSystemInfoHelper::get_device(),
-                'operating_system'=>UserSystemInfoHelper::get_os()
-            ]); 
-            \App\Models\RateLimitDetail::create([
-                'url'=>request()->fullUrl(),
-                'user_id'=> auth()->check() ? auth()->user()->id : null,
-                'rate_limit_id'=>$traffic->id,
-                'ip'=>$ip
-            ]);
-            return $traffic;
-        }else{
-            \App\Models\RateLimitDetail::create([
-                'url'=>request()->fullUrl(),
-                'user_id'=> auth()->check() ? auth()->user()->id : null,
-                'rate_limit_id'=>$last_insert->id,
-                'ip'=>$ip
-            ]);
-        }
-        return $last_insert;
+            try{
+                $prev_url= url()->previous();
+                $prev_domain=$parsex['host'];
+            }catch(\Exception $e){}   
+        }  
+        $data=[
+            'traffic_landing'=>request()->fullUrl(),
+            'ip'=>\UserSystemInfoHelper::get_ip(),
+            'prev_url'=>$prev_url,
+            'prev_domain'=>$prev_domain,
+            'agent_name'=>request()->header('User-Agent'),
+            'user_id'=>auth()->check() ? auth()->user()->id : null ,
+            'browser'=>\UserSystemInfoHelper::get_browsers(),
+            'device'=>\UserSystemInfoHelper::get_device(),
+            'operating_system'=>\UserSystemInfoHelper::get_os()
+        ];
+       \App\Jobs\RateLimitInsertJob::dispatch($data);
     }
 
     public static function focus_urls($string)

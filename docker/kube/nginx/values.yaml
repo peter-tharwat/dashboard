@@ -1,0 +1,60 @@
+controller:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 200m
+      memory: 200Mi
+
+  ingressClassResource:
+    name: "ingress-sites"
+    enabled: true
+    default: false
+  ingressClass: "ingress-sites"
+
+  hpa:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 20
+    targetCPUUtilizationPercentage: 80
+
+    behavior:
+      scaleUp:
+        stabilizationWindowSeconds: 20
+        policies:
+          - type: Percent
+            value: 200
+            periodSeconds: 10
+      scaleDown:
+        stabilizationWindowSeconds: 300
+        policies:
+          - type: Percent
+            value: 100
+            periodSeconds: 10
+    tolerance: 0.1
+
+
+  admissionWebhooks:
+    enabled: false
+    namespace: "dashboard-namespace" # Specify the namespace here
+
+  # Service settings, including Proxy Protocol and Google Cloud Load Balancer annotations
+  service:
+    namespace: "dashboard-namespace"
+    annotations:
+      ingress.kubernetes.io/enable-global-access: "true" # Enable global access
+      service.beta.kubernetes.io/external-traffic: "OnlyLocal" # Proxy Protocol
+      service.beta.kubernetes.io/external-traffic-policy: "Local"
+      service.beta.kubernetes.io/load-balancer-proxy-protocol: "*" # Enable Proxy Protocol
+      #service.beta.kubernetes.io/vultr-loadbalancer-proxy-protocol: v2
+  config:
+    allow-snippet-annotations: "false"
+    use-forwarded-headers: "true"
+    enable-real-ip: "true"
+    #use-proxy-protocol: "true"
+
+  defaultBackend:
+    enabled: false
+    

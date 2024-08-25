@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service-dashboard
-  namespace: general-namespace
+  name: nginx-service-dash-peterayoub-me
+  namespace: dashboard-namespace
 spec:
   selector:
-    app: nginx-basic-dashboard
+    app: nginx-basic-dash-peterayoub-me
   ports:
     - protocol: TCP
       port: 80
@@ -20,14 +20,23 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-service-dashboard
-  namespace: general-namespace
+  name: php-service-dash-peterayoub-me
+  namespace: dashboard-namespace
 spec:
   selector:
-    app: php-basic-dashboard
+    app: php-basic-dash-peterayoub-me
   ports:
     - protocol: TCP
       port: 9000
       targetPort: 9000
-
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service-dash-peterayoub-me
+  namespace: dashboard-namespace
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: redis-dash-peterayoub-me

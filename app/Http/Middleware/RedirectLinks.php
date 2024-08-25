@@ -18,7 +18,7 @@ class RedirectLinks
     {
         
 
-        if(Schema::hasTable('redirections')){
+        /*if(Schema::hasTable('redirections')){
             $url = str_replace('www.','' , preg_replace("(^https?://)", "", url()->full() ) );
             $redirection = \App\Models\Redirection::where('url','LIKE','%'.$url)->first();
             if($redirection !=null){
@@ -26,7 +26,22 @@ class RedirectLinks
                 die();
             }
             
-        }
+        }*/
+
+        try{
+            $url = str_replace('www.','' , preg_replace("(^https?://)", "", url()->full() ) );
+            $redirections = cache()->remember('redirections',60,function(){
+                return \App\Models\Redirection::get();
+            });
+            foreach($redirections as $redirection){
+                if(str_contains($redirection->url, $url)){
+                    header('Location: ' . $redirection->new_url, true, $redirection->code);
+                    die();
+                }
+            }
+        }catch(\Execption $e){}
+            
+        return $next($request);
 
         return $next($request);
     }
