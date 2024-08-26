@@ -27,7 +27,6 @@ use App\Http\Controllers\Backend\BackendUserPermissionController;
 use App\Http\Controllers\Backend\BackendUserRoleController;
 use App\Http\Controllers\Backend\BackendRoleController;
 use App\Http\Controllers\Backend\BackendTagController;
-use App\Http\Controllers\Backend\BackendPluginController;
 
 
 # Frontend Controllers
@@ -107,15 +106,6 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('/image',[BackendHelperController::class,'upload_image'])->name('image');
         Route::post('/file',[BackendHelperController::class,'upload_file'])->name('file');
         Route::post('/remove-file',[BackendHelperController::class,'remove_files'])->name('remove-file');
-    });
-
-    Route::prefix('plugins')->name('plugins.')->group(function(){
-        Route::get('/',[BackendPluginController::class,'index'])->name('index');
-        Route::get('/create',[BackendPluginController::class,'create'])->name('create');
-        Route::post('/create',[BackendPluginController::class,'store'])->name('store');
-        Route::post('/{plugin}/activate',[BackendPluginController::class,'activate'])->name('activate');
-        Route::post('/{plugin}/deactivate',[BackendPluginController::class,'deactivate'])->name('deactivate');
-        Route::post('/{plugin}/delete',[BackendPluginController::class,'delete'])->name('delete');
     });
 
     Route::prefix('profile')->name('profile.')->group(function () {

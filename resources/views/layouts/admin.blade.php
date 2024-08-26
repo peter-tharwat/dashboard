@@ -161,9 +161,6 @@
         </div>
         @endif
     </div>
-    @php
-    $plugins = Module::allEnabled();
-    @endphp
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
         <div style="width: 260px;background: #ddeaea;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
@@ -238,24 +235,7 @@
                     @endcan
                     
 
-                    
-
-                    @foreach($plugins as $plugin)
-                        @if($plugin->get('type')=="main")
-                            @can($plugin->get('route').'-read')
-                                <a href="{{route('admin.'.$plugin->get('route').'.index')}}" class="col-12 px-0" >
-                                    <div class="col-12 item-container px-0 d-flex " >
-                                        <div style="width: 50px" class="px-3 text-center">
-                                            <span class="{{$plugin->get('icon')}} font-2"> </span> 
-                                        </div>
-                                        <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
-                                            {{$plugin->get('title')}}
-                                        </div> 
-                                    </div>
-                                </a>
-                            @endcan
-                        @endif
-                    @endforeach
+             
 
 
 
@@ -365,52 +345,7 @@
 
  
 
-
-                    @can('plugins-read')
-                    <div class="col-12 px-0" style="cursor: pointer;">
-                        <div class="col-12 item px-0 d-flex row " >
-                            <div class="col-12 d-flex px-0 item-container">
-                                <div style="width: 50px" class="px-3 text-center">
-                                    <span class="far fa-box-open font-2" style="color:#ff9800"> </span> 
-                                </div>
-                                <div style="width: calc(100% - 50px)" class="px-2 item-container-title has-sub-menu">
-                                    الاضافات
-                                </div> 
-                            </div>
-                            <div class="col-12 px-0" >
-                                <ul class="sub-item font-1" style="list-style:none;">
-                                    
-                                    @can('plugins-read')
-                                    <li><a href="{{route('admin.plugins.index')}}" style="font-size: 16px;"><span class="fal fa-box-open px-2" style="width: 28px;font-size: 15px;"></span> كل الاضافات
-
-                                        @if(count($plugins))
-                                        <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{count($plugins)}}</span>
-                                        
-                                        @endif
-
-
-                                    </a></li>
-                                    @endcan
-
-                               
-                                    @foreach($plugins as $plugin)
-                                        @if($plugin->get('type')=="plugin")
-                                            @can($plugin->get('route').'-read')
-                                            <li><a href="{{route('admin.teams.index')}}" style="font-size: 16px;"><span class="{{$plugin->get('icon')}} px-2" style="width: 28px;font-size: 15px;"></span> {{$plugin->get('title')}}
-                                            </a></li>
-                                            @endcan
-                                        @endif
-                                    @endforeach
-
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div> 
-                    @endcan
-
-                    
-                    
+ 
 
                     
 
