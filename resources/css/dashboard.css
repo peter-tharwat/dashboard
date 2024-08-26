@@ -14,7 +14,11 @@
 .filepond,.filepond *, .filepond--root , .filepond--root * {
     direction:ltr!important;
 }
-
+.filepond--drip{
+    background: var(--background-0);
+    border-radius: 4px;
+    opacity: 1;
+}
 .filepond--credits{
     display: none;
 }

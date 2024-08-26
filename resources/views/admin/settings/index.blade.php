@@ -120,9 +120,6 @@
 
 
 
-
-
-
 	 		<div class="col-12 row p-0 taber" id="appearance-tab">
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">

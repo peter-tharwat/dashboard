@@ -35,7 +35,12 @@ const ponds = document.querySelectorAll('.filepond');
 ponds.forEach(pondElement => {
     FilePond.create(pondElement, {
         multiple: true, // Allow multiple files
-        name: 'filepond' // Set the name attribute for the input field
+        name: 'filepond' ,// Set the name attribute for the input field
+        allowReorder: true,
+        onreorderfiles: (files) => {
+            var reordered = files.map(file => file);
+            //console.log(reordered);
+        }
     });
 });
 /*
