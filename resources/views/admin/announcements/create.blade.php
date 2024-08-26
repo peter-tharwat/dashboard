@@ -83,7 +83,7 @@
 	 				الصورة
 	 			</div>
 	 			<div class="col-9 px-2" >
-	 				<input type="file" name="image" class="form-control" accept="image/*">
+	 				<input type="file" name="image" class="filepond" accept="image/*">
 	 			</div> 
 	 		</div>
 	 		

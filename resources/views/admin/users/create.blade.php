@@ -56,13 +56,12 @@
 					الصورة الشخصية
 				</div>
 				<div class="col-12 pt-3">
-					<input type="file" name="avatar"  class="form-control"  accept="image/*" >
+					<input type="file" name="avatar"  class="filepond"  accept="image/*" >
 				</div>
 				<div class="col-12 p-0">
 					
 				</div>
 			</div>
-
 			<div class="col-12 col-lg-6 p-2">
 				<div class="col-12">
 					الهاتف

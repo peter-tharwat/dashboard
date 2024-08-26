@@ -41,47 +41,57 @@ class BackendPluginController extends Controller
     }
     public function activate($plugin)
     {
+        //dd(Module::all());
+        try{
+            Module::findorFail($plugin)->enable();
+            $plugin = Module::findorFail($plugin);
+            $module = $plugin->get('route');
 
-        Module::findorFail($plugin)->enable();
-        $plugin = Module::findorFail($plugin);
-        $module = $plugin->get('route');
-
-        $permissions = ['create','read','update','delete'];
-        foreach($permissions as $permission)
-            $permission_ids[] = \Spatie\Permission\Models\Permission::firstOrCreate([
-                'name' => $module . '-' . $permission,
-                'table'=>$module
-            ])->id;
+            $permissions = ['create','read','update','delete'];
+            foreach($permissions as $permission)
+                $permission_ids[] = \Spatie\Permission\Models\Permission::firstOrCreate([
+                    'name' => $module . '-' . $permission,
+                    'table'=>$module
+                ])->id;
 
 
-        $users = \App\Models\User::whereHas('roles',function($q){$q->where('name','superadmin');})->get();
-        $role = \Spatie\Permission\Models\Role::where('name','superadmin')->first()->givePermissionTo($permission_ids);
+            $users = \App\Models\User::whereHas('roles',function($q){$q->where('name','superadmin');})->get();
+            $role = \Spatie\Permission\Models\Role::where('name','superadmin')->first()->givePermissionTo($permission_ids);
 
-        foreach($users as $user){
-            $user->syncPermissions($permission_ids);
+            foreach($users as $user){
+                $user->syncPermissions($permission_ids);
+            }
+
+            \Artisan::call('module:migrate '.$plugin->getName(),['--force' => true]);
+            toastr()->success("تمت عملية تفعيل الاضافة بنجاح");
+            return redirect()->route('admin.plugins.index');
+        }catch(\Exception $e){
+            toastr()->error("خطأ ".$e);
+            return redirect()->back();
         }
-
-        \Artisan::call('module:migrate '.$plugin->getName(),['--force' => true]);
-        toastr()->success("تمت عملية تفعيل الاضافة بنجاح");
-        return redirect()->route('admin.plugins.index');
     }
     public function deactivate($plugin)
     {
-        Module::findorFail($plugin)->disable();
-        $plugin = Module::findorFail($plugin);
-        $module = $plugin->get('route');
+        try{
+            Module::findorFail($plugin)->disable();
+            $plugin = Module::findorFail($plugin);
+            $module = $plugin->get('route');
 
 
-        $permissions = ['create','read','update','delete'];
+            $permissions = ['create','read','update','delete'];
 
-        foreach($permissions as $permission){
-            \Spatie\Permission\Models\Permission::where('name',$module . '-' . $permission)->delete();
+            foreach($permissions as $permission){
+                \Spatie\Permission\Models\Permission::where('name',$module . '-' . $permission)->delete();
+            }
+            
+
+            \Artisan::call('module:migrate-rollback '.$plugin->getName(),['--force' => true]);
+            toastr()->success("تمت عملية تعطيل الاضافة بنجاح");
+            return redirect()->route('admin.plugins.index');
+        }catch(\Exception $e){
+            toastr()->error("خطأ ".$e);
+            return redirect()->back();
         }
-        
-
-        \Artisan::call('module:migrate-reset '.$plugin->getName(),['--force' => true]);
-        toastr()->success("تمت عملية تعطيل الاضافة بنجاح");
-        return redirect()->route('admin.plugins.index');
     }
     public function delete($plugin)
     {

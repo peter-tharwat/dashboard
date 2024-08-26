@@ -56,7 +56,7 @@
 					الصورة الشخصية
 				</div>
 				<div class="col-12 pt-3">
-					<input type="file" name="avatar"  class="form-control"  accept="image/*" >
+					<input type="file" name="avatar"  class="filepond"  accept="image/*" >
 				</div>
 				<div class="col-12 p-0">
 					<img src="{{$user->getUserAvatar()}}" style="width:100px;margin-top:20px">

@@ -80,7 +80,7 @@
 	 				الصورة
 	 			</div>
 	 			<div class="col-9 px-2" >
-	 				<input type="file" name="image" class="form-control" accept="image/*">
+	 				<input type="file" name="image" class="filepond" accept="image/*">
 	 				@if($announcement->image!=null)
 	 				<div class="col-12 py-2">
 	 					<img src="{{$announcement->image()}}" style="width:180px;">

@@ -39,7 +39,7 @@
 					الشعار
 				</div>
 				<div class="col-12 pt-3">
-					<input type="file" name="image"    class="form-control" accept="image/*">
+					<input type="file" name="image" class="filepond" accept="image/*">
 				</div>
 				<div class="col-12 pt-3">
 

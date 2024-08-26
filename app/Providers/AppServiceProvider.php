@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         try{
             $settings = (new \App\Helpers\SettingsHelper)->getAllSettings();
             View::share('settings', $settings);
-        }catch(\Exception $e){}
+        }catch(\Exception $e){/*\Artisan::call("db:seed");*/}
 
         Collection::macro('paginate', function($perPage, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);

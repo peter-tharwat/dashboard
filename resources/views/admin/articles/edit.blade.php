@@ -60,7 +60,7 @@
                             الصورة الرئيسية
                         </div>
                         <div class="col-12 pt-3">
-                            <input type="file" name="main_image" class="form-control" accept="image/*">
+                            <input type="file" name="main_image" class="filepond" accept="image/*">
                         </div>
                         <div class="col-12 pt-3">
                             <img src="{{$article->main_image()}}" style="width:100px">

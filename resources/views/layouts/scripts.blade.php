@@ -28,6 +28,22 @@
 
 </script>
 <script type="module">
+// Create a multi file upload component
+const ponds = document.querySelectorAll('.filepond');
+
+// Loop through each element and create a FilePond instance
+ponds.forEach(pondElement => {
+    FilePond.create(pondElement, {
+        multiple: true, // Allow multiple files
+        name: 'filepond' // Set the name attribute for the input field
+    });
+});
+/*
+const pond = FilePond.create(document.querySelectorAll('.filepond'),{
+    multiple: true,
+    name: 'filepond'
+});*/
+
 toastr.options={"positionClass": "toast-top-left"};
 @if($errors->any())
     @foreach($errors->all() as $error)

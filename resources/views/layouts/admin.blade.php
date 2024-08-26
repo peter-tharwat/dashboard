@@ -516,10 +516,13 @@
     </div>
 
     @vite('resources/js/dashboard.js')
+    <script type="module">
+
+ 
+    </script>
     @livewireScripts
     @include('layouts.scripts')
     @yield('scripts')
     @stack('scripts')
-
 </body>
 </html>

@@ -88,7 +88,7 @@
 		 				لوجو الموقع (200*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="settings[website_logo]" class="form-control" >
+		 				<input type="file" name="settings[website_logo]" class="filepond" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings['get_website_logo']}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -99,7 +99,7 @@
 		 				اللوجو عريض (500*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="settings[website_wide_logo]" class="form-control" >
+		 				<input type="file" name="settings[website_wide_logo]" class="filepond" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings['get_website_wide_logo']}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -110,7 +110,7 @@
 		 				الصورة المصغرة (50*50)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="settings[website_icon]" class="form-control" >
+		 				<input type="file" name="settings[website_icon]" class="filepond" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings['get_website_icon']}}" style="width:100px;max-height: 100px;">
 		 				</div>
@@ -129,7 +129,7 @@
 		 				غلاف الموقع (800*500)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
-		 				<input type="file" name="settings[website_cover]" class="form-control" >
+		 				<input type="file" name="settings[website_cover]" class="filepond" >
 		 				<div class="col-12 p-2">
 		 					<img src="{{$settings['get_website_cover']}}" style="width:100px;max-height: 100px;">
 		 				</div>

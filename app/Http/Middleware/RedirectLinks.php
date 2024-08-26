@@ -34,15 +34,13 @@ class RedirectLinks
                 return \App\Models\Redirection::get();
             });
             foreach($redirections as $redirection){
-                if(str_contains($redirection->url, $url)){
+                $database_redirection = str_replace('www.','' , preg_replace("(^https?://)", "", $redirection->url ) );
+                if($database_redirection == $url){
                     header('Location: ' . $redirection->new_url, true, $redirection->code);
                     die();
                 }
             }
         }catch(\Execption $e){}
-            
-        return $next($request);
-
         return $next($request);
     }
 }
