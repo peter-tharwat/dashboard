@@ -31,8 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->call("$schedule_controller@update_under_attack")->name("update_under_attack")->withoutOverlapping()->everyFiveMinutes();
 
         $schedule->call("$schedule_controller@clean_system")->daily();
-            
-        
+        $schedule->call("$schedule_controllerr@push_rate_limits")->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
 

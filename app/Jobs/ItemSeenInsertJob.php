@@ -38,14 +38,11 @@ class ItemSeenInsertJob implements ShouldQueue
         $classNameString = strtoupper((new \ReflectionClass($this->model_name))->getShortName());
         $data = $this->data;
         $model_id = $this->model_id;
+        $item_seens = cache()->get('item_seens')??[];
 
-        $item_seen = cache()->remember('item_seen_'.\MainHelper::slug($this->model_id).\MainHelper::slug($classNameString).$this->data['ip'],60*60*24,function()use($data,$model_id,$classNameString){
-            return  \App\Models\ItemSeen::where('type_id',$model_id)->where('type',$classNameString)->where('ip',$data['ip'])->whereDate('created_at', \Carbon::today())->first();
-        });
 
-        
-        if ($item_seen==null) {
-            \App\Models\ItemSeen::insert([[
+        $item_seen = cache()->remember('item_seen_'.\MainHelper::slug($this->model_id).\MainHelper::slug($classNameString).$this->data['ip'],60*60*24,function()use($data,$model_id,$classNameString,$item_seens){
+            array_push($item_seens,[
                 'type_id'=>$this->model_id,
                 'type'=>$classNameString,
                 'ip'=>$this->data['ip'],
@@ -54,9 +51,13 @@ class ItemSeenInsertJob implements ShouldQueue
                 'browser'=>$this->data['browser'],
                 'device'=>$this->data['device'],
                 'operating_system'=>$this->data['operating_system']
-            ]]);
+            ]);
+            cache()->put('item_seens',$item_seens);
             $className = $this->model_name;
             $className::where('id',$this->model_id)->increment('views');
-        }
+            return 1;
+        });
+
+
     }
 }

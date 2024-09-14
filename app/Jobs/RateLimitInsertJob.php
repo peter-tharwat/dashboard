@@ -28,41 +28,43 @@ class RateLimitInsertJob implements ShouldQueue
 
     public function handle()
     {
+
         $data=$this->data;
-        $last_insert = cache()->remember('rate_limit_'.\MainHelper::slug($data['ip']),60*20,function()use($data){
-            $last_insert = \App\Models\RateLimit::where('ip',$data['ip'])->where('created_at','>=',\Carbon::parse(now())->subMinutes(19))->orderBy('id','DESC')->first();
 
-            if($last_insert!=null){
-                return $last_insert;
-            }if($last_insert==null){
-                $country=(new \UserSystemInfoHelper)->get_country_from_ip($data['ip']);
-                $last_insert= \App\Models\RateLimit::create([
-                    'traffic_landing'=>$data['traffic_landing'],
-                    'domain'=>$data['prev_domain'],
-                    'prev_link'=>$data['prev_url'],
-                    'ip'=>$data['ip'],
-                    'country_code'=>$country['country_code'],
-                    'country_name'=>$country['country'],
-                    'agent_name'=>$data['agent_name'],
-                    'user_id'=>$data['user_id'],
-                    'browser'=>$data['browser'],
-                    'device'=>$data['device'],
-                    'operating_system'=>$data['operating_system'],
-                    'created_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
-                    'updated_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
-                ]); 
-                return $last_insert;
-            }
+        $rate_limits= cache()->get('rate_limits')??[];
+        $rate_limit_details = cache()->get('rate_limit_details')??[];
 
+
+        cache()->remember('rate_limit_'.\MainHelper::slug($data['ip']),60*60,function()use($data,$rate_limits){
+            $country=(new \UserSystemInfoHelper)->get_country_from_ip($data['ip']);
+            array_push($rate_limits, [
+                'traffic_landing'=>$data['traffic_landing'],
+                'domain'=>$data['prev_domain'],
+                'prev_link'=>$data['prev_url'],
+                'ip'=>$data['ip'],
+                'country_code'=>$country['country_code'],
+                'country_name'=>$country['country'],
+                'agent_name'=>$data['agent_name'],
+                'user_id'=>$data['user_id'],
+                'browser'=>$data['browser'],
+                'device'=>$data['device'],
+                'operating_system'=>$data['operating_system'],
+                'created_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
+                'updated_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
+            ]);
+            cache()->put('rate_limits',$rate_limits);
+            return 1;
         });
-        $rate_limit_detail = \App\Models\RateLimitDetail::insert([[
+        array_push($rate_limit_details,[
             'url'=>$data['traffic_landing'],
             'user_id'=> $data['user_id'],
-            'rate_limit_id'=>$last_insert->id,
+            //'rate_limit_id'=>$last_insert->id,
             'ip'=>$data['ip'],
             'created_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
-            'updated_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),
-        ]]);
+            'updated_at'=>\Carbon::parse(now())->format('Y-m-d H:i:s'),   
+        ]);
+        cache()->put('rate_limit_details',$rate_limit_details);
+
 
     }
 }
