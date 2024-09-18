@@ -1,368 +1,363 @@
 {
-  "public/fonts/Tajawal-Regular.eot": {
-    "file": "assets/Tajawal-Regular-4529430d.eot",
-    "src": "public/fonts/Tajawal-Regular.eot"
+  "_main-!~{005}~.js": {
+    "file": "assets/main-DcD9-e9F.css",
+    "src": "_main-!~{005}~.js"
+  },
+  "_main-mM5xpDTn.js": {
+    "file": "assets/main-mM5xpDTn.js",
+    "name": "main",
+    "css": [
+      "assets/main-DcD9-e9F.css"
+    ]
+  },
+  "public/assets/fonts/custom/Custom.woff": {
+    "file": "assets/Custom-DKOUhDFN.woff",
+    "src": "public/assets/fonts/custom/Custom.woff"
+  },
+  "public/assets/fonts/custom/Custom.woff2": {
+    "file": "assets/Custom-C6Ahks36.woff2",
+    "src": "public/assets/fonts/custom/Custom.woff2"
+  },
+  "public/assets/fonts/unicons/Unicons.woff": {
+    "file": "assets/Unicons-BhE4mAtn.woff",
+    "src": "public/assets/fonts/unicons/Unicons.woff"
+  },
+  "public/assets/fonts/unicons/Unicons.woff2": {
+    "file": "assets/Unicons-LAGzIYyZ.woff2",
+    "src": "public/assets/fonts/unicons/Unicons.woff2"
+  },
+  "public/assets/img/svg/blob.svg": {
+    "file": "assets/hex-B_SY1GJM.svg",
+    "src": "public/assets/img/svg/hex.svg"
+  },
+  "public/assets/img/svg/blob2.svg": {
+    "file": "assets/hex-B_SY1GJM.svg",
+    "src": "public/assets/img/svg/hex.svg"
+  },
+  "public/assets/img/svg/hex.svg": {
+    "file": "assets/hex-B_SY1GJM.svg",
+    "src": "public/assets/img/svg/hex.svg"
+  },
+  "public/fonts/Almarai-Regular.eot": {
+    "file": "assets/Almarai-Regular-DDI3aYWz.eot",
+    "src": "public/fonts/Almarai-Regular.eot"
+  },
+  "public/fonts/Almarai-Regular.svg": {
+    "file": "assets/Almarai-Regular-B56mZBpr.svg",
+    "src": "public/fonts/Almarai-Regular.svg"
+  },
+  "public/fonts/Almarai-Regular.ttf": {
+    "file": "assets/Almarai-Regular-WnQi60cB.ttf",
+    "src": "public/fonts/Almarai-Regular.ttf"
+  },
+  "public/fonts/Almarai-Regular.woff": {
+    "file": "assets/Almarai-Regular-XSYttDtb.woff",
+    "src": "public/fonts/Almarai-Regular.woff"
+  },
+  "public/fonts/DINNextLTArabic-Bold.woff": {
+    "file": "assets/DINNextLTArabic-Bold-DI74QiLu.woff",
+    "src": "public/fonts/DINNextLTArabic-Bold.woff"
+  },
+  "public/fonts/DINNextLTArabic-Bold.woff2": {
+    "file": "assets/DINNextLTArabic-Bold-D6gNGPOf.woff2",
+    "src": "public/fonts/DINNextLTArabic-Bold.woff2"
+  },
+  "public/fonts/DINNextLTArabic-Medium.woff": {
+    "file": "assets/DINNextLTArabic-Medium-a4Qhi8cD.woff",
+    "src": "public/fonts/DINNextLTArabic-Medium.woff"
+  },
+  "public/fonts/DINNextLTArabic-Medium.woff2": {
+    "file": "assets/DINNextLTArabic-Medium-C5X_7zdr.woff2",
+    "src": "public/fonts/DINNextLTArabic-Medium.woff2"
+  },
+  "public/fonts/DroidSansArabic.woff": {
+    "file": "assets/DroidSansArabic-Bkh5aoxV.woff",
+    "src": "public/fonts/DroidSansArabic.woff"
   },
   "public/fonts/DroidSansArabic.woff2": {
-    "file": "assets/DroidSansArabic-7dd84b33.woff2",
+    "file": "assets/DroidSansArabic-XbyO4QGc.woff2",
     "src": "public/fonts/DroidSansArabic.woff2"
   },
-  "public/fonts/PHKhalid-Regular.woff2": {
-    "file": "assets/PHKhalid-Regular-d908f1ef.woff2",
-    "src": "public/fonts/PHKhalid-Regular.woff2"
+  "public/fonts/Dubai-Regular.woff": {
+    "file": "assets/Dubai-Regular-ee0In5Mj.woff",
+    "src": "public/fonts/Dubai-Regular.woff"
   },
   "public/fonts/Dubai-Regular.woff2": {
-    "file": "assets/Dubai-Regular-26cde658.woff2",
+    "file": "assets/Dubai-Regular-DkpCS605.woff2",
     "src": "public/fonts/Dubai-Regular.woff2"
   },
+  "public/fonts/Frutiger-Bold.ttf": {
+    "file": "assets/Frutiger-Bold-BhSWHEIo.ttf",
+    "src": "public/fonts/Frutiger-Bold.ttf"
+  },
+  "public/fonts/Frutiger-Bold.woff": {
+    "file": "assets/Frutiger-Bold-NGKM_XCo.woff",
+    "src": "public/fonts/Frutiger-Bold.woff"
+  },
+  "public/fonts/Frutiger-Bold.woff2": {
+    "file": "assets/Frutiger-Bold-DC557OIn.woff2",
+    "src": "public/fonts/Frutiger-Bold.woff2"
+  },
+  "public/fonts/Frutiger-Light.ttf": {
+    "file": "assets/Frutiger-Bold-BhSWHEIo.ttf",
+    "src": "public/fonts/Frutiger-Bold.ttf"
+  },
+  "public/fonts/Frutiger-Light.woff": {
+    "file": "assets/Frutiger-Light-Del6CPY7.woff",
+    "src": "public/fonts/Frutiger-Light.woff"
+  },
+  "public/fonts/Frutiger-Light.woff2": {
+    "file": "assets/Frutiger-Light-Del6CPY7.woff",
+    "src": "public/fonts/Frutiger-Light.woff"
+  },
+  "public/fonts/Frutiger-Medium.ttf": {
+    "file": "assets/Frutiger-Bold-BhSWHEIo.ttf",
+    "src": "public/fonts/Frutiger-Bold.ttf"
+  },
+  "public/fonts/Frutiger-Medium.woff": {
+    "file": "assets/Frutiger-Bold-NGKM_XCo.woff",
+    "src": "public/fonts/Frutiger-Bold.woff"
+  },
+  "public/fonts/Frutiger-Medium.woff2": {
+    "file": "assets/Frutiger-Bold-NGKM_XCo.woff",
+    "src": "public/fonts/Frutiger-Bold.woff"
+  },
+  "public/fonts/HelveticaNeueLTArabic-Bold.woff": {
+    "file": "assets/HelveticaNeueLTArabic-Bold-PnpLlAeb.woff",
+    "src": "public/fonts/HelveticaNeueLTArabic-Bold.woff"
+  },
   "public/fonts/HelveticaNeueLTArabic-Bold.woff2": {
-    "file": "assets/HelveticaNeueLTArabic-Bold-1a3975e1.woff2",
+    "file": "assets/HelveticaNeueLTArabic-Bold-CpBDh5JV.woff2",
     "src": "public/fonts/HelveticaNeueLTArabic-Bold.woff2"
   },
+  "public/fonts/HelveticaNeueLTArabic-Roman.eot": {
+    "file": "assets/HelveticaNeueLTArabic-Roman--gg3pQfD.eot",
+    "src": "public/fonts/HelveticaNeueLTArabic-Roman.eot"
+  },
+  "public/fonts/HelveticaNeueLTArabic-Roman.svg": {
+    "file": "assets/HelveticaNeueLTArabic-Roman-BDuAhZfs.svg",
+    "src": "public/fonts/HelveticaNeueLTArabic-Roman.svg"
+  },
+  "public/fonts/HelveticaNeueLTArabic-Roman.ttf": {
+    "file": "assets/HelveticaNeueLTArabic-Roman-DbcayR_p.ttf",
+    "src": "public/fonts/HelveticaNeueLTArabic-Roman.ttf"
+  },
+  "public/fonts/HelveticaNeueLTArabic-Roman.woff": {
+    "file": "assets/HelveticaNeueLTArabic-Roman-Ciuc7CfA.woff",
+    "src": "public/fonts/HelveticaNeueLTArabic-Roman.woff"
+  },
   "public/fonts/HelveticaNeueLTArabic-Roman.woff2": {
-    "file": "assets/HelveticaNeueLTArabic-Roman-a3adec3f.woff2",
+    "file": "assets/HelveticaNeueLTArabic-Roman-C-1UhHhI.woff2",
     "src": "public/fonts/HelveticaNeueLTArabic-Roman.woff2"
   },
   "public/fonts/NeoSansArabic.eot": {
-    "file": "assets/NeoSansArabic-f96be7dd.eot",
+    "file": "assets/NeoSansArabic-6adcgYh-.eot",
     "src": "public/fonts/NeoSansArabic.eot"
   },
-  "public/fonts/DINNextLTArabic-Bold.woff2": {
-    "file": "assets/DINNextLTArabic-Bold-cc2965c5.woff2",
-    "src": "public/fonts/DINNextLTArabic-Bold.woff2"
-  },
-  "public/fonts/DINNextLTArabic-Medium.woff2": {
-    "file": "assets/DINNextLTArabic-Medium-81a1b9f4.woff2",
-    "src": "public/fonts/DINNextLTArabic-Medium.woff2"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.eot": {
-    "file": "assets/NotoKufiArabic-Regular-744ce03d.eot",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.eot"
-  },
-  "public/fonts/NotoNaskhArabic-Regular.woff2": {
-    "file": "assets/NotoNaskhArabic-Regular-e63c5a15.woff2",
-    "src": "public/fonts/NotoNaskhArabic-Regular.woff2"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.eot": {
-    "file": "assets/NotoKufiArabic-Bold-8ae5137f.eot",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.eot"
-  },
-  "public/fonts/Frutiger-Light.woff": {
-    "file": "assets/Frutiger-Light-f8906f84.woff2",
-    "src": "public/fonts/Frutiger-Light.woff"
-  },
-  "public/fonts/Frutiger-Bold.woff": {
-    "file": "assets/Frutiger-Medium-d33eaa96.woff2",
-    "src": "public/fonts/Frutiger-Bold.woff"
-  },
-  "public/fonts/Almarai-Regular.eot": {
-    "file": "assets/Almarai-Regular-88259eb7.eot",
-    "src": "public/fonts/Almarai-Regular.eot"
-  },
-  "public/fonts/Frutiger-Bold.woff2": {
-    "file": "assets/Frutiger-Bold-e25d1d84.woff2",
-    "src": "public/fonts/Frutiger-Bold.woff2"
-  },
-  "public/webfonts/fa-brands-400.eot": {
-    "file": "assets/fa-brands-400-78e010e2.eot",
-    "src": "public/webfonts/fa-brands-400.eot"
-  },
-  "public/webfonts/fa-light-300.eot": {
-    "file": "assets/fa-light-300-260d76ec.eot",
-    "src": "public/webfonts/fa-light-300.eot"
-  },
-  "public/webfonts/fa-regular-400.eot": {
-    "file": "assets/fa-regular-400-7935817d.eot",
-    "src": "public/webfonts/fa-regular-400.eot"
-  },
-  "public/fonts/HelveticaNeueLTArabic-Roman.eot": {
-    "file": "assets/HelveticaNeueLTArabic-Roman-e0ee2201.eot",
-    "src": "public/fonts/HelveticaNeueLTArabic-Roman.eot"
-  },
-  "public/webfonts/fa-solid-900.eot": {
-    "file": "assets/fa-solid-900-96ce499f.eot",
-    "src": "public/webfonts/fa-solid-900.eot"
-  },
-  "public/webfonts/fa-duotone-900.eot": {
-    "file": "assets/fa-duotone-900-37340e80.eot",
-    "src": "public/webfonts/fa-duotone-900.eot"
-  },
-  "public/assets/img/svg/blob2.svg": {
-    "file": "assets/blob-e3b0c442.svg",
-    "src": "public/assets/img/svg/blob2.svg"
-  },
-  "public/assets/fonts/custom/Custom.woff2": {
-    "file": "assets/Custom-ac0c2057.woff2",
-    "src": "public/assets/fonts/custom/Custom.woff2"
-  },
-  "public/fonts/Tajawal-Regular.woff": {
-    "file": "assets/Tajawal-Regular-660a656d.woff",
-    "src": "public/fonts/Tajawal-Regular.woff"
-  },
-  "public/assets/fonts/unicons/Unicons.woff2": {
-    "file": "assets/Unicons-7f25d712.woff2",
-    "src": "public/assets/fonts/unicons/Unicons.woff2"
-  },
-  "public/fonts/Dubai-Regular.woff": {
-    "file": "assets/Dubai-Regular-eefe0d62.woff",
-    "src": "public/fonts/Dubai-Regular.woff"
-  },
-  "public/fonts/DroidSansArabic.woff": {
-    "file": "assets/DroidSansArabic-2300a133.woff",
-    "src": "public/fonts/DroidSansArabic.woff"
-  },
-  "public/fonts/PHKhalid-Regular.woff": {
-    "file": "assets/PHKhalid-Regular-8956599b.woff",
-    "src": "public/fonts/PHKhalid-Regular.woff"
-  },
-  "public/fonts/HelveticaNeueLTArabic-Bold.woff": {
-    "file": "assets/HelveticaNeueLTArabic-Bold-7c5db7e9.woff",
-    "src": "public/fonts/HelveticaNeueLTArabic-Bold.woff"
-  },
-  "public/fonts/HelveticaNeueLTArabic-Roman.woff": {
-    "file": "assets/HelveticaNeueLTArabic-Roman-cb24bbb3.woff",
-    "src": "public/fonts/HelveticaNeueLTArabic-Roman.woff"
-  },
-  "public/fonts/NeoSansArabic.woff2": {
-    "file": "assets/NeoSansArabic-25fc5562.woff2",
-    "src": "public/fonts/NeoSansArabic.woff2"
-  },
-  "public/fonts/DINNextLTArabic-Medium.woff": {
-    "file": "assets/DINNextLTArabic-Medium-0ec06b2d.woff",
-    "src": "public/fonts/DINNextLTArabic-Medium.woff"
-  },
-  "public/fonts/DINNextLTArabic-Bold.woff": {
-    "file": "assets/DINNextLTArabic-Bold-3eb9b23c.woff",
-    "src": "public/fonts/DINNextLTArabic-Bold.woff"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff2": {
-    "file": "assets/NotoKufiArabic-Bold-d1081075.woff2",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff2"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff2": {
-    "file": "assets/NotoKufiArabic-Regular-5fb73d94.woff2",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff2"
-  },
-  "public/fonts/Almarai-Regular.woff": {
-    "file": "assets/Almarai-Regular-7ff650ff.woff",
-    "src": "public/fonts/Almarai-Regular.woff"
-  },
-  "public/webfonts/fa-brands-400.woff2": {
-    "file": "assets/fa-brands-400-b55616e4.woff2",
-    "src": "public/webfonts/fa-brands-400.woff2"
-  },
-  "public/webfonts/fa-light-300.woff2": {
-    "file": "assets/fa-light-300-f6d6e49e.woff2",
-    "src": "public/webfonts/fa-light-300.woff2"
-  },
-  "public/webfonts/fa-solid-900.woff2": {
-    "file": "assets/fa-solid-900-0c103ae8.woff2",
-    "src": "public/webfonts/fa-solid-900.woff2"
-  },
-  "public/webfonts/fa-regular-400.woff2": {
-    "file": "assets/fa-regular-400-42d979d5.woff2",
-    "src": "public/webfonts/fa-regular-400.woff2"
-  },
-  "public/webfonts/fa-duotone-900.woff2": {
-    "file": "assets/fa-duotone-900-9f116dbb.woff2",
-    "src": "public/webfonts/fa-duotone-900.woff2"
-  },
-  "public/assets/fonts/custom/Custom.woff": {
-    "file": "assets/Custom-02635bdb.woff",
-    "src": "public/assets/fonts/custom/Custom.woff"
-  },
-  "public/fonts/Tajawal-Regular.ttf": {
-    "file": "assets/Tajawal-Regular-e04f9ee8.ttf",
-    "src": "public/fonts/Tajawal-Regular.ttf"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff": {
-    "file": "assets/NotoKufiArabic-Bold-d32239b8.woff",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff": {
-    "file": "assets/NotoKufiArabic-Regular-a5d930fb.woff",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff"
-  },
-  "public/fonts/Frutiger-Medium.ttf": {
-    "file": "assets/Frutiger-Light-98aa6c6f.ttf",
-    "src": "public/fonts/Frutiger-Medium.ttf"
-  },
-  "public/fonts/NeoSansArabic.woff": {
-    "file": "assets/NeoSansArabic-79cd981e.woff",
-    "src": "public/fonts/NeoSansArabic.woff"
-  },
-  "public/assets/fonts/unicons/Unicons.woff": {
-    "file": "assets/Unicons-65a2edad.woff",
-    "src": "public/assets/fonts/unicons/Unicons.woff"
-  },
-  "public/webfonts/fa-brands-400.woff": {
-    "file": "assets/fa-brands-400-49ee8dc5.woff",
-    "src": "public/webfonts/fa-brands-400.woff"
-  },
-  "public/fonts/Almarai-Regular.ttf": {
-    "file": "assets/Almarai-Regular-6113799c.ttf",
-    "src": "public/fonts/Almarai-Regular.ttf"
-  },
-  "public/fonts/HelveticaNeueLTArabic-Roman.ttf": {
-    "file": "assets/HelveticaNeueLTArabic-Roman-2cec7194.ttf",
-    "src": "public/fonts/HelveticaNeueLTArabic-Roman.ttf"
-  },
-  "public/webfonts/fa-solid-900.woff": {
-    "file": "assets/fa-solid-900-3ec36f83.woff",
-    "src": "public/webfonts/fa-solid-900.woff"
-  },
-  "public/webfonts/fa-light-300.woff": {
-    "file": "assets/fa-light-300-380f2657.woff",
-    "src": "public/webfonts/fa-light-300.woff"
-  },
-  "public/webfonts/fa-regular-400.woff": {
-    "file": "assets/fa-regular-400-8718dc2b.woff",
-    "src": "public/webfonts/fa-regular-400.woff"
-  },
-  "public/webfonts/fa-duotone-900.woff": {
-    "file": "assets/fa-duotone-900-cb866beb.woff",
-    "src": "public/webfonts/fa-duotone-900.woff"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.ttf": {
-    "file": "assets/NotoKufiArabic-Bold-80269b18.ttf",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.ttf"
-  },
-  "public/fonts/Tajawal-Regular.svg": {
-    "file": "assets/Tajawal-Regular-722cf5ce.svg",
-    "src": "public/fonts/Tajawal-Regular.svg"
-  },
-  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.ttf": {
-    "file": "assets/NotoKufiArabic-Regular-ca5f20ef.ttf",
-    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.ttf"
-  },
-  "public/webfonts/fa-brands-400.ttf": {
-    "file": "assets/fa-brands-400-971ce4bb.ttf",
-    "src": "public/webfonts/fa-brands-400.ttf"
-  },
   "public/fonts/NeoSansArabic.ttf": {
-    "file": "assets/NeoSansArabic-71d42b5b.ttf",
+    "file": "assets/NeoSansArabic-DcYydh-u.ttf",
     "src": "public/fonts/NeoSansArabic.ttf"
   },
-  "public/fonts/HelveticaNeueLTArabic-Roman.svg": {
-    "file": "assets/HelveticaNeueLTArabic-Roman-6850388d.svg",
-    "src": "public/fonts/HelveticaNeueLTArabic-Roman.svg"
+  "public/fonts/NeoSansArabic.woff": {
+    "file": "assets/NeoSansArabic-BQXjNSaN.woff",
+    "src": "public/fonts/NeoSansArabic.woff"
   },
-  "public/fonts/Almarai-Regular.svg": {
-    "file": "assets/Almarai-Regular-897e81d1.svg",
-    "src": "public/fonts/Almarai-Regular.svg"
+  "public/fonts/NeoSansArabic.woff2": {
+    "file": "assets/NeoSansArabic-BPhp4IHt.woff2",
+    "src": "public/fonts/NeoSansArabic.woff2"
   },
-  "public/webfonts/fa-solid-900.ttf": {
-    "file": "assets/fa-solid-900-8d25a104.ttf",
-    "src": "public/webfonts/fa-solid-900.ttf"
+  "public/fonts/NotoNaskhArabic-Regular.woff2": {
+    "file": "assets/NotoNaskhArabic-Regular-B7BoDZsO.woff2",
+    "src": "public/fonts/NotoNaskhArabic-Regular.woff2"
   },
-  "public/webfonts/fa-light-300.ttf": {
-    "file": "assets/fa-light-300-ba80ae06.ttf",
-    "src": "public/webfonts/fa-light-300.ttf"
+  "public/fonts/PHKhalid-Regular.woff": {
+    "file": "assets/PHKhalid-Regular-G9efDjyf.woff",
+    "src": "public/fonts/PHKhalid-Regular.woff"
   },
-  "public/webfonts/fa-regular-400.ttf": {
-    "file": "assets/fa-regular-400-caad7e4d.ttf",
-    "src": "public/webfonts/fa-regular-400.ttf"
+  "public/fonts/PHKhalid-Regular.woff2": {
+    "file": "assets/PHKhalid-Regular-CO3UWudu.woff2",
+    "src": "public/fonts/PHKhalid-Regular.woff2"
   },
-  "public/webfonts/fa-duotone-900.ttf": {
-    "file": "assets/fa-duotone-900-5f045cfd.ttf",
-    "src": "public/webfonts/fa-duotone-900.ttf"
+  "public/fonts/Tajawal-Regular.eot": {
+    "file": "assets/Tajawal-Regular-BQLhQZ4I.eot",
+    "src": "public/fonts/Tajawal-Regular.eot"
+  },
+  "public/fonts/Tajawal-Regular.svg": {
+    "file": "assets/Tajawal-Regular-BjkJBl_n.svg",
+    "src": "public/fonts/Tajawal-Regular.svg"
+  },
+  "public/fonts/Tajawal-Regular.ttf": {
+    "file": "assets/Tajawal-Regular-QEjfj2Qi.ttf",
+    "src": "public/fonts/Tajawal-Regular.ttf"
+  },
+  "public/fonts/Tajawal-Regular.woff": {
+    "file": "assets/Tajawal-Regular-BYGjProy.woff",
+    "src": "public/fonts/Tajawal-Regular.woff"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.eot": {
+    "file": "assets/NotoKufiArabic-Bold-C_uvksWH.eot",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.eot"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.ttf": {
+    "file": "assets/NotoKufiArabic-Bold-CLEi3Psg.ttf",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.ttf"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff": {
+    "file": "assets/NotoKufiArabic-Bold-CHAU1PWl.woff",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff2": {
+    "file": "assets/NotoKufiArabic-Bold--4eH1_r8.woff2",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Bold.woff2"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.eot": {
+    "file": "assets/NotoKufiArabic-Regular-CHLHefai.eot",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.eot"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.ttf": {
+    "file": "assets/NotoKufiArabic-Regular-CSukaqdJ.ttf",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.ttf"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff": {
+    "file": "assets/NotoKufiArabic-Regular-C--n8VFc.woff",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff"
+  },
+  "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff2": {
+    "file": "assets/NotoKufiArabic-Regular-Ct-KhsGY.woff2",
+    "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff2"
+  },
+  "public/webfonts/fa-brands-400.eot": {
+    "file": "assets/fa-brands-400-9xktlpTw.eot",
+    "src": "public/webfonts/fa-brands-400.eot"
   },
   "public/webfonts/fa-brands-400.svg": {
-    "file": "assets/fa-brands-400-69ce7e4f.svg",
+    "file": "assets/fa-brands-400-BROLTen5.svg",
     "src": "public/webfonts/fa-brands-400.svg"
   },
-  "public/webfonts/fa-solid-900.svg": {
-    "file": "assets/fa-solid-900-72aa9ed6.svg",
-    "src": "public/webfonts/fa-solid-900.svg"
+  "public/webfonts/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-BtCha6Ea.ttf",
+    "src": "public/webfonts/fa-brands-400.ttf"
   },
-  "public/webfonts/fa-regular-400.svg": {
-    "file": "assets/fa-regular-400-0a1429d1.svg",
-    "src": "public/webfonts/fa-regular-400.svg"
+  "public/webfonts/fa-brands-400.woff": {
+    "file": "assets/fa-brands-400-DWKPb9uJ.woff",
+    "src": "public/webfonts/fa-brands-400.woff"
   },
-  "public/webfonts/fa-light-300.svg": {
-    "file": "assets/fa-light-300-6f1138dd.svg",
-    "src": "public/webfonts/fa-light-300.svg"
+  "public/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-BT3n2a3k.woff2",
+    "src": "public/webfonts/fa-brands-400.woff2"
+  },
+  "public/webfonts/fa-duotone-900.eot": {
+    "file": "assets/fa-duotone-900-C-T1IHMH.eot",
+    "src": "public/webfonts/fa-duotone-900.eot"
   },
   "public/webfonts/fa-duotone-900.svg": {
-    "file": "assets/fa-duotone-900-2251582d.svg",
+    "file": "assets/fa-duotone-900-DQYLUP82.svg",
     "src": "public/webfonts/fa-duotone-900.svg"
   },
-  "main.css": {
-    "file": "assets/main-7c77a428.css",
-    "src": "main.css"
+  "public/webfonts/fa-duotone-900.ttf": {
+    "file": "assets/fa-duotone-900-CwCsKi4W.ttf",
+    "src": "public/webfonts/fa-duotone-900.ttf"
   },
-  "resources/js/dashboard.css": {
-    "file": "assets/dashboard-3597da3e.css",
-    "src": "resources/js/dashboard.css"
+  "public/webfonts/fa-duotone-900.woff": {
+    "file": "assets/fa-duotone-900-2gN9S5ec.woff",
+    "src": "public/webfonts/fa-duotone-900.woff"
   },
-  "resources/js/app.css": {
-    "file": "assets/app-13b491c2.css",
-    "src": "resources/js/app.css"
+  "public/webfonts/fa-duotone-900.woff2": {
+    "file": "assets/fa-duotone-900-7NUAZFB9.woff2",
+    "src": "public/webfonts/fa-duotone-900.woff2"
   },
-  "resources/css/dashboard.css": {
-    "file": "assets/dashboard-6e1b9a8d.css",
-    "src": "resources/css/dashboard.css",
-    "isEntry": true
+  "public/webfonts/fa-light-300.eot": {
+    "file": "assets/fa-light-300-BmfawctN.eot",
+    "src": "public/webfonts/fa-light-300.eot"
+  },
+  "public/webfonts/fa-light-300.svg": {
+    "file": "assets/fa-light-300-UDXCg1jt.svg",
+    "src": "public/webfonts/fa-light-300.svg"
+  },
+  "public/webfonts/fa-light-300.ttf": {
+    "file": "assets/fa-light-300-DT5uOC9G.ttf",
+    "src": "public/webfonts/fa-light-300.ttf"
+  },
+  "public/webfonts/fa-light-300.woff": {
+    "file": "assets/fa-light-300-g8Dd6pW8.woff",
+    "src": "public/webfonts/fa-light-300.woff"
+  },
+  "public/webfonts/fa-light-300.woff2": {
+    "file": "assets/fa-light-300-BhtJTQk1.woff2",
+    "src": "public/webfonts/fa-light-300.woff2"
+  },
+  "public/webfonts/fa-regular-400.eot": {
+    "file": "assets/fa-regular-400-B57p3xT3.eot",
+    "src": "public/webfonts/fa-regular-400.eot"
+  },
+  "public/webfonts/fa-regular-400.svg": {
+    "file": "assets/fa-regular-400-BpFYh1UC.svg",
+    "src": "public/webfonts/fa-regular-400.svg"
+  },
+  "public/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-BFI4EYPk.ttf",
+    "src": "public/webfonts/fa-regular-400.ttf"
+  },
+  "public/webfonts/fa-regular-400.woff": {
+    "file": "assets/fa-regular-400-DIsGOxr3.woff",
+    "src": "public/webfonts/fa-regular-400.woff"
+  },
+  "public/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-DYl2XQKE.woff2",
+    "src": "public/webfonts/fa-regular-400.woff2"
+  },
+  "public/webfonts/fa-solid-900.eot": {
+    "file": "assets/fa-solid-900-DB6KB6iI.eot",
+    "src": "public/webfonts/fa-solid-900.eot"
+  },
+  "public/webfonts/fa-solid-900.svg": {
+    "file": "assets/fa-solid-900-D32WM8Nd.svg",
+    "src": "public/webfonts/fa-solid-900.svg"
+  },
+  "public/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-DEyRX_wn.ttf",
+    "src": "public/webfonts/fa-solid-900.ttf"
+  },
+  "public/webfonts/fa-solid-900.woff": {
+    "file": "assets/fa-solid-900--lTx4nPN.woff",
+    "src": "public/webfonts/fa-solid-900.woff"
+  },
+  "public/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-rxBUyNEp.woff2",
+    "src": "public/webfonts/fa-solid-900.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-d395995f.css",
+    "file": "assets/app-a_uCQFRh.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/dashboard.css": {
+    "file": "assets/dashboard-BDnrvq4K.css",
+    "src": "resources/css/dashboard.css",
+    "isEntry": true
+  },
   "resources/js/app.js": {
-    "file": "assets/app-3860759c.js",
+    "file": "assets/app-SReBbDrK.js",
+    "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_main-bc3953b1.js"
+      "_main-mM5xpDTn.js"
     ],
     "css": [
-      "assets/app-13b491c2.css"
+      "assets/app-Cef1Hsoh.css"
     ]
   },
   "resources/js/dashboard.js": {
-    "file": "assets/dashboard-d46148d0.js",
+    "file": "assets/dashboard-Cpy2ArwP.js",
+    "name": "dashboard",
     "src": "resources/js/dashboard.js",
     "isEntry": true,
     "imports": [
-      "_main-bc3953b1.js"
+      "_main-mM5xpDTn.js"
     ],
     "css": [
-      "assets/dashboard-3597da3e.css"
+      "assets/dashboard-DH4eK6Jk.css"
     ]
-  },
-  "_main-bc3953b1.js": {
-    "file": "assets/main-bc3953b1.js",
-    "css": [
-      "assets/main-7c77a428.css"
-    ]
-  },
-  "public/fonts/Frutiger-Light.woff2": {
-    "file": "assets/Frutiger-Light-f8906f84.woff2",
-    "src": "public/fonts/Frutiger-Light.woff"
-  },
-  "public/fonts/Frutiger-Medium.woff2": {
-    "file": "assets/Frutiger-Medium-d33eaa96.woff2",
-    "src": "public/fonts/Frutiger-Bold.woff"
-  },
-  "public/assets/img/svg/blob.svg": {
-    "file": "assets/blob-e3b0c442.svg",
-    "src": "public/assets/img/svg/blob2.svg"
-  },
-  "public/assets/img/svg/hex.svg": {
-    "file": "assets/blob-e3b0c442.svg",
-    "src": "public/assets/img/svg/blob2.svg"
-  },
-  "public/fonts/Frutiger-Medium.woff": {
-    "file": "assets/Frutiger-Medium-d33eaa96.woff2",
-    "src": "public/fonts/Frutiger-Bold.woff"
-  },
-  "public/fonts/Frutiger-Light.ttf": {
-    "file": "assets/Frutiger-Light-98aa6c6f.ttf",
-    "src": "public/fonts/Frutiger-Medium.ttf"
-  },
-  "public/fonts/Frutiger-Bold.ttf": {
-    "file": "assets/Frutiger-Light-98aa6c6f.ttf",
-    "src": "public/fonts/Frutiger-Medium.ttf"
   }
 }

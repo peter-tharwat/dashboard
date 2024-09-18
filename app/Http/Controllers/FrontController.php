@@ -132,5 +132,9 @@ class FrontController extends Controller
         ];
         \App\Jobs\ItemSeenInsertJob::dispatch("\App\Models\Article",$article->id,$data);
     }
+    public function builder(Request $request){
+        return view('front.pages.builder');
+    }
+
 }
 

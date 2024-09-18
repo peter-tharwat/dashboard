@@ -27,7 +27,7 @@ use App\Http\Controllers\Backend\BackendUserPermissionController;
 use App\Http\Controllers\Backend\BackendUserRoleController;
 use App\Http\Controllers\Backend\BackendRoleController;
 use App\Http\Controllers\Backend\BackendTagController;
-
+use App\Http\Controllers\Backend\BackendBuilderController;
 
 # Frontend Controllers
 use App\Http\Controllers\FrontController;
@@ -41,7 +41,7 @@ Auth::routes();
 
 Route::get('/', [FrontController::class,'index'])->name('home');
 Route::get('/index2', function(){return view('front.index2');})->name('index2');
-
+Route::get('/builder', [FrontController::class,'builder'])->name('builder');
 
 
 Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->name('user.')->group(function () {
@@ -82,6 +82,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::post('article-comments/change_status',[BackendArticleCommentController::class,'change_status'])->name('article-comments.change_status');
         Route::resource('article-comments',BackendArticleCommentController::class);
         Route::resource('pages',BackendPageController::class);
+        Route::resource('builders',BackendBuilderController::class);
         Route::resource('tags',BackendTagController::class);
         Route::resource('contact-replies',BackendContactReplyController::class);
         Route::post('faqs/order',[BackendFaqController::class,'order'])->name('faqs.order');

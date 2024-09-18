@@ -18,6 +18,8 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
+window.Sortable = Sortable;
 FilePond.registerPlugin(
     FilePondPluginImagePreview,
     FilePondPluginFileValidateType,

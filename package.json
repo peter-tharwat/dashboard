@@ -1,5 +1,6 @@
 {
     "private": true,
+    "type":"module",
     "scripts": {
         "dev": "vite ",
         "prod": "vite build",
@@ -10,6 +11,7 @@
         "@originjs/vite-plugin-commonjs": "^1.0.3",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.0",
+        "@vitejs/plugin-vue": "^5.1.3",
         "alpinejs": "^2.7.3",
         "autoprefixer": "^10.0.2",
         "laravel-mix": "^6.0.11",
@@ -34,11 +36,13 @@
         "install": "^0.13.0",
         "jquery": "^3.6.1",
         "jquery-validation": "^1.19.5",
-        "laravel-vite-plugin": "^0.7.3",
+        "laravel-vite-plugin": "^1.0.5",
         "select2": "^4.1.0-rc.0",
+        "sortablejs": "^1.15.3",
         "source-map-support": "^0.5.21",
         "validate.js": "^0.13.1",
-        "vite": "^4.0.3",
-        "vite-plugin-purgecss": "^0.2.12"
+        "vite": "^5.4.5",
+        "vite-plugin-purgecss": "^0.2.12",
+        "vue": "^3.5.5"
     }
 }
