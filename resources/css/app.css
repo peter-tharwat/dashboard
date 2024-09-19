@@ -427,6 +427,12 @@ body {
     background: rgba(var(--main-color-rgb) , 0.04) !important;
     box-shadow: none;
 }
+.btn{
+	font-weight: normal;
+}
+.btn-light, .btn-light:hover,.btn-outline-light:hover{
+	color:#444;
+}
 
 /*.form-control {
     border-color: #2db05a;
