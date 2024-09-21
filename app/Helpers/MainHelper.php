@@ -242,6 +242,19 @@ class MainHelper {
         else
             return [];
     }
+    public static function convert_to_embed($link) {
+        // Check if the link is from YouTube
+        $youtubeRegex = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+        
+        if (preg_match($youtubeRegex, $link, $matches)) {
+            // Extract the video ID and return the embed code
+            $videoId = $matches[1];
+            return "https://www.youtube.com/embed/$videoId";
+        } else {
+            // Return the link as it is if it's not a YouTube video
+            return $link;
+        }
+    }
 
 
     

@@ -41,7 +41,6 @@ Auth::routes();
 
 Route::get('/', [FrontController::class,'index'])->name('home');
 Route::get('/index2', function(){return view('front.index2');})->name('index2');
-Route::get('/builder', [FrontController::class,'builder'])->name('builder');
 
 
 Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->name('user.')->group(function () {
@@ -81,6 +80,8 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::resource('articles',BackendArticleController::class);
         Route::post('article-comments/change_status',[BackendArticleCommentController::class,'change_status'])->name('article-comments.change_status');
         Route::resource('article-comments',BackendArticleCommentController::class);
+        Route::get('pages/{page}/builder',[BackendPageController::class,'builder_edit'])->name('pages.builder-edit');
+        Route::post('pages/{page}/builder',[BackendPageController::class,'builder_update'])->name('pages.builder-update');
         Route::resource('pages',BackendPageController::class);
         Route::resource('builders',BackendBuilderController::class);
         Route::resource('tags',BackendTagController::class);

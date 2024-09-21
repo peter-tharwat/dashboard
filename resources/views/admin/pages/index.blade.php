@@ -46,18 +46,26 @@
 				<tbody>
 					@foreach($pages as $page)
 					<tr>
-						<td>{{$page->id}}</td>
+						<td>{{$page->id}} @if($page->home)<span class="far fa-home"></span>@endif</td>
 						<td>{{$page->user->name}}</td>
 						<td>{{$page->slug}}</td>
 						<td><img src="{{$page->image()}}" style="width:40px"></td>
 						<td>{{$page->title}}</td>
 					 
-						<td style="width: 270px;">
+						<td style="width: 360px;">
 
 							@can('pages-read')
 							<a href="{{route('page.show',['page'=>$page])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
+								</span>
+							</a>
+							@endcan
+
+							@can('pages-update')
+							<a href="{{route('admin.pages.builder-edit',$page)}}">
+								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
+									<span class="far fa-brush "></span> صمم
 								</span>
 							</a>
 							@endcan

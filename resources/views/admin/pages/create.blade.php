@@ -76,6 +76,17 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-12 p-2">
+                        <div class="col-12">
+                            الرئيسية
+                        </div>
+                        <div class="col-12 pt-3">
+                            <select class="form-control" name="home">
+                                <option @if(old('home')=="1" ) selected @endif value="1">نعم</option>
+                                <option @if(old('home')=="0" ) selected @endif value="0">لا</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 p-3">

@@ -1,9 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>"الرئيسية"])
 @section('content')
-<x-start />
-<x-numbers />
-<x-faqs />
-<x-blog />
-<x-about />
-<x-call-to-action />
+@php
+$page = \App\Models\Page::where('home',1)->firstOrFail();
+@endphp
+<div class="col-12 p-0 ">
+  @if(is_countable(json_decode($page->content,true)))
+  @foreach(json_decode($page->content,true) as $component)
+  @include('components.page',['page'=>$page,'component'=>$component])
+  @endforeach
+  @endif
+</div>
 @endsection

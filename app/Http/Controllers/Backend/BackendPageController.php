@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 
 class BackendPageController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('can:pages-create', ['only' => ['create','store']]);
         $this->middleware('can:pages-read',   ['only' => ['show', 'index']]);
-        $this->middleware('can:pages-update',   ['only' => ['edit','update']]);
+        $this->middleware('can:pages-update',   ['only' => ['edit','update','builder_edit','builder_update']]);
         $this->middleware('can:pages-delete',   ['only' => ['delete']]);
     }
 
@@ -58,7 +57,8 @@ class BackendPageController extends Controller
             'title_en'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
-            "removable"=>"required|in:0,1"
+            "removable"=>"required|in:0,1",
+            "home"=>"required|in:0,1"
         ]);
         $page = Page::create([
             'user_id'=>auth()->user()->id,
@@ -68,28 +68,14 @@ class BackendPageController extends Controller
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
             "removable"=>$request->removable,
+            "home"=>$request->home,
         ]);
+        if($request->home ==1) Page::where('home',1)->where('id','<>',$page->id)->update(['home'=>0]);
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$page,"description");
         if($request->hasFile('image')){
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-
-        /*if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/pages/',
-                'type'=>'PAGE', 
-                'user_id'=>auth()->user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                'optimize'=>true
-            ]); 
-            $page->update(['image'=>$file['filename']]);
-        }*/
         toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
@@ -136,7 +122,8 @@ class BackendPageController extends Controller
             'title_en'=>"required|max:190",
             'description'=>"nullable|max:100000",
             'meta_description'=>"nullable|max:10000",
-            "removable"=>"required|in:0,1"
+            "removable"=>"required|in:0,1",
+            "home"=>"required|in:0,1"
         ]);
         $page->update([
             "slug"=>$request->slug,
@@ -145,27 +132,15 @@ class BackendPageController extends Controller
             "description"=>$request->description,
             "meta_description"=>$request->meta_description,
             "removable"=>$request->removable,
+            "home"=>$request->home,
         ]);
+        if($request->home ==1) Page::where('home',1)->where('id','<>',$page->id)->update(['home'=>0]);
+
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$page,"description");
         if($request->hasFile('image')){
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        /*if($request->hasFile('image')){
-            $file = $this->store_file([
-                'source'=>$request->image,
-                'validation'=>"image",
-                'path_to_save'=>'/uploads/pages/',
-                'type'=>'PAGE', 
-                'user_id'=>auth()->user()->id,
-                'resize'=>[500,1000],
-                'small_path'=>'small/',
-                'visibility'=>'PUBLIC',
-                'file_system_type'=>env('FILESYSTEM_DRIVER'),
-                'optimize'=>true
-            ]); 
-            $page->update(['image'=>$file['filename']]);
-        }*/
         toastr()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
@@ -186,4 +161,18 @@ class BackendPageController extends Controller
         }
         return redirect()->route('admin.pages.index');
     }
+
+
+    public function builder_edit(Request $request,Page $page){
+        return view('admin.builders.index',compact('page'));
+    }
+    public function builder_update(Request $request,Page $page){
+        $page->update([
+            'content'=>json_encode(json_decode($request->contents,true))
+        ]);
+        return [
+            'redirect_url'=>route('admin.pages.index')
+        ];
+    }
+
 }

@@ -114,8 +114,8 @@ class UploadFilesHelper
                     "old_name"=>"ملف",
                     "old_title"=>"ملف",
                     "replaced"=>false,
-                    "size"=>$file->getSize(),
-                    "size2"=>"$file->getSize() KB",
+                    "size"=>"0",
+                    "size2"=>"0 KB",
                     "title"=>$filename,
                     "type"=>$file->getMimeType(),
                     "uploaded"=>true

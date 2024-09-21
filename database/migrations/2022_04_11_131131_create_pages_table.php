@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->text('meta_description')->nullable();
+            $table->json('content')->nullable();
             $table->tinyInteger('removable')->default(1);
+            $table->tinyInteger('home')->default(0);
             $table->timestamps();
         });
     }
