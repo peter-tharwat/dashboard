@@ -16,7 +16,7 @@
 
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="margin:5px 0px 8px!important;opacity: 0.9">{{$component['fields']['content_sub_title']}}</p>
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="white-space: pre-line;opacity: 0.9">{{$component['fields']['content_description']}}</p>
-                          <div class="col-12 p-0 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
+                          <div class="col-12 px-3 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
 
                               @foreach($component['fields']['buttons'] as $button)
                           
@@ -39,7 +39,7 @@
                           <h4 class='display-5 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h4>
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="margin:5px 0px 8px!important;opacity: 0.9">{{$component['fields']['content_sub_title']}}</p>
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="white-space: pre-line;opacity: 0.9">{{$component['fields']['content_description']}}</p>
-                          <div class="col-12 p-0 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
+                          <div class="col-12 px-3 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
                             @foreach($component['fields']['buttons'] as $button)
                            
                                   <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5 {{$button['fields']['class']}}"  target="{{$button['fields']['url_open_type']}}" style="border-radius: 3px;">
@@ -61,7 +61,7 @@
                           <h4 class='display-5 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h4>
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="margin:5px 0px 8px!important;opacity: 0.9">{{$component['fields']['content_sub_title']}}</p>
                           <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="white-space: pre-line;opacity: 0.9">{{$component['fields']['content_description']}}</p>
-                          <div class="col-12 p-0 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
+                          <div class="col-12 px-3 d-flex btns-group {{$component['fields']['design_text_alignment']}}">
                             @foreach($component['fields']['buttons'] as $button) 
                                   <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5 {{$button['fields']['class']}}"  target="{{$button['fields']['url_open_type']}}" style="border-radius: 3px;">
                                       {{$button['fields']['title']}}
@@ -85,7 +85,7 @@
                                   <h3 class='display-5 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h3>
                                   <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="margin:5px 0px 8px!important;opacity: 0.9">{{$component['fields']['content_sub_title']}}</p>
                                   <p  class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="white-space: pre-line;opacity: 0.9">{{$component['fields']['content_description']}}</p>
-                                  <div class="col-12 p-0 d-flex btns-group {{$component['fields']['design_text_alignment']}}" >
+                                  <div class="col-12 px-3 d-flex btns-group {{$component['fields']['design_text_alignment']}}" >
 
 
                                     @foreach($component['fields']['buttons'] as $button) 
@@ -117,7 +117,7 @@
                                   <h3 class='display-5 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h3>
                                   <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="margin:5px 0px 8px!important;opacity: 0.9">{{$component['fields']['content_sub_title']}}</p>
                                   <p class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}}' style="white-space: pre-line;opacity: 0.9">{{$component['fields']['content_description']}}</p>
-                                  <div class="col-12 p-0 d-flex btns-group {{$component['fields']['design_text_alignment']}}" >
+                                  <div class="col-12 px-3 d-flex btns-group {{$component['fields']['design_text_alignment']}}" >
                                       @foreach($component['fields']['buttons'] as $button) 
                                         <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5 {{$button['fields']['class']}}"  target="{{$button['fields']['url_open_type']}}" style="border-radius: 3px;">
                                             {{$button['fields']['title']}}
@@ -170,7 +170,7 @@
                       <div class="appended-html-css-js">{!!$component['fields']['design_custom_css']!!}</div>
                       <div class='{{$component['fields']['design_text_alignment']}}'>
                           <h5 class='display-6 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h5>
-                          <p  class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}} ' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">{{$component['fields']['content_description']}}</p>
+                          <p  class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}} ' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">{{$component['fields']['content_sub_title']}}</p>
                           <div class="col-12 px-0 py-5 d-flex faqs-group row {{$component['fields']['design_text_alignment']}}">
                               <div class="col-12 px-2 mb-3 accordion">
                                 @foreach($component['fields']['faqs'] as $faq)
@@ -205,6 +205,28 @@
                   </div>
               </div>
               @endif
+
+
+              @if($component['fields']['block_type'] == "component_contact")
+              <div class='main-content-of-block py-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;min-height:{{$component['fields']['design_min_height']}}dvh">
+
+
+                  <div class="container p-2">
+                      <div class="appended-html-css-js">{!!$component['fields']['design_custom_css']!!}</div>
+                      <div class='{{$component['fields']['design_text_alignment']}}'>
+                          <h5 class='display-6 mb-3 {{$component['fields']['design_text_alignment']}}' style="color:inherit;">{{$component['fields']['content_title']}}</h5>
+                          <p  class=' mb-6  font-1 font-lg-2 {{$component['fields']['design_text_alignment']}} ' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">{{$component['fields']['content_sub_title']}}</p> 
+
+
+                          <div class="col-12 col-lg-8 py-5 px-1 mx-auto">
+                              @include('components.contact')
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              @endif
+
+
           </div>
       </div>
 </div>

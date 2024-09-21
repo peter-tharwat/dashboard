@@ -1,4 +1,4 @@
-@extends('layouts.app',['page_title'=>"بانئ الصفحات ". $page->title])
+@extends('layouts.app',['page_title'=>"تصميم ". $page->title])
 @section('content')
 <style type="text/css">
 .main-nav,
@@ -28,10 +28,8 @@ body {
 
 .highlight-block{ 
     /*border:2px dashed #d8d8d8!important;*/
-    border-radius:10px!important;
     background:#ffefd9!important;
-    opacity:0.9;
-    overflow:hidden!important;
+    opacity:0.9; 
 }
 
 
@@ -235,6 +233,21 @@ body {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-12 p-0 component mb-2" v-on:click="template_generator('component_contact')" data-id="contact_form" style="cursor: pointer;">
+                                    <div class="p-1" style="background:#f1f1f1;border-radius:10px">
+                                        <img src="/images/components/component_contact.png" style="width:100%;border-radius: 10px;" class="p-1">
+                                        <div class="col-12 font-2 px-2 d-flex">
+                                            <div class="col px-0">
+                                                نموذج تواصل معنا
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <i class="far fa-chevron-left"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -252,7 +265,7 @@ body {
                                 </div>
                             </div>
 
-                            <div class="col-12 p-3 row" id="builder-editor" style="height:calc(100dvh - 150px);overflow: auto;">
+                            <div class="col-12 p-3 " id="builder-editor" style="height:calc(100dvh - 150px);overflow: auto;">
                                 <div class="col-12 p-0">
                                     <nav style="background:#d9e2ef!important;border-radius: 5px;">
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -703,7 +716,7 @@ body {
                                                     <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 p-0 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -720,7 +733,7 @@ body {
                                                     <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 p-0 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -737,7 +750,7 @@ body {
                                                     <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
                                                     <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 p-0 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -759,7 +772,7 @@ body {
                                                             <h3 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h3>
                                                             <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
                                                             <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 p-0 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -783,7 +796,7 @@ body {
                                                             <h3 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h3>
                                                             <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
                                                             <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 p-0 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -820,7 +833,7 @@ body {
                                                 <div v-html="element.fields.design_custom_css"></div>
                                                 <div :class="element.fields.design_text_alignment" class=''>
                                                     <h5 :class="element.fields.design_text_alignment" class='display-6 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h5>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">@{{element.fields.content_description}}</p>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
                                                     <div class="col-12 px-0 py-5 d-flex faqs-group row" :class="element.fields.design_text_alignment">
                                                         <div class="col-12 px-2 mb-3 accordion">
                                                             <div v-for="faq,index in element.fields['faqs']" :class="element.fields.design_columns" class="p-1">
@@ -850,6 +863,27 @@ body {
                                                 <div v-html="element.fields.content_html"></div>
                                             </div>
                                         </div>
+
+                                        <div v-if="element.fields.block_type=='component_contact'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
+                                            <div class="container p-2">
+                                                <div v-html="element.fields.design_custom_css"></div>
+                                                <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
+
+
+                                                    <h5 :class="element.fields.design_text_alignment" class='display-6 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h5>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+
+
+
+
+                                                    <div class="col-12 col-lg-8 py-5 px-1 mx-auto">
+                                                        @include("components.contact")
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </template>
@@ -957,7 +991,7 @@ body {
 				"design_background_grayscale":0,
 				"design_background_black":0,
 				"design_text_alignment":"text-end justify-content-start",
-				"design_custom_css":"<style>\n.block_"+this.selected_unique_id+" {\n\n}\n</style>\n",
+				"design_custom_css":"<style>\n#block_"+this.selected_unique_id+" {\n\n}\n</style>\n",
 				"design_min_height":50,
 
   			},...options};
@@ -1115,7 +1149,7 @@ body {
 			}else if(type == "component_faqs"){
 				var options = {...options,...{
 					"content_title":"الأسئلة الشائعة",
-					"content_description":"نرد على كافة الأسئلة التي قد تدور في ذهنك",
+					"content_sub_title":"نرد على كافة الأسئلة التي قد تدور في ذهنك",
 					"design_text_alignment":"text-center justify-content-center",
 	  			}};
 	  			var object = { 'id' : this.selected_unique_id, 'fields': [] };
@@ -1167,7 +1201,21 @@ body {
 	  			object.fields = options;
 	  			this.contents[this.selected_page].push(object);
 			  	this.template_editor(unique_id,type);
-			} 
+			}else if(type == "component_contact"){
+                var options = {...options,...{
+                    "content_title":"تواصل معنا",
+                    "content_sub_title":"يمكنك التواصل معنا عبر النموذج التالي",
+                    "content_description":"توفر منصتنا مجتمعًا تعليميًا تفاعليًا يسمح للطلاب والمدرسين بالتفاعل بشكل مستمر خارج حدود الحصص الدراسية. يمكن للطلاب طرح الأسئلة ومشاركة الأفكار وتكوين مجموعات دراسية إلكترونية تساعدهم في التعلم المشترك. يوفر المجتمع أيضًا فرصًا للتواصل مع الخبراء من مختلف المجالات للحصول على إرشادات ونصائح قيّمة. من خلال أدوات المنتديات والمحادثات المخصصة، يظل الطلاب متصلين دائمًا مع زملائهم، مما يعزز الشعور بالانتماء ويحفز على التعاون المستمر",
+                    "design_content_alignment":"flex-row"
+                }};
+                var object = { 'id' : this.selected_unique_id, 'fields': [] };
+                object.fields = options;
+                this.contents[this.selected_page].push(object);
+          
+
+                this.template_editor(unique_id,type);
+            } 
+            
 			console.log(this.contents['home']);
 
 
