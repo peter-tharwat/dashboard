@@ -1,5 +1,6 @@
 @extends('layouts.app',['page_title'=>"تصميم ". $page->title])
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style type="text/css">
 .main-nav,
 .copy-rights-footer,
@@ -247,6 +248,22 @@ body {
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="col-12 p-0 component mb-2" v-on:click="template_generator('component_slider')" data-id="component_slider" style="cursor: pointer;">
+                                    <div class="p-1" style="background:#f1f1f1;border-radius:10px">
+                                        <img src="/images/components/component_contact.png" style="width:100%;border-radius: 10px;" class="p-1">
+                                        <div class="col-12 font-2 px-2 d-flex">
+                                            <div class="col px-0">
+                                                سلايدر
+                                            </div>
+                                            <div class="col-auto px-0">
+                                                <i class="far fa-chevron-left"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>
@@ -681,12 +698,12 @@ body {
                                         <input type="range" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_min_height" class="form-range col-12 p-0" min="0" max="100" style="background: rgb(205 205 205);border-radius: 20px;height: 7px;cursor: pointer;border: 2px solid rgb(159 159 159);">
                                     </div>
                                 </div>
-                                <div v-if="('design_custom_css' in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}) )" class="col-12 px-0 my-2 py-2">
+                                <div v-if="('design_custom_code' in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}) )" class="col-12 px-0 my-2 py-2">
                                     <div class="col-12 px-3 mb-2 font-1">
                                         كود html,css,js مخصص
                                     </div>
                                     <div class="col-12 px-2 mb-3">
-                                        <textarea class="form-control code-highlight" style="min-height: 200px;direction: ltr;background: #002b36!important;color:#fff!important" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_custom_css"></textarea>
+                                        <textarea class="form-control code-highlight" style="min-height: 200px;direction: ltr;background: #002b36!important;color:#fff!important" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_custom_code"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -710,13 +727,12 @@ body {
 			                                        	}"></div>
                                         <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;z-index: 0;background:cover;background: #000;" :style="{'opacity': element.fields.design_background_black}"></div>
                                         <div v-if="element.fields.block_type=='component_cta'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
-                                                <div :class="element.fields.design_text_alignment" class='col-12 col-lg-9 mx-auto '>
-                                                    <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                            <div class="container p-3">
+                                                <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                    <div class="col-12 px-0 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -724,16 +740,16 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_banner'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
-                                                <div :class="element.fields.design_text_alignment" class='col-12 col-lg-9 mx-auto '>
-                                                    <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                            <div class="container p-3">
+                                                <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                    <div class="col-12 px-0 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -741,16 +757,16 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_text'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
-                                                <div :class="element.fields.design_text_alignment" class='col-12 col-lg-9 mx-auto '>
-                                                    <h4 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h4>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                    <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                            <div class="container p-3">
+                                                <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                    <div class="col-12 px-0 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                         <div v-for="button in element.fields['buttons']">
                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                 @{{button.fields.title}}
@@ -758,21 +774,21 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_text_with_image'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
                                                 <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class=' mx-auto row '>
                                                     <div class="col-12 col-lg-6 mx-auto">
                                                         <img :src="element.fields.content_image_url" style="width:100%;border-radius: 8px;">
                                                     </div>
                                                     <div class="col-12 col-lg-6 d-flex align-items-center row mx-auto">
                                                         <div class="col-12 px-0 py-3 row ">
-                                                            <h3 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h3>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -782,21 +798,21 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_text_with_video'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
                                                 <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class=' mx-auto row '>
                                                     <div class="col-12 col-lg-6 mx-auto">
                                                         <iframe :src="convert_to_embed(element.fields.content_video_url)" style="width:100%;height: 100%;border-radius: 10px;"></iframe>
                                                     </div>
                                                     <div class="col-12 col-lg-6 d-flex align-items-center row mx-auto">
                                                         <div class="col-12 px-0 py-3 row ">
-                                                            <h3 :class="element.fields.design_text_alignment" class='display-5 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h3>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-3 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 d-flex btns-group" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -806,16 +822,16 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_features'" :class="[element.fields.design_text_alignment,'block_' + element_slug]" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
                                                 <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class=''>
-                                                    <h5 :class="element.fields.design_text_alignment" class='display-6 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h5>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space: pre;">@{{element.fields.content_description}}</p>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9;white-space: pre;">@{{element.fields.content_description}}</p>
                                                     <div class="col-12 px-0 py-5 d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]">
-                                                        <div v-for="feature in element.fields['features']" :class="element.fields.design_columns" class="p-3 mx-auto my-3">
+                                                        <div v-for="feature in element.fields['features']" :class="'col-12 col-md-6 col-lg-' + 12/element.fields.design_columns" class="p-3 mx-auto my-3">
                                                             <div class="col-12 mb-1 px-2 text-center">
                                                                 <img :src="feature.fields.image_url" style="width:100px">
                                                             </div>
@@ -826,14 +842,14 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_faqs'" :class="[element.fields.design_text_alignment,'block_' + element_slug]" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
                                                 <div :class="element.fields.design_text_alignment" class=''>
-                                                    <h5 :class="element.fields.design_text_alignment" class='display-6 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h5>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
                                                     <div class="col-12 px-0 py-5 d-flex faqs-group row" :class="element.fields.design_text_alignment">
                                                         <div class="col-12 px-2 mb-3 accordion">
                                                             <div v-for="faq,index in element.fields['faqs']" :class="element.fields.design_columns" class="p-1">
@@ -855,33 +871,75 @@ body {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
                                         <div v-if="element.fields.block_type=='component_html'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
+                                                <div v-html="element.fields.design_custom_code"></div>
                                                 <div v-html="element.fields.content_html"></div>
                                             </div>
                                         </div>
 
                                         <div v-if="element.fields.block_type=='component_contact'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
-                                            <div class="container p-2">
-                                                <div v-html="element.fields.design_custom_css"></div>
+                                            <div class="container p-3">
                                                 <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
 
 
-                                                    <h5 :class="element.fields.design_text_alignment" class='display-6 mb-3 ' style="color:inherit;">@{{element.fields.content_title}}</h5>
-                                                    <p :class="element.fields.design_text_alignment" class=' mb-6  font-1 font-lg-2' style="margin:5px 0px 8px!important;opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
 
 
-
-
-                                                    <div class="col-12 col-lg-8 py-5 px-1 mx-auto">
+ 
+                                                    <div class="col-12 col-lg-8 py-5 px-1">
                                                         @include("components.contact")
                                                     </div>
                                                 </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
                                             </div>
                                         </div>
+
+
+                                        <div v-if="element.fields.block_type=='component_slider'" class='main-content-of-block py-9 d-flex align-items-center justify-content-center' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
+                                            <div class="container p-3">
+                                                
+                                                <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
+
+
+                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 ' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+
+
+
+                                                    <div class="col-12 col-lg-12 py-5 px-1">
+
+                                                        <div class="col-12 px-0 py-5 d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" style="flex-wrap: nowrap;overflow: hidden;">
+                                                            <div v-for="feature in element.fields['features']" :class="'col-12 col-md-6 col-lg-' + 12/element.fields.design_columns" class="p-3" >
+                                                                <div class="col-12 mb-1 px-0 text-center d-flex align-items-center justify-content-center row" :style="{'background-image': 'url(' + feature.fields.image_url + ')' , 'max-height':  element.fields.design_min_height + 'dvh' }"
+                                                                style="background-repeat: no-repeat;background-position: center;background-size: cover;border-radius: 8px;position: relative;" > 
+
+                                                                <div style="position: absolute;top: 0px;bottom: 0px;width: 100%;right: 0px;left: 0px;background: rgb(0 0 0 / 10%);" class="d-flex align-items-center justify-content-center row">
+                                                                    <div class="col-12 p-3">
+                                                                      
+                                                                      <div class="font-3 font-lg-4 col-12 p-1 text-center" style="color:#fff">@{{feature.fields.title}}</div>
+                                                                      <div class="col-12 p-1 text-center" style="color:#fff">@{{feature.fields.content}}</div>
+                                                                    </div>
+                                                                  </div>
+
+                                                                    <img :src="feature.fields.image_url" style="width:100%;border-radius: 10px;opacity: 0;" class="p-0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+ 
+
+
+                                                     
+                                                    </div>
+                                                </div>
+                                                <div v-html="element.fields.design_custom_code"></div>
+                                            </div>
+                                        </div>
+
 
 
                                     </div>
@@ -896,19 +954,11 @@ body {
 </div>
 @endsection
 @section('scripts')
-
-{{-- {{dd($page->content)}} --}}
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuedraggable@4.1.0/dist/vuedraggable.umd.min.js"></script>
 <script type="module">
     const { createApp, ref, onMounted } = Vue;
-	/*new Sortable(document.getElementById('response-contaienr'), {
-	    animation: 150,
-	    ghostClass: 'blue-background-class'
-	});*/
- 	
-
     const app = 	createApp({
   	data(){
   		return {
@@ -943,11 +993,11 @@ body {
 				
 			},
 			design_columns:{
-				"col-12 col-md-6 col-lg-12":'far fa-dice-one',
-				"col-12 col-md-6 col-lg-6":'far fa-dice-two',
-				"col-12 col-md-6 col-lg-4":'far fa-dice-three',
-				"col-12 col-md-6 col-lg-3":'far fa-dice-four',
-				"col-12 col-md-6 col-lg-2":'far fa-dice-six',
+				"1":'far fa-dice-one',
+				"2":'far fa-dice-two',
+				"3":'far fa-dice-three',
+				"4":'far fa-dice-four',
+				"6":'far fa-dice-six',
 			},
   		}
   	},
@@ -991,7 +1041,7 @@ body {
 				"design_background_grayscale":0,
 				"design_background_black":0,
 				"design_text_alignment":"text-end justify-content-start",
-				"design_custom_css":"<style>\n#block_"+this.selected_unique_id+" {\n\n}\n</style>\n",
+				"design_custom_code":"<style>\n#block_"+this.selected_unique_id+" {\n\n}\n</style>\n",
 				"design_min_height":50,
 
   			},...options};
@@ -1074,7 +1124,7 @@ body {
 					"content_title":"لماذا دوراتنا",
 					"content_description":"اكتشف أفضل الميزات التي تقدمها دوراتنا",
 			 		"design_text_alignment":"text-center justify-content-center",
-			 		"design_columns":"col-12 col-md-6 col-lg-4",
+			 		"design_columns":"3",
 			 		"design_content_alignment":"flex-row"
 	  			}};
 	  			var object = { 'id' : this.selected_unique_id, 'fields': [] };
@@ -1206,7 +1256,8 @@ body {
                     "content_title":"تواصل معنا",
                     "content_sub_title":"يمكنك التواصل معنا عبر النموذج التالي",
                     "content_description":"توفر منصتنا مجتمعًا تعليميًا تفاعليًا يسمح للطلاب والمدرسين بالتفاعل بشكل مستمر خارج حدود الحصص الدراسية. يمكن للطلاب طرح الأسئلة ومشاركة الأفكار وتكوين مجموعات دراسية إلكترونية تساعدهم في التعلم المشترك. يوفر المجتمع أيضًا فرصًا للتواصل مع الخبراء من مختلف المجالات للحصول على إرشادات ونصائح قيّمة. من خلال أدوات المنتديات والمحادثات المخصصة، يظل الطلاب متصلين دائمًا مع زملائهم، مما يعزز الشعور بالانتماء ويحفز على التعاون المستمر",
-                    "design_content_alignment":"flex-row"
+                    "design_text_alignment":"text-center justify-content-center",
+                    //"design_content_alignment":"flex-row"
                 }};
                 var object = { 'id' : this.selected_unique_id, 'fields': [] };
                 object.fields = options;
@@ -1214,7 +1265,51 @@ body {
           
 
                 this.template_editor(unique_id,type);
-            } 
+            }else if(type == "component_slider"){
+                var options = {...options,...{
+                    "content_title":"",
+                    "content_sub_title":"",
+                    "design_columns":"3"
+                }};
+                var object = { 'id' : this.selected_unique_id, 'fields': [] };
+                object.fields = options;
+                object.fields['features']=[];
+                object.fields['features'].push(
+                    {
+                        "id":this.generate_id(),
+                        "fields":{
+                            "title": "",
+                            "content": "",
+                            'url':'',
+                            'url_open_type':'',
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                        }
+                    },
+                    {
+                        "id":this.generate_id(),
+                        "fields":{
+                            "title": "",
+                            "content": "",
+                            'url':'',
+                            'url_open_type':'',
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                        }
+                    },
+                    {
+                        "id":this.generate_id(),
+                        "fields":{
+                            "title": "",
+                            "content": "",
+                            'url':'',
+                            'url_open_type':'',
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                        }
+                    },
+                );
+                
+                this.contents[this.selected_page].push(object);
+                this.template_editor(unique_id,type);
+            }
             
 			console.log(this.contents['home']);
 
