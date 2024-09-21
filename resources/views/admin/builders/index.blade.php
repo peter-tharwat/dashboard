@@ -22,10 +22,18 @@ body {
     margin-right: auto;
     margin-left: 0px;
 }
-
 .content-block:hover .show-on-hover {
     display: block !important;
 }
+
+.highlight-block{ 
+    /*border:2px dashed #d8d8d8!important;*/
+    border-radius:10px!important;
+    background:#ffefd9!important;
+    opacity:0.9;
+    overflow:hidden!important;
+}
+
 
 /*.hoverable-components-builder:hover {
     opacity: 0.9;
@@ -676,9 +684,9 @@ body {
             <div class="col p-0" style="width:calc(100% - 360px);">
                 <div style="background: #fff;height:100dvh;overflow: auto;" class="p-2 col-12">
                     <div class=" p-0 " id="response-contaienr">
-                        <draggable :list="contents[selected_page]" item-key="id">
+                        <draggable :list="contents[selected_page]" item-key="id" >
                             <template #item="{ element }">
-                                <div style="position:relative;" class="content-block" :class="'block_' + element.fields.id" :id="'block_' + element.fields.id">
+                                <div style="position:relative;transition: 0.3s all ease-in-out;" class="content-block" :class="'block_' + element.fields.id" :id="'block_' + element.fields.id" :ref="'block_' + element.fields.id">
                                     <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;display: none;z-index: 1000;" class="show-on-hover" v-on:click="change_selected_component(element.id,element.fields.block_type)">
                                         <div style="width:100%;height:100%;position: absolute;top: 0px;right: 0px;background: #000;opacity: 0.08;cursor: pointer;z-index: 900;"></div>
                                         {{-- <span class="fas fa-plus append-plus-start" style="z-index:1000;cursor: pointer;" v-on:click="alerter(element.id +  'before');"></span>
@@ -914,6 +922,7 @@ body {
     },
   	methods:{
   		template_editor:function(unique_id,type,options={}){
+            this.highlight_block('block_'+unique_id);
   			this.change_selected_component(unique_id,type);
   		},
   		generate_id(){
@@ -1163,6 +1172,18 @@ body {
 
 
 		},
+        highlight_block(id){
+            setTimeout(function(){
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    element.classList.add('highlight-block');
+                    setTimeout(function(){
+                        element.classList.remove('highlight-block');
+                    },800);
+                }
+            },50); 
+        },
 		init_sortable: function(){
 			//console.log(document.getElementById('response-contaienr'));
 			//var sortable = Sortable.create(document.getElementById('response-contaienr'));
@@ -1190,6 +1211,7 @@ body {
 		change_selected_component: function(unique_id,type){
 			//console.log(unique_id);
 			//console.log(type);
+            this.highlight_block('block_'+unique_id);
 			this.selected_page = this.selected_page;
 			this.selected_unique_id = unique_id;
 			this.selected_type = type;
