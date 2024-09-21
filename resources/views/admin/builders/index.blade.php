@@ -252,10 +252,10 @@ body {
 
                                 <div class="col-12 p-0 component mb-2" v-on:click="template_generator('component_slider')" data-id="component_slider" style="cursor: pointer;">
                                     <div class="p-1" style="background:#f1f1f1;border-radius:10px">
-                                        <img src="/images/components/component_contact.png" style="width:100%;border-radius: 10px;" class="p-1">
+                                        <img src="/images/components/component_slider.png" style="width:100%;border-radius: 10px;" class="p-1">
                                         <div class="col-12 font-2 px-2 d-flex">
                                             <div class="col px-0">
-                                                سلايدر
+                                                صور متعددة
                                             </div>
                                             <div class="col-auto px-0">
                                                 <i class="far fa-chevron-left"></i>
@@ -911,9 +911,9 @@ body {
 
 
 
-                                                    <div class="col-12 col-lg-12 py-5 px-1">
+                                                    <div class="col-12 col-lg-12 px-1">
 
-                                                        <div class="col-12 px-0 py-5 d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" style="flex-wrap: nowrap;overflow: hidden;">
+                                                        <div class="col-12 px-0  d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" style="flex-wrap: nowrap;overflow: hidden;">
                                                             <div v-for="feature in element.fields['features']" :class="'col-12 col-md-6 col-lg-' + 12/element.fields.design_columns" class="p-3" >
                                                                 <div class="col-12 mb-1 px-0 text-center d-flex align-items-center justify-content-center row" :style="{'background-image': 'url(' + feature.fields.image_url + ')' , 'max-height':  element.fields.design_min_height + 'dvh' }"
                                                                 style="background-repeat: no-repeat;background-position: center;background-size: cover;border-radius: 8px;position: relative;" > 
@@ -1267,8 +1267,8 @@ body {
                 this.template_editor(unique_id,type);
             }else if(type == "component_slider"){
                 var options = {...options,...{
-                    "content_title":"",
-                    "content_sub_title":"",
+                    "content_title":"أحدث المنتجات",
+                    "content_sub_title":"استمتع بأفضل المنتجات على موقعنا",
                     "design_columns":"3"
                 }};
                 var object = { 'id' : this.selected_unique_id, 'fields': [] };
@@ -1282,7 +1282,7 @@ body {
                             "content": "",
                             'url':'',
                             'url_open_type':'',
-                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/banner1.webp"
                         }
                     },
                     {
@@ -1292,7 +1292,7 @@ body {
                             "content": "",
                             'url':'',
                             'url_open_type':'',
-                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/banner2.webp"
                         }
                     },
                     {
@@ -1302,7 +1302,7 @@ body {
                             "content": "",
                             'url':'',
                             'url_open_type':'',
-                            "image_url": "{{env('APP_URL')}}/images/components/demo/image.jpg"
+                            "image_url": "{{env('APP_URL')}}/images/components/demo/banner3.webp"
                         }
                     },
                 );
