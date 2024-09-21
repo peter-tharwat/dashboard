@@ -118,7 +118,7 @@ body {
 
                         <div style="height:calc( 100dvh - 72px );overflow: hidden;" class="p-0 col-12 add-component aside-wedgit">
                         	
-                            <div class="col-12 px-3 mb-2 row">
+                        <div class="col-12 px-3 mb-2 row">
                                 <h3 class="p-3 m-0">أضف قسم جديد</h3>
                             </div>
 
@@ -678,7 +678,7 @@ body {
                     <div class=" p-0 " id="response-contaienr">
                         <draggable :list="contents[selected_page]" item-key="id">
                             <template #item="{ element }">
-                                <div style="position:relative;" class="content-block" :class="'block_' + element.fields.id">
+                                <div style="position:relative;" class="content-block" :class="'block_' + element.fields.id" :id="'block_' + element.fields.id">
                                     <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;display: none;z-index: 1000;" class="show-on-hover" v-on:click="change_selected_component(element.id,element.fields.block_type)">
                                         <div style="width:100%;height:100%;position: absolute;top: 0px;right: 0px;background: #000;opacity: 0.08;cursor: pointer;z-index: 900;"></div>
                                         {{-- <span class="fas fa-plus append-plus-start" style="z-index:1000;cursor: pointer;" v-on:click="alerter(element.id +  'before');"></span>

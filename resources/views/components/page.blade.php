@@ -1,5 +1,5 @@
 <div class="col-12 p-0 row">
-      <div style="position:relative;" class="content-block block_{{$component['fields']['id']}} px-0"  >
+      <div style="position:relative;" class="content-block block_{{$component['fields']['id']}} px-0"  id="block_{{$component['fields']['id']}}">
           <div class='position-relative  border-0 hoverable-elements-builder appened-element' style="color:{{$component['fields']['design_text_color']}}" >
               <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;z-index: 0;background-size:cover;background-repeat:no-repeat;background-position:center; @if($component['fields']['design_background_color'] !=null )background-color:{{$component['fields']['design_background_color']}};@endif @if($component['fields']['design_background_url']!=null) background-image:  url('{{$component['fields']['design_background_url']}}') @endif ;
               opacity: {{$component['fields']['design_background_opacity']}};
