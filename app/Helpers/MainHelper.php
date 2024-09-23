@@ -257,6 +257,67 @@ class MainHelper {
     }
 
 
+    public static function get_block_content($component_content){
+        $contents = [];
+        $items = [];
+        if($component_content['type'] == "categories"){
+            $query = \App\Models\Category::query();
+            $items = $query->where(function($q)use($component_content){
+              if( is_array($component_content['selected_ids']) && count($component_content['selected_ids']) > 0 )
+                $q->whereIn('id',$component_content['selected_ids']);
+            })->simplePaginate( $component_content['items_count'] );
+            foreach($items as $item){
+                $contents[]=[
+                    'title'=>$item->title,
+                    'image'=>$item->image(),
+                    'description'=>$item->description,
+                    'url'=>route('category.show',['category' => $item ]),
+                ];
+            }
+        }elseif($component_content['type'] == "articles"){
+            $query = \App\Models\Article::query();
+            $items = $query->where(function($q)use($component_content){
+              if( is_array($component_content['selected_ids']) && count($component_content['selected_ids']) > 0 )
+                $q->whereIn('id',$component_content['selected_ids']);
+            })->simplePaginate( $component_content['items_count'] );
+            foreach($items as $item){
+                $contents[]=[
+                    'title'=>$item->title,
+                    'image'=>$item->main_image(),
+                    'description'=>$item->description,
+                    'url'=>route('article.show',['article' => $item ]),
+                ];
+            }
+        }elseif($component_content['type'] == "categories_articles"){
+          $query = \App\Models\Article::query();
+          $items = $query->where(function($q)use($component_content){
+            if( is_array($component_content['selected_ids']) && count($component_content['selected_ids']) > 0 )
+              $q->whereHas('categories',function($q)use($component_content){
+                $q->whereIn('category_id',$component_content['selected_ids']);
+              });
+          })->simplePaginate( $component_content['items_count'] );
+          foreach($items as $item){
+              $contents[]=[
+                  'title'=>$item->title,
+                  'image'=>$item->main_image(),
+                  'description'=>$item->description,
+                  'url'=>route('article.show',['article' => $item ]),
+                ];
+          }
+        }
+        return [
+            'contents'=> $contents,
+            'component_content'=>$component_content,
+            //'items'=>$items,
+            'html'=> view('components.component-content',[
+                'component_content'=>$component_content,
+                'items'=>$items,
+                'contents'=>$contents
+            ])->render()
+        ];
+    }
+
+
     
 
 

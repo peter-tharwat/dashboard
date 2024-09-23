@@ -103,7 +103,10 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
             Route::put('/update',[BackendSettingController::class,'update'])->name('update');
         });
     });
-
+    Route::prefix('data')->name('data.')->group(function(){
+        Route::post('/',[BackendHelperController::class,'get_data'])->name('index');
+        Route::post('/load',[BackendHelperController::class,'load_data'])->name('load');
+    });
     Route::prefix('upload')->name('upload.')->group(function(){
         Route::post('/image',[BackendHelperController::class,'upload_image'])->name('image');
         Route::post('/file',[BackendHelperController::class,'upload_file'])->name('file');

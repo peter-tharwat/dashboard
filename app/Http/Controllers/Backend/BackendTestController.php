@@ -9,7 +9,6 @@ class BackendTestController extends Controller
 {
     public function test(Request $request)
     {
-        
         \MainHelper::notify_user([
             'user_id'=>1,
             'content'=>["TEST"],

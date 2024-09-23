@@ -39,6 +39,9 @@
     margin-right: auto;
     margin-left: 0px;
 }
+.pagination{
+	margin-bottom: 0px;
+}
 
 .nav-tabs .nav-link {
     background: transparent;

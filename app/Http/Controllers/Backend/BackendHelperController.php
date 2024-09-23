@@ -7,6 +7,61 @@ use Illuminate\Http\Request;
 
 class BackendHelperController extends Controller
 {
+    public function get_data(Request $request){
+        $data = [
+            'loaded'=>false,
+            'content'=>[],
+        ];
+        if($request->type=="categories" || $request->type=="categories_articles"){
+            if(! auth()->user()->can('categories-read') ) return $data;
+
+            $categories = \App\Models\Category::get();
+            $data['loaded']=true;
+            foreach($categories as $category)
+                $data['content'][] = [
+                    'id'=>$category->id,
+                    'title'=>$category->title,
+                    'description'=>$category->description,
+                    'image'=>$category->image()
+                ];
+        }elseif($request->type=="articles"){
+            if(! auth()->user()->can('articles-read') ) return $data;
+
+            $articles = \App\Models\Article::get();
+            $data['loaded']=true;
+            foreach($articles as $category)
+                $data['content'][] = [
+                    'id'=>$category->id,
+                    'title'=>$category->title,
+                    'description'=>$category->description,
+                    'image'=>$category->main_image()
+                ];
+        }
+        return $data;
+
+    }
+    public function load_data(Request $request){
+        if($request->type=="categories" || $request->type=="categories_articles") if(! auth()->user()->can('categories-read') ) return;
+        if($request->type=="articles") if(! auth()->user()->can('articles-read') ) return;
+
+        $component_content = [
+            'type' => $request->type,
+            'selected_ids' => $request->selected_ids!=""?explode(',', trim($request->selected_ids)):[],
+            'items_count' => $request->items_count,
+            'view_type' => "standard",
+            'paginate' => $request->paginate,
+            
+
+            'id'=> $request->id,
+            'design_text_alignment'=>$request->design_text_alignment,
+            'design_min_height'=>$request->design_min_height,
+            'design_columns' => $request->design_columns,
+        ];
+        $get_block_content = \MainHelper::get_block_content($component_content);
+        
+        return $get_block_content;
+    }
+
     public function upload_image(Request $request){
         $file = $this->store_file([
             'source'=>$request->upload!=null?$request->upload:$request->file,

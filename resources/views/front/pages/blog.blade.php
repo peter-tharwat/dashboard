@@ -2,24 +2,6 @@
 @section('content')
 <div class="col-12 p-0  bg-light pt-6">
 
-	<section class="section-frame overflow-hidden">
-	      <div class="wrapper bg-soft-primary">
-	        <div class="container py-12 py-md-10 text-center">
-	          <div class="row">
-	            <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
-	              <h1 class="display-1 mb-3 text-center">المدونة</h1>
-	              <p class="lead px-lg-5 px-xxl-8 mb-1 text-center">إليك أحدث مقالاتنا.</p>
-	            </div>
-	            <!-- /column -->
-	          </div>
-	          <!-- /.row -->
-	        </div>
-	        <!-- /.container -->
-	      </div>
-	      <!-- /.wrapper -->
-	    </section>
-
-
 	<div class=" p-0 container py-10 " style="min-height:70vh">
 		<div class="col-12 p-2 p-lg-3 row">
 
