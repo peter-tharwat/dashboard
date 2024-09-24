@@ -104,26 +104,90 @@ body {
     font-size: 14px;
     border-radius: 3px !important;
 }
+@media(max-width: 800px){
+    #builder-aside{
+        width:100%!important;
+        position:fixed;
+        margin-right:-100%!important;
+        top: 65px;
 
+    }
+    #builder-aside:not(.aside-closed){
+        width: 100%;
+        position:fixed!important;
+        margin-right:-100%;
+        top: 65px!important;
+    }
+    #site-main-container:not(.full-width){
+        width:100%!important;
+    }
+    #site-main-container > div:nth-of-type(1){
+        padding:0px!important;
+    }
+}
+
+
+#site-main-container.full-width{
+    width:100%!important;
+}
+#site-main-container.full-width > div:nth-of-type(1){
+    padding:0px!important
+}
+#builder-aside.aside-closed{
+    width: 360px!important;
+    position:fixed!important;
+    margin-right:-400px!important;
+    top:65px!important;
+}
+#builder-aside{
+    margin-right:0px!important;
+}
 </style>
 <div class="p-0 " style="min-height:70vh" id="builder-main-container">
     <div class="col-12 p-0 row">
-        <div class="col-12 p-0" style="overflow:auto">
+        <div class="col-12 p-0" style="overflow:hidden">
+
+            <div class="col-12 row py-1 px-3 d-flex align-items-center" style="background:#fff;border-block: 1px solid #f1f1f1;height: 65px;">
+                <div class="col px-1 row d-flex align-items-center" style="height: 100%;">
+
+                    <div class="col-auto px-0 d-flex justify-content-center align-items-center " style="width: 55px;cursor: pointer;height: 100%;" @click="aside_toggle()">
+                        <span class="fal fa-bars font-4"></span>
+                    </div>
+                    <div class="d-inline-block text-truncate" style="max-width: calc(100% - 55px);">
+                        {{$page->title}}
+                    </div>
+                   
+                </div>
+                <div class="col-auto px-1">
+                    <a class="btn btn-light py-1 px-3 mx-1 font-1 border" href="{{request()->url()}}">الغاء التعديلات</a>
+                    <button class="btn btn-primary py-1 px-3 mx-1 font-1" v-on:click="submit_page_updates()">حفظ التعديلات</button>
+                    
+                </div>
+            </div>
+
             <div class="col-12 p-0" style="min-height: 80dvh;">
                 <div class="col-12 p-0 row">
-                    <div class="col-auto p-0 builder-aside" style="position:sticky;top: 0;width: 360px">
-                        <div class="col-12 row p-3 d-flex align-items-center" style="background:#f7f7f7;">
-                            <div class="col px-1">
-                                {{$page->title}}
-                            </div>
-                            <div class="col-auto px-1">
-                                <button class="btn btn-primary py-1 px-3" v-on:click="submit_page_updates()">حفظ التعديلات</button>
-                            </div>
-                        </div>
-                        <div style="height:calc( 100dvh - 72px );overflow: hidden;" class="p-0 col-12 add-component aside-wedgit">
+                    <div class="col-auto p-0 " style="top: 0;width: 360px;margin-right: 0px;z-index: 10000;position: relative;background: #fff;" id="builder-aside">
+                        
+                        <div style="height:calc( 100dvh - 65px );overflow: hidden;" class="p-0 col-12 add-component aside-wedgit">
+
                             <div class="col-12 px-3 mb-2 row">
-                                <h3 class="p-3 m-0">أضف قسم جديد</h3>
+                                <div class="col-auto p-0 d-flex align-items-center justify-content-center" v-on:click="aside_toggle()">
+                                    <span class="btn btn-light" style="width: 40px;height: 40px;display: inline-block;padding: 0px;display: flex;align-items: center;justify-content: center;border:1px solid #eeeeee;border-radius:50%;color:inherit;"><span class="fas fa-chevron-right" style="font-size:18px;"></span></span>
+                                </div>
+                                <div class="col p-0 font-3">
+                                    <h3 class="p-3 m-0 d-flex justify-content-between align-items-center">
+                                        <span>أضف قسم جديد</span>
+                               
+                                    </h3>
+                                </div>
                             </div>
+
+
+
+                            {{-- <div class="col-12 px-3 mb-2 row">
+                                <h3 class="p-3 m-0">أضف قسم جديد</h3>
+                            </div> --}}
                             <div class="col-12 p-3 row " id="items" style="height:calc(100dvh - 150px);overflow: auto;">
                                 <div class="col-12 p-0 component mb-2" v-on:click="template_generator('component_banner')" data-id="component_text" style="cursor: pointer;">
                                     <div class="p-1" style="background:#f1f1f1;border-radius:10px">
@@ -257,10 +321,10 @@ body {
                                 </div>
                                 <div class="col-12 p-0 component mb-2" v-on:click="template_generator('component_content')" data-id="contact_form" style="cursor: pointer;">
                                     <div class="p-1" style="background:#f1f1f1;border-radius:10px">
-                                        <img src="/images/components/component_contact.png" style="width:100%;border-radius: 10px;" class="p-1">
+                                        <img src="/images/components/component_content.png" style="width:100%;border-radius: 10px;" class="p-1">
                                         <div class="col-12 font-2 px-2 d-flex">
                                             <div class="col px-0">
-                                                نموذج بيانات
+                                                محتويات الموقع
                                             </div>
                                             <div class="col-auto px-0">
                                                 <i class="far fa-chevron-left"></i>
@@ -270,7 +334,7 @@ body {
                                 </div>
                             </div>
                         </div>
-                        <div style="display: none;height: calc( 100dvh - 72px );overflow: hidden;" class="p-0 col-12 edit-component aside-wedgit">
+                        <div style="display: none;height: calc( 100dvh - 65px );overflow: hidden;" class="p-0 col-12 edit-component aside-wedgit">
                             <div class="col-12 px-3 mb-2 row">
                                 <div class="col-auto p-0 d-flex align-items-center justify-content-center" v-on:click="change_aside_view('add_component')">
                                     <span class="btn btn-light" style="width: 40px;height: 40px;display: inline-block;padding: 0px;display: flex;align-items: center;justify-content: center;border:1px solid #eeeeee;border-radius:50%;color:inherit;"><span class="fas fa-chevron-right" style="font-size:18px;"></span></span>
@@ -370,7 +434,7 @@ body {
                                                     النوع
                                                 </div>
                                                 <div class="col-12 px-2 mb-3">
-                                                    <select v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.type" class="form-control" @change="refresh_loaded_content()">
+                                                    <select v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.type" class="form-control" >
                                                         <option value="" disabled hidden >اختر</option>
                                                         <option value="categories" >عرض جميع الأقسام</option>
                                                         <option value="articles">عرض أحدث المقالات</option>
@@ -676,7 +740,7 @@ body {
                                             <div class="col-12 px-2 mb-3 row d-flex justify-content-between ">
                                                 <span v-for="(column,column_index) in design_columns" :key="column_index" class="d-flex align-items-center justify-content-center m-1" style="width: 40px;height:40px;padding: 2px;cursor: pointer;position: relative;" :style="column_index == (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns ? { 'border-bottom': '5px solid #03a9f4' } : {'border-bottom': '5px solid transparent'}">
                                                     <span :class="column" class="font-4"></span>
-                                                    <input type="radio" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns" :value="column_index" style="width: 100%;height: 100%;position: absolute;">
+                                                    <input type="radio" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns" :value="column_index" style="width: 100%;height: 100%;position: absolute;" @change="refresh_loaded_content()">
                                                 </span>
                                             </div>
                                         </div>
@@ -793,8 +857,8 @@ body {
                             </div>
                         </div>
                     </div>
-                    <div class="col p-0" style="width:calc(100% - 360px);">
-                        <div style="background: #fff;height:100dvh;overflow: auto;" class="p-2 col-12">
+                    <div class="col p-0 " style="width:calc(100% - 360px);" id="site-main-container">
+                        <div style="background: #fff;height:calc(100dvh - 73px);overflow: auto;" class="p-2 col-12">
                             <div class=" p-0 " id="response-contaienr">
                                 <draggable :list="contents[selected_page]" item-key="id">
                                     <template #item="{ element }">
@@ -1083,6 +1147,7 @@ body {
       watch: {
         reload_loaded_content_type(new_value, old_value) {
           if (new_value !== undefined) {
+
                 const formData = new FormData();
                 formData.append("type", new_value);
                 formData.append("_token", "{{csrf_token()}}");
@@ -1099,6 +1164,10 @@ body {
                     else
                         this.loaded_content_type = data.content ;
                 });
+
+
+                this.refresh_loaded_content();
+
             }
         }
     },
@@ -1110,28 +1179,30 @@ body {
             var content = this.contents[this.selected_page]?.find(
                 (block) => block.id === this.selected_unique_id
               )?.fields?.content;
-            const formData = new FormData();
-            formData.append("type", content.type);
-            formData.append("selected_ids", [content.selected_ids]);
-            formData.append("items_count", content.items_count);
-            formData.append("view_type", content.view_type);
-            formData.append("paginate", content.paginate);
-            formData.append("design_columns", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_columns);
-            formData.append("id", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.id);
-            formData.append("design_text_alignment", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_text_alignment);
-            formData.append("design_min_height", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_min_height);
-            formData.append("_token", "{{csrf_token()}}");
+            if(content != null){
+                const formData = new FormData();
+                formData.append("type", content.type);
+                formData.append("selected_ids", [content.selected_ids]);
+                formData.append("items_count", content.items_count);
+                formData.append("view_type", content.view_type);
+                formData.append("paginate", content.paginate);
+                formData.append("design_columns", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_columns);
+                formData.append("id", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.id);
+                formData.append("design_text_alignment", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_text_alignment);
+                formData.append("design_min_height", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_min_height);
+                formData.append("_token", "{{csrf_token()}}");
 
-            fetch('{{route('admin.data.load')}}', {
-                method: 'post',
-                body: formData,
-            }).then((response) => {
-                return response.json();
-            }).then((data) => {
-                this.contents[this.selected_page].find(
-                    (block) => block.id === this.selected_unique_id
-                  ).fields.content.rendered_html = data.html;
-            });
+                fetch('{{route('admin.data.load')}}', {
+                    method: 'post',
+                    body: formData,
+                }).then((response) => {
+                    return response.json();
+                }).then((data) => {
+                    this.contents[this.selected_page].find(
+                        (block) => block.id === this.selected_unique_id
+                      ).fields.content.rendered_html = data.html;
+                });
+            }
 
         },
         template_editor:function(unique_id,type,options={}){
@@ -1505,7 +1576,8 @@ body {
             //var sortable = Sortable.create(document.getElementById('response-contaienr'));
         },
         change_aside_view: function(type){
-            
+            document.getElementById('builder-aside').classList.remove('aside-closed');
+
             if(type=="edit_component"){
                 document.querySelectorAll('.aside-wedgit').forEach(element => {
                     element.style.display = 'none';
@@ -1648,6 +1720,10 @@ body {
             }).catch(error => {
               alert("Oops! There was a problem submitting your form");
             });
+        },
+        aside_toggle: function(){
+            document.getElementById('site-main-container').classList.toggle('full-width');
+            document.getElementById('builder-aside').classList.toggle('aside-closed');
         }
     },
     created: function(){
@@ -1657,4 +1733,5 @@ body {
   app.mount('#builder-main-container');
 
 </script>
+
 @endsection
