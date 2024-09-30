@@ -113,7 +113,7 @@
                 @endif
                 @if($component['fields']['block_type'] == "component_text_with_video")
                 <div class="container p-3">
-                    <div :class="[{{$component['fields']['design_text_alignment']}},{{$component['fields']['design_content_alignment']}}]" class=' mx-auto row '>
+                    <div class="{{$component['fields']['design_text_alignment']}} {{$component['fields']['design_content_alignment']}} mx-auto row">
                         <div class="col-12 col-lg-6 mx-auto">
                             <iframe src="{{\MainHelper::convert_to_embed($component['fields']['content_video_url'])}}" style="width:100%;height: 100%;border-radius: 10px;"></iframe>
                         </div>
