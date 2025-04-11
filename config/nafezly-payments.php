@@ -48,8 +48,8 @@ return [
 
     #TAP
     'TAP_CURRENCY' => env('TAP_CURRENCY',"USD"),
-    'TAP_SECRET_KEY'=>env('TAP_SECRET_KEY','sk_test_XKokBfNWv6FIYuTMg5sLPjhJ'),
-    'TAP_PUBLIC_KEY'=>env('TAP_PUBLIC_KEY','pk_test_EtHFV4BuPQokJT6jiROls87Y'),
+    'TAP_SECRET_KEY'=>env('TAP_SECRET_KEY'), /*'sk_test_XKokBfNWv6FIYuTMg5sLPjhJ'*/
+    'TAP_PUBLIC_KEY'=>env('TAP_PUBLIC_KEY'), /*'pk_test_EtHFV4BuPQokJT6jiROls87Y'*/
     'TAP_LANG_KEY'=>env('TAP_LANG_KEY','ar'),
 
 
@@ -122,8 +122,8 @@ return [
 
 
     #BigPay
-    'BIGPAY_KEY'=>env('BIGPAY_KEY',"02b0203c-558c-45d4-ba90-954017d40eb6"),
-    'BIGPAY_SECRET'=>env('BIGPAY_SECRET',"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb3VhZC5mYXJpc0BhcmVxYWQuY29tIiwiaWF0IjoxNjky MTEwMzQ3LCJleHAiOjIwMDc3Mjk1NDd9.re3qVEjbJ19KWedzWySGsUjChN0DuF2p-SgfBi7mlzM"),
+    'BIGPAY_KEY'=>env('BIGPAY_KEY'), /*"02b0203c-558c-45d4-ba90-954017d40eb6"*/
+    'BIGPAY_SECRET'=>env('BIGPAY_SECRET'), /*"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb3VhZC5mYXJpc0BhcmVxYWQuY29tIiwiaWF0IjoxNjky MTEwMzQ3LCJleHAiOjIwMDc3Mjk1NDd9.re3qVEjbJ19KWedzWySGsUjChN0DuF2p-SgfBi7mlzM"*/
     'BIGPAY_MODE'=>env('BIGPAY_MODE','test'),/*live,test*/
 
 
@@ -157,8 +157,8 @@ return [
     'PRIME_SECRET_WORD_2'=>env('PRIME_SECRET_WORD_2'),
 
 
-    'PAYLINK_API_KEY'=>env('PAYLINK_API_KEY','0662abb5-13c7-38ab-cd12-236e58f43766'),
-    'PAYLINK_APP_ID'=>env('PAYLINK_APP_ID','APP_ID_1123453311'),
+    'PAYLINK_API_KEY'=>env('PAYLINK_API_KEY'),/*'0662abb5-13c7-38ab-cd12-236e58f43766'*/
+    'PAYLINK_APP_ID'=>env('PAYLINK_APP_ID'), /*'APP_ID_1123453311'*/
     'PAYLINK_MODE'=>env('PAYLINK_MODE','test'),
 
 
