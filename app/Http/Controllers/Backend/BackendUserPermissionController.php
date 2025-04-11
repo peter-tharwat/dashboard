@@ -23,7 +23,7 @@ class BackendUserPermissionController extends Controller
     }
     public function update(Request $request,User $user){
         $user->syncPermissions($request->permissions);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->back();
     }
     

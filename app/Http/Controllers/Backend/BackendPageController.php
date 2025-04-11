@@ -76,7 +76,7 @@ class BackendPageController extends Controller
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        toastr()->success('تم العملية بنجاح','عملية ناجحة');
+        flash()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
 
@@ -141,7 +141,7 @@ class BackendPageController extends Controller
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        toastr()->success('تم العملية بنجاح','عملية ناجحة');
+        flash()->success('تم العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.pages.index');
     }
 
@@ -155,7 +155,7 @@ class BackendPageController extends Controller
     {
         if($page->removable==1){
             $page->delete();
-            toastr()->success('تم العملية بنجاح','عملية ناجحة');
+            flash()->success('تم العملية بنجاح','عملية ناجحة');
         }else{
             flash()->info('عفواً الصفحة غير قابلة للحذف','عملية ناجحة');
         }

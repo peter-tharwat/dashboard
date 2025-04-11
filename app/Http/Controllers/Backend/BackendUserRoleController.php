@@ -27,7 +27,7 @@ class BackendUserRoleController extends Controller
         $user->syncRoles($request->roles);
 
         //$user->syncPermissions(DB::table('model_has_permissions')->whereIn('role_id',$request->roles)->pluck('permission_id'));
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.users.index');
     }
 }

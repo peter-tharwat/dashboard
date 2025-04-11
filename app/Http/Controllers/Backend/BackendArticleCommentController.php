@@ -98,7 +98,7 @@ class BackendArticleCommentController extends Controller
             'content'=>$request->content,
             'reviewed'=>$request->reviewed==1?1:0,
         ]);
-        toastr()->success(__('utils/toastr.process_success_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->route('admin.article-comments.index',['article_id'=>$article_comment->article_id]);
     }
 
@@ -111,7 +111,7 @@ class BackendArticleCommentController extends Controller
     public function destroy(ArticleComment $article_comment)
     {
         $article_comment->delete();
-        toastr()->success(__('utils/toastr.process_success_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->back();
     }
     public function change_status(Request $request){

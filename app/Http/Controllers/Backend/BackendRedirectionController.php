@@ -59,7 +59,7 @@ class BackendRedirectionController extends Controller
             'new_url'=>$request->new_url,
             'code'=>$request->code,
         ]);
-        toastr()->success('تم إضافة التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم إضافة التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 
@@ -106,7 +106,7 @@ class BackendRedirectionController extends Controller
             'new_url'=>$request->new_url,
             'code'=>$request->code,
         ]);
-        toastr()->success('تم تحديث التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 
@@ -120,7 +120,7 @@ class BackendRedirectionController extends Controller
     {
         if(!auth()->user()->can('redirections-delete'))abort(403);
         $redirection->delete();
-        toastr()->success('تم حذف التحويل بنجاح','عملية ناجحة');
+        flash()->success('تم حذف التحويل بنجاح','عملية ناجحة');
         return redirect()->route('admin.redirections.index');
     }
 }

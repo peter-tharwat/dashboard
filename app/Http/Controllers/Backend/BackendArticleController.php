@@ -78,7 +78,7 @@ class BackendArticleController extends Controller
             $main_image = $article->addMedia($request->main_image)->toMediaCollection('image');
             $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
         }
-        toastr()->success(__('utils/toastr.article_store_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.article_store_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -143,7 +143,7 @@ class BackendArticleController extends Controller
             $main_image = $article->addMedia($request->main_image)->toMediaCollection('image');
             $article->update(['main_image'=>$main_image->id.'/'.$main_image->file_name]);
         }
-        toastr()->success(__('utils/toastr.article_update_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.article_update_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 
@@ -156,7 +156,7 @@ class BackendArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        toastr()->success(__('utils/toastr.article_destroy_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.article_destroy_success_message'), __('utils/toastr.successful_process_message'));
         return redirect()->route('admin.articles.index');
     }
 }

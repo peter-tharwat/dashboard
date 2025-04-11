@@ -57,7 +57,7 @@ class BackendMenuController extends Controller
             'title'=>$request->title,
             'location'=>$request->location,
         ]);
-        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
+        flash()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 
@@ -102,7 +102,7 @@ class BackendMenuController extends Controller
             'title'=>$request->title,
             'location'=>$request->location,
         ]);
-        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
+        flash()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 
@@ -116,7 +116,7 @@ class BackendMenuController extends Controller
     {
         if(!auth()->user()->can('menus-delete'))abort(403);
         $menu->delete();
-        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
+        flash()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.menus.index');
     }
 }

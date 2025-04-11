@@ -96,7 +96,7 @@ class BackendFileController extends Controller
         if(!auth()->user()->can('hub-files-delete'))abort(403);
         $file->forceDelete();
         //you have to remove it if you want
-        toastr()->success(__('utils/toastr.process_success_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->back();
     }
 }

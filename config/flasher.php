@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * This file is part of the PHPFlasher package.
  * (c) Younes KHOUBZA <younes.khoubza@gmail.com>
@@ -7,9 +7,9 @@
 
 return array(
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | Default PHPFlasher library
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option controls the default library that will be used by PHPFlasher
     | to display notifications in your Laravel application. PHPFlasher supports
     | several libraries, including "flasher", "toastr", "noty", "notyf",
@@ -29,12 +29,12 @@ return array(
     | "sweetalert" : composer require php-flasher/flasher-sweetalert-laravel
     | "pnotify"    : composer require php-flasher/flasher-pnotify-laravel
     */
-    'default' => 'flasher',
+    'default' => 'falsher',
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | Main PHPFlasher javascript file
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option specifies the location of the main javascript file that is
     | required by PHPFlasher to display notifications in your Laravel application.
     |
@@ -43,21 +43,41 @@ return array(
     | using npm.
     |
     | To use the local version of the library, run the following command:
-    |     php artisan vendor:publish --force --tag=flasher-assets
+    |     php artisan flasher:install
     |
     | This will copy the necessary assets to your application's public folder.
     | You can then specify the local path to the javascript file in the 'local'
     | field of this option.
     */
     'root_script' => array(
-        'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js',
+        'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.1/dist/flasher.min.js',
         'local' => '/vendor/flasher/flasher.min.js',
     ),
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
+    | PHPFlasher Stylesheet
+    |---------------------------------------------------------------------------
+    | This option specifies the location of the stylesheet file that is
+    | required by PHPFlasher to style the notifications in your Laravel application.
+    |
+    | By default, PHPFlasher uses a CDN to serve the latest version of the stylesheet.
+    | However, you can also choose to download the stylesheet locally or include it
+    | from your assets.
+    |
+    | To use the local version of the stylesheet, make sure you have the necessary
+    | assets in your application's public folder. Then specify the local path to
+    | the stylesheet file in the 'local' field of this option.
+    */
+    'styles' => array(
+        'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.1/dist/flasher.min.css',
+        'local' => '/vendor/flasher/flasher.min.css',
+    ),
+
+    /*
+    |---------------------------------------------------------------------------
     | Whether to use CDN for PHPFlasher assets or not
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option controls whether PHPFlasher should use CDN links or local assets
     | for its javascript and CSS files. By default, PHPFlasher uses CDN links
     | to serve the latest version of the library. However, you can also choose
@@ -65,16 +85,16 @@ return array(
     |
     | If you decide to use local assets, don't forget to publish the necessary
     | files to your application's public folder by running the following command:
-    |     php artisan vendor:publish --force --tag=flasher-assets
+    |     php artisan flasher:install
     |
     | This will copy the necessary assets to your application's public folder.
     */
-    'use_cdn' => false,
+    'use_cdn' => true,
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | Translate PHPFlasher messages
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option controls whether PHPFlasher should pass its messages to the Laravel's
     | translation service for localization.
     |
@@ -88,9 +108,9 @@ return array(
     'auto_translate' => true,
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | Inject PHPFlasher in Response
-    |--------------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option controls whether PHPFlasher should automatically inject its
     | javascript and CSS files into the HTML response of your Laravel application.
     |
@@ -119,7 +139,7 @@ return array(
         | mapping specified in the 'mapping' option. When this option is set
         | to 'false', PHPFlasher will ignore flash messages in the session.
         */
-        'enabled' => true,
+        'enabled' => [] ,
 
         /*
         |-----------------------------------------------------------------------
@@ -136,17 +156,17 @@ return array(
         |     'error' => ['danger'],
         */
         'mapping' => array(
-            'success' => array('success'),
+            /*'success' => array('success'),
             'error' => array('error', 'danger'),
             'warning' => array('warning', 'alarm'),
-            'info' => array('info', 'notice', 'alert'),
+            'info' => array('info', 'notice', 'alert'),*/
         ),
     ),
 
     /*
-    |-----------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | Global Filter Criteria
-    |-----------------------------------------------------------------------
+    |---------------------------------------------------------------------------
     | This option allows you to filter the notifications that are displayed
     | in your Laravel application. By default, all notifications are displayed,
     | but you can use this option to limit the number of notifications or

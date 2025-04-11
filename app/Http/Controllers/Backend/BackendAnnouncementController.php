@@ -68,7 +68,7 @@ class BackendAnnouncementController extends Controller
             $announcement->update(['image'=>$image->id.'/'.$image->file_name]);
         }
 
-        toastr()->success(__('utils/toastr.store_success_message'));
+        flash()->success(__('utils/toastr.store_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 
@@ -116,7 +116,7 @@ class BackendAnnouncementController extends Controller
             $image = $announcement->addMedia($request->image)->toMediaCollection('image');
             $announcement->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        toastr()->success(__('utils/toastr.update_success_message'));
+        flash()->success(__('utils/toastr.update_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 
@@ -129,7 +129,7 @@ class BackendAnnouncementController extends Controller
     public function destroy(Announcement $announcement)
     {
         $announcement->delete();
-        toastr()->success(__('utils/toastr.destroy_success_message'));
+        flash()->success(__('utils/toastr.destroy_success_message'));
         return redirect()->route('admin.announcements.index');
     }
 }

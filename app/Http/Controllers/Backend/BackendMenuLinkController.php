@@ -73,7 +73,7 @@ class BackendMenuLinkController extends Controller
             'url'=>\MainHelper::menuLinkGenerator($link)
         ]);
 
-        toastr()->success('تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$request->menu_id]);
     }
 
@@ -131,7 +131,7 @@ class BackendMenuLinkController extends Controller
         $menuLink->update([
             'url'=>\MainHelper::menuLinkGenerator($menuLink)
         ]);
-        toastr()->success('تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$request->menu_id]);
     }
 
@@ -146,7 +146,7 @@ class BackendMenuLinkController extends Controller
         if(!auth()->user()->can('menu-links-delete'))abort(403);
         $menu_id=$menuLink->menu_id;
         $menuLink->delete();
-        toastr()->success('تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         return redirect()->route('admin.menu-links.index',['menu_id'=>$menu_id]);
     }
 

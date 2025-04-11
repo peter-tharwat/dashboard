@@ -59,7 +59,7 @@ class BackendContactReplyController extends Controller
             $contact_reply->addMedia($file)->toMediaCollection('files');
         } 
 
-        toastr()->success(__('utils/toastr.process_success_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->back();
     }
 

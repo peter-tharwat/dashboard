@@ -79,7 +79,7 @@ class BackendNotificationsController extends Controller
             'btn_text'=>"عرض التنبيه",
             'action_url'=>route('admin.contacts.show',$contact)
         ]);
-        toastr()->success('تم إرسال التنبيه بنجاح');
+        flash()->success('تم إرسال التنبيه بنجاح');
         return redirect()->route('admin.notifications.index',['user_id'=>$request->user_id]);
 
     }

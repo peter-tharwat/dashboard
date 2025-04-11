@@ -61,7 +61,7 @@ class BackendRoleController extends Controller
             'description'=>$request->description,
         ]);
         $role->syncPermissions($request->permissions);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.roles.index');
     }
 
@@ -108,7 +108,7 @@ class BackendRoleController extends Controller
             'description'=>$request->description,
         ]);
         $role->syncPermissions($request->permissions);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.roles.index');
     }
 
@@ -121,7 +121,7 @@ class BackendRoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.roles.index');
     }
 }

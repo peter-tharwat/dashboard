@@ -61,7 +61,7 @@ class BackendTagController extends Controller
             'english_name'=>$request->english_name,
             'slug'=>strtolower(str_replace(' ','-',$request->slug))
         ]);
-        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
+        flash()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.tags.index');
     }
 
@@ -106,7 +106,7 @@ class BackendTagController extends Controller
             'english_name'=>$request->english_name,
             'slug'=>strtolower(str_replace(' ','-',$request->slug))
         ]);
-        toastr()->success('تمت العملية بنجاح','عملية ناجحة');
+        flash()->success('تمت العملية بنجاح','عملية ناجحة');
         return redirect()->route('admin.tags.index');
     }
 
@@ -119,7 +119,7 @@ class BackendTagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
-        toastr()->success('تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         return redirect()->back();;
     }
 }

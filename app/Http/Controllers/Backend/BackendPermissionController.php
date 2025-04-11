@@ -59,7 +59,7 @@ class BackendPermissionController extends Controller
             'description'=>$request->description,
             'table'=>$request->table,
         ]);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.permissions.index');
     }
 
@@ -102,7 +102,7 @@ class BackendPermissionController extends Controller
             'description'=>$request->description,
             'table'=>$request->table,
         ]);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->route('admin.permissions.index');
     }
 
@@ -115,7 +115,7 @@ class BackendPermissionController extends Controller
     public function destroy($id)
     {
         if(!auth()->user()->can('permissions-delete'))abort(403);
-        toastr()->success("تمت العملية بنجاح");
+        flash()->success("تمت العملية بنجاح");
         return redirect()->back();
     }
 }

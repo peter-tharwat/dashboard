@@ -43,7 +43,7 @@ class FrontController extends Controller
                 'content'=>$request->content,
             ]);
         }
-        toastr()->success("تم اضافة تعليقك بنجاح وسيظهر للعامة بعد المراجعة");
+        flash()->success("تم اضافة تعليقك بنجاح وسيظهر للعامة بعد المراجعة");
         return redirect()->back();
     }
 
@@ -64,7 +64,7 @@ class FrontController extends Controller
             'message'=>/*"قادم من : ".urldecode(url()->previous())."\n\nالرسالة : ".*/$request->message
         ]);
 
-        toastr()->success('تم استلام رسالتك بنجاح وسنتواصل معك في أقرب وقت');
+        flash()->success('تم استلام رسالتك بنجاح وسنتواصل معك في أقرب وقت');
         return redirect()->back();
     }
     public function category(Request $request,Category $category){

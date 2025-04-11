@@ -46,7 +46,7 @@ class BackendProfileController extends Controller
             'name'=>$request->name,
             'bio'=>$request->bio
         ]);
-        toastr()->success('تمت العملية بنجاح');
+        flash()->success('تمت العملية بنجاح');
         //emotify('info','تمت العملية بنجاح');
         return redirect()->back();
     }
@@ -83,7 +83,7 @@ class BackendProfileController extends Controller
             auth()->user()->update([
                 'password'=>Hash::make($request->password)
             ]);
-            toastr()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
+            flash()->success('تم تغيير كلمة المرور بنجاح','عملية ناجحة');
             return redirect()->back();
         }else{
             flash()->error('كلمة المرور الحالية التي أدخلتها غير صحيحة','عملية غير ناجحة');
@@ -98,7 +98,7 @@ class BackendProfileController extends Controller
         auth()->user()->update([
             'email'=>$request->email
         ]);
-        toastr()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
+        flash()->success('تمت عملية تغيير البريد الالكتروني بنجاح','عملية ناجحة');
         return redirect()->back();
     }
     
