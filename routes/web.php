@@ -61,7 +61,6 @@ Route::prefix('dashboard')->middleware(['auth','ActiveAccount','verified'])->nam
 
 
 
-#Route::get('/test',[BackendTestController::class,'test']);
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
@@ -153,3 +152,22 @@ Route::get('article/{article}',[FrontController::class,'article'])->name('articl
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
 Route::post('comment',[FrontController::class,'comment_post'])->name('comment-post');
+
+
+
+
+
+
+############## For Testing Routes ##############
+Route::get('/test',[BackendTestController::class,'test'])->name('test');
+Route::any('/payment-verify',function(){
+
+    $request = request()->all();
+
+    
+    $payment = new \Nafezly\Payments\Classes\YallaPayPayment;
+    $res = $payment->verify(request()->instance());
+    dd($res);
+
+    dd(request()->all());
+})->name('payment-verify');

@@ -17,7 +17,7 @@ class MenusSeeder extends Seeder
     public function run()
     {
 
-        $menu = Menu::create([
+        $menu = Menu::firstOrCreate([
             'title'=>"القائمة العلوية",
             'location'=>"NAVBAR"
         ]);
@@ -65,7 +65,7 @@ class MenusSeeder extends Seeder
 
 
 
-        $menu = Menu::create([
+        $menu = Menu::firstOrCreate([
             'title'=>"القائمة الجانبية",
             'location'=>"ASIDE_BAR"
         ]);
@@ -129,7 +129,7 @@ class MenusSeeder extends Seeder
         ]);
 
 
-        $menu = Menu::create([
+        $menu = Menu::firstOrCreate([
             'title'=>"قائمة الفوتر",
             'location'=>"FOOTER"
         ]);

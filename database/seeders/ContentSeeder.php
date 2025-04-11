@@ -35,7 +35,7 @@ class ContentSeeder extends Seeder
         $faker = Factory::create('ar_SA');
         foreach($categories_titles as $category_title){
             $this->command->info("creating category ".$category_title);
-            $category = \App\Models\Category::create([
+            $category = \App\Models\Category::firstOrCreate([
                 'user_id'=>\App\Models\User::firstOrFail()->id,
                 "slug"=>"test".uniqid(),
                 "title"=>$category_title,
@@ -51,7 +51,7 @@ class ContentSeeder extends Seeder
 
         for($i =0 ; $i<$articles_count ;$i++){
             $this->command->info("creating article with title ".$faker->realText(50));
-            $article = \App\Models\Article::create([
+            $article = \App\Models\Article::firstOrCreate([
                 'user_id'=>\App\Models\User::firstOrFail()->id,
                 'slug'=>uniqid().rand(1,10000),
                 'title'=>$faker->realText(50),

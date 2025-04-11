@@ -82,7 +82,7 @@ class BackendUserController extends Controller
             $user->update(['avatar'=>$avatar->id.'/'.$avatar->file_name]);
         }
 
-        toastr()->success('تم إضافة المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم إضافة المستخدم بنجاح');
         return redirect()->route('admin.users.index');
             
         
@@ -154,7 +154,7 @@ class BackendUserController extends Controller
             $user->update(['avatar'=>$avatar->id.'/'.$avatar->file_name]);
         }
 
-        toastr()->success('تم تحديث المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث المستخدم بنجاح');
         return redirect()->route('admin.users.index');
     }
 
@@ -168,7 +168,7 @@ class BackendUserController extends Controller
     {
         if(!auth()->user()->can('users-delete'))abort(403);
         $user->delete();
-        toastr()->success('تم حذف المستخدم بنجاح','عملية ناجحة');
+        toastr()->success('تم حذف المستخدم بنجاح');
         return redirect()->route('admin.users.index');
     }
 
