@@ -20,6 +20,7 @@
         "nafezly/payments": "dev-master",
         "nesbot/carbon": "^3.9.0",
         "php-flasher/flasher-laravel": "^2.1",
+        "predis/predis": "^2.0",
         "spatie/laravel-medialibrary": "^11.4.5",
         "spatie/laravel-permission": "^6.4.0",
         "spatie/laravel-translatable": "^6.1",
