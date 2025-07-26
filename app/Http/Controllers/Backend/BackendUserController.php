@@ -144,6 +144,7 @@ class BackendUserController extends Controller
             $user->syncRoles($request->roles);
         }
 
+
         if($request->password!=null){
             $user->update([
                 "password"=>\Hash::make($request->password)
