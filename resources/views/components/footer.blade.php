@@ -17,12 +17,14 @@
               <div class="widget-title display-6 mb-5" >روابط</div>
 
               @php
-              $footer_menu = \App\Models\Menu::where('location',"FOOTER")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+              $footer_menu = cache()->remember('menu_FOOTER',60,function(){
+                return \App\Models\Menu::where('location',"FOOTER")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+              });
               @endphp
 
               @if($footer_menu !=null)
                 @foreach($footer_menu->links as $link)
-                <div><a href="{{$link->url}}" class="link-body"><span class="{{$link->icon}} font-1 d-none" style="color: #0194fe;width: 15px"></span> {{$link->title}}</a></div>
+                <div><a href="{{$link->url}}" class="link-body"><span class="{{$link->icon}} font-1 d-none" style="color: #7b60fb;width: 15px"></span> {{$link->title}}</a></div>
                 @endforeach
               @endif
           

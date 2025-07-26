@@ -8,7 +8,7 @@
     max-width: calc(100% - 70px);
 }
 .toast-info{
-    background-color: #0194fe!important;
+    background-color: #7b60fb!important;
 }
 .toast-top-left{
     left: 35px!important;
@@ -312,7 +312,7 @@ a:hover {
     padding: 5px;
 }
 .toast-info{
-    background:#0194fe;
+    background:#7b60fb;
 }
 .toast-success{
     background:var(--main-color);

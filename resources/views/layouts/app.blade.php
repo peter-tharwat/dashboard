@@ -15,8 +15,12 @@
         @php
         if(session('seen_notifications')==null)
             session(['seen_notifications'=>0]);
-        $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
-        $unreadNotifications=auth()->user()->unreadNotifications()->count();
+        $notifications=cache()->remember('notifications_of_user_'.auth()->user()->id,60,function(){
+            return auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
+        });
+        $unreadNotifications=cache()->remember('unreadNotifications_of_user_'.auth()->user()->id,60,function(){
+            return auth()->user()->unreadNotifications()->count();
+        });
         @endphp
     @endif
     @vite('resources/css/app.css')
@@ -28,9 +32,9 @@
             --font-1: #333333;
             --font-2: #555555;
             --border-color: #dddddd;
-            --main-color: #0194fe;
+            --main-color: #7b60fb;
             --main-color-rgb: 1,148,254;
-            --main-color-flexable: #0194fe;
+            --main-color-flexable: #7b60fb;
             --scroll-bar-color: #d1d1d1;
         }
         body.night {
@@ -39,7 +43,7 @@
             --font-1: #fff;
             --font-2: #e3e3e3;
             --border-color: #33343b;
-            --main-color: #0194fe;
+            --main-color: #7b60fb;
             --main-color-rgb: 1,148,254;
             --main-color-flexable: #15202b;
             --scroll-bar-color: #505050;
@@ -58,7 +62,7 @@
     <div id="app">
         {{-- <div class="page-loader"></div> --}}
         <div id="body-overlay"onclick="document.getElementById('aside-menu').classList.toggle('active');document.getElementById('body-overlay').classList.toggle('active');"></div>
-        <x-navbar />
+        <x-navbar :notifications="$notifications??[]" :unreadNotifications="$unreadNotifications??[]" />
         <main class="p-0 font-2">
             @yield('content')
         </main>

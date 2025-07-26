@@ -68,14 +68,16 @@ class FrontController extends Controller
         return redirect()->back();
     }
     public function category(Request $request,Category $category){
-        $articles = Article::where(function($q)use($request,$category){
-            if($request->user_id!=null)
-                $q->where('user_id',$request->user_id);
-            
-            $q->whereHas('categories',function($q)use($request,$category){
-                $q->where('category_id',$category->id);
-            });
-        })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
+        $articles = cache()->remember('category_'.$category->id.'_'.$request->page,60,function()use($request,$category){
+            return Article::where(function($q)use($request,$category){
+                if($request->user_id!=null)
+                    $q->where('user_id',$request->user_id);
+                
+                $q->whereHas('categories',function($q)use($request,$category){
+                    $q->where('category_id',$category->id);
+                });
+            })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
+        });
         return view('front.pages.blog',compact('articles','category'));
     }
     public function tag(Request $request,Tag $tag){
@@ -93,7 +95,9 @@ class FrontController extends Controller
     }
     public function article(Request $request,Article $article)
     {
-        $article->load(['categories','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
+        cache()->remember('article_'.$article->id,60,function()use($article){
+            return $article->load(['categories','comments'=>function($q){$q->where('reviewed',1);},'tags'])->loadCount(['comments'=>function($q){$q->where('reviewed',1);}]);
+        });
         $this->views_increase_article($article);
         return view('front.pages.article',compact('article'));
     }
@@ -111,12 +115,14 @@ class FrontController extends Controller
     }
     public function blog(Request $request)
     {
-        $articles = Article::where(function($q)use($request){
-            if($request->category_id!=null)
-                $q->where('category_id',$request->category_id);
-            if($request->user_id!=null)
-                $q->where('user_id',$request->user_id);
-        })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
+        $articles = cache()->remember('blog_'.$request->page.'_'.$request->category_id.'_'.$request->user_id,60,function()use($request){
+            return Article::where(function($q)use($request){
+                if($request->category_id!=null)
+                    $q->where('category_id',$request->category_id);
+                if($request->user_id!=null)
+                    $q->where('user_id',$request->user_id);
+            })->with(['categories','tags'])->withCount(['comments'=>function($q){$q->where('reviewed',1);}])->orderBy('id','DESC')->paginate();
+        });
         return view('front.pages.blog',compact('articles'));
     }
     public function views_increase_article(Article $article)

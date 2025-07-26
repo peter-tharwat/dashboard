@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             MenusSeeder::class,
             PermissionsSeeder::class,
             AttachSuperAdminPermissions::class,
-            ContentSeeder::class
+            //ContentSeeder::class
             
         ]);
     }

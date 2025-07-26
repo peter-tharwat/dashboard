@@ -76,7 +76,7 @@ class BackendPageController extends Controller
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        flash()->success('تم العملية بنجاح');
         return redirect()->route('admin.pages.index');
     }
 
@@ -141,7 +141,7 @@ class BackendPageController extends Controller
             $image = $page->addMedia($request->image)->toMediaCollection('image');
             $page->update(['image'=>$image->id.'/'.$image->file_name]);
         }
-        flash()->success('تم العملية بنجاح','عملية ناجحة');
+        flash()->success('تم العملية بنجاح');
         return redirect()->route('admin.pages.index');
     }
 
@@ -155,16 +155,26 @@ class BackendPageController extends Controller
     {
         if($page->removable==1){
             $page->delete();
-            flash()->success('تم العملية بنجاح','عملية ناجحة');
+            flash()->success('تم العملية بنجاح');
         }else{
-            flash()->info('عفواً الصفحة غير قابلة للحذف','عملية ناجحة');
+            flash()->info('عفواً الصفحة غير قابلة للحذف');
         }
         return redirect()->route('admin.pages.index');
     }
 
 
     public function builder_edit(Request $request,Page $page){
-        return view('admin.builders.index',compact('page'));
+
+        $redirect_url = route('admin.pages.index');
+        $update_url = route('admin.pages.builder-update',['page'=>$page]);
+        $page = [
+            'title'=>$page->title,
+            'slug'=>$page->slug,
+            'content'=>$page->content??""
+        ];
+
+
+        return view('admin.builders.index',compact('page','redirect_url','update_url'));
     }
     public function builder_update(Request $request,Page $page){
         $page->update([

@@ -23,7 +23,7 @@
 
         <h2 class="display-4 mb-3">
           {{-- <img src="/assets/img/avatars/team1.jpg" style="width: 80px;height: 80px;border-radius: 50%;" class="svg-inject icon-svg icon-svg-md mb-4" alt="" /> --}}
-          <span class="far fa-info-circle" style="color:#0194fe"></span>
+          <span class="far fa-info-circle" style="color:#7b60fb"></span>
 
            لماذا تستخدمني ؟</h2>
         <p class="lead fs-lg"  data-delay="1000">أبسط وأسهل لوحة تحكم عربية بكامل المزايا التي تحتاجها</p>

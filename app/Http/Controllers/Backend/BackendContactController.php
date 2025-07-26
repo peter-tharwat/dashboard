@@ -102,7 +102,7 @@ class BackendContactController extends Controller
     {
         if(!auth()->user()->can('contacts-delete'))abort(403);
         $contact->delete();
-        flash()->success(__('utils/toastr.contact_destroy_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.contact_destroy_success_message'));
         return redirect()->route('admin.contacts.index');
     }
 

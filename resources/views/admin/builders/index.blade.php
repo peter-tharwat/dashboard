@@ -1,7 +1,14 @@
-@extends('layouts.app',['page_title'=>"تصميم ". $page->title])
+@extends('layouts.app',['page_title'=>"تصميم ". $page['title'] ])
 @section('content')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/swiper-bundle.min.css" />
 <style type="text/css">
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover {
+    background-color: var(--bg-second);
+    color: inherit;
+}
+
 .main-nav,
 .copy-rights-footer,
 footer {
@@ -104,73 +111,157 @@ body {
     font-size: 14px;
     border-radius: 3px !important;
 }
-@media(max-width: 800px){
-    #builder-aside{
-        width:100%!important;
-        position:fixed;
-        margin-right:-100%!important;
+
+@media(max-width: 800px) {
+    #builder-aside {
+        width: 100% !important;
+        position: fixed;
+        margin-right: -100% !important;
         top: 65px;
 
     }
-    #builder-aside:not(.aside-closed){
+
+    #builder-aside:not(.aside-closed) {
         width: 100%;
-        position:fixed!important;
-        margin-right:-100%;
-        top: 65px!important;
+        position: fixed !important;
+        margin-right: -100%;
+        top: 65px !important;
     }
-    #site-main-container:not(.full-width){
-        width:100%!important;
+
+    #site-main-container:not(.full-width) {
+        width: 100% !important;
     }
-    #site-main-container > div:nth-of-type(1){
-        padding:0px!important;
+
+    #site-main-container>div:nth-of-type(1) {
+        padding: 0px !important;
     }
 }
 
 
-#site-main-container.full-width{
-    width:100%!important;
+#site-main-container.full-width {
+    width: 100% !important;
 }
-#site-main-container.full-width > div:nth-of-type(1){
-    padding:0px!important
+
+#site-main-container.full-width>div:nth-of-type(1) {
+    padding: 0px !important
 }
-#builder-aside.aside-closed{
-    width: 360px!important;
-    position:fixed!important;
-    margin-right:-400px!important;
-    top:65px!important;
+
+#builder-aside.aside-closed {
+    width: 360px !important;
+    position: fixed !important;
+    margin-right: -400px !important;
+    top: 65px !important;
 }
-#builder-aside{
-    margin-right:0px!important;
+
+#builder-aside {
+    margin-right: 0px !important;
 }
+
+/*.fancybox__content,
+.fancybox__content * {
+    direction: rtl !important
+}*/
+
 </style>
-<div class="p-0 " style="min-height:70vh" id="builder-main-container">
+<div class="p-0 builder-main-container" style="min-height:100dvh;position: fixed;z-index: 1000;top: 0px;right: 0px;width: 100%;" id="builder-main-container">
+    <div id="import-page" style="display:none;max-width:100%;width: 800px;background: rgb(238, 244, 245);">
+        <h2>استيراد المحتوى</h2>
+        <div class="col-12 p-0">
+            <textarea class="form-control" v-model="import_page_textarea" style="min-height: 300px;direction: ltr!important;"></textarea>
+        </div>
+        <div class="col-12 p-0 mt-3">
+            <a href="#" class="btn btn-primary" v-on:click="import_content()">استيراد المحتوى</a>
+        </div>
+    </div>
+    <div id="import-template" style="display:none;max-width:100%;width: 95%;height: 95dvh;overflow: auto;background: rgb(238, 244, 245);">
+        <div class="col-12 p-0">
+            <div v-for="item,key in page_templates">
+                {{-- <div class="col-12 p-2 mt-4">
+                    <h4><span class="start-head" style="background: #232323;"></span> @{{key}}</h4>
+                </div> --}}
+                <h3 class="my-3 font-3 px-3">@{{key}}</h3>
+                <div class="col-12 p-0 row">
+                    <div v-for="internal_item,internal_key in item" class="col-6 col-lg-3 p-3  row d-flex align-items-center rounded" style="margin-bottom: 10px!important;">
+                        <div class="col-12 p-3" style="background: var(--bg-main);">
+                            <div class="col p-0 row d-flex align-items-center">
+                                <div class="col-12 p-0" style="height:250px;overflow:auto;">
+                                    <img :src="internal_item.image" style="max-width: 100%;" class="rounded" data-fancybox/>
+                                </div>
+                                <div class="col-12 p-0">
+                                    <div class="col text-truncate">
+                                       @{{internal_item.title}}
+                                    </div>
+                                    {{-- <div class="col text-truncate" style="font-size: 12px;opacity: 0.7;">
+                                       @{{internal_item.description}}
+                                    </div> --}}
+                                </div>
+                            </div>
+                            <div class="col-auto p-0 py-2">
+                                <a class="rounded font-1 btn btn-outline-success" href="#" v-on:click="import_content_now(internal_item.slug)" data-width="400" >استيراد</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- @{{page_templates}} --}}
+        </div>
+    </div>
     <div class="col-12 p-0 row">
         <div class="col-12 p-0" style="overflow:hidden">
-
             <div class="col-12 row py-1 px-3 d-flex align-items-center" style="background:#fff;border-block: 1px solid #f1f1f1;height: 65px;">
-                <div class="col px-1 row d-flex align-items-center" style="height: 100%;">
-
+                <div class="col px-1 row d-flex align-items-center" style="height: 100%;width: calc(100% - 320px);">
                     <div class="col-auto px-0 d-flex justify-content-center align-items-center " style="width: 55px;cursor: pointer;height: 100%;" @click="aside_toggle()">
                         <span class="fal fa-bars font-4"></span>
                     </div>
                     <div class="d-inline-block text-truncate" style="max-width: calc(100% - 55px);">
-                        {{$page->title}}
+                        {{$page['title']}}
                     </div>
-                   
                 </div>
-                <div class="col-auto px-1">
-                    <a class="btn btn-light py-1 px-3 mx-1 font-1 border" href="{{request()->url()}}">الغاء التعديلات</a>
+                <div class="col-auto px-1 d-flex justify-content-end" style="width:320px">
                     <button class="btn btn-primary py-1 px-3 mx-1 font-1" v-on:click="submit_page_updates()">حفظ التعديلات</button>
-                    
+                    <div class="dropdown d-flex align-items-center">
+                        <a class=" border-0 py-0 px-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: inherit!important;">
+                            <span class="fa-solid fa-ellipsis font-2"></span>
+                        </a>
+                        <ul class="dropdown-menu py-2" style="z-index: 100000;">
+                            {{-- <li class="dropdown-item p-0 font-1">
+                                <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" data-fancybox data-src="#import-template" href="#" style="color: inherit;" v-on:click="load_templates()">
+                                    <span class="font-1" style="color:inherit!important">استيراد نموذج جاهز</span>
+                                    <span class="fal fa-file font-1" style="width: 20px;text-align:center;color:inherit!important"></span>
+                                </a>
+                            </li> --}}
+                            <li class="dropdown-item p-0 font-1">
+                                <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" data-fancybox data-src="#import-page" href="#" style="color: inherit;">
+                                    <span class="font-1" style="color:inherit!important">استيراد مخصص</span>
+                                    <span class="fal fa-download font-1" style="width: 20px;text-align:center;color:inherit!important"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown-item p-0 font-1">
+                                <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" v-on:click="copy_page_content()" href="#" style="color: inherit;">
+                                    <span class="font-1" style="color:inherit!important">نسخ المحتوى</span>
+                                    <span class="fal fa-copy font-1" style="width: 20px;text-align:center;color:inherit!important"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown-item p-0 font-1">
+                                <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" href="{{request()->url()}}" style="color: inherit;">
+                                    <span class="font-1" style="color:inherit!important">الغاء التعديلات</span>
+                                    <span class="fal fa-redo-alt font-1" style="width: 20px;text-align:center;color:inherit!important"></span>
+                                </a>
+                            </li>
+                            <li class="dropdown-item p-0 font-1">
+                                <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" href="{{$redirect_url}}" style="color: #ff5454;">
+                                    <span class="font-1" style="color:#ff5454!important">خروج</span>
+                                    <span class="fal fa-times font-1" style="width: 20px;text-align:center;color:#ff5454!important"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
             <div class="col-12 p-0" style="min-height: 80dvh;">
                 <div class="col-12 p-0 row">
                     <div class="col-auto p-0 " style="top: 0;width: 360px;margin-right: 0px;z-index: 10000;position: relative;background: #fff;" id="builder-aside">
-                        
                         <div style="height:calc( 100dvh - 65px );overflow: hidden;" class="p-0 col-12 add-component aside-wedgit">
-
                             <div class="col-12 px-3 mb-2 row">
                                 <div class="col-auto p-0 d-flex align-items-center justify-content-center" v-on:click="aside_toggle()">
                                     <span class="btn btn-light" style="width: 40px;height: 40px;display: inline-block;padding: 0px;display: flex;align-items: center;justify-content: center;border:1px solid #eeeeee;border-radius:50%;color:inherit;"><span class="fas fa-chevron-right" style="font-size:18px;"></span></span>
@@ -178,13 +269,9 @@ body {
                                 <div class="col p-0 font-3">
                                     <h3 class="p-3 m-0 d-flex justify-content-between align-items-center">
                                         <span>أضف قسم جديد</span>
-                               
                                     </h3>
                                 </div>
                             </div>
-
-
-
                             {{-- <div class="col-12 px-3 mb-2 row">
                                 <h3 class="p-3 m-0">أضف قسم جديد</h3>
                             </div> --}}
@@ -340,10 +427,38 @@ body {
                                     <span class="btn btn-light" style="width: 40px;height: 40px;display: inline-block;padding: 0px;display: flex;align-items: center;justify-content: center;border:1px solid #eeeeee;border-radius:50%;color:inherit;"><span class="fas fa-chevron-right" style="font-size:18px;"></span></span>
                                 </div>
                                 <div class="col p-0 font-3">
-                                    <h3 class="p-3 m-0 d-flex justify-content-between align-items-center">
+                                    <div class="col-12 p-0 row d-flex align-items-center">
+                                        <div class="col p-0">
+                                            <h3 class="p-3 m-0 d-flex justify-content-between align-items-center">
+                                                <span>تعديل القسم</span>
+                                            </h3>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div class="dropdown d-flex align-items-center">
+                                                <a class=" border-0 py-0 px-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: inherit!important;">
+                                                    <span class="fa-solid fa-ellipsis font-2"></span>
+                                                </a>
+                                                <ul class="dropdown-menu py-2" style="z-index: 100000;">
+                                                    <li class="dropdown-item p-0 font-1">
+                                                        <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" v-on:click="copy_block_content()" href="#" style="color: inherit;">
+                                                            <span class="font-1" style="color:inherit!important">نسخ المحتوى</span>
+                                                            <span class="fal fa-copy font-1" style="width: 20px;text-align:center;color:inherit!important"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-item p-0 font-1">
+                                                        <a class=" border-0 px-3 py-2 col-12 btn-sm font-1  d-flex justify-content-between align-items-center" v-on:click="change_aside_view('add_component');contents[selected_page]?.splice(contents[selected_page]?.findIndex(block => block.id === selected_unique_id), 1);" href="#" style="color: #ff5454;">
+                                                            <span class="font-1" style="color:#ff5454!important">حذف القسم</span>
+                                                            <span class="fal fa-trash font-1" style="width: 20px;text-align:center;color:#ff5454!important"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- <h3 class="p-3 m-0 d-flex justify-content-between align-items-center">
                                         <span>تعديل القسم</span>
-                                        <span class="far fa-trash ms-2" v-on:click="change_aside_view('add_component');contents[selected_page]?.splice(contents[selected_page]?.findIndex(block => block.id === selected_unique_id), 1);" style="color:#f44336;font-size: 18px;cursor: pointer;"></span>
-                                    </h3>
+                                        <span class="far fa-trash ms-2" v-on:click="" style="color:#f44336;font-size: 18px;cursor: pointer;"></span>
+                                    </h3> --}}
                                 </div>
                             </div>
                             <div class="col-12 p-3 " id="builder-editor" style="height:calc(100dvh - 150px);overflow: auto;">
@@ -390,6 +505,14 @@ body {
                                                 <input class="form-control" type="" name="" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content_sub_title" style="font-size:14px;border-radius: 2px;">
                                             </div>
                                         </div>
+                                        <div v-if="('content_video_url' in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}) )" class="col-12 px-0 my-2 py-2">
+                                            <div class="col-12 px-3 mb-2 font-1">
+                                                العنوان الفيديو
+                                            </div>
+                                            <div class="col-12 px-2 mb-3">
+                                                <input class="form-control" type="" name="" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content_video_url" style="font-size:14px;border-radius: 2px;">
+                                            </div>
+                                        </div>
                                         <div v-if="('content_image_url' in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}) )" class="col-12 p-0">
                                             <div class="col-12 px-3 mb-2 font-1">
                                                 الصورة
@@ -427,72 +550,58 @@ body {
                                                 التحكم
                                             </div> --}}
                                             {{--
-                                            selected_ids
+                                            selected_slugs
                                             --}}
                                             <div class="col-6 px-0 my-1">
                                                 <div class="col-12 px-3 mb-2 font-1">
                                                     النوع
                                                 </div>
                                                 <div class="col-12 px-2 mb-3">
-                                                    <select v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.type" class="form-control" >
-                                                        <option value="" disabled hidden >اختر</option>
-                                                        <option value="categories" >عرض جميع الأقسام</option>
+                                                    <select v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.type" class="form-control">
+                                                        <option value="" disabled hidden>اختر</option>
+                                                        <option value="categories">عرض جميع الأقسام (مقالات)</option>
                                                         <option value="articles">عرض أحدث المقالات</option>
+                                                        <option value="products">عرض أحدث المنتجات</option>
+                                                        <option value="courses">عرض أحدث الدورات</option>
+                                                        <option value="categories_articles">عرض مقالات الأقسام</option>
+                                                        <option value="categories_products">عرض منتجات الأقسام</option>
+                                                        <option value="categories_courses">عرض دورات الأقسام</option>
                                                         <option value="categories_articles">مقالات الأقسام</option>
                                                     </select>
                                                 </div>
                                             </div>
-
                                             <div v-if="loaded_content_type" class="col-6 px-0 my-1">
                                                 <div class="col-12 px-3 mb-2 font-1">
                                                     اختر
                                                 </div>
-                                                <div class="col-12 px-2 mb-3"> 
+                                                <div class="col-12 px-2 mb-3">
                                                     <div class="dropdown col-12 p-0">
-                                                      <a class="  col-12 form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                                        
-                                                       <span v-if="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_ids.length == 0 ">الكل</span>
-
-                                                       <span  v-for="selected_id in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_ids"  class="d-inline-block" style="max-width:100%" >
-                                                   
-                                                            <span class="text-truncate d-inline-block px-1" style="max-width:100%">@{{loaded_content_type.find(item=> item.id === selected_id)?.title}}، </span>
-                                                       
-                                                        </span>
-
-                                                      </a>
-                                                      <ul v-if="loaded_content_type" class="dropdown-menu px-3" style="max-width:130px;max-height: 200px;overflow: auto;">
-                                                        <li 
-                                                            v-for="loaded_item in loaded_content_type" 
-                                                            :key="loaded_item.id"
-                                                        >
-                                                        <div class="col-12 p-0 row d-flex font-1 py-1" style="color:#000">
-                                                            <div class="col-auto px-1" style="cursor:pointer;width: 25px;">
-                                                                <input class="form-check-input" type="checkbox" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_ids" :value="loaded_item.id" :id="selected_unique_id + 'select' + loaded_item.id " style="cursor: pointer;" @change="refresh_loaded_content()">
-                                                                
-                                                            </div>
-                                                            <div class="col p-0 text-truncate" style="cursor:pointer;width:calc(100% - 25px)">
-                                                                
-                                                                <label class="form-check-label px-2 text-truncate" :for="selected_unique_id + 'select' + loaded_item.id " style="cursor:pointer;">
-                                                                    <img :src="loaded_item.image" style="width:20px;max-height: 20px;">
-                                                                @{{loaded_item.title}}
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                            
-                                                            
-                                                            
-
-                                                            {{-- <input type="checkbox" name="" :value="loaded_item.id" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_ids"> @{{loaded_item.title}} --}}
-                                                           {{--  <a class="dropdown-item" href="#">Action</a> --}}
-                                                        
-                                                        </li>
-                                                      </ul>
+                                                        <a class="  col-12 form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                            <span v-if="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_slugs.length == 0 ">الكل</span>
+                                                            <span v-for="selected_slug in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_slugs" class="d-inline-block" style="max-width:100%">
+                                                                <span class="text-truncate d-inline-block px-1" style="max-width:100%">@{{loaded_content_type.find(item=> item.slug === selected_slug)?.title}}، </span>
+                                                            </span>
+                                                        </a>
+                                                        <ul v-if="loaded_content_type" class="dropdown-menu px-3" style="max-width:130px;max-height: 200px;overflow: auto;">
+                                                            <li v-for="loaded_item in loaded_content_type" :key="loaded_item.slug">
+                                                                <div class="col-12 p-0 row d-flex font-1 py-1" style="color:#000">
+                                                                    <div class="col-auto px-1" style="cursor:pointer;width: 25px;">
+                                                                        <input class="form-check-input" type="checkbox" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_slugs" :value="loaded_item.slug" :id="selected_unique_id + 'select' + loaded_item.slug " style="cursor: pointer;" @change="refresh_loaded_content()">
+                                                                    </div>
+                                                                    <div class="col p-0 text-truncate" style="cursor:pointer;width:calc(100% - 25px)">
+                                                                        <label class="form-check-label px-2 text-truncate" :for="selected_unique_id + 'select' + loaded_item.slug " style="cursor:pointer;">
+                                                                            <img :src="loaded_item.image" style="width:20px;max-height: 20px;">
+                                                                            @{{loaded_item.title}}
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                {{-- <input type="checkbox" name="" :value="loaded_item.slug" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).content.selected_slugs"> @{{loaded_item.title}} --}}
+                                                                {{-- <a class="dropdown-item" href="#">Action</a> --}}
+                                                            </li>
+                                                        </ul>
                                                     </div>
-
-                                                 
                                                 </div>
                                             </div>
-
                                             <div class="col-6 px-0 my-1">
                                                 <div class="col-12 px-3 mb-2 font-1">
                                                     نوع العرض
@@ -528,12 +637,12 @@ body {
                                             <div class="col-12 px-3 mb-2 font-1">
                                                 الأزرار
                                             </div>
-                                            <div class="col-12 px-2 mb-3 accordion">
-                                                <draggable :list="contents[selected_page].find(block => block.id === selected_unique_id).fields.buttons" item-key="id">
+                                            <div class="col-12 px-0 mb-3 accordion">
+                                                <draggable :list="contents[selected_page].find(block => block.id === selected_unique_id).fields.buttons" item-key="id" class="col-12 px-0 py-1">
                                                     <template #item="{ element }">
                                                         <div class="accordion-item mb-1">
                                                             <h2 class="accordion-header">
-                                                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
+                                                                <button class="accordion-button font-1 p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
                                                                     <span class="fas fa-trash ms-2" v-on:click="contents[selected_page].find(block => block.id === selected_unique_id).fields.buttons = contents[selected_page].find(block => block.id === selected_unique_id).fields.buttons.filter(button => button.id !== element.id);" style="color:#f44336"></span>
                                                                     @{{element.fields.title}}
                                                                 </button>
@@ -598,13 +707,13 @@ body {
                                             <div class="col-12 px-3 mb-2 font-1">
                                                 الميزات
                                             </div>
-                                            <div class="col-12 px-2 mb-3 accordion">
+                                            <div class="col-12 px-0 mb-3 accordion">
                                                 <draggable :list="contents[selected_page].find(block => block.id === selected_unique_id).fields.features" item-key="id">
                                                     <template #item="{ element }">
                                                         <div class="col-12 p-0 ">
                                                             <div class="accordion-item mb-1">
                                                                 <h2 class="accordion-header">
-                                                                    <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
+                                                                    <button class="accordion-button font-1 p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
                                                                         <span class="fas fa-trash ms-2" v-on:click="contents[selected_page].find(block => block.id === selected_unique_id).fields.features = contents[selected_page].find(block => block.id === selected_unique_id).fields.features.filter(feature => feature.id !== element.id);" style="color:#f44336"></span>
                                                                         @{{element.fields.title}}
                                                                     </button>
@@ -685,12 +794,12 @@ body {
                                             <div class="col-12 px-3 mb-2 font-1">
                                                 الأسئلة
                                             </div>
-                                            <div class="col-12 px-2 mb-3 accordion">
+                                            <div class="col-12 px-0 mb-3 accordion">
                                                 <draggable :list="contents[selected_page].find(block => block.id === selected_unique_id).fields.faqs" item-key="id">
                                                     <template #item="{ element }">
                                                         <div class="accordion-item mb-1">
                                                             <h2 class="accordion-header">
-                                                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
+                                                                <button class="accordion-button font-1 p-2 collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ element.id" :aria-controls="'#collapse_'+ element.id" style="font-size:13px" aria-expanded="false">
                                                                     <span class="fas fa-trash ms-2" v-on:click="contents[selected_page].find(block => block.id === selected_unique_id).fields.faqs = contents[selected_page].find(block => block.id === selected_unique_id).fields.faqs.filter(button => button.id !== element.id);" style="color:#f44336"></span>
                                                                     @{{element.fields.title}}
                                                                 </button>
@@ -741,6 +850,17 @@ body {
                                                 <span v-for="(column,column_index) in design_columns" :key="column_index" class="d-flex align-items-center justify-content-center m-1" style="width: 40px;height:40px;padding: 2px;cursor: pointer;position: relative;" :style="column_index == (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns ? { 'border-bottom': '5px solid #03a9f4' } : {'border-bottom': '5px solid transparent'}">
                                                     <span :class="column" class="font-4"></span>
                                                     <input type="radio" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns" :value="column_index" style="width: 100%;height: 100%;position: absolute;" @change="refresh_loaded_content()">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div v-if="('design_columns' in (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}) )" class="col-12 px-0 my-2 py-2">
+                                            <div class="col-12 px-3 mb-2 font-1">
+                                                حدد العرض على الهاتف
+                                            </div>
+                                            <div class="col-12 px-2 mb-3 row d-flex justify-content-between ">
+                                                <span v-for="(column,column_index) in design_columns" :key="column_index" class="d-flex align-items-center justify-content-center m-1" style="width: 40px;height:40px;padding: 2px;cursor: pointer;position: relative;" :style="column_index == (contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns_mobile ? { 'border-bottom': '5px solid #03a9f4' } : {'border-bottom': '5px solid transparent'}">
+                                                    <span :class="column" class="font-4"></span>
+                                                    <input type="radio" v-model="(contents[selected_page]?.find(block => block.id === selected_unique_id)?.fields || {}).design_columns_mobile" :value="column_index" style="width: 100%;height: 100%;position: absolute;" @change="refresh_loaded_content()">
                                                 </span>
                                             </div>
                                         </div>
@@ -869,16 +989,20 @@ body {
                                                 <span class="fas fa-plus append-plus-end" style="z-index:1000;cursor: pointer;" v-on:click="alerter(element.id + 'after');"></span> --}}
                                             </div>
                                             <div class='position-relative  border-0 hoverable-elements-builder appened-element' :style="{'color': element.fields.design_text_color}">
-                                                <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;z-index: 0;background-size:cover;background-repeat:no-repeat;background-position:center" :style="{'background-color': element.fields.design_background_color,'background-image': element.fields.design_background_url?'url('+element.fields.design_background_url+')' :'none','opacity': element.fields.design_background_opacity,'filter':'blur('+ element.fields.design_background_blur +'px)  grayscale('+ element.fields.design_background_grayscale +'%)'
+                                                <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;z-index: 0;background-size:cover;background-repeat:no-repeat;background-position:center" :style="{
+                                                    'background-color': element.fields.design_background_color,
+                                                    'background-image': 'url(' +element.fields.design_background_url +')' ,
+                                                    'opacity': element.fields.design_background_opacity,
+                                                    'filter':'blur('+ element.fields.design_background_blur +'px)  grayscale('+ element.fields.design_background_grayscale +'%)'
                                                         }"></div>
                                                 <div style="width: 100%;height: 100%;position: absolute;top: 0px;right: 0px;z-index: 0;background:cover;background: #000;" :style="{'opacity': element.fields.design_background_black}"></div>
-                                                <div class='main-content-of-block py-3 py-lg-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
+                                                <div class='main-content-of-block py-5 py-lg-9 d-flex align-items-center justify-content-center ' style="z-index: 2;position: relative;" :style="{ 'min-height' : element.fields.design_min_height + 'dvh' }">
                                                     <div v-if="element.fields.block_type=='component_cta'" class="container p-3">
                                                         <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -890,10 +1014,10 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_banner'" class="container p-3">
                                                         <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 design_text_alignment' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 design_text_alignment' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -905,10 +1029,10 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_text'" class="container p-3">
                                                         <div :class="element.fields.design_text_alignment" class='col-12 mx-auto '>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -925,10 +1049,10 @@ body {
                                                             </div>
                                                             <div class="col-12 col-lg-6 d-flex align-items-center row mx-auto">
                                                                 <div class="col-12 px-0 py-3 row ">
-                                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                                    <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                                    <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                                    <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                                    <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                                    <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                         <div v-for="button in element.fields['buttons']">
                                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                                 @{{button.fields.title}}
@@ -947,10 +1071,10 @@ body {
                                                             </div>
                                                             <div class="col-12 col-lg-6 d-flex align-items-center row mx-auto">
                                                                 <div class="col-12 px-0 py-3 row ">
-                                                                    <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                                    <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
-                                                                    <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                                    <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                                    <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                                    <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                                    <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                         <div v-for="button in element.fields['buttons']">
                                                                             <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                                 @{{button.fields.title}}
@@ -964,17 +1088,17 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_features'" class="container p-3">
                                                         <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class=''>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="opacity: 0.9;white-space: pre;">@{{element.fields.content_description}}</p>
-                                                            <div class="col-12 px-0 py-5 d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]">
-                                                                <div v-for="feature in element.fields['features']" :class="'col-12 col-md-6 col-lg-' + 12/element.fields.design_columns" class="p-3 mx-auto my-3">
-                                                                    <div class="col-12 mb-1 px-2 text-center">
-                                                                        <img :src="feature.fields.image_url" style="width:100px">
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="opacity: 0.9;white-space: pre;">@{{element.fields.content_description}}</p>
+                                                            <div class="col-12 px-0 py-3 py-lg-5 d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]">
+                                                                <div v-for="feature in element.fields['features']" :class="'col-' + 12/element.fields.design_columns_mobile  + ' col-lg-' + 12/element.fields.design_columns" class="p-3 mx-auto my-3">
+                                                                    <div class="col-12 mb-1 px-1 px-lg-2 text-center">
+                                                                        <img :src="feature.fields.image_url" style="width:100px;max-width: 100%;">
                                                                     </div>
-                                                                    <div class="col-12 mb-1 px-2 text-center">
+                                                                    <div class="col-12 font-2 font-lg-3 mb-1 px-2 text-center">
                                                                         @{{feature.fields.title}}
                                                                     </div>
-                                                                    <div class="col-12 px-2 text-center" style="font-size:13px;opacity:0.9;white-space: pre-line;">@{{feature.fields.content}}</div>
+                                                                    <div class="col-12 px-1 px-lg-2 text-center" style="font-size:15px;opacity:0.9;white-space: pre-line;">@{{feature.fields.content}}</div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -982,14 +1106,14 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_faqs'" class="container p-3">
                                                         <div :class="element.fields.design_text_alignment" class=''>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
-                                                            <div class="col-12 px-0 py-5 d-flex faqs-group row" :class="element.fields.design_text_alignment">
-                                                                <div class="col-12 px-2 mb-3 accordion">
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                            <div class="col-12 px-0 py-3 py-lg-5 d-flex faqs-group row" :class="element.fields.design_text_alignment">
+                                                                <div class="col-12 px-0 mb-3 accordion">
                                                                     <div v-for="faq,index in element.fields['faqs']" :class="element.fields.design_columns" class="p-1">
                                                                         <div class="accordion-item mb-1" style="border:1px solid #e7e7ec!important;background: transparent;box-shadow: 0 .5rem .937rem #8c98a41a!important;">
                                                                             <h2 class="accordion-header">
-                                                                                <button class="accordion-button font-2 font-lg-3" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ faq.id" :aria-controls="'#collapse_'+ faq.id" style="background-color:transparent;padding: 20px;font-weight: bold;text-align: start;" :style="{color: element.fields.design_text_color}">
+                                                                                <button class="accordion-button font-1 font-lg-2" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse_'+ faq.id" :aria-controls="'#collapse_'+ faq.id" style="background-color:transparent;padding: 20px;font-weight: bold;text-align: start;" :style="{color: element.fields.design_text_color}">
                                                                                     @{{faq.fields.title}}
                                                                                 </button>
                                                                             </h2>
@@ -1008,16 +1132,16 @@ body {
                                                         <div v-html="element.fields.design_custom_code"></div>
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_html'" class="container p-3">
-                                                        <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                        <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
-                                                        <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                        <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                        <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9">@{{element.fields.content_sub_title}}</p>
+                                                        <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
                                                         <div v-html="element.fields.design_custom_code"></div>
                                                         <div v-html="element.fields.content_html"></div>
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_contact'" class="container p-3">
                                                         <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
                                                             <div class="col-12 col-lg-8 py-5 px-1">
                                                                 @include("components.contact")
                                                             </div>
@@ -1026,23 +1150,23 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_slider'" class="container p-3">
                                                         <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
                                                             <div class="col-12 col-lg-12 px-1">
                                                                 <div class="col-12 px-0  d-flex features-group row" :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" style="flex-wrap: nowrap;overflow: hidden;">
-                                                                    <div v-for="feature in element.fields['features']" :class="'col-12 col-md-6 col-lg-' + 12/element.fields.design_columns" class="p-3">
-                                                                        <div class="col-12 mb-1 px-0 text-center d-flex align-items-center justify-content-center row" :style="{'background-image': 'url(' + feature.fields.image_url + ')' , 'max-height':  element.fields.design_min_height + 'dvh' }" style="background-repeat: no-repeat;background-position: center;background-size: cover;border-radius: 8px;position: relative;">
+                                                                    <div v-for="feature in element.fields['features']" :class="'col-' + 12/element.fields.design_columns_mobile  + ' col-lg-' + 12/element.fields.design_columns" class="p-3">
+                                                                        <div class="col-12 mb-1 px-0 text-center d-flex align-items-center justify-content-center row" :style="{'background-image': 'url(' + feature.fields.image_url + ')'}" style="background-repeat: no-repeat;background-position: center;background-size: cover;border-radius: 8px;position: relative;">
                                                                             <div style="position: absolute;top: 0px;bottom: 0px;width: 100%;right: 0px;left: 0px;background: rgb(0 0 0 / 10%);" class="d-flex align-items-center justify-content-center row">
                                                                                 <div class="col-12 p-3">
-                                                                                    <div class="font-3 font-lg-4 col-12 p-1 text-center" style="color:#fff">@{{feature.fields.title}}</div>
+                                                                                    <div class="font-3 font-lg-5 col-12 p-1 text-center" style="color:#fff">@{{feature.fields.title}}</div>
                                                                                     <div class="col-12 p-1 text-center" style="color:#fff">@{{feature.fields.content}}</div>
                                                                                 </div>
                                                                             </div>
-                                                                            <img :src="feature.fields.image_url" style="width:100%;border-radius: 10px;opacity: 0;" class="p-0">
+                                                                            <img :src="feature.fields.image_url" style="width:100%;border-radius: 10px;" class="p-0">
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                                <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                     <div v-for="button in element.fields['buttons']">
                                                                         <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                             @{{button.fields.title}}
@@ -1055,13 +1179,13 @@ body {
                                                     </div>
                                                     <div v-if="element.fields.block_type=='component_content'" class="container p-3">
                                                         <div :class="[element.fields.design_text_alignment,element.fields.design_content_alignment]" class='row'>
-                                                            <h2 :class="element.fields.design_text_alignment" class='font-3 font-lg-4 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
-                                                            <p :class="element.fields.design_text_alignment" class=' mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
+                                                            <h2 :class="element.fields.design_text_alignment" class='px-0 font-3 font-lg-5 mb-lg-3 mb-1 content_title' style="color:inherit;">@{{element.fields.content_title}}</h2>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-2 font-lg-3 content_sub_title' style="opacity: 0.9;white-space:pre-line;">@{{element.fields.content_sub_title}}</p>
+                                                            <p :class="element.fields.design_text_alignment" class='px-0 mb-3 mb-lg-5  font-1 font-lg-2 content_description' style="white-space: pre-line;opacity: 0.9">@{{element.fields.content_description}}</p>
                                                             <div class="col-12 col-lg-12 py-5 px-1">
                                                                 <div v-html="element.fields.content.rendered_html"></div>
                                                             </div>
-                                                            <div class="col-12 px-2 d-flex btns-group" :class="element.fields.design_text_alignment">
+                                                            <div class="col-12 px-0 d-flex btns-group mt-2" :class="element.fields.design_text_alignment">
                                                                 <div v-for="button in element.fields['buttons']">
                                                                     <a class="btn mx-1 font-1 font-lg-2 py-1 px-4 py-lg-2 px-lg-5" :class="button.fields.class" :target="button.fields.url_open_type" style="border-radius: 3px;">
                                                                         @{{button.fields.title}}
@@ -1085,22 +1209,22 @@ body {
     </div>
 </div>
 @endsection
-@section('scripts') 
-
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuedraggable@4.1.0/dist/vuedraggable.umd.min.js"></script>
+@section('scripts')
+<script src="/js/vue.global.js"></script>
+<script src="/js/Sortable.min.js"></script>
+<script src="/js/vuedraggable.umd.min.js"></script>
 <script type="module">
     const { createApp, ref, onMounted } = Vue;
     const app =     createApp({
     data(){
         return {
-            current_edit_tab:"contet",
+            page_templates:{},
+            import_page_textarea:"",
+            current_edit_tab:"content",
             component_append_selector:"response-contaienr",
             component_append_type:"after",
-            contents: @if($page->content != null ){'{{$page->slug}}': {!!$page->content!!} } @else [] @endif,
-            selected_page:'{{$page->slug}}',
+            contents: @if($page['content'] != null ){'{{$page['slug']}}': {!!$page['content']!!} } @else [] @endif,
+            selected_page:'{{$page['slug']}}',
             selected_type:null,
             selected_unique_id:null,
             selected_edit_wedgit:"",
@@ -1118,6 +1242,7 @@ body {
                 'text-end justify-content-start':"fal fa-align-right",
                 'text-center justify-content-center':"fal fa-align-center",
                 'text-start justify-content-end':"fal fa-align-left",
+                'text-justify':"fal fa-align-justify",
             },
             content_alignments:{
                 'flex-row':"fal fa-indent",
@@ -1182,11 +1307,13 @@ body {
             if(content != null){
                 const formData = new FormData();
                 formData.append("type", content.type);
-                formData.append("selected_ids", [content.selected_ids]);
+                formData.append("selected_slugs", [content.selected_slugs]);
                 formData.append("items_count", content.items_count);
                 formData.append("view_type", content.view_type);
                 formData.append("paginate", content.paginate);
                 formData.append("design_columns", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_columns);
+                formData.append("design_columns_mobile", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_columns_mobile);
+                
                 formData.append("id", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.id);
                 formData.append("design_text_alignment", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_text_alignment);
                 formData.append("design_min_height", this.contents[this.selected_page]?.find((block) => block.id === this.selected_unique_id)?.fields?.design_min_height);
@@ -1325,6 +1452,7 @@ body {
                     "content_description":"اكتشف أفضل الميزات التي تقدمها دوراتنا",
                     "design_text_alignment":"text-center justify-content-center",
                     "design_columns":"3",
+                    "design_columns_mobile":"2",
                     "design_content_alignment":"flex-row"
                 }};
                 var object = { 'id' : this.selected_unique_id, 'fields': [] };
@@ -1470,7 +1598,9 @@ body {
                 var options = {...options,...{
                     "content_title":"أحدث المنتجات",
                     "content_sub_title":"استمتع بأفضل المنتجات على موقعنا",
-                    "design_columns":"3"
+                    "design_columns":"3",
+                    "design_columns_mobile":"2",
+
                 }};
                 var object = { 'id' : this.selected_unique_id, 'fields': [] };
                 object.fields = options;
@@ -1539,14 +1669,15 @@ body {
                     "content_sub_title":"يمكنك الاطلاع على الجديد",
                     "content_description":"",
                     "design_text_alignment":"text-center justify-content-center",
-                    "design_columns":"4"
+                    "design_columns":"4",
+                    "design_columns_mobile":"2"
                     //"design_content_alignment":"flex-row"
                 }};
                 var object = { 'id' : this.selected_unique_id, 'fields': [] };
                 object.fields = options;
                 object.fields['content']={
                     'type':"categories",
-                    'selected_ids':[],
+                    'selected_slugs':[],
                     'items_count':12,
                     'view_type':"standard", /*or slider*/
                     'paginate':false,
@@ -1682,7 +1813,7 @@ body {
             formData.append("upload", file);
             formData.append("_token", "{{csrf_token()}}");
 
-            fetch('{{route('admin.upload.image')}}', {
+            fetch('{{route('admin.upload.image',false)}}', {
                 method: 'POST',
                 body: formData,
             }).then((response) => {
@@ -1700,12 +1831,11 @@ body {
         change_edit_tab: function(type){
             this.current_edit_tab = type;
         },
-        submit_page_updates: function(){
-            fetch("{{route('admin.pages.builder-update',['page'=>$page])}}", {
+        {{-- load_templates: function(){
+            fetch("{{route('admin.data.page.templates')}}", {
               method: 'POST',
               body: JSON.stringify({
-                _token:"{{csrf_token()}}",
-                contents:JSON.stringify(Object.values(this.contents['{{$page->slug}}']))
+                _token:"{{csrf_token()}}"
               }),
               headers: {
                 "Content-Type": "application/json",
@@ -1714,9 +1844,28 @@ body {
                 var json_response = response.json();
                 return json_response;
             }).then(response => {
-                //console.log(response);
-                window.location.href= response['redirect_url'];
-                //console.log(response['redirect_url']);    
+                this.page_templates = response;
+            }).catch(error => {
+              alert("Oops! There was a problem submitting your form");
+            });
+        }, --}}
+        submit_page_updates: function(){
+            fetch("{{$update_url}}", {
+              method: 'POST',
+              body: JSON.stringify({
+                _token:"{{csrf_token()}}",
+                contents:JSON.stringify(Object.values(this.contents['{{$page['slug']}}'])),
+                input_parameter:"{{request()->get('input_parameter')}}"
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }).then(response => {
+                var json_response = response.json();
+                return json_response;
+            }).then(response => {
+                //window.location.href= response['redirect_url'];
+                toastr.success("تمت حفظ التعديلات");
             }).catch(error => {
               alert("Oops! There was a problem submitting your form");
             });
@@ -1724,6 +1873,90 @@ body {
         aside_toggle: function(){
             document.getElementById('site-main-container').classList.toggle('full-width');
             document.getElementById('builder-aside').classList.toggle('aside-closed');
+        },
+        copy_page_content: function(){
+            navigator.clipboard.writeText(JSON.stringify(Object.values(this.contents['{{$page['slug']}}'])));
+            alert("تم نسخ محتوى الصفحة بنجاح");
+        },
+        copy_block_content: function(){
+            var page_content = JSON.parse(JSON.stringify(Object.values(this.contents['{{$page['slug']}}'])));
+            this.contents['{{$page['slug']}}'] = page_content;
+            var block = page_content.find((item) => item.id === this.selected_unique_id);
+            navigator.clipboard.writeText(JSON.stringify(block));
+            alert("تم نسخ محتوى القسم بنجاح");
+        },
+        is_array_of_objects(variable){
+            return (
+                Array.isArray(variable) &&
+                variable.every(
+                  item =>
+                    typeof item === 'object' &&
+                    item !== null &&
+                    'id' in item && // Check if `id` exists
+                    'fields' in item // Check if `fields` exists
+                )
+              );
+        },
+        is_valid_json: function(string){
+            try {
+                JSON.parse(string); // Attempt to parse the string
+                return true;     // Parsing succeeded, so it's valid JSON
+            } catch (error) {
+                return false;    // Parsing failed, so it's not valid JSON
+            }
+        },
+        import_content: function(){
+
+            var confirm_alert = confirm('هل أنت متأكد؟');if(confirm_alert){}else{event.preventDefault();return;}
+
+            if(this.is_valid_json(this.import_page_textarea)){
+                
+                if(this.is_array_of_objects(JSON.parse(this.import_page_textarea))){
+                    var content = JSON.parse(this.import_page_textarea);
+                    this.contents[this.selected_page] = content;
+                    this.import_page_textarea = "";
+                    toastr.success("تم استيراد الصفحة بنجاح");
+                    return;
+                }
+                this.contents[this.selected_page].push(JSON.parse(this.import_page_textarea));
+                this.import_page_textarea = "";
+                toastr.success("تم استيراد القسم بنجاح");
+                return;
+            }
+            toastr.success("تعذر استيراد المحتوى");
+            return;
+        },
+        import_content_now: function(slug){
+
+            var confirm_alert = confirm('هل أنت متأكد؟');if(confirm_alert){}else{event.preventDefault();return;}
+
+            let result = null;
+            for (const contentKey in this.page_templates) {
+              for (const itemKey in this.page_templates[contentKey]) {
+                const item = this.page_templates[contentKey][itemKey];
+                if (item.slug === slug) {
+                  result = item;
+                  break;
+                }
+              }
+              if (result) break;
+            }
+
+            if(this.is_array_of_objects(JSON.parse(result.content))){
+                var content = JSON.parse(result.content);
+                this.contents[this.selected_page] = content;
+                result.content = "";
+                toastr.success("تم استيراد الصفحة بنجاح");
+                return;
+            }
+
+
+
+
+            //console.log(typeof this.page_templates);
+            //console.log(this.page_templates.find((item) => item.slug === slug));
+
+
         }
     },
     created: function(){
@@ -1731,7 +1964,5 @@ body {
     }
   });
   app.mount('#builder-main-container');
-
 </script>
-
 @endsection

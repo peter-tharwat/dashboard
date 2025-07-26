@@ -13,7 +13,7 @@
 	.settings-tab-opener.active{
 		box-shadow: 0px 6px 12px #c8e0ff;
 		color: #fff;
-		background: #2196f3;
+		background: #7b60fb;
 	}
 	.taber:not(.active){
 		display: none;

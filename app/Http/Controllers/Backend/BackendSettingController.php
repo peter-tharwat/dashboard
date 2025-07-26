@@ -117,7 +117,7 @@ class BackendSettingController extends Controller
             ])['filename'];
             \App\Models\Setting::where('key','website_cover')->update(['value'=>$file]);
         }*/
-        flash()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
+        flash()->success('تم تحديث الإعدادات بنجاح');
         return redirect()->back();
 
     }

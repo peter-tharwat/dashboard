@@ -52,7 +52,7 @@ class BackendFaqController extends Controller
            'answer'=>$request->answer,
            'is_featured'=>$request->is_featured, 
         ]);
-        flash()->success(__('utils/toastr.process_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->route('admin.faqs.index');
     }
 
@@ -92,7 +92,7 @@ class BackendFaqController extends Controller
            'answer'=>$request->answer,
            'is_featured'=>$request->is_featured, 
         ]);
-        flash()->success(__('utils/toastr.process_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->route('admin.faqs.index');
     }
 
@@ -106,7 +106,7 @@ class BackendFaqController extends Controller
     {
         if(!auth()->user()->can('faqs-delete'))abort(403);
         $faq->delete();
-        flash()->success(__('utils/toastr.process_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.process_success_message'));
         return redirect()->route('admin.faqs.index');
     }
 

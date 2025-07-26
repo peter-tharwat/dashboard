@@ -1,7 +1,7 @@
 @php
 $flat_colors = collect([
-'#2196f3',
-'#2196f3dd',
+'#7b60fb',
+'#7b60fbdd',
 '#7cc5ffaa',
 '#9ed2fb88',
 '#0fb8ff66',
@@ -188,7 +188,7 @@ $flat_colors = collect([
                     @foreach($data['top_pages'] as $page)
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7b60fb;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$page->count}}
                             </span>
                         </div>
@@ -215,7 +215,7 @@ $flat_colors = collect([
              
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7b60fb;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$main_domain->domain_count}}
                             </span>
                             
@@ -251,7 +251,7 @@ $flat_colors = collect([
              
                     <div class="col-12 px-2 py-1 row">
                         <div class="col-4 p-0">
-                            <span style="width: 30px;height: 17px;font-weight: bold;background: #0194fe;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
+                            <span style="width: 30px;height: 17px;font-weight: bold;background: #7b60fb;color: #fff;" class="badge badge-light d-flex align-items-center justify-content-center">
                                 {{$country->count}}
                             </span>
                             
@@ -330,14 +330,14 @@ $flat_colors = collect([
                     "{{$value}}",
                     @endforeach
                     ],
-                        backgroundColor: "#2196f3cc",
-                        borderColor: '#2196f3',
+                        backgroundColor: "#7b60fbcc",
+                        borderColor: '#7b60fb',
                         pointStyle: 'rect',
                         lineTension: '.15',
                         tension: 0.1,
                         fill: true,
                         pointStyle:"circle",
-                        pointBorderColor:"#2196f3",
+                        pointBorderColor:"#7b60fb",
                         pointBackgroundColor:"#fff",
                         pointRadius:4,
                         borderWidth: 3.5,
@@ -409,14 +409,14 @@ $flat_colors = collect([
                     "{{$count}}",
                     @endforeach
                     ],
-                        backgroundColor: "#2196f3cc",
-                        borderColor: '#2196f3',
+                        backgroundColor: "#7b60fbcc",
+                        borderColor: '#7b60fb',
                         pointStyle: 'rect',
                         lineTension: '.15',
                         tension: 0.1,
                         fill: true,
                         pointStyle:"circle",
-                        pointBorderColor:"#2196f3",
+                        pointBorderColor:"#7b60fb",
                         pointBackgroundColor:"#fff",
                         pointRadius:4,
                         borderWidth: 3.5,

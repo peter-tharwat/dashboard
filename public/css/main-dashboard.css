@@ -51,22 +51,43 @@ thead th {
     transition: .2s ease-in-out;
 }
 .aside .item-container{
-    padding: 5px 0px 9px 0px;
-    border-radius: 8px;
+    padding: 9px 0px 12px 0px;
+    /*border-radius: 8px;*/
 }
-.aside .item-container.active {
+.aside a:hover .item-container *{
+    color: #7b60fb;
+}
+.aside .item-container{
+    border-inline-start:6px solid transparent;
+}
+
+.aside a.active .item-container,.aside .item-container.active{
+    border-inline-start:6px solid #7b60fb!important;
+    background: rgba(123, 96, 251, .1);
+}
+
+.aside a:hover .item-container{
+    background: rgb(123 96 251 / 6%);
+    border-inline-start:6px solid rgb(123 96 251 / 18%);
+}
+
+/*.aside .item-container.active {
     background: #fff;
-    /*box-shadow: 0px 12px 17px #abd1c9;
-    border-bottom: 1px solid #abd1c9;*/
+}*/
+.aside a.active .item-container {
+    background: rgba(123, 96, 251, .1);  
 }
-.aside .item-container.active * {
-    color: #38b59c;
+.aside a.active .item-container * {
+    color: #7b60fb!important;
+}
+.aside .item-container.active > div:nth-of-type(1) {
+
 }
 .sub-item.active{
     display: block;
 }
 .sub-item.active a.active * ,.sub-item.active a.active ,.sub-item a:hover *,.sub-item a:hover{
-    color: #38b59c;
+    color: #7b60fb;
 }
 * {
     text-decoration: unset !important;
@@ -102,7 +123,7 @@ thead th {
 }
 .item-container .item-container-title.has-sub-menu:after{
     content:'\f107';
-    font-family: "Font Awesome 5 Pro";
+    font-family: "Font Awesome 6 Pro";
     width: 20px;
     height: 20px;
     display: flex;
@@ -193,7 +214,7 @@ label.error{
     color: #ff2121;
 }
 .fa, .fas {
-    font-family: "Font Awesome 5 Pro"!important;
+    font-family: "Font Awesome 6 Pro"!important;
     font-weight: 900;
 }
 .ck-editor{
@@ -352,6 +373,7 @@ label.error{
 .circle-chart {
     position: absolute!important;
 }
+
 .circle-chart__circle {
     animation: circle-chart-fill 1s reverse;
     transform: rotate(-90deg);
@@ -371,7 +393,7 @@ label.error{
     width: 40px;height: 18px;cursor: pointer;
 }
 .fa, .fas {
-    font-family: "Font Awesome 5 Pro"!important; 
+    font-family: "Font Awesome 6 Pro"!important; 
     font-weight: 900;
 }
 ol,ul{
@@ -417,9 +439,9 @@ pre{
 }
 
 .sub-item{
-    background: var(--background-0);
+    /*background: var(--background-0);*/
     padding: 15px 19px 18px 19px!important;
     margin-bottom: 5px;
     margin-top: 5px;
-    border-radius:5px 25px 5px 25px;
+    /*border-radius:5px 25px 5px 25px;*/
 }

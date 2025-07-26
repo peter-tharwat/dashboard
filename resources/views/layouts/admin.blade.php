@@ -74,7 +74,7 @@
             color: #38b59c!important;
         }
         #home-dashboard-divider{
-            background: #0194fe!important;
+            background: #7b60fb!important;
         }
         body{
             color: var(--color-1)!important;
@@ -146,12 +146,15 @@
     @endif
 </head>
 
-<body style="background: #eef4f5" class="dash">
+<body style="background: #f5f5f5" class="dash">
     <style type="text/css">
         #toast-container>div {
             opacity: 1;
         }
         .phpdebugbar *{ direction:ltr!important }
+        .fl-wrapper{
+            z-index:999999!important;
+        }
     </style>
     @yield('after-body')
     <div class="col-12 justify-content-end d-flex">
@@ -163,7 +166,7 @@
     </div>
     <form method="POST" action="{{route('logout')}}" id="logout-form" class="d-none">@csrf</form>
     <div class="col-12 d-flex">
-        <div style="width: 260px;background: #ddeaea;min-height: 100vh;position: fixed;z-index: 900" class="aside active">
+        <div style="width: 260px;background: #ffffff;min-height: 100vh;position: fixed;z-index: 900;box-shadow: 0 0 1rem rgba(0,0,0,.1)!important;" class="aside active">
             <div class="col-12 px-0 d-flex" style="height: 55px">
                 <div class="col-12 p-1" style="color: var(--background-1)">
                     <div class="col-12 p-0 row">
@@ -172,7 +175,7 @@
                         </div>
                         <div class="col-9 ">
                             {{-- <span class="d-inline-block px-2 font-3 pt-1">لوحة التحكم</span>  --}}
-                            <span style="width: 55px;height: 55px;position: absolute;left: 0px;top: 0px;align-items: center;justify-content: center;cursor: pointer;" class="asideToggle d-flex d-md-none rounded-0" >
+                            <span style="width: 55px;height: 55px;position: absolute;left: 0px;top: 0px;align-items: center;justify-content: center;cursor: pointer;border-color: transparent!important;" class="asideToggle d-flex d-md-none rounded-0" >
                                 <span class="fal fa-bars font-4 "></span>
                             </span>
                         </div>
@@ -195,7 +198,7 @@
 
 
 
-                <div class="col-12 px-3 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
+                <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 260px);overflow: auto;">
 
                     <a href="{{route('admin.index')}}" class="col-12 px-0" >
                         <div class="col-12 item-container px-0 d-flex" >
@@ -329,6 +332,19 @@
                     @endcan
                    
                     
+
+                    @can('plugins-update')
+                    <a href="{{route('admin.plugins.index')}}" class="col-12 px-0" >
+                        <div class="col-12 item-container px-0 d-flex " >
+                            <div style="width: 50px" class="px-3 text-center">
+                                <span class="fal fa-puzzle-piece-simple font-2"> </span> 
+                            </div>
+                            <div style="width: calc(100% - 50px)" class="px-2 item-container-title">
+                               الاضافات
+                            </div> 
+                        </div>
+                    </a> 
+                    @endcan
                     
                     @can('settings-update')
                     <a href="{{route('admin.settings.index')}}" class="col-12 px-0" >

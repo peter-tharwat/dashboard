@@ -1,86 +1,66 @@
 @extends('layouts.admin')
 @section('content')
-<div class="col-12 p-3">
-	<div class="col-12 col-lg-12 px-2 ">
-	 
-		<div class="col-12 px-0 main-box">
-			<div class="col-12 p-0 row">
-				<div class="col-12 col-lg-4 py-3 px-3">
-					عرض الكل
-				</div>
-				<div class="col-12 col-lg-4 p-2">
-				</div>
-				<div class="col-12 col-lg-4 p-2 text-lg-end">
-					@can('plugins-create')
-					<a href="{{route('admin.plugins.create')}}">
-					<span class="btn btn-primary"><span class="fas fa-plus"></span> إضافة جديد</span>
-					</a>
-					@endcan
-				</div>
-			</div>
-			{{-- <div class="col-12 divider" style="min-height: 2px;"></div> --}}
-		</div>
-	</div>
-		<div class="col-12 p-0">
-			@php
-			$plugins = Module::all();
-			@endphp
-			@foreach($plugins as $plugin)
-			<div class="col-12 col-md-6 col-lg-4 col-xxl-3 p-2 my-3">
-				<div class="col-12 main-box p-3 text-center">
-					<div class="col-12 p-1 text-center">
-						<span class="{{$plugin->get('icon')}} font-10 my-3" style="color:{{$plugin->get('color')}}"></span>
-					</div>
-					<div class="col-12 p-0">
-						<div class="col-12 p-0 font-2 text-center" style="font-weight:bold">
-							@if($plugin->isEnabled()) <span class="fas fa-check-circle text-success"></span> @endif {{$plugin->get('title')}}
-						</div>
-						<div class="col-12 px-0 py-3 text-center" style="text-align: justify;">
-							{{$plugin->get('description')}}
-						</div>
-						<div class="col-12 px-0 py-3 text-center row" style="text-align: justify;">
-							@if($plugin->isEnabled())
-							<form method="POST" action="{{route('admin.plugins.deactivate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1 text-center">@csrf
-								<button class="btn btn-outline-warning rounded-0 px-4" onclick="var result = confirm('هل أنت متأكد من عملية إلغاء تفعيل الإضافة؟');if(result){}else{event.preventDefault()}">
-									الغاء تفعيل الإضافة
-								</button>
-							</form>
-							@else
-							<form method="POST" action="{{route('admin.plugins.activate',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-lg-12 col-12 p-1 text-center">@csrf
-								<button class="btn btn-outline-success rounded-0 px-4" onclick="var result = confirm('هل أنت متأكد من عملية تفعيل الإضافة؟');if(result){}else{event.preventDefault()}">
-									تفعيل الإضافة
-								</button>
-							</form>
-							@endif
+<style type="text/css">
+.start-head {
+    height: 20px;
+    width: 12px;
+    display: inline-block;
+    background: #7b60fb;
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+}
+.textarea-code,.textarea-code:focus,.textarea-code:hover{
+    border:1px solid #000!important;background: #202020!important;color:#fff!important;direction:ltr!important;
+}
+</style>
+<div class="col-12 p-3 main-container">
+    @php
+    @endphp
+    <div class="col-12 p-0 row">
+        @foreach ($groupedPlugins as $category => $category_plugins)
+        <div class="col-12 p-2 mt-4">
+            <h4><span class="start-head" style="background: #232323;"></span> {{$category}}</h4>
+        </div>
+        <div class="col-12 p-0 row">
+            @foreach($category_plugins as $plugin)
+            <div  class="col-12 col-lg-7 p-3  row d-flex align-items-center rounded" style="background: var(--background-1);margin-bottom: 10px!important;">
+                <div class="col p-0 row d-flex align-items-center">
+                    <div class="col-auto" style="width:60px">
+                        <img src="{{$plugin['image']}}" style="max-height: 40px;max-width: 70%;">
+                        {{-- <span class="fa-thin fa-align-left" style="width: 30px;height: 30px;display: flex;align-items: center;justify-content: center;border-radius: 50%;margin: 0px 3px;background: var(--background-0);"></span> --}}
+                    </div>
+                    <div class="col p-0" style="width: calc(100% - 60px);">
+                        <div class="col text-truncate">
+                            {{$plugin['title']}}
+                        </div>
+                        <div class="col text-truncate" style="font-size: 12px;opacity: 0.7;">
+                            {{mb_strimwidth($plugin['description'],0,100,'...')}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto p-0 py-2">
+                    @if(in_array($plugin['slug'],$plugins_array))
+
+               
 
 
-							{{-- <form method="POST" action="{{route('admin.plugins.delete',['plugin'=>$plugin->get('name')])}}" class="d-inline-block mb-2 col-12 col-lg-5 p-1">@csrf
-								<button class="btn btn-outline-danger rounded-0 px-2 col-12" onclick="var result = confirm('هل أنت متأكد من عملية حذف الإضافة؟');if(result){}else{event.preventDefault()}">
-									حذف الإضافة
-								</button>
-							</form> --}}
 
 
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			@endforeach
-		</div>
-		{{-- <div class="col-12 py-2 px-2 row">
-			<div class="col-12 col-lg-4 p-2">
-				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
-				</form>
-			</div>
-		</div>
-		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+                    <a class="rounded font-1 btn btn-outline-primary" href="{{route('admin.plugins.show',['plugin'=>$plugins->where('slug',$plugin['slug'])->first() ])}}" data-width="400" data-fancybox data-type="ajax">التحكم في الاضافة</a>
 
-
-			</div>
-		</div> --}}
-	
+                    @else
+                    <form class="{{route('admin.plugins.store')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="slug" value="{{$plugin['slug']}}" class="not-countable">
+                        <button class="rounded font-1 btn btn-success" onclick="var result = confirm('هل أنت متأكد من تفعيل الاضافة');if(result){}else{event.preventDefault()}">تفعيل الاضافة</button>
+                    </form>
+                    @endif
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endforeach
+    </div>
 </div>
 @endsection

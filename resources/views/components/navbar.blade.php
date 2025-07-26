@@ -17,7 +17,9 @@
                 <div class="col row m-0 px-2">
 
                     @php
-                    $menu = \App\Models\Menu::where('location',"NAVBAR")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+                    $menu = cache()->remember('menu_NAVBAR',60,function(){
+                        return \App\Models\Menu::where('location',"NAVBAR")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+                    }); 
                     @endphp
                     @if($menu !=null)
                     @foreach($menu->links as $link)
@@ -37,14 +39,14 @@
                     @else
 
 
-                    @if(auth()->check())
+                    {{-- @if(auth()->check())
                         @php
                         if(session('seen_notifications')==null)
                             session(['seen_notifications'=>0]);
                         $notifications=auth()->user()->notifications()->orderBy('created_at','DESC')->limit(50)->get();
                         $unreadNotifications=auth()->user()->unreadNotifications()->count();
                         @endphp
-                    @endif
+                    @endif --}}
                     <div class="btn-group" id="notificationDropdown">
 
                         <div class="col-12 px-0 d-flex justify-content-center align-items-center " style="width: 55px;height: 55px;cursor: pointer" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
@@ -111,7 +113,9 @@
         <div class="col-12 p-0 aside-scroll pt-2" style="height: calc(100vh - 186px);overflow: auto;position: relative;">
 
             @php
-            $aside_menu = \App\Models\Menu::where('location',"ASIDE_BAR")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+            $aside_menu = cache()->remember('menu_ASIDE_BAR',60,function(){
+                return \App\Models\Menu::where('location',"ASIDE_BAR")->with(['links'=>function($q){$q->orderBy('order','ASC');}])->first();
+            });
             @endphp
             @if($aside_menu !=null)
             @foreach($aside_menu->links as $link)

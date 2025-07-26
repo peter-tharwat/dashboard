@@ -28,6 +28,8 @@ use App\Http\Controllers\Backend\BackendUserRoleController;
 use App\Http\Controllers\Backend\BackendRoleController;
 use App\Http\Controllers\Backend\BackendTagController;
 use App\Http\Controllers\Backend\BackendBuilderController;
+use App\Http\Controllers\Backend\BackendPluginController;
+
 
 # Frontend Controllers
 use App\Http\Controllers\FrontController;
@@ -66,6 +68,14 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::get('/',[BackendAdminController::class,'index'])->name('index');
     Route::middleware('auth')->group(function () {
+
+        Route::get('plugins/{plugin}/builder',[BackendPluginController::class,'builder_edit'])->name('plugins.builder-edit');
+        Route::post('plugins/{plugin}/builder',[BackendPluginController::class,'builder_update'])->name('plugins.builder-update');
+
+        Route::post('/plugins/{plugin}/push',[BackendPluginController::class,'push'])->name('plugins.push');
+        Route::resource('plugins',BackendPluginController::class)->only(['index','store','update','show']);
+
+
         Route::resource('announcements',BackendAnnouncementController::class);
         Route::resource('files',BackendFileController::class);
         Route::post('contacts/resolve',[BackendContactController::class,'resolve'])->name('contacts.resolve');

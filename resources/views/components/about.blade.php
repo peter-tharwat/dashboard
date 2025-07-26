@@ -17,7 +17,7 @@
         
         <h2 class="display-4 mb-3">
           {{-- <img src="/assets/img/avatars/team1.jpg" style="width: 80px;height: 80px;border-radius: 50%;" class="svg-inject icon-svg icon-svg-md mb-4" alt="" /> --}}
-          <span class="far fa-info-circle" style="color:#0194fe"></span>
+          <span class="far fa-info-circle" style="color:#7b60fb"></span>
            من نحن؟</h2>
         <p class="lead fs-lg">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي</p>
         <p class="mb-6">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النصوص في أدوات منصة نفذلي، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة.</p>

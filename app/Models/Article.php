@@ -67,4 +67,12 @@ class Article extends Model implements HasMedia
             ->nonQueued();
 
     }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return cache()->remember('article_'.$value, 60, function () use ($value) {
+            return $this->where('slug', $value)->firstOrFail();
+        });
+    }
+
 }

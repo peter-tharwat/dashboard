@@ -8,7 +8,9 @@ class SettingsHelper {
         $this->settings = collect($this->settings);
     }
     public function getAllSettings(){
-        $settings = \App\Models\Setting::get();
+        $settings = cache()->remember('settings',60,function(){
+            return \App\Models\Setting::get();
+        });
 
         foreach($settings as $setting){
             if(is_object(json_decode($setting->value))){

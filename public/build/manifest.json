@@ -226,113 +226,69 @@
     "file": "assets/NotoKufiArabic-Regular-Ct-KhsGY.woff2",
     "src": "public/fonts/kufi-fixed/NotoKufiArabic-Regular.woff2"
   },
-  "public/webfonts/fa-brands-400.eot": {
-    "file": "assets/fa-brands-400-9xktlpTw.eot",
-    "src": "public/webfonts/fa-brands-400.eot"
-  },
-  "public/webfonts/fa-brands-400.svg": {
-    "file": "assets/fa-brands-400-BROLTen5.svg",
-    "src": "public/webfonts/fa-brands-400.svg"
-  },
   "public/webfonts/fa-brands-400.ttf": {
-    "file": "assets/fa-brands-400-BtCha6Ea.ttf",
+    "file": "assets/fa-brands-400-CbnkDbAI.ttf",
     "src": "public/webfonts/fa-brands-400.ttf"
   },
-  "public/webfonts/fa-brands-400.woff": {
-    "file": "assets/fa-brands-400-DWKPb9uJ.woff",
-    "src": "public/webfonts/fa-brands-400.woff"
-  },
   "public/webfonts/fa-brands-400.woff2": {
-    "file": "assets/fa-brands-400-BT3n2a3k.woff2",
+    "file": "assets/fa-brands-400-0IQFxQqs.woff2",
     "src": "public/webfonts/fa-brands-400.woff2"
   },
-  "public/webfonts/fa-duotone-900.eot": {
-    "file": "assets/fa-duotone-900-C-T1IHMH.eot",
-    "src": "public/webfonts/fa-duotone-900.eot"
-  },
-  "public/webfonts/fa-duotone-900.svg": {
-    "file": "assets/fa-duotone-900-DQYLUP82.svg",
-    "src": "public/webfonts/fa-duotone-900.svg"
-  },
   "public/webfonts/fa-duotone-900.ttf": {
-    "file": "assets/fa-duotone-900-CwCsKi4W.ttf",
+    "file": "assets/fa-duotone-900-BmBVfxr5.ttf",
     "src": "public/webfonts/fa-duotone-900.ttf"
   },
-  "public/webfonts/fa-duotone-900.woff": {
-    "file": "assets/fa-duotone-900-2gN9S5ec.woff",
-    "src": "public/webfonts/fa-duotone-900.woff"
-  },
   "public/webfonts/fa-duotone-900.woff2": {
-    "file": "assets/fa-duotone-900-7NUAZFB9.woff2",
+    "file": "assets/fa-duotone-900-CMQgRMzW.woff2",
     "src": "public/webfonts/fa-duotone-900.woff2"
   },
-  "public/webfonts/fa-light-300.eot": {
-    "file": "assets/fa-light-300-BmfawctN.eot",
-    "src": "public/webfonts/fa-light-300.eot"
-  },
-  "public/webfonts/fa-light-300.svg": {
-    "file": "assets/fa-light-300-UDXCg1jt.svg",
-    "src": "public/webfonts/fa-light-300.svg"
-  },
   "public/webfonts/fa-light-300.ttf": {
-    "file": "assets/fa-light-300-DT5uOC9G.ttf",
+    "file": "assets/fa-light-300-B25myIii.ttf",
     "src": "public/webfonts/fa-light-300.ttf"
   },
-  "public/webfonts/fa-light-300.woff": {
-    "file": "assets/fa-light-300-g8Dd6pW8.woff",
-    "src": "public/webfonts/fa-light-300.woff"
-  },
   "public/webfonts/fa-light-300.woff2": {
-    "file": "assets/fa-light-300-BhtJTQk1.woff2",
+    "file": "assets/fa-light-300-DtQF1Shp.woff2",
     "src": "public/webfonts/fa-light-300.woff2"
   },
-  "public/webfonts/fa-regular-400.eot": {
-    "file": "assets/fa-regular-400-B57p3xT3.eot",
-    "src": "public/webfonts/fa-regular-400.eot"
-  },
-  "public/webfonts/fa-regular-400.svg": {
-    "file": "assets/fa-regular-400-BpFYh1UC.svg",
-    "src": "public/webfonts/fa-regular-400.svg"
-  },
   "public/webfonts/fa-regular-400.ttf": {
-    "file": "assets/fa-regular-400-BFI4EYPk.ttf",
+    "file": "assets/fa-regular-400-w-HYIetp.ttf",
     "src": "public/webfonts/fa-regular-400.ttf"
   },
-  "public/webfonts/fa-regular-400.woff": {
-    "file": "assets/fa-regular-400-DIsGOxr3.woff",
-    "src": "public/webfonts/fa-regular-400.woff"
-  },
   "public/webfonts/fa-regular-400.woff2": {
-    "file": "assets/fa-regular-400-DYl2XQKE.woff2",
+    "file": "assets/fa-regular-400-ORrACF7o.woff2",
     "src": "public/webfonts/fa-regular-400.woff2"
   },
-  "public/webfonts/fa-solid-900.eot": {
-    "file": "assets/fa-solid-900-DB6KB6iI.eot",
-    "src": "public/webfonts/fa-solid-900.eot"
-  },
-  "public/webfonts/fa-solid-900.svg": {
-    "file": "assets/fa-solid-900-D32WM8Nd.svg",
-    "src": "public/webfonts/fa-solid-900.svg"
-  },
   "public/webfonts/fa-solid-900.ttf": {
-    "file": "assets/fa-solid-900-DEyRX_wn.ttf",
+    "file": "assets/fa-solid-900-BaRITtSJ.ttf",
     "src": "public/webfonts/fa-solid-900.ttf"
   },
-  "public/webfonts/fa-solid-900.woff": {
-    "file": "assets/fa-solid-900--lTx4nPN.woff",
-    "src": "public/webfonts/fa-solid-900.woff"
-  },
   "public/webfonts/fa-solid-900.woff2": {
-    "file": "assets/fa-solid-900-rxBUyNEp.woff2",
+    "file": "assets/fa-solid-900-6nmD8yp-.woff2",
     "src": "public/webfonts/fa-solid-900.woff2"
   },
+  "public/webfonts/fa-thin-100.ttf": {
+    "file": "assets/fa-thin-100-CmGmDq-e.ttf",
+    "src": "public/webfonts/fa-thin-100.ttf"
+  },
+  "public/webfonts/fa-thin-100.woff2": {
+    "file": "assets/fa-thin-100-GFodRVqa.woff2",
+    "src": "public/webfonts/fa-thin-100.woff2"
+  },
+  "public/webfonts/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-DaUZC2ct.ttf",
+    "src": "public/webfonts/fa-v4compatibility.ttf"
+  },
+  "public/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-DQlc2d5w.woff2",
+    "src": "public/webfonts/fa-v4compatibility.woff2"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-nv6ARBqy.css",
+    "file": "assets/app-Di084ck6.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard.css": {
-    "file": "assets/dashboard-CAyd5sHx.css",
+    "file": "assets/dashboard-Bts9vaxY.css",
     "src": "resources/css/dashboard.css",
     "isEntry": true
   },
@@ -349,7 +305,7 @@
     ]
   },
   "resources/js/dashboard.js": {
-    "file": "assets/dashboard-Cpy2ArwP.js",
+    "file": "assets/dashboard-5H2ISrjU.js",
     "name": "dashboard",
     "src": "resources/js/dashboard.js",
     "isEntry": true,

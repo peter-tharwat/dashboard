@@ -9,7 +9,7 @@
         font-size: 14px;
     }
     .form-control:focus{
-        border: 1px solid #0194fe!important;
+        border: 1px solid #7b60fb!important;
         background: rgb(1 148 254 / 4%)!important;
     }
     .form-control.is-invalid, .was-validated .form-control:invalid {

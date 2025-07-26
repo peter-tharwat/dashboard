@@ -58,8 +58,8 @@ class CreateSettingsTable extends Migration
             $table->text('another_link3')->nullable();
 
             //colors
-            $table->string('main_color')->default('#0194fe');
-            $table->string('hover_color')->default('#0194fe');
+            $table->string('main_color')->default('#7b60fb');
+            $table->string('hover_color')->default('#7b60fb');
             $table->string('dashboard_dark_mode')->default(0);
             
 

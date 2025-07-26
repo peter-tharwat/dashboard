@@ -73,7 +73,7 @@ class BackendCategoryController extends Controller
             $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
-        flash()->success(__('utils/toastr.category_store_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.category_store_success_message'));
         return redirect()->route('admin.categories.index');
     }
 
@@ -128,7 +128,7 @@ class BackendCategoryController extends Controller
             $category->update(['image'=>$image->id.'/'.$image->file_name]);
         }
         \MainHelper::move_media_to_model_by_id($request->temp_file_selector,$category,"description");
-        flash()->success(__('utils/toastr.category_update_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.category_update_success_message'));
         return redirect()->route('admin.categories.index');
     }
 
@@ -141,7 +141,7 @@ class BackendCategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        flash()->success(__('utils/toastr.category_destroy_success_message'), __('utils/toastr.successful_process_message'));
+        flash()->success(__('utils/toastr.category_destroy_success_message'));
         return redirect()->route('admin.categories.index');
     }
 }
