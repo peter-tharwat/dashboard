@@ -48,7 +48,7 @@ class MenusSeeder extends Seeder
                 'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
                 'title'=>"شروط الاستخدام",
                 'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-                'icon'=>"fal fa-lock",
+                'icon'=>"fal fa-info-circle",
                 'order'=>2,
             ],
             [
@@ -105,7 +105,7 @@ class MenusSeeder extends Seeder
                 'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
                 'title'=>"شروط الاستخدام",
                 'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-                'icon'=>"fal fa-lock",
+                'icon'=>"fal fa-info-circle",
                 'order'=>2,
             ],
             [
@@ -159,7 +159,7 @@ class MenusSeeder extends Seeder
                 'type_id'=>\App\Models\Page::where('slug','terms')->first()->id,
                 'title'=>"شروط الاستخدام",
                 'url'=>route('page.show',\App\Models\Page::where('slug','terms')->first()),
-                'icon'=>"fal fa-lock",
+                'icon'=>"fal fa-info-circle",
                 'order'=>2,
             ],
             [

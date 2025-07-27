@@ -316,6 +316,10 @@ class MainHelper {
             ])->render()
         ];
     }
+    public static function is_fa_icon($className){
+        $faRegex = '/^(fa(?:b|s|r|d|l|t)?|fa(?:-[a-z]+)?) fa-[a-z0-9-]+$/';
+        return preg_match($faRegex, $className) === 1;
+    }
 
 
     

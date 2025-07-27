@@ -109,8 +109,8 @@
             <span class="font-1"><span class="far fa-times font-3 px-4 py-3" style="cursor: pointer;" onclick="document.getElementById('aside-menu').classList.toggle('active');document.getElementById('body-overlay').classList.toggle('active');"></span></span>
         </span>
     </div>
-    <div class="col-12 p-0">
-        <div class="col-12 p-0 aside-scroll pt-2" style="height: calc(100vh - 186px);overflow: auto;position: relative;">
+    <div class="col-12 p-0 d-flex justify-content-between row flex-column" style="height: calc(100dvh - 67px);">
+        <div class="col-12 p-0 aside-scroll pt-2" style="position: relative;overflow: auto;">
 
             @php
             $aside_menu = cache()->remember('menu_ASIDE_BAR',60,function(){
@@ -118,27 +118,40 @@
             });
             @endphp
             @if($aside_menu !=null)
+            <div class="col-12 p-0 row">
             @foreach($aside_menu->links as $link)
-            <div class="nav-item ">
-                <a href="{{$link->url}}" style="color: inherit;" class="d-block">
-                <div class="nav-link" style="cursor: pointer;" >
-                    <div class="col-12 px-0 row">
-                        <div class="col-12 px-0 kufi" >
-                            <span class="{{$link->icon}} mx-1"></span> {{$link->title}}
+            <div class="nav-item col-4 p-1">
+                <a href="{{$link->url}}" style="color: inherit;border-radius: 8px;border: 1px solid #f7f7f7;" class="d-block p-1">
+                    <div class="nav-link " style="cursor: pointer;">
+                        <div class="col-12 px-0 row">
+                            <div class="col-12 px-0 kufi text-center font-1">
+                                @if(\MainHelper::is_fa_icon($link->icon))
+                                    <span class="{{$link->icon}} font-4 mx-1"></span> 
+                                @elseif($link->icon!=null)
+                                    <img src="{{$link->icon()}}" style="max-width:30px;max-height:30px" class="text-center">
+                                @else
+                                    <span class="fal fa-cube font-4 mx-1"></span>
+                                @endif
+
+                                <div class="col-12 p-0 text-center pt-1 text-truncate" style="font-size:12px">
+                                    {{$link->title}}
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
             </div>
             @endforeach
+            </div>
             @endif
  
         
         </div>
-        <div class="col-12 px-0 py-2" style="position:absolute;width: 100%;">
+        <div class="col-12 px-0 py-2" style="width: 100%;height: auto;">
             <div class="col-12  p-0">
                 <div class="col-12 p-0">
-                    <ul style=";padding: 0px;list-style: none;min-height: 48px;" class="d-flex align-items-center justify-content-center row my-2">
+                    <ul style=";padding: 0px;list-style: none;" class="d-flex align-items-center justify-content-center row my-2">
                         @if($settings['facebook_link']!=null)
                         <a href="{{$settings['facebook_link']}}" class="d-inline-block p-1" style="width:48px">
                             <span class="fab fa-facebook-f d-inline-block border rounded-circle" style="width: 40px;@height: 40px;padding: 11px 14px ;color: #3b5998;cursor: pointer;"></span>

@@ -234,14 +234,14 @@ return [
         'image'=>"/images/plugins/whatsapp_campaign.png",
         'description'=>"يمكنك من خلال هذه الاضافة ارسال رسائل جماعية لمجموعة كاملة من المستخدمين بشكل مباشر للحصول على أفضل نتائج واعادة استهداف"
     ],
-    [
+    /*[
         'category'=>"تسويق",
         'category_slug'=>"marketing",
         'slug'=>"email_campaign",
         'title'=>"ارسال رسائل عبر البريد",
         'image'=>"/images/plugins/email_campaign.png",
         'description'=>"يمكنك من خلال هذه الاضافة ارسال رسائل جماعية لمجموعة كاملة من المستخدمين عبر البريد الالكتروني بشكل مباشر للحصول على أفضل نتائج واعادة استهداف"
-    ],
+    ],*/
     [
         'category'=>"تسويق",
         'category_slug'=>"marketing",
