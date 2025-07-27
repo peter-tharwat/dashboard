@@ -1,3 +1,12 @@
+@if($cross_pages_code = $website_plugins->where('slug','cross_pages_code')->first())
+    @if(isset($cross_pages_code) &&  data_get($cross_pages_code->settings,'top_footer_enable',false) && $top_footer_content = data_get($cross_pages_code->settings,'top_footer_code',null) )
+        @if(is_countable(json_decode($top_footer_content,true)))
+            @foreach(\MainHelper::arrayToObject(json_decode($top_footer_content,true)) as $component)
+                @include('components.component-render',['component'=>$component])
+            @endforeach
+        @endif
+    @endif
+@endif
 <footer class=" pt-5" style="background:#fff;border-top:1px solid #f1f1f1;">
  
   <div class="container pb-12 text-center pt-12">
@@ -72,3 +81,14 @@
 </footer>
 
 <div class="col-12 copy-rights-footer" style="background-image: linear-gradient(to right, rgba(0,0,0,0.01) , rgba(0,0,0,0.01) );border-top:1px solid rgb(145 145 145 / 3%);display: flex; align-items: center;justify-content: center;direction: rtl;"> <div class="container "> <div class="col-12 row d-flex justify-content-between p-0"> <div class="col-12 text-center mt-1 mb-2 pt-3 pb-2 "> <p style="font-size: 14px;line-height: 1.8;margin:0px" class="my-0  kufi text-center"><span class="d-inline-block kufi"> جميع الحقوق محفوظة © {{$settings['website_name']}} {{date('Y')}} </span> <span class="d-inline-block kufi"> All rights reserved</span></p> </div> </div> </div> </div>
+
+
+@if($cross_pages_code = $website_plugins->where('slug','cross_pages_code')->first())
+    @if(isset($cross_pages_code) &&  data_get($cross_pages_code->settings,'bottom_footer_enable',false) && $bottom_footer_content = data_get($cross_pages_code->settings,'bottom_footer_code',null) )
+        @if(is_countable(json_decode($bottom_footer_content,true)))
+            @foreach(\MainHelper::arrayToObject(json_decode($bottom_footer_content,true)) as $component)
+                @include('components.component-render',['component'=>$component])
+            @endforeach
+        @endif
+    @endif
+@endif

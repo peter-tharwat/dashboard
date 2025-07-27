@@ -2,8 +2,8 @@
 @section('content')
 <div class="col-12 p-0 ">
   @if(is_countable(json_decode($page->content,true)))
-  @foreach(json_decode($page->content,true) as $component)
-  @include('components.page',['page'=>$page,'component'=>$component])
+  @foreach(\MainHelper::arrayToObject(json_decode($page->content,true)) as $component)
+  @include('components.component-render',['page'=>$page,'component'=>$component])
   @endforeach
   @endif
 </div>

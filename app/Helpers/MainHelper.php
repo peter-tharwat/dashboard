@@ -357,10 +357,20 @@ class MainHelper {
     }
 
 
-
     public static function is_fa_icon($className){
         $faRegex = '/^(fa(?:b|s|r|d|l|t)?|fa(?:-[a-z]+)?) fa-[a-z0-9-]+$/';
         return preg_match($faRegex, $className) === 1;
+    }
+
+    public static function arrayToObject($array) {
+        if (!is_array($array)) {
+            return $array;
+        }
+        $obj = new \stdClass();
+        foreach ($array as $key => $value) {
+            $obj->$key = self::arrayToObject($value);
+        }
+        return $obj;
     }
 
 
