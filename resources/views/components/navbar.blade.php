@@ -217,6 +217,22 @@
         
         </div>
         <div class="col-12 px-0 py-2" style="width: 100%;height: auto;">
+            <div class="col-12 p-3 row">
+                
+                <div class="col p-1">
+                    <a href="/login" style="border:2px solid #51c75b;color:inherit;" class="col d-flex py-1 px-0 align-items-center justify-content-center btn">
+                     دخول
+
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="/register" style="background:#51c75b;color:#fff;" class="col d-flex py-1 px-0 align-items-center justify-content-center btn">
+                     
+                     انشاء حساب
+                    </a>
+                </div>
+
+            </div>
             <div class="col-12  p-0">
                 <div class="col-12 p-0">
                     <ul style=";padding: 0px;list-style: none;" class="d-flex align-items-center justify-content-center row my-2">
