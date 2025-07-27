@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -48,21 +48,26 @@
 						<td>{{$tag->tag_name}}</td>
 						<td>{{$tag->slug}}</td>
 					 
-						<td style="width: 270px;">
-							@can('tags-update')
-							<a href="{{route('admin.tags.edit',$tag)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
-							</a>
-							@endcan
-							@can('tags-delete')
-							<form method="POST" action="{{route('admin.tags.destroy',$tag)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+						<td style="width: 1%;text-wrap: nowrap;">
+
+
+							@include('components.control',[
+			            		'links'=>[ 
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"tags-update",
+			            				'url'=>route('admin.tags.edit',['tag'=>$tag])
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'tags-delete',
+			            				'url'=>route('admin.tags.destroy',['tag'=>$tag]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	]) 
 						</td>
 					</tr>
 					@endforeach

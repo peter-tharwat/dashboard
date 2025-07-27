@@ -76,7 +76,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 
 
 			</div>

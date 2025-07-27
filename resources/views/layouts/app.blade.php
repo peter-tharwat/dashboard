@@ -57,6 +57,9 @@
         #toast-container>div {
             opacity: 1;
         }
+        .fl-wrapper{
+            z-index:999999!important;
+        }
     </style>
     @yield('after-body')
     <div id="app">

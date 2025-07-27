@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;min-height: 600px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -86,74 +86,69 @@
 						<td>@foreach($user->roles as $role) {{$role->display_name}}<br> @endforeach</td>
 						 
 
-						<td>
-							@can('users-read')
-							<a href="{{route('admin.users.show',$user)}}">
-							<span class="btn  btn-outline-primary btn-sm font-small mx-1">
-								<span class="fas fa-search "></span> عرض
-							</span>
-							</a>
-							@endcan
-
-							
-							
-
-							@can('notifications-create')
-							<a href="{{route('admin.notifications.index',['user_id'=>$user->id])}}">
-							<span class="btn  btn-outline-primary btn-sm font-small mx-1">
-								<span class="far fa-bells"></span> الاشعارات
-							</span>
-							</a>
-							<a href="{{route('admin.notifications.create',['user_id'=>$user->id])}}">
-							<span class="btn  btn-outline-primary btn-sm font-small mx-1">
-								<span class="far fa-bell"></span>
-							</span>
-							</a> 
-							@endcan
-
-							@can('user-roles-update')
-							<a href="{{route('admin.users.roles.index',$user)}}">
-							<span class="btn btn-outline-primary btn-sm font-small mx-1">
-								<span class="fal fa-key "></span> الصلاحيات
-							</span>
-							</a>
-							@endcan
-							
-							@can('users-update')
-							<a href="{{route('admin.users.edit',$user)}}">
-							<span class="btn  btn-outline-success btn-sm font-small mx-1">
-								<span class="fas fa-wrench "></span> تحكم
-							</span>
-							</a>
-							@endcan
-							
-						 						 
-							@can('users-delete')
-							<form method="POST" action="{{route('admin.users.destroy',$user)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-small mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+						<td style="width: 1%;text-wrap: nowrap;">
 
 
 
-							<div class="dropdown d-inline-block">
-								<button class="py-1 px-2 btn btn-outline-primary font-small" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
-								<span class="fas fa-bars"></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 29px, 0px);">
-								@can('users-update')
-								<li><a class="dropdown-item font-1" href="{{route('admin.users.access',$user)}}"><span class="fal fa-eye"></span> دخول</a></li>
-								@endcan
+							@include('components.control',[
+			            		'links'=>[
 
- 
+			            			[
+	                                    'text'=>"عرض",
+	                                    'icon'=>"fal fa-search",
+	                                    'can'=>"users-read",
+	                                    'url'=>route('admin.users.show',['user'=>$user])
+	                                ],
+	                                [
+			            				'text'=>"الاشعارات",
+			            				'icon'=>"fal fa-bells",
+			            				'can'=>"notifications-read",
+			            				'url'=>route('admin.notifications.index',['user_id'=>$user->id])
+			            			],
+			            			[
+			            				'text'=>"ارسال اشعار",
+			            				'icon'=>"fal fa-bell",
+			            				'can'=>"notifications-create",
+			            				'url'=>route('admin.notifications.create',['user_id'=>$user->id])
+			            			],
+			            			[
+			            				'text'=>"الصلاحيات",
+			            				'icon'=>"fal fa-key",
+			            				'can'=>"user-roles-update",
+			            				'url'=>route('admin.users.roles.index',$user)
+			            			],
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"users-update",
+			            				'url'=>route('admin.users.edit',['user'=>$user])
+			            			],
+	                                [
+			            				'text'=>"دخول",
+			            				'icon'=>"fal fa-eye",
+			            				'can'=>"users-update",
+			            				'url'=>route('admin.users.access',$user)
+			            			],
+			            			[
+			            				'text'=>"<div class='spinner-grow text-success' role='status' style='width:15px;height:15px'></div> مراقبة النشاط",
+			            				'icon'=>"fal fa-boxes",
+			            				'can'=>"users-update",
+			            				'url'=>route('admin.traffics.logs',['user_id'=>$user->id]),
+			            				/*'notification'=>$user->logs_count*/
+			            			],
+			            			[ 
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'users-delete',
+			            				'url'=>route('admin.users.destroy',['user'=>$user]),
+			            				'method'=>"DELETE",
+			            				
+			            			], 
 
-								@can('users-update')
-								<li><a class="dropdown-item font-1" href="{{route('admin.traffics.logs',['user_id'=>$user->id])}}"><span class="fal fa-boxes"></span> مراقبة النشاط <span class="badge bg-danger">{{$user->logs_count}}</span></a></li>
-								@endcan
-								</ul>
-								</div>
+			            		]
+			            	])
+
+  
 
 
 						</td>

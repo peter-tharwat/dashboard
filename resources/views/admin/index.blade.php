@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-12 p-3 row">
 @can('users-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff;border-radius: 50%;width: 55px;height:55px">
@@ -18,7 +18,7 @@
 	</div>
 </div>
 @endcan
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -34,7 +34,7 @@
 	</div>
 </div>
 @can('articles-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -51,7 +51,7 @@
 </div>
 @endcan
 @can('categories-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit" >
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -68,7 +68,7 @@
 </div>
 @endcan
 @can('hub-files-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -85,7 +85,7 @@
 </div>
 @endcan
 @can('menus-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -102,7 +102,7 @@
 </div>
 @endcan
 @can('pages-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -119,7 +119,7 @@
 </div>
 @endcan
 @can('contacts-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">
@@ -136,7 +136,7 @@
 </div>
 @endcan
 @can('announcements-read')
-<div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
+<div class="col-6 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 px-2 my-2">
 	<div class="col-12 px-0 py-1 d-flex main-box-wedit">
 		<div style="width: 65px;" class="p-2">
 			<div class="col-12 px-0 text-center d-flex align-items-center justify-content-center" style="background: #7b60fb;color: #fff; border-radius: 50%;width: 55px;height:55px">

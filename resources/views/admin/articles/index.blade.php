@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -61,12 +61,44 @@
 							@endif
 						</td>
 						<td>{{$article->views}}</td>
-						<td style="width: 360px;">
+						<td style="width: 1%;text-wrap: nowrap;">
 
+
+							@include('components.control',[
+			            		'links'=>[
+
+			            			[
+                                        'text'=>"عرض",
+                                        'icon'=>"fal fa-search",
+                                        'can'=>"articles-read",
+                                        'url'=>route('article.show',['article'=>$article])
+                                    ],
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"articles-update",
+			            				'url'=>route('admin.articles.edit',['article'=>$article])
+			            			],
+			            			[
+			            				'text'=>"التعليقات",
+			            				'icon'=>"fal fa-comments",
+			            				'can'=>"articles-update",
+			            				'url'=>route('admin.article-comments.index',['article_id'=>$article->id])
+			            			],
+
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'articles-delete',
+			            				'url'=>route('admin.articles.destroy',['article'=>$article]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 
 							
 
-							@can('articles-read')
+							{{-- @can('articles-read')
 							<a href="{{route('article.show',['article'=>$article])}}">
 								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
 									<span class="fas fa-search "></span> عرض
@@ -96,6 +128,10 @@
 								</button>
 							</form>
 							@endcan
+ --}}
+
+
+
 						</td>
 					</tr>
 					@endforeach

@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -63,24 +63,34 @@
 						<td>
 							<a href="{{route('article.show',['article'=>$comment->article,'user'=>$comment->article->user])}}" >{{mb_strimwidth(($comment->article->title), 0, 80, "...")}}</a>
 						</td>
-						<td style="width: 170px;">
+						<td style="width: 1%;text-wrap: nowrap;">
 
-					 
 
-							@can('comments-update')
-							<a href="{{route('admin.article-comments.edit',$comment)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
-							</a>
-							@endcan
-							@can('comments-delete')
-							<form method="POST" action="{{route('admin.article-comments.destroy',$comment)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+							@include('components.control',[
+			            		'links'=>[
+
+			            			[
+                                        'text'=>"عرض المقال",
+                                        'icon'=>"fal fa-search",
+                                        'can'=>"articles-read",
+                                        'url'=>route('article.show',['article'=>$comment->article])
+                                    ],
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"comments-update",
+			            				'url'=>route('admin.article-comments.edit',$comment)
+			            			],
+
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'comments-delete',
+			            				'url'=>route('admin.article-comments.destroy',$comment),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 						</td>
 					</tr>
 					@endforeach

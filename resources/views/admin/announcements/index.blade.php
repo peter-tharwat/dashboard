@@ -33,7 +33,7 @@
 	 		</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -53,20 +53,28 @@
 		      <td scope="col">{{$announcement->title}}</td>
 		      <td scope="col">{{$announcement->description}}</td>
 		      <td scope="col"><a href="{{$announcement->url}}" target="_block">{{$announcement->url}}</a></td>
-		      <td class=" row d-flex">
-		      	<form method="POST" action="{{route('admin.announcements.destroy',$announcement)}}" id="announcement_delete_{{$announcement->id}}">@csrf @method('DELETE')</form>
+		      <td style="width: 1%;text-wrap: nowrap;">
 
-		      	@can('announcements-update')
-		      	<a href="{{route('admin.announcements.edit',$announcement)}}" style="width: 30px;height: 30px;color: #fff;background: #2381c6;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1">
-		      		<span class="fal fa-edit"></span>
-		      	</a> 
-		      	@endcan
-		      	
-		      	@can('announcements-delete')
-		      	<a href="#" style="width: 30px;height: 30px;color: #fff;background: #c00;border-radius: 2px" class="d-flex align-items-center justify-content-center mx-1" onclick='var result = confirm("هل أنت متأكد من عملية الحذف");if (result) {$("#announcement_delete_{{$announcement->id}}").submit();}'>
-		      		<span class="fal fa-trash"></span>
-		      	</a>
-		      	@endcan
+
+
+
+		      	@include('components.control',[
+            		'links'=>[
+            			[
+            				'text'=>"تعديل",
+            				'icon'=>"fal fa-edit",
+            				'can'=>"announcements-update",
+            				'url'=>route('admin.announcements.edit',['announcement'=>$announcement])
+            			],
+            			[
+            				'text'=>"حذف",
+            				'icon'=>"fal fa-trash-can",
+            				'can'=>'announcements-delete',
+            				'url'=>route('admin.announcements.destroy',['announcement'=>$announcement]),
+            				'method'=>"DELETE",
+            			],
+            		]
+            	])
 
 
 		      </td>

@@ -89,6 +89,13 @@ thead th {
 .sub-item.active a.active * ,.sub-item.active a.active ,.sub-item a:hover *,.sub-item a:hover{
     color: #7b60fb;
 }
+
+.sub-item.active a.active  ,.sub-item.active a.active{
+    background: rgba(123, 96, 251, .1);
+}
+.sub-item a:hover ,.sub-item a:hover{
+    background: rgba(123, 96, 251, .05);
+}
 * {
     text-decoration: unset !important;
 }
@@ -440,7 +447,7 @@ pre{
 
 .sub-item{
     /*background: var(--background-0);*/
-    padding: 15px 19px 18px 19px!important;
+    padding: 3px 15px!important;
     margin-bottom: 5px;
     margin-top: 5px;
     /*border-radius:5px 25px 5px 25px;*/

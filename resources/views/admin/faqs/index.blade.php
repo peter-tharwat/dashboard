@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -51,24 +51,27 @@
 							<span class="fas fa-check-circle text-success" ></span>
 							@endif
 						</td>
-						<td style="width: 270px;">
+						<td style="width: 1%;text-wrap: nowrap;">
 
 					 
 
-							@can('faqs-update')
-							<a href="{{route('admin.faqs.edit',$faq)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
-							</a>
-							@endcan
-							@can('faqs-delete')
-							<form method="POST" action="{{route('admin.faqs.destroy',$faq)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+							@include('components.control',[
+			            		'links'=>[ 
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"faqs-update",
+			            				'url'=>route('admin.faqs.edit',['faq'=>$faq])
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'faqs-delete',
+			            				'url'=>route('admin.faqs.destroy',['faq'=>$faq]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 						</td>
 					</tr>
 					@endforeach

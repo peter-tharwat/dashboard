@@ -9,4 +9,7 @@ class MenuLink extends Model
 {
     use HasFactory;
     public $guarded=['id','created_at','updated_at'];
+    public function menu(){
+        return $this->belongsTo(\App\Models\Menu::class);
+    }
 }

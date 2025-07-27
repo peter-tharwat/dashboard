@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -44,32 +44,34 @@
 					@foreach($roles as $role)
 					<tr >
 						<td class="ui-state-default drag-handler" data-role="{{$role->id}}">{{$role->id}}</td>
-						<td>{{$role->name}}</td>
+						<td>{{$role->display_name??$role->name}}</td>
 					 
-						<td style="width: 270px;">
+						<td style="width: 1%;text-wrap: nowrap;">
 
-					 
-							@can('roles-read')
-							<a href="{{route('admin.roles.show',$role)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-search "></span> عرض
-								</span>
-							</a>
-							@endcan
-							@can('roles-update')
-							<a href="{{route('admin.roles.edit',$role)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
-							</a>
-							@endcan
-							@can('roles-delete')
-							<form method="POST" action="{{route('admin.roles.destroy',$role)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+							@include('components.control',[
+			            		'links'=>[
+
+			            			[
+                                        'text'=>"عرض",
+                                        'icon'=>"fal fa-search",
+                                        'can'=>"roles-read",
+                                        'url'=>route('admin.roles.show',['role'=>$role])
+                                    ],
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"roles-update",
+			            				'url'=>route('admin.roles.edit',['role'=>$role])
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'roles-delete',
+			            				'url'=>route('admin.roles.destroy',['role'=>$role]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 						</td>
 					</tr>
 					@endforeach

@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -52,21 +52,25 @@
 						<td>{{$category->title}}</td>
 					 	<td><a href="{{route('admin.articles.index',['category_id'=>$category->id])}}">{{$category->articles_count}}</a></td>
 
-						<td style="width: 180px;">
-							@can('categories-update')
-							<a href="{{route('admin.categories.edit',$category)}}">
-							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-								<span class="fas fa-wrench "></span> تحكم
-							</span>
-							</a>
-							@endcan
-							@can('categories-delete')
-							<form method="POST" action="{{route('admin.categories.destroy',$category)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+						<td style="width: 1%;text-wrap: nowrap;">
+
+							@include('components.control',[
+			            		'links'=>[
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"categories-update",
+			            				'url'=>route('admin.categories.edit',['category'=>$category])
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'categories-delete',
+			            				'url'=>route('admin.categories.destroy',['category'=>$category]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 						</td>
 					</tr>
 					@endforeach

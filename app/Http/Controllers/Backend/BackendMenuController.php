@@ -69,6 +69,7 @@ class BackendMenuController extends Controller
      */
     public function show(Menu $menu)
     {
+        return ;
         if(!auth()->user()->can('menus-read'))abort(403);
     }
 
@@ -80,6 +81,7 @@ class BackendMenuController extends Controller
      */
     public function edit(Menu $menu)
     {
+        return ;
         if(!auth()->user()->can('menus-update'))abort(403);
         return view('admin.menus.edit',compact('menu'));
     }
@@ -93,6 +95,7 @@ class BackendMenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
+        return ;
         if(!auth()->user()->can('menus-update'))abort(403);
         $request->validate([
             'title'=>"required|max:190",
@@ -114,6 +117,7 @@ class BackendMenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
+        return ;
         if(!auth()->user()->can('menus-delete'))abort(403);
         $menu->delete();
         flash()->success('تمت العملية بنجاح');

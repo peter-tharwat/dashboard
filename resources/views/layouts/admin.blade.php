@@ -155,6 +155,9 @@
         .fl-wrapper{
             z-index:999999!important;
         }
+        ::-webkit-scrollbar {
+            display: none;
+        }
     </style>
     @yield('after-body')
     <div class="col-12 justify-content-end d-flex">
@@ -381,15 +384,16 @@
         </div>
         <div class="main-content in-active" style="overflow: hidden;">
             <div class="col-12 px-0 d-flex justify-content-between top-nav" style="height: 55px;background: var(--background-1);position: fixed;width: 100%;width: calc(100% - 260px);z-index: 99;border-bottom: 1px solid var(--border-color);">
+
                 <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  asideToggle" style="width: 55px;height: 55px;">
                     <span class="fal fa-bars font-4"></span>
                 </div> 
-                <div class="col-12 px-0 d-flex justify-content-end  " style="height: 60px;">
+                <div class="col-auto px-0 d-flex justify-content-end  " style="height: 60px;">
 
 
 
 
-                    <div class="btn-group" id="notificationDropdown">
+                    <div class="btn-group" id="notificationDropdown" style="width:55px">
 
                         <div class="col-12 px-0 d-flex justify-content-center align-items-center btn  " style="width: 55px;height: 55px;" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-notifications">
                             <span class="fal fa-bell font-3 d-inline-block" style="color: var(--color-2);transform: rotate(15deg)"></span>
@@ -415,6 +419,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 px-0 d-flex justify-content-center align-items-center  dropdown"  style="width: 55px;height: 55px;" >
                         <div style="width: 55px;height: 55px;cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false" class="d-flex justify-content-center align-items-center cursor-pointer">
                             <img src="{{auth()->user()->getUserAvatar()}}" style="padding: 10px;border-radius: 50%;width: 55px;height: 55px;">
@@ -450,15 +455,15 @@
 
                     </div>
 
-                    <div class="dropdown" style="width: 55px;height: 55px;background: #2381c6">
+                    {{-- <div class="dropdown" style="width: 55px;height: 55px;">
                         <span class="d-inline-block fal fa-user"></span> 
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
             <div class="col-12 px-0  " style="margin-top: 55px;position: relative;">
                 <div style="position:fixed;display: flex;align-items: center;justify-content: center;height: 100vh;background: var(--background-1);z-index: 10;margin-top: -15px;" id="loading-image-container">
-                    <img src="/images/loading.gif" style="position:fixed;width: 120px;max-width: 80%;margin-top: -60px;" id="loading-image">
+                    <img src="/images/loading2.gif" style="position:fixed;width: 220px;max-width: 80%;margin-top: -60px;" id="loading-image">
                 </div>
                 
                 @yield('content')

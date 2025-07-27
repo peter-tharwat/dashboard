@@ -49,7 +49,7 @@
                         <div class="col-12 pt-3">
                         </div>
                     </div>
-                    <div class="col-12  p-2">
+                    {{-- <div class="col-12  p-2">
                         <div class="col-12">
                             محتوى الصفحة
                         </div>
@@ -64,8 +64,8 @@
                         <div class="col-12 pt-3">
                             <textarea name="meta_description" class="form-control" style="min-height:150px">{{old('meta_description')}}</textarea>
                         </div>
-                    </div>
-                    <div class="col-12 p-2">
+                    </div> --}}
+                    <div class="col-6 p-2">
                         <div class="col-12">
                             قابلة للحذف
                         </div>
@@ -76,7 +76,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 p-2">
+                    <div class="col-6 p-2">
                         <div class="col-12">
                             الرئيسية
                         </div>

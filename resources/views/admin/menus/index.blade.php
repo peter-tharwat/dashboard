@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -48,31 +48,34 @@
 						<td>{{$menu->location}}</td>
 						<td>{{$menu->title}}</td>
 					 
-						<td style="width: 270px;">
+						<td style="width: 1%;text-wrap: nowrap;">
 
-					 		@can('menu-links-read')
-							<a href="{{route('admin.menu-links.index',['menu_id'=>$menu->id])}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-link "></span> الروابط
-								</span>
-							</a>
-							@endcan
-							
-							@can('menu-links-update')
-							<a href="{{route('admin.menus.edit',$menu)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench"></span> تحكم
-								</span>
-							</a>
-							@endcan
 
-							@can('menu-links-delete')
-							<form method="POST" action="{{route('admin.menus.destroy',$menu)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+							@include('components.control',[
+			            		'links'=>[
+			            			[
+			            				'text'=>"الروابط",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"menu-links-read",
+			            				'url'=>route('admin.menu-links.index',['menu_id'=>$menu->id])
+			            			],
+			            			/*[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"menu-links-update",
+			            				'url'=>route('admin.menus.edit',$menu)
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'menu-links-delete',
+			            				'url'=>route('admin.menus.destroy',$menu),
+			            				'method'=>"DELETE",
+			            			],*/
+			            		]
+			            	])
+
+ 
 
 						</td>
 					</tr>

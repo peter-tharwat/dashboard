@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -52,38 +52,43 @@
 						<td><img src="{{$page->image()}}" style="width:40px"></td>
 						<td>{{$page->title}}</td>
 					 
-						<td style="width: 360px;">
+						<td style="width: 1%;text-wrap: nowrap;" >
 
-							@can('pages-read')
-							<a href="{{route('page.show',['page'=>$page])}}">
-								<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
-									<span class="fas fa-search "></span> عرض
-								</span>
-							</a>
-							@endcan
 
-							@can('pages-update')
-							<a href="{{route('admin.pages.builder-edit',$page)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="far fa-brush "></span> صمم
-								</span>
-							</a>
-							@endcan
+							@include('components.control',[
+			            		'links'=>[
 
-							@can('pages-update')
-							<a href="{{route('admin.pages.edit',$page)}}">
-								<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-									<span class="fas fa-wrench "></span> تحكم
-								</span>
-							</a>
-							@endcan
-							@can('pages-delete')
-							<form method="POST" action="{{route('admin.pages.destroy',$page)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+			            			[
+                                        'text'=>"عرض",
+                                        'icon'=>"fal fa-search",
+                                        'can'=>"pages-read",
+                                        'url'=>route('page.show',['page'=>$page])
+                                    ],
+
+			            			[
+			            				'text'=>"صمم",
+			            				'icon'=>"fal fa-brush",
+			            				'can'=>"pages-update",
+			            				'url'=>route('admin.pages.builder-edit',['page'=>$page])
+			            			],
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"pages-update",
+			            				'url'=>route('admin.pages.edit',['page'=>$page])
+			            			],
+			            			[
+			            				'visible'=>$page->removable,
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'pages-delete',
+			            				'url'=>route('admin.pages.destroy',['page'=>$page]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
+
+
 						</td>
 					</tr>
 					@endforeach

@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-12 p-3" style="overflow:auto">
-			<div class="col-12 p-0" style="min-width:1100px;">
+			<div class="col-12 p-0" style="min-width:1100px;min-height:50dvh">
 				
 			
 			<table class="table table-bordered  table-hover">
@@ -56,21 +56,25 @@
 							دائم
 							@endif
 						</td>
-						<td style="width: 180px;">
-							@can('redirections-update')
-							<a href="{{route('admin.redirections.edit',$redirection)}}">
-							<span class="btn  btn-outline-success btn-sm font-1 mx-1">
-								<span class="fas fa-wrench "></span> تحكم
-							</span>
-							</a>
-							@endif
-							@can('redirections-delete')
-							<form method="POST" action="{{route('admin.redirections.destroy',$redirection)}}" class="d-inline-block">@csrf @method("DELETE")
-								<button class="btn  btn-outline-danger btn-sm font-1 mx-1" onclick="var result = confirm('هل أنت متأكد من عملية الحذف ؟');if(result){}else{event.preventDefault()}">
-									<span class="fas fa-trash "></span> حذف
-								</button>
-							</form>
-							@endcan
+						<td style="width: 1%;text-wrap: nowrap;">
+
+							@include('components.control',[
+			            		'links'=>[ 
+			            			[
+			            				'text'=>"تعديل",
+			            				'icon'=>"fal fa-edit",
+			            				'can'=>"redirections-update",
+			            				'url'=>route('admin.redirections.edit',['redirection'=>$redirection])
+			            			],
+			            			[
+			            				'text'=>"حذف",
+			            				'icon'=>"fal fa-trash-can",
+			            				'can'=>'redirections-delete',
+			            				'url'=>route('admin.redirections.destroy',['redirection'=>$redirection]),
+			            				'method'=>"DELETE",
+			            			],
+			            		]
+			            	])
 						</td>
 					</tr>
 					@endforeach
