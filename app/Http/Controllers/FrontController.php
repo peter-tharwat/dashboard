@@ -55,7 +55,7 @@ class FrontController extends Controller
             "phone"=>"required|numeric",
             "message"=>"required|min:3|max:10000",
         ]);
-        //if(\MainHelper::recaptcha($request->recaptcha)<0.8)abort(401);
+        if(\MainHelper::recaptcha($request->recaptcha)<0.8)abort(401);
         Contact::create([
             'user_id'=>auth()->check()?auth()->id():NULL,
             'name'=>$request->name,

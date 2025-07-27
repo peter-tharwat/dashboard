@@ -23,7 +23,7 @@
                     كود Robots
                 </div>
                 <div class="col-12 pt-3">
-                    <textarea name="settings[robots_code]" class="form-control textarea-code" style="min-height:150px;outline: none;">{{$plugin->settings['robots_code']??""}}</textarea>
+                    <textarea name="settings[robots_code]" class="form-control textarea-code" style="min-height:150px;outline: none;">{{$plugin->settings['robots_code']??"User-agent: *\nDisallow:"}}</textarea>
                 </div>
             </div>
             <div class="col-12 col-lg-12 p-2">

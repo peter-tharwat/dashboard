@@ -74,7 +74,7 @@
                             <!-- /column -->
                             <div class="col-12">
                               <input type="submit" class="btn btn-primary rounded-pill btn-send mb-3" value="ارسل رسالتك">
-                              <p class="text-muted"><strong>*</strong> الحقول هذه مطلوبة. @if(env('APP_ENV')=="local") (برجاء تفعيل Google ReCaptha في ملف .env)@endif</p>
+                              {{-- <p class="text-muted"><strong>*</strong> الحقول هذه مطلوبة. @if(env('APP_ENV')=="local") (برجاء تفعيل Google ReCaptha في ملف .env)@endif</p> --}}
                             </div>
                             <!-- /column -->
                           </div>
@@ -134,12 +134,13 @@
 </div>
 @endsection
 @section('scripts')
-<script src="https://www.google.com/recaptcha/api.js?render={{ env("RECAPTCHA_SITE_KEY") }}"></script>
+@if(config('services.google.recaptcha_key'))
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha_key') }}"></script>
 <script>
 grecaptcha.ready(function() {
   document.getElementById('contact-form').addEventListener("submit", function(event) {
     event.preventDefault();
-    grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'contact'}).then(function(token) {
+    grecaptcha.execute('{{ config('services.google.recaptcha_key') }}', {action: 'contact'}).then(function(token) {
         console.log(token);
        document.getElementById("recaptcha").value= token; 
        document.getElementById('contact-form').submit();
@@ -147,4 +148,5 @@ grecaptcha.ready(function() {
   }, false);
 });
 </script>
+@endif
 @endsection

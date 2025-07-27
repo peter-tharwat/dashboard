@@ -33,8 +33,8 @@
 
                         
 
-                        @if(env('GOOGLE_CLIENT_ID')!=null)
-                        <div class="col-6 py-2 px-2">
+                        @if(config('services.google.client_id')!=null)
+                        <div class="col py-2 px-2">
                             <div class="col-12 p-0">
                                 <a href="/login/google/redirect" style="border:2px solid #51c75b;color:inherit;box-shadow: 0px 6px 10px rgb(52 52 52 / 12%);" class="col-12 d-flex p-3 align-items-center justify-content-center btn">
                                  دخول عبر <img src="/images/icons/google.png" style="width:30px" class="mx-2" />
@@ -42,8 +42,8 @@
                             </div>
                         </div>
                         @endif
-                        @if(env('FACEBOOK_CLIENT_ID')!=null)
-                        <div class="col-6 py-2 px-2">
+                        @if(config('services.facebook.client_id')!=null)
+                        <div class="col py-2 px-2">
                             <div class="col-12 p-0">
                                 <a href="/login/facebook/redirect" style="border:2px solid #3f71cd;color:inherit;box-shadow: 0px 6px 10px rgb(52 52 52 / 12%);background: #3f71cd;color:#fff" class="col-12 d-flex p-3 align-items-center justify-content-center btn">
                                  دخول عبر  <span class="fab fa-facebook-f mx-2" style="color:#fff"></span>

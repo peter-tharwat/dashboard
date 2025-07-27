@@ -38,6 +38,10 @@ return [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => '/login/google/callback',
+
+
+        'recaptcha_key'=>env('RECAPTCHA_SITE_KEY',""),
+        'recaptcha_secret'=>env('RECAPTCHA_SECRET_KEY',""),
     ],
 
 ];

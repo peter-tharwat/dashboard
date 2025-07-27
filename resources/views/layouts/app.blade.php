@@ -8,8 +8,9 @@
     
     
 
-
+    {!!implode(' ',$website_plugins->whereNotNull('header_code')->pluck('header_code')->toArray())!!}
     {!!$settings['header_code']!!}
+
     @livewireStyles
     @if(auth()->check())
         @php
@@ -52,7 +53,7 @@
     </style>
     @yield('styles')
 </head>
-<body style="background:#eef4f5;margin-top: 65px;" class="body">
+<body style="background:#eef4f5;" class="body">
     <style type="text/css">
         #toast-container>div {
             opacity: 1;
@@ -154,6 +155,10 @@
     </script>
     @endauth
     @yield('scripts')
+    
+    {!!implode(' ',$website_plugins->whereNotNull('footer_code')->pluck('footer_code')->toArray())!!}
     {!!$settings['footer_code']!!}
+
+    @include('plugins-views.general_popup')
 </body>
 </html>

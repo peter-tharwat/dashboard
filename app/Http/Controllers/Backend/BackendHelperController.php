@@ -116,8 +116,12 @@ class BackendHelperController extends Controller
         ]);  
     }
     public function robots(){
-        $settings = (new \App\Helpers\SettingsHelper)->getAllSettings();
-        return response($settings['robots_txt'])->header('Content-Type', 'text/plain');
+        $robots_code = (new \PluginsHelper)->getValue('robots_code','robots_code');
+        return response($robots_code)->header('Content-Type', 'text/plain');
+    }
+    public function ads_txt(){
+        $ads_text = (new \PluginsHelper)->getValue('ads_text','ads_text');
+        return response($ads_text)->header('Content-Type', 'text/plain');
     }
     public function manifest(){ 
         $settings = (new \App\Helpers\SettingsHelper)->getAllSettings();

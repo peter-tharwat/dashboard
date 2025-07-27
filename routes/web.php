@@ -35,6 +35,8 @@ use App\Http\Controllers\Backend\BackendPluginController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\FrontendProfileController;
 
+
+use App\Http\Controllers\Auth\LoginController;
 Auth::routes();
 
 
@@ -147,6 +149,7 @@ Route::get('/login/facebook/callback', [LoginController::class,'callback_faceboo
 
 
 Route::get('blocked',[BackendHelperController::class,'blocked_user'])->name('blocked');
+Route::get('ads.txt',[BackendHelperController::class,'ads_txt']);
 Route::get('robots.txt',[BackendHelperController::class,'robots']);
 Route::get('manifest.json',[BackendHelperController::class,'manifest'])->name('manifest');
 Route::get('sitemap.xml',[BackendSiteMapController::class,'sitemap']);
@@ -170,14 +173,3 @@ Route::post('comment',[FrontController::class,'comment_post'])->name('comment-po
 
 ############## For Testing Routes ##############
 Route::get('/test',[BackendTestController::class,'test'])->name('test');
-Route::any('/payment-verify',function(){
-
-    $request = request()->all();
-
-    
-    $payment = new \Nafezly\Payments\Classes\YallaPayPayment;
-    $res = $payment->verify(request()->instance());
-    dd($res);
-
-    dd(request()->all());
-})->name('payment-verify');

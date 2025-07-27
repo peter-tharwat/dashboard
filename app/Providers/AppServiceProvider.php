@@ -38,15 +38,18 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\MenuLink::observe(\App\Observers\MenuLinkObserver::class);
         \App\Models\Page::observe(\App\Observers\PageObserver::class);
         \App\Models\Article::observe(\App\Observers\ArticleObserver::class);
+        \App\Models\Plugin::observe(\App\Observers\PluginObserver::class);
+
 
         Paginator::useBootstrapFive();
         Schema::defaultStringLength(191);
         try{
-            $settings = (new \App\Helpers\SettingsHelper)->getAllSettings();
-            $website_plugins = cache()->remember('website_plugins',60,function(){
-                return \App\Models\Plugin::get();
-            });
+            $settings = (new \SettingsHelper)->getAllSettings();
+            $website_plugins = (new \PluginsHelper)->getAllPlugins();
+            \MainHelper::setWebsiteConfigs($website_plugins);
             View::share('settings', $settings);
+            View::share('website_plugins', $website_plugins);
+            
         }catch(\Exception $e){/*\Artisan::call("db:seed");*/}
 
         Collection::macro('paginate', function($perPage, $page = null, $pageName = 'page') {

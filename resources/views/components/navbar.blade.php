@@ -1,8 +1,54 @@
+@if($cross_pages_code = $website_plugins->where('slug','cross_pages_code')->first())
+    @if(isset($cross_pages_code) &&  data_get($cross_pages_code->settings,'top_navbar_enable',false) && $top_navbar_content = data_get($cross_pages_code->settings,'top_navbar_code',null) )
+        @if(is_countable(json_decode($top_navbar_content,true)))
+            @foreach(\MainHelper::arrayToObject(json_decode($top_navbar_content,true)) as $component)
+                @include('components.component-render',['component'=>$component])
+            @endforeach
+        @endif
+    @endif
+@endif
+
+
+
+
+
+
+
 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
     @csrf
 </form>
+@if( $website_plugins->where('activated',1)->where('slug','sticky_message')->count())
+    @php
+    $sticky_message_plugin = $website_plugins->where('activated',1)->where('slug','sticky_message')->first();
+    @endphp
+    @if(\Carbon::parse($sticky_message_plugin->settings['available_to'] ?? now())->gt(\Carbon::parse(now())) || !isset($sticky_message_plugin->settings['available_to']))
+    <div class="col-12 p-0 " style="background:{{$sticky_message_plugin->settings['background_color']??"#0194fe"}};overflow: hidden;">
+        <div class="container p-0 {{$sticky_message_plugin->settings['animate_type']??""}}" style="color:{{$sticky_message_plugin->settings['text_color']??"#FFFFFF"}};height:100%">
 
-<div class="col-12 fixed-top  main-nav shadow" style="background: #fff;padding: 3px 0px;min-height: 65px;">
+
+            @if(($sticky_message_plugin->settings['url']??"")!="")
+            <a href="{{$sticky_message_plugin->settings['url']??"#"}}" {{$sticky_message_plugin->settings['url_in_new_tab']??0 == 1 ?'target="_blank"':''}} style="color:{{$sticky_message_plugin->settings['text_color']??"#FFFFFF"}};">
+            @endif
+
+            <div class="col-12 p-1 d-flex align-items-center row" style="height: 100%;">
+                <div class="col p-1 {{($sticky_message_plugin->settings['text_align_center']??"")==1?'text-center':''}} " style="width: calc(100% - 20px);">
+                     {{$sticky_message_plugin->settings['message']??"🤍"}}
+                </div>
+                {{-- <div class="col-auto p-1" style="width: 20px;cursor: pointer;" onclick="alert();">
+                    <span class="far fa-times"></span>
+                </div> --}}
+            </div>
+
+            @if(($sticky_message_plugin->settings['url']??"")!="")
+            </a>
+            @endif
+        </div>
+    </div>
+    @endif
+@endif
+
+<div class="col-12 fixed-top  main-nav shadow" style="background: #fff;padding: 3px 0px;min-height: 65px;position: sticky;top: 0px;">
+
     <div class="container px-1 my-auto">
         <div class="col-12 row p-0">
             <div class="col-auto p-3 d-flex align-items-center hover-main-color-flexable" onclick="document.getElementById('aside-menu').classList.toggle('active');document.getElementById('body-overlay').classList.toggle('active');" style="cursor: pointer;">
@@ -32,11 +78,12 @@
                     @endif
                 </div>
                 <div class="col-auto  d-flex align-items-center px-1 ">
-                    @guest
-                    <a href="{{route('login')}}">
-                        <button class=" font-1 kufi  btn btn-primary " style="padding:5px 10px;">تسجيل دخول</button>
-                    </a>
-                    @else
+
+
+
+
+                    
+                    @auth
 
 
                     {{-- @if(auth()->check())
@@ -92,7 +139,28 @@
                         </ul>
 
                     </div>
-                    @endguest
+                    @endauth
+
+
+
+
+                    @if($website_plugins->where('activated',1)->where('slug','navbar_main_button')->count())
+                        @php
+                        $navbar_main_button = $website_plugins->where('activated',1)->where('slug','navbar_main_button')->first();
+                        @endphp
+
+                        @if(auth()->check() &&  in_array($navbar_main_button->settings['visibility_type']??'',['ALL','AUTH']))
+                        <a href="{{$navbar_main_button->settings['btn_url_auth']??"#"}}" {{$navbar_main_button->settings['url_in_new_tab_auth']??0 == 1 ?'target="_blank"':''}} class="{{$navbar_main_button->settings['btn_class']??""}} {{$navbar_main_button->settings['animate_type']??""}} py-1 px-3" style="border-radius: 4px;">
+                            {{$navbar_main_button->settings['btn_text_auth']??""}}
+                        </a>
+                        @elseif(!auth()->check() && in_array($navbar_main_button->settings['visibility_type']??'',['ALL','GUEST']) )
+                        <a href="{{$navbar_main_button->settings['btn_url_guest']??"#"}}" {{$navbar_main_button->settings['url_in_new_tab_guest']??0 == 1 ?'target="_blank"':''}} class="{{$navbar_main_button->settings['btn_class']??""}} {{$navbar_main_button->settings['animate_type']??""}} py-1 px-3" style="border-radius: 4px;">
+                            {{$navbar_main_button->settings['btn_text_guest']??""}}
+                        </a>
+                        @endif
+                    @endif
+
+
                 </div>
             </div>
         </div>
@@ -185,3 +253,12 @@
         </div>
     </div>
 </div>
+@if($cross_pages_code = $website_plugins->where('slug','cross_pages_code')->first())
+    @if(isset($cross_pages_code) &&  data_get($cross_pages_code->settings,'bottom_navbar_enable',false) && $bottom_navbar_content = data_get($cross_pages_code->settings,'bottom_navbar_code',null) )
+        @if(is_countable(json_decode($bottom_navbar_content,true)))
+            @foreach(\MainHelper::arrayToObject(json_decode($bottom_navbar_content,true)) as $component)
+                @include('components.component-render',['component'=>$component])
+            @endforeach
+        @endif
+    @endif
+@endif

@@ -128,7 +128,7 @@ return [
     ],
 
 
-    [
+    /*[
         'category'=>"أدوات مفيدة",
         'category_slug'=>"usefull_tools",
         'slug'=>"lock_site_with_password",
@@ -154,7 +154,7 @@ return [
                 'email_title'=>"البريد الالكتروني",
             ]
         ]
-    ],
+    ],*/
 
 
 
@@ -226,14 +226,14 @@ return [
         'image'=>"/images/plugins/utm_url_builder.png",
         'description'=>"هي أداة لإنشاء روابط URL تتضمن معلمات UTM لتتبع مصادر الزيارات وتحليل أداء الحملات التسويقية، مثل utm_source (المصدر)، utm_medium (الوسيط)، وutm_campaign (الحملة). تساعد على معرفة من أين يأتي الزوار وكيفية وصولهم للموقع لتحسين استراتيجيات التسويق."
     ],
-    [
+    /*[
         'category'=>"تسويق",
         'category_slug'=>"marketing",
         'slug'=>"whatsapp_campaign",
         'title'=>"ارسال رسائل واتس آب",
         'image'=>"/images/plugins/whatsapp_campaign.png",
         'description'=>"يمكنك من خلال هذه الاضافة ارسال رسائل جماعية لمجموعة كاملة من المستخدمين بشكل مباشر للحصول على أفضل نتائج واعادة استهداف"
-    ],
+    ],*/
     /*[
         'category'=>"تسويق",
         'category_slug'=>"marketing",
@@ -242,7 +242,7 @@ return [
         'image'=>"/images/plugins/email_campaign.png",
         'description'=>"يمكنك من خلال هذه الاضافة ارسال رسائل جماعية لمجموعة كاملة من المستخدمين عبر البريد الالكتروني بشكل مباشر للحصول على أفضل نتائج واعادة استهداف"
     ],*/
-    [
+    /*[
         'category'=>"تسويق",
         'category_slug'=>"marketing",
         'slug'=>"lucky_wheel",
@@ -330,7 +330,7 @@ return [
 
             ]
         ]
-    ],
+    ],*/
     [
         'category'=>"دعم",
         'category_slug'=>"support",
@@ -381,161 +381,21 @@ return [
         'image'=>"/images/plugins/robots_code.png",
         'description'=>"robots.txt هو ملف نصي يُستخدم في المواقع الإلكترونية للتحكم في كيفية وصول روبوتات محركات البحث والزواحف (مثل Googlebot) إلى محتوى الموقع. الهدف من هذا الملف هو إعطاء تعليمات لهذه الروبوتات حول الصفحات أو الأقسام التي يمكن أو لا يمكن فهرستها."
     ],
-    [
+ /*   [
         'category'=>"شركات الشحن",
         'category_slug'=>"shipping_companies",
         'slug'=>"shipping_with_bosta",
         'title'=>"الشحن مع Bosta.co",
         'image'=>"/images/plugins/shipping_with_bosta.png",
         'description'=>"بوسطة هي شركة رائدة في مجال الخدمات اللوجستية والتكنولوجيا، تأسست في مصر عام 2017 بهدف تبسيط وتسهيل عمليات الشحن والتوصيل داخل البلاد. تقدم بوسطة مجموعة متنوعة من الخدمات المصممة لتلبية احتياجات الأفراد والشركات على حد سواء."
-    ],
+    ],*/
 
 
 
     
-    [
-        'category'=>"اعدادات الشراء",
-        'category_slug'=>"store_settings",
-        'slug'=>"cart",
-        'title'=>"سلة المشتريات",
-        'image'=>"/images/plugins/cart.png",
-        'description'=>"ميزة السلة (Shopping Cart) تُعتبر عنصرًا أساسيًا في مواقع التجارة الإلكترونية. تساعد المستخدمين على اختيار المنتجات التي يرغبون بشرائها، متابعتها، وإتمام عملية الدفع لاحقًا. هذه الميزة تُحسِّن من تجربة التسوق وتوفر إدارة سلسة للمنتجات.",
-        'initial_values'=>[
-            'settings'=>[
-                'cart_title'=>"سلة المشتريات",
-                'cart_empty_title'=>"السلة فارغة",
-                'cart_empty_description'=>"يمكنك اضافة المنتجات التي تحتاجها إلى السلة ومن ثم الانتقال إلى صفحة اتمام الطلب",
-                'cart_buy_now_text'=>"أطلب الآن",
-                'cart_continue_order_text'=>"اتمام الطلب",
-                'cart_footer_text'=>"صنع بكل حب",
-            ]
-        ]
-    ],
-    [
-        'category'=>"اعدادات الشراء",
-        'category_slug'=>"store_settings",
-        'slug'=>"shipping",
-        'title'=>"الشحن",
-        'image'=>"/images/plugins/shipping.png",
-        'description'=>"الشحن (Shipping) هو عملية نقل السلع أو المنتجات من مكان إلى آخر، سواء كانت تلك الأماكن محلية أو دولية. يُعتبر الشحن جزءًا أساسيًا من سلاسل التوريد والتجارة، حيث يتيح للمصنعين والتجار نقل بضائعهم إلى العملاء أو إلى مراكز البيع بالتجزئة أو مخازن التوزيع."
-    ],
-    [
-        'category'=>"اعدادات الشراء",
-        'category_slug'=>"store_settings",
-        'slug'=>"vat",
-        'title'=>"ضريبة القيمة المضافة",
-        'image'=>"/images/plugins/vat.png",
-        'description'=>"ضريبة القيمة المضافة (VAT) هي نوع من الضرائب غير المباشرة التي تُفرض على السلع والخدمات في كل مرحلة من مراحل الإنتاج أو التوزيع، ولكن يتحملها المستهلك النهائي. تعتبر ضريبة القيمة المضافة أحد أهم مصادر الإيرادات الحكومية في العديد من الدول، وتختلف معدلاتها حسب الدولة والمنتج أو الخدمة."
-    ],
-    [
-        'category'=>"اعدادات الشراء",
-        'category_slug'=>"store_settings",
-        'slug'=>"order_custom_step",
-        'title'=>"حالات الطلب المخصصة",
-        'image'=>"/images/plugins/order_custom_step.png",
-        'description'=>"يمكنك عبر هذه الاضافة انشاء حالات مخصصة للمنتج وبالتالي فلترة نتائج البحث حسب تصنيفك فيما يتماشى مع طلبعة عمل النشاط التجاري الخاص بك"
-    ],
+ 
 
-    [
-        'category'=>"اعدادات الشراء",
-        'category_slug'=>"store_settings",
-        'slug'=>"checkout_fields",
-        'title'=>"صفحة Checkout",
-        'image'=>"/images/plugins/checkout_fields.png",
-        'description'=>"checkout_fields تشير إلى الحقول التي تظهر في صفحة الدفع (Checkout) في مواقع التجارة الإلكترونية أو تطبيقات التسوق عبر الإنترنت. الهدف من هذه الحقول هو جمع المعلومات الضرورية من المستخدم لإتمام عملية الشراء، مثل بيانات الشحن والدفع والتواصل.",
-        'initial_values'=>[
-            'settings'=>[
-                "fields"=>[
-                    "shipping_name"=>[
-                        "field_key"=>"shipping_name",
-                        "field_title"=>"الاسم بالكامل",
-                        "placeholder"=>"",
-                        "sort"=>"1",
-                        "enabled"=>"1",
-                        "required"=>"1",
-                        "class"=>"col-6",
-                    ],
-                    "shipping_email"=>[
-                        "field_key"=>"shipping_email",
-                        "field_title"=>"البريد الالكتروني",
-                        "placeholder"=>"",
-                        "sort"=>"2",
-                        "enabled"=>"1",
-                        "required"=>"1",
-                        "class"=>"col-6",
-                    ],
-                    "shipping_phone"=>[
-                        "field_key"=>"shipping_phone",
-                        "field_title"=>"رقم الهاتف",
-                        "placeholder"=>"",
-                        "sort"=>"3",
-                        "enabled"=>"1",
-                        "required"=>"1",
-                        "class"=>"col-6",
-                    ],
-                    "shipping_spare_phone"=>[
-                        "field_key"=>"shipping_spare_phone",
-                        "field_title"=>"رقم الهاتف الثانوي",
-                        "placeholder"=>"",
-                        "sort"=>"4",
-                        "enabled"=>"1",
-                        "required"=>"0",
-                        "class"=>"col-6",
-                    ],
-                    "shipping_country"=>[
-                        "field_key"=>"shipping_country",
-                        "field_title"=>"الدولة",
-                        "placeholder"=>"",
-                        "sort"=>"5",
-                        "enabled"=>"0",
-                        "required"=>"0",
-                        "class"=>"col-6",
-                    ],
-                    "shipping_city"=>[
-                        "field_key"=>"shipping_city",
-                        "field_title"=>"المحافظة",
-                        "placeholder"=>"",
-                        "sort"=>"6",
-                        "enabled"=>"1",
-                        "required"=>"1",
-                        "class"=>"col-12",
-                    ],
-                    
-                    "shipping_address"=>[
-                        "field_key"=>"shipping_address",
-                        "field_title"=>"عنوان الشحن",
-                        "placeholder"=>"",
-                        "sort"=>"7",
-                        "enabled"=>"1",
-                        "required"=>"1",
-                        "class"=>"col-12",
-                    ],
-                    "notes_from_client"=>[
-                        "field_key"=>"notes_from_client",
-                        "field_title"=>"ملاحظات",
-                        "placeholder"=>"",
-                        "sort"=>"8",
-                        "enabled"=>"0",
-                        "required"=>"0",
-                        "class"=>"col-12",
-                    ]
-                ],   
-            ]
-
-        ],
-    ],
-
-    [
-        'category'=>"دروب شيبنج",
-        'category_slug'=>"drop_shipping",
-        'slug'=>"taager",
-        'title'=>"تاجر",
-        'image'=>"/images/plugins/taager.png",
-        'description'=>"يمكنك دمج المنتجات الخاصة بك مع منصة تاجر للتجارة الالكترونية عبر اضافة منصة تاجر كوسيط تعامل"
-    ],
-
-
-    [
+    /*[
         'category'=>"مدفوعات",
         'category_slug'=>"payment_gateways",
         'slug'=>"cod_payment",
@@ -584,7 +444,7 @@ return [
         'image'=>"/images/plugins/paysky_cards.png",
         'description'=>"مدفوعات paysky هي بوابة دفع الكترونية يمكنك من خلالها استقبال المدفوعات من العملاء مباشرة عبر فيزا وماستر كارد"
     ],
-    
+    */
 
 
     

@@ -326,7 +326,7 @@
                             $contacts_count = \App\Models\Contact::where('status','PENDING')->count();
                             @endphp
                             @if($contacts_count)
-                            <span style="background: #d34339;border-radius: 2px;color:var(--background-1);display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{$contacts_count}}</span>
+                            <span style="background: #d34339;border-radius: 2px;color:var(--background-1)!important;display: inline-block;font-size: 11px;text-align: center;padding: 1px 5px;margin: 0px 8px">{{$contacts_count}}</span>
                             
                             @endif
                             </div> 

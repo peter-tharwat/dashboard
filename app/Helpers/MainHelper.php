@@ -36,7 +36,10 @@ class MainHelper {
     }
     public static function recaptcha($cap){
         
-         $ipAddress = 'NA';
+        if(config('services.google.recaptcha_secret')==null)
+            return 1;
+
+        $ipAddress = 'NA';
         if(isset($_SERVER["HTTP_CF_CONNECTING_IP"])){ 
             $ipAddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
         } else{ 
@@ -44,9 +47,8 @@ class MainHelper {
         } 
 
         $url = 'https://www.google.com/recaptcha/api/siteverify';
-        //$remoteip = $_SERVER['REMOTE_ADDR'];
         $data = [
-                'secret' => env("RECAPTCHA_SECRET_KEY"),
+                'secret' => config('services.google.recaptcha_secret'),
                 'response' => $cap,
                 'remoteip' => $ipAddress
               ];
@@ -316,6 +318,46 @@ class MainHelper {
             ])->render()
         ];
     }
+
+    public static function setWebsiteConfigs($website_plugins){
+      
+        $login_with_google = $website_plugins->where('activated',1)->where('slug','login_with_google')->first();
+        if($login_with_google !=null){
+            config(['services.google.client_id'=>data_get($login_with_google->settings,'client_id',null) ]);
+            config(['services.google.client_secret'=>data_get($login_with_google->settings,'client_secret',null) ]);
+        }
+
+        $login_with_facebook = $website_plugins->where('activated',1)->where('slug','login_with_facebook')->first();
+        if($login_with_facebook !=null){
+            config(['services.facebook.client_id'=>data_get($login_with_facebook->settings,'client_id',null) ]);
+            config(['services.facebook.client_secret'=>data_get($login_with_facebook->settings,'client_secret',null) ]);
+        }
+
+        $smtp_email_config = $website_plugins->where('activated',1)->where('slug','smtp_email_config')->first();
+        if($smtp_email_config !=null){
+            config(['mail.mailers.smtp.transport'=> data_get($smtp_email_config->settings,'MAIL_MAILER',null) ]);
+            config(['mail.mailers.smtp.host'=> data_get($smtp_email_config->settings,'MAIL_HOST',null) ]);
+            config(['mail.mailers.smtp.port'=> data_get($smtp_email_config->settings,'MAIL_PORT',null) ]);
+            config(['mail.mailers.smtp.encryption'=> data_get($smtp_email_config->settings,'MAIL_ENCRYPTION',null) ]);
+            config(['mail.mailers.smtp.username'=> data_get($smtp_email_config->settings,'MAIL_USERNAME',null) ]);
+            config(['mail.mailers.smtp.password'=> data_get($smtp_email_config->settings,'MAIL_PASSWORD',null) ]);
+
+            config(['mail.from.address'=> data_get($smtp_email_config->settings,'MAIL_FROM_ADDRESS',null) ]);
+            config(['mail.from.name'=> data_get($smtp_email_config->settings,'MAIL_FROM_NAME',null) ]);
+        }
+
+        $recaptcha_settings = $website_plugins->where('activated',1)->where('slug','google_recaptcha')->first();
+        if($recaptcha_settings !=null){
+            config(['services.google.recaptcha_key'=>data_get($recaptcha_settings->settings,'RECAPTCHA_SITE_KEY',null) ]);
+            config(['services.google.recaptcha_secret'=>data_get($recaptcha_settings->settings,'RECAPTCHA_SECRET_KEY',null) ]);
+        }
+
+        
+        
+    }
+
+
+
     public static function is_fa_icon($className){
         $faRegex = '/^(fa(?:b|s|r|d|l|t)?|fa(?:-[a-z]+)?) fa-[a-z0-9-]+$/';
         return preg_match($faRegex, $className) === 1;
