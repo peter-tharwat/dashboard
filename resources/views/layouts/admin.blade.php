@@ -158,6 +158,9 @@
         ::-webkit-scrollbar {
             display: none;
         }
+        .fancybox__content{
+            background:var(--background-1);;
+        }
     </style>
     @yield('after-body')
     <div class="col-12 justify-content-end d-flex">

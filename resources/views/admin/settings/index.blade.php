@@ -35,7 +35,7 @@
 			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="links-tab">
 				<span  class="fal fa-link me-2"></span>	روابط
 			</div>
-			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="pages-tab">
+			{{-- <div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="pages-tab">
 				<span  class="fal fa-pager me-2"></span>	نصوص
 			</div>
 			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="codes-tab">
@@ -43,7 +43,7 @@
 			</div>
 			<div class="d-flex justify-content-center align-items-center p-0 settings-tab-opener" data-opentab="others-tab">
 				<span  class="fal fa-cogs me-2"></span>	اخرى
-			</div>
+			</div> --}}
 		</div>
 	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update')}}" enctype="multipart/form-data" >
 	 	@csrf
@@ -295,7 +295,7 @@
 	 			</div> 
 	 		</div>
 	 	</div>
-	 	<div class="col-12 row p-0 taber" id="pages-tab">
+	 	{{-- <div class="col-12 row p-0 taber" id="pages-tab">
 
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
@@ -334,7 +334,7 @@
 	 		</div>
 	 	</div>
 	 	<div class="col-12 row p-0 taber" id="others-tab">
-	 	</div>
+	 	</div> --}}
 
 	 </div>
  
