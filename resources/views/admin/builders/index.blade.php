@@ -561,12 +561,9 @@ body {
                                                         <option value="" disabled hidden>اختر</option>
                                                         <option value="categories">عرض جميع الأقسام (مقالات)</option>
                                                         <option value="articles">عرض أحدث المقالات</option>
-                                                        <option value="products">عرض أحدث المنتجات</option>
-                                                        <option value="courses">عرض أحدث الدورات</option>
+                                                        {{-- <option value="products">عرض أحدث المنتجات</option> --}}
+                                                        {{-- <option value="courses">عرض أحدث الدورات</option> --}}
                                                         <option value="categories_articles">عرض مقالات الأقسام</option>
-                                                        <option value="categories_products">عرض منتجات الأقسام</option>
-                                                        <option value="categories_courses">عرض دورات الأقسام</option>
-                                                        <option value="categories_articles">مقالات الأقسام</option>
                                                     </select>
                                                 </div>
                                             </div>
