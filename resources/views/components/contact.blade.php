@@ -1,6 +1,9 @@
+@php
+$ulid = str()->ulid();
+@endphp
 <div class="col-lg-12">
-   <form class="" method="POST" action="{{route('contact-post')}}" >
-    {{-- <input type="hidden" name="recaptcha" id="recaptcha"> --}}
+   <form id="contact-form-{{$ulid}}" method="POST" action="{{route('contact-post')}}" >
+    <input type="hidden" name="recaptcha" id="recaptcha-{{$ulid}}">
     @csrf
     <div class="messages"></div>
     <div class="row gx-4">
@@ -39,3 +42,18 @@
     </div>
   </form>
 </div>
+
+@if($google_recaptcha_plugin = $website_plugins->where('activated',1)->where('slug','google_recaptcha')->first())
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha_key') }}"></script>
+<script>
+grecaptcha.ready(function() {
+    document.getElementById('contact-form-{{$ulid}}').addEventListener("submit", function(event) {
+        event.preventDefault();
+        grecaptcha.execute('{{ config('services.google.recaptcha_key') }}', { action: 'contact' }).then(function(token) {
+            document.getElementById("recaptcha-{{$ulid}}").value = token;
+            document.getElementById('contact-form-{{$ulid}}').submit();
+        });
+    }, false);
+});
+</script>
+@endif

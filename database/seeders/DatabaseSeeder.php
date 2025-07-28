@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             //ContentSeeder::class
             
         ]);
+        cache()->flush();
     }
 }
 

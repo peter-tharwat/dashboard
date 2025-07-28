@@ -46,10 +46,11 @@ class BackendHelperController extends Controller
 
         $component_content = [
             'type' => $request->type,
-            'selected_ids' => $request->selected_ids!=""?explode(',', trim($request->selected_ids)):[],
+            'selected_slugs' => $request->selected_slugs!=""?explode(',', trim($request->selected_slugs)):[],
             'items_count' => $request->items_count,
             'view_type' => "standard",
             'paginate' => $request->paginate,
+            'design_columns_mobile'=>$request->design_columns_mobile,
             
 
             'id'=> $request->id,

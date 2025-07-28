@@ -1305,6 +1305,7 @@ body {
                 (block) => block.id === this.selected_unique_id
               )?.fields?.content;
             if(content != null){
+                console.log(content);
                 const formData = new FormData();
                 formData.append("type", content.type);
                 formData.append("selected_slugs", [content.selected_slugs]);

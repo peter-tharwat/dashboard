@@ -1,6 +1,9 @@
 <div class="col-12 p-0 row">
     <div class="col-12 p-0 ">
-
+        @php
+        $component_content = \MainHelper::arrayToObject($component_content);
+        @endphp
+        {{-- {{dd($component_content)}} --}}
         @if($component_content->view_type == "slider" )
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

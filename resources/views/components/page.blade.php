@@ -327,11 +327,11 @@
                         @endif
                         <div class="col-12 py-2 py-lg-3 px-1 ">
 
-
+                            {{-- {{dd($component)}} --}}
                             @php
                             $component_content = [
                                 'type' => $component['fields']['content']['type'],
-                                'selected_ids' => $component['fields']['content']['selected_ids'],
+                                'selected_ids' => $component['fields']['content']['selected_ids']??$component['fields']['content']['selected_slugs'],
                                 'items_count' => $component['fields']['content']['items_count'],
                                 'view_type' => $component['fields']['content']['view_type'],
                                 'paginate' => $component['fields']['content']['paginate'],
