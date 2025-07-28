@@ -6,10 +6,10 @@ $page = cache()->remember('page_home',60,function(){
 });
 @endphp
 <div class="col-12 p-0 ">
-    @if(is_countable(json_decode($page->content,true)))
-    @foreach(json_decode($page->content,true) as $component)
-    @include('components.page',['page'=>$page,'component'=>$component])
-    @endforeach
-    @endif
+  @if(is_countable(json_decode($page->content,true)))
+  @foreach(\MainHelper::arrayToObject(json_decode($page->content,true)) as $component)
+  @include('components.component-render',['page'=>$page,'component'=>$component])
+  @endforeach
+  @endif
 </div>
 @endsection

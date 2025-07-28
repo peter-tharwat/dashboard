@@ -21,6 +21,7 @@ class BackendHelperController extends Controller
                 $data['content'][] = [
                     'id'=>$category->id,
                     'title'=>$category->title,
+                    'slug'=>$category->slug,
                     'description'=>$category->description,
                     'image'=>$category->image()
                 ];
@@ -29,12 +30,13 @@ class BackendHelperController extends Controller
 
             $articles = \App\Models\Article::get();
             $data['loaded']=true;
-            foreach($articles as $category)
+            foreach($articles as $article)
                 $data['content'][] = [
-                    'id'=>$category->id,
-                    'title'=>$category->title,
-                    'description'=>$category->description,
-                    'image'=>$category->main_image()
+                    'id'=>$article->id,
+                    'title'=>$article->title,
+                    'slug'=>$article->slug,
+                    'description'=>$article->description,
+                    'image'=>$article->main_image()
                 ];
         }
         return $data;
@@ -58,6 +60,7 @@ class BackendHelperController extends Controller
             'design_min_height'=>$request->design_min_height,
             'design_columns' => $request->design_columns,
         ];
+        //dd($component_content);
         $get_block_content = \MainHelper::get_block_content($component_content);
         
         return $get_block_content;

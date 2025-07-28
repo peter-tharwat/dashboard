@@ -336,6 +336,7 @@
 
 
                             @php
+                            /*{{dd($component)}}*/
                             $component_content = \MainHelper::arrayToObject([
                                 'type' => $component->fields->content->type,
                                 'selected_slugs' => $component->fields->content->selected_slugs,
@@ -350,7 +351,7 @@
                                 'design_columns_mobile' => $component->fields->design_columns_mobile,
 
                             ]);
-                            $get_block_content = \MainHelper::get_block_content($component_content,$website);
+                            $get_block_content = \MainHelper::get_block_content($component_content);
                             @endphp
                             {!!$get_block_content['html']!!}
 

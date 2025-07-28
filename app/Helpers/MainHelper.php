@@ -262,12 +262,13 @@ class MainHelper {
     public static function get_block_content($component_content){
         $contents = [];
         $items = [];
+        $component_content = (array)$component_content;
         if($component_content['type'] == "categories"){
             $query = \App\Models\Category::query();
 
             $items = $query->where(function($q)use($component_content){
-              if( is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
-                $q->whereIn('id',$component_content['selected_slugs']);
+              if( isset($component_content['selected_slugs']) && is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
+                $q->whereIn('slug',$component_content['selected_slugs']);
             })->simplePaginate( $component_content['items_count'] );
             foreach($items as $item){
                 $contents[]=[
@@ -280,8 +281,8 @@ class MainHelper {
         }elseif($component_content['type'] == "articles"){
             $query = \App\Models\Article::query();
             $items = $query->where(function($q)use($component_content){
-              if( is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
-                $q->whereIn('id',$component_content['selected_slugs']);
+              if( isset($component_content['selected_slugs']) && is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
+                $q->whereIn('slug',$component_content['selected_slugs']);
             })->simplePaginate( $component_content['items_count'] );
             foreach($items as $item){
                 $contents[]=[
@@ -294,9 +295,9 @@ class MainHelper {
         }elseif($component_content['type'] == "categories_articles"){
           $query = \App\Models\Article::query();
           $items = $query->where(function($q)use($component_content){
-            if( is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
+            if( isset($component_content['selected_slugs']) && is_array($component_content['selected_slugs']) && count($component_content['selected_slugs']) > 0 )
               $q->whereHas('categories',function($q)use($component_content){
-                $q->whereIn('category_id',$component_content['selected_slugs']);
+                $q->whereIn('categories.slug',$component_content['selected_slugs']);
               });
           })->simplePaginate( $component_content['items_count'] );
           foreach($items as $item){
