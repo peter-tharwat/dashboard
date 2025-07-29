@@ -375,6 +375,25 @@ class MainHelper {
         return $obj;
     }
 
+    public static function get_nafezly_ai($string,$format="text"){
+        $res = \Http::withHeaders(['secret-key'=>config('services.nafezly.ai_secret_key')])->post(config('services.nafezly.ai_base_url'),['input'=>$string])->json();
+        if(isset($res['response'])){
+            $response = $res['response'];
+            $response=str_replace("```html","",$response);
+            $response=str_replace("```json","",$response);
+            $response=str_replace("```","",$response);
+
+            if($format=="json")
+                $response = json_decode(json_decode(json_encode( str_replace(" ", "", str_replace("\n", "", $response)))),true) ;
+
+            return $response;
+        }else{
+            if($format =="json")
+                return [];
+            return "";
+        }
+    }
+
 
     
 
