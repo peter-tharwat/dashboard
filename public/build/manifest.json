@@ -3,8 +3,8 @@
     "file": "assets/main-DcD9-e9F.css",
     "src": "_main-!~{005}~.js"
   },
-  "_main-mM5xpDTn.js": {
-    "file": "assets/main-mM5xpDTn.js",
+  "_main-BmQLPuOf.js": {
+    "file": "assets/main-BmQLPuOf.js",
     "name": "main",
     "css": [
       "assets/main-DcD9-e9F.css"
@@ -288,29 +288,29 @@
     "isEntry": true
   },
   "resources/css/dashboard.css": {
-    "file": "assets/dashboard-DAoifXTo.css",
+    "file": "assets/dashboard-45cSAGeZ.css",
     "src": "resources/css/dashboard.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-SReBbDrK.js",
+    "file": "assets/app-CFOum4YU.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_main-mM5xpDTn.js"
+      "_main-BmQLPuOf.js"
     ],
     "css": [
-      "assets/app-Cef1Hsoh.css"
+      "assets/app-BKFG0Cpy.css"
     ]
   },
   "resources/js/dashboard.js": {
-    "file": "assets/dashboard-5H2ISrjU.js",
+    "file": "assets/dashboard-BO5oRpAv.js",
     "name": "dashboard",
     "src": "resources/js/dashboard.js",
     "isEntry": true,
     "imports": [
-      "_main-mM5xpDTn.js"
+      "_main-BmQLPuOf.js"
     ],
     "css": [
       "assets/dashboard-DH4eK6Jk.css"

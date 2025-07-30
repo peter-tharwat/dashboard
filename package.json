@@ -1,6 +1,6 @@
 {
     "private": true,
-    "type":"module",
+    "type": "module",
     "scripts": {
         "dev": "vite ",
         "prod": "vite build",
@@ -37,6 +37,8 @@
         "jquery": "^3.6.1",
         "jquery-validation": "^1.19.5",
         "laravel-vite-plugin": "^1.0.5",
+        "pace": "^0.0.4",
+        "pace-js": "^1.2.4",
         "select2": "^4.1.0-rc.0",
         "sortablejs": "^1.15.3",
         "source-map-support": "^0.5.21",

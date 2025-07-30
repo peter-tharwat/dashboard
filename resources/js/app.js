@@ -33,3 +33,6 @@ window.$ = window.jQuery = $;
 window.Favico= favico;
 window.Fancybox= Fancybox;
 window.toastr= toastr;
+
+import 'pace-js';
+import 'pace-js/themes/blue/pace-theme-flash.css';

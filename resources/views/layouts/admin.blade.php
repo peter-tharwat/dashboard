@@ -144,6 +144,7 @@
         }
     </style>
     @endif
+    
 </head>
 
 <body style="background: #f5f5f5" class="dash">
