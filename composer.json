@@ -24,8 +24,7 @@
         "spatie/laravel-medialibrary": "^11.4.5",
         "spatie/laravel-permission": "^6.4.0",
         "spatie/laravel-translatable": "^6.1",
-        "stevebauman/location": "^7.2.0",
-        "webklex/laravel-imap": "^6.2"
+        "stevebauman/location": "^7.2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

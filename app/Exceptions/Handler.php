@@ -35,11 +35,13 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
+
             \MainHelper::make_error_report([
                 'error'=>$e->getMessage(),
                 'error_code'=>500,
                 'details'=>"Error : ".$e->getFile()." Line : ". $e->getLine() . json_encode(request()->instance())
             ]);
+            
         });
     }
 }
