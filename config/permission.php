@@ -232,9 +232,6 @@ return [
         ],
         'user' => [
             'profile' => 'r,u',
-            'articles'=>"r",
-            'faqs'=>"r",
-            'announcements'=>"r",
             'notifications'=>"r",
             'contacts'=>"c"
         ],
