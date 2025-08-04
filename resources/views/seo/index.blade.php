@@ -120,78 +120,63 @@ $website_settings['canonical']= isset($canonical) && $canonical!=null ? $canonic
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 @endif
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "{{$website_settings['website_name']}}",
-    "url": "{{$website_settings['website_url']}}",
-    "logo": "{{$website_settings['website_icon_url']}}",
-    @php
-    $social_links=[];
-    foreach($website_settings['social_links'] as $key => $link){
-        if($link!=null)array_push($social_links, $link);
-    }
-    @endphp
-    @if(count($social_links))
-    "sameAs": [
-       
-        @foreach($social_links as $link)
-            @if($link!="")
-                "{{$link}}" 
-                @if(!$loop->last),@endif
-            @endif
-        @endforeach
+
+@php
+$social_links=[];
+foreach($website_settings['social_links'] as $key => $link)
+    if($link!=null)array_push($social_links, $link);
+@endphp
+
+@php
+$structuredData = [
+    [
+        "@context" => "http://schema.org",
+        "@type" => "Organization",
+        "name" => $website_settings['website_name'],
+        "url" => $website_settings['website_url'],
+        "logo" => $website_settings['website_icon_url'],
+        "sameAs" => array_values(array_filter($website_settings['social_links'])),
+        "contactPoint" => [
+            [
+                "@type" => "ContactPoint",
+                "telephone" => $website_settings['phone'],
+                "contactType" => "customer support"
+            ],
+            [
+                "@type" => "ContactPoint",
+                "telephone" => $website_settings['phone'],
+                "contactType" => "technical support"
+            ],
+            [
+                "@type" => "ContactPoint",
+                "telephone" => $website_settings['phone'],
+                "contactType" => "billing support"
+            ]
+        ]
     ],
-    @endif
-    "contactPoint": [
-        @if($website_settings['phone']!=null)
-        {
-            "@type": "ContactPoint",
-            "telephone": "{{$website_settings['phone']}}",
-            "contactType": "customer support"
-        },
-        {
-            "@type": "ContactPoint",
-            "telephone": "{{$website_settings['phone']}}",
-            "contactType": "technical support"
-        }, {
-            "@type": "ContactPoint",
-            "telephone": "{{$website_settings['phone']}}",
-            "contactType": "billing support"
-        }
-        @endif
+    [
+        "@context" => "http://schema.org",
+        "@type" => "WebSite",
+        "url" => $website_settings['website_url'],
+        "potentialAction" => [
+            "@type" => "SearchAction",
+            "target" => $website_settings['search_url'] . "?key={search_term_string}",
+            "query-input" => "required name=search_term_string"
+        ]
+    ],
+    [
+        "@context" => "https://schema.org",
+        "@type" => "WebPage",
+        "name" => $page_title,
+        "description" => $page_description,
+        "publisher" => [
+            "@type" => "Organization",
+            "name" => $website_settings['website_name']
+        ]
     ]
-}
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "url": "{{$website_settings['website_url']}}",
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{$website_settings['search_url']}}?key={search_term_string}",
-        "query-input": "required name=search_term_string"
-    }
-}
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "{{$page_title}}",
-    "description": "{{$page_description}}",
-    "publisher": {
-        "@type": "Organization",
-        "name": "{{$website_settings['website_name']}}"
-    }
-}
-</script>
-<script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js', {
-            scope: '.'
-        }).then(function (registration) { 
-            console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
-        }, function (err) { 
-            console.log('Laravel PWA: ServiceWorker registration failed: ', err);
-        });
-    }
+];
+@endphp
+
+<script type="application/ld+json">
+{!! json_encode($structuredData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
