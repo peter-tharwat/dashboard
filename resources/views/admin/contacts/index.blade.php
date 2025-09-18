@@ -68,7 +68,7 @@
 	                            </a> 
 	                            @else
 	                            
-	                                <img src="https://manager.almadarisp.com/user/img/user.png" style="width: 45px;height: 45px;display: inline-block;border-radius: 50%!important;padding: 3px;" class="mx-auto" alt="صورة المستخدم">
+	                                <img src="/images/default/avatar.png" style="width: 45px;height: 45px;display: inline-block;border-radius: 50%!important;padding: 3px;" class="mx-auto" alt="صورة المستخدم">
 	                                <span style="display: inline-block;position: relative;top: 6px; " class="px-2 pt-0  text-start kufi">{{$contact->name}}<br>{{$contact->email}}<br>{{$contact->phone}}</span>
 
 	                   
