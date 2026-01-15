@@ -13,3 +13,6 @@ $page = cache()->remember('page_home',60,function(){
   @endif
 </div>
 @endsection
+
+
+
